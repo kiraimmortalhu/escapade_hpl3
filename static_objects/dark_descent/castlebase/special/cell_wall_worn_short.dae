@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
   <asset>
     <contributor>
@@ -29,8 +29,8 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
     </contributor>
     <created>2009-03-02T13:02:08Z</created>
     <modified>2010-05-21T10:52:16Z</modified>
-    <unit meter="1" name="meter"/>
     <up_axis>Y_UP</up_axis>
+    <hpl2scaling />
   </asset>
   <library_physics_scenes>
     <physics_scene id="MayaNativePhysicsScene">
@@ -62,13 +62,13 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
   </library_images>
   <library_materials>
     <material id="lambert11" name="lambert11">
-      <instance_effect url="#lambert11-fx"/>
+      <instance_effect url="#lambert11-fx" />
     </material>
     <material id="lambert12" name="lambert12">
-      <instance_effect url="#lambert12-fx"/>
+      <instance_effect url="#lambert12-fx" />
     </material>
     <material id="lambert6" name="lambert6">
-      <instance_effect url="#lambert6-fx"/>
+      <instance_effect url="#lambert6-fx" />
     </material>
   </library_materials>
   <library_effects>
@@ -133,7 +133,7 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
             </transparency>
           </lambert>
           <extra>
-            <technique profile="FCOLLADA"/>
+            <technique profile="FCOLLADA" />
           </extra>
         </technique>
       </profile_COMMON>
@@ -199,7 +199,7 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
             </transparency>
           </lambert>
           <extra>
-            <technique profile="FCOLLADA"/>
+            <technique profile="FCOLLADA" />
           </extra>
         </technique>
       </profile_COMMON>
@@ -265,7 +265,7 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
             </transparency>
           </lambert>
           <extra>
-            <technique profile="FCOLLADA"/>
+            <technique profile="FCOLLADA" />
           </extra>
         </technique>
       </profile_COMMON>
@@ -278,9 +278,9 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="polySurfaceShape122-positions-array" count="72">-1 4 0.321904 -1 3.92814 0.302724 -1 3.8632 0.163756 -1 3.87762 0.237206 -1 3.80896 0.123447 -1 3.76717 0.067893 -1 4 0 -1 3.75 0 -1 0.459237 0 -1 0.215218 0.267841 -1 0 0.321904 -1 0.372479 0.164136 1 4 0.321904 1 3.92814 0.302724 1 3.87762 0.237206 1 3.8632 0.163756 1 3.80896 0.123447 1 3.76717 0.067893 1 3.75 0 1 0.459237 0 1 0.372479 0.164136 1 0.215218 0.267841 1 0 0.321904 1 4 0</float_array>
           <technique_common>
             <accessor source="#polySurfaceShape122-positions-array" count="24" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
             </accessor>
           </technique_common>
         </source>
@@ -288,9 +288,9 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="polySurfaceShape122-normals-array" count="90">0 0.609147 0.793057 0 0.609147 0.793057 0 -0.554184 0.832394 0 -0.554184 0.832394 0 -0.910891 0.412647 0 -0.910891 0.412647 0 -0.981269 0.192645 0 -0.981269 0.192645 0 -0.705043 0.709165 0 -0.59648 0.802628 0 -0.59648 0.802628 0 -0.705043 0.709165 0 -0.902041 0.431649 0 -0.902041 0.431649 0 -0.969478 0.245178 0 -0.969478 0.245178 0 0.884094 0.467309 0 0.884094 0.467309 0 0.884094 0.467309 0 0.884094 0.467309 0 0.55052 0.834822 0 0.55052 0.834822 0 0.55052 0.834822 0 0.55052 0.834822 0 0.243632 0.969868 0 0.243632 0.969868 0 0.243632 0.969868 0 0.243632 0.969868 0 1 0 0 1 0</float_array>
           <technique_common>
             <accessor source="#polySurfaceShape122-normals-array" count="30" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
             </accessor>
           </technique_common>
         </source>
@@ -298,18 +298,18 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="polySurfaceShape122-map1-array" count="48">0.874737 0.330827 0.891077 0.330826 0.828516 0.330827 0.906783 0.330826 0.927506 0.330826 0.945475 0.330826 0.967434 0.330826 0.747011 0.330827 -0.13078 0.888879 -0.16765 0.888879 -0.243876 0.888879 -0.09391 0.888879 0.828861 0.658891 0.873659 0.658831 0.891421 0.658891 0.907127 0.658891 0.92785 0.658891 0.945819 0.658891 0.96893 0.658831 -0.09391 0.638791 -0.13078 0.638791 -0.16765 0.638791 -0.243876 0.638791 0.747355 0.658891</float_array>
           <technique_common>
             <accessor source="#polySurfaceShape122-map1-array" count="24" stride="2">
-              <param name="S" type="float"/>
-              <param name="T" type="float"/>
+              <param name="S" type="float" />
+              <param name="T" type="float" />
             </accessor>
           </technique_common>
         </source>
         <vertices id="polySurfaceShape122-vertices">
-          <input semantic="POSITION" source="#polySurfaceShape122-positions"/>
+          <input semantic="POSITION" source="#polySurfaceShape122-positions" />
         </vertices>
         <triangles material="lambert11SG" count="20">
-          <input semantic="VERTEX" source="#polySurfaceShape122-vertices" offset="0"/>
-          <input semantic="NORMAL" source="#polySurfaceShape122-normals" offset="1"/>
-          <input semantic="TEXCOORD" source="#polySurfaceShape122-map1" offset="2" set="0"/>
+          <input semantic="VERTEX" source="#polySurfaceShape122-vertices" offset="0" />
+          <input semantic="NORMAL" source="#polySurfaceShape122-normals" offset="1" />
+          <input semantic="TEXCOORD" source="#polySurfaceShape122-map1" offset="2" set="0" />
           <p>12 0 12 0 1 2 13 3 13 0 1 2 1 2 0 13 3 13 14 4 14 13 3 13 3 5 1 13 3 13 1 2 0 3 5 1 15 6 15 14 4 14 2 7 3 14 4 14 3 5 1 2 7 3 16 8 16 15 9 15 4 11 4 15 9 15 2 10 3 4 11 4 17 12 17 16 8 16 5 13 5 16 8 16 4 11 4 5 13 5 18 14 18 17 12 17 7 15 6 17 12 17 5 13 5 7 15 6 19 16 19 8 17 11 20 19 20 8 17 11 11 18 8 20 19 20 21 20 21 20 21 20 9 23 9 20 21 20 11 22 8 9 23 9 22 24 22 21 25 21 10 27 10 21 25 21 9 26 9 10 27 10 6 28 7 0 1 2 23 29 23 0 1 2 12 0 12 23 29 23</p>
         </triangles>
       </mesh>
@@ -325,9 +325,9 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="polySurfaceShape115-positions-array" count="12">-1 3.75 0 -1 0.459237 0 1 3.75 0 1 0.459237 0</float_array>
           <technique_common>
             <accessor source="#polySurfaceShape115-positions-array" count="4" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
             </accessor>
           </technique_common>
         </source>
@@ -335,9 +335,9 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="polySurfaceShape115-normals-array" count="12">0 0 1 0 0 1 0 0 1 0 0 1</float_array>
           <technique_common>
             <accessor source="#polySurfaceShape115-normals-array" count="4" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
             </accessor>
           </technique_common>
         </source>
@@ -345,18 +345,18 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="polySurfaceShape115-map1-array" count="8">0 1 0 -1 1 1 1 -1</float_array>
           <technique_common>
             <accessor source="#polySurfaceShape115-map1-array" count="4" stride="2">
-              <param name="S" type="float"/>
-              <param name="T" type="float"/>
+              <param name="S" type="float" />
+              <param name="T" type="float" />
             </accessor>
           </technique_common>
         </source>
         <vertices id="polySurfaceShape115-vertices">
-          <input semantic="POSITION" source="#polySurfaceShape115-positions"/>
-          <input semantic="NORMAL" source="#polySurfaceShape115-normals"/>
+          <input semantic="POSITION" source="#polySurfaceShape115-positions" />
+          <input semantic="NORMAL" source="#polySurfaceShape115-normals" />
         </vertices>
         <triangles material="lambert12SG" count="2">
-          <input semantic="VERTEX" source="#polySurfaceShape115-vertices" offset="0"/>
-          <input semantic="TEXCOORD" source="#polySurfaceShape115-map1" offset="1" set="0"/>
+          <input semantic="VERTEX" source="#polySurfaceShape115-vertices" offset="0" />
+          <input semantic="TEXCOORD" source="#polySurfaceShape115-map1" offset="1" set="0" />
           <p>3 3 2 2 1 1 2 2 0 0 1 1</p>
         </triangles>
       </mesh>
@@ -372,9 +372,9 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="_charcollider_box_0Shape8-positions-array" count="24">-0.5 -0.5 0.1 0.5 -0.5 0.1 -0.5 0.5 0.1 0.5 0.5 0.1 -0.5 0.5 -0.1 0.5 0.5 -0.1 -0.5 -0.5 -0.1 0.5 -0.5 -0.1</float_array>
           <technique_common>
             <accessor source="#_charcollider_box_0Shape8-positions-array" count="8" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
             </accessor>
           </technique_common>
         </source>
@@ -382,9 +382,9 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="_charcollider_box_0Shape8-normals-array" count="72">0 0 1 0 0 1 0 0 1 0 0 1 0 1 0 0 1 0 0 1 0 0 1 0 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 -1 0 0 -1 0 0 -1 0 0 -1 0 1 0 0 1 0 0 1 0 0 1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0</float_array>
           <technique_common>
             <accessor source="#_charcollider_box_0Shape8-normals-array" count="24" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
             </accessor>
           </technique_common>
         </source>
@@ -392,18 +392,18 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="_charcollider_box_0Shape8-map1-array" count="28">0 0 1 0 0 1 1 1 0 2 1 2 0 3 1 3 0 4 1 4 2 0 2 1 -1 0 -1 1</float_array>
           <technique_common>
             <accessor source="#_charcollider_box_0Shape8-map1-array" count="14" stride="2">
-              <param name="S" type="float"/>
-              <param name="T" type="float"/>
+              <param name="S" type="float" />
+              <param name="T" type="float" />
             </accessor>
           </technique_common>
         </source>
         <vertices id="_charcollider_box_0Shape8-vertices">
-          <input semantic="POSITION" source="#_charcollider_box_0Shape8-positions"/>
+          <input semantic="POSITION" source="#_charcollider_box_0Shape8-positions" />
         </vertices>
         <triangles material="lambert6SG" count="12">
-          <input semantic="VERTEX" source="#_charcollider_box_0Shape8-vertices" offset="0"/>
-          <input semantic="NORMAL" source="#_charcollider_box_0Shape8-normals" offset="1"/>
-          <input semantic="TEXCOORD" source="#_charcollider_box_0Shape8-map1" offset="2" set="0"/>
+          <input semantic="VERTEX" source="#_charcollider_box_0Shape8-vertices" offset="0" />
+          <input semantic="NORMAL" source="#_charcollider_box_0Shape8-normals" offset="1" />
+          <input semantic="TEXCOORD" source="#_charcollider_box_0Shape8-map1" offset="2" set="0" />
           <p>0 0 0 1 1 1 2 2 2 1 1 1 3 3 3 2 2 2 2 4 2 3 5 3 4 6 4 3 5 3 5 7 5 4 6 4 4 8 4 5 9 5 6 10 6 5 9 5 7 11 7 6 10 6 6 12 6 7 13 7 0 14 8 7 13 7 1 15 9 0 14 8 1 16 1 7 17 10 3 18 3 7 17 10 5 19 11 3 18 3 6 20 12 0 21 0 4 22 13 0 21 0 2 23 2 4 22 13</p>
         </triangles>
       </mesh>
@@ -419,9 +419,9 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="_collider_box_0Shape3-positions-array" count="24">-0.5 -0.5 0.1 0.5 -0.5 0.1 -0.5 0.5 0.1 0.5 0.5 0.1 -0.5 0.5 -0.1 0.5 0.5 -0.1 -0.5 -0.5 -0.1 0.5 -0.5 -0.1</float_array>
           <technique_common>
             <accessor source="#_collider_box_0Shape3-positions-array" count="8" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
             </accessor>
           </technique_common>
         </source>
@@ -429,9 +429,9 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="_collider_box_0Shape3-normals-array" count="72">0 0 1 0 0 1 0 0 1 0 0 1 0 1 0 0 1 0 0 1 0 0 1 0 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 -1 0 0 -1 0 0 -1 0 0 -1 0 1 0 0 1 0 0 1 0 0 1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0</float_array>
           <technique_common>
             <accessor source="#_collider_box_0Shape3-normals-array" count="24" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
             </accessor>
           </technique_common>
         </source>
@@ -439,18 +439,18 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="_collider_box_0Shape3-map1-array" count="28">0 0 1 0 0 1 1 1 0 2 1 2 0 3 1 3 0 4 1 4 2 0 2 1 -1 0 -1 1</float_array>
           <technique_common>
             <accessor source="#_collider_box_0Shape3-map1-array" count="14" stride="2">
-              <param name="S" type="float"/>
-              <param name="T" type="float"/>
+              <param name="S" type="float" />
+              <param name="T" type="float" />
             </accessor>
           </technique_common>
         </source>
         <vertices id="_collider_box_0Shape3-vertices">
-          <input semantic="POSITION" source="#_collider_box_0Shape3-positions"/>
+          <input semantic="POSITION" source="#_collider_box_0Shape3-positions" />
         </vertices>
         <triangles material="lambert6SG" count="12">
-          <input semantic="VERTEX" source="#_collider_box_0Shape3-vertices" offset="0"/>
-          <input semantic="NORMAL" source="#_collider_box_0Shape3-normals" offset="1"/>
-          <input semantic="TEXCOORD" source="#_collider_box_0Shape3-map1" offset="2" set="0"/>
+          <input semantic="VERTEX" source="#_collider_box_0Shape3-vertices" offset="0" />
+          <input semantic="NORMAL" source="#_collider_box_0Shape3-normals" offset="1" />
+          <input semantic="TEXCOORD" source="#_collider_box_0Shape3-map1" offset="2" set="0" />
           <p>0 0 0 1 1 1 2 2 2 1 1 1 3 3 3 2 2 2 2 4 2 3 5 3 4 6 4 3 5 3 5 7 5 4 6 4 4 8 4 5 9 5 6 10 6 5 9 5 7 11 7 6 10 6 6 12 6 7 13 7 0 14 8 7 13 7 1 15 9 0 14 8 1 16 1 7 17 10 3 18 3 7 17 10 5 19 11 3 18 3 6 20 12 0 21 0 4 22 13 0 21 0 2 23 2 4 22 13</p>
         </triangles>
       </mesh>
@@ -466,9 +466,9 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="_collider_box_0Shape2-positions-array" count="24">-0.5 -0.5 0.1 0.5 -0.5 0.1 -0.5 0.5 0.1 0.5 0.5 0.1 -0.5 0.5 -0.1 0.5 0.5 -0.1 -0.5 -0.5 -0.1 0.5 -0.5 -0.1</float_array>
           <technique_common>
             <accessor source="#_collider_box_0Shape2-positions-array" count="8" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
             </accessor>
           </technique_common>
         </source>
@@ -476,9 +476,9 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="_collider_box_0Shape2-normals-array" count="72">0 0 1 0 0 1 0 0 1 0 0 1 0 1 0 0 1 0 0 1 0 0 1 0 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 -1 0 0 -1 0 0 -1 0 0 -1 0 1 0 0 1 0 0 1 0 0 1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0</float_array>
           <technique_common>
             <accessor source="#_collider_box_0Shape2-normals-array" count="24" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
             </accessor>
           </technique_common>
         </source>
@@ -486,18 +486,18 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="_collider_box_0Shape2-map1-array" count="28">0 0 1 0 0 1 1 1 0 2 1 2 0 3 1 3 0 4 1 4 2 0 2 1 -1 0 -1 1</float_array>
           <technique_common>
             <accessor source="#_collider_box_0Shape2-map1-array" count="14" stride="2">
-              <param name="S" type="float"/>
-              <param name="T" type="float"/>
+              <param name="S" type="float" />
+              <param name="T" type="float" />
             </accessor>
           </technique_common>
         </source>
         <vertices id="_collider_box_0Shape2-vertices">
-          <input semantic="POSITION" source="#_collider_box_0Shape2-positions"/>
+          <input semantic="POSITION" source="#_collider_box_0Shape2-positions" />
         </vertices>
         <triangles material="lambert6SG" count="12">
-          <input semantic="VERTEX" source="#_collider_box_0Shape2-vertices" offset="0"/>
-          <input semantic="NORMAL" source="#_collider_box_0Shape2-normals" offset="1"/>
-          <input semantic="TEXCOORD" source="#_collider_box_0Shape2-map1" offset="2" set="0"/>
+          <input semantic="VERTEX" source="#_collider_box_0Shape2-vertices" offset="0" />
+          <input semantic="NORMAL" source="#_collider_box_0Shape2-normals" offset="1" />
+          <input semantic="TEXCOORD" source="#_collider_box_0Shape2-map1" offset="2" set="0" />
           <p>0 0 0 1 1 1 2 2 2 1 1 1 3 3 3 2 2 2 2 4 2 3 5 3 4 6 4 3 5 3 5 7 5 4 6 4 4 8 4 5 9 5 6 10 6 5 9 5 7 11 7 6 10 6 6 12 6 7 13 7 0 14 8 7 13 7 1 15 9 0 14 8 1 16 1 7 17 10 3 18 3 7 17 10 5 19 11 3 18 3 6 20 12 0 21 0 4 22 13 0 21 0 2 23 2 4 22 13</p>
         </triangles>
       </mesh>
@@ -513,9 +513,9 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="_collider_box_0Shape1-positions-array" count="24">-0.5 -0.5 0.1 0.5 -0.5 0.1 -0.5 0.5 0.1 0.5 0.5 0.1 -0.5 0.5 -0.1 0.5 0.5 -0.1 -0.5 -0.5 -0.1 0.5 -0.5 -0.1</float_array>
           <technique_common>
             <accessor source="#_collider_box_0Shape1-positions-array" count="8" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
             </accessor>
           </technique_common>
         </source>
@@ -523,9 +523,9 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="_collider_box_0Shape1-normals-array" count="72">0 0 1 0 0 1 0 0 1 0 0 1 0 1 0 0 1 0 0 1 0 0 1 0 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 -1 0 0 -1 0 0 -1 0 0 -1 0 1 0 0 1 0 0 1 0 0 1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0</float_array>
           <technique_common>
             <accessor source="#_collider_box_0Shape1-normals-array" count="24" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
             </accessor>
           </technique_common>
         </source>
@@ -533,18 +533,18 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="_collider_box_0Shape1-map1-array" count="28">0 0 1 0 0 1 1 1 0 2 1 2 0 3 1 3 0 4 1 4 2 0 2 1 -1 0 -1 1</float_array>
           <technique_common>
             <accessor source="#_collider_box_0Shape1-map1-array" count="14" stride="2">
-              <param name="S" type="float"/>
-              <param name="T" type="float"/>
+              <param name="S" type="float" />
+              <param name="T" type="float" />
             </accessor>
           </technique_common>
         </source>
         <vertices id="_collider_box_0Shape1-vertices">
-          <input semantic="POSITION" source="#_collider_box_0Shape1-positions"/>
+          <input semantic="POSITION" source="#_collider_box_0Shape1-positions" />
         </vertices>
         <triangles material="lambert6SG" count="12">
-          <input semantic="VERTEX" source="#_collider_box_0Shape1-vertices" offset="0"/>
-          <input semantic="NORMAL" source="#_collider_box_0Shape1-normals" offset="1"/>
-          <input semantic="TEXCOORD" source="#_collider_box_0Shape1-map1" offset="2" set="0"/>
+          <input semantic="VERTEX" source="#_collider_box_0Shape1-vertices" offset="0" />
+          <input semantic="NORMAL" source="#_collider_box_0Shape1-normals" offset="1" />
+          <input semantic="TEXCOORD" source="#_collider_box_0Shape1-map1" offset="2" set="0" />
           <p>0 0 0 1 1 1 2 2 2 1 1 1 3 3 3 2 2 2 2 4 2 3 5 3 4 6 4 3 5 3 5 7 5 4 6 4 4 8 4 5 9 5 6 10 6 5 9 5 7 11 7 6 10 6 6 12 6 7 13 7 0 14 8 7 13 7 1 15 9 0 14 8 1 16 1 7 17 10 3 18 3 7 17 10 5 19 11 3 18 3 6 20 12 0 21 0 4 22 13 0 21 0 2 23 2 4 22 13</p>
         </triangles>
       </mesh>
@@ -560,9 +560,9 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="_collider_box_0Shape4-positions-array" count="24">-0.5 -0.5 0.1 0.5 -0.5 0.1 -0.5 0.5 0.1 0.5 0.5 0.1 -0.5 0.5 -0.1 0.5 0.5 -0.1 -0.5 -0.5 -0.1 0.5 -0.5 -0.1</float_array>
           <technique_common>
             <accessor source="#_collider_box_0Shape4-positions-array" count="8" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
             </accessor>
           </technique_common>
         </source>
@@ -570,9 +570,9 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="_collider_box_0Shape4-normals-array" count="72">0 0 1 0 0 1 0 0 1 0 0 1 0 1 0 0 1 0 0 1 0 0 1 0 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 -1 0 0 -1 0 0 -1 0 0 -1 0 1 0 0 1 0 0 1 0 0 1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0</float_array>
           <technique_common>
             <accessor source="#_collider_box_0Shape4-normals-array" count="24" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
             </accessor>
           </technique_common>
         </source>
@@ -580,18 +580,18 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <float_array id="_collider_box_0Shape4-map1-array" count="28">0 0 1 0 0 1 1 1 0 2 1 2 0 3 1 3 0 4 1 4 2 0 2 1 -1 0 -1 1</float_array>
           <technique_common>
             <accessor source="#_collider_box_0Shape4-map1-array" count="14" stride="2">
-              <param name="S" type="float"/>
-              <param name="T" type="float"/>
+              <param name="S" type="float" />
+              <param name="T" type="float" />
             </accessor>
           </technique_common>
         </source>
         <vertices id="_collider_box_0Shape4-vertices">
-          <input semantic="POSITION" source="#_collider_box_0Shape4-positions"/>
+          <input semantic="POSITION" source="#_collider_box_0Shape4-positions" />
         </vertices>
         <triangles material="lambert6SG" count="12">
-          <input semantic="VERTEX" source="#_collider_box_0Shape4-vertices" offset="0"/>
-          <input semantic="NORMAL" source="#_collider_box_0Shape4-normals" offset="1"/>
-          <input semantic="TEXCOORD" source="#_collider_box_0Shape4-map1" offset="2" set="0"/>
+          <input semantic="VERTEX" source="#_collider_box_0Shape4-vertices" offset="0" />
+          <input semantic="NORMAL" source="#_collider_box_0Shape4-normals" offset="1" />
+          <input semantic="TEXCOORD" source="#_collider_box_0Shape4-map1" offset="2" set="0" />
           <p>0 0 0 1 1 1 2 2 2 1 1 1 3 3 3 2 2 2 2 4 2 3 5 3 4 6 4 3 5 3 5 7 5 4 6 4 4 8 4 5 9 5 6 10 6 5 9 5 7 11 7 6 10 6 6 12 6 7 13 7 0 14 8 7 13 7 1 15 9 0 14 8 1 16 1 7 17 10 3 18 3 7 17 10 5 19 11 3 18 3 6 20 12 0 21 0 4 22 13 0 21 0 2 23 2 4 22 13</p>
         </triangles>
       </mesh>
@@ -612,7 +612,7 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
           <bind_material>
             <technique_common>
               <instance_material symbol="lambert11SG" target="#lambert11">
-                <bind_vertex_input semantic="TEX0" input_semantic="TEXCOORD" input_set="0"/>
+                <bind_vertex_input semantic="TEX0" input_semantic="TEXCOORD" input_set="0" />
               </instance_material>
             </technique_common>
           </bind_material>
@@ -629,7 +629,7 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
             <bind_material>
               <technique_common>
                 <instance_material symbol="lambert12SG" target="#lambert12">
-                  <bind_vertex_input semantic="TEX0" input_semantic="TEXCOORD" input_set="0"/>
+                  <bind_vertex_input semantic="TEX0" input_semantic="TEXCOORD" input_set="0" />
                 </instance_material>
               </technique_common>
             </bind_material>
@@ -645,7 +645,7 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
             <bind_material>
               <technique_common>
                 <instance_material symbol="lambert6SG" target="#lambert6">
-                  <bind_vertex_input semantic="TEX0" input_semantic="TEXCOORD" input_set="0"/>
+                  <bind_vertex_input semantic="TEX0" input_semantic="TEXCOORD" input_set="0" />
                 </instance_material>
               </technique_common>
             </bind_material>
@@ -661,7 +661,7 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
             <bind_material>
               <technique_common>
                 <instance_material symbol="lambert6SG" target="#lambert6">
-                  <bind_vertex_input semantic="TEX0" input_semantic="TEXCOORD" input_set="0"/>
+                  <bind_vertex_input semantic="TEX0" input_semantic="TEXCOORD" input_set="0" />
                 </instance_material>
               </technique_common>
             </bind_material>
@@ -677,7 +677,7 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
             <bind_material>
               <technique_common>
                 <instance_material symbol="lambert6SG" target="#lambert6">
-                  <bind_vertex_input semantic="TEX0" input_semantic="TEXCOORD" input_set="0"/>
+                  <bind_vertex_input semantic="TEX0" input_semantic="TEXCOORD" input_set="0" />
                 </instance_material>
               </technique_common>
             </bind_material>
@@ -693,7 +693,7 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
             <bind_material>
               <technique_common>
                 <instance_material symbol="lambert6SG" target="#lambert6">
-                  <bind_vertex_input semantic="TEX0" input_semantic="TEXCOORD" input_set="0"/>
+                  <bind_vertex_input semantic="TEX0" input_semantic="TEXCOORD" input_set="0" />
                 </instance_material>
               </technique_common>
             </bind_material>
@@ -709,7 +709,7 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
             <bind_material>
               <technique_common>
                 <instance_material symbol="lambert6SG" target="#lambert6">
-                  <bind_vertex_input semantic="TEX0" input_semantic="TEXCOORD" input_set="0"/>
+                  <bind_vertex_input semantic="TEX0" input_semantic="TEXCOORD" input_set="0" />
                 </instance_material>
               </technique_common>
             </bind_material>
@@ -728,7 +728,7 @@ dereferenceXRefs=0;cameraXFov=0;cameraYFov=1</comments>
     </visual_scene>
   </library_visual_scenes>
   <scene>
-    <instance_physics_scene url="#MayaNativePhysicsScene"/>
-    <instance_visual_scene url="#VisualSceneNode"/>
+    <instance_physics_scene url="#MayaNativePhysicsScene" />
+    <instance_visual_scene url="#VisualSceneNode" />
   </scene>
 </COLLADA>
