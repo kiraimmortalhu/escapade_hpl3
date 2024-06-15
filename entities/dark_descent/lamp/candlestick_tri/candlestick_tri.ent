@@ -1,13 +1,17 @@
 <Entity>
     <ModelData>
         <Entities>
-            <ParticleSystem ID="3" Name="ParticleSystem_1" CreStamp="0" ModStamp="0" WorldPos="-0.181575 0.499488 -8.1e-05" Rotation="0 0 0" Scale="1 1 1" File="ps_fire_candle.ps" Color="1 1 1 1" Brightness="1" FadeAtDistance="false" MinFadeDistanceStart="2" MaxFadeDistanceStart="100" MinFadeDistanceEnd="1" MaxFadeDistanceEnd="110" Static="false" CulledByDistance="true" CulledByFog="true" ConnectLight="" />
-            <ParticleSystem ID="4" Name="ParticleSystem_2" CreStamp="0" ModStamp="0" WorldPos="-0.000322 0.604405 0.001034" Rotation="0 0 0" Scale="1 1 1" File="ps_fire_candle.ps" Color="1 1 1 1" Brightness="1" FadeAtDistance="false" MinFadeDistanceStart="2" MaxFadeDistanceStart="100" MinFadeDistanceEnd="1" MaxFadeDistanceEnd="110" Static="false" CulledByDistance="true" CulledByFog="true" ConnectLight="" />
-            <ParticleSystem ID="5" Name="ParticleSystem_3" CreStamp="0" ModStamp="0" WorldPos="0.173854 0.534941 -0.000642" Rotation="0 0 0" Scale="1 1 1" File="ps_fire_candle.ps" Color="1 1 1 1" Brightness="1" FadeAtDistance="false" MinFadeDistanceStart="2" MaxFadeDistanceStart="100" MinFadeDistanceEnd="1" MaxFadeDistanceEnd="110" Static="false" CulledByDistance="true" CulledByFog="true" ConnectLight="" />
-            <PointLight ID="6" Name="PointLight_1" CreStamp="0" ModStamp="0" WorldPos="0.014548 0.687953 0.704902" Rotation="0 0 0" Scale="1 1 1" CastShadows="false" ShadowResolution="High" ShadowsAffectStatic="true" ShadowsAffectDynamic="true" Radius="2.6" Gobo="" GoboType="Diffuse" GoboAnimMode="None" GoboAnimFrameTime="0" GoboAnimStartTime="0" DiffuseColor="0.85 0.75 0.3 0.75" FlickerActive="true" FlickerOnMinLength="0" FlickerOnMaxLength="1" FlickerOnPS="" FlickerOnSound="" FlickerOffMinLength="0" FlickerOffMaxLength="1" FlickerOffPS="" FlickerOffSound="" FlickerOffColor="0.75 0.65 0.2 0.5" FlickerOffRadius="2.5" FlickerFade="true" FlickerOnFadeMinLength="0.2" FlickerOnFadeMaxLength="1" FlickerOffFadeMinLength="0.2" FlickerOffFadeMaxLength="1" CastDiffuseLight="true" CastSpecularLight="true" Brightness="1" Static="false" CulledByDistance="true" CulledByFog="true" FalloffPow="1" ConnectedLightMaskID="4294967295" />
-            <Billboard ID="7" Name="Billboard_1" CreStamp="0" ModStamp="0" WorldPos="0.000592 0.588897 0.002028" Rotation="0 0 0" Scale="1 1 1" BillboardType="Point" MaterialFile="billboards/halo_torch.mat" IsHalo="true" BillboardSize="1.75 1.75" HaloSourceSize="0.5 0.5 0.5" BillboardOffset="0" BillboardColor="0.5 0.5 0.5 0.5" Brightness="1" CulledByDistance="false" CulledByFog="true" ConnectLight="PointLight_1" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
+            <ParticleSystem ID="3" Name="ParticleSystem_1" CreStamp="0" ModStamp="1718366127" WorldPos="-0.181575 0.499488 -8.1e-05" Rotation="0 0 0" Scale="1 1 1" File="ps_fire_candle.ps" Color="1 1 1 1" Brightness="5" FadeAtDistance="true" MinFadeDistanceStart="0" MaxFadeDistanceStart="100" MinFadeDistanceEnd="0" MaxFadeDistanceEnd="110" Static="false" CulledByDistance="true" CulledByFog="true" ConnectLight="" />
+            <ParticleSystem ID="4" Name="ParticleSystem_2" CreStamp="0" ModStamp="1718366134" WorldPos="-0.000322 0.604405 0.001034" Rotation="0 0 0" Scale="1 1 1" File="ps_fire_candle.ps" Color="1 1 1 1" Brightness="5" FadeAtDistance="true" MinFadeDistanceStart="0" MaxFadeDistanceStart="100" MinFadeDistanceEnd="0" MaxFadeDistanceEnd="110" Static="false" CulledByDistance="true" CulledByFog="true" ConnectLight="" />
+            <ParticleSystem ID="5" Name="ParticleSystem_3" CreStamp="0" ModStamp="1718366146" WorldPos="0.173854 0.534941 -0.000642" Rotation="0 0 0" Scale="1 1 1" File="ps_fire_candle.ps" Color="1 1 1 1" Brightness="5" FadeAtDistance="true" MinFadeDistanceStart="0" MaxFadeDistanceStart="100" MinFadeDistanceEnd="0" MaxFadeDistanceEnd="110" Static="false" CulledByDistance="true" CulledByFog="true" ConnectLight="" />
+            <PointLight ID="6" Name="PointLight_1" CreStamp="0" ModStamp="1718367072" WorldPos="0.014548 0.687953 1.41765" Rotation="0 0 0" Scale="1 1 1" CastShadows="false" ShadowResolution="High" ShadowsAffectStatic="true" ShadowsAffectDynamic="true" Radius="4.5" Gobo="" GoboType="Diffuse" GoboAnimMode="None" GoboAnimFrameTime="0" GoboAnimStartTime="0" DiffuseColor="0.635294 0.486275 0.243137 1" FlickerActive="true" FlickerOnMinLength="0" FlickerOnMaxLength="1" FlickerOnPS="" FlickerOnSound="" FlickerOffMinLength="0" FlickerOffMaxLength="1" FlickerOffPS="" FlickerOffSound="" FlickerOffColor="0.443137 0.352941 0.247059 0.6" FlickerOffRadius="4" FlickerFade="true" FlickerOnFadeMinLength="0.2" FlickerOnFadeMaxLength="1" FlickerOffFadeMinLength="0.2" FlickerOffFadeMaxLength="1" CastDiffuseLight="true" CastSpecularLight="true" Brightness="3" Static="false" CulledByDistance="true" CulledByFog="true" FalloffPow="1" ConnectedLightMaskID="4294967295" />
+            <Billboard ID="7" Name="Billboard_1" CreStamp="0" ModStamp="1718366191" WorldPos="-0.175669 0.512425 0.002028" Rotation="0 0 0" Scale="1 1 1" BillboardType="Point" MaterialFile="billboards/halo_torch.mat" IsHalo="true" BillboardSize="0.2 0.4" HaloSourceSize="0.1 0.1 0.1" BillboardOffset="0" BillboardColor="0.5 0.5 0.5 0.5" Brightness="1" CulledByDistance="false" CulledByFog="true" ConnectLight="PointLight_2" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
+            <Billboard ID="8" Name="Billboard_2" CreStamp="1718366191" ModStamp="1718366198" WorldPos="-0.00168021 0.613788 0.002028" Rotation="0 0 0" Scale="1 1 1" BillboardType="Point" MaterialFile="billboards/halo_torch.mat" IsHalo="true" BillboardSize="0.2 0.4" HaloSourceSize="0.1 0.1 0.1" BillboardOffset="0" BillboardColor="0.5 0.5 0.5 0.5" Brightness="1" CulledByDistance="false" CulledByFog="true" ConnectLight="PointLight_2" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
+            <Billboard ID="9" Name="Billboard_3" CreStamp="1718366198" ModStamp="1718366203" WorldPos="0.176947 0.537125 0.002028" Rotation="0 0 0" Scale="1 1 1" BillboardType="Point" MaterialFile="billboards/halo_torch.mat" IsHalo="true" BillboardSize="0.2 0.4" HaloSourceSize="0.1 0.1 0.1" BillboardOffset="0" BillboardColor="0.5 0.5 0.5 0.5" Brightness="1" CulledByDistance="false" CulledByFog="true" ConnectLight="PointLight_2" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
+            <Billboard ID="10" Name="Billboard_4" CreStamp="1718366208" ModStamp="1718410252" WorldPos="-0.00168021 0.911693 0.002028" Rotation="0 0 0" Scale="1 1 1" BillboardType="Point" MaterialFile="billboards/halo_torch.mat" IsHalo="true" BillboardSize="6 6" HaloSourceSize="2 2 2" BillboardOffset="0" BillboardColor="0.337255 0.337255 0.337255 0.501961" Brightness="1" CulledByDistance="false" CulledByFog="true" ConnectLight="PointLight_1" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
+            <PointLight ID="11" Name="PointLight_2" CreStamp="1718366214" ModStamp="1718366286" WorldPos="0.014548 0.769072 0.0108015" Rotation="0 0 0" Scale="1 1 1" CastShadows="false" ShadowResolution="High" ShadowsAffectStatic="true" ShadowsAffectDynamic="true" Radius="2.5" Gobo="" GoboType="Diffuse" GoboAnimMode="None" GoboAnimFrameTime="0" GoboAnimStartTime="0" DiffuseColor="0.886275 0.713726 0.509804 1" FlickerActive="true" FlickerOnMinLength="0" FlickerOnMaxLength="1" FlickerOnPS="" FlickerOnSound="" FlickerOffMinLength="0" FlickerOffMaxLength="1" FlickerOffPS="" FlickerOffSound="" FlickerOffColor="0.75 0.65 0.2 0.5" FlickerOffRadius="2.2" FlickerFade="true" FlickerOnFadeMinLength="0.2" FlickerOnFadeMaxLength="1" FlickerOffFadeMinLength="0.2" FlickerOffFadeMaxLength="1" CastDiffuseLight="true" CastSpecularLight="true" Brightness="3" Static="false" CulledByDistance="true" CulledByFog="true" FalloffPow="1" ConnectedLightMaskID="4294967295" />
         </Entities>
-        <Mesh Filename="mods/Project_Omega/assets/entities/the_dark_descent/entities/lamp/candlestick_tri/candlestick_tri.dae">
+        <Mesh Filename="mods/Stronghold_Escapade/entities/dark_descent/lamp/candlestick_tri/candlestick_tri.dae">
             <SubMesh ID="0" Name="polySurface9" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="385" Material="" Static="true" />
         </Mesh>
         <Bones />
@@ -23,6 +27,10 @@
                     <Child ID="5" />
                     <Child ID="6" />
                     <Child ID="7" />
+                    <Child ID="8" />
+                    <Child ID="9" />
+                    <Child ID="10" />
+                    <Child ID="11" />
                 </Children>
                 <Shape ID="1" />
             </Body>
@@ -41,6 +49,8 @@
         <Var ObjectId="4294967295" Name="DissolveDuringLifeDecrease" Value="true" />
         <Var ObjectId="4294967295" Name="QuickSave" Value="false" />
         <Var ObjectId="4294967295" Name="FullGameSave" Value="false" />
+        <Var ObjectId="4294967295" Name="AllowMapTransfer" Value="false" />
+        <Var ObjectId="4294967295" Name="VoiceSourceBone" Value="" />
         <Var ObjectId="4294967295" Name="BlocksLineOfSight" Value="MaterialBased" />
         <Var ObjectId="4294967295" Name="MainPhysicsBody" Value="" />
         <Var ObjectId="4294967295" Name="NoGravityWhenUnderwater" Value="false" />
@@ -69,15 +79,18 @@
         <Var ObjectId="4294967295" Name="BreakEntity" Value="" />
         <Var ObjectId="4294967295" Name="BreakEntityAlignBody" Value="" />
         <Var ObjectId="4294967295" Name="BreakSound" Value="" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundRadius" Value="18" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundPrio" Value="4" />
         <Var ObjectId="4294967295" Name="BreakParticleSystem" Value="" />
         <Var ObjectId="4294967295" Name="BreakImpulse" Value="4" />
         <Var ObjectId="4294967295" Name="CanBeLitByPlayer" Value="true" />
         <Var ObjectId="4294967295" Name="CanBeSnuffedOutByPlayer" Value="true" />
         <Var ObjectId="4294967295" Name="CanBeGrabbed" Value="false" />
-        <Var ObjectId="4294967295" Name="RequiresMatches" Value="true" />
-        <Var ObjectId="4294967295" Name="RequiresOil" Value="false" />
+        <Var ObjectId="4294967295" Name="RequiresFuel" Value="false" />
         <Var ObjectId="4294967295" Name="LightByDistance" Value="false" />
         <Var ObjectId="4294967295" Name="LightDistance" Value="5.0" />
+        <Var ObjectId="4294967295" Name="InteractSound" Value="" />
+        <Var ObjectId="4294967295" Name="RequiresGeneratorPower" Value="false" />
         <Var ObjectId="4294967295" Name="FlickerMinOnTime" Value="0.05" />
         <Var ObjectId="4294967295" Name="FlickerMaxOnTime" Value="1" />
         <Var ObjectId="4294967295" Name="FlickerMinOffTime" Value="0.025" />
