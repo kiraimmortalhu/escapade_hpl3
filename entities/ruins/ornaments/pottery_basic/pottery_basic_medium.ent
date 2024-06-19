@@ -1,0 +1,38 @@
+<Entity>
+    <ModelData>
+        <Entities />
+        <Mesh Filename="entities/ruins/ornaments/pottery_basic/pottery_basic_medium.dae">
+            <SubMesh ID="0" Name="pottery" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="1536" Material="" Static="true" />
+        </Mesh>
+        <Bones />
+        <Shapes>
+            <Shape ID="4" Name="ShapeCylinder_4" CreStamp="1452272714" ModStamp="1452272738" WorldPos="0 0.862346 0" Rotation="0 0 0" Scale="0.436552 0.632116 0" RelativeTranslation="0 0.171055 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
+            <Shape ID="5" Name="ShapeCylinder_5" CreStamp="1452272739" ModStamp="1452272746" WorldPos="0 0.412863 0" Rotation="0 0 0" Scale="0.398965 0.281868 0" RelativeTranslation="0 -0.278428 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
+            <Shape ID="3" Name="ShapeCylinder_3" CreStamp="1452272703" ModStamp="1452272712" WorldPos="0 0.306489 0" Rotation="0 0 0" Scale="0.368385 0.226489 0" RelativeTranslation="0 -0.384802 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
+            <Shape ID="2" Name="ShapeCylinder_2" CreStamp="1452272685" ModStamp="1452272701" WorldPos="0 0.190748 0" Rotation="0 0 0" Scale="0.33651 0.20372 0" RelativeTranslation="0 -0.500543 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
+            <Shape ID="6" Name="ShapeCylinder_6" CreStamp="1452272748" ModStamp="1452272763" WorldPos="0 1.20904 0" Rotation="0 0 0" Scale="0.378326 0.078547 0" RelativeTranslation="0 0.517749 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
+            <Shape ID="7" Name="ShapeCylinder_7" CreStamp="1452272764" ModStamp="1452272772" WorldPos="0 1.33117 0" Rotation="0 0 0" Scale="0.305969 0.150414 0" RelativeTranslation="0 0.639879 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
+            <Shape ID="1" Name="ShapeCylinder_1" CreStamp="1452272647" ModStamp="1452272681" WorldPos="0 0.0514115 0" Rotation="0 0 0" Scale="0.299507 0.096099 0" RelativeTranslation="0 -0.639879 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
+        </Shapes>
+        <Bodies>
+            <Body ID="8" Name="Body_1" CreStamp="0" ModStamp="1519807370" WorldPos="0 0.691291 0" Rotation="0 0 0" Scale="1 1 1" Material="Default" Mass="0" AngularDamping="0.5" LinearDamping="0.1" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+                <Children>
+                    <Child ID="0" />
+                </Children>
+                <Shape ID="1" />
+                <Shape ID="5" />
+                <Shape ID="3" />
+                <Shape ID="7" />
+                <Shape ID="6" />
+                <Shape ID="2" />
+                <Shape ID="4" />
+            </Body>
+        </Bodies>
+        <Joints />
+        <Animations />
+        <ProcAnimations />
+    </ModelData>
+    <UserDefinedVariables EntityType="StaticProp">
+        <Var Name="ShowMesh" Value="true" />
+    </UserDefinedVariables>
+</Entity>
