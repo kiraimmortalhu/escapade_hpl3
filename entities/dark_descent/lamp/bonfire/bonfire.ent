@@ -1,0 +1,108 @@
+<Entity>
+    <ModelData>
+        <Entities>
+            <PointLight ID="11" Name="PointLight_1" CreStamp="0" ModStamp="1718892133" WorldPos="0.028483 0.561034 -0.001537" Rotation="0 0 0" Scale="1 1 1" CastShadows="false" ShadowResolution="High" ShadowsAffectStatic="true" ShadowsAffectDynamic="true" Radius="1.7" Gobo="" GoboType="Diffuse" GoboAnimMode="None" GoboAnimFrameTime="0" GoboAnimStartTime="0" DiffuseColor="1 0.615686 0.352941 0.533333" FlickerActive="true" FlickerOnMinLength="0" FlickerOnMaxLength="0" FlickerOnPS="" FlickerOnSound="" FlickerOffMinLength="0" FlickerOffMaxLength="0" FlickerOffPS="" FlickerOffSound="" FlickerOffColor="0.75 0.519766 0.4 0.5" FlickerOffRadius="1.1" FlickerFade="true" FlickerOnFadeMinLength="0.1" FlickerOnFadeMaxLength="2" FlickerOffFadeMinLength="0.1" FlickerOffFadeMaxLength="2" CastDiffuseLight="true" CastSpecularLight="true" Brightness="4" Static="false" CulledByDistance="true" CulledByFog="true" FalloffPow="1" ConnectedLightMaskID="4294967295" />
+            <Sound ID="12" Name="Sound_1" CreStamp="0" ModStamp="0" WorldPos="-0.02814 0.506002 -0.047974" Rotation="0 0 0" Scale="1 1 1" SoundEntityFile="mods/escapade_hpl3/sounds/dark_descent/general/general_fire_burning_low.snt" MinDistance="2" MaxDistance="7" Volume="0.1" Active="true" UseCustomProperties="false" />
+            <SpotLight ID="14" Name="SpotLight_1" CreStamp="0" ModStamp="1718892137" WorldPos="0.223852 0.659942 -0.141616" Rotation="-0.523599 -1.0472 0" Scale="1 1 1" CastShadows="true" ShadowResolution="High" ShadowsAffectStatic="true" ShadowsAffectDynamic="true" Radius="8" Gobo="" GoboType="Diffuse" GoboAnimMode="None" GoboAnimFrameTime="0" GoboAnimStartTime="0" DiffuseColor="1 0.615686 0.352941 0.533333" FlickerActive="true" FlickerOnMinLength="0" FlickerOnMaxLength="0" FlickerOnPS="" FlickerOnSound="" FlickerOffMinLength="0" FlickerOffMaxLength="0" FlickerOffPS="" FlickerOffSound="" FlickerOffColor="0.75 0.539453 0.4 0.6" FlickerOffRadius="7.4" FlickerFade="true" FlickerOnFadeMinLength="0.1" FlickerOnFadeMaxLength="2" FlickerOffFadeMinLength="0.1" FlickerOffFadeMaxLength="2" CastDiffuseLight="true" CastSpecularLight="true" Brightness="3.5" Static="false" CulledByDistance="true" CulledByFog="true" FalloffPow="1" FOV="1.5708" Aspect="1" NearClipPlane="0.1" SpotFalloffPow="1" ShadowFadeRange="-1" ShadowCasterDistance="-1" ShadowUpdatePriority="10" ConnectedLightMaskID="4294967295" />
+            <Billboard ID="15" Name="Billboard_1" CreStamp="0" ModStamp="1718892129" WorldPos="-0.066572 0.477672 -0.038737" Rotation="0 0 0" Scale="1 1 1" BillboardType="Point" MaterialFile="billboards/bb_torch_static01.mat" IsHalo="true" BillboardSize="1 1.5" HaloSourceSize="0.5 0.6 0.5" BillboardOffset="0" BillboardColor="1 1 1 1" Brightness="0.6" CulledByDistance="false" CulledByFog="true" ConnectLight="PointLight_1" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
+            <Billboard ID="47" Name="Billboard_2" CreStamp="1598372307" ModStamp="1718894615" WorldPos="-0.045401 0.435276 0.016239" Rotation="0 0 0" Scale="1 1 1" BillboardType="Point" MaterialFile="C:/Users/aaron/Documents/Work/Amnesia2/trunk/redist/billboards/special/torch_flame/torch_flame_29fps.mat" IsHalo="false" BillboardSize="0.4 0.5" HaloSourceSize="0.3 0.3 0.3" BillboardOffset="0" BillboardColor="1 1 1 1" Brightness="2" CulledByDistance="false" CulledByFog="true" ConnectLight="" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
+            <Billboard ID="48" Name="Billboard_3" CreStamp="1598372401" ModStamp="1718894662" WorldPos="-0.0466298 0.672735 0.00892931" Rotation="0 0 0" Scale="1 1 1" BillboardType="Axis" MaterialFile="C:/Users/aaron/Documents/Work/Amnesia2/trunk/redist/billboards/special/torch_flame/torch_flame_32fps.mat" IsHalo="false" BillboardSize="0.7 1" HaloSourceSize="0.3 0.3 0.3" BillboardOffset="0" BillboardColor="1 1 1 1" Brightness="1" CulledByDistance="false" CulledByFog="true" ConnectLight="" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
+            <Billboard ID="49" Name="Billboard_4" CreStamp="1718895512" ModStamp="1718900003" WorldPos="0.001758 0.698941 -0.003493" Rotation="0 0 0" Scale="1 1 1" BillboardType="Point" MaterialFile="billboards/halo_torch.mat" IsHalo="true" BillboardSize="6 4" HaloSourceSize="2 2 2" BillboardOffset="0" BillboardColor="1 1 1 1" Brightness="0.1" CulledByDistance="false" CulledByFog="true" ConnectLight="PointLight_1" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
+        </Entities>
+        <Mesh Filename="mods/escapade_hpl3/entities/dark_descent/lamp/bonfire/bonfire.dae">
+            <SubMesh ID="0" Name="bonfire_mesh" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="128" Material="" Static="true" />
+        </Mesh>
+        <Bones />
+        <Shapes>
+            <Shape ID="3" Name="Shape_1" CreStamp="0" ModStamp="0" WorldPos="-0.036647 0.1 -0.04259" Rotation="0 0.575959 0" Scale="0.55 0.2 0.4" RelativeTranslation="-0.00564 -0.076421 -0.111364" RelativeRotation="0 0.575959 0" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="4" Name="Shape_2" CreStamp="0" ModStamp="0" WorldPos="0.198804 0.055 -0.067956" Rotation="0 0.120431 0" Scale="0.5 0.11 0.097783" RelativeTranslation="0.229811 -0.121421 -0.13673" RelativeRotation="0 0.120431 0" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="5" Name="Shape_3" CreStamp="0" ModStamp="0" WorldPos="-0.260818 0.156991 0.158456" Rotation="0.141961 0.136642 0.610216" Scale="0.415 0.11 0.09" RelativeTranslation="-0.229811 -0.01943 0.0896815" RelativeRotation="0.141961 0.136642 0.610216" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="6" Name="Shape_4" CreStamp="0" ModStamp="0" WorldPos="0.022213 0.1 0.230002" Rotation="0 0.325561 0" Scale="0.3 0.2 0.1" RelativeTranslation="0.05322 -0.076421 0.161227" RelativeRotation="0 0.325561 0" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="8" Name="Shape_5" CreStamp="0" ModStamp="0" WorldPos="-0.001424 0.297842 -0.092453" Rotation="0 0.575959 0" Scale="0.269414 0.2 0.2" RelativeTranslation="0.029583 0.121421 -0.161227" RelativeRotation="0 0.575959 0" RelativeScale="1 1 1" ShapeType="Box" />
+        </Shapes>
+        <Bodies>
+            <Body ID="10" Name="Body" CreStamp="0" ModStamp="1718900015" WorldPos="-0.031007 0.176421 0.0687745" Rotation="0 0 0" Scale="1 1 1" Material="Wood" Mass="0" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="true" PushedByCharacterGravity="true" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+                <Children>
+                    <Child ID="11" />
+                    <Child ID="12" />
+                    <Child ID="14" />
+                    <Child ID="15" />
+                    <Child ID="47" />
+                    <Child ID="48" />
+                    <Child ID="49" />
+                </Children>
+                <Shape ID="4" />
+                <Shape ID="6" />
+                <Shape ID="8" />
+                <Shape ID="5" />
+                <Shape ID="3" />
+            </Body>
+        </Bodies>
+        <Joints />
+        <Animations />
+        <ProcAnimations />
+    </ModelData>
+    <UserDefinedVariables EntityType="Prop_Lamp">
+        <Var ObjectId="4294967295" Name="Health" Value="100" />
+        <Var ObjectId="4294967295" Name="Toughness" Value="0" />
+        <Var ObjectId="4294967295" Name="MaxInteractDistance" Value="0" />
+        <Var ObjectId="4294967295" Name="EventTag" Value="" />
+        <Var ObjectId="4294967295" Name="ShowHints" Value="true" />
+        <Var ObjectId="4294967295" Name="LifeLength" Value="0" />
+        <Var ObjectId="4294967295" Name="DissolveDuringLifeDecrease" Value="true" />
+        <Var ObjectId="4294967295" Name="QuickSave" Value="false" />
+        <Var ObjectId="4294967295" Name="FullGameSave" Value="false" />
+        <Var ObjectId="4294967295" Name="AllowMapTransfer" Value="false" />
+        <Var ObjectId="4294967295" Name="VoiceSourceBone" Value="" />
+        <Var ObjectId="4294967295" Name="BlocksLineOfSight" Value="MaterialBased" />
+        <Var ObjectId="4294967295" Name="MainPhysicsBody" Value="" />
+        <Var ObjectId="4294967295" Name="NoGravityWhenUnderwater" Value="false" />
+        <Var ObjectId="4294967295" Name="DisableFreezeAtStart" Value="false" />
+        <Var ObjectId="4294967295" Name="CustomScriptFile" Value="" />
+        <Var ObjectId="4294967295" Name="CustomScriptClass" Value="" />
+        <Var ObjectId="4294967295" Name="ShowMesh" Value="true" />
+        <Var ObjectId="4294967295" Name="DissolveOnDestruction" Value="false" />
+        <Var ObjectId="4294967295" Name="DissolveTime" Value="1.0" />
+        <Var ObjectId="4294967295" Name="RandomizeAnimationStart" Value="true" />
+        <Var ObjectId="4294967295" Name="RootMotionBone" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOnSound" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOffSound" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOnTime" Value="1" />
+        <Var ObjectId="4294967295" Name="EffectsOffTime" Value="1" />
+        <Var ObjectId="4294967295" Name="StaticMoveCheckCollision" Value="false" />
+        <Var ObjectId="4294967295" Name="StaticMoveStartSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveStopSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveLoopSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveLoopSoundFade" Value="true" />
+        <Var ObjectId="4294967295" Name="BreakActive" Value="false" />
+        <Var ObjectId="4294967295" Name="CustomBreakBehaviour" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakOnlyOnMainBody" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakDestroyJoints" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakMinEnergy" Value="100" />
+        <Var ObjectId="4294967295" Name="BreakEntity" Value="" />
+        <Var ObjectId="4294967295" Name="BreakEntityAlignBody" Value="" />
+        <Var ObjectId="4294967295" Name="BreakSound" Value="" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundRadius" Value="18" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundPrio" Value="4" />
+        <Var ObjectId="4294967295" Name="BreakParticleSystem" Value="" />
+        <Var ObjectId="4294967295" Name="BreakImpulse" Value="4" />
+        <Var ObjectId="4294967295" Name="CanBeLitByPlayer" Value="true" />
+        <Var ObjectId="4294967295" Name="CanBeSnuffedOutByPlayer" Value="false" />
+        <Var ObjectId="4294967295" Name="CanBeGrabbed" Value="false" />
+        <Var ObjectId="4294967295" Name="RequiresFuel" Value="false" />
+        <Var ObjectId="4294967295" Name="LightByDistance" Value="false" />
+        <Var ObjectId="4294967295" Name="LightDistance" Value="5.0" />
+        <Var ObjectId="4294967295" Name="InteractSound" Value="" />
+        <Var ObjectId="4294967295" Name="RequiresGeneratorPower" Value="false" />
+        <Var ObjectId="4294967295" Name="FlickerMinOnTime" Value="0.05" />
+        <Var ObjectId="4294967295" Name="FlickerMaxOnTime" Value="1" />
+        <Var ObjectId="4294967295" Name="FlickerMinOffTime" Value="0.025" />
+        <Var ObjectId="4294967295" Name="FlickerMaxOffTime" Value="0.15" />
+        <Var ObjectId="4294967295" Name="FlickerFade" Value="false" />
+        <Var ObjectId="4294967295" Name="FlickerOnSound" Value="" />
+        <Var ObjectId="4294967295" Name="FlickerOffSound" Value="" />
+        <Var ObjectId="4294967295" Name="FlickerOnPS" Value="" />
+        <Var ObjectId="4294967295" Name="FlickerOffPS" Value="" />
+        <Var ObjectId="4294967295" Name="FlickerOffAlpha" Value="0" />
+    </UserDefinedVariables>
+</Entity>
