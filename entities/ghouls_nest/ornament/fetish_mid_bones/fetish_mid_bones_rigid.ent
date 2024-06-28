@@ -1,0 +1,81 @@
+<Entity>
+    <ModelData>
+        <Entities />
+        <Mesh Filename="entities/ghouls_nest/ornament/fetish_mid_bones/fetish_mid_bones.DAE">
+            <SubMesh ID="0" Name="fetish_mid_bones" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="3807" Material="" Static="false" />
+        </Mesh>
+        <Bones />
+        <Shapes>
+            <Shape ID="44" Name="ShapeSphere_1" CreStamp="1542106162" ModStamp="1542106182" WorldPos="-0.0150384 0.144017 -0.0189187" Rotation="0 0 0" Scale="0.228008 0 0" RelativeTranslation="-0.0178424 -0.249209 0.0505478" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Sphere" />
+            <Shape ID="45" Name="ShapeCapsule_1" CreStamp="1542106190" ModStamp="1542106234" WorldPos="-0.090162 0.642435 0.023447" Rotation="-0.187924 -0.00664361 -0.034921" Scale="0.0606905 0.747662 0" RelativeTranslation="-0.092966 0.249209 0.0929135" RelativeRotation="-0.187924 -0.00664361 -0.034921" RelativeScale="1 1 1" ShapeType="Capsule" />
+            <Shape ID="46" Name="ShapeCapsule_2" CreStamp="1542106310" ModStamp="1542106326" WorldPos="-0.0109083 0.515748 -0.16238" Rotation="-0.0509733 -0.0195924 -0.182262" Scale="0.0504972 0.747662 0" RelativeTranslation="-0.0137123 0.122522 -0.0929135" RelativeRotation="-0.0509733 -0.0195924 -0.182262" RelativeScale="1 1 1" ShapeType="Capsule" />
+            <Shape ID="47" Name="ShapeCapsule_3" CreStamp="1542106334" ModStamp="1542106350" WorldPos="0.0957701 0.481642 -0.0185681" Rotation="0.0822091 -0.00363149 -0.0715166" Scale="0.0771534 0.771948 0" RelativeTranslation="0.092966 0.088416 0.0508984" RelativeRotation="0.0822091 -0.00363149 -0.0715166" RelativeScale="1 1 1" ShapeType="Capsule" />
+        </Shapes>
+        <Bodies>
+            <Body ID="48" Name="Body_1" CreStamp="0" ModStamp="1542106375" WorldPos="0.00280405 0.393226 -0.0694665" Rotation="0 0 0" Scale="1 1 1" Material="" Mass="0" AngularDamping="0.5" LinearDamping="0.1" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+                <Shape ID="44" />
+                <Shape ID="47" />
+                <Shape ID="46" />
+                <Shape ID="45" />
+            </Body>
+        </Bodies>
+        <Joints />
+        <Animations />
+        <ProcAnimations />
+    </ModelData>
+    <UserDefinedVariables EntityType="Prop_Rigid">
+        <Var Name="Health" Value="1.0" />
+        <Var Name="Toughness" Value="0" />
+        <Var Name="MaxInteractDistance" Value="0" />
+        <Var Name="EventTag" Value="" />
+        <Var Name="ShowHints" Value="true" />
+        <Var Name="LifeLength" Value="0" />
+        <Var Name="DissolveDuringLifeDecrease" Value="true" />
+        <Var Name="QuickSave" Value="false" />
+        <Var Name="FullGameSave" Value="false" />
+        <Var Name="BlocksLineOfSight" Value="MaterialBased" />
+        <Var Name="MainPhysicsBody" Value="" />
+        <Var Name="NoGravityWhenUnderwater" Value="false" />
+        <Var Name="DisableFreezeAtStart" Value="false" />
+        <Var Name="CustomScriptFile" Value="" />
+        <Var Name="CustomScriptClass" Value="" />
+        <Var Name="ShowMesh" Value="true" />
+        <Var Name="DissolveOnDestruction" Value="false" />
+        <Var Name="DissolveTime" Value="1.0" />
+        <Var Name="RandomizeAnimationStart" Value="true" />
+        <Var Name="RootMotionBone" Value="" />
+        <Var Name="EffectsOnSound" Value="" />
+        <Var Name="EffectsOffSound" Value="" />
+        <Var Name="EffectsOnTime" Value="0.2" />
+        <Var Name="EffectsOffTime" Value="0.2" />
+        <Var Name="StaticMoveCheckCollision" Value="false" />
+        <Var Name="StaticMoveStartSound" Value="" />
+        <Var Name="StaticMoveStopSound" Value="" />
+        <Var Name="StaticMoveLoopSound" Value="" />
+        <Var Name="StaticMoveLoopSoundFade" Value="true" />
+        <Var Name="BreakActive" Value="false" />
+        <Var Name="BreakOnlyOnMainBody" Value="false" />
+        <Var Name="BreakDestroyJoints" Value="false" />
+        <Var Name="BreakMinEnergy" Value="100" />
+        <Var Name="BreakEntity" Value="" />
+        <Var Name="BreakEntityAlignBody" Value="" />
+        <Var Name="BreakSound" Value="" />
+        <Var Name="BreakParticleSystem" Value="" />
+        <Var Name="BreakImpulse" Value="4" />
+        <Var Name="ScaryObject_BaseFearRate" Value="0.1" />
+        <Var Name="ScaryObject_SurpriseFactor" Value="-1.0" />
+        <Var Name="ScaryObject_LookAtFactor" Value="-1.0" />
+        <Var Name="ScaryObject_ActivationDelay" Value="0.2" />
+        <Var Name="ScaryObject_ActivationLightLevel" Value="0.1" />
+        <Var Name="ScaryObject_ActivationDistance" Value="3.5" />
+        <Var Name="ScaryObject_DeactivationDistance" Value="3.5" />
+        <Var Name="ScaryObject_InteractFactor" Value="-1.0" />
+        <Var Name="Threat_BaseFearRate" Value="0.1" />
+        <Var Name="Threat_SurpriseFactor" Value="-1.0" />
+        <Var Name="Threat_LookAtFactor" Value="-1.0" />
+        <Var Name="Threat_ActivationDelay" Value="0.2" />
+        <Var Name="Threat_ActivationLightLevel" Value="0.1" />
+        <Var Name="Threat_MaxFearDistance" Value="2.0" />
+        <Var Name="Threat_MinFearDistance" Value="6.0" />
+    </UserDefinedVariables>
+</Entity>
