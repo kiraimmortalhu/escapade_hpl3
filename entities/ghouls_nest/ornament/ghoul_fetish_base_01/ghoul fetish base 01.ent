@@ -1,0 +1,33 @@
+<Entity>
+    <ModelData>
+        <Entities />
+        <Mesh Filename="entities/ghouls_nest/ornament/ghoul_fetish_base_01/ghoul_fetish_base_01.DAE">
+            <SubMesh ID="27" Name="ghoul_fetish_base_01" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="-1.5708 -0 0" Scale="1 1 1" TriCount="1452" Material="" Static="false" />
+        </Mesh>
+        <Bones />
+        <Shapes>
+            <Shape ID="35" Name="ShapeCapsule_1" CreStamp="1542113966" ModStamp="1542113985" WorldPos="0.0109 0.506792 0.0112822" Rotation="0 0 0" Scale="0.171007 1 0" RelativeTranslation="-0.113263 0.0641567 -0.0747129" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Capsule" />
+            <Shape ID="36" Name="ShapeSphere_1" CreStamp="1542113993" ModStamp="1542114013" WorldPos="0 0.80713 0.00922894" Rotation="0 0 0" Scale="0.220579 0 0" RelativeTranslation="-0.124163 0.364494 -0.0767661" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Sphere" />
+            <Shape ID="37" Name="ShapeSphere_2" CreStamp="1542114020" ModStamp="1542114038" WorldPos="0.023225 0.297853 0.0457758" Rotation="0 0 0" Scale="0.291556 0 0" RelativeTranslation="-0.100938 -0.144783 -0.0402192" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Sphere" />
+            <Shape ID="38" Name="ShapeSphere_3" CreStamp="1542114048" ModStamp="1542114068" WorldPos="0.248325 0.334636 0.17199" Rotation="0 0 0" Scale="0.150062 0 0" RelativeTranslation="0.124163 -0.108 0.0859951" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Sphere" />
+            <Shape ID="40" Name="ShapeSphere_4" CreStamp="1542114095" ModStamp="1542114115" WorldPos="0.0235546 0.124292 0.00922894" Rotation="0 0 0" Scale="0.351315 0 0" RelativeTranslation="-0.100608 -0.318344 -0.0767661" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Sphere" />
+            <Shape ID="41" Name="ShapeCylinder_1" CreStamp="1542114154" ModStamp="1542114165" WorldPos="0 0.0781414 0" Rotation="0 0 0" Scale="0.386841 0.118002 0" RelativeTranslation="-0.124163 -0.364494 -0.0859951" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
+        </Shapes>
+        <Bodies>
+            <Body ID="42" Name="Body_1" CreStamp="0" ModStamp="1542114199" WorldPos="0.124163 0.442636 0.0859951" Rotation="0 0 0" Scale="1 1 1" Material="mud" Mass="0" AngularDamping="0.5" LinearDamping="0.1" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+                <Shape ID="35" />
+                <Shape ID="41" />
+                <Shape ID="36" />
+                <Shape ID="37" />
+                <Shape ID="38" />
+                <Shape ID="40" />
+            </Body>
+        </Bodies>
+        <Joints />
+        <Animations />
+        <ProcAnimations />
+    </ModelData>
+    <UserDefinedVariables EntityType="StaticProp">
+        <Var Name="ShowMesh" Value="true" />
+    </UserDefinedVariables>
+</Entity>

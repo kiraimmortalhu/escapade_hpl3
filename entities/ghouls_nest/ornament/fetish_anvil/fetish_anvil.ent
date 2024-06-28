@@ -1,0 +1,35 @@
+<Entity>
+    <ModelData>
+        <Entities />
+        <Mesh Filename="entities/ghouls_nest/ornament/fetish_anvil/fetish_anvil.DAE">
+            <SubMesh ID="0" Name="fetish_anvil" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="-1.5708 -0 0" Scale="1 1 1" TriCount="3771" Material="" Static="false" />
+        </Mesh>
+        <Bones />
+        <Shapes>
+            <Shape ID="131" Name="ShapeSphere_1" CreStamp="1542106901" ModStamp="1542106938" WorldPos="0.00548401 0.0712839 -0.00665635" Rotation="0 0 0" Scale="0.202219 0 0" RelativeTranslation="0.012403 -0.0855859 0.00146625" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Sphere" />
+            <Shape ID="132" Name="ShapeCylinder_1" CreStamp="1542106944" ModStamp="1542106961" WorldPos="0 0.0217446 0" Rotation="0 0 0" Scale="0.247184 0.0577673 0" RelativeTranslation="0.006919 -0.135125 0.0081226" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
+            <Shape ID="134" Name="ShapeCapsule_1" CreStamp="1542107008" ModStamp="1542107042" WorldPos="0.078785 0.180339 0.0564588" Rotation="0.288373 -0 -0.77982" Scale="0.0264238 0.203975 0" RelativeTranslation="0.085704 0.0234692 0.0645814" RelativeRotation="0.288373 -0 -0.77982" RelativeScale="1 1 1" ShapeType="Capsule" />
+            <Shape ID="135" Name="ShapeCapsule_2" CreStamp="1542107048" ModStamp="1542107304" WorldPos="0.103931 0.254326 -0.0589469" Rotation="-0.237394 -0.0315576 -0.939359" Scale="0.0477481 0.318257 0" RelativeTranslation="0.11085 0.0974562 -0.0508243" RelativeRotation="-0.237394 -0.0315576 -0.939359" RelativeScale="1 1 1" ShapeType="Capsule" />
+            <Shape ID="136" Name="ShapeCapsule_3" CreStamp="1542107123" ModStamp="1542107281" WorldPos="-0.000422871 0.249413 0.0542857" Rotation="0.243495 -0.254239 -0.410317" Scale="0.0464788 0.439325 0" RelativeTranslation="0.00649613 0.0925432 0.0624083" RelativeRotation="0.243495 -0.254239 -0.410317" RelativeScale="1 1 1" ShapeType="Capsule" />
+            <Shape ID="137" Name="ShapeCapsule_4" CreStamp="1542107183" ModStamp="1542107212" WorldPos="-0.117769 0.274162 0.0514746" Rotation="0.508795 -0.352556 0.157505" Scale="0.0227825 0.255252 0" RelativeTranslation="-0.11085 0.117292 0.0595972" RelativeRotation="0.508795 -0.352556 0.157505" RelativeScale="1 1 1" ShapeType="Capsule" />
+            <Shape ID="138" Name="ShapeCapsule_5" CreStamp="1542107230" ModStamp="1542107251" WorldPos="-0.0616728 0.291995 -0.072704" Rotation="-0.00898373 -0.36327 0.146171" Scale="0.0391055 0.321532 0" RelativeTranslation="-0.0547538 0.135125 -0.0645814" RelativeRotation="-0.00898373 -0.36327 0.146171" RelativeScale="1 1 1" ShapeType="Capsule" />
+        </Shapes>
+        <Bodies>
+            <Body ID="142" Name="Body_1" CreStamp="0" ModStamp="1542107526" WorldPos="-0.006919 0.15687 -0.0081226" Rotation="0 0 0" Scale="1 1 1" Material="mud" Mass="0" AngularDamping="0.5" LinearDamping="0.1" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+                <Shape ID="134" />
+                <Shape ID="135" />
+                <Shape ID="136" />
+                <Shape ID="137" />
+                <Shape ID="138" />
+                <Shape ID="132" />
+                <Shape ID="131" />
+            </Body>
+        </Bodies>
+        <Joints />
+        <Animations />
+        <ProcAnimations />
+    </ModelData>
+    <UserDefinedVariables EntityType="StaticProp">
+        <Var ObjectId="4294967295" Name="ShowMesh" Value="true" />
+    </UserDefinedVariables>
+</Entity>

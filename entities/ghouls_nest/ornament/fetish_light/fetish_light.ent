@@ -1,0 +1,41 @@
+<Entity>
+    <ModelData>
+        <Entities />
+        <Mesh Filename="entities/ghouls_nest/ornament/fetish_light/fetish_light.DAE">
+            <SubMesh ID="0" Name="fetish_light" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="-1.5708 -0 0" Scale="1 1 1" TriCount="4950" Material="" Static="false" />
+        </Mesh>
+        <Bones />
+        <Shapes>
+            <Shape ID="73" Name="ShapeSphere_1" CreStamp="1542102963" ModStamp="1542102995" WorldPos="0 0.089109 0" Rotation="0 0 0" Scale="0.287504 0 0" RelativeTranslation="0.0156699 -0.267564 0.0462315" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Sphere" />
+            <Shape ID="75" Name="ShapeCylinder_1" CreStamp="1542103023" ModStamp="1542103048" WorldPos="0 0.0509894 0" Rotation="0 0 0" Scale="0.391718 0.077216 0" RelativeTranslation="0.0156699 -0.305683 0.0462315" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
+            <Shape ID="77" Name="ShapeCapsule_1" CreStamp="1542103060" ModStamp="1542103403" WorldPos="-0.0715322 0.662356 -0.0277353" Rotation="-0.0798109 -0 0.305483" Scale="0.12709 0.732114 0" RelativeTranslation="-0.0558624 0.305683 0.0184963" RelativeRotation="-0.0798109 -0 0.305483" RelativeScale="1 1 1" ShapeType="Capsule" />
+            <Shape ID="78" Name="ShapeBox_1" CreStamp="1542103142" ModStamp="1542103206" WorldPos="0.0475016 0.631202 -0.284487" Rotation="-0.408629 0.00817172 -0.1099" Scale="0.117093 0.691485 0.030147" RelativeTranslation="0.0631715 0.27453 -0.238256" RelativeRotation="-0.408629 0.00817172 -0.1099" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="79" Name="ShapeBox_2" CreStamp="1542103235" ModStamp="1542103283" WorldPos="-0.249459 0.482971 -0.064839" Rotation="-0.222783 0.754338 0.333424" Scale="0.140064 0.432361 0.030147" RelativeTranslation="-0.233789 0.126298 -0.0186074" RelativeRotation="-0.222783 0.754338 0.333424" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="80" Name="ShapeCapsule_2" CreStamp="1542103308" ModStamp="1542103340" WorldPos="0.0826097 0.448058 0.192024" Rotation="0.430067 0.146697 -0.0164022" Scale="0.0465769 0.649186 0" RelativeTranslation="0.0982796 0.091385 0.238256" RelativeRotation="0.430067 0.146698 -0.0164022" RelativeScale="1 1 1" ShapeType="Capsule" />
+            <Shape ID="81" Name="ShapeCapsule_3" CreStamp="1542103342" ModStamp="1542103378" WorldPos="0.191629 0.52151 0.0814517" Rotation="0.181844 0.176306 -0.285767" Scale="0.0264681 0.674637 0" RelativeTranslation="0.207299 0.164837 0.127683" RelativeRotation="0.181844 0.176306 -0.285767" RelativeScale="1 1 1" ShapeType="Capsule" />
+            <Shape ID="82" Name="ShapeCapsule_4" CreStamp="1542103414" ModStamp="1542103433" WorldPos="0.218119 0.425015 -0.0384709" Rotation="-0.247754 0.154378 -0.389421" Scale="0.0188804 0.426835 0" RelativeTranslation="0.233789 0.0683425 0.00776066" RelativeRotation="-0.247754 0.154378 -0.389421" RelativeScale="1 1 1" ShapeType="Capsule" />
+            <Shape ID="83" Name="ShapeCapsule_5" CreStamp="1542103446" ModStamp="1542103468" WorldPos="0.115065 0.428936 -0.178814" Rotation="-0.624414 0.233222 -0.28049" Scale="0.0188804 0.336187 0" RelativeTranslation="0.130735 0.0722636 -0.132583" RelativeRotation="-0.624415 0.233222 -0.28049" RelativeScale="1 1 1" ShapeType="Capsule" />
+            <Shape ID="84" Name="ShapeCapsule_6" CreStamp="1542103493" ModStamp="1542103507" WorldPos="-0.141454 0.447189 -0.123475" Rotation="-0.438014 0.512286 0.2173" Scale="0.0188804 0.336187 0" RelativeTranslation="-0.125784 0.0905159 -0.0772437" RelativeRotation="-0.438014 0.512286 0.2173" RelativeScale="1 1 1" ShapeType="Capsule" />
+        </Shapes>
+        <Bodies>
+            <Body ID="85" Name="Body_1" CreStamp="0" ModStamp="1542103515" WorldPos="-0.0156699 0.356673 -0.0462315" Rotation="0 0 0" Scale="1 1 1" Material="" Mass="0" AngularDamping="0.5" LinearDamping="0.1" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+                <Shape ID="78" />
+                <Shape ID="79" />
+                <Shape ID="77" />
+                <Shape ID="80" />
+                <Shape ID="81" />
+                <Shape ID="82" />
+                <Shape ID="83" />
+                <Shape ID="84" />
+                <Shape ID="75" />
+                <Shape ID="73" />
+            </Body>
+        </Bodies>
+        <Joints />
+        <Animations />
+        <ProcAnimations />
+    </ModelData>
+    <UserDefinedVariables EntityType="StaticProp">
+        <Var Name="ShowMesh" Value="true" />
+    </UserDefinedVariables>
+</Entity>

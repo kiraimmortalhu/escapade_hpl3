@@ -1,0 +1,41 @@
+<Entity>
+    <ModelData>
+        <Entities />
+        <Mesh Filename="entities/ghouls_nest/ornament/fetish_large_face/fetish_large_face.DAE">
+            <SubMesh ID="0" Name="fetish_large_face" CreStamp="0" ModStamp="1493366283" WorldPos="0 0 0" Rotation="-0 3.14159 -0" Scale="1 1 1" TriCount="4853" Material="" Static="false" />
+        </Mesh>
+        <Bones />
+        <Shapes>
+            <Shape ID="152" Name="ShapeBox_1" CreStamp="1539622956" ModStamp="1539622973" WorldPos="-0.12055 0.188577 0" Rotation="0 0 0" Scale="1.19268 0.351512 0.881268" RelativeTranslation="-0.135495 -0.453451 -0.158185" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="153" Name="ShapeBox_2" CreStamp="1539622973" ModStamp="1539622974" WorldPos="-0.12055 0.424342 0" Rotation="0 0 0" Scale="0.839124 0.240819 0.551557" RelativeTranslation="-0.135495 -0.217686 -0.158185" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="154" Name="ShapeBox_3" CreStamp="1539622981" ModStamp="1539622992" WorldPos="-0.0990102 0.149838 0" Rotation="0 0 0" Scale="0.301119 0.239192 1.31975" RelativeTranslation="-0.113955 -0.49219 -0.158185" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="155" Name="ShapeBox_4" CreStamp="1539622994" ModStamp="1539623000" WorldPos="-0.532989 0.127702 0" Rotation="0 0 0" Scale="0.301119 0.239192 1.31975" RelativeTranslation="-0.547934 -0.514326 -0.158185" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="156" Name="ShapeBox_5" CreStamp="1539623000" ModStamp="1539623009" WorldPos="0.332747 0.122486 0" Rotation="0 0 0" Scale="0.193201 0.204399 1.08909" RelativeTranslation="0.317802 -0.519542 -0.158185" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="157" Name="ShapeBox_6" CreStamp="1539623023" ModStamp="1539623025" WorldPos="0.562879 0.122486 0" Rotation="0 0 0" Scale="0.306726 0.294387 0.238455" RelativeTranslation="0.547934 -0.519542 -0.158185" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="158" Name="ShapeBox_7" CreStamp="1539623037" ModStamp="1539623054" WorldPos="0.300069 0.692592 0.0739019" Rotation="0.234717 -0 -0.439702" Scale="0.459817 0.556731 0.117823" RelativeTranslation="0.285124 0.0505641 -0.0842828" RelativeRotation="0.234717 -0 -0.439702" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="159" Name="ShapeBox_8" CreStamp="1539623056" ModStamp="1539623066" WorldPos="-0.232999 0.756169 -0.0426106" Rotation="-0.0876037 -0.350189 0.0858886" Scale="0.338936 0.556731 0.117823" RelativeTranslation="-0.247944 0.114141 -0.200795" RelativeRotation="-0.0876037 -0.350189 0.0858886" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="160" Name="ShapeBox_9" CreStamp="1539623170" ModStamp="1539623179" WorldPos="-0.176159 0.782358 0.23606" Rotation="0.238404 -0.360293 -0.125915" Scale="0.338936 0.556731 0.117823" RelativeTranslation="-0.191104 0.14033 0.0778753" RelativeRotation="0.238404 -0.360293 -0.125915" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="161" Name="ShapeBox_10" CreStamp="1539623181" ModStamp="1539623191" WorldPos="-0.037353 1.16157 0.35898" Rotation="0.284377 -0.325861 -0.262374" Scale="0.0824689 0.556731 0.0662069" RelativeTranslation="-0.052298 0.519542 0.200795" RelativeRotation="0.284377 -0.325861 -0.262374" RelativeScale="1 1 1" ShapeType="Box" />
+        </Shapes>
+        <Bodies>
+            <Body ID="162" Name="Body_1" CreStamp="0" ModStamp="1539623197" WorldPos="0.014945 0.642028 0.158185" Rotation="0 0 0" Scale="1 1 1" Material="" Mass="0" AngularDamping="0.5" LinearDamping="0.1" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+                <Shape ID="161" />
+                <Shape ID="160" />
+                <Shape ID="159" />
+                <Shape ID="158" />
+                <Shape ID="153" />
+                <Shape ID="152" />
+                <Shape ID="155" />
+                <Shape ID="154" />
+                <Shape ID="156" />
+                <Shape ID="157" />
+            </Body>
+        </Bodies>
+        <Joints />
+        <Animations />
+        <ProcAnimations />
+    </ModelData>
+    <UserDefinedVariables EntityType="StaticProp">
+        <Var ObjectId="4294967295" Name="ShowMesh" Value="true" />
+    </UserDefinedVariables>
+</Entity>
