@@ -69,10 +69,13 @@ class cScrMap : iScrMap
 	{
 		// Any general setup of script / entities
 		
+		PlayerBody_SetActive(true);
+		
 		/////////////////////////
 		// Debug
 		if (cLux_ScriptDebugOn())
 		{
+		Item_AddToInventory("DynamoLantern");
 		}
 	}
 
