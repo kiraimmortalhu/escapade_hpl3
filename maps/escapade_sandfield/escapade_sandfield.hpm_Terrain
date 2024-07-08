@@ -1,13 +1,26 @@
-<HPLMapTrack_Terrain ID="47D3558C1C409BD686C3BD29F6D1EC0DE1A658E" MajorVersion="1" MinorVersion="1">
-    <Terrain Active="true" GeometryPatchSize="32" TexturePatchSize="32" HeightMapSize="1024" MaxHeight="10" UnitSize="1" UndergrowthGridSize="10" UndergrowthFadeStart="18" UndergrowthFadeEnd="20" BaseMaterialFile="" BaseMaterialTileAmount="0" BaseMaterialStartFadeValue="0" BaseMaterialDetailTextureAmount="1 0 0" BaseMaterialHeightMapScale="0" MaterialSpecularPower="0.3" MaterialTextureLayerNum="8" MaterialTextureFalloff="3" CliffTextureDiffuse="" CliffTextureNMap="" CliffTextureSize="1" CliffTextureFadeAngleMul="1">
-        <DetailTextures DetailFadeStart="10" DetailFadeEnd="20">
+<HPLMapTrack_Terrain ID="79E29E40DE4C9098619E9773D02B8C92642B159F" MajorVersion="1" MinorVersion="1">
+    <Terrain Active="true" GeometryPatchSize="32" TexturePatchSize="32" HeightMapSize="512" MaxHeight="10" UnitSize="1" UndergrowthGridSize="10" UndergrowthFadeStart="18" UndergrowthFadeEnd="20" BaseMaterialFile="mods/escapade_hpl3/textures/terrain/darkworld/dw_sand01.mat" BaseMaterialTileAmount="0.25" BaseMaterialStartFadeValue="0" BaseMaterialDetailTextureAmount="1 0 0" BaseMaterialHeightMapScale="0" MaterialSpecularPower="0.3" MaterialTextureLayerNum="8" MaterialTextureFalloff="7" CliffTextureDiffuse="" CliffTextureNMap="" CliffTextureSize="1" CliffTextureFadeAngleMul="1">
+        <DetailTextures DetailFadeStart="20" DetailFadeEnd="40">
             <DetailTexture ID="0" File="" Scale="1" />
             <DetailTexture ID="1" File="" Scale="1" />
             <DetailTexture ID="2" File="" Scale="1" />
         </DetailTextures>
-        <BlendLayers />
+        <BlendLayers>
+            <BlendLayer ID="2">
+                <Material File="mods/escapade_hpl3/textures/terrain/darkworld/roots_ground.mat" TileAmount="0.35" StartFadeValue="0" DetailTextureAmount="1 0 0" HeightMapScale="0" />
+                <Material File="" TileAmount="0.25" StartFadeValue="0" DetailTextureAmount="1 0 0" HeightMapScale="0" />
+                <Material File="" TileAmount="0.25" StartFadeValue="0" DetailTextureAmount="1 0 0" HeightMapScale="0" />
+                <Material File="" TileAmount="0.25" StartFadeValue="0" DetailTextureAmount="1 0 0" HeightMapScale="0" />
+            </BlendLayer>
+        </BlendLayers>
         <Sections>
-            <Section Name="3359272541875756134">
+            <Section Name="13155577883259020773">
+                <FileIndex_TerrainDecals NumOfFiles="0" />
+                <Decals />
+                <FileIndex_UndergrowthMaterials NumOfFiles="0" />
+                <Undergrowth />
+            </Section>
+            <Section Name="0">
                 <FileIndex_TerrainDecals NumOfFiles="0" />
                 <Decals />
                 <FileIndex_UndergrowthMaterials NumOfFiles="0" />

@@ -67,12 +67,13 @@ class cScrMap : iScrMap
 	// Run first time starting map
 	void OnStart()
 	{
-		// Any general setup of script / entities
+		PlayerBody_SetActive(true);
 		
 		/////////////////////////
 		// Debug
 		if (cLux_ScriptDebugOn())
 		{
+			Item_AddToInventory("DynamoLantern");
 		}
 	}
 
