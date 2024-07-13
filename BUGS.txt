@@ -3,13 +3,28 @@ ASSET ERRORS (needs reexport by Nate's process):
 - They are all in the testmap
 X - roman_pillar_short
 
+- Rat statue should have a fitting texture and good size
+  - Neends to be reexported as a dae with the tail tucked to the side
+- Piano has a faulty specmap and will need advice and fix
+- Wine pieces bottle cap stays in the air on all versions
+- Upscale drinks cabinet diffuse and spec
+
+---- Imports
+
+- Soma vegetation for greenhouse and red flower field underground
+
+IN THE END
+- go through all nrm and specmaps, port over heightmaps where missing and needed
+- get rid of reflections where they do not fit
 - Some assets like seethrough windows, ceiling windows are in wrong folders
 Restructure these folders in the end and check integrity
 
---------------------------------------
+---- Creating stuff
 
-- Elevator lamp glass and Torch Floor has only 3 channel normals, not working yet
+- Rat guard from rat entity that plays idle animation yet seems threatning
+  - Occasionally screams out with script maybe if player is running
 
-- Imported piano has awful reflections
+- Create Greenhouse structure outline
 
-- Glasses are seethrough for some reason
+- AI for flora grunt
+  - More basic creatures for the same AI if we can help itethrough for some reason
