@@ -4,7 +4,7 @@
         <Objects />
     </Section>
     <Section Name="3359272541875756134">
-        <FileIndex_Entities NumOfFiles="111">
+        <FileIndex_Entities NumOfFiles="115">
             <File Id="0" Path="mods/escapade_hpl3/entities/dark_descent/door/castle/castle.ent" />
             <File Id="1" Path="mods/escapade_hpl3/entities/dark_descent/door/castle_arched01/castle_arched01.ent" />
             <File Id="2" Path="entities/nonexclusive/organic/shadowflesh/shadowflesh_pile/shadowflesh_pile.ent" />
@@ -116,6 +116,10 @@
             <File Id="108" Path="mods/escapade_hpl3/entities/dark_descent/paintings/painting07/painting07.ent" />
             <File Id="109" Path="entities/bunker/pipes/rusty_pipe_straight.ent" />
             <File Id="110" Path="entities/character/rat/dark_world_rat.ent" />
+            <File Id="111" Path="mods/escapade_hpl3/entities/amfp/furniture/drinks_cabinet/drinkscab.ent" />
+            <File Id="112" Path="mods/escapade_hpl3/entities/dark_descent/bottle/wine_row/wine_row_amfp.ent" />
+            <File Id="113" Path="mods/escapade_hpl3/entities/dark_descent/bottle/wine_stack/wine_stack_amfp.ent" />
+            <File Id="114" Path="mods/escapade_hpl3/entities/dark_descent/bottle/wine01/wine01_amfp.ent" />
         </FileIndex_Entities>
         <Objects>
             <Entity ID="285213582" Name="castle_4" CreStamp="1718536450" ModStamp="1718537577" WorldPos="14 0.08 9" Rotation="0 0 0" Scale="1 1 1" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 814 285213582">
@@ -15849,6 +15853,1361 @@
                     <Var ObjectId="285214325" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
                     <Var ObjectId="285214325" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
                     <Var ObjectId="285214325" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214327" Name="drinkscab_1" CreStamp="1720881810" ModStamp="1720881893" WorldPos="15.1326 4.5 -14.3979" Rotation="-0 4.45059 -0" Scale="1 1 1" FileIndex="111" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 1318 285214327">
+                <UserVariables>
+                    <Var ObjectId="285214327" Name="Note" Value="" />
+                    <Var ObjectId="285214327" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214327" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214327" Name="UserVar" Value="" />
+                    <Var ObjectId="285214327" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214327" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214327" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214327" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214327" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214327" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214327" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214327" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214327" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214327" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214327" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214327" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214327" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214327" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214327" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214327" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214327" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214327" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214327" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214327" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214327" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214327" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214327" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214327" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214327" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214327" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214327" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214327" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214327" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214327" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214327" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214327" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214327" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214327" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214327" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214327" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214327" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214327" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214327" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214327" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214327" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214327" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214327" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214327" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214327" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214327" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214327" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214327" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214327" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214327" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214327" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="285214327" Name="CustomInteractIcon" Value="PushButton" />
+                    <Var ObjectId="285214327" Name="OnBreakDeactivateEnts" Value="" />
+                    <Var ObjectId="285214327" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214327" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214327" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214327" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214328" Name="drinkscab_2" CreStamp="1720881897" ModStamp="1720881910" WorldPos="7.12103 4.5 -14.3979" Rotation="0 -0.0583706 0" Scale="1 1 1" FileIndex="111" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 1315 285214328">
+                <UserVariables>
+                    <Var ObjectId="285214328" Name="Note" Value="" />
+                    <Var ObjectId="285214328" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214328" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214328" Name="UserVar" Value="" />
+                    <Var ObjectId="285214328" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214328" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214328" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214328" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214328" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214328" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214328" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214328" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214328" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214328" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214328" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214328" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214328" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214328" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214328" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214328" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214328" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214328" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214328" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214328" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214328" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214328" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214328" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214328" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214328" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214328" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214328" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214328" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214328" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214328" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214328" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214328" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214328" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214328" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214328" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214328" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214328" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214328" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214328" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214328" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214328" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214328" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214328" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214328" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214328" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214328" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214328" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214328" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214328" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214328" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214328" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="285214328" Name="CustomInteractIcon" Value="PushButton" />
+                    <Var ObjectId="285214328" Name="OnBreakDeactivateEnts" Value="" />
+                    <Var ObjectId="285214328" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214328" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214328" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214328" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214329" Name="drinkscab_3" CreStamp="1720881923" ModStamp="1720881956" WorldPos="9.14349 4.5 12.5492" Rotation="0 0.725535 0" Scale="1 1 1" FileIndex="111" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 1316 285214329">
+                <UserVariables>
+                    <Var ObjectId="285214329" Name="Note" Value="" />
+                    <Var ObjectId="285214329" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214329" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214329" Name="UserVar" Value="" />
+                    <Var ObjectId="285214329" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214329" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214329" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214329" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214329" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214329" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214329" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214329" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214329" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214329" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214329" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214329" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214329" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214329" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214329" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214329" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214329" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214329" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214329" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214329" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214329" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214329" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214329" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214329" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214329" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214329" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214329" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214329" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214329" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214329" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214329" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214329" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214329" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214329" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214329" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214329" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214329" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214329" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214329" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214329" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214329" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214329" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214329" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214329" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214329" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214329" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214329" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214329" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214329" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214329" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214329" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="285214329" Name="CustomInteractIcon" Value="PushButton" />
+                    <Var ObjectId="285214329" Name="OnBreakDeactivateEnts" Value="" />
+                    <Var ObjectId="285214329" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214329" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214329" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214329" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214330" Name="drinkscab_4" CreStamp="1720881961" ModStamp="1720881978" WorldPos="15.1826 4.5 11.6631" Rotation="-0 1.68979 -0" Scale="1 1 1" FileIndex="111" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 1317 285214330">
+                <UserVariables>
+                    <Var ObjectId="285214330" Name="Note" Value="" />
+                    <Var ObjectId="285214330" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214330" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214330" Name="UserVar" Value="" />
+                    <Var ObjectId="285214330" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214330" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214330" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214330" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214330" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214330" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214330" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214330" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214330" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214330" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214330" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214330" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214330" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214330" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214330" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214330" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214330" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214330" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214330" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214330" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214330" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214330" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214330" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214330" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214330" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214330" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214330" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214330" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214330" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214330" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214330" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214330" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214330" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214330" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214330" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214330" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214330" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214330" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214330" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214330" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214330" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214330" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214330" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214330" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214330" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214330" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214330" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214330" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214330" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214330" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214330" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="285214330" Name="CustomInteractIcon" Value="PushButton" />
+                    <Var ObjectId="285214330" Name="OnBreakDeactivateEnts" Value="" />
+                    <Var ObjectId="285214330" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214330" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214330" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214330" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214332" Name="wine_row_amfp_1" CreStamp="1720882046" ModStamp="1720882046" WorldPos="15.1805 5.82994 11.5626" Rotation="-3.14126 -0.785399 3.14139" Scale="1 1 1" FileIndex="112" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 819 285214332">
+                <UserVariables>
+                    <Var ObjectId="285214332" Name="Note" Value="" />
+                    <Var ObjectId="285214332" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214332" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214332" Name="UserVar" Value="" />
+                    <Var ObjectId="285214332" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214332" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214332" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214332" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214332" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214332" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214332" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214332" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214332" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214332" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214332" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214332" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214332" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214332" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214332" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214332" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214332" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214332" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214332" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214332" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214332" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214332" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214332" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214332" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214332" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214332" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214332" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214332" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214332" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214332" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214332" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214332" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214332" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214332" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214332" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214332" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214332" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214332" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214332" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214332" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214332" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214332" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214332" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214332" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214332" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214332" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214332" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214332" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214332" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214332" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214332" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="285214332" Name="CustomInteractIcon" Value="PushButton" />
+                    <Var ObjectId="285214332" Name="OnBreakDeactivateEnts" Value="" />
+                    <Var ObjectId="285214332" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214332" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214332" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214332" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214333" Name="wine_stack_amfp_1" CreStamp="1720882054" ModStamp="1720882054" WorldPos="15.0976 5.82997 11.9108" Rotation="0.588522 -1.57045 -0.588518" Scale="1 1 1" FileIndex="113" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 817 285214333">
+                <UserVariables>
+                    <Var ObjectId="285214333" Name="Note" Value="" />
+                    <Var ObjectId="285214333" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214333" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214333" Name="UserVar" Value="" />
+                    <Var ObjectId="285214333" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214333" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214333" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214333" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214333" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214333" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214333" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214333" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214333" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214333" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214333" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214333" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214333" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214333" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214333" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214333" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214333" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214333" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214333" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214333" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214333" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214333" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214333" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214333" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214333" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214333" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214333" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214333" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214333" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214333" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214333" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214333" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214333" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214333" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214333" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214333" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214333" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214333" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214333" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214333" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214333" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214333" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214333" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214333" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214333" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214333" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214333" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214333" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214333" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214333" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214333" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="285214333" Name="CustomInteractIcon" Value="PushButton" />
+                    <Var ObjectId="285214333" Name="OnBreakDeactivateEnts" Value="" />
+                    <Var ObjectId="285214333" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214333" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214333" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214333" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214334" Name="wine_stack_amfp_2" CreStamp="1720882056" ModStamp="1720882056" WorldPos="15.3262 5.82997 11.7636" Rotation="1.68049e-06 -1.309 2.01457e-06" Scale="1 1 1" FileIndex="113" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 816 285214334">
+                <UserVariables>
+                    <Var ObjectId="285214334" Name="Note" Value="" />
+                    <Var ObjectId="285214334" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214334" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214334" Name="UserVar" Value="" />
+                    <Var ObjectId="285214334" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214334" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214334" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214334" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214334" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214334" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214334" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214334" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214334" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214334" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214334" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214334" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214334" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214334" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214334" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214334" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214334" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214334" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214334" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214334" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214334" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214334" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214334" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214334" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214334" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214334" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214334" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214334" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214334" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214334" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214334" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214334" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214334" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214334" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214334" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214334" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214334" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214334" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214334" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214334" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214334" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214334" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214334" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214334" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214334" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214334" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214334" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214334" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214334" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214334" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214334" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="285214334" Name="CustomInteractIcon" Value="PushButton" />
+                    <Var ObjectId="285214334" Name="OnBreakDeactivateEnts" Value="" />
+                    <Var ObjectId="285214334" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214334" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214334" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214334" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214335" Name="wine_stack_amfp_3" CreStamp="1720882067" ModStamp="1720882067" WorldPos="9.11559 5.82997 12.7332" Rotation="-3.87632e-06 -0.785398 5.17197e-06" Scale="1 1 1" FileIndex="113" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 818 285214335">
+                <UserVariables>
+                    <Var ObjectId="285214335" Name="Note" Value="" />
+                    <Var ObjectId="285214335" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214335" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214335" Name="UserVar" Value="" />
+                    <Var ObjectId="285214335" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214335" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214335" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214335" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214335" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214335" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214335" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214335" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214335" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214335" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214335" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214335" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214335" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214335" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214335" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214335" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214335" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214335" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214335" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214335" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214335" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214335" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214335" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214335" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214335" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214335" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214335" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214335" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214335" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214335" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214335" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214335" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214335" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214335" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214335" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214335" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214335" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214335" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214335" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214335" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214335" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214335" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214335" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214335" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214335" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214335" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214335" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214335" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214335" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214335" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214335" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="285214335" Name="CustomInteractIcon" Value="PushButton" />
+                    <Var ObjectId="285214335" Name="OnBreakDeactivateEnts" Value="" />
+                    <Var ObjectId="285214335" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214335" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214335" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214335" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214337" Name="wine_stack_amfp_4" CreStamp="1720882074" ModStamp="1720882074" WorldPos="8.8664 5.82997 12.6906" Rotation="-3.87632e-06 -0.785398 5.17197e-06" Scale="1 1 1" FileIndex="113" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 812 285214337">
+                <UserVariables>
+                    <Var ObjectId="285214337" Name="Note" Value="" />
+                    <Var ObjectId="285214337" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214337" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214337" Name="UserVar" Value="" />
+                    <Var ObjectId="285214337" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214337" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214337" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214337" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214337" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214337" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214337" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214337" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214337" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214337" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214337" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214337" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214337" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214337" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214337" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214337" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214337" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214337" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214337" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214337" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214337" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214337" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214337" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214337" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214337" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214337" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214337" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214337" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214337" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214337" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214337" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214337" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214337" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214337" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214337" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214337" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214337" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214337" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214337" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214337" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214337" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214337" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214337" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214337" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214337" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214337" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214337" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214337" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214337" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214337" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214337" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="285214337" Name="CustomInteractIcon" Value="PushButton" />
+                    <Var ObjectId="285214337" Name="OnBreakDeactivateEnts" Value="" />
+                    <Var ObjectId="285214337" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214337" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214337" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214337" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214338" Name="wine_row_amfp_2" CreStamp="1720882082" ModStamp="1720882090" WorldPos="9.39625 5.82994 12.3234" Rotation="-4.64598e-06 -0.825581 6.20881e-06" Scale="1 1 1" FileIndex="112" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 979 285214338">
+                <UserVariables>
+                    <Var ObjectId="285214338" Name="Note" Value="" />
+                    <Var ObjectId="285214338" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214338" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214338" Name="UserVar" Value="" />
+                    <Var ObjectId="285214338" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214338" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214338" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214338" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214338" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214338" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214338" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214338" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214338" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214338" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214338" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214338" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214338" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214338" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214338" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214338" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214338" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214338" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214338" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214338" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214338" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214338" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214338" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214338" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214338" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214338" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214338" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214338" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214338" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214338" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214338" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214338" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214338" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214338" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214338" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214338" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214338" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214338" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214338" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214338" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214338" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214338" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214338" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214338" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214338" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214338" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214338" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214338" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214338" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214338" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214338" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="285214338" Name="CustomInteractIcon" Value="PushButton" />
+                    <Var ObjectId="285214338" Name="OnBreakDeactivateEnts" Value="" />
+                    <Var ObjectId="285214338" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214338" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214338" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214338" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214339" Name="wine01_amfp_1" CreStamp="1720882111" ModStamp="1720882111" WorldPos="7.80384 5.1321 10.0221" Rotation="3.58529e-06 -0.785398 -5.07036e-06" Scale="1 1 1" FileIndex="114" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 1066 285214339">
+                <UserVariables>
+                    <Var ObjectId="285214339" Name="Note" Value="" />
+                    <Var ObjectId="285214339" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214339" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214339" Name="UserVar" Value="" />
+                    <Var ObjectId="285214339" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214339" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214339" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214339" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214339" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214339" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214339" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214339" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214339" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214339" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214339" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214339" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214339" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214339" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214339" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214339" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214339" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214339" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214339" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214339" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214339" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214339" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214339" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214339" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214339" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214339" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214339" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214339" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214339" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214339" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214339" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214339" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214339" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214339" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214339" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214339" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214339" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214339" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214339" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214339" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214339" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214339" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214339" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214339" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214339" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214339" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214339" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214339" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214339" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214339" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214339" Name="InteractDisablesStaticPhysics" Value="false" />
+                    <Var ObjectId="285214339" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214339" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214339" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214339" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214340" Name="wine01_amfp_2" CreStamp="1720882120" ModStamp="1720882120" WorldPos="13.0727 5.1321 10.035" Rotation="2.92738e-06 0.523599 -1.07149e-06" Scale="1 1 1" FileIndex="114" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 1051 285214340">
+                <UserVariables>
+                    <Var ObjectId="285214340" Name="Note" Value="" />
+                    <Var ObjectId="285214340" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214340" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214340" Name="UserVar" Value="" />
+                    <Var ObjectId="285214340" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214340" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214340" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214340" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214340" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214340" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214340" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214340" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214340" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214340" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214340" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214340" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214340" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214340" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214340" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214340" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214340" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214340" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214340" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214340" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214340" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214340" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214340" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214340" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214340" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214340" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214340" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214340" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214340" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214340" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214340" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214340" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214340" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214340" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214340" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214340" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214340" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214340" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214340" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214340" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214340" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214340" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214340" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214340" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214340" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214340" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214340" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214340" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214340" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214340" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214340" Name="InteractDisablesStaticPhysics" Value="false" />
+                    <Var ObjectId="285214340" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214340" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214340" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214340" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214341" Name="wine01_amfp_3" CreStamp="1720882136" ModStamp="1720882136" WorldPos="14.4445 4.99472 -12.4874" Rotation="-1.09491e-06 -0.523598 4.08632e-06" Scale="1 1 1" FileIndex="114" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 1048 285214341">
+                <UserVariables>
+                    <Var ObjectId="285214341" Name="Note" Value="" />
+                    <Var ObjectId="285214341" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214341" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214341" Name="UserVar" Value="" />
+                    <Var ObjectId="285214341" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214341" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214341" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214341" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214341" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214341" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214341" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214341" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214341" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214341" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214341" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214341" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214341" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214341" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214341" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214341" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214341" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214341" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214341" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214341" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214341" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214341" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214341" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214341" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214341" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214341" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214341" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214341" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214341" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214341" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214341" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214341" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214341" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214341" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214341" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214341" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214341" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214341" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214341" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214341" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214341" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214341" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214341" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214341" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214341" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214341" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214341" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214341" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214341" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214341" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214341" Name="InteractDisablesStaticPhysics" Value="false" />
+                    <Var ObjectId="285214341" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214341" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214341" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214341" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214342" Name="wine01_amfp_4" CreStamp="1720882146" ModStamp="1720882146" WorldPos="11.7267 4.99472 -12.1785" Rotation="-1.09491e-06 -0.523598 4.08632e-06" Scale="1 1 1" FileIndex="114" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 1042 285214342">
+                <UserVariables>
+                    <Var ObjectId="285214342" Name="Note" Value="" />
+                    <Var ObjectId="285214342" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214342" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214342" Name="UserVar" Value="" />
+                    <Var ObjectId="285214342" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214342" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214342" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214342" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214342" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214342" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214342" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214342" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214342" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214342" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214342" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214342" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214342" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214342" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214342" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214342" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214342" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214342" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214342" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214342" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214342" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214342" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214342" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214342" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214342" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214342" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214342" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214342" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214342" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214342" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214342" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214342" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214342" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214342" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214342" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214342" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214342" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214342" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214342" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214342" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214342" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214342" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214342" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214342" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214342" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214342" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214342" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214342" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214342" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214342" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214342" Name="InteractDisablesStaticPhysics" Value="false" />
+                    <Var ObjectId="285214342" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214342" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214342" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214342" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214343" Name="wine01_amfp_5" CreStamp="1720882150" ModStamp="1720882150" WorldPos="11.7558 4.99472 -12.458" Rotation="-1.89645e-06 -1.0472 5.18124e-06" Scale="1 1 1" FileIndex="114" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 1041 285214343">
+                <UserVariables>
+                    <Var ObjectId="285214343" Name="Note" Value="" />
+                    <Var ObjectId="285214343" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214343" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214343" Name="UserVar" Value="" />
+                    <Var ObjectId="285214343" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214343" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214343" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214343" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214343" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214343" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214343" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214343" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214343" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214343" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214343" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214343" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214343" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214343" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214343" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214343" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214343" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214343" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214343" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214343" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214343" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214343" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214343" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214343" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214343" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214343" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214343" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214343" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214343" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214343" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214343" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214343" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214343" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214343" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214343" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214343" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214343" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214343" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214343" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214343" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214343" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214343" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214343" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214343" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214343" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214343" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214343" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214343" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214343" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214343" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214343" Name="InteractDisablesStaticPhysics" Value="false" />
+                    <Var ObjectId="285214343" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214343" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214343" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214343" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214344" Name="wine_stack_amfp_5" CreStamp="1720882164" ModStamp="1720882164" WorldPos="7.3963 5.82994 -14.4665" Rotation="-4.4773e-06 6.51682e-07 -2.61643e-07" Scale="1 1 1" FileIndex="113" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 807 285214344">
+                <UserVariables>
+                    <Var ObjectId="285214344" Name="Note" Value="" />
+                    <Var ObjectId="285214344" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214344" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214344" Name="UserVar" Value="" />
+                    <Var ObjectId="285214344" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214344" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214344" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214344" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214344" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214344" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214344" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214344" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214344" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214344" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214344" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214344" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214344" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214344" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214344" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214344" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214344" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214344" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214344" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214344" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214344" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214344" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214344" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214344" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214344" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214344" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214344" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214344" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214344" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214344" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214344" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214344" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214344" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214344" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214344" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214344" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214344" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214344" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214344" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214344" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214344" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214344" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214344" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214344" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214344" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214344" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214344" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214344" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214344" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214344" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214344" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="285214344" Name="CustomInteractIcon" Value="PushButton" />
+                    <Var ObjectId="285214344" Name="OnBreakDeactivateEnts" Value="" />
+                    <Var ObjectId="285214344" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214344" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214344" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214344" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214345" Name="wine_stack_amfp_6" CreStamp="1720882167" ModStamp="1720882167" WorldPos="7.18523 5.82994 -14.2669" Rotation="9.5987e-06 6.53964e-07 -0.000237617" Scale="1 1 1" FileIndex="113" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 803 285214345">
+                <UserVariables>
+                    <Var ObjectId="285214345" Name="Note" Value="" />
+                    <Var ObjectId="285214345" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214345" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214345" Name="UserVar" Value="" />
+                    <Var ObjectId="285214345" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214345" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214345" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214345" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214345" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214345" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214345" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214345" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214345" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214345" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214345" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214345" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214345" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214345" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214345" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214345" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214345" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214345" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214345" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214345" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214345" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214345" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214345" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214345" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214345" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214345" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214345" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214345" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214345" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214345" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214345" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214345" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214345" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214345" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214345" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214345" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214345" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214345" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214345" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214345" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214345" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214345" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214345" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214345" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214345" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214345" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214345" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214345" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214345" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214345" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214345" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="285214345" Name="CustomInteractIcon" Value="PushButton" />
+                    <Var ObjectId="285214345" Name="OnBreakDeactivateEnts" Value="" />
+                    <Var ObjectId="285214345" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214345" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214345" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214345" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214346" Name="wine_row_amfp_3" CreStamp="1720882171" ModStamp="1720882171" WorldPos="6.95077 5.82997 -14.5549" Rotation="-3.65746e-06 6.51682e-07 -2.13733e-07" Scale="1 1 1" FileIndex="112" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 980 285214346">
+                <UserVariables>
+                    <Var ObjectId="285214346" Name="Note" Value="" />
+                    <Var ObjectId="285214346" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214346" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214346" Name="UserVar" Value="" />
+                    <Var ObjectId="285214346" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214346" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214346" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214346" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214346" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214346" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214346" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214346" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214346" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214346" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214346" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214346" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214346" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214346" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214346" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214346" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214346" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214346" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214346" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214346" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214346" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214346" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214346" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214346" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214346" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214346" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214346" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214346" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214346" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214346" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214346" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214346" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214346" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214346" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214346" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214346" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214346" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214346" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214346" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214346" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214346" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214346" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214346" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214346" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214346" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214346" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214346" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214346" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214346" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214346" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214346" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="285214346" Name="CustomInteractIcon" Value="PushButton" />
+                    <Var ObjectId="285214346" Name="OnBreakDeactivateEnts" Value="" />
+                    <Var ObjectId="285214346" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214346" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214346" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214346" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214347" Name="wine_row_amfp_4" CreStamp="1720882179" ModStamp="1720882179" WorldPos="15.3592 5.82997 -14.5667" Rotation="3.66371e-06 1.309 1.18598e-11" Scale="1 1 1" FileIndex="112" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 1039 285214347">
+                <UserVariables>
+                    <Var ObjectId="285214347" Name="Note" Value="" />
+                    <Var ObjectId="285214347" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214347" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214347" Name="UserVar" Value="" />
+                    <Var ObjectId="285214347" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214347" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214347" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214347" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214347" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214347" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214347" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214347" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214347" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214347" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214347" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214347" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214347" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214347" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214347" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214347" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214347" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214347" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214347" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214347" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214347" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214347" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214347" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214347" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214347" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214347" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214347" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214347" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214347" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214347" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214347" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214347" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214347" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214347" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214347" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214347" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214347" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214347" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214347" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214347" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214347" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214347" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214347" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214347" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214347" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214347" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214347" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214347" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214347" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214347" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214347" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="285214347" Name="CustomInteractIcon" Value="PushButton" />
+                    <Var ObjectId="285214347" Name="OnBreakDeactivateEnts" Value="" />
+                    <Var ObjectId="285214347" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214347" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214347" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214347" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214348" Name="wine_stack_amfp_7" CreStamp="1720882185" ModStamp="1720882185" WorldPos="15.1402 5.82997 -14.4221" Rotation="0.000593836 1.309 0.000610897" Scale="1 1 1" FileIndex="113" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 1034 285214348">
+                <UserVariables>
+                    <Var ObjectId="285214348" Name="Note" Value="" />
+                    <Var ObjectId="285214348" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214348" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214348" Name="UserVar" Value="" />
+                    <Var ObjectId="285214348" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214348" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214348" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214348" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214348" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214348" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214348" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214348" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214348" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214348" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214348" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214348" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214348" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214348" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214348" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214348" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214348" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214348" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214348" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214348" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214348" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214348" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214348" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214348" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214348" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214348" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214348" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214348" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214348" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214348" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214348" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214348" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214348" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214348" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214348" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214348" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214348" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214348" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214348" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214348" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214348" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214348" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214348" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214348" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214348" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214348" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214348" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214348" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214348" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214348" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214348" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="285214348" Name="CustomInteractIcon" Value="PushButton" />
+                    <Var ObjectId="285214348" Name="OnBreakDeactivateEnts" Value="" />
+                    <Var ObjectId="285214348" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214348" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214348" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214348" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214349" Name="wine_stack_amfp_8" CreStamp="1720882193" ModStamp="1720882193" WorldPos="15.1012 5.82994 -14.2411" Rotation="4.21121e-06 1.309 1.36168e-11" Scale="1 1 1" FileIndex="113" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 1038 285214349">
+                <UserVariables>
+                    <Var ObjectId="285214349" Name="Note" Value="" />
+                    <Var ObjectId="285214349" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="285214349" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214349" Name="UserVar" Value="" />
+                    <Var ObjectId="285214349" Name="DisableBreakable" Value="false" />
+                    <Var ObjectId="285214349" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="285214349" Name="StaticPhysics" Value="false" />
+                    <Var ObjectId="285214349" Name="QuickSave" Value="false" />
+                    <Var ObjectId="285214349" Name="AllowMapTransfer" Value="false" />
+                    <Var ObjectId="285214349" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="285214349" Name="InteractionDisabled" Value="false" />
+                    <Var ObjectId="285214349" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214349" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214349" Name="EffectColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214349" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285214349" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214349" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214349" Name="IsAffectedByDecal" Value="false" />
+                    <Var ObjectId="285214349" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214349" Name="UpdateBonesWhenCulled" Value="false" />
+                    <Var ObjectId="285214349" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="285214349" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="285214349" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="285214349" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214349" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="285214349" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="285214349" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="285214349" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="285214349" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="285214349" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214349" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="285214349" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="285214349" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="285214349" Name="CC_Entities" Value="" />
+                    <Var ObjectId="285214349" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="285214349" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="285214349" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="285214349" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="285214349" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="285214349" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="285214349" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="285214349" Name="ParentAttachSocket" Value="" />
+                    <Var ObjectId="285214349" Name="ParentAttachSnap" Value="false" />
+                    <Var ObjectId="285214349" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="285214349" Name="ConnectedLight" Value="" />
+                    <Var ObjectId="285214349" Name="ConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214349" Name="ConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214349" Name="ConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214349" Name="ConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214349" Name="ExtraConnectedLight" Value="" />
+                    <Var ObjectId="285214349" Name="ExtraConnectionLightAmount" Value="1" />
+                    <Var ObjectId="285214349" Name="ExtraConnectionLightUseOnColor" Value="true" />
+                    <Var ObjectId="285214349" Name="ExtraConnectionLightUseSpec" Value="false" />
+                    <Var ObjectId="285214349" Name="ExtraConnectionLightType" Value="Mul" />
+                    <Var ObjectId="285214349" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="285214349" Name="CustomInteractIcon" Value="PushButton" />
+                    <Var ObjectId="285214349" Name="OnBreakDeactivateEnts" Value="" />
+                    <Var ObjectId="285214349" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+                    <Var ObjectId="285214349" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+                    <Var ObjectId="285214349" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
+                    <Var ObjectId="285214349" Name="WoodenBreakable_CustomDropItemsList" Value="" />
                 </UserVariables>
             </Entity>
         </Objects>
