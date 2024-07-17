@@ -4,7 +4,7 @@
         <Objects />
     </Section>
     <Section Name="3359272541875756134">
-        <FileIndex_Entities NumOfFiles="115">
+        <FileIndex_Entities NumOfFiles="116">
             <File Id="0" Path="mods/escapade_hpl3/entities/dark_descent/door/castle/castle.ent" />
             <File Id="1" Path="mods/escapade_hpl3/entities/dark_descent/door/castle_arched01/castle_arched01.ent" />
             <File Id="2" Path="entities/nonexclusive/organic/shadowflesh/shadowflesh_pile/shadowflesh_pile.ent" />
@@ -120,6 +120,7 @@
             <File Id="112" Path="mods/escapade_hpl3/entities/dark_descent/bottle/wine_row/wine_row_amfp.ent" />
             <File Id="113" Path="mods/escapade_hpl3/entities/dark_descent/bottle/wine_stack/wine_stack_amfp.ent" />
             <File Id="114" Path="mods/escapade_hpl3/entities/dark_descent/bottle/wine01/wine01_amfp.ent" />
+            <File Id="115" Path="mods/escapade_hpl3/entities/soma/organic/urban_ornament/planet_ficus/plant_ficus.ent" />
         </FileIndex_Entities>
         <Objects>
             <Entity ID="285213582" Name="castle_4" CreStamp="1718536450" ModStamp="1718537577" WorldPos="14 0.08 9" Rotation="0 0 0" Scale="1 1 1" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 814 285213582">
@@ -17208,6 +17209,34 @@
                     <Var ObjectId="285214349" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
                     <Var ObjectId="285214349" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
                     <Var ObjectId="285214349" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214350" Name="plant_ficus_1" CreStamp="1721243440" ModStamp="1721243483" WorldPos="28.2885 0 -13.4666" Rotation="-3.14159 -1.45719 3.14159" Scale="1.5 1.5 1.5" FileIndex="115" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 1396 285214350">
+                <UserVariables>
+                    <Var ObjectId="285214350" Name="Note" Value="" />
+                    <Var ObjectId="285214350" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214350" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285214350" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214350" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285214350" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214350" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214350" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214350" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214350" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285214351" Name="plant_ficus_2" CreStamp="1721243488" ModStamp="1721243503" WorldPos="28.2885 0 11.3003" Rotation="3.14159 1.78647 3.14159" Scale="1.5 1.5 1.5" FileIndex="115" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 1395 285214351">
+                <UserVariables>
+                    <Var ObjectId="285214351" Name="Note" Value="" />
+                    <Var ObjectId="285214351" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285214351" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285214351" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285214351" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285214351" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285214351" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285214351" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285214351" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285214351" Name="RenderLayer" Value="0" />
                 </UserVariables>
             </Entity>
         </Objects>
