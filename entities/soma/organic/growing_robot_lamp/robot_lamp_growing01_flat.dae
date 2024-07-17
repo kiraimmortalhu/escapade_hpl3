@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>marcus</author>
+      <authoring_tool>OpenCOLLADA2008 x64</authoring_tool>
+      <comments>
+			ColladaMaya export options: 
+			bakeTransforms=0;relativePaths=0;copyTextures=0;exportTriangles=1;exportCgfxFileReferences=1;
+			isSampling=0;curveConstrainSampling=0;removeStaticCurves=1;exportPolygonMeshes=1;exportLights=1;
+			exportCameras=1;exportJointsAndSkin=0;exportAnimations=0;exportInvisibleNodes=0;exportDefaultCameras=0;
+			exportTexCoords=1;exportNormals=1;exportNormalsPerVertex=1;exportVertexColors=1;exportVertexColorsPerVertex=1;
+			exportTexTangents=0;exportTangents=0;exportReferencedMaterials=0;exportMaterialsOnly=0;
+			exportXRefs=1;dereferenceXRefs=1;exportCameraAsLookat=0;cameraXFov=0;cameraYFov=1;doublePrecision=0
+		</comments>
+      <source_data>file:///D:/work/DropBox/Team/Depth_marcus/models/entities/robot/lamp/fungi%20lamp/mesh_test02.ma</source_data>
+    </contributor>
+    <created>2012-11-16T14:20:00</created>
+    <modified>2012-11-16T14:20:00</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Y_UP</up_axis>
+  </asset>
+  <library_materials>
+    <material id="robot_lamp_growing_MAT" name="robot_lamp_growing_MAT">
+      <instance_effect url="#robot_lamp_growing_MAT-fx"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="robot_lamp_growing_MAT-fx">
+      <profile_COMMON>
+        <newparam sid="file9-surface">
+          <surface type="2D">
+            <init_from>file9</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="file9-sampler">
+          <sampler2D>
+            <source>file9-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <blinn>
+            <emission>
+              <color>0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color>0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="file9-sampler" texcoord="TEX0">
+                <extra>
+                  <technique profile="OpenCOLLADAMaya">
+                    <blend_mode>NONE</blend_mode>
+                    <coverageU>1</coverageU>
+                    <coverageV>1</coverageV>
+                    <fast>0</fast>
+                    <mirrorU>0</mirrorU>
+                    <mirrorV>0</mirrorV>
+                    <noiseU>0</noiseU>
+                    <noiseV>0</noiseV>
+                    <offsetU>0</offsetU>
+                    <offsetV>0</offsetV>
+                    <repeatU>1</repeatU>
+                    <repeatV>1</repeatV>
+                    <rotateFrame>0</rotateFrame>
+                    <rotateUV>0</rotateUV>
+                    <stagger>0</stagger>
+                    <translateFrameU>0</translateFrameU>
+                    <translateFrameV>0</translateFrameV>
+                    <wrapU>1</wrapU>
+                    <wrapV>1</wrapV>
+                  </technique>
+                </extra>
+              </texture>
+            </diffuse>
+            <specular>
+              <color>0.5 0.5 0.5 1</color>
+            </specular>
+            <shininess>
+              <float>0.3</float>
+            </shininess>
+            <reflective>
+              <color>0 0 0 1</color>
+            </reflective>
+            <reflectivity>
+              <float>0.5</float>
+            </reflectivity>
+            <transparent opaque="RGB_ZERO">
+              <color>0 0 0 1</color>
+            </transparent>
+            <transparency>
+              <float>1</float>
+            </transparency>
+          </blinn>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images>
+    <image id="file9" name="file9">
+      <init_from>file:///D:/work/depth/redist/detail_meshes/robot/lamp_growing/robot_lamp_growing.mat</init_from>
+      <extra>
+        <technique profile="OpenCOLLADAMaya">
+          <dgnode_type>kFile</dgnode_type>
+          <image_sequence>0</image_sequence>
+          <originalMayaNodeId>file9</originalMayaNodeId>
+        </technique>
+      </extra>
+    </image>
+  </library_images>
+  <library_geometries>
+    <geometry id="robot_lamp_growing01_flatShape" name="robot_lamp_growing01_flatShape">
+      <mesh>
+        <source id="robot_lamp_growing01_flatShape-positions" name="robot_lamp_growing01_flatShape-positions">
+          <float_array id="robot_lamp_growing01_flatShape-positions-array" count="105">-0.07600206 -0.001825249 -0.06185948 -0.06169419 -0.001945952 0.07372509 -0.01498936 -0.001899449 0.08879784 0.0317789 -0.001068949 -0.09199499 0.08729004 -0.001188249 0.02832841 0.04690304 -0.001492649 0.07434232 -0.02562006 -0.002120449 -0.08800054 -0.100174 -0.002080449 -0.003759582 0.05359108 0.02370845 -0.005956879 -0.007444115 0.07941285 -0.008280334 -0.04490761 0.06084355 0.01273628 -0.0467025 0.06319195 -0.0213385 -0.0364328 0.06318425 -0.04098953 -0.01416908 0.06440265 -0.04419396 0.001057281 0.06446335 -0.04991841 0.0244065 0.06195585 -0.04310489 0.03167629 0.06245505 -0.005801697 0.0248114 0.06028755 0.0165448 0.007658348 0.06000925 0.03040047 -0.0145673 0.06126685 0.03615952 -0.06729229 0.02775625 0.0113665 -0.06351311 0.02792485 -0.0259684 -0.04558128 0.02865375 -0.0459816 -0.01302101 0.02880105 -0.05094275 0.006528091 0.02861145 -0.06444993 0.02969188 0.02776445 -0.06346225 0.04397655 0.02861575 -0.04974704 0.04856049 0.02278695 0.02471947 0.01932461 0.02845765 0.04768127 -0.01567348 0.02843505 0.05220909 -0.04985962 0.02802035 0.04131332 0.01022415 -0.01756375 0.006109085 0.06802754 0.00561205 -0.06555333 0.08843918 0.002085539 -0.02227405 -0.092861 -0.002006985 0.04088697</float_array>
+          <technique_common>
+            <accessor source="#robot_lamp_growing01_flatShape-positions-array" count="35" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="robot_lamp_growing01_flatShape-normals" name="robot_lamp_growing01_flatShape-normals">
+          <float_array id="robot_lamp_growing01_flatShape-normals-array" count="138">-0.04055893 0.7598274 0.6488586 0.3560576 0.791679 0.4964548 0.345353 0.660501 0.6666856 -0.08206391 0.654743 0.7513835 0.5123495 0.8361505 0.1958323 0.5876227 0.7212443 0.3667509 0.6593761 0.6437758 -0.3882986 0.6683922 0.7437928 0.004927323 0.5240553 0.8031848 -0.2833023 0.1242823 0.6996782 -0.7035655 0.3110449 0.6069358 -0.7313548 -0.1399012 0.5956542 -0.7909638 -0.2164023 0.7301053 -0.6481637 -0.2896537 0.5242428 -0.8007934 -0.5311295 0.7042722 -0.4710648 -0.4034666 0.5926909 -0.6970884 -0.7304423 0.6241586 -0.2772723 -0.695586 0.7138122 -0.08144031 -0.703297 0.6761326 0.2195861 -0.580785 0.767651 0.2709257 -0.4434846 0.7544394 0.483883 -0.5235947 0.6369432 0.5658196 -0.6490849 0.7407338 -0.1732114 -0.5881405 0.7313885 0.3451979 0.0160642 0.9998406 0.007793049 -0.3925526 0.6987128 -0.5980825 -0.2465506 0.6386137 -0.7289619 -0.07028292 0.7262528 -0.6838254 0.4953486 0.7367295 -0.460282 0.6540762 0.754917 0.0477981 0.5404601 0.7546053 0.3721207 0.3052153 0.7437841 0.594667 -0.09437888 0.7687081 0.6325982 -1.82358e-4 -0.9825359 0.1860729 -0.09083959 -0.9888821 0.11773 0.03343828 -0.9994407 1.01495e-4 0.110477 -0.979022 0.1712038 -0.03426259 -0.9882258 -0.1491171 0.1315569 -0.981909 -0.1361892 -0.1043566 -0.9898171 -0.09680889 -0.1274302 -0.9897153 0.0650013 -0.1306671 -0.9914229 0.002584536 0.1868221 -0.9822932 0.01405464 0.5123782 0.8577155 -0.04234163 0.2290463 -0.9672904 -0.1090277 0.203612 -0.9725983 -0.1122267</float_array>
+          <technique_common>
+            <accessor source="#robot_lamp_growing01_flatShape-normals-array" count="46" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="robot_lamp_growing01_flatShape-map1" name="robot_lamp_growing01_flatShape-map1">
+          <float_array id="robot_lamp_growing01_flatShape-map1-array" count="96">0.330973 0.688462 0.41089 0.692051 0.396854 0.727403 0.33763 0.728401 0.47035 0.705138 0.458901 0.750913 0.428124 0.908147 0.476324 0.845287 0.451021 0.930926 0.395149 0.973435 0.398954 0.923788 0.3665 0.926118 0.315779 0.972607 0.331244 0.918492 0.242918 0.907468 0.291609 0.889204 0.27419 0.859771 0.226923 0.818147 0.269328 0.80739 0.256799 0.735275 0.29179 0.759898 0.319984 0.847915 0.318537 0.805759 0.369415 0.823475 0.330862 0.869432 0.354123 0.873857 0.369039 0.878142 0.3968 0.872197 0.418983 0.825697 0.411236 0.790025 0.384564 0.771446 0.35357 0.768431 0.506398 0.737943 0.899705 0.61923 0.947188 0.637959 0.876978 0.683599 0.851364 0.630904 0.895633 0.737638 0.858829 0.757087 0.949785 0.726148 0.971792 0.683647 0.823076 0.6807 0.538122 0.693624 0.825082 0.751622 0.5029767 0.699595 0.8240417 0.7148432 0.2452898 0.7672 0.9566663 0.6555595</float_array>
+          <technique_common>
+            <accessor source="#robot_lamp_growing01_flatShape-map1-array" count="48" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="robot_lamp_growing01_flatShape-vertices" name="robot_lamp_growing01_flatShape-vertices">
+          <input semantic="POSITION" source="#robot_lamp_growing01_flatShape-positions"/>
+        </vertices>
+        <triangles material="blinn3SG" count="66">
+          <input semantic="VERTEX" source="#robot_lamp_growing01_flatShape-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#robot_lamp_growing01_flatShape-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#robot_lamp_growing01_flatShape-map1" offset="2" set="0"/>
+          <p>5 1 1 28 2 2 2 0 0 2 0 0 28 2 2 29 3 3 5 1 1 4 4 4 27 5 5 26 6 6 8 7 7 32 8 8 3 9 9 25 10 10 32 8 8 32 8 8 25 10 10 26 6 6 3 9 9 24 11 11 25 10 10 24 11 11 6 12 12 23 13 13 6 12 12 0 14 14 22 15 15 0 14 14 21 16 16 22 15 15 21 16 16 7 17 17 20 18 18 34 19 46 1 20 19 20 18 18 1 20 19 30 21 20 20 18 18 2 0 0 29 3 3 1 20 19 1 20 19 29 3 3 30 21 20 11 22 21 10 23 22 9 24 23 12 25 24 11 22 21 9 24 23 13 26 25 12 25 24 9 24 23 14 27 26 13 26 25 9 24 23 15 28 27 14 27 26 9 24 23 16 29 28 15 28 27 9 24 23 17 30 29 16 29 28 9 24 23 18 31 30 17 30 29 9 24 23 19 32 31 18 31 30 9 24 23 10 23 22 19 32 31 9 24 23 21 16 16 20 18 18 11 22 21 11 22 21 20 18 18 10 23 22 21 16 16 11 22 21 22 15 15 22 15 15 11 22 21 12 25 24 22 15 15 12 25 24 23 13 13 23 13 13 12 25 24 13 26 25 24 11 11 23 13 13 14 27 26 14 27 26 23 13 13 13 26 25 25 10 10 24 11 11 15 28 27 15 28 27 24 11 11 14 27 26 26 6 6 25 10 10 15 28 27 8 7 7 26 6 6 16 29 28 16 29 28 26 6 6 15 28 27 27 5 5 8 7 7 17 30 29 17 30 29 8 7 7 16 29 28 27 5 5 17 30 29 28 2 2 28 2 2 17 30 29 18 31 30 28 2 2 18 31 30 29 3 3 29 3 3 18 31 30 19 32 31 29 3 3 19 32 31 30 21 20 30 21 20 19 32 31 10 23 22 20 18 18 30 21 20 10 23 22 8 7 32 27 5 5 4 4 4 2 33 33 1 34 34 31 35 35 5 36 36 2 33 33 31 35 35 6 37 37 3 38 38 31 35 35 0 39 39 6 37 37 31 35 35 7 41 40 31 35 35 34 40 47 1 34 34 34 40 47 31 35 35 7 41 40 0 39 39 31 35 35 4 42 41 5 36 36 31 35 35 5 1 1 27 5 5 28 2 2 33 43 44 32 8 42 8 7 32 3 38 38 32 44 43 31 35 35 32 44 43 33 45 45 31 35 35 31 35 35 33 45 45 4 42 41 0 14 14 7 17 17 21 16 16 3 9 9 6 12 12 24 11 11 6 12 12 22 15 15 23 13 13 4 4 4 33 43 44 8 7 32 7 17 17 34 19 46 20 18 18</p>
+        </triangles>
+      </mesh>
+      <extra>
+        <technique profile="OpenCOLLADAMaya">
+          <originalMayaNodeId>robot_lamp_growing01_flatShape</originalMayaNodeId>
+          <double_sided>1</double_sided>
+        </technique>
+      </extra>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="VisualSceneNode" name="mesh_test02">
+      <node id="robot_lamp_growing01_flat" name="robot_lamp_growing01_flat" type="NODE">
+        <translate sid="translate">0 0 0</translate>
+        <rotate sid="rotateZ">0 0 1 0</rotate>
+        <rotate sid="rotateY">0 1 0 0</rotate>
+        <rotate sid="rotateX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_geometry url="#robot_lamp_growing01_flatShape">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="blinn3SG" target="#robot_lamp_growing_MAT">
+                <bind_vertex_input semantic="TEX0" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+        <extra>
+          <technique profile="OpenCOLLADAMaya">
+            <originalMayaNodeId>robot_lamp_growing01_flat</originalMayaNodeId>
+          </technique>
+        </extra>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#VisualSceneNode"/>
+  </scene>
+</COLLADA>
