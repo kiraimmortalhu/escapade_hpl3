@@ -1,0 +1,72 @@
+<Entity>
+    <EditorSession>
+        <ViewportConfig Enlarged="true" Focused="3">
+            <Viewport CameraPos="0.0466382 0.350147 199.969" CameraTarget="0.0466382 0.350147 -0.0312885" Controller="Ortho" GridHeights="0.0466382 0.350147 -0.0312885" GridPlane="2" LockToGrid="true" Mode="Front" OrthoZoom="0.44966" Renderer="Wireframe" ShowAxes="true" ShowGrid="true" />
+            <Viewport CameraPos="200.047 0.350147 -0.0312885" CameraTarget="0.0466382 0.350147 -0.0312885" Controller="Ortho" GridHeights="0.0466382 0.350147 -0.0312885" GridPlane="0" LockToGrid="true" Mode="Right" OrthoZoom="0.44966" Renderer="Wireframe" ShowAxes="true" ShowGrid="true" />
+            <Viewport CameraPos="0.0466382 200.35 -0.0312885" CameraTarget="0.0466382 0.350147 -0.0312885" Controller="Ortho" GridHeights="0.0466382 0.350147 -0.0312885" GridPlane="1" LockToGrid="true" Mode="Top" OrthoZoom="0.44966" Renderer="Wireframe" ShowAxes="true" ShowGrid="true" />
+            <Viewport CameraPos="-0.0891851 0.505393 -0.222018" CameraTarget="0.0466382 0.350147 -0.0312885" Controller="Maya" GridHeights="0.0466382 0.350147 -0.0312885" GridPlane="1" LockToGrid="true" Mode="Perspective" Renderer="Shaded" ShowAxes="true" ShowGrid="true" />
+        </ViewportConfig>
+    </EditorSession>
+    <ModelData>
+        <Entities />
+        <Mesh Filename="entities/urban/ornament/plant_dracaena02/plant_dracaena02_withered_tree.dae">
+            <SubMesh ID="0" Material="" Name="plant_dracaena02_plant_dracaena02" Rotation="0 0 0" Scale="1 1 1" TriCount="427" WorldPos="0 0 0" />
+        </Mesh>
+        <Bones />
+        <Shapes>
+            <Shape ID="1" Name="Shape_1" RelativeRotation="-0.202761 -0.00889445 -0.06179" RelativeScale="1 1 1" RelativeTranslation="-0.010256 -0.0692602 0.0258917" Rotation="-0.202761 -0.00889445 -0.06179" Scale="0.0297717 0.190962 0" ShapeType="Cylinder" WorldPos="0.00775872 0.221244 -0.00954543" />
+            <Shape ID="3" Name="Shape_2" RelativeRotation="-0.510602 -0.145982 -0.545373" RelativeScale="1 1 1" RelativeTranslation="0.0250819 0.0534676 -0.0223966" Rotation="-0.510602 -0.145982 -0.545373" Scale="0.0149373 0.0799251 0" ShapeType="Cylinder" WorldPos="0.0430966 0.343971 -0.0578337" />
+            <Shape ID="5" Name="Shape_3" RelativeRotation="-0.206818 -0.0847303 -0.444" RelativeScale="1 1 1" RelativeTranslation="0.0280779 0.0597059 0.0102672" Rotation="-0.206818 -0.0847303 -0.444" Scale="0.0142448 0.0799251 0" ShapeType="Cylinder" WorldPos="0.0460926 0.35021 -0.0251699" />
+            <Shape ID="6" Name="Shape_4" RelativeRotation="-0.106778 0.0217578 0.0353726" RelativeScale="1 1 1" RelativeTranslation="-0.0280779 0.0692603 0.00932218" Rotation="-0.106778 0.0217578 0.0353726" Scale="0.0092595 0.087773 0" ShapeType="Cylinder" WorldPos="-0.0100632 0.359764 -0.0261149" />
+            <Shape ID="7" Name="Shape_5" RelativeRotation="-0.710974 0.0217578 0.0353726" RelativeScale="1 1 1" RelativeTranslation="-0.0210531 0.0603589 -0.0258917" Rotation="-0.710974 0.0217578 0.0353726" Scale="0.0141753 0.087773 0" ShapeType="Cylinder" WorldPos="-0.00303836 0.350863 -0.0613288" />
+        </Shapes>
+        <Bodies>
+            <Body AngularDamping="0.1" BlocksLight="true" BlocksSound="false" BuoyancyDensityMul="1" CanAttachCharacter="false" CollideCharacter="true" CollideNonCharacter="true" ContinuousCollision="true" HasGravity="false" ID="8" LinearDamping="0.1" Mass="0" Material="" MaxAngularSpeed="20" MaxLinearSpeed="20" Name="Body_1" PushedByCharacterGravity="false" Rotation="0 0 0" Scale="1 1 1" UseSurfaceEffects="true" Volatile="false" WorldPos="0.0180147 0.290504 -0.0354371">
+                <Children>
+                    <Child ID="0" />
+                </Children>
+                <Shape ID="3" />
+                <Shape ID="5" />
+                <Shape ID="6" />
+                <Shape ID="7" />
+                <Shape ID="1" />
+            </Body>
+        </Bodies>
+        <Joints />
+        <Animations />
+    </ModelData>
+    <UserDefinedVariables EntityType="Prop_Rigid">
+        <Var Name="Health" Value="100" />
+        <Var Name="Toughness" Value="0" />
+        <Var Name="MaxInteractDistance" Value="0" />
+        <Var Name="EventTag" Value="" />
+        <Var Name="ShowHints" Value="true" />
+        <Var Name="LifeLength" Value="0" />
+        <Var Name="DissolveDuringLifeDecrease" Value="true" />
+        <Var Name="BlocksLineOfSight" Value="true" />
+        <Var Name="MainPhysicsBody" Value="" />
+        <Var Name="CustomScriptFile" Value="" />
+        <Var Name="CustomScriptClass" Value="" />
+        <Var Name="ShowMesh" Value="true" />
+        <Var Name="DissolveOnDestruction" Value="false" />
+        <Var Name="DissolveTime" Value="1.0" />
+        <Var Name="RandomizeAnimationStart" Value="true" />
+        <Var Name="EffectsOnSound" Value="" />
+        <Var Name="EffectsOffSound" Value="" />
+        <Var Name="EffectsOnTime" Value="1" />
+        <Var Name="EffectsOffTime" Value="1" />
+        <Var Name="StaticMoveCheckCollision" Value="false" />
+        <Var Name="StaticMoveStartSound" Value="" />
+        <Var Name="StaticMoveStopSound" Value="" />
+        <Var Name="StaticMoveLoopSound" Value="" />
+        <Var Name="BreakActive" Value="false" />
+        <Var Name="BreakOnlyOnMainBody" Value="false" />
+        <Var Name="BreakDestroyJoints" Value="false" />
+        <Var Name="BreakMinEnergy" Value="100" />
+        <Var Name="BreakEntity" Value="" />
+        <Var Name="BreakEntityAlignBody" Value="" />
+        <Var Name="BreakSound" Value="" />
+        <Var Name="BreakParticleSystem" Value="" />
+        <Var Name="BreakImpulse" Value="4" />
+    </UserDefinedVariables>
+</Entity>
