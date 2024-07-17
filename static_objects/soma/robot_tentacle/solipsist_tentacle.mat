@@ -1,16 +1,15 @@
 <Material>
-    <Main Type="soliddiffuse" DepthTest="true" ForceFullScaleTextures="false" UVSubDivs="1 1" UseAlpha="false" PhysicsMaterial="book_A" BlendMode="Add" RandomStartFrame="false" />
+    <Main Type="soliddiffuse" DepthTest="true" ForceFullScaleTextures="false" UVSubDivs="1 1" UseAlpha="false" PhysicsMaterial="Organic Fresh" BlendMode="Add" RandomStartFrame="false" />
     <TextureUnits>
-        <Diffuse MipMaps="false" Compress="true" File="mods/escapade_hpl3/entities/soma/organic/plants/kelp/kelp.dds" Type="2D" Wrap="Repeat" AnimMode="None" AnimFrameTime="0" AnimStartTime="0" />
-        <NMap MipMaps="true" Compress="true" File="mods/escapade_hpl3/entities/soma/organic/plants/kelp/kelp_nrm.dds" Type="2D" Wrap="Repeat" AnimMode="None" AnimFrameTime="0" AnimStartTime="0" />
-        <Alpha MipMaps="false" Compress="true" File="mods/escapade_hpl3/entities/soma/organic/plants/kelp/kelp.dds" Type="2D" Wrap="Repeat" AnimMode="None" AnimFrameTime="0" AnimStartTime="0" />
-        <Height MipMaps="true" Compress="false" File="mods/escapade_hpl3/entities/soma/organic/plants/kelp/kelp_sway.dds" Type="2D" Wrap="Repeat" AnimMode="None" AnimFrameTime="0" AnimStartTime="0" />
+        <Diffuse MipMaps="true" Compress="true" File="entities/nonexclusive/organic/shadowflesh/shadow_flesh_tiling.dds" Type="2D" Wrap="Repeat" AnimMode="None" AnimFrameTime="0" AnimStartTime="0" />
+        <NMap MipMaps="true" Compress="true" File="entities/nonexclusive/organic/shadowflesh/shadow_flesh_decomposed_tileable_nrm.dds" Type="2D" Wrap="Repeat" AnimMode="None" AnimFrameTime="0" AnimStartTime="0" />
+        <Specular MipMaps="true" Compress="true" File="entities/nonexclusive/organic/shadowflesh/shadow_flesh_tiling_spec.dds" Type="2D" Wrap="Repeat" AnimMode="None" AnimFrameTime="0" AnimStartTime="0" />
     </TextureUnits>
     <SpecificVariables>
-        <Var ObjectId="4294967295" Name="HeightMapScale" Value="0.05" />
+        <Var ObjectId="4294967295" Name="HeightMapScale" Value="-0.02" />
         <Var ObjectId="4294967295" Name="HeightMapBias" Value="0" />
         <Var ObjectId="4294967295" Name="IlluminationBrightness" Value="1" />
-        <Var ObjectId="4294967295" Name="FrenselBias" Value="0.2" />
+        <Var ObjectId="4294967295" Name="FrenselBias" Value="0.8" />
         <Var ObjectId="4294967295" Name="FrenselPow" Value="8" />
         <Var ObjectId="4294967295" Name="AlphaCutoffThreshold" Value="0.5" />
         <Var ObjectId="4294967295" Name="DitherAlphaTest" Value="false" />
@@ -19,15 +18,15 @@
         <Var ObjectId="4294967295" Name="DetailUvMul" Value="4 4" />
         <Var ObjectId="4294967295" Name="DetailWeight_Diffuse" Value="1" />
         <Var ObjectId="4294967295" Name="DetailWeight_Specular" Value="1" />
-        <Var ObjectId="4294967295" Name="DetailWeight_Normal" Value="1" />
-        <Var ObjectId="4294967295" Name="DetailFadeStart" Value="5" />
-        <Var ObjectId="4294967295" Name="DetailFadeEnd" Value="10" />
+        <Var ObjectId="4294967295" Name="DetailWeight_Normal" Value="0.5" />
+        <Var ObjectId="4294967295" Name="DetailFadeStart" Value="8" />
+        <Var ObjectId="4294967295" Name="DetailFadeEnd" Value="15" />
         <Var ObjectId="4294967295" Name="SkinShadingActive" Value="false" />
-        <Var ObjectId="4294967295" Name="SwayActive" Value="true" />
+        <Var ObjectId="4294967295" Name="SwayActive" Value="false" />
         <Var ObjectId="4294967295" Name="SwayForceFieldAffected" Value="true" />
-        <Var ObjectId="4294967295" Name="SwayFreq" Value="1.5" />
-        <Var ObjectId="4294967295" Name="SwayAmplitude" Value="2.5" />
-        <Var ObjectId="4294967295" Name="SwaySpeed" Value="0" />
+        <Var ObjectId="4294967295" Name="SwayFreq" Value="1" />
+        <Var ObjectId="4294967295" Name="SwayAmplitude" Value="0.025" />
+        <Var ObjectId="4294967295" Name="SwaySpeed" Value="0.5" />
         <Var ObjectId="4294967295" Name="SwayOctaveMuls" Value="0.125 0.25 1" />
         <Var ObjectId="4294967295" Name="SwayForceFieldMul" Value="0.3" />
         <Var ObjectId="4294967295" Name="SwayForceFieldMax" Value="0.6" />

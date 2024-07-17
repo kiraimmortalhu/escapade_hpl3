@@ -1,17 +1,14 @@
 <Material>
-    <Main BlendMode="Add" DepthTest="true" PhysicsMaterial="book_A" Type="soliddiffuse" UVSubDivs="1 1" UseAlpha="false" />
+    <Main BlendMode="Add" DepthTest="true" PhysicsMaterial="Organic Fresh" Type="soliddiffuse" UVSubDivs="1 1" UseAlpha="false" />
     <TextureUnits>
-        <Diffuse AnimFrameTime="0" AnimMode="None" AnimStartTime="0" Compress="true" File="entities/organic/plants/tree_large/canopy_tiling.dds" MipMaps="true" Type="2D" Wrap="Repeat" />
-        <Alpha AnimFrameTime="0" AnimMode="None" AnimStartTime="0" Compress="true" File="entities/organic/plants/tree_large/canopy_tiling.dds" MipMaps="true" Type="2D" Wrap="Repeat" />
-        <Illumination AnimFrameTime="0" AnimMode="None" AnimStartTime="0" Compress="true" File="entities/organic/plants/tree_large/canopy_tiling.dds" MipMaps="true" Type="2D" Wrap="Repeat" />
+        <Diffuse AnimFrameTime="1" AnimMode="None" AnimStartTime="0" Compress="false" File="detail_meshes/robot/lamp_growing/robot_lamp_growing.dds" MipMaps="true" Type="2D" Wrap="Clamp" />
+        <NMap AnimFrameTime="1" AnimMode="None" AnimStartTime="0" Compress="false" File="detail_meshes/robot/lamp_growing/robot_lamp_growing_nrm.dds" MipMaps="true" Type="2D" Wrap="Clamp" />
+        <Specular AnimFrameTime="1" AnimMode="None" AnimStartTime="0" Compress="false" File="detail_meshes/robot/lamp_growing/robot_lamp_growing_spec.dds" MipMaps="true" Type="2D" Wrap="Clamp" />
     </TextureUnits>
-    <UvAnimations>
-        <Animation Amplitude="0.01" Axis="X" Speed="0.5" Type="Sin" />
-    </UvAnimations>
     <SpecificVariables>
         <Var Name="HeightMapScale" Value="0.05" />
         <Var Name="HeightMapBias" Value="0" />
-        <Var Name="IlluminationBrightness" Value="3" />
+        <Var Name="IlluminationBrightness" Value="1" />
         <Var Name="FrenselBias" Value="0.2" />
         <Var Name="FrenselPow" Value="8" />
         <Var Name="AlphaDissolveFilter" Value="false" />
