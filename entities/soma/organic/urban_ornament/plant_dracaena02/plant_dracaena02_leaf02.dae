@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>marcus</author>
+      <authoring_tool>OpenCOLLADA2008 x64</authoring_tool>
+      <comments>
+			ColladaMaya export options: 
+			bakeTransforms=0;relativePaths=0;copyTextures=0;exportTriangles=1;exportCgfxFileReferences=1;
+			isSampling=0;curveConstrainSampling=0;removeStaticCurves=1;exportPolygonMeshes=1;exportLights=1;
+			exportCameras=1;exportJointsAndSkin=0;exportAnimations=0;exportInvisibleNodes=0;exportDefaultCameras=0;
+			exportTexCoords=1;exportNormals=1;exportNormalsPerVertex=1;exportVertexColors=1;exportVertexColorsPerVertex=1;
+			exportTexTangents=0;exportTangents=0;exportReferencedMaterials=0;exportMaterialsOnly=0;
+			exportXRefs=1;dereferenceXRefs=1;exportCameraAsLookat=0;cameraXFov=0;cameraYFov=1;doublePrecision=0
+		</comments>
+      <source_data>file:///D:/work/DropBox/Team/Depth_marcus/models/entities/ornament/plant_dracaena02_withered.ma</source_data>
+    </contributor>
+    <created>2013-10-11T12:40:04</created>
+    <modified>2013-10-11T12:40:04</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Y_UP</up_axis>
+  </asset>
+  <library_materials>
+    <material id="blinn2" name="blinn2">
+      <instance_effect url="#blinn2-fx"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="blinn2-fx">
+      <profile_COMMON>
+        <newparam sid="file1-surface">
+          <surface type="2D">
+            <init_from>file1</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="file1-sampler">
+          <sampler2D>
+            <source>file1-surface</source>
+          </sampler2D>
+        </newparam>
+        <newparam sid="file3-surface">
+          <surface type="2D">
+            <init_from>file3</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="file3-sampler">
+          <sampler2D>
+            <source>file3-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <blinn>
+            <emission>
+              <color>0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color>0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="file1-sampler" texcoord="TEX0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU>1</wrapU><wrapV>1</wrapV><mirrorU>0</mirrorU><mirrorV>0</mirrorV><coverageU>1</coverageU><coverageV>1</coverageV><translateFrameU>0</translateFrameU><translateFrameV>0</translateFrameV><rotateFrame>0</rotateFrame><stagger>0</stagger><fast>0</fast><repeatU>1</repeatU><repeatV>1</repeatV><offsetU>0</offsetU><offsetV>0</offsetV><rotateUV>0</rotateUV><noiseU>0</noiseU><noiseV>0</noiseV><blend_mode>NONE</blend_mode>
+                  </technique>
+                  <technique profile="OpenCOLLADAMaya">
+                    <blend_mode>NONE</blend_mode>
+                    <coverageU>1</coverageU>
+                    <coverageV>1</coverageV>
+                    <fast>0</fast>
+                    <mirrorU>0</mirrorU>
+                    <mirrorV>0</mirrorV>
+                    <noiseU>0</noiseU>
+                    <noiseV>0</noiseV>
+                    <offsetU>0</offsetU>
+                    <offsetV>0</offsetV>
+                    <repeatU>1</repeatU>
+                    <repeatV>1</repeatV>
+                    <rotateFrame>0</rotateFrame>
+                    <rotateUV>0</rotateUV>
+                    <stagger>0</stagger>
+                    <translateFrameU>0</translateFrameU>
+                    <translateFrameV>0</translateFrameV>
+                    <wrapU>1</wrapU>
+                    <wrapV>1</wrapV>
+                  </technique>
+                </extra>
+              </texture>
+            </diffuse>
+            <specular>
+              <texture texture="file3-sampler" texcoord="TEX1">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU>1</wrapU><wrapV>1</wrapV><mirrorU>0</mirrorU><mirrorV>0</mirrorV><coverageU>1</coverageU><coverageV>1</coverageV><translateFrameU>0</translateFrameU><translateFrameV>0</translateFrameV><rotateFrame>0</rotateFrame><stagger>0</stagger><fast>0</fast><repeatU>1</repeatU><repeatV>1</repeatV><offsetU>0</offsetU><offsetV>0</offsetV><rotateUV>0</rotateUV><noiseU>0</noiseU><noiseV>0</noiseV><blend_mode>NONE</blend_mode>
+                  </technique>
+                  <technique profile="OpenCOLLADAMaya">
+                    <blend_mode>NONE</blend_mode>
+                    <coverageU>1</coverageU>
+                    <coverageV>1</coverageV>
+                    <fast>0</fast>
+                    <mirrorU>0</mirrorU>
+                    <mirrorV>0</mirrorV>
+                    <noiseU>0</noiseU>
+                    <noiseV>0</noiseV>
+                    <offsetU>0</offsetU>
+                    <offsetV>0</offsetV>
+                    <repeatU>1</repeatU>
+                    <repeatV>1</repeatV>
+                    <rotateFrame>0</rotateFrame>
+                    <rotateUV>0</rotateUV>
+                    <stagger>0</stagger>
+                    <translateFrameU>0</translateFrameU>
+                    <translateFrameV>0</translateFrameV>
+                    <wrapU>1</wrapU>
+                    <wrapV>1</wrapV>
+                  </technique>
+                </extra>
+              </texture>
+            </specular>
+            <shininess>
+              <float>0.3</float>
+            </shininess>
+            <reflective>
+              <color>0 0 0 1</color>
+            </reflective>
+            <reflectivity>
+              <float>0.5</float>
+            </reflectivity>
+            <transparent opaque="RGB_ZERO">
+              <color>0 0 0 1</color>
+            </transparent>
+            <transparency>
+              <float>1</float>
+            </transparency>
+          </blinn>
+          <extra>
+            <technique profile="FCOLLADA">
+              <bump>
+                <texture texture="file2-sampler" texcoord="TEX1">
+                  <extra>
+                    <technique profile="MAYA">
+                      <wrapU>1</wrapU>
+                      <wrapV>1</wrapV>
+                      <mirrorU>0</mirrorU>
+                      <mirrorV>0</mirrorV>
+                      <coverageU>1</coverageU>
+                      <coverageV>1</coverageV>
+                      <translateFrameU>0</translateFrameU>
+                      <translateFrameV>0</translateFrameV>
+                      <rotateFrame>0</rotateFrame>
+                      <stagger>0</stagger>
+                      <fast>0</fast>
+                      <repeatU>1</repeatU>
+                      <repeatV>1</repeatV>
+                      <offsetU>0</offsetU>
+                      <offsetV>0</offsetV>
+                      <rotateUV>0</rotateUV>
+                      <noiseU>0</noiseU>
+                      <noiseV>0</noiseV>
+                      <blend_mode>NONE</blend_mode>
+                    </technique>
+                    <technique profile="MAX3D">
+                      <amount>1</amount>
+                      <bumpInterp>1</bumpInterp>
+                    </technique>
+                  </extra>
+                </texture>
+              </bump>
+            </technique>
+          </extra>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images>
+    <image id="file1" name="file1">
+      <init_from>file:///D:/work/depth/redist/entities/urban/ornament/plant_dracaena02/plant_dracaena02.dds</init_from>
+      <extra>
+        <technique profile="OpenCOLLADAMaya">
+          <dgnode_type>kFile</dgnode_type>
+          <image_sequence>0</image_sequence>
+          <originalMayaNodeId>file1</originalMayaNodeId>
+        </technique>
+      </extra>
+    </image>
+    <image id="file3" name="file3">
+      <init_from>file:///D:/work/depth/redist/entities/urban/ornament/plant_dracaena02/plant_dracaena02_spec.dds</init_from>
+      <extra>
+        <technique profile="OpenCOLLADAMaya">
+          <dgnode_type>kFile</dgnode_type>
+          <image_sequence>0</image_sequence>
+          <originalMayaNodeId>file3</originalMayaNodeId>
+        </technique>
+      </extra>
+    </image>
+  </library_images>
+  <library_geometries>
+    <geometry id="plant_dracaena02Shape" name="plant_dracaena07Shape">
+      <mesh>
+        <source id="plant_dracaena02Shape-positions" name="plant_dracaena02Shape-positions">
+          <float_array id="plant_dracaena02Shape-positions-array" count="60">-0.01596503 -0.009852753 0.06660047 0.01991724 -0.002970505 0.03384877 0.01461844 0.01325329 0.03286682 -0.02126339 0.006370544 0.06561817 0.02858423 -7.87163e-4 -0.01497897 0.009903905 1.62544e-4 -0.04615072 0.004361454 0.01631756 -0.04687602 0.02328511 0.01543571 -0.01596134 -0.02126883 -0.006737366 -0.06595428 -0.02681129 0.009417725 -0.06667957 -0.01646971 -0.01011379 0.06632083 -0.02176888 0.006108971 0.06533839 0.01411334 0.01299122 0.03258655 0.01941244 -0.003231697 0.03356913 0.02807877 -0.00104866 -0.01525884 0.02278027 0.01517452 -0.0162409 0.003816469 0.01604301 -0.04704901 0.009359733 -1.11618e-4 -0.04632354 -0.02735628 0.009143143 -0.0668525 -0.02181296 -0.007011566 -0.06612711</float_array>
+          <technique_common>
+            <accessor source="#plant_dracaena02Shape-positions-array" count="20" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="plant_dracaena02Shape-normals" name="plant_dracaena02Shape-normals">
+          <float_array id="plant_dracaena02Shape-normals-array" count="144">0.9217014 0.09356065 -0.376448 0.9487324 0.2576864 -0.1830428 0.9217014 0.09356065 -0.376448 0.9217014 0.09356065 -0.376448 0.9487324 0.2576864 -0.1830428 0.9487324 0.2576864 -0.1830428 0.6552454 0.6192638 0.4326269 0.6552454 0.6192638 0.4326269 0.8434238 0.5041295 0.1857141 0.8434238 0.5041295 0.1857141 0.6552454 0.6192638 0.4326269 0.8434238 0.5041295 0.1857141 0.5618729 0.646026 0.5166714 0.5618729 0.646026 0.5166714 0.6552454 0.6192638 0.4326269 0.6552454 0.6192638 0.4326269 0.5618729 0.646026 0.5166714 0.6552454 0.6192638 0.4326269 0.8434238 0.5041295 0.1857141 0.8434238 0.5041295 0.1857141 0.9487324 0.2576864 -0.1830428 0.9487324 0.2576864 -0.1830428 0.8434238 0.5041295 0.1857141 0.9487324 0.2576864 -0.1830428 -0.9217019 -0.0935599 0.376447 -0.9217019 -0.0935599 0.376447 -0.9487325 -0.2576853 0.1830436 -0.9487325 -0.2576853 0.1830436 -0.9217019 -0.0935599 0.376447 -0.9487325 -0.2576853 0.1830436 -0.843424 -0.5041299 -0.1857125 -0.6552442 -0.6192648 -0.4326271 -0.843424 -0.5041299 -0.1857125 -0.843424 -0.5041299 -0.1857125 -0.6552442 -0.6192648 -0.4326271 -0.6552442 -0.6192648 -0.4326271 -0.6552442 -0.6192648 -0.4326271 -0.5618729 -0.646026 -0.5166714 -0.6552442 -0.6192648 -0.4326271 -0.6552442 -0.6192648 -0.4326271 -0.5618729 -0.646026 -0.5166714 -0.5618729 -0.646026 -0.5166714 -0.9487325 -0.2576853 0.1830436 -0.843424 -0.5041299 -0.1857125 -0.9487325 -0.2576853 0.1830436 -0.9487325 -0.2576853 0.1830436 -0.843424 -0.5041299 -0.1857125 -0.843424 -0.5041299 -0.1857125</float_array>
+          <technique_common>
+            <accessor source="#plant_dracaena02Shape-normals-array" count="48" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="plant_dracaena02Shape-plant_dracaena02Shape-map1" name="plant_dracaena02Shape-plant_dracaena02Shape-map1">
+          <float_array id="plant_dracaena02Shape-plant_dracaena02Shape-map1-array" count="40">0.992201 0.97556 0.880497 0.97556 0.880497 0.915377 0.992201 0.915377 0.768792 0.97556 0.657087 0.97556 0.657087 0.915377 0.768792 0.915377 0.545383 0.97556 0.545383 0.915377 0.992201 0.97556 0.992201 0.915377 0.880497 0.915377 0.880497 0.97556 0.768792 0.97556 0.768792 0.915377 0.657087 0.915377 0.657087 0.97556 0.545383 0.915377 0.545383 0.97556</float_array>
+          <technique_common>
+            <accessor source="#plant_dracaena02Shape-plant_dracaena02Shape-map1-array" count="20" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="plant_dracaena02Shape-vertices" name="plant_dracaena02Shape-vertices">
+          <input semantic="POSITION" source="#plant_dracaena02Shape-positions"/>
+        </vertices>
+        <triangles material="blinn2SG" count="16">
+          <input semantic="VERTEX" source="#plant_dracaena02Shape-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#plant_dracaena02Shape-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#plant_dracaena02Shape-plant_dracaena02Shape-map1" offset="2" set="0"/>
+          <p>0 0 0 1 1 1 3 2 3 3 3 3 1 4 1 2 5 2 5 6 5 6 7 6 4 8 4 4 9 4 6 10 6 7 11 7 8 12 8 9 13 9 5 14 5 5 15 5 9 16 9 6 17 6 4 18 4 7 19 7 1 20 1 1 21 1 7 22 7 2 23 2 10 24 10 11 25 11 13 26 13 13 27 13 11 28 11 12 29 12 15 30 15 16 31 16 14 32 14 14 33 14 16 34 16 17 35 17 16 36 16 18 37 18 17 38 17 17 39 17 18 40 18 19 41 19 12 42 12 15 43 15 13 44 13 13 45 13 15 46 15 14 47 14</p>
+        </triangles>
+      </mesh>
+      <extra>
+        <technique profile="OpenCOLLADAMaya">
+          <originalMayaNodeId>plant_dracaena07Shape</originalMayaNodeId>
+          <double_sided>1</double_sided>
+        </technique>
+      </extra>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="VisualSceneNode" name="plant_dracaena02_withered">
+      <node id="plant_dracaena02" name="plant_dracaena07" type="NODE">
+        <translate sid="translate">0 0 0</translate>
+        <rotate sid="rotateZ">0 0 1 0</rotate>
+        <rotate sid="rotateY">0 1 0 0</rotate>
+        <rotate sid="rotateX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_geometry url="#plant_dracaena02Shape">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="blinn2SG" target="#blinn2">
+                <bind_vertex_input semantic="TEX0" input_semantic="TEXCOORD" input_set="0"/>
+                <bind_vertex_input semantic="TEX1" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+        <extra>
+          <technique profile="OpenCOLLADAMaya">
+            <originalMayaNodeId>plant_dracaena07</originalMayaNodeId>
+          </technique>
+        </extra>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#VisualSceneNode"/>
+  </scene>
+</COLLADA>
