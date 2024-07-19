@@ -1,6 +1,6 @@
 <HPLMapTrack_Entity ID="5D9EEFA4C28A67D15458B5E4E44C66859E2D152B" MajorVersion="1" MinorVersion="1">
     <Section Name="3359272541875756134">
-        <FileIndex_Entities NumOfFiles="156">
+        <FileIndex_Entities NumOfFiles="157">
             <File Id="0" Path="entities/roman/ornament/statue_atlas/statue_atlas.ent" />
             <File Id="1" Path="mods/escapade_hpl3/entities/dark_descent/door/castle_gate_arched01/castle_gate_arched01.ent" />
             <File Id="2" Path="mods/escapade_hpl3/entities/dark_descent/lamp/chandelier_simple/chandelier_simple.ent" />
@@ -157,6 +157,7 @@
             <File Id="153" Path="mods/escapade_hpl3/entities/soma/organic/urban_ornament/plant_dracaena02/plant_dracaena02.ent" />
             <File Id="154" Path="mods/escapade_hpl3/entities/soma/organic/plants/kelp/kelp.ent" />
             <File Id="155" Path="mods/escapade_hpl3/entities/soma/organic/plants/bush/bush.ent" />
+            <File Id="156" Path="mods/escapade_hpl3/entities/dark_descent/door/castle/castle_silent.ent" />
         </FileIndex_Entities>
         <Objects>
             <Entity ID="268435888" Name="statue_atlas_1" CreStamp="1718651616" ModStamp="1718651821" WorldPos="-28.5 -4 5.5" Rotation="-0 3.14159 -0" Scale="1.72 1.72 1.72" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 262 268435888">
@@ -1331,76 +1332,6 @@
                     <Var ObjectId="268436636" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
                     <Var ObjectId="268436636" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
                     <Var ObjectId="268436636" Name="WoodenBreakable_CustomDropItemsList" Value="" />
-                </UserVariables>
-            </Entity>
-            <Entity ID="268436638" Name="castle_2" CreStamp="1718786714" ModStamp="1721332584" WorldPos="19 0.104546 0" Rotation="-0 4.71204 -0" Scale="0.99 0.99 0.99" FileIndex="15" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 907 268436638">
-                <UserVariables>
-                    <Var ObjectId="268436638" Name="Note" Value="" />
-                    <Var ObjectId="268436638" Name="EventInstanceTag" Value="" />
-                    <Var ObjectId="268436638" Name="CollideGroup" Value="" />
-                    <Var ObjectId="268436638" Name="UserVar" Value="" />
-                    <Var ObjectId="268436638" Name="DisableBreakable" Value="false" />
-                    <Var ObjectId="268436638" Name="FullGameSave" Value="false" />
-                    <Var ObjectId="268436638" Name="StaticPhysics" Value="false" />
-                    <Var ObjectId="268436638" Name="QuickSave" Value="false" />
-                    <Var ObjectId="268436638" Name="AllowMapTransfer" Value="false" />
-                    <Var ObjectId="268436638" Name="EffectsActive" Value="true" />
-                    <Var ObjectId="268436638" Name="InteractionDisabled" Value="false" />
-                    <Var ObjectId="268436638" Name="CastShadows" Value="true" />
-                    <Var ObjectId="268436638" Name="ColorMul" Value="1 1 1 1" />
-                    <Var ObjectId="268436638" Name="EffectColorMul" Value="1 1 1 1" />
-                    <Var ObjectId="268436638" Name="EffectBrightnessMul" Value="1" />
-                    <Var ObjectId="268436638" Name="IllumColor" Value="1 1 1 1" />
-                    <Var ObjectId="268436638" Name="IllumBrightness" Value="1" />
-                    <Var ObjectId="268436638" Name="IsAffectedByDecal" Value="false" />
-                    <Var ObjectId="268436638" Name="IsOccluder" Value="false" />
-                    <Var ObjectId="268436638" Name="UpdateBonesWhenCulled" Value="false" />
-                    <Var ObjectId="268436638" Name="OnBreakCallbackFunc" Value="" />
-                    <Var ObjectId="268436638" Name="ConnectionStateChangeCallback" Value="" />
-                    <Var ObjectId="268436638" Name="PlayerLookAtCallback" Value="" />
-                    <Var ObjectId="268436638" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                    <Var ObjectId="268436638" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
-                    <Var ObjectId="268436638" Name="PlayerLookAtCheckRayIntersection" Value="true" />
-                    <Var ObjectId="268436638" Name="PlayerLookAtMaxDistance" Value="-1" />
-                    <Var ObjectId="268436638" Name="PlayerLookAtCallbackDelay" Value="0" />
-                    <Var ObjectId="268436638" Name="PlayerInteractCallback" Value="" />
-                    <Var ObjectId="268436638" Name="PlayerInteractCallbackAutoRemove" Value="false" />
-                    <Var ObjectId="268436638" Name="PlayerInteractLeaveCallback" Value="" />
-                    <Var ObjectId="268436638" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
-                    <Var ObjectId="268436638" Name="RecieveMessageCallback" Value="" />
-                    <Var ObjectId="268436638" Name="CC_Entities" Value="" />
-                    <Var ObjectId="268436638" Name="CC_Funcs" Value="" />
-                    <Var ObjectId="268436638" Name="ConnectedEntity" Value="" />
-                    <Var ObjectId="268436638" Name="ConnectedEntityInvertState" Value="false" />
-                    <Var ObjectId="268436638" Name="ConnectedEntityStatesUsed" Value="0" />
-                    <Var ObjectId="268436638" Name="ParentAttachEntity" Value="" />
-                    <Var ObjectId="268436638" Name="ParentAttachUseRotation" Value="true" />
-                    <Var ObjectId="268436638" Name="ParentAttachBody" Value="" />
-                    <Var ObjectId="268436638" Name="ParentAttachSocket" Value="" />
-                    <Var ObjectId="268436638" Name="ParentAttachSnap" Value="false" />
-                    <Var ObjectId="268436638" Name="ParentAttachLocked" Value="false" />
-                    <Var ObjectId="268436638" Name="ConnectedLight" Value="" />
-                    <Var ObjectId="268436638" Name="ConnectionLightAmount" Value="1" />
-                    <Var ObjectId="268436638" Name="ConnectionLightUseOnColor" Value="true" />
-                    <Var ObjectId="268436638" Name="ConnectionLightUseSpec" Value="false" />
-                    <Var ObjectId="268436638" Name="ConnectionLightType" Value="Mul" />
-                    <Var ObjectId="268436638" Name="ExtraConnectedLight" Value="" />
-                    <Var ObjectId="268436638" Name="ExtraConnectionLightAmount" Value="1" />
-                    <Var ObjectId="268436638" Name="ExtraConnectionLightUseOnColor" Value="true" />
-                    <Var ObjectId="268436638" Name="ExtraConnectionLightUseSpec" Value="false" />
-                    <Var ObjectId="268436638" Name="ExtraConnectionLightType" Value="Mul" />
-                    <Var ObjectId="268436638" Name="Locked" Value="false" />
-                    <Var ObjectId="268436638" Name="Blocked" Value="false" />
-                    <Var ObjectId="268436638" Name="OpenAmount" Value="0" />
-                    <Var ObjectId="268436638" Name="IsHatch" Value="false" />
-                    <Var ObjectId="268436638" Name="HatchIgnorePlayersPosition" Value="false" />
-                    <Var ObjectId="268436638" Name="JointResetFix" Value="false" />
-                    <Var ObjectId="268436638" Name="BreakChildEntity" Value="" />
-                    <Var ObjectId="268436638" Name="OpenableByAgent" Value="true" />
-                    <Var ObjectId="268436638" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
-                    <Var ObjectId="268436638" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
-                    <Var ObjectId="268436638" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
-                    <Var ObjectId="268436638" Name="WoodenBreakable_CustomDropItemsList" Value="" />
                 </UserVariables>
             </Entity>
             <Entity ID="268436642" Name="statue_pilgrim_tin_hinan_1" CreStamp="1718786913" ModStamp="1718786941" WorldPos="15 0 5.25" Rotation="-0 3.14159 -0" Scale="3 3 3.5" FileIndex="16" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 905 268436642">
@@ -18240,7 +18171,7 @@
                     <Var ObjectId="268437236" Name="WoodenBreakable_CustomDropItemsList" Value="" />
                 </UserVariables>
             </Entity>
-            <Entity ID="268437275" Name="castle_6" CreStamp="1718806937" ModStamp="1718873164" WorldPos="66 0.0796213 0" Rotation="-0 4.71204 -0" Scale="1 1 1" FileIndex="15" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 851 268437275">
+            <Entity ID="268437275" Name="castle_6" CreStamp="1718806937" ModStamp="1721374860" WorldPos="66 0.09 0" Rotation="-0 4.71204 -0" Scale="0.99 0.99 0.99" FileIndex="15" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 851 268437275">
                 <UserVariables>
                     <Var ObjectId="268437275" Name="Note" Value="" />
                     <Var ObjectId="268437275" Name="EventInstanceTag" Value="" />
@@ -21548,7 +21479,7 @@
                     <Var ObjectId="268437549" Name="RenderLayer" Value="0" />
                 </UserVariables>
             </Entity>
-            <Entity ID="268437568" Name="castle_11" CreStamp="1718872780" ModStamp="1718928039" WorldPos="66 4.837 0" Rotation="-0 4.71204 -0" Scale="1 1 1" FileIndex="15" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 1610 268437568">
+            <Entity ID="268437568" Name="castle_11" CreStamp="1718872780" ModStamp="1721374970" WorldPos="66 4.597 0" Rotation="-0 4.71204 -0" Scale="0.99 0.99 0.99" FileIndex="15" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 1610 268437568">
                 <UserVariables>
                     <Var ObjectId="268437568" Name="Note" Value="" />
                     <Var ObjectId="268437568" Name="EventInstanceTag" Value="" />
@@ -21618,7 +21549,7 @@
                     <Var ObjectId="268437568" Name="WoodenBreakable_CustomDropItemsList" Value="" />
                 </UserVariables>
             </Entity>
-            <Entity ID="268437584" Name="castle_13" CreStamp="1718873119" ModStamp="1718927860" WorldPos="58 0.089 0" Rotation="-0 4.71204 -0" Scale="1 1 1" FileIndex="15" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 1611 268437584">
+            <Entity ID="268437584" Name="castle_13" CreStamp="1718873119" ModStamp="1721374851" WorldPos="58 0.09 0" Rotation="-0 4.71204 -0" Scale="0.99 0.99 0.99" FileIndex="15" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 1611 268437584">
                 <UserVariables>
                     <Var ObjectId="268437584" Name="Note" Value="" />
                     <Var ObjectId="268437584" Name="EventInstanceTag" Value="" />
@@ -21688,7 +21619,7 @@
                     <Var ObjectId="268437584" Name="WoodenBreakable_CustomDropItemsList" Value="" />
                 </UserVariables>
             </Entity>
-            <Entity ID="268437659" Name="castle_14" CreStamp="1718875673" ModStamp="1718927970" WorldPos="58 4.589 0" Rotation="-0 4.71204 -0" Scale="1 1 1" FileIndex="15" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 1524 268437659">
+            <Entity ID="268437659" Name="castle_14" CreStamp="1718875673" ModStamp="1721374903" WorldPos="58 4.597 0" Rotation="-0 4.71204 -0" Scale="0.99 0.99 0.99" FileIndex="15" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 1524 268437659">
                 <UserVariables>
                     <Var ObjectId="268437659" Name="Note" Value="" />
                     <Var ObjectId="268437659" Name="EventInstanceTag" Value="" />
@@ -22743,7 +22674,7 @@
                     <Var ObjectId="268443553" Name="WoodenBreakable_CustomDropItemsList" Value="" />
                 </UserVariables>
             </Entity>
-            <Entity ID="268443554" Name="castle_3" CreStamp="1719671426" ModStamp="1719671863" WorldPos="26.75 0.09 24" Rotation="0 0 0" Scale="0.99 0.99 0.99" FileIndex="15" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 3449 268443554">
+            <Entity ID="268443554" Name="castle_3" CreStamp="1719671426" ModStamp="1719671863" WorldPos="26.75 0.09 24" Rotation="0 0 0" Scale="0.99 0.99 0.99" FileIndex="15" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 3410 268443554">
                 <UserVariables>
                     <Var ObjectId="268443554" Name="Note" Value="" />
                     <Var ObjectId="268443554" Name="EventInstanceTag" Value="" />
@@ -23441,76 +23372,6 @@
                     <Var ObjectId="268443564" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
                     <Var ObjectId="268443564" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
                     <Var ObjectId="268443564" Name="WoodenBreakable_CustomDropItemsList" Value="" />
-                </UserVariables>
-            </Entity>
-            <Entity ID="268443565" Name="castle_9" CreStamp="1719673458" ModStamp="1721332840" WorldPos="11 0.09 0" Rotation="0 1.5702 0" Scale="0.99 0.99 0.99" FileIndex="15" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 3410 268443565">
-                <UserVariables>
-                    <Var ObjectId="268443565" Name="Note" Value="" />
-                    <Var ObjectId="268443565" Name="EventInstanceTag" Value="" />
-                    <Var ObjectId="268443565" Name="CollideGroup" Value="" />
-                    <Var ObjectId="268443565" Name="UserVar" Value="" />
-                    <Var ObjectId="268443565" Name="DisableBreakable" Value="false" />
-                    <Var ObjectId="268443565" Name="FullGameSave" Value="false" />
-                    <Var ObjectId="268443565" Name="StaticPhysics" Value="false" />
-                    <Var ObjectId="268443565" Name="QuickSave" Value="false" />
-                    <Var ObjectId="268443565" Name="AllowMapTransfer" Value="false" />
-                    <Var ObjectId="268443565" Name="EffectsActive" Value="true" />
-                    <Var ObjectId="268443565" Name="InteractionDisabled" Value="false" />
-                    <Var ObjectId="268443565" Name="CastShadows" Value="true" />
-                    <Var ObjectId="268443565" Name="ColorMul" Value="1 1 1 1" />
-                    <Var ObjectId="268443565" Name="EffectColorMul" Value="1 1 1 1" />
-                    <Var ObjectId="268443565" Name="EffectBrightnessMul" Value="1" />
-                    <Var ObjectId="268443565" Name="IllumColor" Value="1 1 1 1" />
-                    <Var ObjectId="268443565" Name="IllumBrightness" Value="1" />
-                    <Var ObjectId="268443565" Name="IsAffectedByDecal" Value="false" />
-                    <Var ObjectId="268443565" Name="IsOccluder" Value="false" />
-                    <Var ObjectId="268443565" Name="UpdateBonesWhenCulled" Value="false" />
-                    <Var ObjectId="268443565" Name="OnBreakCallbackFunc" Value="" />
-                    <Var ObjectId="268443565" Name="ConnectionStateChangeCallback" Value="" />
-                    <Var ObjectId="268443565" Name="PlayerLookAtCallback" Value="" />
-                    <Var ObjectId="268443565" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                    <Var ObjectId="268443565" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
-                    <Var ObjectId="268443565" Name="PlayerLookAtCheckRayIntersection" Value="true" />
-                    <Var ObjectId="268443565" Name="PlayerLookAtMaxDistance" Value="-1" />
-                    <Var ObjectId="268443565" Name="PlayerLookAtCallbackDelay" Value="0" />
-                    <Var ObjectId="268443565" Name="PlayerInteractCallback" Value="" />
-                    <Var ObjectId="268443565" Name="PlayerInteractCallbackAutoRemove" Value="false" />
-                    <Var ObjectId="268443565" Name="PlayerInteractLeaveCallback" Value="" />
-                    <Var ObjectId="268443565" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
-                    <Var ObjectId="268443565" Name="RecieveMessageCallback" Value="" />
-                    <Var ObjectId="268443565" Name="CC_Entities" Value="" />
-                    <Var ObjectId="268443565" Name="CC_Funcs" Value="" />
-                    <Var ObjectId="268443565" Name="ConnectedEntity" Value="" />
-                    <Var ObjectId="268443565" Name="ConnectedEntityInvertState" Value="false" />
-                    <Var ObjectId="268443565" Name="ConnectedEntityStatesUsed" Value="0" />
-                    <Var ObjectId="268443565" Name="ParentAttachEntity" Value="" />
-                    <Var ObjectId="268443565" Name="ParentAttachUseRotation" Value="true" />
-                    <Var ObjectId="268443565" Name="ParentAttachBody" Value="" />
-                    <Var ObjectId="268443565" Name="ParentAttachSocket" Value="" />
-                    <Var ObjectId="268443565" Name="ParentAttachSnap" Value="false" />
-                    <Var ObjectId="268443565" Name="ParentAttachLocked" Value="false" />
-                    <Var ObjectId="268443565" Name="ConnectedLight" Value="" />
-                    <Var ObjectId="268443565" Name="ConnectionLightAmount" Value="1" />
-                    <Var ObjectId="268443565" Name="ConnectionLightUseOnColor" Value="true" />
-                    <Var ObjectId="268443565" Name="ConnectionLightUseSpec" Value="false" />
-                    <Var ObjectId="268443565" Name="ConnectionLightType" Value="Mul" />
-                    <Var ObjectId="268443565" Name="ExtraConnectedLight" Value="" />
-                    <Var ObjectId="268443565" Name="ExtraConnectionLightAmount" Value="1" />
-                    <Var ObjectId="268443565" Name="ExtraConnectionLightUseOnColor" Value="true" />
-                    <Var ObjectId="268443565" Name="ExtraConnectionLightUseSpec" Value="false" />
-                    <Var ObjectId="268443565" Name="ExtraConnectionLightType" Value="Mul" />
-                    <Var ObjectId="268443565" Name="Locked" Value="false" />
-                    <Var ObjectId="268443565" Name="Blocked" Value="false" />
-                    <Var ObjectId="268443565" Name="OpenAmount" Value="0" />
-                    <Var ObjectId="268443565" Name="IsHatch" Value="false" />
-                    <Var ObjectId="268443565" Name="HatchIgnorePlayersPosition" Value="false" />
-                    <Var ObjectId="268443565" Name="JointResetFix" Value="false" />
-                    <Var ObjectId="268443565" Name="BreakChildEntity" Value="" />
-                    <Var ObjectId="268443565" Name="OpenableByAgent" Value="true" />
-                    <Var ObjectId="268443565" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
-                    <Var ObjectId="268443565" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
-                    <Var ObjectId="268443565" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
-                    <Var ObjectId="268443565" Name="WoodenBreakable_CustomDropItemsList" Value="" />
                 </UserVariables>
             </Entity>
             <Entity ID="268443585" Name="castle_10" CreStamp="1719773954" ModStamp="1719774414" WorldPos="44.75 0.09 34" Rotation="0 -1.5708 0" Scale="1 1 1" FileIndex="15" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 3450 268443585">
@@ -32660,7 +32521,7 @@
         </Objects>
     </Section>
     <Section Name="0">
-        <FileIndex_Entities NumOfFiles="23">
+        <FileIndex_Entities NumOfFiles="24">
             <File Id="0" Path="mods/escapade_hpl3/entities/dark_descent/door/castle/castle_no_grav.ent" />
             <File Id="1" Path="mods/escapade_hpl3/entities/dark_descent/paintings/painting02/painting02.ent" />
             <File Id="2" Path="mods/escapade_hpl3/entities/dark_descent/lamp/candlestick_wall/candlestick_wall.ent" />
@@ -32684,6 +32545,7 @@
             <File Id="20" Path="entities/bunker/doors/wooden_door/wooden_door_window.ent" />
             <File Id="21" Path="mods/escapade_hpl3/entities/dark_descent/ornament/banner01/banner01.ent" />
             <File Id="22" Path="mods/escapade_hpl3/entities/dark_descent/ornament/banner02/banner02.ent" />
+            <File Id="23" Path="mods/escapade_hpl3/entities/dark_descent/door/castle/castle.ent" />
         </FileIndex_Entities>
         <Objects>
             <Entity ID="285212672" Name="castle_no_grav_6" CreStamp="1718875908" ModStamp="1720447370" WorldPos="38.5 4.59961 -19.5" Rotation="0 21.9911 0" Scale="0.99 0.99 0.99" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 1685 285212672">
