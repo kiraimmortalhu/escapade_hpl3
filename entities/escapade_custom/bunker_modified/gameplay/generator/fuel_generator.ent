@@ -1,0 +1,29 @@
+<Entity>
+    <ModelData>
+        <Entities />
+        <Mesh Filename="entities/bunker/gameplay/generator/fuel_generator.dae">
+            <SubMesh ID="0" Name="90" CreStamp="0" ModStamp="1668082702" WorldPos="1.06559 -1.56532 -0.614081" Rotation="0 0 0" Scale="1 1 1" TriCount="3508" Material="" Static="true" />
+            <SubMesh ID="1" Name="Mesh" CreStamp="0" ModStamp="1668082702" WorldPos="1.06559 -1.56532 -0.614081" Rotation="0 0 0" Scale="1 1 1" TriCount="126" Material="" Static="true" />
+            <SubMesh ID="2" Name="Mesh__2_" CreStamp="0" ModStamp="1668082702" WorldPos="1.06559 -1.56532 -0.614081" Rotation="0 0 0" Scale="1 1 1" TriCount="956" Material="" Static="true" />
+        </Mesh>
+        <Bones />
+        <Shapes>
+            <Shape ID="4" Name="ShapeCylinder_1" CreStamp="1668082645" ModStamp="1668082714" WorldPos="0 -0.17514 0" Rotation="0 0 0" Scale="0.12537 0.412243 0" RelativeTranslation="0 0 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
+            <Shape ID="6" Name="ShapeCylinder_2" CreStamp="1668082765" ModStamp="1668082714" WorldPos="0 -0.17514 0" Rotation="0 0 0" Scale="0.255055 0.576052 0" RelativeTranslation="0 0 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
+        </Shapes>
+        <Bodies>
+            <Body ID="8" Name="Body_1" CreStamp="0" ModStamp="1668082776" WorldPos="0 -0.17514 0" Rotation="0 0 0" Scale="1 1 1" Material="" Mass="0" AngularDamping="0.5" LinearDamping="0.1" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="false" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+                <Shape ID="4" />
+            </Body>
+            <Body ID="9" Name="Body_2" CreStamp="0" ModStamp="1668082815" WorldPos="0 -0.17514 0" Rotation="0 0 0" Scale="1 1 1" Material="" Mass="0" AngularDamping="0.5" LinearDamping="0.1" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="false" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="false" CollideNonCharacter="false" Volatile="false" UseSurfaceEffects="true" HasGravity="false" BlocksLight="true">
+                <Shape ID="6" />
+            </Body>
+        </Bodies>
+        <Joints />
+        <Animations />
+        <ProcAnimations />
+    </ModelData>
+    <UserDefinedVariables EntityType="StaticProp">
+        <Var ObjectId="4294967295" Name="ShowMesh" Value="true" />
+    </UserDefinedVariables>
+</Entity>

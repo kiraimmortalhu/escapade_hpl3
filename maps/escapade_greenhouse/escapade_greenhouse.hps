@@ -75,6 +75,7 @@ class cScrMap : iScrMap
 		// Debug
 		if (cLux_ScriptDebugOn())
 		{
+			Item_AddToInventory("Lighter");
 			Item_AddToInventory("DynamoLantern");
 		}
 	}
