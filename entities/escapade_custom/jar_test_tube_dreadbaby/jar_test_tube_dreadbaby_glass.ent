@@ -1,0 +1,29 @@
+<Entity>
+    <ModelData>
+        <Entities />
+        <Mesh Filename="mods/escapade_hpl3/entities/escapade_custom/jar_test_tube_dreadbaby/jar_test_tube_dreadbaby_glass.dae">
+            <SubMesh ID="0" Name="jar_test_tube_rnd_geo" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="1592" Material="" Static="false" />
+        </Mesh>
+        <Bones />
+        <Shapes>
+            <Shape ID="6" Name="ShapeBox_5" CreStamp="1559575723" ModStamp="1559575927" WorldPos="0.00119624 0.312709 0.00628576" Rotation="0 1.5708 0" Scale="0.10234 0.493237 0.200035" RelativeTranslation="0.00059812 -0.000288516 0.000132325" RelativeRotation="3.14159 1.5708 3.14159" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="7" Name="ShapeBox_6" CreStamp="1559575723" ModStamp="1559575991" WorldPos="0.000264648 0.312323 0.00602111" Rotation="-0 2.35619 -0" Scale="0.0699063 0.496456 0.212445" RelativeTranslation="-0.000333472 -0.000674516 -0.000132325" RelativeRotation="3.14159 0.785403 3.14159" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="8" Name="ShapeBox_7" CreStamp="1559575723" ModStamp="1559575986" WorldPos="0 0.313672 0.00628576" Rotation="0 0 0" Scale="0.100057 0.500233 0.2003" RelativeTranslation="-0.00059812 0.000674486 0.000132325" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="9" Name="ShapeBox_8" CreStamp="1559575723" ModStamp="1559575960" WorldPos="0 0.313435 0.00628576" Rotation="0 0.785398 0" Scale="0.0700974 0.49353 0.214811" RelativeTranslation="-0.00059812 0.000437468 0.000132325" RelativeRotation="0 0.785398 0" RelativeScale="1 1 1" ShapeType="Box" />
+        </Shapes>
+        <Bodies>
+            <Body ID="20" Name="Body_1" CreStamp="0" ModStamp="1721774929" WorldPos="0.00059812 0.312998 0.00615343" Rotation="0 0 0" Scale="1 1 1" Material="glass_bottle_thick" Mass="8" AngularDamping="0.5" LinearDamping="0.1" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+                <Shape ID="8" />
+                <Shape ID="6" />
+                <Shape ID="9" />
+                <Shape ID="7" />
+            </Body>
+        </Bodies>
+        <Joints />
+        <Animations />
+        <ProcAnimations />
+    </ModelData>
+    <UserDefinedVariables EntityType="StaticProp">
+        <Var ObjectId="4294967295" Name="ShowMesh" Value="true" />
+    </UserDefinedVariables>
+</Entity>
