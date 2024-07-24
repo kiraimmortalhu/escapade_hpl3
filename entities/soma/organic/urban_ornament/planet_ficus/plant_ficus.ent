@@ -1,42 +1,31 @@
 <Entity>
-    <EditorSession>
-        <ViewportConfig Enlarged="false" Focused="3">
-            <Viewport CameraPos="0 0 200" CameraTarget="0 0 0" Controller="Ortho" GridHeights="0 0 0" GridPlane="2" LockToGrid="true" Mode="Front" OrthoZoom="7.38839" Renderer="Wireframe" ShowAxes="true" ShowGrid="true" />
-            <Viewport CameraPos="200 0 0" CameraTarget="0 0 0" Controller="Ortho" GridHeights="0 0 0" GridPlane="0" LockToGrid="true" Mode="Right" OrthoZoom="7.38839" Renderer="Wireframe" ShowAxes="true" ShowGrid="true" />
-            <Viewport CameraPos="0 200 0" CameraTarget="0 0 0" Controller="Ortho" GridHeights="0 0 0" GridPlane="1" LockToGrid="true" Mode="Top" OrthoZoom="7.38839" Renderer="Wireframe" ShowAxes="true" ShowGrid="true" />
-            <Viewport CameraPos="1.9039 2.38177 1.66292" CameraTarget="-0.472956 0 -0.423431" Controller="Maya" GridHeights="0 0 0" GridPlane="1" LockToGrid="true" Mode="Perspective" Renderer="Shaded" ShowAxes="true" ShowGrid="true" />
-        </ViewportConfig>
-    </EditorSession>
     <ModelData>
         <Entities />
-        <Mesh Filename="entities/urban/ornament/planet_ficus/plant_ficus.dae">
-            <SubMesh ID="0" Material="" Name="plant_ficus" Rotation="0 0 0" Scale="1.766 1.766 1.766" WorldPos="0 0 0" />
+        <Mesh Filename="mods/escapade_hpl3/entities/soma/organic/urban_ornament/planet_ficus/plant_ficus.dae">
+            <SubMesh ID="0" Name="plant_ficus" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="1197" Material="" Static="true" />
         </Mesh>
         <Bones />
         <Shapes>
-            <Shape ID="1" Name="Shape_1" RelativeRotation="0 -0 0" RelativeScale="1 1 1" RelativeTranslation="0 0 0" Rotation="0 0 0" Scale="0.390484 0.364094 0.389164" ShapeType="Box" WorldPos="-0.0177206 0.189782 0.0234917" />
-            <Shape ID="2" Name="Shape_2" RelativeRotation="-0.0569322 -0 -0.25691" RelativeScale="1 1 1" RelativeTranslation="0.0305297 -0.480181 0.0051325" Rotation="-0.0569322 -0 -0.25691" Scale="0.0586846 0.214303 0.0619095" ShapeType="Box" WorldPos="-0.00639842 0.471374 0.0112193" />
-            <Shape ID="3" Name="Shape_3" RelativeRotation="-0.0468107 0.0249208 0.199476" RelativeScale="1 1 1" RelativeTranslation="0.0283176 -0.243306 -0.0051325" Rotation="-0.0468107 0.0249208 0.199476" Scale="0.0488962 0.270825 0.05546" ShapeType="Box" WorldPos="-0.00861056 0.70825 0.000954303" />
-            <Shape ID="4" Name="Shape_4" RelativeRotation="0.0428815 0.0182962 0.0625878" RelativeScale="1 1 1" RelativeTranslation="-0.0057306 -0.0481632 -0.0051325" Rotation="0.0428815 0.0182962 0.0625878" Scale="0.0488962 0.132902 0.0600784" ShapeType="Box" WorldPos="-0.0426587 0.903393 0.000954303" />
-            <Shape ID="5" Name="Shape_5" RelativeRotation="0.0428815 0.0182962 0.0625878" RelativeScale="1 1 1" RelativeTranslation="-0.0305297 0.480181 -0.0051325" Rotation="0.0428815 0.0182962 0.0625878" Scale="0.231591 0.865184 0.237247" ShapeType="Box" WorldPos="-0.0674579 1.43174 0.000954303" />
-            <Shape ID="23" Name="Shape_6" RelativeRotation="0 -0 0" RelativeScale="1 1 1" RelativeTranslation="0 0 0" Rotation="0 0 0" Scale="0.395734 1.77315 0.403308" ShapeType="Box" WorldPos="-0.0159886 0.920281 0.0248995" />
+            <Shape ID="1" Name="Shape_1" CreStamp="0" ModStamp="0" WorldPos="-0.00924319 0.110877 0.00492062" Rotation="0 0 0" Scale="0.218433 0.203671 0.217695" RelativeTranslation="9.31323e-10 -7.45058e-09 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="2" Name="Shape_2" CreStamp="0" ModStamp="0" WorldPos="-0.00132406 0.322647 0.0126558" Rotation="-0.0569322 -0 -0.25691" Scale="0.0751095 0.274283 0.0792371" RelativeTranslation="0.0232045 -0.276467 0.00656901" RelativeRotation="-0.0569322 -0 -0.25691" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="3" Name="Shape_3" CreStamp="0" ModStamp="0" WorldPos="-0.00415534 0.625821 -0.000482209" Rotation="-0.0468107 0.0249208 0.199476" Scale="0.0625815 0.346625 0.0709824" RelativeTranslation="0.0203732 0.0267067 -0.00656901" RelativeRotation="-0.0468107 0.0249208 0.199476" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="4" Name="Shape_4" CreStamp="0" ModStamp="0" WorldPos="-0.0477331 0.875582 -0.000482209" Rotation="0.0428815 0.0182962 0.0625878" Scale="0.0625815 0.170099 0.0768935" RelativeTranslation="-0.0232045 0.276467 -0.00656901" RelativeRotation="0.0428815 0.0182962 0.0625878" RelativeScale="1 1 1" ShapeType="Box" />
         </Shapes>
         <Bodies>
-            <Body AngularDamping="0.1" BlocksLight="true" BlocksSound="false" BuoyancyDensityMul="1" CanAttachCharacter="false" CollideCharacter="false" CollideNonCharacter="true" ContinuousCollision="true" HasGravity="true" ID="21" LinearDamping="0.1" Mass="0" Material="Ceramic" MaxAngularSpeed="20" MaxLinearSpeed="20" Name="Body_1" PushedByCharacterGravity="false" Rotation="0 0 0" Scale="1.78766 1.78766 1.78766" UseSurfaceEffects="true" Volatile="false" WorldPos="-0.0177206 0.189782 0.0234918">
+            <Body ID="21" Name="Body_1" CreStamp="0" ModStamp="1721784859" WorldPos="-0.00924319 0.110877 0.00492062" Rotation="0 0 0" Scale="1 1 1" Material="Ceramic" Mass="0" AngularDamping="0.1" LinearDamping="0.1" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Shape ID="1" />
             </Body>
-            <Body AngularDamping="0.1" BlocksLight="true" BlocksSound="false" BuoyancyDensityMul="1" CanAttachCharacter="false" CollideCharacter="false" CollideNonCharacter="true" ContinuousCollision="true" HasGravity="true" ID="22" LinearDamping="0.1" Mass="0" Material="Wood Brittle" MaxAngularSpeed="20" MaxLinearSpeed="20" Name="Body_2" PushedByCharacterGravity="false" Rotation="0 0 0" Scale="1.78766 1.78766 1.78766" UseSurfaceEffects="true" Volatile="false" WorldPos="-0.0369282 0.951556 0.00608681">
+            <Body ID="22" Name="Body_2" CreStamp="0" ModStamp="1721784867" WorldPos="-0.0245286 0.599114 0.0060868" Rotation="0 0 0" Scale="2.288 2.288 2.288" Material="Wood Brittle" Mass="0" AngularDamping="0.1" LinearDamping="0.1" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="false" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Shape ID="3" />
                 <Shape ID="2" />
                 <Shape ID="4" />
-                <Shape ID="5" />
-            </Body>
-            <Body AngularDamping="0.1" BlocksLight="true" BlocksSound="false" BuoyancyDensityMul="1" CanAttachCharacter="false" CollideCharacter="true" CollideNonCharacter="false" ContinuousCollision="true" HasGravity="true" ID="24" LinearDamping="0.1" Mass="0" Material="" MaxAngularSpeed="20" MaxLinearSpeed="20" Name="Body_3" PushedByCharacterGravity="false" Rotation="0 0 0" Scale="1.78766 1.78766 1.78766" UseSurfaceEffects="true" Volatile="false" WorldPos="-0.0159886 0.920281 0.0248995">
-                <Shape ID="23" />
             </Body>
         </Bodies>
         <Joints />
         <Animations />
+        <ProcAnimations />
     </ModelData>
-    <UserDefinedVariables EntityType="StaticProp" />
+    <UserDefinedVariables EntityType="StaticProp">
+        <Var ObjectId="4294967295" Name="ShowMesh" Value="true" />
+    </UserDefinedVariables>
 </Entity>
