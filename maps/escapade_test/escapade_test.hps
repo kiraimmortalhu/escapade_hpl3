@@ -48,6 +48,8 @@ class cScrMap : iScrMap
 		
 	void PreloadData()
 	{
+		PlayerBody_PreloadModel("player_rebirth_ghoul.ent");
+		
 		/////////////////
 		// Preload gui
 		//ImGui_PreloadImage("some_image");
@@ -69,6 +71,7 @@ class cScrMap : iScrMap
 	{
 		// Any general setup of script / entities
 		
+		PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		PlayerBody_SetActive(true);
 		
 		/////////////////////////
