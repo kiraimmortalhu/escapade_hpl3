@@ -72,7 +72,8 @@ class cScrMap : iScrMap
 		// Any general setup of script / entities
 		
 		PlayerBody_SetModel("player_rebirth_ghoul.ent");
-		PlayerBody_SetActive(true);
+		PlayerBody_SetRenderLayers(1, 1);
+        PlayerBody_SetActive(true);
 		
 		/////////////////////////
 		// Debug
