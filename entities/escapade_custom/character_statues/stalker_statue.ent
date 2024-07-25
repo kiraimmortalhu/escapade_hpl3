@@ -1,0 +1,491 @@
+<Entity>
+    <ModelData>
+        <Entities />
+        <Mesh Filename="entities/character/stalker/stalker_body/stalker_new.fbx">
+            <SubMesh ID="0" Name="monster_body" CreStamp="0" ModStamp="1721936431" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="16792" Material="static_objects/roman/walls/wall_plaster_tiling.mat" Static="true" />
+            <SubMesh ID="1" Name="bayonet" CreStamp="0" ModStamp="1721936383" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="1444" Material="mods/escapade_hpl3/textures/transparent_material.mat" Static="true" />
+            <SubMesh ID="2" Name="monster_head" CreStamp="0" ModStamp="1721936442" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="7470" Material="static_objects/roman/walls/wall_plaster_tiling.mat" Static="true" />
+        </Mesh>
+        <Bones>
+            <Bone ID="3" Name="j_Root" />
+            <Bone ID="4" Name="j_Char_Root" />
+            <Bone ID="5" Name="j_Spine_1" />
+            <Bone ID="6" Name="j_Spine_2" />
+            <Bone ID="7" Name="j_Spine_3" />
+            <Bone ID="8" Name="j_Neck_1" />
+            <Bone ID="9" Name="j_Neck_2" />
+            <Bone ID="10" Name="j_Neck_3" />
+            <Bone ID="11" Name="j_Head" />
+            <Bone ID="13" Name="j_Jaw_1" />
+            <Bone ID="14" Name="j_Jaw_2" />
+            <Bone ID="15" Name="j_Jaw_End" />
+            <Bone ID="16" Name="j_tongue_1" />
+            <Bone ID="17" Name="j_tongue_2" />
+            <Bone ID="18" Name="j_tongue_3" />
+            <Bone ID="19" Name="j_tongue_4" />
+            <Bone ID="20" Name="j_tongue_5" />
+            <Bone ID="21" Name="j_tongue_end" />
+            <Bone ID="22" Name="j_upper_jaw_1" />
+            <Bone ID="23" Name="j_l_eye" />
+            <Bone ID="24" Name="j_r_eye" />
+            <Bone ID="25" Name="j_upper_teeth_1" />
+            <Bone ID="26" Name="j_upper_teeth_2" />
+            <Bone ID="27" Name="j_upper_teeth_3" />
+            <Bone ID="28" Name="j_upper_teeth_4" />
+            <Bone ID="29" Name="j_upper_teeth_5" />
+            <Bone ID="30" Name="j_upper_teeth_6" />
+            <Bone ID="31" Name="j_upper_teeth_7" />
+            <Bone ID="32" Name="j_tip_head_1" />
+            <Bone ID="33" Name="j_tip_head_2" />
+            <Bone ID="34" Name="j_tendril_3" />
+            <Bone ID="35" Name="j_tendril_4" />
+            <Bone ID="36" Name="j_tendril_1" />
+            <Bone ID="37" Name="j_tendril_2" />
+            <Bone ID="38" Name="j_tendril_5" />
+            <Bone ID="39" Name="j_R_side_head" />
+            <Bone ID="40" Name="j_L_side_head" />
+            <Bone ID="41" Name="j_R_lip" />
+            <Bone ID="42" Name="j_Mid_lip" />
+            <Bone ID="43" Name="j_L_lip" />
+            <Bone ID="44" Name="j_L_ear" />
+            <Bone ID="45" Name="j_R_neck_3" />
+            <Bone ID="46" Name="j_R_neck_2" />
+            <Bone ID="47" Name="j_R_neck_1" />
+            <Bone ID="48" Name="j_L_neck_1" />
+            <Bone ID="49" Name="j_L_neck_2" />
+            <Bone ID="50" Name="j_L_neck_3" />
+            <Bone ID="51" Name="j_neck_bottom" />
+            <Bone ID="52" Name="j_L_Shoulder" />
+            <Bone ID="53" Name="j_L_Arm_1" />
+            <Bone ID="54" Name="j_L_Arm_2" />
+            <Bone ID="55" Name="j_L_Arm_3" />
+            <Bone ID="56" Name="j_L_Arm_4" />
+            <Bone ID="57" Name="j_L_Ullna" />
+            <Bone ID="58" Name="j_L_Hand" />
+            <Bone ID="59" Name="j_L_Pinky_1" />
+            <Bone ID="60" Name="j_L_Pinky_2" />
+            <Bone ID="61" Name="j_L_Pinky_3" />
+            <Bone ID="62" Name="j_L_Pinky_4" />
+            <Bone ID="63" Name="j_L_Pinky_End" />
+            <Bone ID="64" Name="j_L_Ring_1" />
+            <Bone ID="65" Name="j_L_Ring_2" />
+            <Bone ID="66" Name="j_L_Ring_3" />
+            <Bone ID="67" Name="j_L_Ring_4" />
+            <Bone ID="68" Name="j_L_Ring_End" />
+            <Bone ID="69" Name="j_L_Middle_1" />
+            <Bone ID="70" Name="j_L_Middle_2" />
+            <Bone ID="71" Name="j_L_Middle_3" />
+            <Bone ID="72" Name="j_L_Middle_4" />
+            <Bone ID="73" Name="j_L_Middle_End" />
+            <Bone ID="74" Name="j_L_Index_1" />
+            <Bone ID="75" Name="j_L_Index_2" />
+            <Bone ID="76" Name="j_L_Index_3" />
+            <Bone ID="77" Name="j_L_Index_4" />
+            <Bone ID="78" Name="j_L_Index_End" />
+            <Bone ID="79" Name="j_L_Thumb_1" />
+            <Bone ID="80" Name="j_L_Thumb_2" />
+            <Bone ID="81" Name="j_L_Thumb_3" />
+            <Bone ID="82" Name="j_L_Thumb_End" />
+            <Bone ID="83" Name="j_L_shirt_cloth_3_1" />
+            <Bone ID="84" Name="j_L_shirt_cloth_3_2" />
+            <Bone ID="85" Name="j_L_shirt_cloth_3_3" />
+            <Bone ID="86" Name="j_L_shirt_cloth_3_end" />
+            <Bone ID="87" Name="j_L_shirt_cloth_2_1" />
+            <Bone ID="88" Name="j_L_shirt_cloth_2_2" />
+            <Bone ID="89" Name="j_L_shirt_cloth_2_3" />
+            <Bone ID="90" Name="j_L_shirt_cloth_2_end" />
+            <Bone ID="91" Name="j_L_shirt_cloth_1_1" />
+            <Bone ID="92" Name="j_L_shirt_cloth_1_2" />
+            <Bone ID="93" Name="j_L_shirt_cloth_1_3" />
+            <Bone ID="94" Name="j_L_shirt_cloth_1_4" />
+            <Bone ID="95" Name="j_L_shirt_cloth_1_end" />
+            <Bone ID="96" Name="j_R_Shoulder" />
+            <Bone ID="97" Name="j_R_Arm_1" />
+            <Bone ID="98" Name="j_R_Arm_2" />
+            <Bone ID="99" Name="j_R_Arm_3" />
+            <Bone ID="100" Name="j_R_Arm_4" />
+            <Bone ID="101" Name="j_R_Ullna" />
+            <Bone ID="102" Name="j_R_Hand" />
+            <Bone ID="103" Name="j_R_Pinky_1" />
+            <Bone ID="104" Name="j_R_Pinky_2" />
+            <Bone ID="105" Name="j_R_Pinky_3" />
+            <Bone ID="106" Name="j_R_Pinky_4" />
+            <Bone ID="107" Name="j_R_Pinky_End" />
+            <Bone ID="108" Name="j_R_Ring_1" />
+            <Bone ID="109" Name="j_R_Ring_2" />
+            <Bone ID="110" Name="j_R_Ring_3" />
+            <Bone ID="111" Name="j_R_Ring_4" />
+            <Bone ID="112" Name="j_R_Ring_End" />
+            <Bone ID="113" Name="j_R_Middle_1" />
+            <Bone ID="114" Name="j_R_Middle_2" />
+            <Bone ID="115" Name="j_R_Middle_3" />
+            <Bone ID="116" Name="j_R_Middle_4" />
+            <Bone ID="117" Name="j_R_Middle_End" />
+            <Bone ID="118" Name="j_R_Index_1" />
+            <Bone ID="119" Name="j_R_Index_2" />
+            <Bone ID="120" Name="j_R_Index_3" />
+            <Bone ID="121" Name="j_R_Index_4" />
+            <Bone ID="122" Name="j_R_Index_End" />
+            <Bone ID="123" Name="j_R_Thumb_1" />
+            <Bone ID="124" Name="j_R_Thumb_2" />
+            <Bone ID="125" Name="j_R_Thumb_3" />
+            <Bone ID="126" Name="j_R_Thumb_End" />
+            <Bone ID="127" Name="j_R_shirt_cloth_5_1" />
+            <Bone ID="128" Name="j_R_shirt_cloth_5_2" />
+            <Bone ID="129" Name="j_R_shirt_cloth_5_end" />
+            <Bone ID="130" Name="j_R_shirt_cloth_4_1" />
+            <Bone ID="131" Name="j_R_shirt_cloth_4_2" />
+            <Bone ID="132" Name="j_R_shirt_cloth_4_end" />
+            <Bone ID="133" Name="j_R_shirt_cloth_3_1" />
+            <Bone ID="134" Name="j_R_shirt_cloth_3_2" />
+            <Bone ID="135" Name="j_R_shirt_cloth_3_3" />
+            <Bone ID="136" Name="j_R_shirt_cloth_3_4" />
+            <Bone ID="137" Name="j_R_shirt_cloth_3_end" />
+            <Bone ID="138" Name="j_R_shirt_cloth_1_1" />
+            <Bone ID="139" Name="j_R_shirt_cloth_1_2" />
+            <Bone ID="140" Name="j_R_shirt_cloth_1_3" />
+            <Bone ID="141" Name="j_R_shirt_cloth_1_4" />
+            <Bone ID="142" Name="j_R_shirt_cloth_1_5" />
+            <Bone ID="143" Name="j_R_shirt_cloth_1_6" />
+            <Bone ID="144" Name="j_R_shirt_cloth_1_end" />
+            <Bone ID="145" Name="j_R_shirt_cloth_2_1" />
+            <Bone ID="146" Name="j_R_shirt_cloth_2_2" />
+            <Bone ID="147" Name="j_R_shirt_cloth_2_3" />
+            <Bone ID="148" Name="j_R_shirt_cloth_2_4" />
+            <Bone ID="149" Name="j_R_shirt_cloth_2_5" />
+            <Bone ID="150" Name="j_R_shirt_cloth_2_end" />
+            <Bone ID="151" Name="j_sword_2" />
+            <Bone ID="152" Name="j_sword_1" />
+            <Bone ID="153" Name="j_L_Leg_1" />
+            <Bone ID="154" Name="j_L_Leg_2" />
+            <Bone ID="155" Name="j_L_Leg_3" />
+            <Bone ID="156" Name="j_L_Leg_4" />
+            <Bone ID="157" Name="j_L_Leg_5" />
+            <Bone ID="158" Name="j_L_Foot" />
+            <Bone ID="159" Name="j_L_Toes" />
+            <Bone ID="160" Name="j_L_Toes_End" />
+            <Bone ID="161" Name="j_L_leg_cloth_2_1" />
+            <Bone ID="162" Name="j_L_leg_cloth_2_2" />
+            <Bone ID="163" Name="j_L_leg_cloth_2_3" />
+            <Bone ID="164" Name="j_L_leg_cloth_2_end" />
+            <Bone ID="165" Name="j_L_leg_cloth_1_1" />
+            <Bone ID="166" Name="j_L_leg_cloth_1_2" />
+            <Bone ID="167" Name="j_L_leg_cloth_1_3" />
+            <Bone ID="168" Name="j_L_leg_cloth_1_end" />
+            <Bone ID="169" Name="j_L_leg_cloth_3_1" />
+            <Bone ID="170" Name="j_L_leg_cloth_3_end" />
+            <Bone ID="171" Name="j_R_Leg_1" />
+            <Bone ID="172" Name="j_R_Leg_2" />
+            <Bone ID="173" Name="j_R_Leg_3" />
+            <Bone ID="174" Name="j_R_Leg_4" />
+            <Bone ID="175" Name="j_R_Leg_5" />
+            <Bone ID="176" Name="j_R_Foot" />
+            <Bone ID="177" Name="j_R_Toes" />
+            <Bone ID="178" Name="j_R_Toes_End" />
+            <Bone ID="179" Name="j_R_leg_cloth_2_1" />
+            <Bone ID="180" Name="j_R_leg_cloth_2_2" />
+            <Bone ID="181" Name="j_R_leg_cloth_2_3" />
+            <Bone ID="182" Name="j_R_leg_cloth_2_4" />
+            <Bone ID="183" Name="j_R_leg_cloth_2_end" />
+            <Bone ID="184" Name="j_R_leg_cloth_1_1" />
+            <Bone ID="185" Name="j_R_leg_cloth_1_2" />
+            <Bone ID="186" Name="j_R_leg_cloth_1_3" />
+            <Bone ID="187" Name="j_R_leg_cloth_1_end" />
+            <Bone ID="188" Name="j_R_leg_cloth_4_1" />
+            <Bone ID="189" Name="j_R_leg_cloth_4_2" />
+            <Bone ID="190" Name="j_R_leg_cloth_4_3" />
+            <Bone ID="191" Name="j_R_leg_cloth_4_end" />
+            <Bone ID="192" Name="j_R_leg_cloth_5_1" />
+            <Bone ID="193" Name="j_R_leg_cloth_5_end" />
+            <Bone ID="194" Name="j_R_leg_cloth_3_1" />
+            <Bone ID="195" Name="j_R_leg_cloth_3_2" />
+            <Bone ID="196" Name="j_R_leg_cloth_3_end" />
+            <Bone ID="197" Name="j_leg_cloth_6_1" />
+            <Bone ID="198" Name="j_L_leg_cloth_6_end" />
+            <Bone ID="199" Name="j_B_shirt_cloth_1_1" />
+            <Bone ID="200" Name="j_B_shirt_cloth_1_2" />
+            <Bone ID="201" Name="j_B_shirt_cloth_1_end" />
+            <Bone ID="202" Name="j_shirt_cloth_2_1" />
+            <Bone ID="203" Name="j_shirt_cloth_2_2" />
+            <Bone ID="204" Name="j_shirt_cloth_2_3" />
+            <Bone ID="205" Name="j_shirt_cloth_2_end" />
+            <Bone ID="206" Name="j_shirt_cloth_3_1" />
+            <Bone ID="207" Name="j_shirt_cloth_3_2" />
+            <Bone ID="208" Name="j_shirt_cloth_3_end" />
+            <Bone ID="209" Name="monster_head" />
+            <Bone ID="210" Name="bayonet" />
+            <Bone ID="211" Name="monster_body" />
+        </Bones>
+        <Shapes>
+            <Shape ID="212" Name="ShapeBox_1" CreStamp="1721938234" ModStamp="1721938240" WorldPos="0 1.5 0" Rotation="0 0 0" Scale="1 2.75 1" RelativeTranslation="0 0 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Box" />
+        </Shapes>
+        <Bodies>
+            <Body ID="213" Name="Body_1" CreStamp="0" ModStamp="1721938267" WorldPos="0 1.5 0" Rotation="0 0 0" Scale="1 1 1" Material="stone med" Mass="0" AngularDamping="0.5" LinearDamping="0.1" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+                <Shape ID="212" />
+            </Body>
+        </Bodies>
+        <Joints />
+        <Animations>
+            <Animation Name="alert" File="entities/character/stalker/animations/stalker_alert.fbx" Layer="Default" Speed="1" />
+            <Animation Name="crawl_into_hole" File="entities/character/stalker/animations/stalker_crawl_into_hole.fbx" Layer="Default" Speed="1">
+                <Event Name="Sound_Enter" Time="0" Direction="Both" Type="PlaySound" DestSocket="" Value="creatures/stalker/tunnel_enter" />
+            </Animation>
+            <Animation Name="crouch_idle" File="entities/character/stalker/animations/stalker_crouch_idle.fbx" Layer="Default" Speed="1" />
+            <Animation Name="glimpse_player_straight_ahead" File="entities/character/stalker/animations/stalker_glimpse_player_ahead.fbx" Layer="Default" Speed="1" />
+            <Animation Name="glimpse_player_45_left" File="entities/character/stalker/animations/stalker_glimpse_player_left_45.fbx" Layer="Default" Speed="1" />
+            <Animation Name="glimpse_player_90_left" File="entities/character/stalker/animations/stalker_glimpse_player_left_90.fbx" Layer="Default" Speed="1" />
+            <Animation Name="glimpse_player_45_right" File="entities/character/stalker/animations/stalker_glimpse_player_right_45.fbx" Layer="Default" Speed="1" />
+            <Animation Name="glimpse_player_90_right" File="entities/character/stalker/animations/stalker_glimpse_player_right_90.fbx" Layer="Default" Speed="1" />
+            <Animation Name="run_loop" File="entities/character/stalker/animations/stalker_run_loop.fbx" Layer="Default" Speed="0.15">
+                <Event Name="Hand_R" Time="0.0762907" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="Hand_L" Time="0.166" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Footstep_R" Time="0.33389" Direction="Both" Type="PlaySound" DestSocket="foot_right" Value="" />
+                <Event Name="Footstep_L" Time="0.472343" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Handstep_R" Time="0.634254" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_L" Time="0.742" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_R" Time="1.20264" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_L" Time="1.3005" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_R" Time="1.76914" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_L" Time="1.87077" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Footstep_R" Time="0.903389" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="Footstep_L" Time="1.03513" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Footstep_R" Time="1.46989" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="Footstep_L" Time="1.6054" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Footstep_R" Time="2.04015" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="Footstep_L" Time="2.1719" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+            </Animation>
+            <Animation Name="run_turn_left" File="entities/character/stalker/animations/stalker_run_turn_left.fbx" Layer="Default" Speed="0.15">
+                <Event Name="FootStep_R" Time="0.337" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="FootStep_L" Time="0.472" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Handstep_R" Time="0.0696977" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_L" Time="0.171419" Direction="Both" Type="PlaySound" DestSocket="foot_left" Value="creatures/stalker/hand_walk" />
+            </Animation>
+            <Animation Name="run_turn_right" File="entities/character/stalker/animations/stalker_run_turn_right.fbx" Layer="Default" Speed="0.15">
+                <Event Name="Footstep_R" Time="0.316" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="Footstep_L" Time="0.476581" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Handstep_R" Time="0.0706395" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="New Event" Time="0.169064" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+            </Animation>
+            <Animation Name="walk_backward_loop" File="entities/character/stalker/animations/stalker_walk_backward_loop.fbx" Layer="Default" Speed="0.5">
+                <Event Name="Footstep_L" Time="0.911" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Footstep_R" Time="0.567" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="Handstep_L" Time="1.034" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_R" Time="0.600115" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_R" Time="1.59348" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_L" Time="2.30419" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Footstep_R" Time="1.6836" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="Footstep_L" Time="2.05022" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+            </Animation>
+            <Animation Name="walk_end" File="entities/character/stalker/animations/stalker_walk_end.fbx" Layer="Default" Speed="0.5">
+                <Event Name="Handstep_L" Time="0.422699" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Footstep_R" Time="0.270757" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Footstep_L" Time="0.654571" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Handstep_R" Time="0.666092" Direction="Both" Type="PlaySound" DestSocket="" Value="creatures/stalker/hand_walk" />
+            </Animation>
+            <Animation Name="walk_loop" File="entities/character/stalker/animations/stalker_walk_loop.fbx" Layer="Default" Speed="0.5">
+                <Event Name="Footstep_L" Time="0.547" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Footstep_R" Time="1.177" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="Handstep_R" Time="0.510393" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_L" Time="0.907" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_R" Time="1.8503" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_L" Time="2.35493" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_R" Time="3.02777" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_L" Time="3.36419" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_R" Time="4.109" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_L" Time="4.53" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_R" Time="5.50285" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_L" Time="6.01949" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_R" Time="6.60222" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_L" Time="7.00472" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Footstep_L" Time="2.08459" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Footstep_R" Time="2.54116" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="Footstep_L" Time="3.11187" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Footstep_R" Time="3.56844" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="Footstep_L" Time="4.1752" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Footstep_R" Time="4.79997" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="Footstep_L" Time="5.64102" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Footstep_R" Time="6.16968" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="Footstep_L" Time="6.73438" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Footstep_R" Time="7.20296" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+            </Animation>
+            <Animation Name="walk_start" File="entities/character/stalker/animations/stalker_walk_start.fbx" Layer="Default" Speed="0.5">
+                <Event Name="Footstep_L" Time="0.548256" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+            </Animation>
+            <Animation Name="walk_turn_left" File="entities/character/stalker/animations/stalker_walk_turn_left.fbx" Layer="Default" Speed="0.5">
+                <Event Name="Footstep_R" Time="0.59055" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="Footstep_L" Time="1.11241" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Handstep_L" Time="0.48825" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_R" Time="1.12596" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+            </Animation>
+            <Animation Name="walk_turn_right" File="entities/character/stalker/animations/stalker_walk_turn_right.fbx" Layer="Default" Speed="0.5">
+                <Event Name="Footstep_R" Time="0.374214" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="Footstep_L" Time="1.07836" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Handstep_L" Time="0.508179" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_R" Time="1.14811" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+            </Animation>
+            <Animation Name="stopped_turn_left" File="entities/character/stalker/animations/stalker_walk_turn_left.fbx" Layer="Default" Speed="0.75">
+                <Event Name="Footstep_R" Time="0.59055" Direction="Both" Type="Step" DestSocket="" Value="" />
+                <Event Name="Footstep_L" Time="1.11241" Direction="Both" Type="Step" DestSocket="" Value="" />
+            </Animation>
+            <Animation Name="stopped_turn_right" File="entities/character/stalker/animations/stalker_walk_turn_right.fbx" Layer="Default" Speed="0.75">
+                <Event Name="Footstep_R" Time="0.374214" Direction="Both" Type="Step" DestSocket="" Value="" />
+                <Event Name="Footstep_L" Time="1.07836" Direction="Both" Type="Step" DestSocket="" Value="" />
+            </Animation>
+            <Animation Name="hit_obstacle" File="entities/character/stalker/animations/stalker_hit_obstacle.fbx" Layer="Default" Speed="1">
+                <Event Name="AttackSound" Time="0" Direction="Both" Type="PlaySound" DestSocket="" Value="creatures/stalker/break" />
+                <Event Name="AttackDamageStart" Time="1.07" Direction="Both" Type="Message" DestSocket="" Value="0" />
+                <Event Name="AttackDamageEnd" Time="1.23875" Direction="Both" Type="Message" DestSocket="" Value="1" />
+            </Animation>
+            <Animation Name="cramped_walk_end" File="entities/character/stalker/animations/stalker_cramped_walk_end.fbx" Layer="Default" Speed="0.5">
+                <Event Name="Footstep_R" Time="0.28804" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="Handstep_L" Time="0.43422" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Footstep_L" Time="0.711459" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+            </Animation>
+            <Animation Name="cramped_walk_loop" File="entities/character/stalker/animations/stalker_cramped_walk_loop.fbx" Layer="Default" Speed="0.5">
+                <Event Name="Footstep_R" Time="0.553" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="Footstep_L" Time="1.177" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Handstep_L" Time="0.463" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_R" Time="0.889" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_R" Time="1.83829" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_L" Time="2.37896" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_R" Time="3.02777" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_L" Time="3.35818" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_R" Time="4.10911" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_L" Time="4.52964" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_R" Time="5.50285" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_L" Time="6.00748" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Handstep_R" Time="6.59621" Direction="Both" Type="PlaySound" DestSocket="hand_right" Value="creatures/stalker/hand_walk" />
+                <Event Name="New Event" Time="6.99871" Direction="Both" Type="PlaySound" DestSocket="left_hand" Value="creatures/stalker/hand_walk" />
+                <Event Name="Footstep_L" Time="2.10262" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Footstep_R" Time="2.55318" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="Footstep_L" Time="3.11788" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="New Event" Time="3.56243" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="Footstep_L" Time="4.19923" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Footstep_R" Time="4.824" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="Footstep_L" Time="5.64703" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Footstep_R" Time="6.1877" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+                <Event Name="Footstep_L" Time="6.74039" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+                <Event Name="Footstep_R" Time="7.20296" Direction="Both" Type="Step" DestSocket="foot_right" Value="" />
+            </Animation>
+            <Animation Name="cramped_walk_start" File="entities/character/stalker/animations/stalker_cramped_walk_start.fbx" Layer="Default" Speed="0.5">
+                <Event Name="Footstep_L" Time="0.538954" Direction="Both" Type="Step" DestSocket="foot_left" Value="" />
+            </Animation>
+            <Animation Name="cramped_alert" File="entities/character/stalker/animations/stalker_cramped_alert.fbx" Layer="Default" Speed="1" />
+            <Animation Name="cramped_alert_hunched" File="entities/character/stalker/animations/stalker_cramped_alert_hunched.fbx" Layer="Default" Speed="1" />
+            <Animation Name="crawl_out_of_hole" File="entities/character/stalker/animations/stalker_crawl_out_hole.fbx" Layer="Default" Speed="1">
+                <Event Name="Sound_Exit" Time="0" Direction="Both" Type="PlaySound" DestSocket="" Value="creatures/stalker/tunnel_exit" />
+            </Animation>
+            <Animation Name="turn_180" File="entities/character/stalker/animations/stalker_turn_right_180.fbx" Layer="Default" Speed="1" />
+            <Animation Name="stalker_throw_forward" File="entities/character/stalker/animations/stalker_throw_forward.fbx" Layer="Default" Speed="1" />
+            <Animation Name="stalker_throw_backward" File="entities/character/stalker/animations/stalker_throw_backward.fbx" Layer="Default" Speed="1" />
+            <Animation Name="stalker_throw_left" File="entities/character/stalker/animations/stalker_throw_left.fbx" Layer="Default" Speed="1" />
+            <Animation Name="stalker_throw_right" File="entities/character/stalker/animations/stalker_throw_right.fbx" Layer="Default" Speed="1" />
+            <Animation Name="stalker_walk_loop_body_test" File="entities/_temp/ted/stalker/stalker_test/animations/stalker_walk_loop_body_test.fbx" Layer="Default" Speed="1" />
+            <Animation Name="stalker_walk_loop_head_test" File="entities/_temp/ted/stalker/stalker_test/animations/stalker_walk_loop_head_test.fbx" Layer="Default" Speed="1" />
+            <Animation Name="stalker_shot_torso" File="entities/character/stalker/animations/stalker_shot_torso.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_shot_head" File="entities/character/stalker/animations/stalker_shot_head.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_shot_larm" File="entities/character/stalker/animations/stalker_shot_larm.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_shot_rarm" File="entities/character/stalker/animations/stalker_shot_rarm.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_shot_lleg" File="entities/character/stalker/animations/stalker_shot_lleg.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_shot_rleg" File="entities/character/stalker/animations/stalker_shot_rleg.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_shot_torso_1" File="entities/character/stalker/animations/stalker_shot_torso_1.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_head_twitch_1" File="entities/character/stalker/animations/stalker_head_twitch_1.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_head_twitch_2" File="entities/character/stalker/animations/stalker_head_twitch_2.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_head_twitch_3" File="entities/character/stalker/animations/stalker_head_twitch_3.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_head_twitch_4" File="entities/character/stalker/animations/stalker_head_twitch_4.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_head_twitch_5" File="entities/character/stalker/animations/stalker_head_twitch_5.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_head_twist_1" File="entities/character/stalker/animations/stalker_head_twist_1.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_head_twist_2" File="entities/character/stalker/animations/stalker_head_twist_2.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_head_twist_3" File="entities/character/stalker/animations/stalker_head_twist_3.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_head_twist_4" File="entities/character/stalker/animations/stalker_head_twist_4.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_head_twist_5" File="entities/character/stalker/animations/stalker_head_twist_5.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_head_mouth_1" File="entities/character/stalker/animations/stalker_head_mouth_1.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_head_mouth_2" File="entities/character/stalker/animations/stalker_head_mouth_2.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_head_mouth_3" File="entities/character/stalker/animations/stalker_head_mouth_3.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_head_mouth_4" File="entities/character/stalker/animations/stalker_head_mouth_4.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_head_mouth_5" File="entities/character/stalker/animations/stalker_head_mouth_5.fbx" Layer="Default_Edvin" Speed="1" />
+            <Animation Name="stalker_rage_walk" File="entities/character/stalker/animations/stalker_rage_walk.fbx" Layer="Default" Speed="1" />
+            <Animation Name="stalker_stalk_walk" File="entities/character/stalker/animations/stalker_stalk_walk.fbx" Layer="Default" Speed="1" />
+        </Animations>
+        <ProcAnimations />
+    </ModelData>
+    <UserDefinedVariables EntityType="Prop_Grab">
+        <Var ObjectId="4294967295" Name="Health" Value="1.0" />
+        <Var ObjectId="4294967295" Name="Toughness" Value="0" />
+        <Var ObjectId="4294967295" Name="MaxInteractDistance" Value="0" />
+        <Var ObjectId="4294967295" Name="EventTag" Value="" />
+        <Var ObjectId="4294967295" Name="ShowHints" Value="true" />
+        <Var ObjectId="4294967295" Name="LifeLength" Value="0" />
+        <Var ObjectId="4294967295" Name="DissolveDuringLifeDecrease" Value="true" />
+        <Var ObjectId="4294967295" Name="QuickSave" Value="false" />
+        <Var ObjectId="4294967295" Name="FullGameSave" Value="false" />
+        <Var ObjectId="4294967295" Name="AllowMapTransfer" Value="false" />
+        <Var ObjectId="4294967295" Name="VoiceSourceBone" Value="" />
+        <Var ObjectId="4294967295" Name="BlocksLineOfSight" Value="MaterialBased" />
+        <Var ObjectId="4294967295" Name="MainPhysicsBody" Value="" />
+        <Var ObjectId="4294967295" Name="NoGravityWhenUnderwater" Value="false" />
+        <Var ObjectId="4294967295" Name="DisableFreezeAtStart" Value="false" />
+        <Var ObjectId="4294967295" Name="CustomScriptFile" Value="" />
+        <Var ObjectId="4294967295" Name="CustomScriptClass" Value="" />
+        <Var ObjectId="4294967295" Name="ShowMesh" Value="true" />
+        <Var ObjectId="4294967295" Name="DissolveOnDestruction" Value="false" />
+        <Var ObjectId="4294967295" Name="DissolveTime" Value="1.0" />
+        <Var ObjectId="4294967295" Name="RandomizeAnimationStart" Value="true" />
+        <Var ObjectId="4294967295" Name="RootMotionBone" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOnSound" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOffSound" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOnTime" Value="0.2" />
+        <Var ObjectId="4294967295" Name="EffectsOffTime" Value="0.2" />
+        <Var ObjectId="4294967295" Name="StaticMoveCheckCollision" Value="false" />
+        <Var ObjectId="4294967295" Name="StaticMoveStartSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveStopSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveLoopSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveLoopSoundFade" Value="true" />
+        <Var ObjectId="4294967295" Name="BreakActive" Value="false" />
+        <Var ObjectId="4294967295" Name="CustomBreakBehaviour" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakOnlyOnMainBody" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakDestroyJoints" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakMinEnergy" Value="100" />
+        <Var ObjectId="4294967295" Name="BreakEntity" Value="" />
+        <Var ObjectId="4294967295" Name="BreakEntityAlignBody" Value="" />
+        <Var ObjectId="4294967295" Name="BreakSound" Value="" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundRadius" Value="18" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundPrio" Value="4" />
+        <Var ObjectId="4294967295" Name="BreakParticleSystem" Value="" />
+        <Var ObjectId="4294967295" Name="BreakImpulse" Value="4" />
+        <Var ObjectId="4294967295" Name="Grab_UseCustomOffset" Value="false" />
+        <Var ObjectId="4294967295" Name="Grab_CustomPositionOffset" Value="0 0 0" />
+        <Var ObjectId="4294967295" Name="Grab_CustomRotationOffset" Value="0 0 0" />
+        <Var ObjectId="4294967295" Name="Grab_UseCustomDepth" Value="false" />
+        <Var ObjectId="4294967295" Name="Grab_CustomDepth" Value="1.2" />
+        <Var ObjectId="4294967295" Name="Grab_MassMul" Value="0.1" />
+        <Var ObjectId="4294967295" Name="Grab_MinDepth" Value="0.8" />
+        <Var ObjectId="4294967295" Name="Grab_MaxDepth" Value="2" />
+        <Var ObjectId="4294967295" Name="Grab_ForceMul" Value="1" />
+        <Var ObjectId="4294967295" Name="Grab_TorqueMul" Value="1" />
+        <Var ObjectId="4294967295" Name="Grab_ThrowImpulse" Value="5.0" />
+        <Var ObjectId="4294967295" Name="Grab_IsHeavy" Value="false" />
+        <Var ObjectId="4294967295" Name="Grab_CollisionWithPlayer" Value="false" />
+        <Var ObjectId="4294967295" Name="Grab_InteractOnlyWithMainBody" Value="false" />
+        <Var ObjectId="4294967295" Name="Grab_CanInteractWithNoMass" Value="true" />
+        <Var ObjectId="4294967295" Name="Grab_LowerMass" Value="true" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_Active" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_HitMinEnergy" Value="100" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_MaxHits" Value="2" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_MinHitMass" Value="10" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DamageMesh" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DamageSound" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DamagePS" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BrokenEntity" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakImpulse" Value="3" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakSound" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakPS" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakAIEventPrio" Value="High" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CanDestroyThrownEntity" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_PathBlocker" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DropItemOnBreak" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+    </UserDefinedVariables>
+</Entity>

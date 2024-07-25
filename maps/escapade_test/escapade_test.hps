@@ -134,15 +134,18 @@ class cScrMap : iScrMap
 	// ==============
 	//{///////////////////////////////////////////////////////////////////////////////////////
  
-	//-------------------------------------------------------
+	void StalkerActivationHandler() {
+		if (Entity_IsActive("stalker_1")) {
+			Entity_SetActive("stalker_1", false);
+		} else {
+			Entity_SetActive("stalker_1", true);
+		}
+	}
  
-	/*Put any variables that are used in more than one scene here.*/
- 
-	//-------------------------------------------------------
- 
-	/*Put any functions that are used in more than one scene here.*/
- 
-	//-------------------------------------------------------
+	void Trigger_Stalker_OnPlayerInteract(const tString &in asEntity)
+	{
+		StalkerActivationHandler();
+	}
  
 	//} END MAIN FUNCTIONS
  
