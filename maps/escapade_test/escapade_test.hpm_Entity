@@ -1,6 +1,6 @@
 <HPLMapTrack_Entity ID="CC8B05BC4853009D5DF0B6F95CE8E6A6E13B9F3C" MajorVersion="1" MinorVersion="1">
     <Section Name="13155577883259020773">
-        <FileIndex_Entities NumOfFiles="241">
+        <FileIndex_Entities NumOfFiles="246">
             <File Id="0" Path="mods/escapade_hpl3/entities/dark_descent/lamp/candlestick01/candlestick01.ent" />
             <File Id="1" Path="mods/escapade_hpl3/entities/dark_descent/lamp/candlestick_floor/candlestick_floor.ent" />
             <File Id="2" Path="mods/escapade_hpl3/entities/dark_descent/lamp/candlestick_tri/candlestick_tri.ent" />
@@ -242,6 +242,11 @@
             <File Id="238" Path="entities/bunker/gameplay/trench_shotgun/trench_shotgun_body/trench_shotgun_shotgunner_pickup.ent" />
             <File Id="239" Path="entities/character/stalker/stalker.ent" />
             <File Id="240" Path="mods/escapade_hpl3/entities/escapade_custom/character_statues/stalker_statue.ent" />
+            <File Id="241" Path="entities/character/rat/rat.ent" />
+            <File Id="242" Path="entities/character/rat/dark_world_rat.ent" />
+            <File Id="243" Path="entities/nonexclusive/organic/shadowflesh/decomposed_shadow_flesh_pile_02.ent" />
+            <File Id="244" Path="mods/escapade_hpl3/entities/escapade_character/enemy_rat/enemy_rat_black.ent" />
+            <File Id="245" Path="mods/escapade_hpl3/entities/escapade_character/enemy_rat/enemy_rat_grey.ent" />
         </FileIndex_Entities>
         <Objects>
             <Entity ID="268435515" Name="castle_1" CreStamp="1718066446" ModStamp="1718066446" WorldPos="0.270523 0.0804021 -6.55472" Rotation="0 0 0" Scale="1 1 1" FileIndex="4" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 18 268435515">
@@ -8293,7 +8298,7 @@
                     <Var ObjectId="268436076" Name="RenderLayer" Value="0" />
                 </UserVariables>
             </Entity>
-            <Entity ID="268436078" Name="shrub_hazel_01_1" CreStamp="1721231717" ModStamp="1721231717" WorldPos="5.08838 0.0673597 30.3443" Rotation="0 0 0" Scale="1 1 1" FileIndex="171" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 325 268436078">
+            <Entity ID="268436078" Name="shrub_hazel_01_1" CreStamp="1721231717" ModStamp="1722012330" WorldPos="5.08838 0.0673597 31.3473" Rotation="0 0 0" Scale="1 1 1" FileIndex="171" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 325 268436078">
                 <UserVariables>
                     <Var ObjectId="268436078" Name="Note" Value="" />
                     <Var ObjectId="268436078" Name="CastShadows" Value="true" />
@@ -11689,6 +11694,128 @@
                     <Var ObjectId="268436242" Name="WoodenBreakable_CustomDropItemsList" Value="" />
                 </UserVariables>
                 <Pose Hash="3465524906">0.5 0.5 0.5 0.5 0 154.060501 -4.403533 0.5 -0.5 -0.5 -0.5 -154.060501 4.403532 -0.000007 0.950689 -0.0003 -0.000921 0.310144 16.621765 -1.398979 0.003845 0.999668 -0 -0.000741 0.025741 18.923782 0 -0.000001 0.994566 -0.002794 -0.022021 0.101716 19.687912 0 -0 0.968321 0.020413 0.039303 0.24575 42.793976 2.113544 -2.103369 0.997929 0.015082 0.015343 0.060627 9.485779 0.063507 -0.05058 0.9973 -0.018294 -0.015654 0.069373 9.149002 0.235901 -0.014713 0.999097 -0.028136 -0.018281 -0.026074 5.536194 -0.11525 0.000875 0.015344 -0.908184 -0.418277 0.003206 3.242676 11.698883 -2.323949 0.964482 0 -0 0.264149 20.540054 1.079407 -0 0.698683 0.108821 0.698683 -0.108821 12.513168 0 -0 0.161404 0.764201 -0.049495 0.622492 3.54805 16.265488 -2.330094 0.947869 0.287954 0.108772 0.082436 0.000002 0.000008 4.708984 0.983835 0.158854 0.081127 0.015898 0 0.000031 4.662605 0.994633 0.031002 -0.098717 -0.000224 0.000001 0 5.123756 0.983491 0.032624 -0.177647 0.011037 0 0 4.943703 0.981779 -0.046773 0.183971 -0.008765 0.000002 -0.000061 5.945482 0.23212 -0.67487 -0.211068 -0.667922 12.38208 9.285583 0.97345 1 -0 0 0 7.422776 13.033875 4.190109 1 -0 0 0 -7.51832 13.593018 3.498405 1 -0 -0 -0 -1.490796 10.875702 18.130909 1 -0 -0 -0 -5.30449 10.507996 16.85957 1 -0 -0 -0 -8.056902 8.709778 15.073227 1 0 -0 0 -9.677613 6.947174 12.767639 1 -0 -0 -0 3.332333 9.715424 17.374287 1 -0 -0 -0 -12.864616 2.585938 7.276722 1 0 -0 0 -11.733226 4.626831 9.963142 1 -0 0 0 1.188508 28.387024 -1.290375 1 -0 0 0 2.219443 27.757568 -16.117683 0.23212 -0.67487 -0.211068 -0.667922 15.587875 14.154083 -14.781979 0.23212 -0.67487 -0.211068 -0.667922 12.088684 13.963409 -15.736799 0.23212 -0.67487 -0.211068 -0.667922 23.15715 18.407364 6.1458 0.23212 -0.67487 -0.211068 -0.667922 19.943207 18.054184 7.8424 0.23212 -0.67487 -0.211068 -0.667922 7.400162 11.793915 -17.58046 0.23212 -0.67487 -0.211068 -0.667922 13.85463 -7.171432 -14.833117 0.23212 -0.67487 -0.211068 -0.667922 13.040878 -9.486542 17.725441 0.23212 -0.67487 -0.211068 -0.667922 28.646164 8.018265 -9.330038 0.23212 -0.67487 -0.211068 -0.667922 34.12912 10.231003 -1.291392 0.23212 -0.67487 -0.211068 -0.667922 30.984268 8.804794 6.309639 0.23212 -0.67487 -0.211068 -0.667922 12.592422 6.566971 15.929998 0.191648 -0.674085 -0.216317 -0.67977 6.893173 9.011353 -18.829561 0.191648 -0.674085 -0.216317 -0.67977 4.180786 -6.472931 -18.799635 0.191648 -0.674085 -0.216317 -0.67977 0.287094 -17.761978 -9.750476 0.191648 -0.674085 -0.216317 -0.67977 -0.100311 -18.173767 11.045482 0.191648 -0.674085 -0.216317 -0.67977 2.470642 -4.552475 19.920498 0.191648 -0.674085 -0.216317 -0.67977 8.724136 14.278046 15.044246 0.191648 -0.674085 -0.216317 -0.67977 4.33884 24.394653 -1.213318 0.683258 -0.404456 -0.583695 -0.169921 21.507874 -3.382477 9.905273 0.77523 0.04692 -0.618596 -0.11898 25.57785 0 -0.000015 0.992548 0.121852 0 -0 35.12561 -0.000034 0.000031 0.903163 0.364943 0.157273 0.162412 35.125648 -0.000076 -0.000168 0.984726 -0.168926 0.009709 -0.041047 17.658264 -1.490707 -0.093353 0.99599 -0.089468 0.000009 -0.000001 23.628422 0.000061 0.000046 0.960349 -0.253369 -0.116233 0.004822 17.721298 0.000053 -0.000046 0.991122 0.055989 -0.045627 -0.111624 10.247555 -7.196075 -0.741974 0.999255 -0.004389 0.036846 -0.010573 13.57259 -1.185333 -1.777618 0.999237 0.004438 -0.0373 0.010699 9.251059 -0.156715 0.427643 0.999712 0.002321 -0.022905 0.006742 6.108391 0.198143 0.487381 0.611794 0.575719 0.410545 -0.354553 7.711452 0.038998 2.032425 0.99692 0.055344 -0.014901 -0.053524 10.745895 -2.471045 -1.862885 0.999992 0.00002 0.004033 -0.000341 14.366192 -0.787071 -0.973923 0.996387 -0.00099 -0.084627 0.007121 10.263336 -0.419359 0.198608 0.996924 -0.00197 -0.078089 0.006347 7.123444 -0.01008 0.296951 0.545532 0.559466 0.432432 -0.449883 10.030716 -0.352182 0.491119 0.998081 0.054291 -0.022256 -0.019767 10.713497 1.927582 -2.068863 0.999994 0.000258 0.00349 0.000357 14.276318 0.307657 -2.87886 0.999332 -0.002558 -0.036249 -0.003781 11.427614 0.213129 0.374359 0.99942 -0.001894 -0.032792 -0.008981 9.439938 -0.168812 0.63472 0.579387 0.598432 0.376668 -0.405353 9.8354 -0.489481 2.742569 0.997813 0.055846 -0.005973 0.034846 10.432594 6.264637 -1.434113 0.999991 0.000866 0.00404 0.001179 14.173691 1.177718 -1.751099 0.999343 -0.00698 -0.034072 -0.010196 10.805113 -0.153044 0.674026 0.989804 -0.019884 -0.133973 -0.044093 7.93643 -0.115783 1.279221 0.532096 0.577087 0.408621 -0.465697 10.5812 0.329017 0.620972 0.965206 0.029764 -0.078878 0.247527 5.810398 5.203389 4.862823 0.998051 0.030251 0.045202 -0.030589 12.034546 4.357798 -1.005356 0.986554 -0.036383 -0.081243 -0.137069 10.105881 0.02142 0.100937 0.52093 0.633726 0.313674 -0.478155 11.360218 -0.475857 -0.601059 0.85628 -0.283276 -0.428161 -0.056725 16.800095 -7.567673 8.930344 0.976047 -0.016358 0.171706 0.132597 6.870956 0 0.000008 0.990147 -0.008502 -0.138157 0.021209 6.291496 0.000004 -0.000015 0.998453 -0.002775 -0.020505 0.051602 7.229538 0 -0.000008 0.886668 -0.006572 -0.458536 0.059339 13.668549 -6.248909 12.905426 0.962572 -0.038727 0.259841 0.066616 6.794067 0.000008 -0.000003 0.997052 0.003676 -0.071549 0.027454 6.772491 0 -0.000008 0.992255 -0.004533 -0.050144 0.113554 8.32518 0.000002 0 0.466677 -0.544144 -0.674133 0.177948 22.691025 1.542051 -15.584976 0.976963 0.066531 0.044839 -0.197755 8.675171 0 0.000005 0.979738 -0.006163 -0.009475 -0.199965 10.055008 0 -0.000004 0.998812 0.001219 0.003598 -0.04858 9.186371 -0.000008 0 0.998522 -0.004154 -0.017981 -0.051125 8.371628 -0.000008 0.000004 0.149632 0.667209 -0.396786 0.612375 20.397003 -3.125244 -12.323975 0.77733 0.046742 -0.615915 -0.119254 -25.577988 0.000009 0.000244 0.99255 0.121841 -0 -0.000001 -35.125854 -0.000008 -0.000305 0.903159 0.364953 0.157271 0.162414 -35.125481 -0.000038 0.000412 0.984781 -0.168605 0.009695 -0.04105 -17.657837 1.490631 0.093201 0.99599 -0.089468 0.000009 -0.000001 -23.628998 0.000038 -0.000107 0.960267 -0.253682 -0.116232 0.00486 -17.72138 0.000038 0.000275 0.991122 0.055989 -0.045627 -0.111624 -10.247372 7.196071 0.741425 0.999255 -0.004389 0.036846 -0.010573 -13.572208 1.185349 1.777771 0.999237 0.004438 -0.0373 0.010699 -9.251169 0.156704 -0.427673 0.999712 0.002321 -0.022905 0.006742 -6.108822 -0.198128 -0.487091 0.611794 0.575719 0.410545 -0.354553 -7.710968 -0.038982 -2.032745 0.99692 0.055344 -0.014901 -0.053524 -10.745579 2.471008 1.86293 0.999992 0.00002 0.004033 -0.000341 -14.365993 0.787016 0.973663 0.996387 -0.00099 -0.084627 0.007121 -10.263859 0.419422 -0.198532 0.996924 -0.00197 -0.078089 0.006347 -7.123127 0.010065 -0.296799 0.545532 0.559466 0.432432 -0.449883 -10.031105 0.352196 -0.491119 0.998081 0.054291 -0.022256 -0.019767 -10.713127 -1.927639 2.06842 0.999994 0.000258 0.00349 0.000357 -14.276733 -0.307615 2.878906 0.999332 -0.002558 -0.036249 -0.003781 -11.427753 -0.213091 -0.374161 0.99942 -0.001894 -0.032792 -0.008981 -9.439522 0.168764 -0.634842 0.579387 0.598432 0.376668 -0.405353 -9.835201 0.489447 -2.742737 0.997813 0.055846 -0.005973 0.034846 -10.43259 -6.26464 1.433853 0.999991 0.000866 0.00404 0.001179 -14.173729 -1.177725 1.751068 0.999343 -0.00698 -0.034072 -0.010196 -10.804596 0.15294 -0.673813 0.989804 -0.019884 -0.133973 -0.044093 -7.936674 0.115783 -1.27948 0.532096 0.577087 0.408621 -0.465697 -10.581566 -0.328925 -0.620773 0.965206 0.029764 -0.078878 0.247527 -5.80999 -5.203452 -4.862915 0.998051 0.030251 0.045202 -0.030589 -12.034794 -4.357691 1.005066 0.986554 -0.036383 -0.081243 -0.137069 -10.106155 -0.02116 -0.100754 0.52093 0.633726 0.313674 -0.478155 -11.360172 0.475828 0.601151 0.068804 0.424482 -0.33507 -0.838337 -2.399246 -2.309372 -7.321259 0.99925 0.000086 -0.016391 -0.035083 8.061966 0.000003 0 0.998497 0.001381 -0.052911 0.014205 6.002594 0 0 0.026779 -0.458683 0.416794 0.784332 -3.93383 4.1931 -7.812561 0.984022 0.004009 -0.029803 0.17549 7.61203 -0.000008 0 0.993151 0.00313 0.115744 -0.015632 7.60968 0 0 0.400206 0.277474 -0.162445 -0.858169 5.77681 -7.127319 1.139893 0.989388 -0.00392 -0.008717 -0.144981 6.028 0.000008 0.000008 0.993234 0.002285 0.014014 -0.115258 8.042938 -0.000004 -0.000004 1 -0.000041 -0.000899 -0.000328 7.021011 -0.000001 0 0.999781 -0.001023 -0.018631 0.009447 8.276291 -0.000001 0.000004 0.377635 0.579484 -0.552444 -0.465183 -21.272324 -0.380053 9.671402 0.967538 0.087703 0.032942 -0.234718 8.012547 -0.000031 -0.000004 0.974613 -0.007756 -0.008359 -0.223608 9.389412 0.000015 0.000001 0.986758 -0.009326 -0.024654 -0.160041 9.579086 0.000015 0 0.996131 0.001845 0.016063 -0.086385 11.018356 0 0 0.999891 -0.000294 -0.007208 0.012857 9.859985 -0.000002 0 0.999294 0.000841 0.028696 -0.024248 10.250305 0 0 0.061202 0.82903 -0.164093 -0.531072 -26.336334 -13.163148 -0.008286 0.992988 -0.000529 -0.002636 -0.118187 9.167068 0.000008 0.000004 0.999035 0.000737 0.018498 -0.039819 8.339218 0.000004 -0.000002 0.999455 -0.000517 0.019297 -0.026777 9.727905 -0.000001 0 0.998559 0.003655 -0.04201 -0.03319 8.797791 0.000002 0.000004 0.999728 0.000551 -0.003826 -0.022995 8.748154 0.000001 0.000004 0.452939 -0.564027 -0.426467 -0.542997 -11.060791 33.733383 -6.071383 0.452939 -0.564027 -0.426467 -0.542997 9.571411 31.10614 -5.561279 0.086302 -0.150873 -0.98469 0.013223 -12.755203 0.065913 15.40913 1 -0 -0 -0 32.740402 -0.000011 0.000004 0.927374 0.003368 -0.043648 -0.371566 32.740417 0.000179 -0.000107 1 -0 -0 -0 31.089848 -0.000002 -0.000004 1 -0 -0 -0 23.91527 0 -0.000004 0.771517 0.02001 0.086775 0.629945 7.174585 -0.000002 0 0.946133 -0 -0 0.323777 33.619514 -0 -0.000004 0.700881 -0.093627 0.700881 -0.093627 21.976484 0 0.000004 0.983797 0.009796 -0.033903 0.175777 -4.343632 5.806553 -2.563065 0.995564 -0.012317 0.080913 -0.046414 3.114208 -0.043196 -0.09885 0.994032 -0.010153 0.03265 -0.103593 3.519653 -0.000001 -0.000004 0.996579 0.033016 -0.072465 -0.022111 4.548893 0 0.000004 0.987996 -0.02276 -0.112433 -0.103466 -0.687225 2.716488 10.560978 0.999498 -0.000718 -0.010927 -0.029747 5.769211 -0.000002 -0 0.999763 0.000834 0.016725 0.013928 6.46405 0.000001 -0 0.999974 0.000222 0.003153 0.006483 6.104515 0 0.000001 0.979223 -0.01095 -0.09009 -0.181345 18.084732 -15.020674 -0.578232 0.998524 0.002708 -0.053082 0.011175 4.859886 0 0 0.013223 -0.98469 0.150873 -0.086302 -12.755005 0.065912 -15.409101 1 0 0 -0 -32.740417 0.000015 0.000034 0.927374 0.003368 -0.043648 -0.371566 -32.740486 -0.00016 0.000103 1 -0 -0 -0 -31.089966 -0.000036 -0.000019 1 -0 -0 -0 -23.915255 0.000034 -0.000011 0.771517 0.02001 0.086775 0.629945 -7.174583 0.000011 -0.000004 0.946133 0 -0 0.323777 -33.61953 0.000011 0.000015 0.700881 -0.093627 0.700881 -0.093627 -21.976501 0 -0.000004 0.30942 0.041418 0.005973 -0.950004 16.797863 -6.497743 0.288456 0.993449 -0.000759 -0.0131 -0.113522 4.65752 -0.000002 0.000002 0.997302 0.000655 -0.00504 -0.073226 4.328918 0 0 0.996422 0.002913 -0.023883 0.081022 3.840683 -0.000002 0 0.998621 0.000826 -0.047319 0.022743 3.413231 0 -0.000004 0.147447 -0.055015 0.008644 0.987501 0.193657 -1.18367 -10.831158 0.999221 0.000176 0.039338 -0.003171 7.59359 0 0 0.999993 -0 -0.003782 -0.000602 6.615471 0.000001 0.000001 0.999249 -0.000549 0.035535 -0.015457 5.881416 0 -0.000001 0.172292 -0.102285 0.01337 0.97963 -16.75428 14.976473 6.145794 0.998311 -0.000577 0.048384 0.032141 4.889435 0 0.000002 0.999062 -0.000493 -0.007827 0.042581 3.849884 0.000001 0 0.99893 -0.004816 -0.045982 -0.001085 4.061386 -0.000002 0 0.026872 0.136201 -0.038712 0.98956 -22.571091 -13.071903 9.819851 0.970213 0.02674 0.209032 -0.11949 3.441292 -0.000004 0 0.1005 0.212242 -0.091631 -0.967707 -16.155731 -13.413292 -1.237148 0.976861 -0.046055 -0.128526 -0.164629 4.008224 0 -0.000002 0.998558 -0.000438 -0.003526 -0.053558 3.671616 0.000004 -0.000001 0.097589 -0.308187 -0.945773 0.0318 -6.234299 19.673737 5.664486 0.999521 0.01745 0.024329 -0.007816 4.224884 -0.000008 0.000004 0.114499 -0.11147 -0.987065 0.01293 2.698303 12.170036 18.489338 0.998955 0.008138 0.030886 0.032695 5.481918 -0.000004 0 0.993524 -0.015353 -0.073834 -0.084983 5.502586 -0.000004 0 0.039159 0.013881 -0.999136 -0.000544 1.772812 20.404964 -13.931645 0.998071 -0.00061 -0.046826 0.04076 4.961533 0.000001 0.000001 0.999524 0.001861 0.027246 0.01434 4.955246 0 0 0.999747 0.000481 0.004583 0.022022 6.182404 -0.000002 -0.000002 0.248417 -0.074966 0.965555 -0.019287 -5.817627 -6.638652 -28.27376 0.978444 -0.002576 0.155162 0.136256 5.734779 0.000002 0 0.997831 0.006541 0.036775 0.0542 5.541489 0.000001 0 1 -0 -0 -0 0 0 0 1 -0 -0 -0 0 0 0 1 -0 -0 -0 0 0 0</Pose>
+            </Entity>
+            <Entity ID="268436305" Name="decomposed_shadow_flesh_pile_02_1" CreStamp="1722011716" ModStamp="1722011733" WorldPos="3.95468 0.00540537 26.5535" Rotation="0 3.66519 0" Scale="1 0.542343 1" FileIndex="243" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 307 268436305">
+                <UserVariables>
+                    <Var ObjectId="268436305" Name="Note" Value="" />
+                    <Var ObjectId="268436305" Name="CastShadows" Value="true" />
+                    <Var ObjectId="268436305" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="268436305" Name="ColorMul" Value="1 0.38984370231628417969 0.38984370231628417969 1" />
+                    <Var ObjectId="268436305" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="268436305" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="268436305" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="268436305" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="268436305" Name="CollideGroup" Value="" />
+                    <Var ObjectId="268436305" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="268436306" Name="dark_world_rat_black_1" CreStamp="1722012343" ModStamp="1722017979" WorldPos="9.11053 0.125 34.5" Rotation="0 3.14159 0" Scale="3 3 3" FileIndex="244" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 322 268436306">
+                <UserVariables>
+                    <Var ObjectId="268436306" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="268436306" Name="UserVar" Value="" />
+                    <Var ObjectId="268436306" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="268436306" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="268436306" Name="AutoDisableWhenOutOfSight" Value="false" />
+                    <Var ObjectId="268436306" Name="AutoDisableWhenOutOfSightMinDist" Value="10" />
+                    <Var ObjectId="268436306" Name="AutoDisableCallback" Value="" />
+                    <Var ObjectId="268436306" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="268436306" Name="UpdateWhenInvisible" Value="false" />
+                    <Var ObjectId="268436306" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="268436306" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="268436306" Name="SensesActive" Value="true" />
+                    <Var ObjectId="268436306" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="268436306" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="268436306" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="268436306" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="268436306" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="268436306" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="268436306" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="268436306" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="268436306" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="268436306" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="268436306" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="268436306" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="268436306" Name="CC_Entities" Value="" />
+                    <Var ObjectId="268436306" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="268436306" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="268436306" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="268436306" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="268436306" Name="Rat_SpawnAtPos" Value="false" />
+                    <Var ObjectId="268436306" Name="HeadTracker_TargetEntity" Value="" />
+                    <Var ObjectId="268436306" Name="HeadTracker_Active" Value="true" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="268436309" Name="enemy_rat_grey_1" CreStamp="1722020332" ModStamp="1722020340" WorldPos="9.70811 0.125 34.25" Rotation="0 3.14159 0" Scale="1 1 1" FileIndex="245" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 487 268436309">
+                <UserVariables>
+                    <Var ObjectId="268436309" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="268436309" Name="UserVar" Value="" />
+                    <Var ObjectId="268436309" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="268436309" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="268436309" Name="AutoDisableWhenOutOfSight" Value="false" />
+                    <Var ObjectId="268436309" Name="AutoDisableWhenOutOfSightMinDist" Value="10" />
+                    <Var ObjectId="268436309" Name="AutoDisableCallback" Value="" />
+                    <Var ObjectId="268436309" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="268436309" Name="UpdateWhenInvisible" Value="false" />
+                    <Var ObjectId="268436309" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="268436309" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="268436309" Name="SensesActive" Value="true" />
+                    <Var ObjectId="268436309" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="268436309" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="268436309" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="268436309" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="268436309" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="268436309" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="268436309" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="268436309" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="268436309" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="268436309" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="268436309" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="268436309" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="268436309" Name="CC_Entities" Value="" />
+                    <Var ObjectId="268436309" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="268436309" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="268436309" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="268436309" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="268436309" Name="Rat_SpawnAtPos" Value="false" />
+                    <Var ObjectId="268436309" Name="HeadTracker_TargetEntity" Value="" />
+                    <Var ObjectId="268436309" Name="HeadTracker_Active" Value="true" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="268436310" Name="enemy_rat_grey_2" CreStamp="1722020333" ModStamp="1722020338" WorldPos="8.71859 0.125 34.25" Rotation="0 3.14159 0" Scale="1 1 1" FileIndex="245" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 488 268436310">
+                <UserVariables>
+                    <Var ObjectId="268436310" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="268436310" Name="UserVar" Value="" />
+                    <Var ObjectId="268436310" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="268436310" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="268436310" Name="AutoDisableWhenOutOfSight" Value="false" />
+                    <Var ObjectId="268436310" Name="AutoDisableWhenOutOfSightMinDist" Value="10" />
+                    <Var ObjectId="268436310" Name="AutoDisableCallback" Value="" />
+                    <Var ObjectId="268436310" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="268436310" Name="UpdateWhenInvisible" Value="false" />
+                    <Var ObjectId="268436310" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="268436310" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="268436310" Name="SensesActive" Value="true" />
+                    <Var ObjectId="268436310" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="268436310" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="268436310" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="268436310" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="268436310" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="268436310" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="268436310" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="268436310" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="268436310" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="268436310" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="268436310" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="268436310" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="268436310" Name="CC_Entities" Value="" />
+                    <Var ObjectId="268436310" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="268436310" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="268436310" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="268436310" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="268436310" Name="Rat_SpawnAtPos" Value="false" />
+                    <Var ObjectId="268436310" Name="HeadTracker_TargetEntity" Value="" />
+                    <Var ObjectId="268436310" Name="HeadTracker_Active" Value="true" />
+                </UserVariables>
             </Entity>
         </Objects>
     </Section>

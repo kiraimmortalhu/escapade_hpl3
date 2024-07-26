@@ -86,6 +86,8 @@ class cScrMap : iScrMap
 	void OnEnter()
 	{	
 		Game_AutoSave();
+		
+		Music_PlayExt("underground_wip_loop", true, 0.3f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 	}
 
 	//-------------------------------------------------------
