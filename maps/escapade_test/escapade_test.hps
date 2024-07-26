@@ -80,6 +80,7 @@ class cScrMap : iScrMap
 		if (cLux_ScriptDebugOn())
 		{
 			Item_AddToInventory("DynamoLantern");
+			StalkerActivationHandler();
 		}
 	}
 
