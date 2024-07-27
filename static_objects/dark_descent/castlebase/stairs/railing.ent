@@ -1,0 +1,31 @@
+<Entity>
+    <ModelData>
+        <Entities />
+        <Mesh Filename="mods/escapade_hpl3/static_objects/dark_descent/castlebase/stairs/railing.dae">
+            <SubMesh ID="24" Name="polySurface14" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="576" Material="" Static="true" />
+            <SubMesh ID="25" Name="_charcollider_mesh_1" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="576" Material="" Static="true" />
+        </Mesh>
+        <Bones />
+        <Shapes>
+            <Shape ID="2" Name="ShapeBox_1" CreStamp="1721842161" ModStamp="1721842260" WorldPos="0 0.601478 0" Rotation="0 0 0" Scale="0.343179 1.21068 3.98944" RelativeTranslation="0 0.0566844 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="6" Name="ShapeCylinder_1" CreStamp="1721842281" ModStamp="1721842346" WorldPos="0 1.03501 0" Rotation="-1.5708 -0 0" Scale="0.23418 4.00114 0" RelativeTranslation="0 0.490216 0" RelativeRotation="-1.5708 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
+            <Shape ID="7" Name="ShapeCylinder_2" CreStamp="1721842368" ModStamp="1721842370" WorldPos="0 0.0545771 0" Rotation="-1.5708 -0 0" Scale="0.342933 4.00114 0" RelativeTranslation="0 -0.490216 0" RelativeRotation="-1.5708 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
+        </Shapes>
+        <Bodies>
+            <Body ID="9" Name="_charcollider_mesh_1" CreStamp="0" ModStamp="1721855213" WorldPos="0 0.544794 0" Rotation="0 0 0" Scale="1 1 1" Material="" Mass="0" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="0" BlocksSound="false" ContinuousCollision="false" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="false" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="false">
+                <Children>
+                    <Child ID="25" />
+                </Children>
+                <Shape ID="2" />
+                <Shape ID="6" />
+                <Shape ID="7" />
+            </Body>
+        </Bodies>
+        <Joints />
+        <Animations />
+        <ProcAnimations />
+    </ModelData>
+    <UserDefinedVariables EntityType="StaticProp">
+        <Var ObjectId="4294967295" Name="ShowMesh" Value="true" />
+    </UserDefinedVariables>
+</Entity>
