@@ -87,7 +87,7 @@ class cScrMap : iScrMap
 	{	
 		Game_AutoSave();
 		
-		Music_PlayExt("underground_wip_loop", true, 0.3f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+		//Music_PlayExt("underground_wip_loop", true, 0.3f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 	}
 
 	//-------------------------------------------------------
@@ -132,15 +132,43 @@ class cScrMap : iScrMap
 	// ==============
 	//{///////////////////////////////////////////////////////////////////////////////////////
  
-	//-------------------------------------------------------
- 
-	/*Put any variables that are used in more than one scene here.*/
- 
-	//-------------------------------------------------------
- 
-	/*Put any functions that are used in more than one scene here.*/
- 
-	//-------------------------------------------------------
+	bool ThreatCorridors_Enable(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		if (alState == 1) {
+			DebugStalkerThreatEnable();
+		
+			Entity_SetActive("Trigger_ThreatCorridors", false);
+			Entity_SetActive("Trigger_Leave_ThreatCorridors_GasChamber", true);
+			Entity_SetActive("Trigger_Leave_ThreatCorridors_Halls", true);
+		}
+		return false;
+	}
+	
+	
+	bool ThreatCorridors_Disable(const tString &in asParent, const tString &in asChild, int alState)
+	{	
+		if (alState == 1) {
+			DebugStalkerThreatDisable();
+		
+			Entity_SetActive("Trigger_ThreatCorridors", true);
+			Entity_SetActive("Trigger_Leave_ThreatCorridors_GasChamber", false);
+			Entity_SetActive("Trigger_Leave_ThreatCorridors_Halls", false);
+		}
+	
+		return false;
+	}
+	
+	void DebugStalkerThreatEnable() {
+		Entity_SetActive("stalker_test", true);
+		cLux_AddDebugMessage("Stalker is now active:" + Entity_IsActive("stalker_test"));
+	}
+	
+	void DebugStalkerThreatDisable() {
+		Entity_SetActive("stalker_test", false);
+		cLux_AddDebugMessage("Stalker is now active:" + Entity_IsActive("stalker_test"));
+	}
+	
+
  
 	//} END MAIN FUNCTIONS
  
