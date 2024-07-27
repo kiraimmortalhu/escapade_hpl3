@@ -141,7 +141,7 @@ class cScrMap : iScrMap
 			Entity_SetActive("Trigger_Leave_ThreatCorridors_GasChamber", true);
 			Entity_SetActive("Trigger_Leave_ThreatCorridors_Halls", true);
 		}
-		return false;
+		return true;
 	}
 	
 	
@@ -155,7 +155,7 @@ class cScrMap : iScrMap
 			Entity_SetActive("Trigger_Leave_ThreatCorridors_Halls", false);
 		}
 	
-		return false;
+		return true;
 	}
 	
 	void DebugStalkerThreatEnable() {
