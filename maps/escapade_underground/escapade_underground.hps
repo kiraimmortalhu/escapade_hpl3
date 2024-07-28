@@ -14,6 +14,9 @@
 #include "helpers/helper_agent.hps"
 #include "helpers/helper_gun.hps"
 #include "helpers/helper_props_custom.hps"
+#include "custom/helpers/helper_agent.hps"
+#include "custom/helpers/helper_modules_custom.hps"
+#include "custom/modules/EnvironmentalDamageHandler.hps"
 
 //--------------------------------------------------
  
@@ -40,7 +43,6 @@ class cScrMap : iScrMap
 	{
 		// Put display name entry in english.lang / Levels
 		GetBase().SetDisplayNameEntry("xx-xx-dummy-level");
-		
 		// Set up color grading etc.
 	}
 	
@@ -75,6 +77,7 @@ class cScrMap : iScrMap
 		// Debug
 		if (cLux_ScriptDebugOn())
 		{
+		Entity_SetActive("debugitem_*", true);
 		Item_AddToInventory("DynamoLantern");
 		}
 	}
@@ -86,8 +89,11 @@ class cScrMap : iScrMap
 	void OnEnter()
 	{	
 		Game_AutoSave();
+		cParticleSystem@ pPS = mBaseObj.GetWorld().GetParticleSystem("PS_NonExistentlol_1");
+		cBoundingVolume@ pAreaBounds = Map_GetEntity("Area_GasRoom").GetMainBody().GetBoundingVolume();
+		EnvironmentalDamage_AddGasArea(pPS.GetID(), pAreaBounds.GetMin(), pAreaBounds.GetMax(), false);
 		
-		//Music_PlayExt("underground_wip_loop", true, 0.3f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+		//Music_PlayExt("underground_wip_loop", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 	}
 
 	//-------------------------------------------------------
@@ -109,6 +115,16 @@ class cScrMap : iScrMap
 		if (alAction == eAction_Test1)
 		{
 		}
+	}
+	
+	void OnGasMaskStartEquip()
+	{
+		Entity_SetActive("block_box_gas_*", false);
+	}
+	
+	void OnGasMaskStartUnequip()
+	{
+		Entity_SetActive("block_box_gas_*", true);
 	}
 
 	//-------------------------------------------------------

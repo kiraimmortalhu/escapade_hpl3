@@ -1,0 +1,105 @@
+-- Entrance Hall --
+-------------------
+
+- Map transitions to all levels 
+- Music transition areas
+
+-Ballroom-
+
+X - Intro Cutscene (ballroom_intro)
+- Basic puzzles in TDD manner
+- Script safe room
+- Unlocking the door to entrance in the direction of the big gate once puzzle is done
+- Transition to "ballroom_alt" once Underground is complete
+  - Stalker appearance in this room after 
+
+------------
+
+- Final item (Wip) to open the entrace door to Sandfield
+- Rat spots
+- Later Stalker appearance and paths, only appears in darker areas
+- Smaller monsters may appear after Church and Greenhouse has been unlocked
+
+
+-- Storage --
+-------------
+
+- Map transitions
+- Music transition areas
+
+- Generator to keep alive all eletric lights and unlock doors in Church and Greenhouse
+- Stalker FIRST appearance and paths
+- Rat spots (more because of vicinity to Underground)
+- Shotgun is stored here in a cell needing cutter
+- Fuel barrel here to make fuel bottles
+
+- Smaller monsters may appear after Church and Greenhouse has been unlocked
+- Stalker will retreat mostly if the lights are on
+
+-- Church --
+------------
+
+- Map transitions
+- Music transition areas
+
+- Locked doors leading to safe room and cage storage
+- Storage unlocks with a lever once generator is on
+- Safe room door will need a key
+- Church storage contains bolt cutter
+- Stalker only appears in the storage, as part of a scripted event
+- Eletricity shutting off when entering cage storage
+  - Breaker switch needs to be activated to escape
+
+- Script safe room unlock and usage later
+
+-- Greenhouse -- 
+----------------
+
+- Map transitions
+- Music transition areas
+
+- Revolver can be found on a corpse at the fountain
+- Locked doors leading to lab area
+- Doors unlock with a lever once generator is on
+- Player gets the gas mask in lab
+- Scripted smaller monster encounters in lab
+
+2.0 - area will lock down from the inside, either this or church will happen randomly
+      BUT ONE OF THEM FOR SURE
+  2.0 - Sprinkler system needs to be activated to escape
+
+-- Underground --
+-----------------
+
+- Map transitions
+- Music transition areas
+
+X - Gas area is blocked until you have the gas mask
+- Gas damage area inside the fog there
+- Rat spots
+- Reveal music event for the large hall through the window
+- Script save point
+
+- Rat king boss fight, drops church safe room key
+- Final item (wip) is on the throne behind the rat king, no need to kill it
+- Elevator lowers once rat king appears, ladder area gets filled with overgrowth on both ends
+- Level transition to ballroom/entrance alt for good
+
+X - Stalker and rat paths for later revisit
+
+-- Entrance Alt --
+------------------
+
+- Global variable for alternative map transition areas to this place
+- Music 
+
+- Scripted Stalker final encounter, he blocks our way to get to entrance, we need to stagger 
+  / make him go away to be able to safely leave
+- Final item (wip) unlocks the gate and we can leave through a Level Door
+
+-- Sandfield / Outside --
+-------------------------
+
+- Ghost of Visionary leaving visually on screen as smoke or something
+- Monsters banging on the gate but unable to leave
+- Final cutscene of us walking off in the distance of weird pillars

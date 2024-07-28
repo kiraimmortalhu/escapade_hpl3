@@ -3423,7 +3423,7 @@ class cScrAgentStalker : cScrAgentHumanoid
 		else if (lCurrentState == eStalkerState_PreHunt)					stage = eTerrorMusicStage_None;
 		else if (lCurrentState == eStalkerState_Hunt)						stage = eTerrorMusicStage_Searching;
 		else if (mAlertState > eStalkerAlertState_None)						stage = eTerrorMusicStage_None;
-		else																stage = eTerrorMusicStage_Default;
+		else																stage = eTerrorMusicStage_None;
 		
 		if (GameDifficulty_GetSettingValueByID_Bool(eGameDifficultySetting_IncreasedStalkerUnpredictability) && 
 			mbStrongPresence == false &&

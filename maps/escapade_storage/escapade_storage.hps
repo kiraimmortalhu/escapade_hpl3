@@ -75,7 +75,9 @@ class cScrMap : iScrMap
 		// Debug
 		if (cLux_ScriptDebugOn())
 		{
-		Item_AddToInventory("DynamoLantern");
+			Entity_SetActive("debugitem_*", true);
+			Item_AddToInventory("DynamoLantern");
+			Item_AddManyToInventory("Ammunition",20);
 		}
 	}
 
@@ -130,15 +132,10 @@ class cScrMap : iScrMap
 	// ==============
 	//{///////////////////////////////////////////////////////////////////////////////////////
  
-	//-------------------------------------------------------
- 
-	/*Put any variables that are used in more than one scene here.*/
- 
-	//-------------------------------------------------------
- 
-	/*Put any functions that are used in more than one scene here.*/
- 
-	//-------------------------------------------------------
+	void chain_break_Callback(const tString &in asEntity)
+	{
+		Prop_SetStaticPhysics("door_" + asEntity, false);
+	}
  
 	//} END MAIN FUNCTIONS
  
