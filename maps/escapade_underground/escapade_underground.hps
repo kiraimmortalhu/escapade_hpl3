@@ -50,17 +50,7 @@ class cScrMap : iScrMap
 		
 	void PreloadData()
 	{
-		/////////////////
-		// Preload gui
-		//ImGui_PreloadImage("some_image");
-
-		///////////////
-		// Preload particles
-		//ParticleSystem_Preload("some_particle.ps");
-
-		//////////////
-		// Preload screen effects
-		//Material_Preload("some_material.mat");
+		PlayerBody_PreloadModel("player_rebirth_ghoul.ent");
 	}
 	
 	//-------------------------------------------------------
@@ -71,6 +61,7 @@ class cScrMap : iScrMap
 	{
 		// Any general setup of script / entities
 		
+		PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		PlayerBody_SetActive(true);
 		
 		/////////////////////////
@@ -88,7 +79,7 @@ class cScrMap : iScrMap
 	// Run when entering map
 	void OnEnter()
 	{	
-		Game_AutoSave();
+		PlayerBody_SetRenderLayers(1, 1);
 		cParticleSystem@ pPS = mBaseObj.GetWorld().GetParticleSystem("PoisonC_Test");
 		cBoundingVolume@ pAreaBounds = Map_GetEntity("Area_GasRoom").GetMainBody().GetBoundingVolume();
 		EnvironmentalDamage_AddGasArea(pPS.GetID(), pAreaBounds.GetMin(), pAreaBounds.GetMax(), false);
@@ -105,7 +96,6 @@ class cScrMap : iScrMap
         cLux_AddDebugMessage("CURRENT IGNORE GAS DAMAGE: "+Player_GetIgnoreGasDamage()); 
         //Music_Play("Bunker_Arsenal.ogg", 1.0f, eMusicPrio_BgAmb);
 		Music_PlayExt("underground_wip_loop", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
-        
     }
 
 	//-------------------------------------------------------

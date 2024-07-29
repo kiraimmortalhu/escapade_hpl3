@@ -48,17 +48,7 @@ class cScrMap : iScrMap
 		
 	void PreloadData()
 	{
-		/////////////////
-		// Preload gui
-		//ImGui_PreloadImage("some_image");
-
-		///////////////
-		// Preload particles
-		//ParticleSystem_Preload("some_particle.ps");
-
-		//////////////
-		// Preload screen effects
-		//Material_Preload("some_material.mat");
+		PlayerBody_PreloadModel("player_rebirth_ghoul.ent");
 	}
 	
 	//-------------------------------------------------------
@@ -69,6 +59,7 @@ class cScrMap : iScrMap
 	{
 		// Any general setup of script / entities
 		
+		PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		PlayerBody_SetActive(true);
 		
 		/////////////////////////
@@ -76,8 +67,10 @@ class cScrMap : iScrMap
 		if (cLux_ScriptDebugOn())
 		{
 			Entity_SetActive("debugitem_*", true);
+			Item_SetCurrentSlotsCount(15);
 			Item_AddToInventory("DynamoLantern");
 			Item_AddManyToInventory("Ammunition",20);
+			Item_AddToInventory("Cutters");
 		}
 	}
 
@@ -87,7 +80,7 @@ class cScrMap : iScrMap
 	// Run when entering map
 	void OnEnter()
 	{	
-		Game_AutoSave();
+		PlayerBody_SetRenderLayers(1, 1);
 	}
 
 	//-------------------------------------------------------
