@@ -3420,23 +3420,38 @@ class cScrAgentStalker : cScrAgentHumanoid
 		if (mbHidden)														stage = eTerrorMusicStage_None;
 		else if (mbBossFight_Active)										stage = eTerrorMusicStage_None;
 		else if (lCurrentState == eStalkerState_KillPlayer){
-            cLux_AddDebugMessage("KILL PLAYER");
+            //cLux_AddDebugMessage("KILL PLAYER");
+            Terror_SetEnemyMusicActive(true);
             stage = eTerrorMusicStage_Hunting;
         }
 		else if (lCurrentState == eStalkerState_PreHunt){
-            cLux_AddDebugMessage("PRE-HUNTING");
-            stage = eTerrorMusicStage_Searching;
-        }
-		else if (lCurrentState == eStalkerState_Hunt){
-            cLux_AddDebugMessage("HUNTING");
+            //cLux_AddDebugMessage("PRE-HUNTING");
             stage = eTerrorMusicStage_None;
         }
-		else if (lCurrentState == eStalkerState_Retreat){
-            cLux_AddDebugMessage("RETREATING");
-            stage = eTerrorMusicStage_None;//Terror_SetEnemyMusicActive(false);
+		else if (lCurrentState == eStalkerState_Hunt){
+            //cLux_AddDebugMessage("HUNTING");
+            stage = eTerrorMusicStage_None;
         }
-        else if (mAlertState > eStalkerAlertState_None)						stage = eTerrorMusicStage_None;
-		else																stage = eTerrorMusicStage_None;
+		else if (lCurrentState == eStalkerState_Alert){
+            //cLux_AddDebugMessage("ALERTED");
+            Terror_SetEnemyMusicActive(true);
+            //DoctorD edit
+            //Map_RemoveTimer("deaggro");
+            stage = eTerrorMusicStage_Searching;//Terror_SetEnemyMusicActive(false);
+        }
+        
+        
+        
+        else if (mAlertState > eStalkerAlertState_None)	{
+            
+            stage = eTerrorMusicStage_None;
+        } 
+        
+		else{
+            
+            
+            stage = eTerrorMusicStage_None;
+        }
 		
 		if (GameDifficulty_GetSettingValueByID_Bool(eGameDifficultySetting_IncreasedStalkerUnpredictability) && 
 			mbStrongPresence == false &&
@@ -3448,6 +3463,7 @@ class cScrAgentStalker : cScrAgentHumanoid
 		Terror_SetEnemyMusicStage(eTerrorMusicAgentType_Stalker, stage);
 	}
 	
+    
 	//------------------------------------------------------------
 	
 	void UpdateFallingFailSafe(float afDeltaTime)
