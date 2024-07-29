@@ -230,6 +230,9 @@ class cScrMap : iScrMap
 	
 	void DebugStalkerThreatDisable() {
 		//Entity_SetActive("stalker_test", false);
+        Map_RemoveTimer("deaggrocheck");
+        Map_RemoveTimer("deaggro");
+        
         Terror_SetEnemyMusicActive(false);
         Stalker_Retreat("stalker_test");
         //Terror_RemoveEnemy(Map_GetEntityID("stalker_test"));
