@@ -89,12 +89,24 @@ class cScrMap : iScrMap
 	void OnEnter()
 	{	
 		Game_AutoSave();
-		cParticleSystem@ pPS = mBaseObj.GetWorld().GetParticleSystem("PS_NonExistentlol_1");
+		cParticleSystem@ pPS = mBaseObj.GetWorld().GetParticleSystem("PoisonC_Test");
 		cBoundingVolume@ pAreaBounds = Map_GetEntity("Area_GasRoom").GetMainBody().GetBoundingVolume();
 		EnvironmentalDamage_AddGasArea(pPS.GetID(), pAreaBounds.GetMin(), pAreaBounds.GetMax(), false);
 		
-		//Music_PlayExt("underground_wip_loop", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
-	}
+        //cLux_AddDebugMessage("PS ID: "+pPS.GetID());
+		cLux_AddDebugMessage("MIN X: "+pAreaBounds.GetMin().x);
+		cLux_AddDebugMessage("MIN Y: "+pAreaBounds.GetMin().y);
+		cLux_AddDebugMessage("MIN Z: "+pAreaBounds.GetMin().z);
+        cLux_AddDebugMessage("MAX X: "+pAreaBounds.GetMax().x);
+        cLux_AddDebugMessage("MAX Y: "+pAreaBounds.GetMax().y);
+        cLux_AddDebugMessage("MAX Z: "+pAreaBounds.GetMax().z);
+        cLux_AddDebugMessage("PREVIOUS IGNORE GAS DAMAGE: "+Player_GetIgnoreGasDamage()); 
+		Player_SetIgnoreGasDamage(false); 
+        cLux_AddDebugMessage("CURRENT IGNORE GAS DAMAGE: "+Player_GetIgnoreGasDamage()); 
+        //Music_Play("Bunker_Arsenal.ogg", 1.0f, eMusicPrio_BgAmb);
+		Music_PlayExt("underground_wip_loop", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+        
+    }
 
 	//-------------------------------------------------------
 
@@ -126,6 +138,7 @@ class cScrMap : iScrMap
 	{
 		Entity_SetActive("block_box_gas_*", true);
 	}
+    
 
 	//-------------------------------------------------------
 
@@ -165,7 +178,7 @@ class cScrMap : iScrMap
 	{	
 		if (alState == 1) {
 			DebugStalkerThreatDisable();
-		
+            
 			Entity_SetActive("Trigger_ThreatCorridors", true);
 			Entity_SetActive("Trigger_Leave_ThreatCorridors_GasChamber", false);
 			Entity_SetActive("Trigger_Leave_ThreatCorridors_Halls", false);
@@ -176,12 +189,21 @@ class cScrMap : iScrMap
 	
 	void DebugStalkerThreatEnable() {
 		Entity_SetActive("stalker_test", true);
-		cLux_AddDebugMessage("Stalker is now active:" + Entity_IsActive("stalker_test"));
+        Terror_SetEnemyMusicStage(eTerrorMusicAgentType_Stalker, eTerrorMusicStage_Searching);
+		cLux_AddDebugMessage("Stalker is now active: " + Entity_IsActive("stalker_test"));
 	}
 	
 	void DebugStalkerThreatDisable() {
-		Entity_SetActive("stalker_test", false);
-		cLux_AddDebugMessage("Stalker is now active:" + Entity_IsActive("stalker_test"));
+		//Entity_SetActive("stalker_test", false);
+        Terror_SetEnemyMusicActive(false);
+        Stalker_Retreat("stalker_test");
+        Terror_RemoveEnemy(Map_GetEntityID("stalker_test"));
+        Terror_RemoveHuntingEnemy(Map_GetEntityID("stalker_test"));
+        Stalker_SetEmergeAllowed("stalker_test", false);
+        if(!Music_IsSongPlaying("underground_wip_loop")){
+            Music_PlayExt("underground_wip_loop", true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_BgAmb, true);
+        }
+		cLux_AddDebugMessage("Stalker is now RETREATED");
 	}
 	
 

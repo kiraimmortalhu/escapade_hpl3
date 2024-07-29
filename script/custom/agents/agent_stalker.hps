@@ -3419,10 +3419,23 @@ class cScrAgentStalker : cScrAgentHumanoid
 		
 		if (mbHidden)														stage = eTerrorMusicStage_None;
 		else if (mbBossFight_Active)										stage = eTerrorMusicStage_None;
-		else if (lCurrentState == eStalkerState_KillPlayer)					stage = eTerrorMusicStage_Hunting;
-		else if (lCurrentState == eStalkerState_PreHunt)					stage = eTerrorMusicStage_None;
-		else if (lCurrentState == eStalkerState_Hunt)						stage = eTerrorMusicStage_Searching;
-		else if (mAlertState > eStalkerAlertState_None)						stage = eTerrorMusicStage_None;
+		else if (lCurrentState == eStalkerState_KillPlayer){
+            cLux_AddDebugMessage("KILL PLAYER");
+            stage = eTerrorMusicStage_Hunting;
+        }
+		else if (lCurrentState == eStalkerState_PreHunt){
+            cLux_AddDebugMessage("PRE-HUNTING");
+            stage = eTerrorMusicStage_Searching;
+        }
+		else if (lCurrentState == eStalkerState_Hunt){
+            cLux_AddDebugMessage("HUNTING");
+            stage = eTerrorMusicStage_None;
+        }
+		else if (lCurrentState == eStalkerState_Retreat){
+            cLux_AddDebugMessage("RETREATING");
+            stage = eTerrorMusicStage_None;//Terror_SetEnemyMusicActive(false);
+        }
+        else if (mAlertState > eStalkerAlertState_None)						stage = eTerrorMusicStage_None;
 		else																stage = eTerrorMusicStage_None;
 		
 		if (GameDifficulty_GetSettingValueByID_Bool(eGameDifficultySetting_IncreasedStalkerUnpredictability) && 
