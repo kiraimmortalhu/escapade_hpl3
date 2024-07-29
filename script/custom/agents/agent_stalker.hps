@@ -3435,7 +3435,8 @@ class cScrAgentStalker : cScrAgentHumanoid
 		else if (lCurrentState == eStalkerState_Alert){
             //cLux_AddDebugMessage("ALERTED");
             Terror_SetEnemyMusicActive(true);
-            Map_RemoveTimer("deaggro");
+            //DoctorD edit
+            //Map_RemoveTimer("deaggro");
             stage = eTerrorMusicStage_Searching;//Terror_SetEnemyMusicActive(false);
         }
         

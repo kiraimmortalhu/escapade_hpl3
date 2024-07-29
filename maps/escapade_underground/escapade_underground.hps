@@ -162,24 +162,25 @@ class cScrMap : iScrMap
 	//{///////////////////////////////////////////////////////////////////////////////////////
     
     void DeaggroCheck(const tString &in asTimer){
-        cLux_AddDebugMessage("Checking. Stalker mode: "+ Stalker_GetMode("stalker_test"), true);
+        //cLux_AddDebugMessage("Checking. Stalker mode: "+ Stalker_GetMode("stalker_test"), true);
         //cLux_AddDebugMessage("Checking. Stalker presence: "+ Stalker_GetPresence("stalker_test"));
-        cLux_AddDebugMessage("Checking. Stalker HUNTING: "+ Terror_GetPlayerIsBeingHunted(), true);
+        //cLux_AddDebugMessage("Checking. Stalker HUNTING: "+ Terror_GetPlayerIsBeingHunted(), true);
+        cLux_AddDebugMessage("Checking. Stalker STATE: "+ StateMachine_GetCurrentStateName("stalker_test"), true);
         
-        if(Terror_GetPlayerIsBeingHunted()){
+        if(StateMachine_GetCurrentStateName("stalker_test") == "Alert"){
             Terror_SetEnemyMusicActive(true);
             
             cLux_AddDebugMessage("TIMER RESTARTED");
             Map_RemoveTimer("deaggro");
         } else{
-            if(!Map_TimerExists("deaggro")){
+            if(!Map_TimerExists("deaggro") && (StateMachine_GetCurrentStateName("stalker_test") == "Retreat" || StateMachine_GetCurrentStateName("stalker_test") == "Stalk")){
                 cLux_AddDebugMessage("TIMER ADDED");
                 Map_AddTimer("deaggro", 10.0f, "Stalker_Deaggro");
             }
         }
         //Map_GetEntity("stalker_test").
         
-        Map_RestartCurrentTimer(1.0f);
+        Map_RestartCurrentTimer(0.1f);
         
     }
     
