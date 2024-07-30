@@ -69,6 +69,7 @@ class cScrMap : iScrMap
 		if (cLux_ScriptDebugOn())
 		{
 		Entity_SetActive("debugitem_*", true);
+		Item_SetCurrentSlotsCount(15);
 		Item_AddToInventory("DynamoLantern");
 		}
 	}
