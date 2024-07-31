@@ -6,9 +6,9 @@
       <authoring_tool>FBX COLLADA exporter</authoring_tool>
       <comments/>
     </contributor>
-    <created>2024-07-20T21:58:49Z</created>
+    <created>2024-07-20T21:50:26Z</created>
     <keywords/>
-    <modified>2024-07-20T21:58:49Z</modified>
+    <modified>2024-07-20T21:50:26Z</modified>
     <revision/>
     <subject/>
     <title/>
@@ -16,35 +16,32 @@
     <up_axis>Y_UP</up_axis>
   </asset>
   <library_images>
-    <image id="file17-image" name="file17">
-      <init_from>file://E:\SteamLibrary\steamapps\common\Amnesia The Bunker\mods\escapade_hpl3\wip\test\wall\cave_muddy_tunnel_alt.mat</init_from>
+    <image id="file1-image" name="file1">
+      <init_from>file://E:\SteamLibrary\steamapps\common\Amnesia The Bunker\mods\escapade_hpl3\wip\test\wall\muddy_floor_churchholes.mat</init_from>
     </image>
-    <image id="wall_extension_file10-image" name="wall_extension_file10">
-      <init_from>file://E:\lux\redist\static_objects\castlebase\wall\castlebase_wall_extension_worn_hole.dds</init_from>
+    <image id="wall_extension_file8-image" name="wall_extension_file8">
+      <init_from>file://E:\lux\redist\static_objects\castlebase\wall\castlebase_wall_extension_worn_amfp_hole.dds</init_from>
     </image>
-    <image id="Image0002-image" name="Image0002">
+    <image id="Image0008-image" name="Image0008">
       <init_from>file://E:\SteamLibrary\steamapps\common\Amnesia</init_from>
     </image>
   </library_images>
   <library_materials>
-    <material id="standardSurface4" name="standardSurface4">
-      <instance_effect url="#standardSurface4-fx"/>
+    <material id="standardSurface1" name="standardSurface1">
+      <instance_effect url="#standardSurface1-fx"/>
     </material>
-    <material id="phong8" name="phong8">
-      <instance_effect url="#phong8-fx"/>
+    <material id="phong3" name="phong3">
+      <instance_effect url="#phong3-fx"/>
     </material>
-    <material id="lambert25" name="lambert25">
-      <instance_effect url="#lambert25-fx"/>
+    <material id="lambert19" name="lambert19">
+      <instance_effect url="#lambert19-fx"/>
     </material>
-    <material id="bunker_wall_tileable7" name="bunker_wall_tileable7">
-      <instance_effect url="#bunker_wall_tileable7-fx"/>
-    </material>
-    <material id="standardSurface5" name="standardSurface5">
-      <instance_effect url="#standardSurface5-fx"/>
+    <material id="bunker_wall_tileable3" name="bunker_wall_tileable3">
+      <instance_effect url="#bunker_wall_tileable3-fx"/>
     </material>
   </library_materials>
   <library_effects>
-    <effect id="standardSurface4-fx" name="standardSurface4">
+    <effect id="standardSurface1-fx" name="standardSurface1">
       <profile_COMMON>
         <technique sid="standard">
           <phong>
@@ -60,26 +57,11 @@
             <specular>
               <color sid="specular">0.000000  0.000000 0.000000 1.000000</color>
             </specular>
-            <shininess>
-              <float sid="shininess">20.000000</float>
-            </shininess>
-            <reflective>
-              <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
-            </reflective>
-            <reflectivity>
-              <float sid="reflectivity">1.000000</float>
-            </reflectivity>
-            <transparent opaque="RGB_ZERO">
-              <color sid="transparent">0.000000  0.000000 0.000000 1.000000</color>
-            </transparent>
-            <transparency>
-              <float sid="transparency">1.000000</float>
-            </transparency>
           </phong>
         </technique>
       </profile_COMMON>
     </effect>
-    <effect id="phong8-fx" name="phong8">
+    <effect id="phong3-fx" name="phong3">
       <profile_COMMON>
         <technique sid="standard">
           <phong>
@@ -90,7 +72,7 @@
               <color sid="ambient">0.000000  0.000000 0.000000 1.000000</color>
             </ambient>
             <diffuse>
-              <texture texture="file17-image" texcoord="CHANNEL0">
+              <texture texture="file1-image" texcoord="CHANNEL0">
                 <extra>
                   <technique profile="MAYA">
                     <wrapU sid="wrapU0">TRUE</wrapU>
@@ -122,7 +104,7 @@
         </technique>
       </profile_COMMON>
     </effect>
-    <effect id="lambert25-fx" name="lambert25">
+    <effect id="lambert19-fx" name="lambert19">
       <profile_COMMON>
         <technique sid="standard">
           <lambert>
@@ -133,7 +115,7 @@
               <color sid="ambient">0.000000  0.000000 0.000000 1.000000</color>
             </ambient>
             <diffuse>
-              <texture texture="wall_extension_file10-image" texcoord="CHANNEL0">
+              <texture texture="wall_extension_file8-image" texcoord="CHANNEL0">
                 <extra>
                   <technique profile="MAYA">
                     <wrapU sid="wrapU0">TRUE</wrapU>
@@ -153,7 +135,7 @@
         </technique>
       </profile_COMMON>
     </effect>
-    <effect id="bunker_wall_tileable7-fx" name="bunker_wall_tileable7">
+    <effect id="bunker_wall_tileable3-fx" name="bunker_wall_tileable3">
       <profile_COMMON>
         <technique sid="standard">
           <phong>
@@ -164,7 +146,7 @@
               <color sid="ambient">0.200000  0.200000 0.200000 1.000000</color>
             </ambient>
             <diffuse>
-              <texture texture="Image0002-image" texcoord="CHANNEL0">
+              <texture texture="Image0008-image" texcoord="CHANNEL0">
                 <extra>
                   <technique profile="MAYA">
                     <wrapU sid="wrapU0">TRUE</wrapU>
@@ -179,41 +161,6 @@
             </specular>
             <shininess>
               <float sid="shininess">256.000000</float>
-            </shininess>
-            <reflective>
-              <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
-            </reflective>
-            <reflectivity>
-              <float sid="reflectivity">1.000000</float>
-            </reflectivity>
-            <transparent opaque="RGB_ZERO">
-              <color sid="transparent">0.000000  0.000000 0.000000 1.000000</color>
-            </transparent>
-            <transparency>
-              <float sid="transparency">1.000000</float>
-            </transparency>
-          </phong>
-        </technique>
-      </profile_COMMON>
-    </effect>
-    <effect id="standardSurface5-fx" name="standardSurface5">
-      <profile_COMMON>
-        <technique sid="standard">
-          <phong>
-            <emission>
-              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
-            </emission>
-            <ambient>
-              <color sid="ambient">0.000000  0.000000 0.000000 1.000000</color>
-            </ambient>
-            <diffuse>
-              <color sid="diffuse">0.000000  0.000000 0.000000 1.000000</color>
-            </diffuse>
-            <specular>
-              <color sid="specular">0.000000  0.000000 0.000000 1.000000</color>
-            </specular>
-            <shininess>
-              <float sid="shininess">20.000000</float>
             </shininess>
             <reflective>
               <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
@@ -280,18 +227,18 @@
 0.000000 -1.000000 -0.000390
 0.000000 -1.000000 -0.000390
 0.000000 -1.000000 -0.000390
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
 </float_array>
           <technique_common>
             <accessor source="#_collider_mesh_169-Normal0-array" count="36" stride="3">
@@ -328,7 +275,7 @@
         <vertices id="_collider_mesh_169-VERTEX">
           <input semantic="POSITION" source="#_collider_mesh_169-POSITION"/>
         </vertices>
-        <triangles count="12" material="standardSurface4">
+        <triangles count="12" material="standardSurface1">
           <input semantic="VERTEX" offset="0" source="#_collider_mesh_169-VERTEX"/>
           <input semantic="NORMAL" offset="1" source="#_collider_mesh_169-Normal0"/>
           <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_169-UV0"/>
@@ -383,18 +330,18 @@
 0.000014 -0.999884 0.015208
 0.000014 -0.999884 0.015208
 0.000014 -0.999884 0.015208
-1.000000 0.000002 0.000000
-1.000000 0.000002 0.000000
-1.000000 0.000002 0.000000
-1.000000 0.000002 0.000000
-1.000000 0.000002 0.000000
-1.000000 0.000002 0.000000
--1.000000 0.000001 0.000000
--1.000000 0.000001 0.000000
--1.000000 0.000001 0.000000
--1.000000 0.000001 0.000000
--1.000000 0.000001 0.000000
--1.000000 0.000001 0.000000
+1.000000 0.000002 -0.000000
+1.000000 0.000002 -0.000000
+1.000000 0.000002 -0.000000
+1.000000 0.000002 -0.000000
+1.000000 0.000002 -0.000000
+1.000000 0.000002 -0.000000
+-1.000000 0.000001 -0.000000
+-1.000000 0.000001 -0.000000
+-1.000000 0.000001 -0.000000
+-1.000000 0.000001 -0.000000
+-1.000000 0.000001 -0.000000
+-1.000000 0.000001 -0.000000
 </float_array>
           <technique_common>
             <accessor source="#_collider_mesh_180-Normal0-array" count="36" stride="3">
@@ -431,7 +378,7 @@
         <vertices id="_collider_mesh_180-VERTEX">
           <input semantic="POSITION" source="#_collider_mesh_180-POSITION"/>
         </vertices>
-        <triangles count="12" material="standardSurface4">
+        <triangles count="12" material="standardSurface1">
           <input semantic="VERTEX" offset="0" source="#_collider_mesh_180-VERTEX"/>
           <input semantic="NORMAL" offset="1" source="#_collider_mesh_180-Normal0"/>
           <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_180-UV0"/>
@@ -492,12 +439,12 @@
 1.000000 0.000037 0.000037
 1.000000 0.000037 0.000037
 1.000000 0.000037 0.000037
--1.000000 0.000000 0.000001
--1.000000 0.000000 0.000001
--1.000000 0.000000 0.000001
--1.000000 0.000000 0.000001
--1.000000 0.000000 0.000001
--1.000000 0.000000 0.000001
+-1.000000 -0.000000 0.000001
+-1.000000 -0.000000 0.000001
+-1.000000 -0.000000 0.000001
+-1.000000 -0.000000 0.000001
+-1.000000 -0.000000 0.000001
+-1.000000 -0.000000 0.000001
 </float_array>
           <technique_common>
             <accessor source="#_collider_mesh_181-Normal0-array" count="36" stride="3">
@@ -534,7 +481,7 @@
         <vertices id="_collider_mesh_181-VERTEX">
           <input semantic="POSITION" source="#_collider_mesh_181-POSITION"/>
         </vertices>
-        <triangles count="12" material="standardSurface4">
+        <triangles count="12" material="standardSurface1">
           <input semantic="VERTEX" offset="0" source="#_collider_mesh_181-VERTEX"/>
           <input semantic="NORMAL" offset="1" source="#_collider_mesh_181-Normal0"/>
           <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_181-UV0"/>
@@ -589,12 +536,12 @@
 0.000000 -0.997601 0.069228
 0.000000 -0.997601 0.069228
 0.000000 -0.997601 0.069228
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
 -1.000000 0.000000 0.000000
 -1.000000 0.000000 0.000000
 -1.000000 0.000000 0.000000
@@ -637,732 +584,11 @@
         <vertices id="_collider_mesh_182-VERTEX">
           <input semantic="POSITION" source="#_collider_mesh_182-POSITION"/>
         </vertices>
-        <triangles count="12" material="standardSurface4">
+        <triangles count="12" material="standardSurface1">
           <input semantic="VERTEX" offset="0" source="#_collider_mesh_182-VERTEX"/>
           <input semantic="NORMAL" offset="1" source="#_collider_mesh_182-Normal0"/>
           <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_182-UV0"/>
           <p> 0 0 0 1 1 1 2 2 2 2 3 2 1 4 1 3 5 3 2 6 2 3 7 3 4 8 4 4 9 4 3 10 3 5 11 5 4 12 4 5 13 5 6 14 6 6 15 6 5 16 5 7 17 7 6 18 6 7 19 7 0 20 8 0 21 8 7 22 7 1 23 9 7 24 10 5 25 11 1 26 1 1 27 1 5 28 11 3 29 3 6 30 12 0 31 0 4 32 13 4 33 13 0 34 0 2 35 2</p>
-        </triangles>
-      </mesh>
-    </geometry>
-    <geometry id="_collider_mesh_183-lib" name="_collider_mesh_183Mesh">
-      <mesh>
-        <source id="_collider_mesh_183-POSITION">
-          <float_array id="_collider_mesh_183-POSITION-array" count="24">
-0.443462 -0.500411 0.500390
-1.337491 -0.500398 0.500390
-0.443463 0.550781 0.449199
-1.337489 0.550793 0.449199
-0.443463 0.534031 -0.652026
-1.337489 0.534044 -0.652026
-0.443462 -0.517160 -0.600835
-1.337491 -0.517148 -0.600835
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_183-POSITION-array" count="8" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <source id="_collider_mesh_183-Normal0">
-          <float_array id="_collider_mesh_183-Normal0-array" count="108">
--0.000001 0.048641 0.998816
--0.000001 0.048641 0.998816
--0.000001 0.048641 0.998816
--0.000001 0.048641 0.998816
--0.000001 0.048641 0.998816
--0.000001 0.048641 0.998816
--0.000014 0.999884 -0.015208
--0.000014 0.999884 -0.015208
--0.000014 0.999884 -0.015208
--0.000014 0.999884 -0.015208
--0.000014 0.999884 -0.015208
--0.000014 0.999884 -0.015208
-0.000001 -0.048641 -0.998816
-0.000001 -0.048641 -0.998816
-0.000001 -0.048641 -0.998816
-0.000001 -0.048641 -0.998816
-0.000001 -0.048641 -0.998816
-0.000001 -0.048641 -0.998816
-0.000014 -0.999884 0.015208
-0.000014 -0.999884 0.015208
-0.000014 -0.999884 0.015208
-0.000014 -0.999884 0.015208
-0.000014 -0.999884 0.015208
-0.000014 -0.999884 0.015208
-1.000000 0.000002 0.000000
-1.000000 0.000002 0.000000
-1.000000 0.000002 0.000000
-1.000000 0.000002 0.000000
-1.000000 0.000002 0.000000
-1.000000 0.000002 0.000000
--1.000000 0.000001 0.000000
--1.000000 0.000001 0.000000
--1.000000 0.000001 0.000000
--1.000000 0.000001 0.000000
--1.000000 0.000001 0.000000
--1.000000 0.000001 0.000000
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_183-Normal0-array" count="36" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <source id="_collider_mesh_183-UV0">
-          <float_array id="_collider_mesh_183-UV0-array" count="28">
-0.375000 0.000000
-0.625000 0.000000
-0.375000 0.250000
-0.625000 0.250000
-0.375000 0.500000
-0.625000 0.500000
-0.375000 0.750000
-0.625000 0.750000
-0.375000 1.000000
-0.625000 1.000000
-0.875000 0.000000
-0.875000 0.250000
-0.125000 0.000000
-0.125000 0.250000
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_183-UV0-array" count="14" stride="2">
-              <param name="S" type="float"/>
-              <param name="T" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <vertices id="_collider_mesh_183-VERTEX">
-          <input semantic="POSITION" source="#_collider_mesh_183-POSITION"/>
-        </vertices>
-        <triangles count="12" material="standardSurface4">
-          <input semantic="VERTEX" offset="0" source="#_collider_mesh_183-VERTEX"/>
-          <input semantic="NORMAL" offset="1" source="#_collider_mesh_183-Normal0"/>
-          <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_183-UV0"/>
-          <p> 0 0 0 1 1 1 2 2 2 2 3 2 1 4 1 3 5 3 2 6 2 3 7 3 4 8 4 4 9 4 3 10 3 5 11 5 4 12 4 5 13 5 6 14 6 6 15 6 5 16 5 7 17 7 6 18 6 7 19 7 0 20 8 0 21 8 7 22 7 1 23 9 1 24 1 7 25 10 3 26 3 3 27 3 7 28 10 5 29 11 0 30 0 2 31 2 6 32 12 6 33 12 2 34 2 4 35 13</p>
-        </triangles>
-      </mesh>
-    </geometry>
-    <geometry id="_collider_mesh_184-lib" name="_collider_mesh_184Mesh">
-      <mesh>
-        <source id="_collider_mesh_184-POSITION">
-          <float_array id="_collider_mesh_184-POSITION-array" count="24">
-0.443465 -0.500411 0.500390
-1.337495 -0.500396 0.500387
-0.443465 0.660038 0.448723
-1.337410 0.660054 0.448720
-0.443463 0.643289 -0.652502
-1.337495 0.643304 -0.652506
-0.443464 -0.517160 -0.600835
-1.337492 -0.517145 -0.600837
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_184-POSITION-array" count="8" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <source id="_collider_mesh_184-Normal0">
-          <float_array id="_collider_mesh_184-Normal0-array" count="108">
-0.000002 0.044480 0.999010
-0.000002 0.044480 0.999010
-0.000002 0.044480 0.999010
-0.000002 0.044480 0.999010
-0.000002 0.044480 0.999010
-0.000002 0.044480 0.999010
--0.000018 0.999884 -0.015208
--0.000018 0.999884 -0.015208
--0.000018 0.999884 -0.015208
--0.000018 0.999884 -0.015208
--0.000018 0.999884 -0.015208
--0.000018 0.999884 -0.015208
--0.000002 -0.044480 -0.999010
--0.000002 -0.044480 -0.999010
--0.000002 -0.044480 -0.999010
--0.000002 -0.044480 -0.999010
--0.000002 -0.044480 -0.999010
--0.000002 -0.044480 -0.999010
-0.000017 -0.999884 0.015208
-0.000017 -0.999884 0.015208
-0.000017 -0.999884 0.015208
-0.000017 -0.999884 0.015208
-0.000017 -0.999884 0.015208
-0.000017 -0.999884 0.015208
-1.000000 0.000037 0.000037
-1.000000 0.000037 0.000037
-1.000000 0.000037 0.000037
-1.000000 0.000037 0.000037
-1.000000 0.000037 0.000037
-1.000000 0.000037 0.000037
--1.000000 0.000000 0.000001
--1.000000 0.000000 0.000001
--1.000000 0.000000 0.000001
--1.000000 0.000000 0.000001
--1.000000 0.000000 0.000001
--1.000000 0.000000 0.000001
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_184-Normal0-array" count="36" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <source id="_collider_mesh_184-UV0">
-          <float_array id="_collider_mesh_184-UV0-array" count="28">
-0.375000 0.000000
-0.625000 0.000000
-0.375000 0.250000
-0.625000 0.250000
-0.375000 0.500000
-0.625000 0.500000
-0.375000 0.750000
-0.625000 0.750000
-0.375000 1.000000
-0.625000 1.000000
-0.875000 0.000000
-0.875000 0.250000
-0.125000 0.000000
-0.125000 0.250000
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_184-UV0-array" count="14" stride="2">
-              <param name="S" type="float"/>
-              <param name="T" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <vertices id="_collider_mesh_184-VERTEX">
-          <input semantic="POSITION" source="#_collider_mesh_184-POSITION"/>
-        </vertices>
-        <triangles count="12" material="standardSurface4">
-          <input semantic="VERTEX" offset="0" source="#_collider_mesh_184-VERTEX"/>
-          <input semantic="NORMAL" offset="1" source="#_collider_mesh_184-Normal0"/>
-          <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_184-UV0"/>
-          <p> 0 0 0 1 1 1 2 2 2 2 3 2 1 4 1 3 5 3 2 6 2 3 7 3 4 8 4 4 9 4 3 10 3 5 11 5 4 12 4 5 13 5 6 14 6 6 15 6 5 16 5 7 17 7 6 18 6 7 19 7 0 20 8 0 21 8 7 22 7 1 23 9 1 24 1 7 25 10 3 26 3 3 27 3 7 28 10 5 29 11 0 30 0 2 31 2 6 32 12 6 33 12 2 34 2 4 35 13</p>
-        </triangles>
-      </mesh>
-    </geometry>
-    <geometry id="_collider_mesh_185-lib" name="_collider_mesh_185Mesh">
-      <mesh>
-        <source id="_collider_mesh_185-POSITION">
-          <float_array id="_collider_mesh_185-POSITION-array" count="24">
--0.500000 -0.500390 0.500390
-0.500000 -0.500390 0.500390
--0.500000 0.550801 0.449199
-0.500000 0.550801 0.449199
--0.500000 0.551191 -0.551191
-0.500000 0.551191 -0.551191
--0.500000 -0.500000 -0.500000
-0.500000 -0.500000 -0.500000
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_185-POSITION-array" count="8" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <source id="_collider_mesh_185-Normal0">
-          <float_array id="_collider_mesh_185-Normal0-array" count="108">
-0.000000 0.048641 0.998816
-0.000000 0.048641 0.998816
-0.000000 0.048641 0.998816
-0.000000 0.048641 0.998816
-0.000000 0.048641 0.998816
-0.000000 0.048641 0.998816
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 -0.048641 -0.998816
-0.000000 -0.048641 -0.998816
-0.000000 -0.048641 -0.998816
-0.000000 -0.048641 -0.998816
-0.000000 -0.048641 -0.998816
-0.000000 -0.048641 -0.998816
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_185-Normal0-array" count="36" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <source id="_collider_mesh_185-UV0">
-          <float_array id="_collider_mesh_185-UV0-array" count="28">
-0.375000 0.000000
-0.625000 0.000000
-0.375000 0.250000
-0.625000 0.250000
-0.375000 0.500000
-0.625000 0.500000
-0.375000 0.750000
-0.625000 0.750000
-0.375000 1.000000
-0.625000 1.000000
-0.875000 0.000000
-0.875000 0.250000
-0.125000 0.000000
-0.125000 0.250000
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_185-UV0-array" count="14" stride="2">
-              <param name="S" type="float"/>
-              <param name="T" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <vertices id="_collider_mesh_185-VERTEX">
-          <input semantic="POSITION" source="#_collider_mesh_185-POSITION"/>
-        </vertices>
-        <triangles count="12" material="standardSurface4">
-          <input semantic="VERTEX" offset="0" source="#_collider_mesh_185-VERTEX"/>
-          <input semantic="NORMAL" offset="1" source="#_collider_mesh_185-Normal0"/>
-          <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_185-UV0"/>
-          <p> 0 0 0 1 1 1 2 2 2 2 3 2 1 4 1 3 5 3 2 6 2 3 7 3 4 8 4 4 9 4 3 10 3 5 11 5 4 12 4 5 13 5 6 14 6 6 15 6 5 16 5 7 17 7 6 18 6 7 19 7 0 20 8 0 21 8 7 22 7 1 23 9 1 24 1 7 25 10 3 26 3 3 27 3 7 28 10 5 29 11 0 30 0 2 31 2 6 32 12 6 33 12 2 34 2 4 35 13</p>
-        </triangles>
-      </mesh>
-    </geometry>
-    <geometry id="_collider_mesh_186-lib" name="_collider_mesh_186Mesh">
-      <mesh>
-        <source id="_collider_mesh_186-POSITION">
-          <float_array id="_collider_mesh_186-POSITION-array" count="24">
--0.500000 -0.500390 0.500390
-0.500000 -0.500390 0.500390
--0.500000 0.937978 0.455866
-0.500000 0.937978 0.455866
--0.500000 0.938369 -0.544524
-0.500000 0.938369 -0.544524
--0.500000 -0.500000 -0.500000
-0.500000 -0.500000 -0.500000
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_186-POSITION-array" count="8" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <source id="_collider_mesh_186-Normal0">
-          <float_array id="_collider_mesh_186-Normal0-array" count="108">
-0.000000 0.030940 0.999521
-0.000000 0.030940 0.999521
-0.000000 0.030940 0.999521
-0.000000 0.030940 0.999521
-0.000000 0.030940 0.999521
-0.000000 0.030940 0.999521
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 -0.030940 -0.999521
-0.000000 -0.030940 -0.999521
-0.000000 -0.030940 -0.999521
-0.000000 -0.030940 -0.999521
-0.000000 -0.030940 -0.999521
-0.000000 -0.030940 -0.999521
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_186-Normal0-array" count="36" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <source id="_collider_mesh_186-UV0">
-          <float_array id="_collider_mesh_186-UV0-array" count="28">
-0.375000 0.000000
-0.625000 0.000000
-0.375000 0.250000
-0.625000 0.250000
-0.375000 0.500000
-0.625000 0.500000
-0.375000 0.750000
-0.625000 0.750000
-0.375000 1.000000
-0.625000 1.000000
-0.875000 0.000000
-0.875000 0.250000
-0.125000 0.000000
-0.125000 0.250000
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_186-UV0-array" count="14" stride="2">
-              <param name="S" type="float"/>
-              <param name="T" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <vertices id="_collider_mesh_186-VERTEX">
-          <input semantic="POSITION" source="#_collider_mesh_186-POSITION"/>
-        </vertices>
-        <triangles count="12" material="standardSurface4">
-          <input semantic="VERTEX" offset="0" source="#_collider_mesh_186-VERTEX"/>
-          <input semantic="NORMAL" offset="1" source="#_collider_mesh_186-Normal0"/>
-          <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_186-UV0"/>
-          <p> 0 0 0 1 1 1 2 2 2 2 3 2 1 4 1 3 5 3 2 6 2 3 7 3 4 8 4 4 9 4 3 10 3 5 11 5 4 12 4 5 13 5 6 14 6 6 15 6 5 16 5 7 17 7 6 18 6 7 19 7 0 20 8 0 21 8 7 22 7 1 23 9 1 24 1 7 25 10 3 26 3 3 27 3 7 28 10 5 29 11 0 30 0 2 31 2 6 32 12 6 33 12 2 34 2 4 35 13</p>
-        </triangles>
-      </mesh>
-    </geometry>
-    <geometry id="_collider_mesh_187-lib" name="_collider_mesh_187Mesh">
-      <mesh>
-        <source id="_collider_mesh_187-POSITION">
-          <float_array id="_collider_mesh_187-POSITION-array" count="24">
--0.500000 -0.500390 0.500390
-0.500000 -0.500390 0.500390
--0.500000 0.937978 0.455866
-0.500000 0.937978 0.455866
--0.500000 0.938369 -0.544524
-0.500000 0.938369 -0.544524
--0.500000 -0.500000 -0.500000
-0.500000 -0.500000 -0.500000
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_187-POSITION-array" count="8" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <source id="_collider_mesh_187-Normal0">
-          <float_array id="_collider_mesh_187-Normal0-array" count="108">
-0.000000 0.030940 0.999521
-0.000000 0.030940 0.999521
-0.000000 0.030940 0.999521
-0.000000 0.030940 0.999521
-0.000000 0.030940 0.999521
-0.000000 0.030940 0.999521
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 -0.030940 -0.999521
-0.000000 -0.030940 -0.999521
-0.000000 -0.030940 -0.999521
-0.000000 -0.030940 -0.999521
-0.000000 -0.030940 -0.999521
-0.000000 -0.030940 -0.999521
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_187-Normal0-array" count="36" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <source id="_collider_mesh_187-UV0">
-          <float_array id="_collider_mesh_187-UV0-array" count="28">
-0.375000 0.000000
-0.625000 0.000000
-0.375000 0.250000
-0.625000 0.250000
-0.375000 0.500000
-0.625000 0.500000
-0.375000 0.750000
-0.625000 0.750000
-0.375000 1.000000
-0.625000 1.000000
-0.875000 0.000000
-0.875000 0.250000
-0.125000 0.000000
-0.125000 0.250000
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_187-UV0-array" count="14" stride="2">
-              <param name="S" type="float"/>
-              <param name="T" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <vertices id="_collider_mesh_187-VERTEX">
-          <input semantic="POSITION" source="#_collider_mesh_187-POSITION"/>
-        </vertices>
-        <triangles count="12" material="standardSurface4">
-          <input semantic="VERTEX" offset="0" source="#_collider_mesh_187-VERTEX"/>
-          <input semantic="NORMAL" offset="1" source="#_collider_mesh_187-Normal0"/>
-          <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_187-UV0"/>
-          <p> 0 0 0 1 1 1 2 2 2 2 3 2 1 4 1 3 5 3 2 6 2 3 7 3 4 8 4 4 9 4 3 10 3 5 11 5 4 12 4 5 13 5 6 14 6 6 15 6 5 16 5 7 17 7 6 18 6 7 19 7 0 20 8 0 21 8 7 22 7 1 23 9 1 24 1 7 25 10 3 26 3 3 27 3 7 28 10 5 29 11 0 30 0 2 31 2 6 32 12 6 33 12 2 34 2 4 35 13</p>
-        </triangles>
-      </mesh>
-    </geometry>
-    <geometry id="_collider_mesh_188-lib" name="_collider_mesh_188Mesh">
-      <mesh>
-        <source id="_collider_mesh_188-POSITION">
-          <float_array id="_collider_mesh_188-POSITION-array" count="24">
--0.203570 -0.491219 0.796678
-0.505250 -0.500228 0.505638
--0.213718 0.946836 0.742011
-0.495103 0.937827 0.450971
--0.166300 0.948693 -0.210984
-0.542520 0.939685 -0.502024
--0.156152 -0.489361 -0.156317
-0.552668 -0.498370 -0.447357
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_188-POSITION-array" count="8" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <source id="_collider_mesh_188-Normal0">
-          <float_array id="_collider_mesh_188-Normal0-array" count="108">
-0.379966 0.037816 0.924227
-0.379966 0.037816 0.924227
-0.379966 0.037816 0.924227
-0.379966 0.037816 0.924227
-0.379966 0.037816 0.924227
-0.379966 0.037816 0.924227
-0.013791 0.999901 0.002635
-0.013791 0.999901 0.002635
-0.013791 0.999901 0.002635
-0.013791 0.999901 0.002635
-0.013791 0.999901 0.002635
-0.013791 0.999901 0.002635
--0.379966 -0.037816 -0.924227
--0.379966 -0.037816 -0.924227
--0.379966 -0.037816 -0.924227
--0.379966 -0.037816 -0.924227
--0.379966 -0.037816 -0.924227
--0.379966 -0.037816 -0.924227
--0.013791 -0.999901 -0.002635
--0.013791 -0.999901 -0.002635
--0.013791 -0.999901 -0.002635
--0.013791 -0.999901 -0.002635
--0.013791 -0.999901 -0.002635
--0.013791 -0.999901 -0.002635
-0.998724 0.008937 0.049711
-0.998724 0.008937 0.049711
-0.998724 0.008937 0.049711
-0.998724 0.008937 0.049711
-0.998724 0.008937 0.049711
-0.998724 0.008937 0.049711
--0.998724 -0.008937 -0.049711
--0.998724 -0.008937 -0.049711
--0.998724 -0.008937 -0.049711
--0.998724 -0.008937 -0.049711
--0.998724 -0.008937 -0.049711
--0.998724 -0.008937 -0.049711
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_188-Normal0-array" count="36" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <source id="_collider_mesh_188-UV0">
-          <float_array id="_collider_mesh_188-UV0-array" count="28">
-0.375000 0.000000
-0.625000 0.000000
-0.375000 0.250000
-0.625000 0.250000
-0.375000 0.500000
-0.625000 0.500000
-0.375000 0.750000
-0.625000 0.750000
-0.375000 1.000000
-0.625000 1.000000
-0.875000 0.000000
-0.875000 0.250000
-0.125000 0.000000
-0.125000 0.250000
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_188-UV0-array" count="14" stride="2">
-              <param name="S" type="float"/>
-              <param name="T" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <vertices id="_collider_mesh_188-VERTEX">
-          <input semantic="POSITION" source="#_collider_mesh_188-POSITION"/>
-        </vertices>
-        <triangles count="12" material="standardSurface4">
-          <input semantic="VERTEX" offset="0" source="#_collider_mesh_188-VERTEX"/>
-          <input semantic="NORMAL" offset="1" source="#_collider_mesh_188-Normal0"/>
-          <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_188-UV0"/>
-          <p> 1 0 1 3 1 3 0 2 0 0 3 0 3 4 3 2 5 2 2 6 2 3 7 3 4 8 4 4 9 4 3 10 3 5 11 5 4 12 4 5 13 5 6 14 6 6 15 6 5 16 5 7 17 7 7 18 7 1 19 9 6 20 6 6 21 6 1 22 9 0 23 8 1 24 1 7 25 10 3 26 3 3 27 3 7 28 10 5 29 11 0 30 0 2 31 2 6 32 12 6 33 12 2 34 2 4 35 13</p>
-        </triangles>
-      </mesh>
-    </geometry>
-    <geometry id="_collider_mesh_189-lib" name="_collider_mesh_189Mesh">
-      <mesh>
-        <source id="_collider_mesh_189-POSITION">
-          <float_array id="_collider_mesh_189-POSITION-array" count="24">
--0.500000 -0.500390 0.500390
-0.500000 -0.500390 0.500390
--0.500000 0.937978 0.455866
-0.500000 0.937978 0.455866
--0.500000 0.938369 -0.544524
-0.500000 0.938369 -0.544524
--0.500000 -0.500000 -0.500000
-0.500000 -0.500000 -0.500000
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_189-POSITION-array" count="8" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <source id="_collider_mesh_189-Normal0">
-          <float_array id="_collider_mesh_189-Normal0-array" count="108">
-0.000000 0.030940 0.999521
-0.000000 0.030940 0.999521
-0.000000 0.030940 0.999521
-0.000000 0.030940 0.999521
-0.000000 0.030940 0.999521
-0.000000 0.030940 0.999521
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 1.000000 0.000390
-0.000000 -0.030940 -0.999521
-0.000000 -0.030940 -0.999521
-0.000000 -0.030940 -0.999521
-0.000000 -0.030940 -0.999521
-0.000000 -0.030940 -0.999521
-0.000000 -0.030940 -0.999521
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-0.000000 -1.000000 -0.000390
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_189-Normal0-array" count="36" stride="3">
-              <param name="X" type="float"/>
-              <param name="Y" type="float"/>
-              <param name="Z" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <source id="_collider_mesh_189-UV0">
-          <float_array id="_collider_mesh_189-UV0-array" count="28">
-0.375000 0.000000
-0.625000 0.000000
-0.375000 0.250000
-0.625000 0.250000
-0.375000 0.500000
-0.625000 0.500000
-0.375000 0.750000
-0.625000 0.750000
-0.375000 1.000000
-0.625000 1.000000
-0.875000 0.000000
-0.875000 0.250000
-0.125000 0.000000
-0.125000 0.250000
-</float_array>
-          <technique_common>
-            <accessor source="#_collider_mesh_189-UV0-array" count="14" stride="2">
-              <param name="S" type="float"/>
-              <param name="T" type="float"/>
-            </accessor>
-          </technique_common>
-        </source>
-        <vertices id="_collider_mesh_189-VERTEX">
-          <input semantic="POSITION" source="#_collider_mesh_189-POSITION"/>
-        </vertices>
-        <triangles count="12" material="standardSurface4">
-          <input semantic="VERTEX" offset="0" source="#_collider_mesh_189-VERTEX"/>
-          <input semantic="NORMAL" offset="1" source="#_collider_mesh_189-Normal0"/>
-          <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_189-UV0"/>
-          <p> 0 0 0 1 1 1 2 2 2 2 3 2 1 4 1 3 5 3 2 6 2 3 7 3 4 8 4 4 9 4 3 10 3 5 11 5 4 12 4 5 13 5 6 14 6 6 15 6 5 16 5 7 17 7 6 18 6 7 19 7 0 20 8 0 21 8 7 22 7 1 23 9 1 24 1 7 25 10 3 26 3 3 27 3 7 28 10 5 29 11 0 30 0 2 31 2 6 32 12 6 33 12 2 34 2 4 35 13</p>
         </triangles>
       </mesh>
     </geometry>
@@ -8814,7 +8040,7 @@
           <input semantic="POSITION" source="#polySurface1-POSITION"/>
           <input semantic="NORMAL" source="#polySurface1-Normal0"/>
         </vertices>
-        <triangles count="1570" material="phong8">
+        <triangles count="1570" material="phong3">
           <input semantic="VERTEX" offset="0" source="#polySurface1-VERTEX"/>
           <input semantic="TEXCOORD" offset="1" set="0" source="#polySurface1-UV0"/>
           <input semantic="COLOR" offset="2" set="0" source="#polySurface1-VERTEX_COLOR0"/>
@@ -10376,14 +9602,14 @@
         <vertices id="polySurface114-VERTEX">
           <input semantic="POSITION" source="#polySurface114-POSITION"/>
         </vertices>
-        <triangles count="97" material="lambert25">
+        <triangles count="97" material="lambert19">
           <input semantic="VERTEX" offset="0" source="#polySurface114-VERTEX"/>
           <input semantic="NORMAL" offset="1" source="#polySurface114-Normal0"/>
           <input semantic="TEXCOORD" offset="2" set="0" source="#polySurface114-UV0"/>
           <input semantic="COLOR" offset="3" set="0" source="#polySurface114-VERTEX_COLOR0"/>
           <p> 0 0 0 0 1 1 1 1 2 2 2 2 31 3 31 3 32 4 32 4 33 5 33 5 29 6 38 6 11 7 39 7 37 8 37 8 11 9 39 9 10 10 40 10 37 11 37 11 10 12 40 12 13 13 41 13 37 14 37 14 37 15 37 15 13 16 41 16 38 17 42 17 38 18 42 18 8 19 47 19 37 20 37 20 8 21 47 21 7 22 48 22 37 23 37 23 15 24 49 24 14 25 50 25 7 26 48 26 7 27 48 27 14 28 50 28 37 29 37 29 14 30 50 30 43 31 51 31 37 32 37 32 42 33 46 33 37 34 37 34 43 35 51 35 77 36 85 36 78 37 86 37 79 38 87 38 83 39 91 39 84 40 92 40 85 41 93 41 43 42 51 42 18 43 112 43 42 44 46 44 18 45 112 45 17 46 113 46 42 47 46 47 17 48 113 48 21 49 114 49 42 50 46 50 21 51 114 51 20 52 115 52 42 53 46 53 42 54 46 54 20 55 115 55 95 56 116 56 102 57 117 57 31 58 118 58 103 59 119 59 104 60 120 60 102 61 117 61 105 62 121 62 106 63 124 63 104 64 120 64 107 65 125 65 108 66 126 66 106 67 124 67 109 68 127 68 110 69 130 69 108 70 126 70 111 71 131 71 112 72 132 72 113 73 133 73 114 74 134 74 112 75 132 75 110 76 130 76 113 77 133 77 115 78 135 78 31 79 31 79 33 80 33 80 85 81 93 81 84 82 92 82 77 83 85 83 77 84 85 84 84 85 92 85 78 86 86 86 31 87 118 87 115 88 139 88 103 89 119 89 102 90 117 90 103 91 119 91 105 92 121 92 104 93 120 93 105 94 121 94 107 95 125 95 106 96 124 96 107 97 125 97 109 98 127 98 113 99 133 99 119 100 140 100 114 101 134 101 108 102 126 102 109 103 127 103 111 104 131 104 110 105 130 105 111 106 131 106 113 107 133 107 121 108 147 108 59 109 148 109 122 110 146 110 120 111 145 111 122 112 146 112 58 113 149 113 122 114 146 114 59 115 148 115 58 116 149 116 32 117 32 117 124 118 151 118 116 119 159 119 116 120 159 120 124 121 151 121 26 122 158 122 26 123 158 123 124 124 151 124 23 125 157 125 23 126 157 126 124 127 151 127 24 128 156 128 24 129 156 129 124 130 151 130 6 131 155 131 6 132 155 132 124 133 151 133 3 134 154 134 124 135 151 135 27 136 152 136 3 137 154 137 27 138 152 138 4 139 153 139 3 140 154 140 70 141 163 141 68 142 164 142 123 143 162 143 123 144 162 144 68 145 164 145 78 146 161 146 79 147 160 147 78 148 161 148 67 149 165 149 78 150 161 150 68 151 164 151 67 152 165 152 122 153 146 153 120 154 145 154 125 155 167 155 55 156 168 156 54 157 169 157 120 158 145 158 120 159 145 159 54 160 169 160 125 161 167 161 47 162 166 162 125 163 167 163 48 164 171 164 48 165 171 165 125 166 167 166 50 167 170 167 125 168 167 168 54 169 169 169 50 170 170 170 83 171 91 171 72 172 176 172 84 173 92 173 84 174 92 174 72 175 176 175 122 176 146 176 72 177 176 177 71 178 177 178 122 179 146 179 71 180 177 180 65 181 178 181 122 182 146 182 64 183 179 183 62 184 180 184 65 185 178 185 121 186 147 186 122 187 146 187 61 188 181 188 61 189 181 189 122 190 146 190 62 191 180 191 122 192 146 192 65 193 178 193 62 194 180 194 123 195 162 195 78 196 161 196 117 197 204 197 78 198 161 198 33 199 33 199 117 200 204 200 117 201 204 201 33 202 33 202 80 203 203 203 80 204 203 204 33 205 33 205 81 206 202 206 81 207 202 207 33 208 33 208 86 209 201 209 86 210 201 210 33 211 33 211 87 212 200 212 87 213 200 213 33 214 33 214 89 215 199 215 89 216 199 216 33 217 33 217 90 218 198 218 90 219 198 219 33 220 33 220 92 221 197 221 92 222 197 222 33 223 33 223 99 224 196 224 116 225 159 225 35 226 182 226 32 227 32 227 99 228 196 228 33 229 33 229 100 230 195 230 100 231 195 231 33 232 33 232 96 233 194 233 35 234 182 234 34 235 183 235 32 236 32 236 44 237 187 237 52 238 188 238 45 239 186 239 45 240 186 240 52 241 188 241 39 242 185 242 51 243 189 243 57 244 190 244 52 245 188 245 75 246 191 246 74 247 192 247 57 248 190 248 39 249 185 249 52 250 188 250 40 251 184 251 34 252 183 252 40 253 184 253 32 254 32 254 96 255 194 255 33 256 33 256 97 257 193 257 33 258 33 258 32 259 32 259 97 260 193 260 97 261 193 261 32 262 32 262 74 263 192 263 74 264 192 264 32 265 32 265 57 266 190 266 57 267 190 267 32 268 32 268 52 269 188 269 32 270 32 270 40 271 184 271 52 272 188 272 95 273 116 273 94 274 205 274 42 275 46 275 0 276 0 276 42 277 46 277 1 278 1 278 42 279 46 279 94 280 205 280 1 281 1 281 2 282 2 282 28 283 207 283 0 284 0 284 28 285 207 285 27 286 208 286 0 287 0 287 124 288 206 288 0 289 0 289 27 290 208 290</p>
         </triangles>
-        <triangles count="98" material="bunker_wall_tileable7">
+        <triangles count="98" material="bunker_wall_tileable3">
           <input semantic="VERTEX" offset="0" source="#polySurface114-VERTEX"/>
           <input semantic="NORMAL" offset="1" source="#polySurface114-Normal0"/>
           <input semantic="TEXCOORD" offset="2" set="0" source="#polySurface114-UV0"/>
@@ -11946,14 +11172,14 @@
         <vertices id="_collider_mesh_2-VERTEX">
           <input semantic="POSITION" source="#_collider_mesh_2-POSITION"/>
         </vertices>
-        <triangles count="97" material="lambert25">
+        <triangles count="97" material="lambert19">
           <input semantic="VERTEX" offset="0" source="#_collider_mesh_2-VERTEX"/>
           <input semantic="NORMAL" offset="1" source="#_collider_mesh_2-Normal0"/>
           <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_2-UV0"/>
           <input semantic="COLOR" offset="3" set="0" source="#_collider_mesh_2-VERTEX_COLOR0"/>
           <p> 0 0 0 0 1 1 1 1 2 2 2 2 31 3 31 3 32 4 32 4 33 5 33 5 29 6 38 6 11 7 39 7 37 8 37 8 11 9 39 9 10 10 40 10 37 11 37 11 10 12 40 12 13 13 41 13 37 14 37 14 37 15 37 15 13 16 41 16 38 17 42 17 38 18 42 18 8 19 47 19 37 20 37 20 8 21 47 21 7 22 48 22 37 23 37 23 15 24 49 24 14 25 50 25 7 26 48 26 7 27 48 27 14 28 50 28 37 29 37 29 14 30 50 30 43 31 51 31 37 32 37 32 42 33 46 33 37 34 37 34 43 35 51 35 77 36 85 36 78 37 86 37 79 38 87 38 83 39 91 39 84 40 92 40 85 41 93 41 43 42 51 42 18 43 112 43 42 44 46 44 18 45 112 45 17 46 113 46 42 47 46 47 17 48 113 48 21 49 114 49 42 50 46 50 21 51 114 51 20 52 115 52 42 53 46 53 42 54 46 54 20 55 115 55 95 56 116 56 102 57 117 57 31 58 118 58 103 59 119 59 104 60 120 60 102 61 117 61 105 62 121 62 106 63 124 63 104 64 120 64 107 65 125 65 108 66 126 66 106 67 124 67 109 68 127 68 110 69 130 69 108 70 126 70 111 71 131 71 112 72 132 72 113 73 133 73 114 74 134 74 112 75 132 75 110 76 130 76 113 77 133 77 115 78 135 78 31 79 31 79 33 80 33 80 85 81 93 81 84 82 92 82 77 83 85 83 77 84 85 84 84 85 92 85 78 86 86 86 31 87 118 87 115 88 139 88 103 89 119 89 102 90 117 90 103 91 119 91 105 92 121 92 104 93 120 93 105 94 121 94 107 95 125 95 106 96 124 96 107 97 125 97 109 98 127 98 113 99 133 99 119 100 140 100 114 101 134 101 108 102 126 102 109 103 127 103 111 104 131 104 110 105 130 105 111 106 131 106 113 107 133 107 121 108 147 108 59 109 148 109 122 110 146 110 120 111 145 111 122 112 146 112 58 113 149 113 122 114 146 114 59 115 148 115 58 116 149 116 32 117 32 117 124 118 151 118 116 119 159 119 116 120 159 120 124 121 151 121 26 122 158 122 26 123 158 123 124 124 151 124 23 125 157 125 23 126 157 126 124 127 151 127 24 128 156 128 24 129 156 129 124 130 151 130 6 131 155 131 6 132 155 132 124 133 151 133 3 134 154 134 124 135 151 135 27 136 152 136 3 137 154 137 27 138 152 138 4 139 153 139 3 140 154 140 70 141 163 141 68 142 164 142 123 143 162 143 123 144 162 144 68 145 164 145 78 146 161 146 79 147 160 147 78 148 161 148 67 149 165 149 78 150 161 150 68 151 164 151 67 152 165 152 122 153 146 153 120 154 145 154 125 155 167 155 55 156 168 156 54 157 169 157 120 158 145 158 120 159 145 159 54 160 169 160 125 161 167 161 47 162 166 162 125 163 167 163 48 164 171 164 48 165 171 165 125 166 167 166 50 167 170 167 125 168 167 168 54 169 169 169 50 170 170 170 83 171 91 171 72 172 176 172 84 173 92 173 84 174 92 174 72 175 176 175 122 176 146 176 72 177 176 177 71 178 177 178 122 179 146 179 71 180 177 180 65 181 178 181 122 182 146 182 64 183 179 183 62 184 180 184 65 185 178 185 121 186 147 186 122 187 146 187 61 188 181 188 61 189 181 189 122 190 146 190 62 191 180 191 122 192 146 192 65 193 178 193 62 194 180 194 123 195 162 195 78 196 161 196 117 197 204 197 78 198 161 198 33 199 33 199 117 200 204 200 117 201 204 201 33 202 33 202 80 203 203 203 80 204 203 204 33 205 33 205 81 206 202 206 81 207 202 207 33 208 33 208 86 209 201 209 86 210 201 210 33 211 33 211 87 212 200 212 87 213 200 213 33 214 33 214 89 215 199 215 89 216 199 216 33 217 33 217 90 218 198 218 90 219 198 219 33 220 33 220 92 221 197 221 92 222 197 222 33 223 33 223 99 224 196 224 116 225 159 225 35 226 182 226 32 227 32 227 99 228 196 228 33 229 33 229 100 230 195 230 100 231 195 231 33 232 33 232 96 233 194 233 35 234 182 234 34 235 183 235 32 236 32 236 44 237 187 237 52 238 188 238 45 239 186 239 45 240 186 240 52 241 188 241 39 242 185 242 51 243 189 243 57 244 190 244 52 245 188 245 75 246 191 246 74 247 192 247 57 248 190 248 39 249 185 249 52 250 188 250 40 251 184 251 34 252 183 252 40 253 184 253 32 254 32 254 96 255 194 255 33 256 33 256 97 257 193 257 33 258 33 258 32 259 32 259 97 260 193 260 97 261 193 261 32 262 32 262 74 263 192 263 74 264 192 264 32 265 32 265 57 266 190 266 57 267 190 267 32 268 32 268 52 269 188 269 32 270 32 270 40 271 184 271 52 272 188 272 95 273 116 273 94 274 205 274 42 275 46 275 0 276 0 276 42 277 46 277 1 278 1 278 42 279 46 279 94 280 205 280 1 281 1 281 2 282 2 282 28 283 207 283 0 284 0 284 28 285 207 285 27 286 208 286 0 287 0 287 124 288 206 288 0 289 0 289 27 290 208 290</p>
         </triangles>
-        <triangles count="98" material="bunker_wall_tileable7">
+        <triangles count="98" material="bunker_wall_tileable3">
           <input semantic="VERTEX" offset="0" source="#_collider_mesh_2-VERTEX"/>
           <input semantic="NORMAL" offset="1" source="#_collider_mesh_2-Normal0"/>
           <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_2-UV0"/>
@@ -17417,7 +16643,7 @@
         <vertices id="_collider_mesh_1-VERTEX">
           <input semantic="POSITION" source="#_collider_mesh_1-POSITION"/>
         </vertices>
-        <triangles count="750" material="phong8">
+        <triangles count="750" material="phong3">
           <input semantic="VERTEX" offset="0" source="#_collider_mesh_1-VERTEX"/>
           <input semantic="NORMAL" offset="1" source="#_collider_mesh_1-Normal0"/>
           <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_1-UV0"/>
@@ -17426,76 +16652,76 @@
         </triangles>
       </mesh>
     </geometry>
-    <geometry id="_collider_mesh_3-lib" name="_collider_mesh_3Mesh">
+    <geometry id="_collider_mesh_183-lib" name="_collider_mesh_183Mesh">
       <mesh>
-        <source id="_collider_mesh_3-POSITION">
-          <float_array id="_collider_mesh_3-POSITION-array" count="24">
--0.500000 -0.500000 0.500000
-0.500000 -0.500000 0.500000
--0.500000 0.500000 0.500000
-0.500000 0.500000 0.500000
--0.500000 0.500000 -0.500000
-0.500000 0.500000 -0.500000
--0.500000 -0.500000 -0.500000
-0.500000 -0.500000 -0.500000
+        <source id="_collider_mesh_183-POSITION">
+          <float_array id="_collider_mesh_183-POSITION-array" count="24">
+0.443462 -0.500411 0.500390
+1.337491 -0.500398 0.500390
+0.443463 0.550781 0.449199
+1.337489 0.550793 0.449199
+0.443463 0.534031 -0.652026
+1.337489 0.534044 -0.652026
+0.443462 -0.517160 -0.600835
+1.337491 -0.517148 -0.600835
 </float_array>
           <technique_common>
-            <accessor source="#_collider_mesh_3-POSITION-array" count="8" stride="3">
+            <accessor source="#_collider_mesh_183-POSITION-array" count="8" stride="3">
               <param name="X" type="float"/>
               <param name="Y" type="float"/>
               <param name="Z" type="float"/>
             </accessor>
           </technique_common>
         </source>
-        <source id="_collider_mesh_3-Normal0">
-          <float_array id="_collider_mesh_3-Normal0-array" count="108">
-0.000000 0.000000 1.000000
-0.000000 0.000000 1.000000
-0.000000 0.000000 1.000000
-0.000000 0.000000 1.000000
-0.000000 0.000000 1.000000
-0.000000 0.000000 1.000000
-0.000000 1.000000 0.000000
-0.000000 1.000000 0.000000
-0.000000 1.000000 0.000000
-0.000000 1.000000 0.000000
-0.000000 1.000000 0.000000
-0.000000 1.000000 0.000000
-0.000000 0.000000 -1.000000
-0.000000 0.000000 -1.000000
-0.000000 0.000000 -1.000000
-0.000000 0.000000 -1.000000
-0.000000 0.000000 -1.000000
-0.000000 0.000000 -1.000000
-0.000000 -1.000000 0.000000
-0.000000 -1.000000 0.000000
-0.000000 -1.000000 0.000000
-0.000000 -1.000000 0.000000
-0.000000 -1.000000 0.000000
-0.000000 -1.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
-1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
--1.000000 0.000000 0.000000
+        <source id="_collider_mesh_183-Normal0">
+          <float_array id="_collider_mesh_183-Normal0-array" count="108">
+-0.000001 0.048641 0.998816
+-0.000001 0.048641 0.998816
+-0.000001 0.048641 0.998816
+-0.000001 0.048641 0.998816
+-0.000001 0.048641 0.998816
+-0.000001 0.048641 0.998816
+-0.000014 0.999884 -0.015208
+-0.000014 0.999884 -0.015208
+-0.000014 0.999884 -0.015208
+-0.000014 0.999884 -0.015208
+-0.000014 0.999884 -0.015208
+-0.000014 0.999884 -0.015208
+0.000001 -0.048641 -0.998816
+0.000001 -0.048641 -0.998816
+0.000001 -0.048641 -0.998816
+0.000001 -0.048641 -0.998816
+0.000001 -0.048641 -0.998816
+0.000001 -0.048641 -0.998816
+0.000014 -0.999884 0.015208
+0.000014 -0.999884 0.015208
+0.000014 -0.999884 0.015208
+0.000014 -0.999884 0.015208
+0.000014 -0.999884 0.015208
+0.000014 -0.999884 0.015208
+1.000000 0.000002 -0.000000
+1.000000 0.000002 -0.000000
+1.000000 0.000002 -0.000000
+1.000000 0.000002 -0.000000
+1.000000 0.000002 -0.000000
+1.000000 0.000002 -0.000000
+-1.000000 0.000001 -0.000000
+-1.000000 0.000001 -0.000000
+-1.000000 0.000001 -0.000000
+-1.000000 0.000001 -0.000000
+-1.000000 0.000001 -0.000000
+-1.000000 0.000001 -0.000000
 </float_array>
           <technique_common>
-            <accessor source="#_collider_mesh_3-Normal0-array" count="36" stride="3">
+            <accessor source="#_collider_mesh_183-Normal0-array" count="36" stride="3">
               <param name="X" type="float"/>
               <param name="Y" type="float"/>
               <param name="Z" type="float"/>
             </accessor>
           </technique_common>
         </source>
-        <source id="_collider_mesh_3-UV0">
-          <float_array id="_collider_mesh_3-UV0-array" count="28">
+        <source id="_collider_mesh_183-UV0">
+          <float_array id="_collider_mesh_183-UV0-array" count="28">
 0.375000 0.000000
 0.625000 0.000000
 0.375000 0.250000
@@ -17512,32 +16738,650 @@
 0.125000 0.250000
 </float_array>
           <technique_common>
-            <accessor source="#_collider_mesh_3-UV0-array" count="14" stride="2">
+            <accessor source="#_collider_mesh_183-UV0-array" count="14" stride="2">
               <param name="S" type="float"/>
               <param name="T" type="float"/>
             </accessor>
           </technique_common>
         </source>
-        <vertices id="_collider_mesh_3-VERTEX">
-          <input semantic="POSITION" source="#_collider_mesh_3-POSITION"/>
+        <vertices id="_collider_mesh_183-VERTEX">
+          <input semantic="POSITION" source="#_collider_mesh_183-POSITION"/>
         </vertices>
-        <triangles count="12" material="standardSurface5">
-          <input semantic="VERTEX" offset="0" source="#_collider_mesh_3-VERTEX"/>
-          <input semantic="NORMAL" offset="1" source="#_collider_mesh_3-Normal0"/>
-          <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_3-UV0"/>
-          <p> 0 0 0 1 1 1 2 2 2 2 3 2 1 4 1 3 5 3 2 6 2 3 7 3 4 8 4 4 9 4 3 10 3 5 11 5 4 12 4 5 13 5 6 14 6 6 15 6 5 16 5 7 17 7 6 18 6 7 19 7 0 20 8 0 21 8 7 22 7 1 23 9 1 24 1 7 25 10 3 26 3 3 27 3 7 28 10 5 29 11 6 30 12 0 31 0 4 32 13 4 33 13 0 34 0 2 35 2</p>
+        <triangles count="12" material="standardSurface1">
+          <input semantic="VERTEX" offset="0" source="#_collider_mesh_183-VERTEX"/>
+          <input semantic="NORMAL" offset="1" source="#_collider_mesh_183-Normal0"/>
+          <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_183-UV0"/>
+          <p> 0 0 0 1 1 1 2 2 2 2 3 2 1 4 1 3 5 3 2 6 2 3 7 3 4 8 4 4 9 4 3 10 3 5 11 5 4 12 4 5 13 5 6 14 6 6 15 6 5 16 5 7 17 7 6 18 6 7 19 7 0 20 8 0 21 8 7 22 7 1 23 9 1 24 1 7 25 10 3 26 3 3 27 3 7 28 10 5 29 11 0 30 0 2 31 2 6 32 12 6 33 12 2 34 2 4 35 13</p>
+        </triangles>
+      </mesh>
+    </geometry>
+    <geometry id="_collider_mesh_184-lib" name="_collider_mesh_184Mesh">
+      <mesh>
+        <source id="_collider_mesh_184-POSITION">
+          <float_array id="_collider_mesh_184-POSITION-array" count="24">
+0.443465 -0.500411 0.500390
+1.337495 -0.500396 0.500387
+0.443465 0.660038 0.448723
+1.337410 0.660054 0.448720
+0.443463 0.643289 -0.652502
+1.337495 0.643304 -0.652506
+0.443464 -0.517160 -0.600835
+1.337492 -0.517145 -0.600837
+</float_array>
+          <technique_common>
+            <accessor source="#_collider_mesh_184-POSITION-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="_collider_mesh_184-Normal0">
+          <float_array id="_collider_mesh_184-Normal0-array" count="108">
+0.000002 0.044480 0.999010
+0.000002 0.044480 0.999010
+0.000002 0.044480 0.999010
+0.000002 0.044480 0.999010
+0.000002 0.044480 0.999010
+0.000002 0.044480 0.999010
+-0.000018 0.999884 -0.015208
+-0.000018 0.999884 -0.015208
+-0.000018 0.999884 -0.015208
+-0.000018 0.999884 -0.015208
+-0.000018 0.999884 -0.015208
+-0.000018 0.999884 -0.015208
+-0.000002 -0.044480 -0.999010
+-0.000002 -0.044480 -0.999010
+-0.000002 -0.044480 -0.999010
+-0.000002 -0.044480 -0.999010
+-0.000002 -0.044480 -0.999010
+-0.000002 -0.044480 -0.999010
+0.000017 -0.999884 0.015208
+0.000017 -0.999884 0.015208
+0.000017 -0.999884 0.015208
+0.000017 -0.999884 0.015208
+0.000017 -0.999884 0.015208
+0.000017 -0.999884 0.015208
+1.000000 0.000037 0.000037
+1.000000 0.000037 0.000037
+1.000000 0.000037 0.000037
+1.000000 0.000037 0.000037
+1.000000 0.000037 0.000037
+1.000000 0.000037 0.000037
+-1.000000 -0.000000 0.000001
+-1.000000 -0.000000 0.000001
+-1.000000 -0.000000 0.000001
+-1.000000 -0.000000 0.000001
+-1.000000 -0.000000 0.000001
+-1.000000 -0.000000 0.000001
+</float_array>
+          <technique_common>
+            <accessor source="#_collider_mesh_184-Normal0-array" count="36" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="_collider_mesh_184-UV0">
+          <float_array id="_collider_mesh_184-UV0-array" count="28">
+0.375000 0.000000
+0.625000 0.000000
+0.375000 0.250000
+0.625000 0.250000
+0.375000 0.500000
+0.625000 0.500000
+0.375000 0.750000
+0.625000 0.750000
+0.375000 1.000000
+0.625000 1.000000
+0.875000 0.000000
+0.875000 0.250000
+0.125000 0.000000
+0.125000 0.250000
+</float_array>
+          <technique_common>
+            <accessor source="#_collider_mesh_184-UV0-array" count="14" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="_collider_mesh_184-VERTEX">
+          <input semantic="POSITION" source="#_collider_mesh_184-POSITION"/>
+        </vertices>
+        <triangles count="12" material="standardSurface1">
+          <input semantic="VERTEX" offset="0" source="#_collider_mesh_184-VERTEX"/>
+          <input semantic="NORMAL" offset="1" source="#_collider_mesh_184-Normal0"/>
+          <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_184-UV0"/>
+          <p> 0 0 0 1 1 1 2 2 2 2 3 2 1 4 1 3 5 3 2 6 2 3 7 3 4 8 4 4 9 4 3 10 3 5 11 5 4 12 4 5 13 5 6 14 6 6 15 6 5 16 5 7 17 7 6 18 6 7 19 7 0 20 8 0 21 8 7 22 7 1 23 9 1 24 1 7 25 10 3 26 3 3 27 3 7 28 10 5 29 11 0 30 0 2 31 2 6 32 12 6 33 12 2 34 2 4 35 13</p>
+        </triangles>
+      </mesh>
+    </geometry>
+    <geometry id="_collider_mesh_185-lib" name="_collider_mesh_185Mesh">
+      <mesh>
+        <source id="_collider_mesh_185-POSITION">
+          <float_array id="_collider_mesh_185-POSITION-array" count="24">
+-0.500000 -0.500390 0.500390
+0.500000 -0.500390 0.500390
+-0.500000 0.550801 0.449199
+0.500000 0.550801 0.449199
+-0.500000 0.551191 -0.551191
+0.500000 0.551191 -0.551191
+-0.500000 -0.500000 -0.500000
+0.500000 -0.500000 -0.500000
+</float_array>
+          <technique_common>
+            <accessor source="#_collider_mesh_185-POSITION-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="_collider_mesh_185-Normal0">
+          <float_array id="_collider_mesh_185-Normal0-array" count="108">
+0.000000 0.048641 0.998816
+0.000000 0.048641 0.998816
+0.000000 0.048641 0.998816
+0.000000 0.048641 0.998816
+0.000000 0.048641 0.998816
+0.000000 0.048641 0.998816
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 -0.048641 -0.998816
+0.000000 -0.048641 -0.998816
+0.000000 -0.048641 -0.998816
+0.000000 -0.048641 -0.998816
+0.000000 -0.048641 -0.998816
+0.000000 -0.048641 -0.998816
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#_collider_mesh_185-Normal0-array" count="36" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="_collider_mesh_185-UV0">
+          <float_array id="_collider_mesh_185-UV0-array" count="28">
+0.375000 0.000000
+0.625000 0.000000
+0.375000 0.250000
+0.625000 0.250000
+0.375000 0.500000
+0.625000 0.500000
+0.375000 0.750000
+0.625000 0.750000
+0.375000 1.000000
+0.625000 1.000000
+0.875000 0.000000
+0.875000 0.250000
+0.125000 0.000000
+0.125000 0.250000
+</float_array>
+          <technique_common>
+            <accessor source="#_collider_mesh_185-UV0-array" count="14" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="_collider_mesh_185-VERTEX">
+          <input semantic="POSITION" source="#_collider_mesh_185-POSITION"/>
+        </vertices>
+        <triangles count="12" material="standardSurface1">
+          <input semantic="VERTEX" offset="0" source="#_collider_mesh_185-VERTEX"/>
+          <input semantic="NORMAL" offset="1" source="#_collider_mesh_185-Normal0"/>
+          <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_185-UV0"/>
+          <p> 0 0 0 1 1 1 2 2 2 2 3 2 1 4 1 3 5 3 2 6 2 3 7 3 4 8 4 4 9 4 3 10 3 5 11 5 4 12 4 5 13 5 6 14 6 6 15 6 5 16 5 7 17 7 6 18 6 7 19 7 0 20 8 0 21 8 7 22 7 1 23 9 1 24 1 7 25 10 3 26 3 3 27 3 7 28 10 5 29 11 0 30 0 2 31 2 6 32 12 6 33 12 2 34 2 4 35 13</p>
+        </triangles>
+      </mesh>
+    </geometry>
+    <geometry id="_collider_mesh_186-lib" name="_collider_mesh_186Mesh">
+      <mesh>
+        <source id="_collider_mesh_186-POSITION">
+          <float_array id="_collider_mesh_186-POSITION-array" count="24">
+-0.500000 -0.500390 0.500390
+0.500000 -0.500390 0.500390
+-0.500000 0.937978 0.455866
+0.500000 0.937978 0.455866
+-0.500000 0.938369 -0.544524
+0.500000 0.938369 -0.544524
+-0.500000 -0.500000 -0.500000
+0.500000 -0.500000 -0.500000
+</float_array>
+          <technique_common>
+            <accessor source="#_collider_mesh_186-POSITION-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="_collider_mesh_186-Normal0">
+          <float_array id="_collider_mesh_186-Normal0-array" count="108">
+0.000000 0.030940 0.999521
+0.000000 0.030940 0.999521
+0.000000 0.030940 0.999521
+0.000000 0.030940 0.999521
+0.000000 0.030940 0.999521
+0.000000 0.030940 0.999521
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 -0.030940 -0.999521
+0.000000 -0.030940 -0.999521
+0.000000 -0.030940 -0.999521
+0.000000 -0.030940 -0.999521
+0.000000 -0.030940 -0.999521
+0.000000 -0.030940 -0.999521
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#_collider_mesh_186-Normal0-array" count="36" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="_collider_mesh_186-UV0">
+          <float_array id="_collider_mesh_186-UV0-array" count="28">
+0.375000 0.000000
+0.625000 0.000000
+0.375000 0.250000
+0.625000 0.250000
+0.375000 0.500000
+0.625000 0.500000
+0.375000 0.750000
+0.625000 0.750000
+0.375000 1.000000
+0.625000 1.000000
+0.875000 0.000000
+0.875000 0.250000
+0.125000 0.000000
+0.125000 0.250000
+</float_array>
+          <technique_common>
+            <accessor source="#_collider_mesh_186-UV0-array" count="14" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="_collider_mesh_186-VERTEX">
+          <input semantic="POSITION" source="#_collider_mesh_186-POSITION"/>
+        </vertices>
+        <triangles count="12" material="standardSurface1">
+          <input semantic="VERTEX" offset="0" source="#_collider_mesh_186-VERTEX"/>
+          <input semantic="NORMAL" offset="1" source="#_collider_mesh_186-Normal0"/>
+          <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_186-UV0"/>
+          <p> 0 0 0 1 1 1 2 2 2 2 3 2 1 4 1 3 5 3 2 6 2 3 7 3 4 8 4 4 9 4 3 10 3 5 11 5 4 12 4 5 13 5 6 14 6 6 15 6 5 16 5 7 17 7 6 18 6 7 19 7 0 20 8 0 21 8 7 22 7 1 23 9 1 24 1 7 25 10 3 26 3 3 27 3 7 28 10 5 29 11 0 30 0 2 31 2 6 32 12 6 33 12 2 34 2 4 35 13</p>
+        </triangles>
+      </mesh>
+    </geometry>
+    <geometry id="_collider_mesh_187-lib" name="_collider_mesh_187Mesh">
+      <mesh>
+        <source id="_collider_mesh_187-POSITION">
+          <float_array id="_collider_mesh_187-POSITION-array" count="24">
+-0.500000 -0.500390 0.500390
+0.500000 -0.500390 0.500390
+-0.500000 0.937978 0.455866
+0.500000 0.937978 0.455866
+-0.500000 0.938369 -0.544524
+0.500000 0.938369 -0.544524
+-0.500000 -0.500000 -0.500000
+0.500000 -0.500000 -0.500000
+</float_array>
+          <technique_common>
+            <accessor source="#_collider_mesh_187-POSITION-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="_collider_mesh_187-Normal0">
+          <float_array id="_collider_mesh_187-Normal0-array" count="108">
+0.000000 0.030940 0.999521
+0.000000 0.030940 0.999521
+0.000000 0.030940 0.999521
+0.000000 0.030940 0.999521
+0.000000 0.030940 0.999521
+0.000000 0.030940 0.999521
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 -0.030940 -0.999521
+0.000000 -0.030940 -0.999521
+0.000000 -0.030940 -0.999521
+0.000000 -0.030940 -0.999521
+0.000000 -0.030940 -0.999521
+0.000000 -0.030940 -0.999521
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#_collider_mesh_187-Normal0-array" count="36" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="_collider_mesh_187-UV0">
+          <float_array id="_collider_mesh_187-UV0-array" count="28">
+0.375000 0.000000
+0.625000 0.000000
+0.375000 0.250000
+0.625000 0.250000
+0.375000 0.500000
+0.625000 0.500000
+0.375000 0.750000
+0.625000 0.750000
+0.375000 1.000000
+0.625000 1.000000
+0.875000 0.000000
+0.875000 0.250000
+0.125000 0.000000
+0.125000 0.250000
+</float_array>
+          <technique_common>
+            <accessor source="#_collider_mesh_187-UV0-array" count="14" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="_collider_mesh_187-VERTEX">
+          <input semantic="POSITION" source="#_collider_mesh_187-POSITION"/>
+        </vertices>
+        <triangles count="12" material="standardSurface1">
+          <input semantic="VERTEX" offset="0" source="#_collider_mesh_187-VERTEX"/>
+          <input semantic="NORMAL" offset="1" source="#_collider_mesh_187-Normal0"/>
+          <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_187-UV0"/>
+          <p> 0 0 0 1 1 1 2 2 2 2 3 2 1 4 1 3 5 3 2 6 2 3 7 3 4 8 4 4 9 4 3 10 3 5 11 5 4 12 4 5 13 5 6 14 6 6 15 6 5 16 5 7 17 7 6 18 6 7 19 7 0 20 8 0 21 8 7 22 7 1 23 9 1 24 1 7 25 10 3 26 3 3 27 3 7 28 10 5 29 11 0 30 0 2 31 2 6 32 12 6 33 12 2 34 2 4 35 13</p>
+        </triangles>
+      </mesh>
+    </geometry>
+    <geometry id="_collider_mesh_188-lib" name="_collider_mesh_188Mesh">
+      <mesh>
+        <source id="_collider_mesh_188-POSITION">
+          <float_array id="_collider_mesh_188-POSITION-array" count="24">
+-0.203570 -0.491219 0.796678
+0.505250 -0.500228 0.505638
+-0.213718 0.946836 0.742011
+0.495103 0.937827 0.450971
+-0.166300 0.948693 -0.210984
+0.542520 0.939685 -0.502024
+-0.156152 -0.489361 -0.156317
+0.552668 -0.498370 -0.447357
+</float_array>
+          <technique_common>
+            <accessor source="#_collider_mesh_188-POSITION-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="_collider_mesh_188-Normal0">
+          <float_array id="_collider_mesh_188-Normal0-array" count="108">
+0.379966 0.037816 0.924227
+0.379966 0.037816 0.924227
+0.379966 0.037816 0.924227
+0.379966 0.037816 0.924227
+0.379966 0.037816 0.924227
+0.379966 0.037816 0.924227
+0.013791 0.999901 0.002635
+0.013791 0.999901 0.002635
+0.013791 0.999901 0.002635
+0.013791 0.999901 0.002635
+0.013791 0.999901 0.002635
+0.013791 0.999901 0.002635
+-0.379966 -0.037816 -0.924227
+-0.379966 -0.037816 -0.924227
+-0.379966 -0.037816 -0.924227
+-0.379966 -0.037816 -0.924227
+-0.379966 -0.037816 -0.924227
+-0.379966 -0.037816 -0.924227
+-0.013791 -0.999901 -0.002635
+-0.013791 -0.999901 -0.002635
+-0.013791 -0.999901 -0.002635
+-0.013791 -0.999901 -0.002635
+-0.013791 -0.999901 -0.002635
+-0.013791 -0.999901 -0.002635
+0.998724 0.008937 0.049711
+0.998724 0.008937 0.049711
+0.998724 0.008937 0.049711
+0.998724 0.008937 0.049711
+0.998724 0.008937 0.049711
+0.998724 0.008937 0.049711
+-0.998724 -0.008937 -0.049711
+-0.998724 -0.008937 -0.049711
+-0.998724 -0.008937 -0.049711
+-0.998724 -0.008937 -0.049711
+-0.998724 -0.008937 -0.049711
+-0.998724 -0.008937 -0.049711
+</float_array>
+          <technique_common>
+            <accessor source="#_collider_mesh_188-Normal0-array" count="36" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="_collider_mesh_188-UV0">
+          <float_array id="_collider_mesh_188-UV0-array" count="28">
+0.375000 0.000000
+0.625000 0.000000
+0.375000 0.250000
+0.625000 0.250000
+0.375000 0.500000
+0.625000 0.500000
+0.375000 0.750000
+0.625000 0.750000
+0.375000 1.000000
+0.625000 1.000000
+0.875000 0.000000
+0.875000 0.250000
+0.125000 0.000000
+0.125000 0.250000
+</float_array>
+          <technique_common>
+            <accessor source="#_collider_mesh_188-UV0-array" count="14" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="_collider_mesh_188-VERTEX">
+          <input semantic="POSITION" source="#_collider_mesh_188-POSITION"/>
+        </vertices>
+        <triangles count="12" material="standardSurface1">
+          <input semantic="VERTEX" offset="0" source="#_collider_mesh_188-VERTEX"/>
+          <input semantic="NORMAL" offset="1" source="#_collider_mesh_188-Normal0"/>
+          <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_188-UV0"/>
+          <p> 1 0 1 3 1 3 0 2 0 0 3 0 3 4 3 2 5 2 2 6 2 3 7 3 4 8 4 4 9 4 3 10 3 5 11 5 4 12 4 5 13 5 6 14 6 6 15 6 5 16 5 7 17 7 7 18 7 1 19 9 6 20 6 6 21 6 1 22 9 0 23 8 1 24 1 7 25 10 3 26 3 3 27 3 7 28 10 5 29 11 0 30 0 2 31 2 6 32 12 6 33 12 2 34 2 4 35 13</p>
+        </triangles>
+      </mesh>
+    </geometry>
+    <geometry id="_collider_mesh_189-lib" name="_collider_mesh_189Mesh">
+      <mesh>
+        <source id="_collider_mesh_189-POSITION">
+          <float_array id="_collider_mesh_189-POSITION-array" count="24">
+-0.500000 -0.500390 0.500390
+0.500000 -0.500390 0.500390
+-0.500000 0.937978 0.455866
+0.500000 0.937978 0.455866
+-0.500000 0.938369 -0.544524
+0.500000 0.938369 -0.544524
+-0.500000 -0.500000 -0.500000
+0.500000 -0.500000 -0.500000
+</float_array>
+          <technique_common>
+            <accessor source="#_collider_mesh_189-POSITION-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="_collider_mesh_189-Normal0">
+          <float_array id="_collider_mesh_189-Normal0-array" count="108">
+0.000000 0.030940 0.999521
+0.000000 0.030940 0.999521
+0.000000 0.030940 0.999521
+0.000000 0.030940 0.999521
+0.000000 0.030940 0.999521
+0.000000 0.030940 0.999521
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 1.000000 0.000390
+0.000000 -0.030940 -0.999521
+0.000000 -0.030940 -0.999521
+0.000000 -0.030940 -0.999521
+0.000000 -0.030940 -0.999521
+0.000000 -0.030940 -0.999521
+0.000000 -0.030940 -0.999521
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+0.000000 -1.000000 -0.000390
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+-1.000000 -0.000000 0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#_collider_mesh_189-Normal0-array" count="36" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="_collider_mesh_189-UV0">
+          <float_array id="_collider_mesh_189-UV0-array" count="28">
+0.375000 0.000000
+0.625000 0.000000
+0.375000 0.250000
+0.625000 0.250000
+0.375000 0.500000
+0.625000 0.500000
+0.375000 0.750000
+0.625000 0.750000
+0.375000 1.000000
+0.625000 1.000000
+0.875000 0.000000
+0.875000 0.250000
+0.125000 0.000000
+0.125000 0.250000
+</float_array>
+          <technique_common>
+            <accessor source="#_collider_mesh_189-UV0-array" count="14" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="_collider_mesh_189-VERTEX">
+          <input semantic="POSITION" source="#_collider_mesh_189-POSITION"/>
+        </vertices>
+        <triangles count="12" material="standardSurface1">
+          <input semantic="VERTEX" offset="0" source="#_collider_mesh_189-VERTEX"/>
+          <input semantic="NORMAL" offset="1" source="#_collider_mesh_189-Normal0"/>
+          <input semantic="TEXCOORD" offset="2" set="0" source="#_collider_mesh_189-UV0"/>
+          <p> 0 0 0 1 1 1 2 2 2 2 3 2 1 4 1 3 5 3 2 6 2 3 7 3 4 8 4 4 9 4 3 10 3 5 11 5 4 12 4 5 13 5 6 14 6 6 15 6 5 16 5 7 17 7 6 18 6 7 19 7 0 20 8 0 21 8 7 22 7 1 23 9 1 24 1 7 25 10 3 26 3 3 27 3 7 28 10 5 29 11 0 30 0 2 31 2 6 32 12 6 33 12 2 34 2 4 35 13</p>
         </triangles>
       </mesh>
     </geometry>
   </library_geometries>
   <library_visual_scenes>
-    <visual_scene id="default_extension_worn_ghoulhole" name="default_extension_worn_ghoulhole">
+    <visual_scene id="default_extension_ghoulhole" name="default_extension_ghoulhole">
       <node name="_collider_mesh_169" id="_collider_mesh_169" sid="_collider_mesh_169">
         <matrix sid="matrix">256.195840 0.000000 0.000000 -70.524185 0.000000 378.503002 0.000000 190.000000 0.000000 0.000000 33.053118 -16.000000 0.000000 0.000000 0.000000 1.000000</matrix>
         <instance_geometry url="#_collider_mesh_169-lib">
           <bind_material>
             <technique_common>
-              <instance_material symbol="standardSurface4" target="#standardSurface4"/>
+              <instance_material symbol="standardSurface1" target="#standardSurface1"/>
             </technique_common>
           </bind_material>
         </instance_geometry>
@@ -17552,7 +17396,7 @@
         <instance_geometry url="#_collider_mesh_180-lib">
           <bind_material>
             <technique_common>
-              <instance_material symbol="standardSurface4" target="#standardSurface4"/>
+              <instance_material symbol="standardSurface1" target="#standardSurface1"/>
             </technique_common>
           </bind_material>
         </instance_geometry>
@@ -17567,7 +17411,7 @@
         <instance_geometry url="#_collider_mesh_181-lib">
           <bind_material>
             <technique_common>
-              <instance_material symbol="standardSurface4" target="#standardSurface4"/>
+              <instance_material symbol="standardSurface1" target="#standardSurface1"/>
             </technique_common>
           </bind_material>
         </instance_geometry>
@@ -17582,112 +17426,7 @@
         <instance_geometry url="#_collider_mesh_182-lib">
           <bind_material>
             <technique_common>
-              <instance_material symbol="standardSurface4" target="#standardSurface4"/>
-            </technique_common>
-          </bind_material>
-        </instance_geometry>
-        <extra>
-          <technique profile="FCOLLADA">
-            <visibility>1.000000</visibility>
-          </technique>
-        </extra>
-      </node>
-      <node name="_collider_mesh_183" id="_collider_mesh_183" sid="_collider_mesh_183">
-        <matrix sid="matrix">66.375901 0.000000 0.000000 111.564705 0.000000 12.996840 -22.425541 24.100252 0.000000 12.003298 24.281757 9.311880 0.000000 0.000000 0.000000 1.000000</matrix>
-        <instance_geometry url="#_collider_mesh_183-lib">
-          <bind_material>
-            <technique_common>
-              <instance_material symbol="standardSurface4" target="#standardSurface4"/>
-            </technique_common>
-          </bind_material>
-        </instance_geometry>
-        <extra>
-          <technique profile="FCOLLADA">
-            <visibility>1.000000</visibility>
-          </technique>
-        </extra>
-      </node>
-      <node name="_collider_mesh_184" id="_collider_mesh_184" sid="_collider_mesh_184">
-        <matrix sid="matrix">66.375901 0.000000 0.000000 111.564697 0.000000 17.682150 1.087129 9.038331 0.000000 -0.581887 33.035235 12.329710 0.000000 0.000000 0.000000 1.000000</matrix>
-        <instance_geometry url="#_collider_mesh_184-lib">
-          <bind_material>
-            <technique_common>
-              <instance_material symbol="standardSurface4" target="#standardSurface4"/>
-            </technique_common>
-          </bind_material>
-        </instance_geometry>
-        <extra>
-          <technique profile="FCOLLADA">
-            <visibility>1.000000</visibility>
-          </technique>
-        </extra>
-      </node>
-      <node name="_collider_mesh_185" id="_collider_mesh_185" sid="_collider_mesh_185">
-        <matrix sid="matrix">59.877199 0.000000 0.000000 169.938599 0.000000 378.503002 0.000000 190.000000 0.000000 0.000000 33.053118 -16.000000 0.000000 0.000000 0.000000 1.000000</matrix>
-        <instance_geometry url="#_collider_mesh_185-lib">
-          <bind_material>
-            <technique_common>
-              <instance_material symbol="standardSurface4" target="#standardSurface4"/>
-            </technique_common>
-          </bind_material>
-        </instance_geometry>
-        <extra>
-          <technique profile="FCOLLADA">
-            <visibility>1.000000</visibility>
-          </technique>
-        </extra>
-      </node>
-      <node name="_collider_mesh_186" id="_collider_mesh_186" sid="_collider_mesh_186">
-        <matrix sid="matrix">81.900684 0.000000 0.000000 98.950340 0.000000 219.573790 0.000000 194.036896 0.000000 0.000000 33.053118 -16.000000 0.000000 0.000000 0.000000 1.000000</matrix>
-        <instance_geometry url="#_collider_mesh_186-lib">
-          <bind_material>
-            <technique_common>
-              <instance_material symbol="standardSurface4" target="#standardSurface4"/>
-            </technique_common>
-          </bind_material>
-        </instance_geometry>
-        <extra>
-          <technique profile="FCOLLADA">
-            <visibility>1.000000</visibility>
-          </technique>
-        </extra>
-      </node>
-      <node name="_collider_mesh_187" id="_collider_mesh_187" sid="_collider_mesh_187">
-        <matrix sid="matrix">81.900684 0.000000 0.000000 98.950340 0.000000 78.804605 4.825142 123.623878 0.000000 -11.628584 32.699030 -11.822945 0.000000 0.000000 0.000000 1.000000</matrix>
-        <instance_geometry url="#_collider_mesh_187-lib">
-          <bind_material>
-            <technique_common>
-              <instance_material symbol="standardSurface4" target="#standardSurface4"/>
-            </technique_common>
-          </bind_material>
-        </instance_geometry>
-        <extra>
-          <technique profile="FCOLLADA">
-            <visibility>1.000000</visibility>
-          </technique>
-        </extra>
-      </node>
-      <node name="_collider_mesh_188" id="_collider_mesh_188" sid="_collider_mesh_188">
-        <matrix sid="matrix">63.847590 -3.711576 -20.644164 36.720119 11.242604 78.518304 3.232711 118.819786 50.048088 -12.903091 25.610089 -33.209057 0.000000 0.000000 0.000000 1.000000</matrix>
-        <instance_geometry url="#_collider_mesh_188-lib">
-          <bind_material>
-            <technique_common>
-              <instance_material symbol="standardSurface4" target="#standardSurface4"/>
-            </technique_common>
-          </bind_material>
-        </instance_geometry>
-        <extra>
-          <technique profile="FCOLLADA">
-            <visibility>1.000000</visibility>
-          </technique>
-        </extra>
-      </node>
-      <node name="_collider_mesh_189" id="_collider_mesh_189" sid="_collider_mesh_189">
-        <matrix sid="matrix">28.466564 4.500375 25.031545 141.232803 -7.282625 78.350794 2.300995 121.275475 -32.419670 -13.648789 21.462427 -22.277205 0.000000 0.000000 0.000000 1.000000</matrix>
-        <instance_geometry url="#_collider_mesh_189-lib">
-          <bind_material>
-            <technique_common>
-              <instance_material symbol="standardSurface4" target="#standardSurface4"/>
+              <instance_material symbol="standardSurface1" target="#standardSurface1"/>
             </technique_common>
           </bind_material>
         </instance_geometry>
@@ -17702,7 +17441,7 @@
         <instance_geometry url="#polySurface1-lib">
           <bind_material>
             <technique_common>
-              <instance_material symbol="phong8" target="#phong8"/>
+              <instance_material symbol="phong3" target="#phong3"/>
             </technique_common>
           </bind_material>
         </instance_geometry>
@@ -17717,8 +17456,8 @@
         <instance_geometry url="#polySurface114-lib">
           <bind_material>
             <technique_common>
-              <instance_material symbol="lambert25" target="#lambert25"/>
-              <instance_material symbol="bunker_wall_tileable7" target="#bunker_wall_tileable7"/>
+              <instance_material symbol="lambert19" target="#lambert19"/>
+              <instance_material symbol="bunker_wall_tileable3" target="#bunker_wall_tileable3"/>
             </technique_common>
           </bind_material>
         </instance_geometry>
@@ -17733,8 +17472,8 @@
         <instance_geometry url="#_collider_mesh_2-lib">
           <bind_material>
             <technique_common>
-              <instance_material symbol="lambert25" target="#lambert25"/>
-              <instance_material symbol="bunker_wall_tileable7" target="#bunker_wall_tileable7"/>
+              <instance_material symbol="lambert19" target="#lambert19"/>
+              <instance_material symbol="bunker_wall_tileable3" target="#bunker_wall_tileable3"/>
             </technique_common>
           </bind_material>
         </instance_geometry>
@@ -17749,7 +17488,7 @@
         <instance_geometry url="#_collider_mesh_1-lib">
           <bind_material>
             <technique_common>
-              <instance_material symbol="phong8" target="#phong8"/>
+              <instance_material symbol="phong3" target="#phong3"/>
             </technique_common>
           </bind_material>
         </instance_geometry>
@@ -17759,12 +17498,102 @@
           </technique>
         </extra>
       </node>
-      <node name="_collider_mesh_3" id="_collider_mesh_3" sid="_collider_mesh_3">
-        <matrix sid="matrix">400.599991 0.000000 0.000000 0.000000 0.000000 318.078857 0.000000 242.000000 0.000000 0.000000 29.433117 -15.000000 0.000000 0.000000 0.000000 1.000000</matrix>
-        <instance_geometry url="#_collider_mesh_3-lib">
+      <node name="_collider_mesh_183" id="_collider_mesh_183" sid="_collider_mesh_183">
+        <matrix sid="matrix">66.375901 0.000000 0.000000 111.564705 0.000000 12.996840 -22.425541 24.100252 0.000000 12.003298 24.281757 9.311880 0.000000 0.000000 0.000000 1.000000</matrix>
+        <instance_geometry url="#_collider_mesh_183-lib">
           <bind_material>
             <technique_common>
-              <instance_material symbol="standardSurface5" target="#standardSurface5"/>
+              <instance_material symbol="standardSurface1" target="#standardSurface1"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+        <extra>
+          <technique profile="FCOLLADA">
+            <visibility>1.000000</visibility>
+          </technique>
+        </extra>
+      </node>
+      <node name="_collider_mesh_184" id="_collider_mesh_184" sid="_collider_mesh_184">
+        <matrix sid="matrix">66.375901 0.000000 0.000000 111.564697 0.000000 17.682150 1.087129 9.038331 0.000000 -0.581887 33.035235 12.329710 0.000000 0.000000 0.000000 1.000000</matrix>
+        <instance_geometry url="#_collider_mesh_184-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="standardSurface1" target="#standardSurface1"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+        <extra>
+          <technique profile="FCOLLADA">
+            <visibility>1.000000</visibility>
+          </technique>
+        </extra>
+      </node>
+      <node name="_collider_mesh_185" id="_collider_mesh_185" sid="_collider_mesh_185">
+        <matrix sid="matrix">59.877199 0.000000 0.000000 169.938599 0.000000 378.503002 0.000000 190.000000 0.000000 0.000000 33.053118 -16.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+        <instance_geometry url="#_collider_mesh_185-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="standardSurface1" target="#standardSurface1"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+        <extra>
+          <technique profile="FCOLLADA">
+            <visibility>1.000000</visibility>
+          </technique>
+        </extra>
+      </node>
+      <node name="_collider_mesh_186" id="_collider_mesh_186" sid="_collider_mesh_186">
+        <matrix sid="matrix">81.900684 0.000000 0.000000 98.950340 0.000000 219.573790 0.000000 194.036896 0.000000 0.000000 33.053118 -16.000000 0.000000 0.000000 0.000000 1.000000</matrix>
+        <instance_geometry url="#_collider_mesh_186-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="standardSurface1" target="#standardSurface1"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+        <extra>
+          <technique profile="FCOLLADA">
+            <visibility>1.000000</visibility>
+          </technique>
+        </extra>
+      </node>
+      <node name="_collider_mesh_187" id="_collider_mesh_187" sid="_collider_mesh_187">
+        <matrix sid="matrix">81.900684 0.000000 0.000000 98.950340 0.000000 78.804605 4.825142 123.623878 0.000000 -11.628584 32.699030 -11.822945 0.000000 0.000000 0.000000 1.000000</matrix>
+        <instance_geometry url="#_collider_mesh_187-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="standardSurface1" target="#standardSurface1"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+        <extra>
+          <technique profile="FCOLLADA">
+            <visibility>1.000000</visibility>
+          </technique>
+        </extra>
+      </node>
+      <node name="_collider_mesh_188" id="_collider_mesh_188" sid="_collider_mesh_188">
+        <matrix sid="matrix">63.847590 -3.711575 -20.644164 36.720119 11.242604 78.518304 3.232711 118.819786 50.048088 -12.903091 25.610089 -33.209057 0.000000 0.000000 0.000000 1.000000</matrix>
+        <instance_geometry url="#_collider_mesh_188-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="standardSurface1" target="#standardSurface1"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+        <extra>
+          <technique profile="FCOLLADA">
+            <visibility>1.000000</visibility>
+          </technique>
+        </extra>
+      </node>
+      <node name="_collider_mesh_189" id="_collider_mesh_189" sid="_collider_mesh_189">
+        <matrix sid="matrix">28.466564 4.500375 25.031545 141.232803 -7.282625 78.350794 2.300995 121.275475 -32.419670 -13.648789 21.462427 -22.277205 0.000000 0.000000 0.000000 1.000000</matrix>
+        <instance_geometry url="#_collider_mesh_189-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="standardSurface1" target="#standardSurface1"/>
             </technique_common>
           </bind_material>
         </instance_geometry>
@@ -17786,6 +17615,6 @@
     </visual_scene>
   </library_visual_scenes>
   <scene>
-    <instance_visual_scene url="#default_extension_worn_ghoulhole"/>
+    <instance_visual_scene url="#default_extension_ghoulhole"/>
   </scene>
 </COLLADA>
