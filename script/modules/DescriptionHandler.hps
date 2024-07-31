@@ -178,6 +178,17 @@ class cScrDescriptionHandler : iScrUserModule, iScrUserModule_Interface, iScrDes
 			mvTextOffset = cMath_RandRectVector3f(cVector3f(-1, -1,0), cVector3f(1, 1,0) ) * 1.5 * mfCurrentEffectAmount;
 		}
 		
+		// DoctorD edit: custom effect
+		if(mCurrentEffect == eDescEffect_Test){
+			mvTextOffset = cMath_RandRectVector3f(cVector3f(-10, -10,0), cVector3f(10, 10,0) ) * 1.25 * mfCurrentEffectAmount;
+            mfAlpha = cMath_RandRectf(0.0f, 0.8f);
+            mbForceFading = true;
+            mCurrentColor = cColor(cMath_RandRectf(0.0f, 1.0f), mfAlpha);
+            mfBetweenMessageWait = 0.1f;
+        }
+		
+		
+		
 		////////////////////////
 		//Increase alpha
 		if(mbShowingText && mfAlpha<1 && mbForceFading==false)
