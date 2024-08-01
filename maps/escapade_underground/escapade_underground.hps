@@ -97,13 +97,16 @@ class cScrMap : iScrMap
         cLux_AddDebugMessage("CURRENT IGNORE GAS DAMAGE: "+Player_GetIgnoreGasDamage()); 
         //Music_Play("Bunker_Arsenal.ogg", 1.0f, eMusicPrio_BgAmb);
 		Music_PlayExt("underground_wip_loop", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
-        Entity_AddCollideCallback("Trigger_ThreatCorridors", "Player", "EnableThreat");
-        Entity_AddCollideCallback("Trigger_Leave_ThreatCorridors_GasChamber", "Player", "ThreatCorridors_Disable");
-        Entity_AddCollideCallback("Trigger_Leave_ThreatCorridors_LadderExit", "Player", "ThreatCorridors_Disable");
-        Entity_AddCollideCallback("Trigger_Leave_ThreatCorridors_Halls", "Player", "ThreatCorridors_Disable");
+        
+        //Collide callbacks
         Entity_AddCollideCallback("Death_Pit_*", "Player", "DeathFall");
         Entity_AddCollideCallback("Save_*", "Player", "SaveGame");
-    }
+        
+        
+        
+        //Debug
+        //Map_AddTimer("checkc", 0.0f, "DebugCheck");
+     }
 
 	//-------------------------------------------------------
 
@@ -157,6 +160,27 @@ class cScrMap : iScrMap
 	// MAIN FUNCTIONS
 	// ==============
 	//{///////////////////////////////////////////////////////////////////////////////////////
+    void DebugCheck(const tString &in asTimer){
+        /*
+        cLux_AddDebugMessage("AREA X: " + Entity_GetPosition("Trigger_Leave_ThreatCorridors_Halls").x, true);
+        cLux_AddDebugMessage("AREA Y: " + Entity_GetPosition("Trigger_Leave_ThreatCorridors_Halls").y, true);
+        cLux_AddDebugMessage("AREA Z: " + Entity_GetPosition("Trigger_Leave_ThreatCorridors_Halls").z, true);
+        
+        
+        
+        
+        cLux_AddDebugMessage("AREA X: " + Entity_GetPosition("Trigger_Leave_ThreatCorridors_LadderExit").x, true);
+        cLux_AddDebugMessage("AREA Y: " + Entity_GetPosition("Trigger_Leave_ThreatCorridors_LadderExit").y, true);
+        cLux_AddDebugMessage("AREA Z: " + Entity_GetPosition("Trigger_Leave_ThreatCorridors_LadderExit").z, true);
+        
+        
+        cLux_AddDebugMessage("AREA X: " + Entity_GetPosition("Trigger_Leave_ThreatCorridors_GasChamber").x, true);
+        cLux_AddDebugMessage("AREA Y: " + Entity_GetPosition("Trigger_Leave_ThreatCorridors_GasChamber").y, true);
+        cLux_AddDebugMessage("AREA Z: " + Entity_GetPosition("Trigger_Leave_ThreatCorridors_GasChamber").z, true);
+        */
+        
+        Map_RestartCurrentTimer(0.1f);
+    }
     
     void DeaggroCheck(const tString &in asTimer){
         //cLux_AddDebugMessage("Checking. Stalker mode: "+ Stalker_GetMode("stalker_test"), true);
@@ -192,33 +216,21 @@ class cScrMap : iScrMap
         }
     }
     
-	bool EnableThreat(const tString &in asParent, const tString &in asChild, int alState)
+	bool ThreatCorridors_Enable(const tString &in asParent, const tString &in asChild, int alState)
 	{
 		if (alState == 1) {
-            cLux_AddDebugMessage("PARENT: "+asParent);
-            cLux_AddDebugMessage("CHILD: "+asChild);
-			DebugStalkerThreatEnable();
-		
-			Entity_SetActive("Trigger_ThreatCorridors", false);
-			Entity_SetActive("Trigger_Leave_ThreatCorridors_GasChamber", true);
-			Entity_SetActive("Trigger_Leave_ThreatCorridors_Halls", true);
-			Entity_SetActive("Trigger_Leave_ThreatCorridors_LadderExit", true);
-		}
-		return true;
-	}
-	
-	
-	bool ThreatCorridors_Disable(const tString &in asParent, const tString &in asChild, int alState)
-	{	
-		if (alState == 1) {
+            //cLux_AddDebugMessage("PARENT: "+asParent);
+            //cLux_AddDebugMessage("CHILD: "+asChild);
+			
+            DebugStalkerThreatEnable();
+            
+            return true;
+        }
+        if (alState == -1) {
 			DebugStalkerThreatDisable();
             
-			Entity_SetActive("Trigger_ThreatCorridors", true);
-			Entity_SetActive("Trigger_Leave_ThreatCorridors_GasChamber", false);
-			Entity_SetActive("Trigger_Leave_ThreatCorridors_Halls", false);
-            Entity_SetActive("Trigger_Leave_ThreatCorridors_LadderExit", false);
-		}
-	
+            return true;
+        }
 		return true;
 	}
 	

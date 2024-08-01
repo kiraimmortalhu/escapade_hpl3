@@ -147,12 +147,14 @@ class cScrMap : iScrMap
 	
 	void revolver_pickup_1_OnPlayerInteract(const tString &in asEntity)
 	{
-		Item_AddManyToInventory("Ammunition",12);
+        cLux_AddDebugMessage("Gun");
+		Item_AddManyToInventory("Ammunition",14);
 	}
 	
 	void trench_shotgun_shotgunner_pickup_1_OnPlayerInteract(const tString &in asEntity)
 	{
-		Item_AddManyToInventory("ShotgunAmmunition",12);
+        cLux_AddDebugMessage("Shotgun");
+		Item_AddManyToInventory("ShotgunAmmunition",14);
 	}
 	
 	void statue_buddha_1_OnPlayerInteract(const tString &in asEntity)
