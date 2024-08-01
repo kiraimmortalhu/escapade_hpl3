@@ -97,6 +97,12 @@ class cScrMap : iScrMap
         cLux_AddDebugMessage("CURRENT IGNORE GAS DAMAGE: "+Player_GetIgnoreGasDamage()); 
         //Music_Play("Bunker_Arsenal.ogg", 1.0f, eMusicPrio_BgAmb);
 		Music_PlayExt("underground_wip_loop", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+        Entity_AddCollideCallback("Trigger_ThreatCorridors", "Player", "EnableThreat");
+        Entity_AddCollideCallback("Trigger_Leave_ThreatCorridors_GasChamber", "Player", "ThreatCorridors_Disable");
+        Entity_AddCollideCallback("Trigger_Leave_ThreatCorridors_LadderExit", "Player", "ThreatCorridors_Disable");
+        Entity_AddCollideCallback("Trigger_Leave_ThreatCorridors_Halls", "Player", "ThreatCorridors_Disable");
+        Entity_AddCollideCallback("Death_Pit_*", "Player", "DeathFall");
+        Entity_AddCollideCallback("Save_*", "Player", "SaveGame");
     }
 
 	//-------------------------------------------------------
@@ -186,14 +192,17 @@ class cScrMap : iScrMap
         }
     }
     
-	bool ThreatCorridors_Enable(const tString &in asParent, const tString &in asChild, int alState)
+	bool EnableThreat(const tString &in asParent, const tString &in asChild, int alState)
 	{
 		if (alState == 1) {
+            cLux_AddDebugMessage("PARENT: "+asParent);
+            cLux_AddDebugMessage("CHILD: "+asChild);
 			DebugStalkerThreatEnable();
 		
 			Entity_SetActive("Trigger_ThreatCorridors", false);
 			Entity_SetActive("Trigger_Leave_ThreatCorridors_GasChamber", true);
 			Entity_SetActive("Trigger_Leave_ThreatCorridors_Halls", true);
+			Entity_SetActive("Trigger_Leave_ThreatCorridors_LadderExit", true);
 		}
 		return true;
 	}
@@ -207,6 +216,7 @@ class cScrMap : iScrMap
 			Entity_SetActive("Trigger_ThreatCorridors", true);
 			Entity_SetActive("Trigger_Leave_ThreatCorridors_GasChamber", false);
 			Entity_SetActive("Trigger_Leave_ThreatCorridors_Halls", false);
+            Entity_SetActive("Trigger_Leave_ThreatCorridors_LadderExit", false);
 		}
 	
 		return true;
@@ -216,8 +226,9 @@ class cScrMap : iScrMap
 		Entity_SetActive("stalker_test", true);
         //Map_AddTimer("deaggro", 10.0f, "Stalker_Deaggro");
         Map_AddTimer("deaggrocheck", 0.0f, "DeaggroCheck");
+        Stalker_SetEmergeAllowed("stalker_test", true);
         //Terror_SetEnemyMusicStage(eTerrorMusicAgentType_Stalker, eTerrorMusicStage_Searching);
-		cLux_AddDebugMessage("Stalker is now active: " + Entity_IsActive("stalker_test"));
+		cLux_AddDebugMessage("Stalker is now ENABLED");
 	}
 	
 	void DebugStalkerThreatDisable() {
@@ -233,11 +244,58 @@ class cScrMap : iScrMap
         if(!Music_IsSongPlaying("underground_wip_loop")){
             Music_PlayExt("underground_wip_loop", true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_BgAmb, true);
         }
-		cLux_AddDebugMessage("Stalker is now RETREATED");
+		cLux_AddDebugMessage("Stalker is now DISABLED");
 	}
 	
-
- 
+    
+    bool DeathFall(const tString &in asParent, const tString &in asChild, int alState){
+        if(alState == 1){
+            cLux_AddDebugMessage("PARENT: "+ asParent);
+            Seq_FallToDeath(asParent);
+            
+            //PlayerBody_PlayAnimation("fall_and_get_up_quickly", ePlayerBodyAnimationLayer_FullBody, false, false, false);
+            //PlayerBody_PlayCutsceneAnimation("player_end_tumble_intro_trench", false, 0.1f);
+            //PlayerBody_PlayCutsceneAnimation("jump_fall", false, 0.1f);
+            //PlayerBody_PlayCutsceneAtEntity("fall_and_get_up_quickly", "Player", false, 0.1f);
+            
+            
+        }
+        
+        return true;
+    }
+    
+    cSequenceStatesData mSeqDataFallInPit;
+    void Seq_FallToDeath(const tString &in asTimer){
+        Sequence_Begin("Seq_FallToDeath", mSeqDataFallInPit);
+        if(Sequence_DoStepAndWait(cString_Sub(asTimer, "Death_Pit_".length(), -1) == "2" ? 4.0f : 0.2f)){
+            /*
+            cLux_GetPlayer().ChangeState(ePlayerState_Null);
+            Player_SetActive(false);
+            cLux_GetPlayer().GetCharacterBody().SetTestCollision(false);
+            */
+            
+            Player_SetActive(false);
+            cLux_AddDebugMessage("YOU DIED");
+            Music_StopAll(0.2f);
+            Effect_Fade_Out(0.2f);
+        }        
+        else if(Sequence_DoStepAndWait(0.5f)){
+            Sound_PlayGui("player_falldamage_max.snt", 1.0f, eSoundEntryType_Gui);
+        }
+        else if(Sequence_DoStepAndContinue()){
+            Death_Start("Fall");
+        }
+        Sequence_End();
+    }
+    
+	bool SaveGame(const tString &in asParent, const tString &in asChild, int alState){
+        if(alState == 1){
+            cLux_AddDebugMessage("SAVED");
+            SaveRoom_SaveGame(true, false);
+        }
+        
+        return true;
+    }
 	//} END MAIN FUNCTIONS
  
 	//////////////////////////////////////////////////////////////////////////////////////////
