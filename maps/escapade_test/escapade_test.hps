@@ -74,13 +74,14 @@ class cScrMap : iScrMap
 		PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		PlayerBody_SetRenderLayers(1, 1);
         PlayerBody_SetActive(true);
+		Item_SetCurrentSlotsCount(15);
 		
 		/////////////////////////
 		// Debug
 		if (cLux_ScriptDebugOn())
 		{
 			Item_AddToInventory("DynamoLantern");
-			StalkerActivationHandler();
+			//StalkerActivationHandler();
 		}
 	}
 
@@ -135,17 +136,28 @@ class cScrMap : iScrMap
 	// ==============
 	//{///////////////////////////////////////////////////////////////////////////////////////
  
-	void StalkerActivationHandler() {
-		if (Entity_IsActive("stalker_1")) {
-			Entity_SetActive("stalker_1", false);
-		} else {
-			Entity_SetActive("stalker_1", true);
-		}
-	}
- 
-	void Trigger_Stalker_OnPlayerInteract(const tString &in asEntity)
+	bool OnCollide_ActivateStalker(const tString &in asParent, const tString &in asChild, int alState)
 	{
-		StalkerActivationHandler();
+		if (alState == 1) {
+			Entity_SetActive("stalker_1", true);
+			return false;
+		}
+		return true;
+	}
+	
+	void revolver_pickup_1_OnPlayerInteract(const tString &in asEntity)
+	{
+		Item_AddManyToInventory("Ammunition",12);
+	}
+	
+	void trench_shotgun_shotgunner_pickup_1_OnPlayerInteract(const tString &in asEntity)
+	{
+		Item_AddManyToInventory("ShotgunAmmunition",12);
+	}
+	
+	void statue_buddha_1_OnPlayerInteract(const tString &in asEntity)
+	{
+		cLux_AddDebugMessage("Even this doesn't work for fook's sake");
 	}
  
 	//} END MAIN FUNCTIONS
