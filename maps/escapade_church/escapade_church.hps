@@ -76,6 +76,7 @@ class cScrMap : iScrMap
 		if (cLux_ScriptDebugOn())
 		{
 			Item_AddToInventory("DynamoLantern");
+			MovingButton_SetDisabled("door_lock_keyhole_base_1", false, false);
 		}
 	}
 
@@ -130,15 +131,13 @@ class cScrMap : iScrMap
 	// ==============
 	//{///////////////////////////////////////////////////////////////////////////////////////
  
-	//-------------------------------------------------------
- 
-	/*Put any variables that are used in more than one scene here.*/
- 
-	//-------------------------------------------------------
- 
-	/*Put any functions that are used in more than one scene here.*/
- 
-	//-------------------------------------------------------
+	void door_lock_keyhole_base_1_OnConnectionStateChange(const tString &in asEntity, int alState)
+	{
+		bool bLock = alState==1;
+			
+		MovingButton_SetSwitchedOn("door_lock_keyhole_base_1", bLock, true);
+		SwingDoor_SetLocked("prison_section_1", bLock, true);
+	}
  
 	//} END MAIN FUNCTIONS
  
