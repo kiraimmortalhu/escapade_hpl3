@@ -68,7 +68,10 @@ class cScrMap : iScrMap
 	void OnStart()
 	{
 		// Any general setup of script / entities
-		
+		// Preload maps
+        {
+            Map_Preload("escapade_storage.hpm");
+        }
 		PlayerBody_SetActive(true);
 		
 		/////////////////////////
@@ -108,7 +111,12 @@ class cScrMap : iScrMap
 		{
 		}
 	}
-
+    
+    bool OnTrigger_Player_SwitchMap_StorageMap(const tString &in asParent, const tString &in asChild, int alState)
+    {
+        Game_DoMapChange("escapade_storage.hpm", "MapTransfer_EntranceStorage");
+        return true;
+    }
 	//-------------------------------------------------------
 
 	////////////////////////////
