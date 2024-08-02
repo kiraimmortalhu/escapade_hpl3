@@ -91,6 +91,12 @@ class cScrMap : iScrMap
 	{
 	}
 	
+	bool OnTrigger_Player_Transfer_Underground(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_underground.hpm", "MapTransfer_StorageUnderground");
+		return true;
+	}
+	
 	//-------------------------------------------------------
 
 	////////////////////////////

@@ -1,18 +1,19 @@
-<HPLMapTrack_Entity ID="14FA1587F7F3D4C0FF55E7BC6875ACDBDE913D79" MajorVersion="1" MinorVersion="1">
+<HPLMapTrack_Entity ID="F914DBEB2E20FAB764D3D5C48231DED7C3E104" MajorVersion="1" MinorVersion="1">
     <Section Name="13155577883259020773">
         <FileIndex_Entities NumOfFiles="0" />
         <Objects />
     </Section>
     <Section Name="0">
-        <FileIndex_Entities NumOfFiles="5">
-            <File Id="0" Path="mods/escapade_hpl3/entities/dark_descent/ornament/banner02/banner02.ent" />
-            <File Id="1" Path="mods/escapade_hpl3/entities/dark_descent/door/castle/castle.ent" />
-            <File Id="2" Path="mods/escapade_hpl3/entities/darkworld/ornaments/statue_tin_hinan_whole/statue_tin_hinan_whole.ent" />
-            <File Id="3" Path="entities/nonexclusive/organic/shadowflesh/shadow_flesh_1.ent" />
-            <File Id="4" Path="entities/bunker/doors/wooden_door/wooden_door_window.ent" />
+        <FileIndex_Entities NumOfFiles="6">
+            <File Id="0" Path="entities/darkworld/rocks/dw_rock_lump_large_1_detailed_nocoll.ent" />
+            <File Id="1" Path="entities/cistern/gameplay/statue_pillar_cistern/statue_pillar_cistern.ent" />
+            <File Id="2" Path="mods/escapade_hpl3/entities/darkworld/ornaments/statue_tin_hinan_broken/statue_tin_hinan_whole.ent" />
+            <File Id="3" Path="entities/tin_hinan/ornament/statue_alchemist/statue_alchemist.ent" />
+            <File Id="4" Path="entities/tin_hinan/ornament/statue_worshipper_tin_hinan_male/statue_worshipper_tin_hinan_male.ent" />
+            <File Id="5" Path="mods/escapade_hpl3/entities/dark_descent/door/castle_gate_arched01/castle_gate_arched01.ent" />
         </FileIndex_Entities>
         <Objects>
-            <Entity ID="285212673" Name="castle_2" CreStamp="1718786714" ModStamp="1719252396" WorldPos="19 0.089 0" Rotation="-0 4.71204 -0" Scale="1 1 1" FileIndex="1" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 907 285212673">
+            <Entity ID="285212673" Name="castle_gate_arched01_open_1" CreStamp="1719838201" ModStamp="1720464387" WorldPos="-31.625 0.987718 -2.75" Rotation="0 -8.88117e-07 0" Scale="1 1 1" FileIndex="5" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 14 285212673">
                 <UserVariables>
                     <Var ObjectId="285212673" Name="Note" Value="" />
                     <Var ObjectId="285212673" Name="EventInstanceTag" Value="" />
@@ -68,26 +69,21 @@
                     <Var ObjectId="285212673" Name="ExtraConnectionLightUseOnColor" Value="true" />
                     <Var ObjectId="285212673" Name="ExtraConnectionLightUseSpec" Value="false" />
                     <Var ObjectId="285212673" Name="ExtraConnectionLightType" Value="Mul" />
-                    <Var ObjectId="285212673" Name="Locked" Value="false" />
-                    <Var ObjectId="285212673" Name="Blocked" Value="false" />
-                    <Var ObjectId="285212673" Name="OpenAmount" Value="0" />
-                    <Var ObjectId="285212673" Name="IsHatch" Value="false" />
-                    <Var ObjectId="285212673" Name="HatchIgnorePlayersPosition" Value="false" />
-                    <Var ObjectId="285212673" Name="JointResetFix" Value="false" />
-                    <Var ObjectId="285212673" Name="BreakChildEntity" Value="" />
-                    <Var ObjectId="285212673" Name="OpenableByAgent" Value="true" />
+                    <Var ObjectId="285212673" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="285212673" Name="CustomInteractIcon" Value="PushButton" />
+                    <Var ObjectId="285212673" Name="OnBreakDeactivateEnts" Value="" />
                     <Var ObjectId="285212673" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
                     <Var ObjectId="285212673" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
                     <Var ObjectId="285212673" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
                     <Var ObjectId="285212673" Name="WoodenBreakable_CustomDropItemsList" Value="" />
                 </UserVariables>
             </Entity>
-            <Entity ID="285212674" Name="banner02_1" CreStamp="1718787206" ModStamp="1719252396" WorldPos="18.8033 1.5 4" Rotation="0 3.14159 0" Scale="1 1 1" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 371 285212674">
+            <Entity ID="285212674" Name="dw_rock_lump_large_1_detailed_nocoll_1" CreStamp="1719845703" ModStamp="1720464386" WorldPos="-24.4705 3.75192 28.5427" Rotation="-1.5708 -0 0" Scale="3 3 3" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 73 285212674">
                 <UserVariables>
                     <Var ObjectId="285212674" Name="Note" Value="" />
                     <Var ObjectId="285212674" Name="CastShadows" Value="true" />
                     <Var ObjectId="285212674" Name="IsAffectedByDecal" Value="true" />
-                    <Var ObjectId="285212674" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285212674" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
                     <Var ObjectId="285212674" Name="ColorBrightness" Value="1" />
                     <Var ObjectId="285212674" Name="IllumColor" Value="1 1 1 1" />
                     <Var ObjectId="285212674" Name="IllumBrightness" Value="1" />
@@ -96,12 +92,12 @@
                     <Var ObjectId="285212674" Name="RenderLayer" Value="0" />
                 </UserVariables>
             </Entity>
-            <Entity ID="285212675" Name="statue_tin_hinan_whole_2" CreStamp="1718917528" ModStamp="1719252462" WorldPos="50.75 5.5 -42" Rotation="0 2.98023e-08 0" Scale="2 2 2" FileIndex="2" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 1230 285212675">
+            <Entity ID="285212675" Name="dw_rock_lump_large_1_detailed_nocoll_2" CreStamp="1719845758" ModStamp="1720464386" WorldPos="-24.5059 3.75192 17.6328" Rotation="-1.5708 -0.759981 3.09684e-07" Scale="3 3 3" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 75 285212675">
                 <UserVariables>
                     <Var ObjectId="285212675" Name="Note" Value="" />
                     <Var ObjectId="285212675" Name="CastShadows" Value="true" />
                     <Var ObjectId="285212675" Name="IsAffectedByDecal" Value="true" />
-                    <Var ObjectId="285212675" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="285212675" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
                     <Var ObjectId="285212675" Name="ColorBrightness" Value="1" />
                     <Var ObjectId="285212675" Name="IllumColor" Value="1 1 1 1" />
                     <Var ObjectId="285212675" Name="IllumBrightness" Value="1" />
@@ -110,139 +106,1616 @@
                     <Var ObjectId="285212675" Name="RenderLayer" Value="0" />
                 </UserVariables>
             </Entity>
-            <Entity ID="285212676" Name="wooden_door_window_1" CreStamp="1719062191" ModStamp="1719252474" WorldPos="15.5325 -2 -61.0129" Rotation="0 0 0" Scale="1.04 1 1" FileIndex="4" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 298 285212676">
+            <Entity ID="285212676" Name="dw_rock_lump_large_1_detailed_nocoll_3" CreStamp="1719845788" ModStamp="1720464386" WorldPos="-42.8887 3.75192 17.6328" Rotation="-1.5708 0.354794 -2.29029e-09" Scale="3 3 3" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 74 285212676">
                 <UserVariables>
                     <Var ObjectId="285212676" Name="Note" Value="" />
-                    <Var ObjectId="285212676" Name="EventInstanceTag" Value="" />
-                    <Var ObjectId="285212676" Name="CollideGroup" Value="" />
-                    <Var ObjectId="285212676" Name="UserVar" Value="" />
-                    <Var ObjectId="285212676" Name="DisableBreakable" Value="false" />
-                    <Var ObjectId="285212676" Name="FullGameSave" Value="false" />
-                    <Var ObjectId="285212676" Name="StaticPhysics" Value="false" />
-                    <Var ObjectId="285212676" Name="QuickSave" Value="false" />
-                    <Var ObjectId="285212676" Name="AllowMapTransfer" Value="false" />
-                    <Var ObjectId="285212676" Name="EffectsActive" Value="true" />
-                    <Var ObjectId="285212676" Name="InteractionDisabled" Value="false" />
                     <Var ObjectId="285212676" Name="CastShadows" Value="true" />
-                    <Var ObjectId="285212676" Name="ColorMul" Value="1 1 1 1" />
-                    <Var ObjectId="285212676" Name="EffectColorMul" Value="1 1 1 1" />
-                    <Var ObjectId="285212676" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285212676" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212676" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212676" Name="ColorBrightness" Value="1" />
                     <Var ObjectId="285212676" Name="IllumColor" Value="1 1 1 1" />
                     <Var ObjectId="285212676" Name="IllumBrightness" Value="1" />
-                    <Var ObjectId="285212676" Name="IsAffectedByDecal" Value="false" />
                     <Var ObjectId="285212676" Name="IsOccluder" Value="false" />
-                    <Var ObjectId="285212676" Name="UpdateBonesWhenCulled" Value="false" />
-                    <Var ObjectId="285212676" Name="OnBreakCallbackFunc" Value="" />
-                    <Var ObjectId="285212676" Name="ConnectionStateChangeCallback" Value="" />
-                    <Var ObjectId="285212676" Name="PlayerLookAtCallback" Value="" />
-                    <Var ObjectId="285212676" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                    <Var ObjectId="285212676" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
-                    <Var ObjectId="285212676" Name="PlayerLookAtCheckRayIntersection" Value="true" />
-                    <Var ObjectId="285212676" Name="PlayerLookAtMaxDistance" Value="-1" />
-                    <Var ObjectId="285212676" Name="PlayerLookAtCallbackDelay" Value="0" />
-                    <Var ObjectId="285212676" Name="PlayerInteractCallback" Value="" />
-                    <Var ObjectId="285212676" Name="PlayerInteractCallbackAutoRemove" Value="false" />
-                    <Var ObjectId="285212676" Name="PlayerInteractLeaveCallback" Value="" />
-                    <Var ObjectId="285212676" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
-                    <Var ObjectId="285212676" Name="RecieveMessageCallback" Value="" />
-                    <Var ObjectId="285212676" Name="CC_Entities" Value="" />
-                    <Var ObjectId="285212676" Name="CC_Funcs" Value="" />
-                    <Var ObjectId="285212676" Name="ConnectedEntity" Value="" />
-                    <Var ObjectId="285212676" Name="ConnectedEntityInvertState" Value="false" />
-                    <Var ObjectId="285212676" Name="ConnectedEntityStatesUsed" Value="0" />
-                    <Var ObjectId="285212676" Name="ParentAttachEntity" Value="" />
-                    <Var ObjectId="285212676" Name="ParentAttachUseRotation" Value="true" />
-                    <Var ObjectId="285212676" Name="ParentAttachBody" Value="" />
-                    <Var ObjectId="285212676" Name="ParentAttachSocket" Value="" />
-                    <Var ObjectId="285212676" Name="ParentAttachSnap" Value="false" />
-                    <Var ObjectId="285212676" Name="ParentAttachLocked" Value="false" />
-                    <Var ObjectId="285212676" Name="ConnectedLight" Value="" />
-                    <Var ObjectId="285212676" Name="ConnectionLightAmount" Value="1" />
-                    <Var ObjectId="285212676" Name="ConnectionLightUseOnColor" Value="true" />
-                    <Var ObjectId="285212676" Name="ConnectionLightUseSpec" Value="false" />
-                    <Var ObjectId="285212676" Name="ConnectionLightType" Value="Mul" />
-                    <Var ObjectId="285212676" Name="ExtraConnectedLight" Value="" />
-                    <Var ObjectId="285212676" Name="ExtraConnectionLightAmount" Value="1" />
-                    <Var ObjectId="285212676" Name="ExtraConnectionLightUseOnColor" Value="true" />
-                    <Var ObjectId="285212676" Name="ExtraConnectionLightUseSpec" Value="false" />
-                    <Var ObjectId="285212676" Name="ExtraConnectionLightType" Value="Mul" />
-                    <Var ObjectId="285212676" Name="Locked" Value="false" />
-                    <Var ObjectId="285212676" Name="Blocked" Value="false" />
-                    <Var ObjectId="285212676" Name="OpenAmount" Value="0" />
-                    <Var ObjectId="285212676" Name="IsHatch" Value="false" />
-                    <Var ObjectId="285212676" Name="HatchIgnorePlayersPosition" Value="false" />
-                    <Var ObjectId="285212676" Name="JointResetFix" Value="false" />
-                    <Var ObjectId="285212676" Name="BreakChildEntity" Value="" />
-                    <Var ObjectId="285212676" Name="OpenableByAgent" Value="true" />
-                    <Var ObjectId="285212676" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
-                    <Var ObjectId="285212676" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
-                    <Var ObjectId="285212676" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
-                    <Var ObjectId="285212676" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                    <Var ObjectId="285212676" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212676" Name="RenderLayer" Value="0" />
                 </UserVariables>
             </Entity>
-            <Entity ID="285212677" Name="shadow_flesh_1_1" CreStamp="1719145173" ModStamp="1719252474" WorldPos="27.0782 -20.5796 -68.89" Rotation="-4.47035e-07 1.5708 -2.19146e-06" Scale="7.44846 6 8.85717" FileIndex="3" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 691 285212677">
+            <Entity ID="285212677" Name="dw_rock_lump_large_1_detailed_nocoll_4" CreStamp="1719845805" ModStamp="1720464386" WorldPos="-42.8887 3.75192 23.46" Rotation="-1.58107 0.354652 -0.0295771" Scale="3 3 3" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 72 285212677">
                 <UserVariables>
                     <Var ObjectId="285212677" Name="Note" Value="" />
-                    <Var ObjectId="285212677" Name="EventInstanceTag" Value="" />
-                    <Var ObjectId="285212677" Name="CollideGroup" Value="" />
-                    <Var ObjectId="285212677" Name="UserVar" Value="" />
-                    <Var ObjectId="285212677" Name="DisableBreakable" Value="false" />
-                    <Var ObjectId="285212677" Name="FullGameSave" Value="false" />
-                    <Var ObjectId="285212677" Name="StaticPhysics" Value="false" />
-                    <Var ObjectId="285212677" Name="QuickSave" Value="false" />
-                    <Var ObjectId="285212677" Name="AllowMapTransfer" Value="false" />
-                    <Var ObjectId="285212677" Name="EffectsActive" Value="true" />
-                    <Var ObjectId="285212677" Name="InteractionDisabled" Value="false" />
                     <Var ObjectId="285212677" Name="CastShadows" Value="true" />
-                    <Var ObjectId="285212677" Name="ColorMul" Value="0 1 0.02734375 1" />
-                    <Var ObjectId="285212677" Name="EffectColorMul" Value="1 1 1 1" />
-                    <Var ObjectId="285212677" Name="EffectBrightnessMul" Value="1" />
+                    <Var ObjectId="285212677" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212677" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212677" Name="ColorBrightness" Value="1" />
                     <Var ObjectId="285212677" Name="IllumColor" Value="1 1 1 1" />
                     <Var ObjectId="285212677" Name="IllumBrightness" Value="1" />
-                    <Var ObjectId="285212677" Name="IsAffectedByDecal" Value="false" />
                     <Var ObjectId="285212677" Name="IsOccluder" Value="false" />
-                    <Var ObjectId="285212677" Name="UpdateBonesWhenCulled" Value="false" />
-                    <Var ObjectId="285212677" Name="OnBreakCallbackFunc" Value="" />
-                    <Var ObjectId="285212677" Name="ConnectionStateChangeCallback" Value="" />
-                    <Var ObjectId="285212677" Name="PlayerLookAtCallback" Value="" />
-                    <Var ObjectId="285212677" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                    <Var ObjectId="285212677" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
-                    <Var ObjectId="285212677" Name="PlayerLookAtCheckRayIntersection" Value="true" />
-                    <Var ObjectId="285212677" Name="PlayerLookAtMaxDistance" Value="-1" />
-                    <Var ObjectId="285212677" Name="PlayerLookAtCallbackDelay" Value="0" />
-                    <Var ObjectId="285212677" Name="PlayerInteractCallback" Value="" />
-                    <Var ObjectId="285212677" Name="PlayerInteractCallbackAutoRemove" Value="false" />
-                    <Var ObjectId="285212677" Name="PlayerInteractLeaveCallback" Value="" />
-                    <Var ObjectId="285212677" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
-                    <Var ObjectId="285212677" Name="RecieveMessageCallback" Value="" />
-                    <Var ObjectId="285212677" Name="CC_Entities" Value="" />
-                    <Var ObjectId="285212677" Name="CC_Funcs" Value="" />
-                    <Var ObjectId="285212677" Name="ConnectedEntity" Value="" />
-                    <Var ObjectId="285212677" Name="ConnectedEntityInvertState" Value="false" />
-                    <Var ObjectId="285212677" Name="ConnectedEntityStatesUsed" Value="0" />
-                    <Var ObjectId="285212677" Name="ParentAttachEntity" Value="" />
-                    <Var ObjectId="285212677" Name="ParentAttachUseRotation" Value="true" />
-                    <Var ObjectId="285212677" Name="ParentAttachBody" Value="" />
-                    <Var ObjectId="285212677" Name="ParentAttachSocket" Value="" />
-                    <Var ObjectId="285212677" Name="ParentAttachSnap" Value="false" />
-                    <Var ObjectId="285212677" Name="ParentAttachLocked" Value="false" />
-                    <Var ObjectId="285212677" Name="ConnectedLight" Value="" />
-                    <Var ObjectId="285212677" Name="ConnectionLightAmount" Value="1" />
-                    <Var ObjectId="285212677" Name="ConnectionLightUseOnColor" Value="true" />
-                    <Var ObjectId="285212677" Name="ConnectionLightUseSpec" Value="false" />
-                    <Var ObjectId="285212677" Name="ConnectionLightType" Value="Mul" />
-                    <Var ObjectId="285212677" Name="ExtraConnectedLight" Value="" />
-                    <Var ObjectId="285212677" Name="ExtraConnectionLightAmount" Value="1" />
-                    <Var ObjectId="285212677" Name="ExtraConnectionLightUseOnColor" Value="true" />
-                    <Var ObjectId="285212677" Name="ExtraConnectionLightUseSpec" Value="false" />
-                    <Var ObjectId="285212677" Name="ExtraConnectionLightType" Value="Mul" />
-                    <Var ObjectId="285212677" Name="CanInteractWithoutCallback" Value="false" />
-                    <Var ObjectId="285212677" Name="CustomInteractIcon" Value="PushButton" />
-                    <Var ObjectId="285212677" Name="OnBreakDeactivateEnts" Value="" />
-                    <Var ObjectId="285212677" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
-                    <Var ObjectId="285212677" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
-                    <Var ObjectId="285212677" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
-                    <Var ObjectId="285212677" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                    <Var ObjectId="285212677" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212677" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212678" Name="dw_rock_lump_large_1_detailed_nocoll_5" CreStamp="1719845816" ModStamp="1720464386" WorldPos="-43.3234 3.75192 20.9158" Rotation="-1.83214 2.65863 -0.255468" Scale="3.5 3.5 3.5" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 71 285212678">
+                <UserVariables>
+                    <Var ObjectId="285212678" Name="Note" Value="" />
+                    <Var ObjectId="285212678" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212678" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212678" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212678" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212678" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212678" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212678" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212678" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212678" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212679" Name="dw_rock_lump_large_1_detailed_nocoll_6" CreStamp="1719845987" ModStamp="1720464386" WorldPos="-23.4614 5.33023 23.9312" Rotation="-1.5708 -0.399807 1.85014e-07" Scale="3 3 3" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 89 285212679">
+                <UserVariables>
+                    <Var ObjectId="285212679" Name="Note" Value="" />
+                    <Var ObjectId="285212679" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212679" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212679" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212679" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212679" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212679" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212679" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212679" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212679" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212680" Name="dw_rock_lump_large_1_detailed_nocoll_7" CreStamp="1719846025" ModStamp="1720464386" WorldPos="-13.3268 4.02118 0.624407" Rotation="-1.5708 -0.399807 1.85014e-07" Scale="3.59197 3.97543 3" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 88 285212680">
+                <UserVariables>
+                    <Var ObjectId="285212680" Name="Note" Value="" />
+                    <Var ObjectId="285212680" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212680" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212680" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212680" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212680" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212680" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212680" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212680" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212680" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212681" Name="dw_rock_lump_large_1_detailed_nocoll_8" CreStamp="1719846061" ModStamp="1720464386" WorldPos="-13.3268 3.77063 6.54413" Rotation="-0.94286 -0.720511 -0.237243" Scale="3.59197 3.97543 3" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 87 285212681">
+                <UserVariables>
+                    <Var ObjectId="285212681" Name="Note" Value="" />
+                    <Var ObjectId="285212681" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212681" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212681" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212681" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212681" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212681" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212681" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212681" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212681" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212682" Name="dw_rock_lump_large_1_detailed_nocoll_9" CreStamp="1719846093" ModStamp="1720464386" WorldPos="-5.63888 5.3741 -1.16677" Rotation="-1.5708 0.11128 2.46446e-08" Scale="3.59197 3.97543 3" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 85 285212682">
+                <UserVariables>
+                    <Var ObjectId="285212682" Name="Note" Value="" />
+                    <Var ObjectId="285212682" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212682" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212682" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212682" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212682" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212682" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212682" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212682" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212682" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212683" Name="dw_rock_lump_large_1_detailed_nocoll_10" CreStamp="1719846121" ModStamp="1720464386" WorldPos="-10.9301 5.45151 -9.88659" Rotation="-1.5708 0.847036 -3.05596e-07" Scale="3.59197 3.97543 4.09287" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 90 285212683">
+                <UserVariables>
+                    <Var ObjectId="285212683" Name="Note" Value="" />
+                    <Var ObjectId="285212683" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212683" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212683" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212683" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212683" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212683" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212683" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212683" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212683" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212684" Name="dw_rock_lump_large_1_detailed_nocoll_11" CreStamp="1719846157" ModStamp="1720464387" WorldPos="-51.0788 -2.82671 -11.6586" Rotation="-0.388784 0.847036 -3.05596e-07" Scale="3.59197 3.97543 4.09287" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 86 285212684">
+                <UserVariables>
+                    <Var ObjectId="285212684" Name="Note" Value="" />
+                    <Var ObjectId="285212684" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212684" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212684" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212684" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212684" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212684" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212684" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212684" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212684" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212685" Name="dw_rock_lump_large_1_detailed_nocoll_12" CreStamp="1719846177" ModStamp="1720464387" WorldPos="-51.0788 2.66622 -11.6586" Rotation="-1.66975 -0.84985 0.148452" Scale="3.59197 3.97543 4.09287" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 83 285212685">
+                <UserVariables>
+                    <Var ObjectId="285212685" Name="Note" Value="" />
+                    <Var ObjectId="285212685" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212685" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212685" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212685" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212685" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212685" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212685" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212685" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212685" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212686" Name="dw_rock_lump_large_1_detailed_nocoll_13" CreStamp="1719846197" ModStamp="1720464387" WorldPos="-59.0445 0.701829 -1.35036" Rotation="-1.42104 -0.84985 0.148452" Scale="3.59197 3.97543 4.09287" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 77 285212686">
+                <UserVariables>
+                    <Var ObjectId="285212686" Name="Note" Value="" />
+                    <Var ObjectId="285212686" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212686" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212686" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212686" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212686" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212686" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212686" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212686" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212686" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212687" Name="dw_rock_lump_large_1_detailed_nocoll_14" CreStamp="1719846239" ModStamp="1720464387" WorldPos="-81.4788 3.06049 37.5944" Rotation="-0.458717 -0.84985 0.148452" Scale="6 6 6" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 80 285212687">
+                <UserVariables>
+                    <Var ObjectId="285212687" Name="Note" Value="" />
+                    <Var ObjectId="285212687" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212687" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212687" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212687" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212687" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212687" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212687" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212687" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212687" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212688" Name="dw_rock_lump_large_1_detailed_nocoll_15" CreStamp="1719846253" ModStamp="1720464387" WorldPos="-125.84 3.06049 13.9035" Rotation="2.74923 -0.186462 -2.8414" Scale="8 8 8" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 79 285212688">
+                <UserVariables>
+                    <Var ObjectId="285212688" Name="Note" Value="" />
+                    <Var ObjectId="285212688" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212688" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212688" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212688" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212688" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212688" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212688" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212688" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212688" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212689" Name="dw_rock_lump_large_1_detailed_nocoll_16" CreStamp="1719846307" ModStamp="1720464387" WorldPos="-89.638 4.85908 -19.1976" Rotation="2.86823 -0.339238 2.99233" Scale="7 7 7" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 64 285212689">
+                <UserVariables>
+                    <Var ObjectId="285212689" Name="Note" Value="" />
+                    <Var ObjectId="285212689" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212689" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212689" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212689" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212689" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212689" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212689" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212689" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212689" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212690" Name="dw_rock_lump_large_1_detailed_nocoll_17" CreStamp="1719846359" ModStamp="1720464386" WorldPos="19.636 2.28045 12.7716" Rotation="1.18514 1.15108 1.38666" Scale="5 5 5" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 69 285212690">
+                <UserVariables>
+                    <Var ObjectId="285212690" Name="Note" Value="" />
+                    <Var ObjectId="285212690" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212690" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212690" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212690" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212690" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212690" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212690" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212690" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212690" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212691" Name="dw_rock_lump_large_1_detailed_nocoll_18" CreStamp="1719846390" ModStamp="1720464386" WorldPos="24.4595 2.47919 85.5433" Rotation="-1.41906 1.20826 -0.978578" Scale="9 9 9" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 78 285212691">
+                <UserVariables>
+                    <Var ObjectId="285212691" Name="Note" Value="" />
+                    <Var ObjectId="285212691" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212691" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212691" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212691" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212691" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212691" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212691" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212691" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212691" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212692" Name="dw_rock_lump_large_1_detailed_nocoll_19" CreStamp="1719846417" ModStamp="1720464386" WorldPos="67.7684 2.47919 53.3105" Rotation="-1.12383 1.20826 -0.978578" Scale="9 9 9" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 68 285212692">
+                <UserVariables>
+                    <Var ObjectId="285212692" Name="Note" Value="" />
+                    <Var ObjectId="285212692" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212692" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212692" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212692" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212692" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212692" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212692" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212692" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212692" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212693" Name="dw_rock_lump_large_1_detailed_nocoll_20" CreStamp="1719846425" ModStamp="1720464691" WorldPos="-136.771 2.47919 104.827" Rotation="-0.649936 1.20826 -0.978578" Scale="17 17 17" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 84 285212693">
+                <UserVariables>
+                    <Var ObjectId="285212693" Name="Note" Value="" />
+                    <Var ObjectId="285212693" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212693" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212693" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212693" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212693" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212693" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212693" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212693" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212693" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212694" Name="dw_rock_lump_large_1_detailed_nocoll_21" CreStamp="1719846431" ModStamp="1720464387" WorldPos="-223.31 2.47919 56.092" Rotation="-1.12383 1.20826 -0.978578" Scale="15 15 15" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 82 285212694">
+                <UserVariables>
+                    <Var ObjectId="285212694" Name="Note" Value="" />
+                    <Var ObjectId="285212694" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212694" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212694" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212694" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212694" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212694" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212694" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212694" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212694" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212695" Name="dw_rock_lump_large_1_detailed_nocoll_22" CreStamp="1719846437" ModStamp="1720464386" WorldPos="132.864 2.47919 -1.46946" Rotation="-1.12383 1.20826 -0.978578" Scale="16 16 16" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 65 285212695">
+                <UserVariables>
+                    <Var ObjectId="285212695" Name="Note" Value="" />
+                    <Var ObjectId="285212695" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212695" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212695" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212695" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212695" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212695" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212695" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212695" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212695" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212696" Name="dw_rock_lump_large_1_detailed_nocoll_23" CreStamp="1719846450" ModStamp="1720464386" WorldPos="132.864 2.47919 125.792" Rotation="-1.12383 1.20826 -0.978578" Scale="20 20 20" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 67 285212696">
+                <UserVariables>
+                    <Var ObjectId="285212696" Name="Note" Value="" />
+                    <Var ObjectId="285212696" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212696" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212696" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212696" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212696" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212696" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212696" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212696" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212696" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212697" Name="dw_rock_lump_large_1_detailed_nocoll_24" CreStamp="1719846461" ModStamp="1720464386" WorldPos="33.235 2.47919 225.337" Rotation="-1.25967 1.20826 -0.978578" Scale="19 19 19" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 63 285212697">
+                <UserVariables>
+                    <Var ObjectId="285212697" Name="Note" Value="" />
+                    <Var ObjectId="285212697" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212697" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212697" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212697" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212697" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212697" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212697" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212697" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212697" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212698" Name="dw_rock_lump_large_1_detailed_nocoll_25" CreStamp="1719846469" ModStamp="1720464386" WorldPos="-116.305 2.47919 225.337" Rotation="-1.12383 1.20826 -0.978578" Scale="16 16 16" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 81 285212698">
+                <UserVariables>
+                    <Var ObjectId="285212698" Name="Note" Value="" />
+                    <Var ObjectId="285212698" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212698" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212698" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212698" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212698" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212698" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212698" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212698" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212698" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212699" Name="dw_rock_lump_large_1_detailed_nocoll_26" CreStamp="1719846471" ModStamp="1720464386" WorldPos="-77.7103 2.17526 154.201" Rotation="-0.50831 1.20826 -0.978578" Scale="7 7 7" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 70 285212699">
+                <UserVariables>
+                    <Var ObjectId="285212699" Name="Note" Value="" />
+                    <Var ObjectId="285212699" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212699" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212699" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212699" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212699" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212699" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212699" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212699" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212699" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212700" Name="dw_rock_lump_large_1_detailed_nocoll_27" CreStamp="1719846475" ModStamp="1720464386" WorldPos="-49.446 2.47919 93.8674" Rotation="-1.36174 0.739783 -1.25784" Scale="5 5 5" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 66 285212700">
+                <UserVariables>
+                    <Var ObjectId="285212700" Name="Note" Value="" />
+                    <Var ObjectId="285212700" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212700" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212700" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212700" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212700" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212700" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212700" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212700" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212700" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212701" Name="statue_worshipper_tin_hinan_male_1" CreStamp="1719846834" ModStamp="1720464386" WorldPos="-26.2733 0.880668 -0.932734" Rotation="0 -0.0724301 0" Scale="1 1 1" FileIndex="4" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 62 285212701">
+                <UserVariables>
+                    <Var ObjectId="285212701" Name="Note" Value="" />
+                    <Var ObjectId="285212701" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212701" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212701" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212701" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212701" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212701" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212701" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212701" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212701" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212702" Name="statue_worshipper_tin_hinan_male_2" CreStamp="1719846936" ModStamp="1720464386" WorldPos="-24.237 0.880668 -0.478155" Rotation="0 -0.45779 0" Scale="1.5 1.5 1.5" FileIndex="4" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 60 285212702">
+                <UserVariables>
+                    <Var ObjectId="285212702" Name="Note" Value="" />
+                    <Var ObjectId="285212702" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212702" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212702" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212702" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212702" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212702" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212702" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212702" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212702" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212703" Name="statue_worshipper_tin_hinan_male_3" CreStamp="1719846970" ModStamp="1720464386" WorldPos="-21.2776 0.0119318 -1.6274" Rotation="0 1.11425 0" Scale="2 2 2" FileIndex="4" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 58 285212703">
+                <UserVariables>
+                    <Var ObjectId="285212703" Name="Note" Value="" />
+                    <Var ObjectId="285212703" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212703" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212703" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212703" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212703" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212703" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212703" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212703" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212703" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212704" Name="statue_alchemist_1" CreStamp="1719847038" ModStamp="1720464387" WorldPos="-44.5029 0.911759 -1.37339" Rotation="0 0.660179 0" Scale="10 10 10" FileIndex="3" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 59 285212704">
+                <UserVariables>
+                    <Var ObjectId="285212704" Name="Note" Value="" />
+                    <Var ObjectId="285212704" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212704" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212704" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212704" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212704" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212704" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212704" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212704" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212704" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212705" Name="statue_alchemist_2" CreStamp="1719847096" ModStamp="1720464386" WorldPos="-17.987 1.0447 -1.37339" Rotation="-0.0691591 -0.709136 0.105977" Scale="10 10 10" FileIndex="3" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 57 285212705">
+                <UserVariables>
+                    <Var ObjectId="285212705" Name="Note" Value="" />
+                    <Var ObjectId="285212705" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212705" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212705" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212705" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212705" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212705" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212705" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212705" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212705" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212706" Name="statue_pillar_cistern_1" CreStamp="1719847182" ModStamp="1720467830" WorldPos="156.394 2.28882e-05 192.884" Rotation="0 1.01903 0" Scale="50 50 50" FileIndex="1" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 50 285212706">
+                <UserVariables>
+                    <Var ObjectId="285212706" Name="Note" Value="" />
+                    <Var ObjectId="285212706" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212706" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212706" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212706" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212706" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212706" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212706" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212706" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212706" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212707" Name="statue_pillar_cistern_2" CreStamp="1719847289" ModStamp="1720464386" WorldPos="-147.051 2.28882e-05 192.884" Rotation="0 0.676807 0" Scale="50 50 50" FileIndex="1" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 53 285212707">
+                <UserVariables>
+                    <Var ObjectId="285212707" Name="Note" Value="" />
+                    <Var ObjectId="285212707" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212707" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212707" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212707" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212707" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212707" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212707" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212707" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212707" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212708" Name="statue_pillar_cistern_3" CreStamp="1719847319" ModStamp="1720467730" WorldPos="-28.7283 2.28882e-05 379.112" Rotation="-0 2.67974 -0" Scale="50 50 50" FileIndex="1" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 51 285212708">
+                <UserVariables>
+                    <Var ObjectId="285212708" Name="Note" Value="" />
+                    <Var ObjectId="285212708" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212708" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212708" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212708" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212708" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212708" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212708" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212708" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212708" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212709" Name="statue_pillar_cistern_4" CreStamp="1719847330" ModStamp="1720464387" WorldPos="-431.787 2.28882e-05 65.6291" Rotation="0 1.55521 0" Scale="50 50 50" FileIndex="1" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 54 285212709">
+                <UserVariables>
+                    <Var ObjectId="285212709" Name="Note" Value="" />
+                    <Var ObjectId="285212709" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212709" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212709" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212709" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212709" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212709" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212709" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212709" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212709" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212710" Name="statue_pillar_cistern_5" CreStamp="1719847343" ModStamp="1720467774" WorldPos="-254.776 2.28882e-05 -128.417" Rotation="0 0.968229 0" Scale="50 50 50" FileIndex="1" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 52 285212710">
+                <UserVariables>
+                    <Var ObjectId="285212710" Name="Note" Value="" />
+                    <Var ObjectId="285212710" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212710" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212710" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212710" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212710" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212710" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212710" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212710" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212710" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212711" Name="statue_pillar_cistern_6" CreStamp="1719847353" ModStamp="1720467789" WorldPos="244.413 2.28882e-05 -237.478" Rotation="0 -0.853429 0" Scale="50 50 50" FileIndex="1" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 56 285212711">
+                <UserVariables>
+                    <Var ObjectId="285212711" Name="Note" Value="" />
+                    <Var ObjectId="285212711" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212711" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212711" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212711" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212711" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212711" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212711" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212711" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212711" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212712" Name="statue_pillar_cistern_7" CreStamp="1719847366" ModStamp="1720467844" WorldPos="422.157 2.28882e-05 111.619" Rotation="-0 4.44601 -0" Scale="50 50 50" FileIndex="1" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 55 285212712">
+                <UserVariables>
+                    <Var ObjectId="285212712" Name="Note" Value="" />
+                    <Var ObjectId="285212712" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212712" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212712" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212712" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212712" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212712" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212712" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212712" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212712" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212713" Name="dw_rock_lump_large_1_detailed_nocoll_28" CreStamp="1719847454" ModStamp="1720464386" WorldPos="305.376 -2.33969 174.802" Rotation="-0.783373 1.20826 -0.978578" Scale="25 25 25" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 39 285212713">
+                <UserVariables>
+                    <Var ObjectId="285212713" Name="Note" Value="" />
+                    <Var ObjectId="285212713" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212713" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212713" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212713" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212713" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212713" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212713" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212713" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212713" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212714" Name="dw_rock_lump_large_1_detailed_nocoll_29" CreStamp="1719847476" ModStamp="1720464386" WorldPos="119.188 -2.33969 413.879" Rotation="-0.783373 1.20826 -0.978578" Scale="25 25 25" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 48 285212714">
+                <UserVariables>
+                    <Var ObjectId="285212714" Name="Note" Value="" />
+                    <Var ObjectId="285212714" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212714" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212714" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212714" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212714" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212714" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212714" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212714" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212714" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212715" Name="dw_rock_lump_large_1_detailed_nocoll_30" CreStamp="1719847485" ModStamp="1720464387" WorldPos="-361.904 -2.33969 335.685" Rotation="-0.783373 1.20826 -0.978578" Scale="25 25 25" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 42 285212715">
+                <UserVariables>
+                    <Var ObjectId="285212715" Name="Note" Value="" />
+                    <Var ObjectId="285212715" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212715" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212715" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212715" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212715" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212715" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212715" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212715" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212715" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212716" Name="dw_rock_lump_large_1_detailed_nocoll_31" CreStamp="1719847495" ModStamp="1720464387" WorldPos="-361.904 -2.33969 150.982" Rotation="0.425592 1.29128 0.27905" Scale="25 25 25" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 38 285212716">
+                <UserVariables>
+                    <Var ObjectId="285212716" Name="Note" Value="" />
+                    <Var ObjectId="285212716" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212716" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212716" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212716" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212716" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212716" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212716" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212716" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212716" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212717" Name="dw_rock_lump_large_1_detailed_nocoll_32" CreStamp="1719847505" ModStamp="1720464387" WorldPos="-413.575 -2.33969 -111.432" Rotation="0.425592 1.29128 0.27905" Scale="25 25 25" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 37 285212717">
+                <UserVariables>
+                    <Var ObjectId="285212717" Name="Note" Value="" />
+                    <Var ObjectId="285212717" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212717" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212717" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212717" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212717" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212717" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212717" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212717" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212717" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212718" Name="dw_rock_lump_large_1_detailed_nocoll_34" CreStamp="1719847516" ModStamp="1720464387" WorldPos="-86.4819 -2.33969 -230.913" Rotation="0.425592 1.29128 0.27905" Scale="25 25 25" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 47 285212718">
+                <UserVariables>
+                    <Var ObjectId="285212718" Name="Note" Value="" />
+                    <Var ObjectId="285212718" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212718" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212718" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212718" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212718" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212718" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212718" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212718" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212718" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212719" Name="dw_rock_lump_large_1_detailed_nocoll_35" CreStamp="1719847525" ModStamp="1720464387" WorldPos="120.321 -2.33969 -292.391" Rotation="0.425592 1.29128 0.27905" Scale="25 25 25" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 40 285212719">
+                <UserVariables>
+                    <Var ObjectId="285212719" Name="Note" Value="" />
+                    <Var ObjectId="285212719" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212719" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212719" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212719" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212719" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212719" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212719" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212719" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212719" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212720" Name="dw_rock_lump_large_1_detailed_nocoll_36" CreStamp="1719847532" ModStamp="1720464387" WorldPos="396.095 -2.33969 -279.343" Rotation="0.425592 1.29128 0.27905" Scale="25 25 25" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 49 285212720">
+                <UserVariables>
+                    <Var ObjectId="285212720" Name="Note" Value="" />
+                    <Var ObjectId="285212720" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212720" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212720" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212720" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212720" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212720" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212720" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212720" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212720" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212721" Name="dw_rock_lump_large_1_detailed_nocoll_37" CreStamp="1719847600" ModStamp="1720464386" WorldPos="-27.3673 3.75192 37.6845" Rotation="-1.5708 -0 0" Scale="3 3 3" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 35 285212721">
+                <UserVariables>
+                    <Var ObjectId="285212721" Name="Note" Value="" />
+                    <Var ObjectId="285212721" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212721" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212721" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212721" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212721" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212721" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212721" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212721" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212721" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212722" Name="dw_rock_lump_large_1_detailed_nocoll_38" CreStamp="1719847608" ModStamp="1720464386" WorldPos="-27.0566 2.31376 37.1325" Rotation="-1.5708 2.92447 1.03692e-07" Scale="3 3 3" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 34 285212722">
+                <UserVariables>
+                    <Var ObjectId="285212722" Name="Note" Value="" />
+                    <Var ObjectId="285212722" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212722" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212722" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212722" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212722" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212722" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212722" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212722" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212722" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212723" Name="dw_rock_lump_large_1_detailed_nocoll_39" CreStamp="1719847625" ModStamp="1720464386" WorldPos="-30.6214 1.53199 45.2434" Rotation="-1.5708 3.56922 -8.72122e-08" Scale="3 3 3" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 36 285212723">
+                <UserVariables>
+                    <Var ObjectId="285212723" Name="Note" Value="" />
+                    <Var ObjectId="285212723" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212723" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212723" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212723" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212723" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212723" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212723" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212723" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212723" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212724" Name="dw_rock_lump_large_1_detailed_nocoll_40" CreStamp="1719847677" ModStamp="1720464386" WorldPos="-45.73 2.31376 30.1803" Rotation="-1.5708 2.92447 1.03692e-07" Scale="3 3 3" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 33 285212724">
+                <UserVariables>
+                    <Var ObjectId="285212724" Name="Note" Value="" />
+                    <Var ObjectId="285212724" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212724" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212724" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212724" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212724" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212724" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212724" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212724" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212724" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212725" Name="dw_rock_lump_large_1_detailed_nocoll_41" CreStamp="1719847689" ModStamp="1720464386" WorldPos="-48.7091 2.31376 39.8335" Rotation="-1.5708 2.92447 1.03692e-07" Scale="6.04045 3 3" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 31 285212725">
+                <UserVariables>
+                    <Var ObjectId="285212725" Name="Note" Value="" />
+                    <Var ObjectId="285212725" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212725" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212725" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212725" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212725" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212725" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212725" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212725" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212725" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212726" Name="dw_rock_lump_large_1_detailed_nocoll_42" CreStamp="1719847702" ModStamp="1720464386" WorldPos="-54.6657 2.31376 27.0948" Rotation="-1.5708 2.92447 1.03692e-07" Scale="6.04045 3 7.32499" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 32 285212726">
+                <UserVariables>
+                    <Var ObjectId="285212726" Name="Note" Value="" />
+                    <Var ObjectId="285212726" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212726" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212726" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212726" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212726" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212726" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212726" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212726" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212726" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212727" Name="statue_tin_hinan_whole_1" CreStamp="1719856898" ModStamp="1720466422" WorldPos="-39.0168 1.26861 17.3574" Rotation="0 1.5708 0" Scale="3 3 3" FileIndex="2" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 151 285212727">
+                <UserVariables>
+                    <Var ObjectId="285212727" Name="Note" Value="" />
+                    <Var ObjectId="285212727" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212727" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212727" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212727" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212727" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212727" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212727" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212727" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212727" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="285212728" Name="statue_tin_hinan_whole_2" CreStamp="1719856949" ModStamp="1720466427" WorldPos="-32.871 1.82966 33.4399" Rotation="-0 4.42796 -0" Scale="3 3 3" FileIndex="2" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="17 150 285212728">
+                <UserVariables>
+                    <Var ObjectId="285212728" Name="Note" Value="" />
+                    <Var ObjectId="285212728" Name="CastShadows" Value="true" />
+                    <Var ObjectId="285212728" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="285212728" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="285212728" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="285212728" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="285212728" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="285212728" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="285212728" Name="CollideGroup" Value="" />
+                    <Var ObjectId="285212728" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+        </Objects>
+    </Section>
+    <Section Name="3359272541875756134">
+        <FileIndex_Entities NumOfFiles="10">
+            <File Id="0" Path="entities/darkworld/organic/darkworld_coral_plant_01/darkworld_coral_plant_01_static.ent" />
+            <File Id="1" Path="entities/darkworld/organic/darkworld_coral_plant_02/darkworld_coral_plant_02.ent" />
+            <File Id="2" Path="entities/darkworld/organic/darkworld_coral_plant_02/darkworld_coral_plant_02_static.ent" />
+            <File Id="3" Path="entities/darkworld/organic/darkworld_plants_03/darkworld_plants_03.ent" />
+            <File Id="4" Path="entities/darkworld/organic/darkworld_plants_07/darkworld_plants_07.ent" />
+            <File Id="5" Path="entities/darkworld/organic/darkworld_plants_06/darkworld_plants_06.ent" />
+            <File Id="6" Path="entities/darkworld/organic/darkworld_plants_09/darkworld_plants_09.ent" />
+            <File Id="7" Path="entities/darkworld/organic/darkworld_plants_16/darkworld_plants_16.ent" />
+            <File Id="8" Path="entities/darkworld/storage/container_blocks/container_blocks.ent" />
+            <File Id="9" Path="mods/escapade_hpl3/entities/ghouls_nest/ornament/fetish_light/fetish_light.ent" />
+        </FileIndex_Entities>
+        <Objects>
+            <Entity ID="301989889" Name="darkworld_coral_plant_01_static_1" CreStamp="1720506371" ModStamp="1720507763" WorldPos="-35.75 1.20799 10.25" Rotation="0 0 0" Scale="1 1 1" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 3 301989889">
+                <UserVariables>
+                    <Var ObjectId="301989889" Name="Note" Value="" />
+                    <Var ObjectId="301989889" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989889" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989889" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989889" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989889" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989889" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989889" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989889" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989889" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989890" Name="darkworld_coral_plant_01_static_2" CreStamp="1720506415" ModStamp="1720507755" WorldPos="-35.5 1.14124 8.5" Rotation="0 3.41664 0" Scale="1.69437 2.20434 2.24348" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 15 301989890">
+                <UserVariables>
+                    <Var ObjectId="301989890" Name="Note" Value="" />
+                    <Var ObjectId="301989890" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989890" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989890" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989890" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989890" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989890" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989890" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989890" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989890" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989891" Name="darkworld_coral_plant_01_static_3" CreStamp="1720506418" ModStamp="1720507741" WorldPos="-36.75 1.31217 6.75" Rotation="0 1.45221 0" Scale="1.17842 1.28741 1.15366" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 13 301989891">
+                <UserVariables>
+                    <Var ObjectId="301989891" Name="Note" Value="" />
+                    <Var ObjectId="301989891" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989891" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989891" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989891" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989891" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989891" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989891" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989891" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989891" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989892" Name="darkworld_coral_plant_01_static_4" CreStamp="1720506420" ModStamp="1720507715" WorldPos="-40 1.3005 4.5" Rotation="-0 3.2315 -0" Scale="1.67057 1.30972 1.3676" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 5 301989892">
+                <UserVariables>
+                    <Var ObjectId="301989892" Name="Note" Value="" />
+                    <Var ObjectId="301989892" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989892" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989892" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989892" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989892" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989892" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989892" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989892" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989892" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989893" Name="darkworld_coral_plant_01_static_5" CreStamp="1720506423" ModStamp="1720507722" WorldPos="-37.25 1.09133 3.25" Rotation="0 3.10711 0" Scale="1.35592 2.11354 2.04381" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 2 301989893">
+                <UserVariables>
+                    <Var ObjectId="301989893" Name="Note" Value="" />
+                    <Var ObjectId="301989893" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989893" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989893" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989893" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989893" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989893" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989893" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989893" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989893" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989894" Name="darkworld_coral_plant_01_static_6" CreStamp="1720506430" ModStamp="1720507728" WorldPos="-34.75 0.975506 1.5" Rotation="0 2.86836 0" Scale="2.10698 1.69117 1.03803" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 8 301989894">
+                <UserVariables>
+                    <Var ObjectId="301989894" Name="Note" Value="" />
+                    <Var ObjectId="301989894" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989894" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989894" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989894" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989894" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989894" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989894" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989894" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989894" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989895" Name="darkworld_coral_plant_01_static_7" CreStamp="1720506433" ModStamp="1720507805" WorldPos="-27.5 1.2647 3" Rotation="0 3.14675 0" Scale="1.64955 1.60324 1.77895" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 12 301989895">
+                <UserVariables>
+                    <Var ObjectId="301989895" Name="Note" Value="" />
+                    <Var ObjectId="301989895" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989895" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989895" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989895" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989895" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989895" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989895" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989895" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989895" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989896" Name="darkworld_coral_plant_01_static_8" CreStamp="1720506435" ModStamp="1720507793" WorldPos="-27 1.09578 6.75" Rotation="0 2.3018 0" Scale="1.47864 1.96244 2.21632" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 14 301989896">
+                <UserVariables>
+                    <Var ObjectId="301989896" Name="Note" Value="" />
+                    <Var ObjectId="301989896" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989896" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989896" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989896" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989896" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989896" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989896" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989896" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989896" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989897" Name="darkworld_coral_plant_01_static_9" CreStamp="1720506437" ModStamp="1720507787" WorldPos="-29 0.999903 6.25" Rotation="0 2.20171 0" Scale="2.17412 1.30889 2.16447" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 11 301989897">
+                <UserVariables>
+                    <Var ObjectId="301989897" Name="Note" Value="" />
+                    <Var ObjectId="301989897" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989897" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989897" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989897" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989897" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989897" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989897" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989897" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989897" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989898" Name="darkworld_coral_plant_01_static_10" CreStamp="1720506439" ModStamp="1720507772" WorldPos="-29.5 1.08956 10.5" Rotation="0 1.17094 0" Scale="1.72172 1.4738 1.69502" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 10 301989898">
+                <UserVariables>
+                    <Var ObjectId="301989898" Name="Note" Value="" />
+                    <Var ObjectId="301989898" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989898" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989898" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989898" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989898" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989898" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989898" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989898" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989898" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989899" Name="darkworld_coral_plant_01_static_11" CreStamp="1720506442" ModStamp="1720507798" WorldPos="-25.5 1.72541 8.75" Rotation="0 0.178299 0" Scale="1.32704 2.17553 1.56425" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 4 301989899">
+                <UserVariables>
+                    <Var ObjectId="301989899" Name="Note" Value="" />
+                    <Var ObjectId="301989899" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989899" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989899" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989899" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989899" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989899" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989899" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989899" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989899" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989900" Name="darkworld_coral_plant_01_static_12" CreStamp="1720506452" ModStamp="1720507830" WorldPos="-36.25 1.15567 15.5" Rotation="0 2.07314 0" Scale="1.09976 1.96881 1.5594" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 9 301989900">
+                <UserVariables>
+                    <Var ObjectId="301989900" Name="Note" Value="" />
+                    <Var ObjectId="301989900" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989900" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989900" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989900" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989900" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989900" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989900" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989900" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989900" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989901" Name="darkworld_coral_plant_01_static_13" CreStamp="1720506454" ModStamp="1720507844" WorldPos="-31.5 1.11483 19" Rotation="0 0.563843 0" Scale="1.5665 1.64589 1.0201" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 7 301989901">
+                <UserVariables>
+                    <Var ObjectId="301989901" Name="Note" Value="" />
+                    <Var ObjectId="301989901" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989901" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989901" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989901" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989901" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989901" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989901" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989901" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989901" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989902" Name="darkworld_coral_plant_01_static_14" CreStamp="1720506455" ModStamp="1720507850" WorldPos="-32.5 1.11427 20.75" Rotation="0 0.644627 0" Scale="1.69632 1.46197 1.00084" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 6 301989902">
+                <UserVariables>
+                    <Var ObjectId="301989902" Name="Note" Value="" />
+                    <Var ObjectId="301989902" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989902" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989902" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989902" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989902" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989902" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989902" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989902" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989902" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989903" Name="darkworld_coral_plant_01_static_15" CreStamp="1720506459" ModStamp="1720507869" WorldPos="-39 1.39104 26" Rotation="0 2.43006 0" Scale="1.72127 2.01161 1.09064" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 28 301989903">
+                <UserVariables>
+                    <Var ObjectId="301989903" Name="Note" Value="" />
+                    <Var ObjectId="301989903" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989903" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989903" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989903" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989903" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989903" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989903" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989903" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989903" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989904" Name="darkworld_coral_plant_01_static_16" CreStamp="1720506460" ModStamp="1720507879" WorldPos="-34.25 1.42668 32" Rotation="0 2.04595 0" Scale="1.64695 1.16514 2.06483" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 23 301989904">
+                <UserVariables>
+                    <Var ObjectId="301989904" Name="Note" Value="" />
+                    <Var ObjectId="301989904" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989904" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989904" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989904" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989904" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989904" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989904" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989904" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989904" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989905" Name="darkworld_coral_plant_01_static_17" CreStamp="1720506463" ModStamp="1720507898" WorldPos="-40 1.42113 36.75" Rotation="0 2.67502 0" Scale="1.29706 1.54262 1.96736" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 16 301989905">
+                <UserVariables>
+                    <Var ObjectId="301989905" Name="Note" Value="" />
+                    <Var ObjectId="301989905" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989905" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989905" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989905" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989905" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989905" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989905" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989905" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989905" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989906" Name="darkworld_coral_plant_01_static_18" CreStamp="1720506464" ModStamp="1720507910" WorldPos="-41.25 1.50774 39" Rotation="0 2.08586 0" Scale="1.78761 1.89003 1.77509" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 29 301989906">
+                <UserVariables>
+                    <Var ObjectId="301989906" Name="Note" Value="" />
+                    <Var ObjectId="301989906" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989906" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989906" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989906" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989906" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989906" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989906" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989906" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989906" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989907" Name="darkworld_coral_plant_01_static_19" CreStamp="1720506465" ModStamp="1720507892" WorldPos="-41.25 1.6384 35.5" Rotation="0 -0.0369685 0" Scale="1.54285 1.21794 1.9817" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 27 301989907">
+                <UserVariables>
+                    <Var ObjectId="301989907" Name="Note" Value="" />
+                    <Var ObjectId="301989907" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989907" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989907" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989907" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989907" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989907" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989907" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989907" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989907" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989908" Name="darkworld_coral_plant_01_static_20" CreStamp="1720506467" ModStamp="1720507930" WorldPos="-35 1.7433 43.75" Rotation="0 1.18666 0" Scale="1.38553 1.421 2.21845" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 22 301989908">
+                <UserVariables>
+                    <Var ObjectId="301989908" Name="Note" Value="" />
+                    <Var ObjectId="301989908" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989908" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989908" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989908" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989908" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989908" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989908" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989908" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989908" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989909" Name="darkworld_coral_plant_01_static_21" CreStamp="1720506474" ModStamp="1720507936" WorldPos="-35.5286 1.47414 45.25" Rotation="0 3.2087 0" Scale="1.39605 1.50451 1.42436" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 45 301989909">
+                <UserVariables>
+                    <Var ObjectId="301989909" Name="Note" Value="" />
+                    <Var ObjectId="301989909" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989909" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989909" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989909" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989909" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989909" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989909" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989909" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989909" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989910" Name="darkworld_coral_plant_01_static_22" CreStamp="1720506477" ModStamp="1720507944" WorldPos="-41.25 1.83797 47.25" Rotation="-0 2.91836 -0" Scale="1.06352 1.67629 1.6494" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 47 301989910">
+                <UserVariables>
+                    <Var ObjectId="301989910" Name="Note" Value="" />
+                    <Var ObjectId="301989910" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989910" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989910" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989910" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989910" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989910" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989910" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989910" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989910" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989911" Name="darkworld_coral_plant_01_static_23" CreStamp="1720506478" ModStamp="1720507958" WorldPos="-41.75 2.58466 49.75" Rotation="0 1.14603 0" Scale="1.63013 1.48906 1.84635" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 46 301989911">
+                <UserVariables>
+                    <Var ObjectId="301989911" Name="Note" Value="" />
+                    <Var ObjectId="301989911" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989911" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989911" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989911" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989911" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989911" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989911" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989911" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989911" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989912" Name="darkworld_coral_plant_01_static_24" CreStamp="1720506480" ModStamp="1720507950" WorldPos="-35.25 1.90434 49" Rotation="0 0.614993 0" Scale="1.95649 1.67759 1.02426" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 21 301989912">
+                <UserVariables>
+                    <Var ObjectId="301989912" Name="Note" Value="" />
+                    <Var ObjectId="301989912" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989912" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989912" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989912" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989912" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989912" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989912" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989912" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989912" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989913" Name="darkworld_coral_plant_01_static_25" CreStamp="1720506513" ModStamp="1720507971" WorldPos="-35 3.08761 55.25" Rotation="0 0.800874 0" Scale="2.01798 1.17033 2.12018" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 30 301989913">
+                <UserVariables>
+                    <Var ObjectId="301989913" Name="Note" Value="" />
+                    <Var ObjectId="301989913" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989913" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989913" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989913" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989913" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989913" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989913" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989913" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989913" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989914" Name="darkworld_coral_plant_01_static_26" CreStamp="1720506517" ModStamp="1720507991" WorldPos="-36.75 3.65896 58.75" Rotation="0 2.21206 0" Scale="1.37614 1.15053 1.0528" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 0 301989914">
+                <UserVariables>
+                    <Var ObjectId="301989914" Name="Note" Value="" />
+                    <Var ObjectId="301989914" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989914" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989914" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989914" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989914" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989914" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989914" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989914" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989914" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989915" Name="darkworld_coral_plant_01_static_27" CreStamp="1720506518" ModStamp="1720507980" WorldPos="-34 3.71388 59" Rotation="0 3.5946 0" Scale="1.42467 1.74351 1.74107" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 25 301989915">
+                <UserVariables>
+                    <Var ObjectId="301989915" Name="Note" Value="" />
+                    <Var ObjectId="301989915" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989915" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989915" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989915" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989915" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989915" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989915" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989915" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989915" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989916" Name="darkworld_coral_plant_01_static_28" CreStamp="1720506520" ModStamp="1720507999" WorldPos="-45 2.25626 53.5" Rotation="0 1.69564 0" Scale="1.30137 1.06504 1.30934" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 31 301989916">
+                <UserVariables>
+                    <Var ObjectId="301989916" Name="Note" Value="" />
+                    <Var ObjectId="301989916" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989916" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989916" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989916" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989916" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989916" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989916" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989916" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989916" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989917" Name="darkworld_coral_plant_01_static_29" CreStamp="1720506522" ModStamp="1720508017" WorldPos="-47.75 1.0285 58.75" Rotation="0 0.0402123 0" Scale="1.45877 1.00874 1.41486" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 44 301989917">
+                <UserVariables>
+                    <Var ObjectId="301989917" Name="Note" Value="" />
+                    <Var ObjectId="301989917" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989917" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989917" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989917" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989917" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989917" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989917" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989917" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989917" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989918" Name="darkworld_coral_plant_01_static_30" CreStamp="1720506524" ModStamp="1720508022" WorldPos="-49 0.955671 62.25" Rotation="0 1.79775 0" Scale="2.17176 1.83079 2.06098" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 26 301989918">
+                <UserVariables>
+                    <Var ObjectId="301989918" Name="Note" Value="" />
+                    <Var ObjectId="301989918" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989918" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989918" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989918" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989918" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989918" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989918" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989918" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989918" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989919" Name="darkworld_coral_plant_01_static_31" CreStamp="1720506525" ModStamp="1720508029" WorldPos="-51.75 0.926484 61.75" Rotation="0 -1.03986 0" Scale="5 5 5" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 18 301989919">
+                <UserVariables>
+                    <Var ObjectId="301989919" Name="Note" Value="" />
+                    <Var ObjectId="301989919" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989919" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989919" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989919" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989919" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989919" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989919" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989919" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989919" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989920" Name="darkworld_coral_plant_01_static_32" CreStamp="1720506528" ModStamp="1720508035" WorldPos="-44.25 1.22889 72" Rotation="-0 2.57353 -0" Scale="3 3 3" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 17 301989920">
+                <UserVariables>
+                    <Var ObjectId="301989920" Name="Note" Value="" />
+                    <Var ObjectId="301989920" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989920" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989920" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989920" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989920" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989920" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989920" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989920" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989920" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989921" Name="darkworld_coral_plant_01_static_33" CreStamp="1720506529" ModStamp="1720508043" WorldPos="-46.5 1.0606 73" Rotation="0 2.85707 0" Scale="1.04322 1.35752 1.66382" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 24 301989921">
+                <UserVariables>
+                    <Var ObjectId="301989921" Name="Note" Value="" />
+                    <Var ObjectId="301989921" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989921" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989921" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989921" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989921" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989921" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989921" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989921" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989921" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989922" Name="darkworld_coral_plant_01_static_34" CreStamp="1720506532" ModStamp="1720508061" WorldPos="-57.25 0.960987 68.25" Rotation="0 1.15837 0" Scale="1.53877 1.86722 1.10353" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 1 301989922">
+                <UserVariables>
+                    <Var ObjectId="301989922" Name="Note" Value="" />
+                    <Var ObjectId="301989922" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989922" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989922" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989922" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989922" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989922" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989922" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989922" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989922" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989923" Name="darkworld_coral_plant_01_static_35" CreStamp="1720506533" ModStamp="1720508077" WorldPos="-53 0.991619 76.75" Rotation="0 -0.692574 0" Scale="1.31224 1.57741 1.55509" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 20 301989923">
+                <UserVariables>
+                    <Var ObjectId="301989923" Name="Note" Value="" />
+                    <Var ObjectId="301989923" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989923" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989923" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989923" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989923" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989923" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989923" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989923" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989923" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989924" Name="darkworld_coral_plant_01_static_36" CreStamp="1720506534" ModStamp="1720508082" WorldPos="-51.75 1.13874 77.25" Rotation="0 1.40861 0" Scale="1.27654 1.07801 1.81225" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 19 301989924">
+                <UserVariables>
+                    <Var ObjectId="301989924" Name="Note" Value="" />
+                    <Var ObjectId="301989924" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989924" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989924" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989924" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989924" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989924" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989924" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989924" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989924" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989929" Name="darkworld_plants_03_1" CreStamp="1720506961" ModStamp="1720507779" WorldPos="-29.119 1.05578 8.83658" Rotation="-0.000140173 -0.658671 0.0166603" Scale="1.14428 1.61434 1.40487" FileIndex="3" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 55 301989929">
+                <UserVariables>
+                    <Var ObjectId="301989929" Name="Note" Value="" />
+                    <Var ObjectId="301989929" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989929" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989929" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989929" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989929" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989929" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989929" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989929" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989929" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989930" Name="darkworld_plants_03_2" CreStamp="1720506971" ModStamp="1720507819" WorldPos="-36.3899 1.91094 11.7395" Rotation="-0.262766 1.12252 -1.13228" Scale="1.96858 1.2504 2.24813" FileIndex="3" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 54 301989930">
+                <UserVariables>
+                    <Var ObjectId="301989930" Name="Note" Value="" />
+                    <Var ObjectId="301989930" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989930" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989930" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989930" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989930" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989930" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989930" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989930" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989930" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989931" Name="darkworld_plants_03_3" CreStamp="1720506980" ModStamp="1720507857" WorldPos="-31.9284 1.19519 22.7994" Rotation="-0.0803043 1.40518 0.186865" Scale="1.95992 2.14242 1.21321" FileIndex="3" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 53 301989931">
+                <UserVariables>
+                    <Var ObjectId="301989931" Name="Note" Value="" />
+                    <Var ObjectId="301989931" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989931" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989931" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989931" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989931" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989931" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989931" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989931" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989931" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989932" Name="darkworld_plants_03_4" CreStamp="1720506983" ModStamp="1720507862" WorldPos="-33.1956 1.15743 24.3479" Rotation="-3.10096 0.315488 -3.10731" Scale="1.12848 1.37702 2.15696" FileIndex="3" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 52 301989932">
+                <UserVariables>
+                    <Var ObjectId="301989932" Name="Note" Value="" />
+                    <Var ObjectId="301989932" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989932" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989932" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989932" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989932" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989932" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989932" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989932" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989932" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989935" Name="darkworld_plants_03_5" CreStamp="1720507021" ModStamp="1720507885" WorldPos="-39.9211 1.37984 33.6711" Rotation="-3.13924 0.11562 2.9757" Scale="1.43573 1.22931 2.03931" FileIndex="3" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 61 301989935">
+                <UserVariables>
+                    <Var ObjectId="301989935" Name="Note" Value="" />
+                    <Var ObjectId="301989935" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989935" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989935" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989935" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989935" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989935" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989935" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989935" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989935" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989937" Name="darkworld_plants_03_6" CreStamp="1720507031" ModStamp="1720507917" WorldPos="-34.9692 1.6915 38.3706" Rotation="-0.0520757 -0.190841 0.184824" Scale="1.82286 2.18622 1.76201" FileIndex="3" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 56 301989937">
+                <UserVariables>
+                    <Var ObjectId="301989937" Name="Note" Value="" />
+                    <Var ObjectId="301989937" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989937" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989937" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989937" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989937" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989937" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989937" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989937" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989937" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989938" Name="darkworld_plants_03_7" CreStamp="1720507043" ModStamp="1720507963" WorldPos="-41.1555 2.62264 52.3914" Rotation="0.210421 0.977404 0.219061" Scale="1.50947 1.19059 1.14534" FileIndex="3" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 58 301989938">
+                <UserVariables>
+                    <Var ObjectId="301989938" Name="Note" Value="" />
+                    <Var ObjectId="301989938" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989938" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989938" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989938" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989938" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989938" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989938" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989938" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989938" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989939" Name="darkworld_plants_03_8" CreStamp="1720507050" ModStamp="1720507985" WorldPos="-35.3033 3.71653 57.8401" Rotation="-0.19476 -0.79041 0.201715" Scale="2.21757 1.12749 1.63456" FileIndex="3" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 60 301989939">
+                <UserVariables>
+                    <Var ObjectId="301989939" Name="Note" Value="" />
+                    <Var ObjectId="301989939" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989939" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989939" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989939" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989939" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989939" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989939" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989939" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989939" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989940" Name="darkworld_plants_03_9" CreStamp="1720507062" ModStamp="1720508054" WorldPos="-54.2446 0.98641 67.7685" Rotation="3.11737 0.0961171 3.11728" Scale="1.48261 2.01447 1.08919" FileIndex="3" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 62 301989940">
+                <UserVariables>
+                    <Var ObjectId="301989940" Name="Note" Value="" />
+                    <Var ObjectId="301989940" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989940" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989940" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989940" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989940" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989940" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989940" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989940" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989940" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989941" Name="darkworld_plants_03_10" CreStamp="1720507064" ModStamp="1720508049" WorldPos="-49.5341 0.939568 73.3118" Rotation="3.11493 0.860054 3.10716" Scale="2.04602 1.15397 1.23724" FileIndex="3" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 59 301989941">
+                <UserVariables>
+                    <Var ObjectId="301989941" Name="Note" Value="" />
+                    <Var ObjectId="301989941" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989941" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989941" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989941" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989941" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989941" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989941" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989941" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989941" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989942" Name="darkworld_plants_03_11" CreStamp="1720507067" ModStamp="1720508069" WorldPos="-57.7001 0.998367 71.5039" Rotation="3.14141 0.769586 3.14143" Scale="1.61003 1.84632 1.50264" FileIndex="3" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 57 301989942">
+                <UserVariables>
+                    <Var ObjectId="301989942" Name="Note" Value="" />
+                    <Var ObjectId="301989942" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989942" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989942" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989942" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989942" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989942" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989942" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989942" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989942" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989946" Name="darkworld_plants_16_1" CreStamp="1720507122" ModStamp="1720507734" WorldPos="-37.0153 1.79222 5.39877" Rotation="-2.94015 0.705105 -3.07752" Scale="1.78719 1.38289 1.09384" FileIndex="7" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 77 301989946">
+                <UserVariables>
+                    <Var ObjectId="301989946" Name="Note" Value="" />
+                    <Var ObjectId="301989946" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989946" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989946" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989946" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989946" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989946" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989946" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989946" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989946" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989947" Name="darkworld_plants_16_2" CreStamp="1720507156" ModStamp="1720507838" WorldPos="-37.9003 1.93809 20.4333" Rotation="0.0502638 0.547905 -0.163114" Scale="1.68113 1.70845 1.14836" FileIndex="7" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 76 301989947">
+                <UserVariables>
+                    <Var ObjectId="301989947" Name="Note" Value="" />
+                    <Var ObjectId="301989947" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989947" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989947" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989947" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989947" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989947" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989947" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989947" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989947" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989948" Name="darkworld_plants_16_3" CreStamp="1720507178" ModStamp="1720507904" WorldPos="-33.8962 3.008 36.0743" Rotation="-3.04368 -0.471647 -2.76279" Scale="1.26715 2.16867 1.73084" FileIndex="7" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 75 301989948">
+                <UserVariables>
+                    <Var ObjectId="301989948" Name="Note" Value="" />
+                    <Var ObjectId="301989948" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989948" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989948" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989948" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989948" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989948" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989948" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989948" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989948" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989949" Name="darkworld_plants_16_4" CreStamp="1720507182" ModStamp="1720507925" WorldPos="-40.7906 2.29384 42.4368" Rotation="-0.0547079 0.306793 -0.205181" Scale="1.1 1.059 1.167" FileIndex="7" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 72 301989949">
+                <UserVariables>
+                    <Var ObjectId="301989949" Name="Note" Value="" />
+                    <Var ObjectId="301989949" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989949" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989949" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989949" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989949" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989949" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989949" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989949" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989949" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989950" Name="container_blocks_1" CreStamp="1720507358" ModStamp="1720510474" WorldPos="369.684 320 731.308" Rotation="0 0.490915 0" Scale="100 100 100" FileIndex="8" Active="true" Important="false" Static="true" CulledByDistance="true" CulledByFog="true" UID="18 73 301989950">
+                <UserVariables>
+                    <Var ObjectId="301989950" Name="Note" Value="" />
+                    <Var ObjectId="301989950" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989950" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989950" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989950" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989950" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989950" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989950" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989950" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989950" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989990" Name="container_blocks_2" CreStamp="1720512427" ModStamp="1720512441" WorldPos="133.72 271.814 731.308" Rotation="0 0.490915 0" Scale="100 100 100" FileIndex="8" Active="true" Important="false" Static="true" CulledByDistance="true" CulledByFog="true" UID="18 115 301989990">
+                <UserVariables>
+                    <Var ObjectId="301989990" Name="Note" Value="" />
+                    <Var ObjectId="301989990" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989990" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989990" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989990" Name="ColorBrightness" Value="1" />
+                    <Var ObjectId="301989990" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="301989990" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="301989990" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989990" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989990" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989991" Name="fetish_light_2" CreStamp="1720525246" ModStamp="1720525260" WorldPos="-28.75 1.1246 0.5" Rotation="3.10146 -1.07144 -3.08223" Scale="1.22764 1.42619 1.34107" FileIndex="9" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 126 301989991">
+                <UserVariables>
+                    <Var ObjectId="301989991" Name="Note" Value="" />
+                    <Var ObjectId="301989991" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989991" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989991" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989991" Name="ColorBrightness" Value="5" />
+                    <Var ObjectId="301989991" Name="IllumColor" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989991" Name="IllumBrightness" Value="4.66400003433227539062" />
+                    <Var ObjectId="301989991" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989991" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989991" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989993" Name="fetish_light_3" CreStamp="1720525277" ModStamp="1720525436" WorldPos="-26.4584 2.17405 0.0400653" Rotation="-3.12073 3.54161 -3.12559" Scale="1.54581 1.6599 1.62931" FileIndex="9" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 129 301989993">
+                <UserVariables>
+                    <Var ObjectId="301989993" Name="Note" Value="" />
+                    <Var ObjectId="301989993" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989993" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989993" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989993" Name="ColorBrightness" Value="5" />
+                    <Var ObjectId="301989993" Name="IllumColor" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989993" Name="IllumBrightness" Value="4.66400003433227539062" />
+                    <Var ObjectId="301989993" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989993" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989993" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989994" Name="fetish_light_4" CreStamp="1720525301" ModStamp="1720525453" WorldPos="-24.1777 2.51469 0.68211" Rotation="-3.05751 1.8016 -3.0356" Scale="1.86049 1.7902 1.82477" FileIndex="9" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 128 301989994">
+                <UserVariables>
+                    <Var ObjectId="301989994" Name="Note" Value="" />
+                    <Var ObjectId="301989994" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989994" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989994" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989994" Name="ColorBrightness" Value="5" />
+                    <Var ObjectId="301989994" Name="IllumColor" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989994" Name="IllumBrightness" Value="4.66400003433227539062" />
+                    <Var ObjectId="301989994" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989994" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989994" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989995" Name="fetish_light_5" CreStamp="1720525316" ModStamp="1720525415" WorldPos="-33.247 1.02483 -1.50949" Rotation="3.10747 0.972545 3.13752" Scale="1.52111 1.85672 1.71922" FileIndex="9" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 130 301989995">
+                <UserVariables>
+                    <Var ObjectId="301989995" Name="Note" Value="" />
+                    <Var ObjectId="301989995" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989995" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989995" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989995" Name="ColorBrightness" Value="5" />
+                    <Var ObjectId="301989995" Name="IllumColor" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989995" Name="IllumBrightness" Value="4.66400003433227539062" />
+                    <Var ObjectId="301989995" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989995" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989995" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989996" Name="fetish_light_6" CreStamp="1720525332" ModStamp="1720525334" WorldPos="-34.8325 1.02483 0.619927" Rotation="-3.11693 3.81906 -3.13293" Scale="1.22764 1.42619 1.34107" FileIndex="9" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 125 301989996">
+                <UserVariables>
+                    <Var ObjectId="301989996" Name="Note" Value="" />
+                    <Var ObjectId="301989996" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989996" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989996" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989996" Name="ColorBrightness" Value="5" />
+                    <Var ObjectId="301989996" Name="IllumColor" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989996" Name="IllumBrightness" Value="4.66400003433227539062" />
+                    <Var ObjectId="301989996" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989996" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989996" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989997" Name="fetish_light_7" CreStamp="1720525341" ModStamp="1720525404" WorldPos="-37.6273 0.885818 0.0687361" Rotation="-3.11435 2.35362 -3.09815" Scale="2.0984 2.66477 2.18063" FileIndex="9" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 127 301989997">
+                <UserVariables>
+                    <Var ObjectId="301989997" Name="Note" Value="" />
+                    <Var ObjectId="301989997" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989997" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989997" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989997" Name="ColorBrightness" Value="5" />
+                    <Var ObjectId="301989997" Name="IllumColor" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989997" Name="IllumBrightness" Value="4.66400003433227539062" />
+                    <Var ObjectId="301989997" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989997" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989997" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989998" Name="fetish_light_8" CreStamp="1720525352" ModStamp="1720525357" WorldPos="-41.9823 1.02483 -0.550687" Rotation="-3.11686 3.82283 -3.13305" Scale="1.22764 1.42619 1.34107" FileIndex="9" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 124 301989998">
+                <UserVariables>
+                    <Var ObjectId="301989998" Name="Note" Value="" />
+                    <Var ObjectId="301989998" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989998" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989998" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989998" Name="ColorBrightness" Value="5" />
+                    <Var ObjectId="301989998" Name="IllumColor" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989998" Name="IllumBrightness" Value="4.66400003433227539062" />
+                    <Var ObjectId="301989998" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989998" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989998" Name="RenderLayer" Value="0" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="301989999" Name="fetish_light_9" CreStamp="1720525360" ModStamp="1720525376" WorldPos="-40.1172 1.02483 0.587584" Rotation="3.11589 0.726477 -3.13454" Scale="1.59393 1.61063 1.85073" FileIndex="9" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 64 301989999">
+                <UserVariables>
+                    <Var ObjectId="301989999" Name="Note" Value="" />
+                    <Var ObjectId="301989999" Name="CastShadows" Value="true" />
+                    <Var ObjectId="301989999" Name="IsAffectedByDecal" Value="true" />
+                    <Var ObjectId="301989999" Name="ColorMul" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989999" Name="ColorBrightness" Value="5" />
+                    <Var ObjectId="301989999" Name="IllumColor" Value="0.09411765635013580322 0.17254902422428131104 0.19215688109397888184 1" />
+                    <Var ObjectId="301989999" Name="IllumBrightness" Value="4.66400003433227539062" />
+                    <Var ObjectId="301989999" Name="IsOccluder" Value="false" />
+                    <Var ObjectId="301989999" Name="CollideGroup" Value="" />
+                    <Var ObjectId="301989999" Name="RenderLayer" Value="0" />
                 </UserVariables>
             </Entity>
         </Objects>
