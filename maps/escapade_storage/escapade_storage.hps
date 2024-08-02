@@ -58,7 +58,10 @@ class cScrMap : iScrMap
 	void OnStart()
 	{
 		// Any general setup of script / entities
-		
+		// Preload maps
+        {
+            Map_Preload("escapade_entrance.hpm");
+        }
 		PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		PlayerBody_SetActive(true);
 		
@@ -97,6 +100,11 @@ class cScrMap : iScrMap
 		return true;
 	}
 	
+    bool OnTrigger_Player_SwitchMap_EntranceMap(const tString &in asParent, const tString &in asChild, int alState)
+    {
+        Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceStorage");
+        return true;
+    }
 	//-------------------------------------------------------
 
 	////////////////////////////
