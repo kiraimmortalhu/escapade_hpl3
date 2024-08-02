@@ -116,6 +116,12 @@ class cScrMap : iScrMap
 	{
 	}
 	
+	bool OnTrigger_Player_Transfer_Storage(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_storage.hpm", "MapTransfer_StorageUnderground");
+		return true;
+	}
+	
 	//-------------------------------------------------------
 
 	////////////////////////////
@@ -138,7 +144,6 @@ class cScrMap : iScrMap
 	{
 		Entity_SetActive("block_box_gas_*", true);
 	}
-    
 
 	//-------------------------------------------------------
 

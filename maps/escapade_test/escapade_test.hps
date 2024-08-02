@@ -71,6 +71,9 @@ class cScrMap : iScrMap
 	{
 		// Any general setup of script / entities
 		
+		//Sound_FadeGlobalVolume(1,3);
+		// tweak this later so we don't hear door sounds and such on load
+		
 		PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		PlayerBody_SetRenderLayers(1, 1);
         PlayerBody_SetActive(true);
@@ -154,13 +157,9 @@ class cScrMap : iScrMap
 	void trench_shotgun_shotgunner_pickup_1_OnPlayerInteract(const tString &in asEntity)
 	{
         cLux_AddDebugMessage("Shotgun");
-		Item_AddManyToInventory("ShotgunAmmunition",14);
+		Item_AddManyToInventory("ShotgunAmmunition",4);
 	}
 	
-	void statue_buddha_1_OnPlayerInteract(const tString &in asEntity)
-	{
-		cLux_AddDebugMessage("Even this doesn't work for fook's sake");
-	}
  
 	//} END MAIN FUNCTIONS
  
