@@ -61,8 +61,8 @@ class cScrMap : iScrMap
 	{
 		// Any general setup of script / entities
 		
-		PlayerBody_SetModel("player_rebirth_ghoul.ent");
-		PlayerBody_SetActive(true);
+		//PlayerBody_SetModel("player_rebirth_ghoul.ent");
+		//PlayerBody_SetActive(true);
 		
 		/////////////////////////
 		// Debug
@@ -87,7 +87,7 @@ class cScrMap : iScrMap
 			PlayerBody_SetActive(true);
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
-		PlayerBody_SetRenderLayers(1, 1);
+		//PlayerBody_SetRenderLayers(1, 1);
         
         // Fart room
 		cParticleSystem@ pPS = mBaseObj.GetWorld().GetParticleSystem("PoisonC_Test");
