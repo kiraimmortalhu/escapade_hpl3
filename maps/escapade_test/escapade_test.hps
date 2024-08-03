@@ -74,9 +74,6 @@ class cScrMap : iScrMap
 		//Sound_FadeGlobalVolume(1,3);
 		// tweak this later so we don't hear door sounds and such on load
 		
-		PlayerBody_SetModel("player_rebirth_ghoul.ent");
-		PlayerBody_SetRenderLayers(1, 1);
-        PlayerBody_SetActive(true);
 		Item_SetCurrentSlotsCount(15);
 		
 		/////////////////////////
@@ -94,7 +91,15 @@ class cScrMap : iScrMap
 	// Run when entering map
 	void OnEnter()
 	{	
-		Game_AutoSave();
+		// this is needed for level transitions since apparently it deactivates the body
+		if (PlayerBody_IsActive() == false)
+		{
+			// this order is needed so veins are also shown
+			PlayerBody_SetActive(true);
+			PlayerBody_SetModel("player_rebirth_ghoul.ent");
+		}
+		
+		SetupGenerator();
 	}
 
 	//-------------------------------------------------------
@@ -112,9 +117,25 @@ class cScrMap : iScrMap
 	void OnAction(int alAction, bool abPressed) 
 	{
 		if (abPressed == false) return;
-		
-		if (alAction == eAction_Test1)
+		if (cLux_ScriptDebugOn())
 		{
+			if (alAction == eAction_Test7)
+			{
+				Entity_SetActive("Trigger_KillGenerator", false);
+				Generator_SetFuelAmount(0);
+				Generator_SetRunForever(false);
+				Generator_ChangeState(eGeneratorState_Off);
+				cLux_AddDebugMessage("Generator Off");
+			}
+		
+			if (alAction == eAction_Test8)
+			{
+				Entity_SetActive("Trigger_KillGenerator", true);
+				Generator_AddFuel(2);
+				Generator_ChangeState(eGeneratorState_On);
+				Generator_SetRunForever(true);
+				cLux_AddDebugMessage("Generator On");
+			}
 		}
 	}
 
@@ -159,6 +180,230 @@ class cScrMap : iScrMap
         cLux_AddDebugMessage("Shotgun");
 		Item_AddManyToInventory("ShotgunAmmunition",4);
 	}
+	
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// ==============
+	// GENERATOR 
+	// ==============
+	//{///////////////////////////////////////////////////////////////////////////////////////
+	
+	//-------------------------------------------------------
+	
+	bool mbHasAddedFuel = true;
+	tString msUsedFuelItemID = "";
+	tString msUsedFuelItemType = "";
+	
+	//-------------------------------------------------------
+	
+	void SetupGenerator()
+	{
+		Generator_SetupEntities("Generator", "Generator_PowerLamp", "Generator_Lever", "Generator_FuelGauge", "Lamp_Generator_*", "Lamp_GeneratorBackup_*");
+
+		//Generator_AddPowerSwitch("PowerSwitch_Hub_1", "", "", "Lamp_PowerSwitch_1_*", true);
+		//Generator_AddPowerSwitch("PowerSwitch_Hub_2", "", "", "Lamp_PowerSwitch_2_*", false);
+		Generator_EndSetup();
+	}
+	
+	//-------------------------------------------------------
+	
+	void OnLookAt_FuelHatch(const tString &in asEntity, int alState)
+	{
+		Entity_SetPlayerLookAtCallback(asEntity, "OnLookAt_FuelHatchAutoEquip", false, false, false, 2);
+	}
+	
+	//-------------------------------------------------------
+	
+	void OnLookAt_FuelHatchAutoEquip(const tString &in asEntity, int alState)
+	{
+		if (alState == 1 && mbHasAddedFuel)
+			OnTimer_AutoEquipFuel("");
+		else
+			Map_RemoveTimer("OnTimer_AutoEquipFuel");
+	}
+ 
+	//-------------------------------------------------------
+	
+	void OnTimer_AutoEquipFuel(const tString &in asTimer)
+	{
+		if (Item_IsHeld(eItemHandlerHand_Right))
+		{
+			Map_AddTimer("OnTimer_AutoEquipFuel", 0.5, "OnTimer_AutoEquipFuel");
+			return;
+		}
+		
+		tString sFuelType = "";
+		if (ItemType_GetCountInInventory("Fuel") > 0)
+		{
+			sFuelType = "Fuel";
+		}
+		else if (ItemType_GetCountInInventory("FuelBottle") > 0)
+		{
+			sFuelType = "FuelBottle";
+		}
+		
+		if (sFuelType == "") return;
+		
+		Item_Equip(ItemType_GetFirstInInventory(sFuelType));
+	}
+		
+	//-------------------------------------------------------
+		 
+	bool CanUse_Fuel(const tString &in asItemType, const tString &in asItemID, const tString &in asPickedEntity)
+	{
+		return asPickedEntity == "Trigger_FuelHatch";
+	}
+		
+	//-------------------------------------------------------
+		 
+	bool CanUse_FuelBottle(const tString &in asItemType, const tString &in asItemID, const tString &in asPickedEntity)
+	{
+		return CanUse_Fuel(asItemType, asItemID, asPickedEntity);
+	}
+		
+	//-------------------------------------------------------
+	
+	bool OnUse_FuelBottle(const tString &in asItemType, const tString &in asItemID, const tString &in asTargetEntity, const tString &in asItemEntity, float afTimeElapsed, float afTimeStep)
+	{
+		return OnUse_Fuel(asItemType, asItemID, asTargetEntity, asItemEntity, afTimeElapsed, afTimeStep);
+	}
+	
+	//-------------------------------------------------------
+	
+	bool OnUse_Fuel(const tString &in asItemType, const tString &in asItemID, const tString &in asTargetEntity, const tString &in asItemEntity, float afTimeElapsed, float afTimeStep)
+	{
+		/////////////////
+		// Check fullness
+		if (Generator_GetFullness() > Generator_GetFullnessInteractLimit())
+		{
+			Hint_ShowPrompt("Hints", "HintGeneratorFull", false, 1.f, false);
+			Item_StopUsing(eItemHandlerHand_Right);
+			return true;
+		}
+		
+		/////////////////
+		// Play anims
+		tString sPlayerAnim = asItemType == "Fuel" ? "player_generator_refuelling_cannister" : "player_generator_refuelling_bottle";
+		
+		// calculating position and angle for the fuel anim
+		
+		//cVector3f vPos(17.000f, -3.0f, -10.25f);
+		// how about not a fix fking position but we actually calculate where the gen is
+		
+		float GenPosX = Map_GetEntity("Generator").GetPosition().x;
+		float GenPosY = Map_GetEntity("Generator").GetPosition().y;
+		float GenPosZ = Map_GetEntity("Generator").GetPosition().z;
+		cVector3f vPos(GenPosX,GenPosY,GenPosZ);
+		float fAngle = 0.0f;
+		CalculateFuelCutscenePosAngle(vPos, fAngle);
+		
+		// cutscene details
+		PlayerBody_SetUnequipItemsOnCutscene(true, false);
+		PlayerBody_PlayCutsceneAnimation(sPlayerAnim, false, 0.3f, "OnAnimEnd_RefillGenerator", 1.f, 0.f, true, vPos, fAngle);
+		PlayerBody_SetArmAnimationPitch(true, true, asItemType == "Fuel");
+		PlayerBody_SetArmAnimationYaw(false, true, true);
+		PlayerBody_SetCutsceneMaxPitch(0.f);
+		PlayerBody_SetCutsceneMaxYaw(0.f);
+		
+		if (asItemType == "Fuel")
+			Entity_PlayAnimation(Item_GetHeldEntity(eItemHandlerHand_Right), "fuel_cannister_refuelling_generator", 0.3f, false);
+		if (asItemType == "FuelBottle")
+			Map_AddTimer("Timer_HideFuelBottleCork", 0.99f, "OnTimer_HideFuelBottleCork");
+		
+		/////////////////
+		// Add fuel
+		Map_AddTimer("Timer_AddGeneratorFuel", 1.f, "OnTimer_AddGeneratorFuel");	
+		
+		/////////////////
+		// Store item data
+		msUsedFuelItemID = asItemID;
+		msUsedFuelItemType = asItemType;
+		return false;
+	}
+	
+	void CalculateFuelCutscenePosAngle(cVector3f vPos, float fAngle) {
+		// these value changes never go through
+		
+		vPos.x -= 10;
+		vPos.z += 1.0f;
+		
+		fAngle = cMath_PiDiv2;
+		
+		// to-do, make this working for all 4 Y rotations of the gen
+	}
+	
+	//-------------------------------------------------------
+	
+	void OnTimer_HideFuelBottleCork(const tString &in asTimer)
+	{
+		iLuxEntity@ pEnt = Map_GetEntity(Item_GetHeldEntity(eItemHandlerHand_Right), eLuxEntityType_Prop);
+		cSubMeshEntity@ pSubMesh = pEnt !is null ? pEnt.GetMeshEntity().GetSubMeshEntityName("cork") : null;
+		
+		if (pEnt is null) return;
+		if (pSubMesh is null) return;
+		
+		pSubMesh.SetVisible(false);
+	}
+	
+	//-------------------------------------------------------
+	
+	void OnTimer_AddGeneratorFuel(const tString &in asTimer)
+	{
+		Generator_AddFuel(1);
+		mbHasAddedFuel = true;
+		GameStats_IncreaseEntryAmount(eHeroStats_GeneratorRefills);
+		Sound_CreateAtEntity("Sound_FuelRefill", "officer_hub/generator/fuel_refill", "Trigger_FuelHatch");
+	}
+	
+	//-------------------------------------------------------
+	
+	void OnAnimEnd_RefillGenerator(const tString &in asAnim)
+	{
+		Player_SetCrouching(false, true, true);
+		
+		/////////////////////
+		// Remove from inventory if any
+		Item_RemoveFromInventory(msUsedFuelItemID, eInventoryInstance_Player, false, true);
+		
+		bool bEquip = false;
+		if (ItemType_GetCountInInventory(msUsedFuelItemType) > 0)
+		{
+			bEquip = true;
+			Item_Equip(ItemType_GetFirstInInventory(msUsedFuelItemType));
+		}
+		else
+		{
+			tString sOtherType = msUsedFuelItemType == "Fuel" ? "FuelBottle" : "Fuel";
+			
+			if (ItemType_GetCountInInventory(sOtherType) > 0)
+			{
+				bEquip = true;
+				Item_Equip(ItemType_GetFirstInInventory(sOtherType));
+			}
+		}
+		
+		if (bEquip == false)
+		{
+			PlayerBody_SetArmAnimationPitch(false, true, true);
+			PlayerBody_SetArmAnimationYaw(false, true, true);
+		}
+	}
+	
+	//-------------------------------------------------------
+	
+	void OnConnectionState_PowerSwitch(const tString &in asEntity, int alState)
+	{
+		if (alState == 0) return;
+		if (cLux_GetCurrentMap() is null) return;
+		if (cLux_IsChangingMap()) return;
+		if (Generator_GetIsSetupDone() == false) return;
+		
+		Generator_SetPowerSwitchOn(asEntity, alState == 1);
+	}
+	
+	//-------------------------------------------------------
+	
+	//} END GENERATOR
+	
 	
  
 	//} END MAIN FUNCTIONS
