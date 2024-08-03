@@ -604,11 +604,16 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 		/////////////////
 		// Gun
 		if (apDamageProps.mDamageType == eDamageType_Gun)
-		{
-			mfDead_HitForce *= 2.0f;			
-			mpStateMachine.ChangeState(eRatState_Dead);
+		{			
 			
-			float fAngle = mBaseObj.GetAngleToPos2D(mvDead_HitOrigin);
+			// Ugly check to see if it's a shotgun causing damage or just the regular gun
+			if (Item_GetHeldType(eItemHandlerHand_Right) == "Shotgun") {
+				cLux_AddDebugMessage("(" + mBaseObj.GetName() + ") Shot by shotgun!");
+				Achievement_Unlock(eAchievement_Ratter);
+				mfDead_HitForce *= 2.0f;			
+				mpStateMachine.ChangeState(eRatState_Dead);
+				
+							float fAngle = mBaseObj.GetAngleToPos2D(mvDead_HitOrigin);
 			cVector3f vRight = cMath_MatrixMul(cMath_MatrixRotateY(mBaseObj.GetCharBody().GetYaw()), cVector3f_Right);
 			float fRightDot = cMath_Vector3Dot(cMath_Vector3Normalize(mvDead_HitOrigin-mBaseObj.GetPosition()), vRight);
 			
@@ -622,11 +627,9 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 				msDead_Anim = gsRatAnim_Shot_Left;
 				
 			mbDead_AnimIsPose = true;
-			
-			// Ugly check to see if it's a shotgun causing damage or just the regular gun
-			if (Item_GetHeldType(eItemHandlerHand_Right) == "Shotgun")
-				Achievement_Unlock(eAchievement_Ratter);
-			
+			}
+				
+			cLux_AddDebugMessage("(" + mBaseObj.GetName() + ") Shot by gun!");
 			cLux_AddAIDebugMessage("(" + mBaseObj.GetName() + ") Shot by gun!");
 		}
 		
