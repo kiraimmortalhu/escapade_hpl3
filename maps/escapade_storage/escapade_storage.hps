@@ -61,6 +61,9 @@ class cScrMap : iScrMap
 		// Preload maps
         {
             Map_Preload("escapade_entrance.hpm");
+            Map_Preload("escapade_library.hpm");
+            Map_Preload("escapade_church.hpm");
+            Map_Preload("escapade_underground.hpm");
         }
         
         
@@ -114,6 +117,18 @@ class cScrMap : iScrMap
         Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceStorage");
         return true;
     }
+    
+    bool OnTrigger_Player_Transfer_Church_Two(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_church.hpm", "MapTransfer_StorageChurch");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_Entrance_Two(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceStorage_2");
+		return true;
+	}
 	//-------------------------------------------------------
 
 	////////////////////////////

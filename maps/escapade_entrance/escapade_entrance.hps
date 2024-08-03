@@ -71,6 +71,9 @@ class cScrMap : iScrMap
 		// Preload maps
         {
             Map_Preload("escapade_storage.hpm");
+            Map_Preload("escapade_greenhouse.hpm");
+            Map_Preload("escapade_library.hpm");
+            Map_Preload("escapade_church.hpm");
         }
 		//PlayerBody_SetActive(true);
 		
@@ -106,6 +109,41 @@ class cScrMap : iScrMap
 	{
 	}
 	
+    bool OnTrigger_Player_Transfer_Church(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_church.hpm", "MapTransfer_EntranceChurch");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_Greenhouse_One(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_1");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_Greenhouse_Two(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_2");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_StorageArea_Two(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_storage.hpm", "MapTransfer_EntranceStorage_2");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_Library_One(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_1");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_Library_Two(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_2");
+		return true;
+	}
 	//-------------------------------------------------------
 
 	////////////////////////////
