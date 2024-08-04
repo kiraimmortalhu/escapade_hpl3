@@ -64,9 +64,6 @@ class cScrMap : iScrMap
             Map_Preload("escapade_entrance.hpm");
             Map_Preload("escapade_library.hpm");
         }
-        
-		PlayerBody_SetModel("player_rebirth_ghoul.ent");
-		PlayerBody_SetActive(true);
 		
 		/////////////////////////
 		// Debug
@@ -85,7 +82,13 @@ class cScrMap : iScrMap
 	// Run when entering map
 	void OnEnter()
 	{	
-		PlayerBody_SetRenderLayers(1, 1);
+		///////////////////////
+		// Setup player body
+		if (PlayerBody_IsActive() == false)
+		{
+			PlayerBody_SetActive(true);
+			PlayerBody_SetModel("player_rebirth_ghoul.ent");
+		}
 	}
 
 	//-------------------------------------------------------

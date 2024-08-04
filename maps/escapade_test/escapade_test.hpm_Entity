@@ -1,6 +1,6 @@
 <HPLMapTrack_Entity ID="CC8B05BC4853009D5DF0B6F95CE8E6A6E13B9F3C" MajorVersion="1" MinorVersion="1">
     <Section Name="13155577883259020773">
-        <FileIndex_Entities NumOfFiles="250">
+        <FileIndex_Entities NumOfFiles="251">
             <File Id="0" Path="mods/escapade_hpl3/entities/dark_descent/lamp/candlestick01/candlestick01.ent" />
             <File Id="1" Path="mods/escapade_hpl3/entities/dark_descent/lamp/candlestick_floor/candlestick_floor.ent" />
             <File Id="2" Path="mods/escapade_hpl3/entities/dark_descent/lamp/candlestick_tri/candlestick_tri.ent" />
@@ -251,6 +251,7 @@
             <File Id="247" Path="entities/bunker/gameplay/power_switch/power_switch_lever_short.ent" />
             <File Id="248" Path="entities/technical/block_box/block_box_char.ent" />
             <File Id="249" Path="entities/bunker/lamp/fluorescent_lamp_long/fluorescent_lamp_long.ent" />
+            <File Id="250" Path="mods/escapade_hpl3/entities/escapade_character/enemy_rat/enemy_rat_king.ent" />
         </FileIndex_Entities>
         <Objects>
             <Entity ID="268435515" Name="castle_1" CreStamp="1718066446" ModStamp="1722545820" WorldPos="0.270523 0.0804021 -6.55472" Rotation="0 -6.51683e-07 0" Scale="1 1 1" FileIndex="4" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 18 268435515">
@@ -11713,7 +11714,7 @@
                     <Var ObjectId="268436305" Name="RenderLayer" Value="0" />
                 </UserVariables>
             </Entity>
-            <Entity ID="268436306" Name="dark_world_rat_black_1" CreStamp="1722012343" ModStamp="1722017979" WorldPos="9.11053 0.125 34.5" Rotation="0 3.14159 0" Scale="3 3 3" FileIndex="244" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 322 268436306">
+            <Entity ID="268436306" Name="dark_world_rat_black_1" CreStamp="1722012343" ModStamp="1722776958" WorldPos="9.11053 0.125 34.5" Rotation="0 3.14159 0" Scale="3 3 3" FileIndex="250" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 322 268436306">
                 <UserVariables>
                     <Var ObjectId="268436306" Name="EventInstanceTag" Value="" />
                     <Var ObjectId="268436306" Name="UserVar" Value="" />
@@ -12192,7 +12193,7 @@
             <File Id="6" Path="entities/bunker/lamp/electrical_lamp_hanging/electrical_lamp_hanging_short.ent" />
         </FileIndex_Entities>
         <Objects>
-            <Entity ID="301989891" Name="Generator_Lever" CreStamp="1687397303" ModStamp="1722738555" WorldPos="-56.0777 -1.73667 33.6008" Rotation="0.698138 -1.57002 0" Scale="1 1 1" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 363 301989891">
+            <Entity ID="301989891" Name="Generator_Lever" CreStamp="1687397303" ModStamp="1722777880" WorldPos="-58.2909 -1.73667 29.2703" Rotation="0.698138 0.000776708 0" Scale="1 1 1" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 363 301989891">
                 <UserVariables>
                     <Var ObjectId="301989891" Name="Note" Value="" />
                     <Var ObjectId="301989891" Name="EventInstanceTag" Value="" />
@@ -12270,7 +12271,7 @@
                     <Var ObjectId="301989891" Name="DisabledIfStuck" Value="false" />
                 </UserVariables>
             </Entity>
-            <Entity ID="301989892" Name="Generator" CreStamp="1687396841" ModStamp="1722738410" WorldPos="-55.75 -3 33.8125" Rotation="-2.51492 4.7119 2.51417" Scale="0.999999 1 0.999999" FileIndex="1" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 19 301989892">
+            <Entity ID="301989892" Name="Generator" CreStamp="1687396841" ModStamp="1722777880" WorldPos="-58.0792 -3 28.9426" Rotation="3.14084 3.1412 3.14131" Scale="0.999999 1 0.999999" FileIndex="1" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 19 301989892">
                 <UserVariables>
                     <Var ObjectId="301989892" Name="Note" Value="" />
                     <Var ObjectId="301989892" Name="EventInstanceTag" Value="" />
@@ -12335,7 +12336,7 @@
                     <Var ObjectId="301989892" Name="WoodenBreakable_CustomDropItemsList" Value="" />
                 </UserVariables>
             </Entity>
-            <Entity ID="301989893" Name="Generator_FuelGauge" CreStamp="1687397535" ModStamp="1722738656" WorldPos="-56.0684 -1.75815 33.2847" Rotation="-3.14106 3.14096 -2.44346" Scale="1 1 1" FileIndex="2" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 14 301989893">
+            <Entity ID="301989893" Name="Generator_FuelGauge" CreStamp="1687397535" ModStamp="1722777880" WorldPos="-58.607 -1.75815 29.261" Rotation="-1.56951 2.26893 -1.56981" Scale="1 1 1" FileIndex="2" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 14 301989893">
                 <UserVariables>
                     <Var ObjectId="301989893" Name="Note" Value="" />
                     <Var ObjectId="301989893" Name="EventInstanceTag" Value="" />
@@ -12601,7 +12602,7 @@
                     <Var ObjectId="301989896" Name="AltFoodEntity" Value="" />
                 </UserVariables>
             </Entity>
-            <Entity ID="301989897" Name="Generator_PowerLamp" CreStamp="1687440113" ModStamp="1722738844" WorldPos="-56.1287 -1.78451 33.4338" Rotation="0.610858 -1.56995 0" Scale="1 1 1" FileIndex="5" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 44 301989897">
+            <Entity ID="301989897" Name="Generator_PowerLamp" CreStamp="1687440113" ModStamp="1722777880" WorldPos="-58.4579 -1.78451 29.3213" Rotation="0.610858 0.000846535 0" Scale="1 1 1" FileIndex="5" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 44 301989897">
                 <UserVariables>
                     <Var ObjectId="301989897" Name="Note" Value="" />
                     <Var ObjectId="301989897" Name="EventInstanceTag" Value="" />

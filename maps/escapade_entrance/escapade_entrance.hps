@@ -48,17 +48,7 @@ class cScrMap : iScrMap
 		
 	void PreloadData()
 	{
-		/////////////////
-		// Preload gui
-		//ImGui_PreloadImage("some_image");
-
-		///////////////
-		// Preload particles
-		//ParticleSystem_Preload("some_particle.ps");
-
-		//////////////
-		// Preload screen effects
-		//Material_Preload("some_material.mat");
+		PlayerBody_PreloadModel("player_rebirth_ghoul.ent");
 	}
 	
 	//-------------------------------------------------------
@@ -75,7 +65,6 @@ class cScrMap : iScrMap
             Map_Preload("escapade_library.hpm");
             Map_Preload("escapade_church.hpm");
         }
-		//PlayerBody_SetActive(true);
 		
 		/////////////////////////
 		// Debug
@@ -91,7 +80,6 @@ class cScrMap : iScrMap
 	// Run when entering map
 	void OnEnter()
 	{	
-		Game_AutoSave();
         ///////////////////////
 		// Setup player body
 		if (PlayerBody_IsActive() == false)
