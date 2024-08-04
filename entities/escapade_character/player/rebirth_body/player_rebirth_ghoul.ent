@@ -622,7 +622,7 @@
             <Animation Name="tool_gun_dual_aim_start_rarm" File="entities/character/player/animations/player_gun_dual_aim_start_rarm.fbx" Layer="RightArm" Speed="1" />
             <Animation Name="tool_gun_dual_aim_end_rarm" File="entities/character/player/animations/player_gun_dual_aim_end_rarm.fbx" Layer="RightArm" Speed="1" />
             <Animation Name="player_deathscene_grabbed_ghoulhole" File="entities/character/player/animations/player_deathscene_grabbed_ghoulhole.fbx" Layer="FullBody" Speed="1">
-                <Event Name="Sound_DeathTunnel" Time="0" Direction="Both" Type="PlaySound" DestSocket="" Value="creatures/stalker/death/death_tunnel" />
+                <Event Name="Sound_DeathTunnel" Time="0" Direction="Both" Type="PlaySound" DestSocket="" Value="player_woman_death_tunnel.snt" />
             </Animation>
             <Animation Name="tool_pocketwatch_draw" File="entities/character/player/animations/player_pocketwatch_equip_rarm.fbx" Layer="RightArm" Speed="1" />
             <Animation Name="tool_pocketwatch_idle" File="entities/character/player/animations/player_pocketwatch_idle_rarm.fbx" Layer="RightArm" Speed="1" />
@@ -1037,7 +1037,7 @@
                 <Event Name="Sound_DeathFront" Time="0" Direction="Both" Type="PlaySound" DestSocket="" Value="creatures/stalker/death/death_front" />
             </Animation>
             <Animation Name="player_death_back" File="entities/character/player/animations/player_death_back.fbx" Layer="FullBody" Speed="1">
-                <Event Name="SoundDeathBack" Time="0" Direction="Both" Type="PlaySound" DestSocket="" Value="creatures/stalker/death/death_behind" />
+                <Event Name="SoundDeathBack" Time="0" Direction="Both" Type="PlaySound" DestSocket="" Value="player_woman_death_behind.snt" />
             </Animation>
             <Animation Name="player_slide_back_start" File="entities/character/player/animations/player_slide_back_start.fbx" Layer="FullBody" Speed="1" />
             <Animation Name="player_slide_back_loop" File="entities/character/player/animations/player_slide_back_loop.fbx" Layer="FullBody" Speed="1" />
@@ -1602,6 +1602,13 @@
             <Animation Name="tool_fuse_use" File="entities/character/player/animations/player_fuse_use_medium.fbx" Layer="FullBody" Speed="1">
                 <Event Name="Sound_FuseInsert" Time="0" Direction="Both" Type="PlaySound" DestSocket="R_Hand" Value="update/player/fuse_plug" />
             </Animation>
+			<!-- ValG animation edits -->
+            <Animation Name="tool_orb_draw" File="entities/character/player/player_body/animation/orb_equip_rarm.fbx" Layer="RightArm" Speed="1" />
+            <Animation Name="tool_orb_holster" File="entities/character/player/player_body/animation/orb_holster_rarm.fbx" Layer="RightArm" Speed="1" />
+            <Animation Name="tool_orb_idle" File="entities/character/player/player_body/animation/orb_idle_rarm.fbx" Layer="RightArm" Speed="1" />
+            <Animation Name="pick_up_and_look_at_orb" File="entities/character/player/player_body/animation/pick_up_and_look_at_orb.fbx" Layer="RightArm" Speed="1" />
+            <Animation Name="pick_up_orb_pedestal" File="entities/character/player/player_body/animation/pick_up_orb_pedestal.fbx" Layer="RightArm" Speed="1" />
+            <Animation Name="pick_up_and_look_at_orb_pedestal" File="entities/character/player/player_body/animation/pick_up_and_look_at_orb_pedestal.fbx" Layer="RightArm" Speed="1" />
         </Animations>
         <ProcAnimations />
     </ModelData>

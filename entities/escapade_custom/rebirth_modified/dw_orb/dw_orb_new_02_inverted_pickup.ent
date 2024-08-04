@@ -1,0 +1,82 @@
+<Entity>
+    <ModelData>
+        <Entities>
+            <PointLight ID="4" Name="Orb2_point_light" CreStamp="1592218106" ModStamp="1592219206" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" CastShadows="false" ShadowResolution="High" ShadowsAffectStatic="true" ShadowsAffectDynamic="true" Radius="0.3" Gobo="" GoboType="Diffuse" GoboAnimMode="None" GoboAnimFrameTime="1" GoboAnimStartTime="0" DiffuseColor="0.609375 0.940491 1 1" FlickerActive="false" FlickerOnMinLength="0" FlickerOnMaxLength="0" FlickerOnPS="" FlickerOnSound="" FlickerOffMinLength="0" FlickerOffMaxLength="0" FlickerOffPS="" FlickerOffSound="" FlickerOffColor="0 0 0 1" FlickerOffRadius="0" FlickerFade="false" FlickerOnFadeMinLength="0" FlickerOnFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffFadeMaxLength="0" CastDiffuseLight="true" CastSpecularLight="false" Brightness="1" Static="false" CulledByDistance="true" CulledByFog="true" FalloffPow="1" ConnectedLightMaskID="4294967295" />
+            <Billboard ID="5" Name="Orb2_billboard" CreStamp="1592218210" ModStamp="1592218283" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" BillboardType="Point" MaterialFile="D:/Frictional_SVN/amnesia2/trunk/redist/entities/darkworld/alchemists_lab/dw_orb/dw_orb_2_billboard.mat" IsHalo="false" BillboardSize="0.2 0.2" HaloSourceSize="0.3 0.3 0.3" BillboardOffset="0" BillboardColor="1 1 1 1" Brightness="0.5" CulledByDistance="false" CulledByFog="true" ConnectLight="" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
+            <Billboard ID="6" Name="Billboard_1" CreStamp="1594834277" ModStamp="1600780308" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" BillboardType="Point" MaterialFile="D:/_Job/FrictionalGames/Amnesia2/Amnesia2/redist/billboards/special/level_specific/02_07_alchemists_lab/alchemists_lab_town_view/alchemists_lab_town_view.mat" IsHalo="false" BillboardSize="0.15 0.15" HaloSourceSize="0.3 0.3 0.3" BillboardOffset="0" BillboardColor="1 1 1 0" Brightness="2" CulledByDistance="false" CulledByFog="true" ConnectLight="" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
+        </Entities>
+        <Mesh Filename="entities/darkworld/alchemists_lab/dw_orb/dw_orb_new_02_inverted.dae">
+            <SubMesh ID="0" Name="dw_orb_new_02_inverted" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="760" Material="" Static="true" />
+        </Mesh>
+        <Bones />
+        <Shapes>
+            <Shape ID="2" Name="ShapeSphere_1" CreStamp="1570613081" ModStamp="1570613131" WorldPos="0 0 0" Rotation="0 0 0" Scale="0.08 0 0" RelativeTranslation="0 0 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Sphere" />
+        </Shapes>
+        <Bodies>
+            <Body ID="3" Name="Body_1" CreStamp="0" ModStamp="1592235448" WorldPos="0 0 0" Rotation="0 0 0" Scale="1.6 1.6 1.6" Material="" Mass="0" AngularDamping="0.5" LinearDamping="0.1" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+                <Children>
+                    <Child ID="0" />
+                    <Child ID="4" />
+                    <Child ID="5" />
+                </Children>
+                <Shape ID="2" />
+            </Body>
+        </Bodies>
+        <Joints />
+        <Animations />
+        <ProcAnimations />
+    </ModelData>
+    <UserDefinedVariables EntityType="Prop_Pickup">
+        <Var ObjectId="4294967295" Name="Health" Value="1.0" />
+        <Var ObjectId="4294967295" Name="Toughness" Value="0" />
+        <Var ObjectId="4294967295" Name="MaxInteractDistance" Value="0" />
+        <Var ObjectId="4294967295" Name="EventTag" Value="" />
+        <Var ObjectId="4294967295" Name="ShowHints" Value="true" />
+        <Var ObjectId="4294967295" Name="LifeLength" Value="0" />
+        <Var ObjectId="4294967295" Name="DissolveDuringLifeDecrease" Value="true" />
+        <Var ObjectId="4294967295" Name="QuickSave" Value="false" />
+        <Var ObjectId="4294967295" Name="FullGameSave" Value="false" />
+        <Var ObjectId="4294967295" Name="BlocksLineOfSight" Value="MaterialBased" />
+        <Var ObjectId="4294967295" Name="MainPhysicsBody" Value="" />
+        <Var ObjectId="4294967295" Name="NoGravityWhenUnderwater" Value="false" />
+        <Var ObjectId="4294967295" Name="DisableFreezeAtStart" Value="false" />
+        <Var ObjectId="4294967295" Name="CustomScriptFile" Value="" />
+        <Var ObjectId="4294967295" Name="CustomScriptClass" Value="" />
+        <Var ObjectId="4294967295" Name="ShowMesh" Value="true" />
+        <Var ObjectId="4294967295" Name="DissolveOnDestruction" Value="false" />
+        <Var ObjectId="4294967295" Name="DissolveTime" Value="1.0" />
+        <Var ObjectId="4294967295" Name="RandomizeAnimationStart" Value="true" />
+        <Var ObjectId="4294967295" Name="RootMotionBone" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOnSound" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOffSound" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOnTime" Value="0.2" />
+        <Var ObjectId="4294967295" Name="EffectsOffTime" Value="0.2" />
+        <Var ObjectId="4294967295" Name="StaticMoveCheckCollision" Value="false" />
+        <Var ObjectId="4294967295" Name="StaticMoveStartSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveStopSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveLoopSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveLoopSoundFade" Value="true" />
+        <Var ObjectId="4294967295" Name="BreakActive" Value="false" />
+        <Var ObjectId="4294967295" Name="CustomBreakBehaviour" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakOnlyOnMainBody" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakDestroyJoints" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakMinEnergy" Value="100" />
+        <Var ObjectId="4294967295" Name="BreakEntity" Value="" />
+        <Var ObjectId="4294967295" Name="BreakEntityAlignBody" Value="" />
+        <Var ObjectId="4294967295" Name="BreakSound" Value="" />
+        <Var ObjectId="4294967295" Name="BreakParticleSystem" Value="" />
+        <Var ObjectId="4294967295" Name="BreakImpulse" Value="4" />
+        <Var ObjectId="4294967295" Name="ItemType" Value="Orb" />
+        <Var ObjectId="4294967295" Name="ContentSubType" Value="" />
+        <Var ObjectId="4294967295" Name="ContentLevel" Value="-1" />
+        <Var ObjectId="4294967295" Name="ContentColor" Value="0 0 0 0" />
+        <Var ObjectId="4294967295" Name="OnlyNeedOne" Value="true" />
+        <Var ObjectId="4294967295" Name="PutAwayAfter" Value="false" />
+        <Var ObjectId="4294967295" Name="AnimationName" Value="orb" />
+        <Var ObjectId="4294967295" Name="PickupSound" Value="" />
+        <Var ObjectId="4294967295" Name="IsMeat" Value="false" />
+        <Var ObjectId="4294967295" Name="MeatAttractDistance" Value="10" />
+        <Var ObjectId="4294967295" Name="MeatAttractDistanceMax" Value="20" />
+        <Var ObjectId="4294967295" Name="UseFullnessAnimation" Value="false" />
+    </UserDefinedVariables>
+</Entity>

@@ -1,0 +1,33 @@
+<Material>
+    <Main Type="water" DepthTest="true" ForceFullScaleTextures="false" UVSubDivs="1 1" UseAlpha="false" PhysicsMaterial="Default" BlendMode="Add" />
+    <TextureUnits>
+        <Diffuse MipMaps="true" Compress="true" File="entities/darkworld/alchemists_lab/dw_orb/dw_orb_power.dds" Type="2D" Wrap="Repeat" AnimMode="None" AnimFrameTime="0" AnimStartTime="0" />
+        <CubeMap MipMaps="false" Compress="true" File="textures/environment/skybox_darkworld_panorama.dds" Type="Cube" Wrap="ClampToEdge" AnimMode="None" AnimFrameTime="0" AnimStartTime="0" />
+    </TextureUnits>
+    <UvAnimations>
+        <Animation Type="Translate" Axis="X" Speed="5" Amplitude="0" />
+    </UvAnimations>
+    <SpecificVariables>
+        <Var ObjectId="4294967295" Name="RefractionScale" Value="0.1" />
+        <Var ObjectId="4294967295" Name="FrenselBias" Value="500" />
+        <Var ObjectId="4294967295" Name="FrenselPow" Value="2" />
+        <Var ObjectId="4294967295" Name="WaveSpeed" Value="1" />
+        <Var ObjectId="4294967295" Name="WaveAmplitude" Value="1" />
+        <Var ObjectId="4294967295" Name="WaveFreq" Value="1" />
+        <Var ObjectId="4294967295" Name="ReflectionFadeStart" Value="0" />
+        <Var ObjectId="4294967295" Name="ReflectionFadeEnd" Value="0" />
+        <Var ObjectId="4294967295" Name="HasRefraction" Value="true" />
+        <Var ObjectId="4294967295" Name="HasReflection" Value="true" />
+        <Var ObjectId="4294967295" Name="OcclusionCullWorldReflection" Value="true" />
+        <Var ObjectId="4294967295" Name="LargeSurface" Value="true" />
+        <Var ObjectId="4294967295" Name="ReflectTerrain" Value="false" />
+        <Var ObjectId="4294967295" Name="HasVertexWaves" Value="true" />
+        <Var ObjectId="4294967295" Name="VertexWaveSpeed" Value="8000" />
+        <Var ObjectId="4294967295" Name="VertexWaveAmplitude" Value="0.007" />
+        <Var ObjectId="4294967295" Name="VertexWaveFreq" Value="3" />
+        <Var ObjectId="4294967295" Name="HasChaoticWaves" Value="false" />
+        <Var ObjectId="4294967295" Name="FadeWhenShallowMul" Value="0.1" />
+        <Var ObjectId="4294967295" Name="FadeWhenShallowPow" Value="1" />
+        <Var ObjectId="4294967295" Name="FadeBasedOnFogStart" Value="false" />
+    </SpecificVariables>
+</Material>
