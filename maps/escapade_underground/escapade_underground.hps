@@ -162,6 +162,17 @@ class cScrMap : iScrMap
 		Entity_SetActive("block_box_gas_*", true);
 	}
 	
+	bool CanUse_Orb(const tString& in asItemType, const tString& in asItemID, const tString& in asPickedEntity) {
+		return asPickedEntity == "Trigger_OrbActivation";
+	}
+	
+	bool OnUse_Orb(const tString& in asItemType, const tString& in asItemID, const tString& in asTargetEntity, const tString& in asItemEntity, float afTimeElapsed, float afTimeStep) {
+		Lamp_SetLit("lq_elevator_1_panel", false, true);
+		Sound_CreateAtEntity("", "DW_tunnel/portal/portal_open", asTargetEntity);
+		//Item_RemoveFromInventory(ItemType_GetFirstInInventory(asItemType));
+		return false;
+	}
+	
 	//-------------------------------------------------------
 	
 	void OnLookAt_SaveLamp(const tString &in asEntity, int alState)
