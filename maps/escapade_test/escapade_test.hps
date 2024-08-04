@@ -268,6 +268,88 @@ class cScrMap : iScrMap
 		return OnUse_Fuel(asItemType, asItemID, asTargetEntity, asItemEntity, afTimeElapsed, afTimeStep);
 	}
 	
+    bool OnCollide_Test_Generator(const tString &in asParent, const tString &in asChild, int alState)
+    {
+        /*
+        float fRYRotation = cMath_ToDeg(cMath_ACos(Map_GetEntity("Generator").GetBody(0).GetWorldMatrix().GetRight().y));
+        float fRXRotation = cMath_ToDeg(cMath_ACos(Map_GetEntity("Generator").GetBody(0).GetWorldMatrix().GetRight().x));
+        float fRZRotation = cMath_ToDeg(cMath_ACos(Map_GetEntity("Generator").GetBody(0).GetWorldMatrix().GetRight().z));
+        
+        cLux_AddDebugMessage("The entity is right by - "+fRYRotation);
+        cLux_AddDebugMessage("The entity is right by - "+fRXRotation);
+        cLux_AddDebugMessage("The entity is right by - "+fRZRotation);
+        
+        float fWYRotation = cMath_ToDeg(cMath_ACos(Map_GetEntity("Generator").GetBody(0).GetWorldMatrix().GetForward().y));
+        float fWXRotation = cMath_ToDeg(cMath_ACos(Map_GetEntity("Generator").GetBody(0).GetWorldMatrix().GetForward().x));
+        float fWZRotation = cMath_ToDeg(cMath_ACos(Map_GetEntity("Generator").GetBody(0).GetWorldMatrix().GetForward().z));
+        
+        cLux_AddDebugMessage("The entity is forward by - "+fWYRotation);
+        cLux_AddDebugMessage("The entity is forward by - "+fWXRotation);
+        cLux_AddDebugMessage("The entity is forward by - "+fWZRotation);
+        
+        float fUYRotation = cMath_ToDeg(cMath_ACos(Map_GetEntity("Generator").GetBody(0).GetWorldMatrix().GetUp().y));
+        float fUXRotation = cMath_ToDeg(cMath_ACos(Map_GetEntity("Generator").GetBody(0).GetWorldMatrix().GetUp().x));
+        float fUZRotation = cMath_ToDeg(cMath_ACos(Map_GetEntity("Generator").GetBody(0).GetWorldMatrix().GetUp().z));
+        
+        
+        cLux_AddDebugMessage("The entity is up by - "+fUYRotation);
+        cLux_AddDebugMessage("The entity is up by - "+fUXRotation);
+        cLux_AddDebugMessage("The entity is up by - "+fUZRotation);
+        */
+        /*
+        //Acurate to editor:
+        cVector3f vGen = Entity_GetRotationEuler("Generator");
+        cLux_AddDebugMessage("ROTATION X: "+ cMath_ToDeg(vGen.x));
+        cLux_AddDebugMessage("ROTATION Y: "+ cMath_ToDeg(vGen.y));
+        cLux_AddDebugMessage("ROTATION Z: "+ cMath_ToDeg(vGen.z));
+        */
+        
+        cVector3f vGen = Entity_GetRotationEuler("Generator");
+        cLux_AddDebugMessage("ROTATION X: "+ cMath_Abs(cMath_ToDeg(vGen.x)));
+        cLux_AddDebugMessage("ROTATION Y: "+ cMath_ToDeg(vGen.y));
+        cLux_AddDebugMessage("ROTATION Z: "+ cMath_Abs(cMath_ToDeg(vGen.z)));
+        
+        /*
+        cLux_AddDebugMessage("GENERATOR X: "+Map_GetEntity("Generator").GetMainBody().GetLocalPosition().x);
+		cLux_AddDebugMessage("GENERATOR Y: "+Map_GetEntity("Generator").GetMainBody().GetLocalPosition().y);
+		cLux_AddDebugMessage("GENERATOR Z: "+Map_GetEntity("Generator").GetMainBody().GetLocalPosition().z);
+        
+         */
+        /*
+        cLux_AddDebugMessage("GENERATOR X: "+Map_GetEntity("Generator").GetMainBody().GetWorldPosition().x);
+		cLux_AddDebugMessage("GENERATOR Y: "+Map_GetEntity("Generator").GetMainBody().GetWorldPosition().y);
+		cLux_AddDebugMessage("GENERATOR Z: "+Map_GetEntity("Generator").GetMainBody().GetWorldPosition().z);
+        */
+        
+         
+        /*
+        cLuxAgent@ pAgent = cLux_ToAgent(cLux_GetCurrentMap().GetEntityByName("Generator"));
+        if (pAgent is null) cLux_AddDebugMessage("NOT AGENT");
+        */
+        /*
+        //Player coordinates:
+        cLux_AddDebugMessage("PLAYER X: "+Map_GetEntity("player").GetMainBody().GetWorldPosition().x);
+        cLux_AddDebugMessage("PLAYER Y: "+Map_GetEntity("player").GetMainBody().GetWorldPosition().y);
+        cLux_AddDebugMessage("PLAYER Z: "+Map_GetEntity("player").GetMainBody().GetWorldPosition().z);
+        */
+        
+        
+        float fAngle;
+        //cVector3f vGen = Entity_GetRotationEuler("Generator");
+        fAngle = vGen.y;
+        if(cMath_Round(cMath_ToDeg(vGen.y)) >= -5 && cMath_Round(cMath_ToDeg(vGen.y)) < 90 &&
+            cMath_Abs(cMath_Round(cMath_ToDeg(vGen.x))) >= 170 && cMath_Abs(cMath_Round(cMath_ToDeg(vGen.x))) < 190 && 
+            cMath_Abs(cMath_Round(cMath_ToDeg(vGen.z))) >= 170 && cMath_Abs(cMath_Round(cMath_ToDeg(vGen.z))) < 190){
+            
+            fAngle = cMath_Pi;
+            cLux_AddDebugMessage("ADJUSTING ANGLE: "+ cMath_ToDeg(fAngle));
+        }
+        
+        cLux_AddDebugMessage("FINAL ANGLE: "+ cMath_ToDeg(fAngle));
+        
+        return true;
+    }
+    
 	//-------------------------------------------------------
 	
 	bool OnUse_Fuel(const tString &in asItemType, const tString &in asItemID, const tString &in asTargetEntity, const tString &in asItemEntity, float afTimeElapsed, float afTimeStep)
@@ -290,11 +372,24 @@ class cScrMap : iScrMap
 		//cVector3f vPos(17.000f, -3.0f, -10.25f);
 		// how about not a fix fking position but we actually calculate where the gen is
 		
+        /*
 		float GenPosX = Map_GetEntity("Generator").GetPosition().x;
 		float GenPosY = Map_GetEntity("Generator").GetPosition().y;
 		float GenPosZ = Map_GetEntity("Generator").GetPosition().z;
 		cVector3f vPos(GenPosX,GenPosY,GenPosZ);
-		float fAngle = 0.0f;
+        
+        
+		cLux_AddDebugMessage("vPos X: "+vPos.x);
+		cLux_AddDebugMessage("vPos Z: "+vPos.z);
+        
+        float fAngle = 0.0f;
+        */
+        cLux_AddDebugMessage("GENERATOR X: "+Map_GetEntity("Generator").GetMainBody().GetLocalPosition().x);
+		cLux_AddDebugMessage("GENERATOR Y: "+Map_GetEntity("Generator").GetMainBody().GetLocalPosition().y);
+		cLux_AddDebugMessage("GENERATOR Z: "+Map_GetEntity("Generator").GetMainBody().GetLocalPosition().z);
+        
+        cVector3f vPos;
+        float fAngle;
 		CalculateFuelCutscenePosAngle(vPos, fAngle);
 		
 		// cutscene details
@@ -321,13 +416,65 @@ class cScrMap : iScrMap
 		return false;
 	}
 	
-	void CalculateFuelCutscenePosAngle(cVector3f vPos, float fAngle) {
-		// these value changes never go through
+	void CalculateFuelCutscenePosAngle(cVector3f &out vPos, float &out fAngle) {
+		//Generator position coordinates
+		vPos.x = Map_GetEntity("Generator").GetMainBody().GetWorldPosition().x;
+		vPos.y = Map_GetEntity("Generator").GetMainBody().GetWorldPosition().y;
+		vPos.z = Map_GetEntity("Generator").GetMainBody().GetWorldPosition().z;
 		
-		vPos.x -= 10;
-		vPos.z += 1.0f;
-		
-		fAngle = cMath_PiDiv2;
+        //Get generator rotation vector (not entirely accurate to the values seen in level editor. Example: in level editor -> (0, 180, 0) while this vector gets -> (180, 0, 180) which is equivalent)
+        cVector3f vGen = Entity_GetRotationEuler("Generator");
+        cLux_AddDebugMessage("ROUNDED UP ANGLE: "+ cMath_Round(cMath_ToDeg(vGen.y)));
+        
+        
+        if(cMath_Round(cMath_ToDeg(vGen.y)) >= 0 && cMath_Round(cMath_ToDeg(vGen.y)) < 90 && 
+        cMath_Round(cMath_ToDeg(vGen.x)) >= 0 && cMath_Round(cMath_ToDeg(vGen.x)) < 90 && 
+        cMath_Round(cMath_ToDeg(vGen.z)) >= 0 && cMath_Round(cMath_ToDeg(vGen.z)) < 90){
+            cLux_AddDebugMessage("0");
+            vPos.x = vPos.x - 0.664f;
+            vPos.y = vPos.y - 1.127f;
+            vPos.z = vPos.z + 0.974f;
+        }
+        else if(cMath_Round(cMath_ToDeg(vGen.y)) >= 90 && cMath_Round(cMath_ToDeg(vGen.y)) < 180){
+            cLux_AddDebugMessage("90");
+            vPos.x = vPos.x + 0.974f;
+            vPos.y = vPos.y - 1.127f;
+            vPos.z = vPos.z + 0.664f;
+        }
+        else if(    (cMath_Round(cMath_ToDeg(vGen.y)) >= 175 && cMath_Round(cMath_ToDeg(vGen.y)) < 265) || 
+        (cMath_Round(cMath_ToDeg(vGen.y)) >= -5 && cMath_Round(cMath_ToDeg(vGen.y)) < 90 && cMath_Abs(cMath_Round(cMath_ToDeg(vGen.x))) >= 170 && cMath_Abs(cMath_Round(cMath_ToDeg(vGen.x))) < 190 && 
+        cMath_Abs(cMath_Round(cMath_ToDeg(vGen.z)))  >= 170 && cMath_Abs(cMath_Round(cMath_ToDeg(vGen.z))) < 190)         ){
+            cLux_AddDebugMessage("180");
+            vPos.x = vPos.x + 0.664f;
+            vPos.y = vPos.y - 1.127f;
+            vPos.z = vPos.z - 0.974f;
+        }
+        else if(cMath_Round(cMath_ToDeg(vGen.y)) >= -95 && cMath_Round(cMath_ToDeg(vGen.y)) < 5.f){
+            cLux_AddDebugMessage("270");
+            vPos.x = vPos.x - 0.974f;
+            vPos.y = vPos.y - 1.127f;
+            vPos.z = vPos.z - 0.664f;
+        }
+        
+        
+		cLux_AddDebugMessage("vPos X: "+vPos.x);
+		cLux_AddDebugMessage("vPos Y: "+vPos.y);
+		cLux_AddDebugMessage("vPos Z: "+vPos.z);
+        
+        
+        
+        //fAngle = cMath_PiDiv2;
+        
+        fAngle = vGen.y;
+        if(cMath_Round(cMath_ToDeg(vGen.y)) >= -5 && cMath_Round(cMath_ToDeg(vGen.y)) < 90 &&
+        cMath_Abs(cMath_Round(cMath_ToDeg(vGen.x))) >= 170 && cMath_Abs(cMath_Round(cMath_ToDeg(vGen.x))) < 190 && 
+        cMath_Abs(cMath_Round(cMath_ToDeg(vGen.z))) >= 170 && cMath_Abs(cMath_Round(cMath_ToDeg(vGen.z))) < 190){
+            
+            fAngle = cMath_Pi;
+            cLux_AddDebugMessage("ADJUSTING ANGLE: "+ cMath_ToDeg(fAngle));
+        }
+        
+        cLux_AddDebugMessage("FINAL ANGLE: "+ cMath_ToDeg(fAngle));
 		
 		// to-do, make this working for all 4 Y rotations of the gen
 	}
