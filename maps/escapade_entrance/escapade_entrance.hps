@@ -132,6 +132,12 @@ class cScrMap : iScrMap
 		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_2");
 		return true;
 	}
+    
+    bool OnTrigger_Player_Transfer_LibraryBallroomTwo(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_3");
+		return true;
+	}
 	//-------------------------------------------------------
 
 	////////////////////////////

@@ -59,6 +59,11 @@ class cScrMap : iScrMap
 	{
 		// Any general setup of script / entities
 		
+        {
+            Map_Preload("escapade_entrance.hpm");
+            Map_Preload("escapade_storage.hpm");
+            Map_Preload("escapade_greenhouse.hpm");
+        }
 		/////////////////////////
 		// Debug
 		if (cLux_ScriptDebugOn())
@@ -90,6 +95,36 @@ class cScrMap : iScrMap
 	{
 	}
 	
+    
+    bool OnTrigger_Player_Transfer_StorageKitchen(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_storage.hpm", "MapTransfer_KitchenDining");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_GreenhouseFive(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_greenhouse.hpm", "MapTransfer_LibraryGreenhouse");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_DiningBallroomOne(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_1");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_DiningBallroomTwo(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_2");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_LibraryBallroom(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_3");
+		return true;
+	}
 	//-------------------------------------------------------
 
 	////////////////////////////
