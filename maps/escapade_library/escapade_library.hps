@@ -125,6 +125,12 @@ class cScrMap : iScrMap
 		Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_3");
 		return true;
 	}
+    
+    bool OnTrigger_Player_Transfer_UndergroundDiningOne(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_underground.hpm", "MapTransfer_DiningWellUnderground");
+		return true;
+	}
 	//-------------------------------------------------------
 
 	////////////////////////////

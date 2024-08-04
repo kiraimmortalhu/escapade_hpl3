@@ -60,7 +60,9 @@ class cScrMap : iScrMap
 	void OnStart()
 	{
 		// Any general setup of script / entities
-		
+		{
+            Map_Preload("escapade_library.hpm");
+        }
 		//PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		//PlayerBody_SetActive(true);
 		
@@ -126,6 +128,12 @@ class cScrMap : iScrMap
 	bool OnTrigger_Player_Transfer_Storage(const tString &in asParent, const tString &in asChild, int alState)
 	{
 		Game_DoMapChange("escapade_storage.hpm", "MapTransfer_StorageUnderground");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_UndergroundDining(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_library.hpm", "MapTransfer_DiningWellUnderground");
 		return true;
 	}
 	
