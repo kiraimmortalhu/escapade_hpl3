@@ -48,17 +48,7 @@ class cScrMap : iScrMap
 		
 	void PreloadData()
 	{
-		/////////////////
-		// Preload gui
-		//ImGui_PreloadImage("some_image");
-
-		///////////////
-		// Preload particles
-		//ParticleSystem_Preload("some_particle.ps");
-
-		//////////////
-		// Preload screen effects
-		//Material_Preload("some_material.mat");
+		PlayerBody_PreloadModel("player_rebirth_ghoul.ent");
 	}
 	
 	//-------------------------------------------------------
@@ -67,7 +57,10 @@ class cScrMap : iScrMap
 	// Run first time starting map
 	void OnStart()
 	{
-		PlayerBody_SetActive(true);
+		cVector3f vRot = cVector3f(0, cMath_ToRad(142), 0);
+		cLux_GetCurrentMap().GetWorld().SetSkyboxRotation(vRot);
+		
+		Music_PlayExt("sandfield_ambience", true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_OverrideAll, true);
 		
 		/////////////////////////
 		// Debug
@@ -83,7 +76,11 @@ class cScrMap : iScrMap
 	// Run when entering map
 	void OnEnter()
 	{	
-		Game_AutoSave();
+		if (PlayerBody_IsActive() == false)
+		{
+			PlayerBody_SetActive(true);
+			PlayerBody_SetModel("player_rebirth_ghoul.ent");
+		}
 	}
 
 	//-------------------------------------------------------
