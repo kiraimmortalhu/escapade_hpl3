@@ -102,6 +102,11 @@ class cScrMap : iScrMap
 		//PlayerBody_SetRenderLayers(1, 1);
 		
 		SetupGenerator();
+        
+        Lever_SetStuckState("PowerSwitch_1", -1, true);
+        Lever_SetStuckState("PowerSwitch_2", -1, true);
+        Lever_SetStuckState("PowerSwitch_3", -1, true);
+        
 	}
 
 	//-------------------------------------------------------
@@ -161,7 +166,32 @@ class cScrMap : iScrMap
 	// MAIN FUNCTIONS
 	// ==============
 	//{///////////////////////////////////////////////////////////////////////////////////////
- 
+    void OnInteract_PowerSwitch(const tString &in asEntity)
+    {
+        Map_AddTimer("lightend", 6.0f, "LightEnd");
+    }
+    void LightEnd(const tString &in asTimer){
+        Entity_SetInteractionDisabled("PowerSwitch_1", false);
+        Entity_SetInteractionDisabled("PowerSwitch_2", false);
+        Entity_SetInteractionDisabled("PowerSwitch_3", false);
+        Lever_SetStuckState("PowerSwitch_1", -1, true);
+        Lever_SetStuckState("PowerSwitch_2", -1, true);
+        Lever_SetStuckState("PowerSwitch_3", -1, true);
+        
+        Map_AddTimer("lightend2", 4.0f, "LightEnd2");
+        
+    }
+    void LightEnd2(const tString &in asTimer){
+        Entity_SetActive("Trigger_KillGenerator", false);
+        Generator_SetFuelAmount(0);
+        Generator_SetRunForever(false);
+        Generator_ChangeState(eGeneratorState_Off);
+        cLux_AddDebugMessage("Generator Off");
+                
+        Entity_SetActive("stalker_2", true);
+        
+    }
+    
 	bool OnCollide_ActivateStalker(const tString &in asParent, const tString &in asChild, int alState)
 	{
 		if (alState == 1) {
@@ -200,7 +230,10 @@ class cScrMap : iScrMap
 	void SetupGenerator()
 	{
 		Generator_SetupEntities("Generator", "Generator_PowerLamp", "Generator_Lever", "Generator_FuelGauge", "Lamp_Generator_*", "Lamp_GeneratorBackup_*");
-
+       
+        Generator_AddPowerSwitch("PowerSwitch_1", "", "", "Lamp_PowerSwitch_1_*", true);
+        Generator_AddPowerSwitch("PowerSwitch_2", "", "", "Lamp_PowerSwitch_2_*", true);
+        Generator_AddPowerSwitch("PowerSwitch_3", "", "", "Lamp_PowerSwitch_3_*", true);
 		//Generator_AddPowerSwitch("PowerSwitch_Hub_1", "", "", "Lamp_PowerSwitch_1_*", true);
 		//Generator_AddPowerSwitch("PowerSwitch_Hub_2", "", "", "Lamp_PowerSwitch_2_*", false);
 		Generator_EndSetup();
@@ -427,16 +460,18 @@ class cScrMap : iScrMap
         cVector3f vGen = Entity_GetRotationEuler("Generator");
         cLux_AddDebugMessage("ROUNDED UP ANGLE: "+ cMath_Round(cMath_ToDeg(vGen.y)));
         
-        
+        //Checks for approximated Y rotation: 0, 90, 180, 270. Then apply the proper coordinates offset.
         if(cMath_Round(cMath_ToDeg(vGen.y)) >= 0 && cMath_Round(cMath_ToDeg(vGen.y)) < 90 && 
         cMath_Round(cMath_ToDeg(vGen.x)) >= 0 && cMath_Round(cMath_ToDeg(vGen.x)) < 90 && 
         cMath_Round(cMath_ToDeg(vGen.z)) >= 0 && cMath_Round(cMath_ToDeg(vGen.z)) < 90){
+            //Y rotation: 0
             cLux_AddDebugMessage("0");
             vPos.x = vPos.x - 0.664f;
             vPos.y = vPos.y - 1.127f;
             vPos.z = vPos.z + 0.974f;
         }
         else if(cMath_Round(cMath_ToDeg(vGen.y)) >= 90 && cMath_Round(cMath_ToDeg(vGen.y)) < 180){
+            //Y rotation: 90
             cLux_AddDebugMessage("90");
             vPos.x = vPos.x + 0.974f;
             vPos.y = vPos.y - 1.127f;
@@ -445,12 +480,14 @@ class cScrMap : iScrMap
         else if(    (cMath_Round(cMath_ToDeg(vGen.y)) >= 175 && cMath_Round(cMath_ToDeg(vGen.y)) < 265) || 
         (cMath_Round(cMath_ToDeg(vGen.y)) >= -5 && cMath_Round(cMath_ToDeg(vGen.y)) < 90 && cMath_Abs(cMath_Round(cMath_ToDeg(vGen.x))) >= 170 && cMath_Abs(cMath_Round(cMath_ToDeg(vGen.x))) < 190 && 
         cMath_Abs(cMath_Round(cMath_ToDeg(vGen.z)))  >= 170 && cMath_Abs(cMath_Round(cMath_ToDeg(vGen.z))) < 190)         ){
+            //Y rotation: 180
             cLux_AddDebugMessage("180");
             vPos.x = vPos.x + 0.664f;
             vPos.y = vPos.y - 1.127f;
             vPos.z = vPos.z - 0.974f;
         }
         else if(cMath_Round(cMath_ToDeg(vGen.y)) >= -95 && cMath_Round(cMath_ToDeg(vGen.y)) < 5.f){
+            //Y rotation: 270
             cLux_AddDebugMessage("270");
             vPos.x = vPos.x - 0.974f;
             vPos.y = vPos.y - 1.127f;
@@ -477,7 +514,7 @@ class cScrMap : iScrMap
         
         cLux_AddDebugMessage("FINAL ANGLE: "+ cMath_ToDeg(fAngle));
 		
-		// to-do, make this working for all 4 Y rotations of the gen
+		// to-do, make this working for all Y rotations of the gen
 	}
 	
 	//-------------------------------------------------------
@@ -541,11 +578,12 @@ class cScrMap : iScrMap
 	
 	void OnConnectionState_PowerSwitch(const tString &in asEntity, int alState)
 	{
+        cLux_AddDebugMessage(asEntity);
 		if (alState == 0) return;
 		if (cLux_GetCurrentMap() is null) return;
 		if (cLux_IsChangingMap()) return;
 		if (Generator_GetIsSetupDone() == false) return;
-		
+		cLux_AddDebugMessage("POWERSWITCH");
 		Generator_SetPowerSwitchOn(asEntity, alState == 1);
 	}
 	
