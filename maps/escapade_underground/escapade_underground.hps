@@ -63,6 +63,7 @@ class cScrMap : iScrMap
 		// Any general setup of script / entities
 		{
             Map_Preload("escapade_library.hpm");
+            Map_Preload("escapade_entrance_alt.hpm");
         }
 		//PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		//PlayerBody_SetActive(true);
@@ -112,7 +113,7 @@ class cScrMap : iScrMap
         //Collide callbacks
         Entity_AddCollideCallback("Death_Pit_*", "Player", "DeathFall");
         
-        
+        Player_SetNightVisionEnabled(false);
         
         //Debug
         //Map_AddTimer("checkc", 0.0f, "DebugCheck");
@@ -126,6 +127,7 @@ class cScrMap : iScrMap
 	// Run when leaving map
 	void OnLeave()
 	{
+        Sequence_End();
 	}
 	
 	bool OnTrigger_Player_Transfer_Storage(const tString &in asParent, const tString &in asChild, int alState)
@@ -164,9 +166,21 @@ class cScrMap : iScrMap
 	{
 		Entity_SetActive("block_box_gas_*", true);
 	}
+    bool OnCollide_MapChange_EntranceAlt(const tString &in asParent, const tString &in asChild, int alState)
+    {
+        if(alState==1){
+            Seq_MapChangeElevator("");
+        }
+        
+        return true;
+    }
+    
 	void OnPlayerInteract_OrbTest(const tString &in asEntity)
     {
         //PlayerBody_PlayCutsceneAnimation("pick_up_and_look_at_orb", false, 0.0f);
+        //PlayerBody_PlayAnimation("pick_up_and_look_at_orb", ePlayerBodyAnimationLayer_RightArm, false, false, true);
+        //PlayerHands_PlayAnimation("pick_up_and_look_at_orb", false, true, 0.0f, "red_orb_cutscene", true, 1.f, -1.f, true, true);
+        cLux_AddDebugMessage("HELD righto: " + Item_GetHeld(eItemHandlerHand_Right));
     }
     
     
@@ -229,9 +243,19 @@ class cScrMap : iScrMap
         cLux_AddDebugMessage("ITEM TYPE: " + Item_GetEntityItemType(asEntity));
         
         //PlayerBody_PlayCutsceneAnimation("pick_up_and_look_at_orb_pedestal", false, 0.0f);
-        PlayerHands_PlayAnimation("pick_up_and_look_at_orb", false, true, 0.0f, "red_orb_cutscene", true, 1.f, -1.f, true, true);
+        
+        Map_AddTimer("EquipOrb", 7.5f, "EquipOrb");
+        PlayerHands_PlayAnimation("pick_up_and_look_at_orb_pedestal", false, true, 0.0f, "red_orb_cutscene", true, 1.f, -1.f, true, true);
+        
         Prop_SetRenderLayer("red_orb_cutscene", 1);
         
+        
+    }
+    void EquipOrb(const tString &in asTimer){
+        cLux_AddDebugMessage("ATTEMPTING TO EQUIP ITEM");
+        if(Item_GetHeld(eItemHandlerHand_Right) != "1_OrbRed_1"){
+            Item_Equip(ItemType_GetFirstInInventory("OrbRed"));
+        }
         
     }
 	bool CanUse_Orb(const tString &in asItemType, const tString &in asItemID, const tString &in asPickedEntity) {
@@ -240,8 +264,14 @@ class cScrMap : iScrMap
 	
 	bool OnUse_Orb(const tString &in asItemType, const tString &in asItemID, const tString &in asTargetEntity, const tString &in asItemEntity, float afTimeElapsed, float afTimeStep) {
 		cLux_AddDebugMessage("ORB USED");
+        //Elevator
+        Entity_SetActive("Trigger_OrbActivation", false);
+        Entity_SetActive("lq_elevator_1_blockbox_*", true);
+        Entity_SetActive("Trigger_EntranceAlt", true);
         Lamp_SetLit("lq_elevator_1_panel", false, true);
 		Sound_CreateAtEntity("", "DW_tunnel/portal/portal_open", asTargetEntity);
+        MoveObject_SetStateExt("lq_elevator_1", 5.0f, 2.0f, 4.0f, 4.0f, false);
+        
 		//Item_RemoveFromInventory(ItemType_GetFirstInInventory(asItemType));
 		return true;
 	}
@@ -470,6 +500,18 @@ class cScrMap : iScrMap
         Sequence_End();
     }
     
+    cSequenceStatesData mSeqDataMapChangeElevator;
+    void Seq_MapChangeElevator(const tString &in asTimer){
+        Sequence_Begin("Seq_MapChangeElevator", mSeqDataMapChangeElevator);
+        if(Sequence_DoStepAndWait(3.0f)){
+            Effect_Fade_Out(2.0f);
+        }        
+        else if(Sequence_DoStepAndWait(0.5f)){
+            Map_ChangeMap("escapade_entrance_alt.hpm", "Start_Begin", "", "", true, false);
+            Sequence_End();
+        }
+        Sequence_End();
+    }
 	//} END MAIN FUNCTIONS
  
 	//////////////////////////////////////////////////////////////////////////////////////////

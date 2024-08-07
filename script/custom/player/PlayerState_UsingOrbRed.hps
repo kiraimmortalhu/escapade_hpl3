@@ -14,9 +14,13 @@ const float gfUsingKey_MinPitch = cMath_ToRad(-55.f);
 const float gfUsingKey_MaxPitch = cMath_ToRad(30.f);
 const float gfUsingKey_PitchFadeTime = 0.25f;
 
+const float gfLightRadius = 0.5f;
+const float gfLightRadiusDec = 0.02f;
+const float gfLightRadiusInc = gfLightRadius*4.0f;
+const cColor gfDefColor = cColor(0.701f,0.175f,0.175f,1.f);
 ///////////////
 // Player anims
-const tString gsKeyUseAnim_Player = "tool_cutter_cut_chain";
+//const tString gsKeyUseAnim_Player = "tool_cutter_cut_chain";
 
 //------------------------------------------------------------
 
@@ -34,9 +38,9 @@ class cScrPlayerState_UsingOrbRed : iScrPlayerState_UsingItem_Base, iScrPlayerSt
 	{
 		iScrPlayerState_UsingItem_Base::Init();
 		
-		msFocusIntroAnim_R = "tool_orb_equip";
+		msFocusIntroAnim_R = "tool_orb_idle";
 		msFocusLoopAnim_R = "tool_orb_idle";
-		msFocusOutroAnim_R = "tool_orb_holster";
+		msFocusOutroAnim_R = "tool_orb_idle";
 	}
 	
 	//------------------------------------------------------------
@@ -52,15 +56,144 @@ class cScrPlayerState_UsingOrbRed : iScrPlayerState_UsingItem_Base, iScrPlayerSt
 		////////////////
 		// Enter base
 		iScrPlayerState_UsingItem_Base::OnEnterState(alPrevStateId);
-		
+		cLux_AddDebugMessage("ENTER STATE");
 		////////////////
 		// Setup vars
 		
 		////////////////
 		// Setup body
-		SetupPitchFade(gfUsingKey_MinPitch, gfUsingKey_MaxPitch, gfUsingKey_PitchFadeTime, false);
+		////////////////
+		// Setup state
+		mbLeaveState = false;
+		mlAnimState = -1;
+		mlPrevAnimState = -1;
+		mlUseAction = eAction_UseItem;
+		mbCanInteractWithWorld = false;
+		mbEquipLighterInLeftHand = false;
+		mbWaitForUnequip = false;
+		mWaitForUnequipHand = eItemHandlerHand_Right;
+		msWaitForUnequipItem = "";
+		m_setInteractableEntityClasses.Clear();
+		mfIntroTimer = 0;
+		mfIntroRelTime = 0;
+		mfAlignYawCount = 0.f;
+		
+		////////////////
+		// Setup item entity
+		msItemEntity = Item_GetHeldEntity(mItemHand);
+		msItemType = Item_GetEntityItemType(msItemEntity);
+		iLuxEntity@ pItemEntity = cLux_GetCurrentMap().GetEntityByName(msItemEntity, eLuxEntityType_Prop);
+		m_idItemEntity = pItemEntity !is null ? pItemEntity.GetID() : tID_Invalid;
+
+		////////////////
+		// Setup player
+		Player_SetIsUsingItem(true);
+		Player_SetCanRun(false);
+		
+        pItemEntity.GetLightFromName("Orb2_point_light_use").FadeTo(cColor(0.701f,0.175f,0.175f,1.f), gfLightRadiusInc, 1.5f);
+        pItemEntity.GetLightFromName("Orb2_point_light_use").FadeBrightnessTo(1.0f, 1.5f);
+        
+        //Sound_PlayGui("orb_energy_loop.snt", 0.2f);
+        pItemEntity.GetSoundEntityFromName("Sound_orb_on").SetActive(true);
+        pItemEntity.GetSoundEntityFromName("Sound_orb_on").FadeIn(0.1f, 0.2f);
+        
+		////////////////////////
+		// Set relative time pos of the intro animations to make them less jarring
+		mfIntroRelTime = GetAnimStateRelTime(eUsingItemAnimState_Intro, eUsingItemAnimState_Outro);
+		
+		ChangeAnimState(eUsingItemAnimState_Intro);
+		if (mbUsesOtherHandAnims)
+		{
+			WaitForUnequip(mItemHand == eItemHandlerHand_Left ? eItemHandlerHand_Right : eItemHandlerHand_Left, msOnEnterUnequipException);
+			PlayerBody_SetShoulderBobActive(false);
+		}
+		
+		////////////////
+		// Zoom
+		if (mbDoZoom)
+		{
+			mBaseObj.mpPlayer.FadeCameraFOVMulTo(ePlayerFOVMul_UseItem, gfUsingItemBase_ZoomAmount, gfUsingItemBase_ZoomSpeed);
+		}
+        cLux_AddDebugMessage("" + alPrevStateId);
+        
 	}
 	
+    void OnLeaveState(int alNextStateId)
+	{
+        iScrPlayerState_UsingItem_Base::OnEnterState(alNextStateId);
+        cLux_AddDebugMessage("LEAVE STATE");
+        
+        ///////////////
+		// Reset vars
+		mfMinPitch = 0.f;
+		mfMaxPitch = 0.f;
+		mfGoalPitch = 0.f;
+		mfStartPitch = 0.f;
+		mfPitchFadeTime = 0.f;
+		mfPitchFadeCount = 0.f;
+		
+		mbCustomBonePosActiveL = false;
+		mbCustomBonePosActiveR = false;
+		
+		////////////////
+		// Reset player
+		Player_SetIsUsingItem(false);		
+		Player_ShowCrossHairIcons(true, true);
+		Player_SetCanRun(true);
+		
+		////////////////
+		// Reset player body
+		PlayerBody_SetRightArmYawOffset(0.f);
+		PlayerBody_SetRightArmPitchOffset(0.f);
+		PlayerBody_SetCrouchArmRotationOffsetActive(true);
+		PlayerBody_SetShoulderBobActive(true);
+				
+		/////////////////////////
+		// Autoequip the next item of the same type?
+		if (mbAutoEquipNextItem && ItemType_GetCountInInventory(msItemType) > 0)
+		{
+			Item_Equip(ItemType_GetFirstInInventory(msItemType));
+		}
+        ////////////////
+		// Setup item entity
+		msItemEntity = Item_GetHeldEntity(mItemHand);
+		msItemType = Item_GetEntityItemType(msItemEntity);
+		iLuxEntity@ pItemEntity = cLux_GetCurrentMap().GetEntityByName(msItemEntity, eLuxEntityType_Prop);
+		
+        cLux_AddDebugMessage("FADING LIGHT AWAY");
+        pItemEntity.GetLightFromName("Orb2_point_light_use").FadeTo(cColor(0.701f,0.175f,0.175f,1.f), gfLightRadiusDec, 1.5f);
+		pItemEntity.GetLightFromName("Orb2_point_light_use").FadeBrightnessTo(0.0f, 1.5f);
+        
+        //Sound_StopGui("orb_energy_loop", 0.2f, false);
+        pItemEntity.GetSoundEntityFromName("Sound_orb_on").FadeOut(0.2f);
+		//pItemEntity.GetLightFromName("Orb2_point_light").FadeTo(cColor(0.701f,0.175f,0.175f,1.f), gfLightRadius, 1.5f);
+        
+		////////////////
+		// Equip item that was unequipped when entering state?
+		if (msWaitForUnequipItem != "")
+		{
+			if (mfEquipLastItemOnLeaveDelay > 0.f)
+			{
+				cLuxMap@ pMap = cLux_GetCurrentMap();
+				if (pMap !is null)
+					pMap.AddTimer(msWaitForUnequipItem, mfEquipLastItemOnLeaveDelay, "$_UsingItem_OnTimer_EquipLastItem");
+			}
+			else
+			{
+				Item_TakeOut(msWaitForUnequipItem);
+			}
+		}
+		
+		/////////////////
+		// Reset zoom
+		if (mbDoZoom && mBaseObj.mpPlayer.GetCameraFOVMul() != 1.f)
+		{
+			mBaseObj.mpPlayer.FadeCameraFOVMulTo(ePlayerFOVMul_UseItem, 1.f, gfUsingItemBase_ZoomSpeed * 0.75f);
+		}
+        
+        cLux_AddDebugMessage("" + alNextStateId);
+    }
+    
 	//------------------------------------------------------------
 	
 	//------------------------------------------------------------
