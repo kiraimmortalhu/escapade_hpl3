@@ -14,6 +14,7 @@
 #include "helpers/helper_agent.hps"
 #include "helpers/helper_gun.hps"
 #include "helpers/helper_props_custom.hps"
+#include "helpers/helper_rotation.hps"
 
 //--------------------------------------------------
  
@@ -95,6 +96,10 @@ class cScrMap : iScrMap
 			PlayerBody_SetActive(true);
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
+		
+		SetupGenerator();
+		
+		Lever_SetStuckState("PowerSwitch_1", 1, true);
 	}
 
 	//-------------------------------------------------------
@@ -172,6 +177,281 @@ class cScrMap : iScrMap
 	{
 		Prop_SetStaticPhysics("door_" + asEntity, false);
 	}
+	
+	////// Generator
+	
+	bool mbHasAddedFuel = true;
+	tString msUsedFuelItemID = "";
+	tString msUsedFuelItemType = "";
+	
+	//-------------------------------------------------------
+	
+	void SetupGenerator()
+	{
+		Generator_SetupEntities("Generator", "Generator_PowerLamp", "Generator_Lever", "Generator_FuelGauge", "Lamp_Generator_*", "Lamp_GeneratorBackup_*");
+       
+        Generator_AddPowerSwitch("PowerSwitch_1", "", "", "Lamp_PowerSwitch_1_*", true);
+		Generator_EndSetup();
+	}
+	
+		//-------------------------------------------------------
+	
+	void OnLookAt_FuelHatch(const tString &in asEntity, int alState)
+	{
+		Entity_SetPlayerLookAtCallback(asEntity, "OnLookAt_FuelHatchAutoEquip", false, false, false, 2);
+	}
+	
+	//-------------------------------------------------------
+	
+	void OnLookAt_FuelHatchAutoEquip(const tString &in asEntity, int alState)
+	{
+		if (alState == 1 && mbHasAddedFuel)
+			OnTimer_AutoEquipFuel("");
+		else
+			Map_RemoveTimer("OnTimer_AutoEquipFuel");
+	}
+ 
+	//-------------------------------------------------------
+	
+	void OnTimer_AutoEquipFuel(const tString &in asTimer)
+	{
+		if (Item_IsHeld(eItemHandlerHand_Right))
+		{
+			Map_AddTimer("OnTimer_AutoEquipFuel", 0.5, "OnTimer_AutoEquipFuel");
+			return;
+		}
+		
+		tString sFuelType = "";
+		if (ItemType_GetCountInInventory("Fuel") > 0)
+		{
+			sFuelType = "Fuel";
+		}
+		else if (ItemType_GetCountInInventory("FuelBottle") > 0)
+		{
+			sFuelType = "FuelBottle";
+		}
+		
+		if (sFuelType == "") return;
+		
+		Item_Equip(ItemType_GetFirstInInventory(sFuelType));
+	}
+		
+	//-------------------------------------------------------
+		 
+	bool CanUse_Fuel(const tString &in asItemType, const tString &in asItemID, const tString &in asPickedEntity)
+	{
+		return asPickedEntity == "Trigger_FuelHatch";
+	}
+		
+	//-------------------------------------------------------
+		 
+	bool CanUse_FuelBottle(const tString &in asItemType, const tString &in asItemID, const tString &in asPickedEntity)
+	{
+		return CanUse_Fuel(asItemType, asItemID, asPickedEntity);
+	}
+		
+	//-------------------------------------------------------
+	
+	bool OnUse_FuelBottle(const tString &in asItemType, const tString &in asItemID, const tString &in asTargetEntity, const tString &in asItemEntity, float afTimeElapsed, float afTimeStep)
+	{
+		return OnUse_Fuel(asItemType, asItemID, asTargetEntity, asItemEntity, afTimeElapsed, afTimeStep);
+	}
+	
+		//-------------------------------------------------------
+	
+	bool OnUse_Fuel(const tString &in asItemType, const tString &in asItemID, const tString &in asTargetEntity, const tString &in asItemEntity, float afTimeElapsed, float afTimeStep)
+	{
+		/////////////////
+		// Check fullness
+		if (Generator_GetFullness() > Generator_GetFullnessInteractLimit())
+		{
+			Hint_ShowPrompt("Hints", "HintGeneratorFull", false, 1.f, false);
+			Item_StopUsing(eItemHandlerHand_Right);
+			return true;
+		}
+		
+		/////////////////
+		// Play anims
+		tString sPlayerAnim = asItemType == "Fuel" ? "player_generator_refuelling_cannister" : "player_generator_refuelling_bottle";
+
+        cLux_AddDebugMessage("GENERATOR X: "+Map_GetEntity("Generator").GetMainBody().GetLocalPosition().x);
+		cLux_AddDebugMessage("GENERATOR Y: "+Map_GetEntity("Generator").GetMainBody().GetLocalPosition().y);
+		cLux_AddDebugMessage("GENERATOR Z: "+Map_GetEntity("Generator").GetMainBody().GetLocalPosition().z);
+        
+        cVector3f vPos;
+        float fAngle;
+		CalculateFuelCutscenePosAngle(vPos, fAngle);
+		
+		// cutscene details
+		PlayerBody_SetUnequipItemsOnCutscene(true, false);
+		PlayerBody_PlayCutsceneAnimation(sPlayerAnim, false, 0.3f, "OnAnimEnd_RefillGenerator", 1.f, 0.f, true, vPos, fAngle);
+		PlayerBody_SetArmAnimationPitch(true, true, asItemType == "Fuel");
+		PlayerBody_SetArmAnimationYaw(false, true, true);
+		PlayerBody_SetCutsceneMaxPitch(0.f);
+		PlayerBody_SetCutsceneMaxYaw(0.f);
+		
+		if (asItemType == "Fuel")
+			Entity_PlayAnimation(Item_GetHeldEntity(eItemHandlerHand_Right), "fuel_cannister_refuelling_generator", 0.3f, false);
+		if (asItemType == "FuelBottle")
+			Map_AddTimer("Timer_HideFuelBottleCork", 0.99f, "OnTimer_HideFuelBottleCork");
+		
+		/////////////////
+		// Add fuel
+		Map_AddTimer("Timer_AddGeneratorFuel", 1.f, "OnTimer_AddGeneratorFuel");	
+		
+		/////////////////
+		// Store item data
+		msUsedFuelItemID = asItemID;
+		msUsedFuelItemType = asItemType;
+		return false;
+	}
+	
+	void CalculateFuelCutscenePosAngle(cVector3f &out vPos, float &out fAngle) {
+		//Generator position coordinates
+		vPos.x = Map_GetEntity("Generator").GetMainBody().GetWorldPosition().x;
+		vPos.y = Map_GetEntity("Generator").GetMainBody().GetWorldPosition().y;
+		vPos.z = Map_GetEntity("Generator").GetMainBody().GetWorldPosition().z;
+		
+        //Get generator rotation vector (not entirely accurate to the values seen in level editor.
+		//Example: in level editor -> (0, 180, 0) while this vector gets -> (180, 0, 180) which is equivalent)
+        cVector3f vGen = Entity_GetRotationEuler("Generator");
+        cLux_AddDebugMessage("ROUNDED UP ANGLE: "+ cMath_Round(cMath_ToDeg(vGen.y)));
+        
+        //Checks for approximated Y rotation: 0, 90, 180, 270. Then apply the proper coordinates offset.
+        if(cMath_Round(cMath_ToDeg(vGen.y)) >= 0 && cMath_Round(cMath_ToDeg(vGen.y)) < 90 && 
+        cMath_Round(cMath_ToDeg(vGen.x)) >= 0 && cMath_Round(cMath_ToDeg(vGen.x)) < 90 && 
+        cMath_Round(cMath_ToDeg(vGen.z)) >= 0 && cMath_Round(cMath_ToDeg(vGen.z)) < 90){
+            //Y rotation: 0
+            cLux_AddDebugMessage("0");
+            vPos.x = vPos.x - 0.664f;
+            vPos.y = vPos.y - 1.127f;
+            vPos.z = vPos.z + 0.974f;
+        }
+        else if(cMath_Round(cMath_ToDeg(vGen.y)) >= 90 && cMath_Round(cMath_ToDeg(vGen.y)) < 180){
+            //Y rotation: 90
+            cLux_AddDebugMessage("90");
+            vPos.x = vPos.x + 0.974f;
+            vPos.y = vPos.y - 1.127f;
+            vPos.z = vPos.z + 0.664f;
+        }
+        else if(    (cMath_Round(cMath_ToDeg(vGen.y)) >= 175 && cMath_Round(cMath_ToDeg(vGen.y)) < 265) || 
+        (cMath_Round(cMath_ToDeg(vGen.y)) >= -5 && cMath_Round(cMath_ToDeg(vGen.y)) < 90 &&
+		cMath_Abs(cMath_Round(cMath_ToDeg(vGen.x))) >= 170 && cMath_Abs(cMath_Round(cMath_ToDeg(vGen.x))) < 190 && 
+        cMath_Abs(cMath_Round(cMath_ToDeg(vGen.z)))  >= 170 && cMath_Abs(cMath_Round(cMath_ToDeg(vGen.z))) < 190)         ){
+            //Y rotation: 180
+            cLux_AddDebugMessage("180");
+            vPos.x = vPos.x + 0.664f;
+            vPos.y = vPos.y - 1.127f;
+            vPos.z = vPos.z - 0.974f;
+        }
+        else if(cMath_Round(cMath_ToDeg(vGen.y)) >= -95 && cMath_Round(cMath_ToDeg(vGen.y)) < 5.f){
+            //Y rotation: 270
+            cLux_AddDebugMessage("270");
+            vPos.x = vPos.x - 0.974f;
+            vPos.y = vPos.y - 1.127f;
+            vPos.z = vPos.z - 0.664f;
+        }
+        
+        
+		cLux_AddDebugMessage("vPos X: "+vPos.x);
+		cLux_AddDebugMessage("vPos Y: "+vPos.y);
+		cLux_AddDebugMessage("vPos Z: "+vPos.z);
+        
+        //fAngle = cMath_PiDiv2;
+        
+        fAngle = vGen.y;
+        if(cMath_Round(cMath_ToDeg(vGen.y)) >= -5 && cMath_Round(cMath_ToDeg(vGen.y)) < 90 &&
+        cMath_Abs(cMath_Round(cMath_ToDeg(vGen.x))) >= 170 && cMath_Abs(cMath_Round(cMath_ToDeg(vGen.x))) < 190 && 
+        cMath_Abs(cMath_Round(cMath_ToDeg(vGen.z))) >= 170 && cMath_Abs(cMath_Round(cMath_ToDeg(vGen.z))) < 190){
+            
+            fAngle = cMath_Pi;
+            cLux_AddDebugMessage("ADJUSTING ANGLE: "+ cMath_ToDeg(fAngle));
+        }
+        
+        cLux_AddDebugMessage("FINAL ANGLE: "+ cMath_ToDeg(fAngle));
+	}
+	
+	//-------------------------------------------------------
+	
+	void OnTimer_HideFuelBottleCork(const tString &in asTimer)
+	{
+		iLuxEntity@ pEnt = Map_GetEntity(Item_GetHeldEntity(eItemHandlerHand_Right), eLuxEntityType_Prop);
+		cSubMeshEntity@ pSubMesh = pEnt !is null ? pEnt.GetMeshEntity().GetSubMeshEntityName("cork") : null;
+		
+		if (pEnt is null) return;
+		if (pSubMesh is null) return;
+		
+		pSubMesh.SetVisible(false);
+	}
+	
+	//-------------------------------------------------------
+	
+	void OnTimer_AddGeneratorFuel(const tString &in asTimer)
+	{
+		Generator_AddFuel(1);
+		mbHasAddedFuel = true;
+		GameStats_IncreaseEntryAmount(eHeroStats_GeneratorRefills);
+		Sound_CreateAtEntity("Sound_FuelRefill", "officer_hub/generator/fuel_refill", "Trigger_FuelHatch");
+	}
+	
+	//-------------------------------------------------------
+	
+	void OnAnimEnd_RefillGenerator(const tString &in asAnim)
+	{
+		Player_SetCrouching(false, true, true);
+		
+		/////////////////////
+		// Remove from inventory if any
+		Item_RemoveFromInventory(msUsedFuelItemID, eInventoryInstance_Player, false, true);
+		
+		bool bEquip = false;
+		if (ItemType_GetCountInInventory(msUsedFuelItemType) > 0)
+		{
+			bEquip = true;
+			Item_Equip(ItemType_GetFirstInInventory(msUsedFuelItemType));
+		}
+		else
+		{
+			tString sOtherType = msUsedFuelItemType == "Fuel" ? "FuelBottle" : "Fuel";
+			
+			if (ItemType_GetCountInInventory(sOtherType) > 0)
+			{
+				bEquip = true;
+				Item_Equip(ItemType_GetFirstInInventory(sOtherType));
+			}
+		}
+		
+		if (bEquip == false)
+		{
+			PlayerBody_SetArmAnimationPitch(false, true, true);
+			PlayerBody_SetArmAnimationYaw(false, true, true);
+		}
+	}
+	
+	
+	////// Power switch for entrance door
+	
+	void OnConnectionState_PowerSwitch(const tString &in asEntity, int alState)
+	{
+        cLux_AddDebugMessage(asEntity);
+		if (alState == 0) return;
+		if (cLux_GetCurrentMap() is null) return;
+		if (cLux_IsChangingMap()) return;
+		if (Generator_GetIsSetupDone() == false) return;
+		cLux_AddDebugMessage("POWERSWITCH");
+		Generator_SetPowerSwitchOn(asEntity, alState == -1);
+		if (alState == -1) {
+			if (Generator_GetFuelTimeLeft() > 0) {
+				SlideDoor_SetOpenAmount("metal_security_door_1", 1.0f, false);
+			} else {
+				Lever_SetStuckState("PowerSwitch_1", 1, true);
+			}
+		}			
+		else {
+			SlideDoor_SetClosed("metal_security_door_1", true, false);
+		}
+	}
+	
  
 	//} END MAIN FUNCTIONS
  
