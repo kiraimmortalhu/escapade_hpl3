@@ -67,9 +67,10 @@ class cScrMap : iScrMap
             Map_Preload("escapade_underground.hpm");
         }
         
-        
-		//PlayerBody_SetModel("player_rebirth_ghoul.ent");
-		//PlayerBody_SetActive(true);
+		Map_SetFogActive(false);
+		Map_SetSecondaryFogActive(false);
+		Light_SetVisible("Light_Box_4", false); 
+		Lever_SetStuckState("PowerSwitch_1", -1, true);
 		
 		/////////////////////////
 		// Debug
@@ -98,8 +99,6 @@ class cScrMap : iScrMap
 		}
 		
 		SetupGenerator();
-		
-		Lever_SetStuckState("PowerSwitch_1", 1, true);
 	}
 
 	//-------------------------------------------------------
@@ -183,6 +182,22 @@ class cScrMap : iScrMap
 	bool mbHasAddedFuel = true;
 	tString msUsedFuelItemID = "";
 	tString msUsedFuelItemType = "";
+	
+	void OnStateChange_Generator(int alState) {		
+		// Generator Sounds
+		Lever_SetStuckState("PowerSwitch_1", -1, true);
+		if (alState!=1) {
+			Map_SetFogActive(false);
+			Map_SetSecondaryFogActive(true);
+			Light_SetVisible("Light_Box_4", false);  
+			//Sound_Play("Sound_GeneratorOff", 0.f);
+			SlideDoor_SetClosed("metal_security_door_1", true, false);
+		} else {
+			Map_SetFogActive(true);
+			Map_SetSecondaryFogActive(true);
+			Light_SetVisible("Light_Box_4", true);  
+		}
+	}
 	
 	//-------------------------------------------------------
 	
@@ -440,15 +455,19 @@ class cScrMap : iScrMap
 		if (Generator_GetIsSetupDone() == false) return;
 		cLux_AddDebugMessage("POWERSWITCH");
 		Generator_SetPowerSwitchOn(asEntity, alState == -1);
-		if (alState == -1) {
+		if (alState == 1) {
 			if (Generator_GetFuelTimeLeft() > 0) {
 				SlideDoor_SetOpenAmount("metal_security_door_1", 1.0f, false);
+				Lamp_SetLit("Lamp_FakeBackup_*",false,true); 
+				Lamp_SetLit("Lamp_PowerSwitch_1_*",true,true);
 			} else {
-				Lever_SetStuckState("PowerSwitch_1", 1, true);
+				Lever_SetStuckState("PowerSwitch_1", -1, true);
 			}
 		}			
 		else {
 			SlideDoor_SetClosed("metal_security_door_1", true, false);
+			Lamp_SetLit("Lamp_FakeBackup_*",true,true);
+			Lamp_SetLit("Lamp_PowerSwitch_1_*",false,true);
 		}
 	}
 	
