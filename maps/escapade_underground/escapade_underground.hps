@@ -17,6 +17,7 @@
 #include "custom/helpers/helper_agent.hps"
 #include "custom/helpers/helper_modules_custom.hps"
 #include "custom/modules/EnvironmentalDamageHandler.hps"
+#include "helpers/helper_effects.hps"
 
 //--------------------------------------------------
  
@@ -115,6 +116,8 @@ class cScrMap : iScrMap
         
         //Debug
         //Map_AddTimer("checkc", 0.0f, "DebugCheck");
+        Map_AddTimer("checkc", 0.0f, "OrbTimerTests");
+        //
      }
 
 	//-------------------------------------------------------
@@ -161,18 +164,100 @@ class cScrMap : iScrMap
 	{
 		Entity_SetActive("block_box_gas_*", true);
 	}
-	
-	bool CanUse_Orb(const tString& in asItemType, const tString& in asItemID, const tString& in asPickedEntity) {
-		return asPickedEntity == "Trigger_OrbActivation";
+	void OnPlayerInteract_OrbTest(const tString &in asEntity)
+    {
+        //PlayerBody_PlayCutsceneAnimation("pick_up_and_look_at_orb", false, 0.0f);
+    }
+    
+    
+    void OnLookAt_OrbActivation(const tString &in asEntity, int alState)
+	{
+		Entity_SetPlayerLookAtCallback(asEntity, "OnLookAt_OrbActivationAutoEquip", false, false, false, 2);
 	}
 	
-	bool OnUse_Orb(const tString& in asItemType, const tString& in asItemID, const tString& in asTargetEntity, const tString& in asItemEntity, float afTimeElapsed, float afTimeStep) {
-		Lamp_SetLit("lq_elevator_1_panel", false, true);
+	//-------------------------------------------------------
+	
+	void OnLookAt_OrbActivationAutoEquip(const tString &in asEntity, int alState)
+	{
+		if (alState == 1){
+            cLux_AddDebugMessage("TIMER STARTED");
+			OnTimer_AutoEquipOrb("");
+            
+        }
+		else{
+			Map_RemoveTimer("OnTimer_AutoEquipOrb");
+        }
+	}
+ 
+	//-------------------------------------------------------
+	
+	void OnTimer_AutoEquipOrb(const tString &in asTimer)
+	{
+		if (Item_IsHeld(eItemHandlerHand_Right))
+		{
+			Map_AddTimer("OnTimer_AutoEquipOrb", 0.5, "OnTimer_AutoEquipOrb");
+			return;
+		}
+		
+		tString sOrbType = "";
+		if (ItemType_GetCountInInventory("OrbRed") > 0)
+		{
+			sOrbType = "OrbRed";
+		}
+		else if (ItemType_GetCountInInventory("Orb") > 0)
+		{
+			sOrbType = "Orb";
+		}
+		
+		if (sOrbType == "") return;
+		
+		Item_Equip(ItemType_GetFirstInInventory(sOrbType));
+	}
+    
+    
+    void OnPlayerInteract_Orb(const tString &in asEntity)
+    {
+        //Map_GetEntity("red_orb_pickup_1").GetMainBody().SetMass(1.0f);
+        //Map_GetEntity("red_orb_pickup_1").GetMainBody().SetGravity(true);
+        //Map_GetEntity("red_orb_pickup_1").GetMainBody().SetContinuousCollision(true);
+        //Entity_SetCollide("red_orb_pickup_1", false);
+        
+        //Entity_AttachToSocket("red_orb_pickup_1", "player", "R_Hand", false, true);
+        //Item_Equip(ItemType_GetFirstInInventory("OrbRed"));
+        
+        //Entity_PlayAnimation(asEntity, "pick_up_and_look_at_orb");
+        cLux_AddDebugMessage("ITEM TYPE: " + Item_GetEntityItemType(asEntity));
+        
+        //PlayerBody_PlayCutsceneAnimation("pick_up_and_look_at_orb_pedestal", false, 0.0f);
+        PlayerHands_PlayAnimation("pick_up_and_look_at_orb", false, true, 0.0f, "red_orb_cutscene", true, 1.f, -1.f, true, true);
+        Prop_SetRenderLayer("red_orb_cutscene", 1);
+        
+        
+    }
+	bool CanUse_Orb(const tString &in asItemType, const tString &in asItemID, const tString &in asPickedEntity) {
+        return asPickedEntity == "Trigger_OrbActivation";
+	}
+	
+	bool OnUse_Orb(const tString &in asItemType, const tString &in asItemID, const tString &in asTargetEntity, const tString &in asItemEntity, float afTimeElapsed, float afTimeStep) {
+		cLux_AddDebugMessage("ORB USED");
+        Lamp_SetLit("lq_elevator_1_panel", false, true);
 		Sound_CreateAtEntity("", "DW_tunnel/portal/portal_open", asTargetEntity);
 		//Item_RemoveFromInventory(ItemType_GetFirstInInventory(asItemType));
-		return false;
+		return true;
 	}
 	
+    
+    //Tests
+    void OrbTimerTests(const tString &in asTimer){
+        cLux_AddDebugMessage("ITEM HELD: "+ Item_GetHeld(eItemHandlerHand_Right), true);
+        cLux_AddDebugMessage("ARMS MODEL: "+ PlayerHands_GetEntityName(), true);
+        
+        
+        //PlayerHands_PlayAnimation("pick_up_and_look_at_orb");
+        Map_RestartCurrentTimer(5.f);
+        
+    }
+    
 	//-------------------------------------------------------
 	
 	void OnLookAt_SaveLamp(const tString &in asEntity, int alState)

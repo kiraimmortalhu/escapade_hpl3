@@ -171,9 +171,9 @@ class cScrMap : iScrMap
         Map_AddTimer("lightend", 6.0f, "LightEnd");
     }
     void LightEnd(const tString &in asTimer){
-        Entity_SetInteractionDisabled("PowerSwitch_1", false);
-        Entity_SetInteractionDisabled("PowerSwitch_2", false);
-        Entity_SetInteractionDisabled("PowerSwitch_3", false);
+        Entity_SetInteractionDisabled("PowerSwitch_1", true);
+        Entity_SetInteractionDisabled("PowerSwitch_2", true);
+        Entity_SetInteractionDisabled("PowerSwitch_3", true);
         Lever_SetStuckState("PowerSwitch_1", -1, true);
         Lever_SetStuckState("PowerSwitch_2", -1, true);
         Lever_SetStuckState("PowerSwitch_3", -1, true);
@@ -230,7 +230,7 @@ class cScrMap : iScrMap
 	void SetupGenerator()
 	{
 		Generator_SetupEntities("Generator", "Generator_PowerLamp", "Generator_Lever", "Generator_FuelGauge", "Lamp_Generator_*", "Lamp_GeneratorBackup_*");
-       
+        
         Generator_AddPowerSwitch("PowerSwitch_1", "", "", "Lamp_PowerSwitch_1_*", true);
         Generator_AddPowerSwitch("PowerSwitch_2", "", "", "Lamp_PowerSwitch_2_*", true);
         Generator_AddPowerSwitch("PowerSwitch_3", "", "", "Lamp_PowerSwitch_3_*", true);
