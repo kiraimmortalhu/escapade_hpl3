@@ -1,37 +1,31 @@
 <HPLMapTrack_Area ID="AD65C539D70DC67D2B69D9C350535816D4076DCD" MajorVersion="1" MinorVersion="1">
     <Section Name="3359272541875756134">
         <Objects>
-            <Area ID="268439971" Name="Start_Storage" CreStamp="1719063580" ModStamp="1719228407" WorldPos="38.5 -1.02587 -48.5" Rotation="-0 3.14159 -0" Scale="0.7 1.9 0.7" Active="true" Mesh="" UID="16 115 268439971" AreaType="PlayerStart">
+            <Area ID="268439971" Name="Start_Begin" CreStamp="1719063580" ModStamp="1723161542" WorldPos="38.5 -1.02587 -53.25" Rotation="-0 3.14159 -0" Scale="0.7 1.9 0.7" Active="true" Mesh="" UID="16 115 268439971" AreaType="PlayerStart">
                 <UserVariables>
                     <Var ObjectId="268439971" Name="Note" Value="" />
                     <Var ObjectId="268439971" Name="Crouching" Value="false" />
                 </UserVariables>
             </Area>
-            <Area ID="268443820" Name="No_bultcutter_Start" CreStamp="1720555971" ModStamp="1721158194" WorldPos="72.5 -1.04906 -46.5" Rotation="0 0 0" Scale="0.7 1.9 0.7" Active="true" Mesh="" UID="16 3686 268443820" AreaType="PlayerStart">
-                <UserVariables>
-                    <Var ObjectId="268443820" Name="Note" Value="" />
-                    <Var ObjectId="268443820" Name="Crouching" Value="false" />
-                </UserVariables>
-            </Area>
-            <Area ID="268443917" Name="StartTestMusicRoom" CreStamp="1721158219" ModStamp="1721158256" WorldPos="77.2983 -1.03014 -70.5188" Rotation="0 0 0" Scale="0.7 1.9 0.7" Active="true" Mesh="" UID="16 2204 268443917" AreaType="PlayerStart">
+            <Area ID="268443917" Name="Start_TestMusicRoom" CreStamp="1721158219" ModStamp="1723155539" WorldPos="77.2983 -1.03014 -70.5188" Rotation="0 0 0" Scale="0.7 1.9 0.7" Active="true" Mesh="" UID="16 2204 268443917" AreaType="PlayerStart">
                 <UserVariables>
                     <Var ObjectId="268443917" Name="Note" Value="" />
                     <Var ObjectId="268443917" Name="Crouching" Value="false" />
                 </UserVariables>
             </Area>
-            <Area ID="268443918" Name="StartBottleRoom" CreStamp="1721158270" ModStamp="1721158299" WorldPos="71.764 -1.04441 -37.2916" Rotation="0 0 0" Scale="0.7 1.9 0.7" Active="true" Mesh="" UID="16 1989 268443918" AreaType="PlayerStart">
+            <Area ID="268443918" Name="Start_BottleRoom" CreStamp="1721158270" ModStamp="1723155526" WorldPos="71.764 -1.04441 -37.2916" Rotation="0 0 0" Scale="0.7 1.9 0.7" Active="true" Mesh="" UID="16 1989 268443918" AreaType="PlayerStart">
                 <UserVariables>
                     <Var ObjectId="268443918" Name="Note" Value="" />
                     <Var ObjectId="268443918" Name="Crouching" Value="false" />
                 </UserVariables>
             </Area>
-            <Area ID="268443919" Name="StartRoomTwoCorridor" CreStamp="1721158317" ModStamp="1721158357" WorldPos="50.6614 -1.03253 -50.1664" Rotation="0 0 0" Scale="0.7 1.9 0.7" Active="true" Mesh="" UID="16 1963 268443919" AreaType="PlayerStart">
+            <Area ID="268443919" Name="Start_RoomTwoCorridor" CreStamp="1721158317" ModStamp="1723155534" WorldPos="50.6614 -1.03253 -50.1664" Rotation="0 0 0" Scale="0.7 1.9 0.7" Active="true" Mesh="" UID="16 1963 268443919" AreaType="PlayerStart">
                 <UserVariables>
                     <Var ObjectId="268443919" Name="Note" Value="" />
                     <Var ObjectId="268443919" Name="Crouching" Value="false" />
                 </UserVariables>
             </Area>
-            <Area ID="268444067" Name="Trigger_1" CreStamp="1722703692" ModStamp="1722703883" WorldPos="1.5 1.75 -62" Rotation="0 1.5708 0" Scale="4 4.5 0.5" Active="true" Mesh="" UID="16 6915 268444067" AreaType="Trigger">
+            <Area ID="268444067" Name="Trigger_1" CreStamp="1722703692" ModStamp="1723157412" WorldPos="6.75 0.25 -62" Rotation="0 1.5708 0" Scale="4 4.5 0.5" Active="true" Mesh="" UID="16 6915 268444067" AreaType="Trigger">
                 <UserVariables>
                     <Var ObjectId="268444067" Name="Note" Value="" />
                     <Var ObjectId="268444067" Name="BlocksLineOfSight" Value="false" />
@@ -268,6 +262,299 @@
                     <Var ObjectId="301990234" Name="Note" Value="" />
                     <Var ObjectId="301990234" Name="Crouching" Value="false" />
                 </UserVariables>
+            </Area>
+            <Area ID="301990313" Name="Trigger_StalkerFirst" CreStamp="1723152874" ModStamp="1723152998" WorldPos="55.25 1 -60.75" Rotation="0 0 0" Scale="0.25 5.5 31.75" Active="true" Mesh="" UID="18 9054 301990313" AreaType="Trigger">
+                <UserVariables>
+                    <Var ObjectId="301990313" Name="Note" Value="" />
+                    <Var ObjectId="301990313" Name="BlocksLineOfSight" Value="false" />
+                    <Var ObjectId="301990313" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="301990313" Name="UserVar" Value="" />
+                    <Var ObjectId="301990313" Name="Static" Value="false" />
+                    <Var ObjectId="301990313" Name="QuickSave" Value="false" />
+                    <Var ObjectId="301990313" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="301990313" Name="CC_Entities" Value="player" />
+                    <Var ObjectId="301990313" Name="CC_Funcs" Value="OnCollide_StalkerFirst_Maze" />
+                    <Var ObjectId="301990313" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="301990313" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="301990313" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="301990313" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="301990313" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="301990313" Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                    <Var ObjectId="301990313" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="301990313" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="301990313" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="301990313" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="301990313" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="301990313" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="301990313" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="301990313" Name="MaxFocusDistance" Value="-1" />
+                    <Var ObjectId="301990313" Name="CustomInteractIcon" Value="Default" />
+                </UserVariables>
+            </Area>
+            <Area ID="301990315" Name="Trigger_StalkerPeekaboo" CreStamp="1723157134" ModStamp="1723157201" WorldPos="31.4959 -0.756169 -60.705" Rotation="0 0 0" Scale="1.25 2.25 0.25" Active="true" Mesh="" UID="18 9069 301990315" AreaType="Trigger">
+                <UserVariables>
+                    <Var ObjectId="301990315" Name="Note" Value="" />
+                    <Var ObjectId="301990315" Name="BlocksLineOfSight" Value="false" />
+                    <Var ObjectId="301990315" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="301990315" Name="UserVar" Value="" />
+                    <Var ObjectId="301990315" Name="Static" Value="false" />
+                    <Var ObjectId="301990315" Name="QuickSave" Value="false" />
+                    <Var ObjectId="301990315" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="301990315" Name="CC_Entities" Value="player" />
+                    <Var ObjectId="301990315" Name="CC_Funcs" Value="OnTrigger_StalkerPeekaboo" />
+                    <Var ObjectId="301990315" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="301990315" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="301990315" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="301990315" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="301990315" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="301990315" Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                    <Var ObjectId="301990315" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="301990315" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="301990315" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="301990315" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="301990315" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="301990315" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="301990315" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="301990315" Name="MaxFocusDistance" Value="-1" />
+                    <Var ObjectId="301990315" Name="CustomInteractIcon" Value="Default" />
+                </UserVariables>
+            </Area>
+            <Area ID="301990316" Name="GhoulHole_1" CreStamp="1723157809" ModStamp="1723157818" WorldPos="35.25 -1 -70" Rotation="0 4.71239 0" Scale="1 2 1" Active="true" Mesh="" UID="18 9068 301990316" AreaType="GhoulHole">
+                <UserVariables />
+            </Area>
+            <Area ID="301990317" Name="GhoulHole_2" CreStamp="1723157835" ModStamp="1723159140" WorldPos="15.5 -1 -61.25" Rotation="-0 3.14159 -0" Scale="1 2 1" Active="true" Mesh="" UID="18 9067 301990317" AreaType="GhoulHole">
+                <UserVariables />
+            </Area>
+            <Area ID="301990318" Name="GhoulHole_10" CreStamp="1723158176" ModStamp="1723162882" WorldPos="52.75 -1 -76.25" Rotation="0 0 0" Scale="1 2 1" Active="true" Mesh="" UID="18 9066 301990318" AreaType="GhoulHole">
+                <UserVariables />
+            </Area>
+            <Area ID="301990319" Name="GhoulHole_4" CreStamp="1723158212" ModStamp="1723158220" WorldPos="70.75 -1 -76.25" Rotation="0 0 0" Scale="1 2 1" Active="true" Mesh="" UID="18 9065 301990319" AreaType="GhoulHole">
+                <UserVariables />
+            </Area>
+            <Area ID="301990320" Name="GhoulHole_Shotgun" CreStamp="1723158234" ModStamp="1723158237" WorldPos="70.75 -1 -76.25" Rotation="0 0 0" Scale="1 2 1" Active="true" Mesh="" UID="18 9064 301990320" AreaType="GhoulHole">
+                <UserVariables />
+            </Area>
+            <Area ID="301990322" Name="GhoulHole_5" CreStamp="1723158840" ModStamp="1723158849" WorldPos="79.5 -1 -54.75" Rotation="0 4.71239 0" Scale="1 2 1" Active="true" Mesh="" UID="18 9062 301990322" AreaType="GhoulHole">
+                <UserVariables />
+            </Area>
+            <Area ID="301990323" Name="GhoulHole_6" CreStamp="1723158862" ModStamp="1723158869" WorldPos="67.75 -1 -35.25" Rotation="-0 3.14159 -0" Scale="1 2 1" Active="true" Mesh="" UID="18 9061 301990323" AreaType="GhoulHole">
+                <UserVariables />
+            </Area>
+            <Area ID="301990324" Name="GhoulHole_7" CreStamp="1723158949" ModStamp="1723158965" WorldPos="54.25 1 -31" Rotation="0 1.5708 0" Scale="1 2 1" Active="true" Mesh="" UID="18 9060 301990324" AreaType="GhoulHole">
+                <UserVariables />
+            </Area>
+            <Area ID="301990325" Name="GhoulHole_8" CreStamp="1723158995" ModStamp="1723159001" WorldPos="56.75 -1 -45.25" Rotation="-0 3.14159 -0" Scale="1 2 1" Active="true" Mesh="" UID="18 9059 301990325" AreaType="GhoulHole">
+                <UserVariables />
+            </Area>
+            <Area ID="301990326" Name="GhoulHole_9" CreStamp="1723159079" ModStamp="1723159087" WorldPos="48 -1 -58.75" Rotation="0 1.5708 0" Scale="1 2 1" Active="true" Mesh="" UID="18 9058 301990326" AreaType="GhoulHole">
+                <UserVariables />
+            </Area>
+            <Area ID="301990327" Name="GhoulHole_3" CreStamp="1723159154" ModStamp="1723162877" WorldPos="36.5 -1 -56.5" Rotation="0 0 0" Scale="1 2 1" Active="true" Mesh="" UID="18 9057 301990327" AreaType="GhoulHole">
+                <UserVariables />
+            </Area>
+            <Area ID="301990337" Name="PathNode_1" CreStamp="1723159257" ModStamp="1723159257" WorldPos="15.5 -1.875 -61.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9050 301990337" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990338" Name="PathNode_2" CreStamp="1723159258" ModStamp="1723159258" WorldPos="15.75 -1.875 -62.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9040 301990338" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990341" Name="PathNode_3" CreStamp="1723159271" ModStamp="1723159372" WorldPos="17.25 -1.875 -63" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9031 301990341" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990342" Name="PathNode_4" CreStamp="1723159272" ModStamp="1723159272" WorldPos="19.25 -1.875 -63.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9046 301990342" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990343" Name="PathNode_5" CreStamp="1723159278" ModStamp="1723159278" WorldPos="20.5 -1.875 -63.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9044 301990343" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990344" Name="PathNode_6" CreStamp="1723159280" ModStamp="1723159361" WorldPos="22.25 -1.875 -63.25" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9042 301990344" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990345" Name="PathNode_7" CreStamp="1723159281" ModStamp="1723159281" WorldPos="23.75 -1.875 -62.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9034 301990345" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990346" Name="PathNode_8" CreStamp="1723159283" ModStamp="1723159283" WorldPos="25.75 -1.875 -62.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9021 301990346" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990347" Name="PathNode_9" CreStamp="1723159286" ModStamp="1723159286" WorldPos="27 -1.875 -62.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9052 301990347" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990348" Name="PathNode_10" CreStamp="1723159287" ModStamp="1723159287" WorldPos="28.5 -1.875 -62.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9022 301990348" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990349" Name="PathNode_11" CreStamp="1723159288" ModStamp="1723159288" WorldPos="29.75 -1.875 -62.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9049 301990349" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990351" Name="PathNode_12" CreStamp="1723159294" ModStamp="1723161640" WorldPos="31.5 -1.875 -62.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9036 301990351" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990352" Name="PathNode_13" CreStamp="1723159295" ModStamp="1723159295" WorldPos="30.5 -1.875 -62" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9020 301990352" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990353" Name="PathNode_14" CreStamp="1723159296" ModStamp="1723161383" WorldPos="31.5 -1.875 -61.25" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9016 301990353" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990354" Name="PathNode_15" CreStamp="1723159299" ModStamp="1723159299" WorldPos="32.5 -1.875 -63.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9038 301990354" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990355" Name="PathNode_16" CreStamp="1723159303" ModStamp="1723159303" WorldPos="34.25 -1.875 -63.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9045 301990355" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990356" Name="PathNode_17" CreStamp="1723159304" ModStamp="1723159304" WorldPos="33.25 -1.875 -64.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9037 301990356" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990357" Name="PathNode_18" CreStamp="1723159307" ModStamp="1723159307" WorldPos="33.25 -1.875 -66.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9032 301990357" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990358" Name="PathNode_19" CreStamp="1723159311" ModStamp="1723159311" WorldPos="24.375 -1.8125 -64.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9030 301990358" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990359" Name="PathNode_20" CreStamp="1723159311" ModStamp="1723159311" WorldPos="24.375 -1.8125 -64.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9029 301990359" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990360" Name="PathNode_21" CreStamp="1723159315" ModStamp="1723159315" WorldPos="33.25 -1.875 -68.25" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9023 301990360" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990361" Name="PathNode_22" CreStamp="1723159317" ModStamp="1723159317" WorldPos="33.25 -1.875 -69.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9043 301990361" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990362" Name="PathNode_23" CreStamp="1723159319" ModStamp="1723159319" WorldPos="34.5 -1.875 -70" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9019 301990362" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990363" Name="PathNode_24" CreStamp="1723159321" ModStamp="1723159321" WorldPos="31.5 -1.875 -69.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9048 301990363" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990364" Name="PathNode_25" CreStamp="1723159324" ModStamp="1723159410" WorldPos="29.75 -2.75 -69.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 8992 301990364" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990365" Name="PathNode_26" CreStamp="1723159325" ModStamp="1723159404" WorldPos="28.25 -3.25 -69.25" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9035 301990365" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990368" Name="PathNode_27" CreStamp="1723159335" ModStamp="1723159400" WorldPos="27 -3.25 -68.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9025 301990368" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990369" Name="PathNode_28" CreStamp="1723159336" ModStamp="1723159395" WorldPos="27 -2.75 -67.25" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9033 301990369" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990370" Name="PathNode_29" CreStamp="1723159337" ModStamp="1723161861" WorldPos="27 -2.25 -66" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9056 301990370" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990371" Name="PathNode_30" CreStamp="1723159338" ModStamp="1723161868" WorldPos="27 -1.875 -64.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 8985 301990371" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990372" Name="PathNode_31" CreStamp="1723159340" ModStamp="1723159340" WorldPos="21.25 -1.8125 -63.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9028 301990372" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990373" Name="PathNode_32" CreStamp="1723159340" ModStamp="1723159340" WorldPos="21.25 -1.8125 -63.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9017 301990373" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990374" Name="PathNode_33" CreStamp="1723159340" ModStamp="1723159340" WorldPos="21.25 -1.8125 -63.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9015 301990374" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990375" Name="PathNode_34" CreStamp="1723159342" ModStamp="1723159342" WorldPos="21.25 -1.8125 -63.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9027 301990375" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990376" Name="PathNode_35" CreStamp="1723159343" ModStamp="1723159408" WorldPos="25.5 -3.25 -69.25" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9026 301990376" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990377" Name="PathNode_36" CreStamp="1723159345" ModStamp="1723161843" WorldPos="24.25 -2.75 -69.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 8986 301990377" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990378" Name="PathNode_37" CreStamp="1723159346" ModStamp="1723161839" WorldPos="22.75 -1.875 -69.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9014 301990378" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990379" Name="PathNode_38" CreStamp="1723159348" ModStamp="1723159348" WorldPos="21.75 -1.875 -69.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9047 301990379" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990380" Name="PathNode_39" CreStamp="1723159350" ModStamp="1723159350" WorldPos="20.5 -1.875 -69.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9053 301990380" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990381" Name="PathNode_40" CreStamp="1723159352" ModStamp="1723159352" WorldPos="20.75 -1.875 -68" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9013 301990381" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990382" Name="PathNode_41" CreStamp="1723159353" ModStamp="1723159353" WorldPos="20.75 -1.875 -66.25" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9012 301990382" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990383" Name="PathNode_42" CreStamp="1723159355" ModStamp="1723159355" WorldPos="20.75 -1.875 -64.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9051 301990383" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990384" Name="PathNode_43" CreStamp="1723159355" ModStamp="1723159375" WorldPos="18.25 -1.8125 -63.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9011 301990384" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990389" Name="PathNode_44" CreStamp="1723159432" ModStamp="1723161379" WorldPos="31.5 -1.875 -60.25" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9001 301990389" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990390" Name="PathNode_45" CreStamp="1723159434" ModStamp="1723159434" WorldPos="31.25 -1.875 -58.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9010 301990390" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990391" Name="PathNode_46" CreStamp="1723159440" ModStamp="1723159440" WorldPos="31.5 -1.875 -56.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9005 301990391" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990392" Name="PathNode_47" CreStamp="1723159441" ModStamp="1723159441" WorldPos="31.5 -1.875 -55" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9009 301990392" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990394" Name="PathNode_48" CreStamp="1723159447" ModStamp="1723161431" WorldPos="33 -1.875 -55" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9003 301990394" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990395" Name="PathNode_49" CreStamp="1723159449" ModStamp="1723159449" WorldPos="34 -1.875 -54" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9000 301990395" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990396" Name="PathNode_50" CreStamp="1723159450" ModStamp="1723159450" WorldPos="34 -1.875 -55.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9008 301990396" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990397" Name="PathNode_51" CreStamp="1723159452" ModStamp="1723159452" WorldPos="35.25 -1.875 -55.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9002 301990397" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990398" Name="PathNode_52" CreStamp="1723159453" ModStamp="1723159453" WorldPos="35.25 -1.875 -54" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 8999 301990398" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990399" Name="PathNode_53" CreStamp="1723159454" ModStamp="1723161440" WorldPos="36.25 -1.875 -54.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9007 301990399" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990400" Name="PathNode_54" CreStamp="1723159456" ModStamp="1723161528" WorldPos="36.5 -1.875 -55.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 8998 301990400" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990401" Name="PathNode_55" CreStamp="1723159458" ModStamp="1723159458" WorldPos="37.25 -1.875 -55" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9006 301990401" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990402" Name="PathNode_56" CreStamp="1723159461" ModStamp="1723159461" WorldPos="37.25 -1.875 -54" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9004 301990402" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990404" Name="PathNode_58" CreStamp="1723159481" ModStamp="1723159485" WorldPos="38.75 -1.875 -55" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 8991 301990404" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990405" Name="PathNode_59" CreStamp="1723159481" ModStamp="1723159485" WorldPos="38.75 -1.875 -54" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 8995 301990405" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990406" Name="PathNode_60" CreStamp="1723159485" ModStamp="1723161554" WorldPos="40.5 -1.875 -55.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 8997 301990406" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990407" Name="PathNode_61" CreStamp="1723159485" ModStamp="1723159486" WorldPos="40.5 -1.875 -54" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 8996 301990407" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990408" Name="PathNode_62" CreStamp="1723159493" ModStamp="1723159495" WorldPos="41.75 -1.875 -54.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 8988 301990408" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990409" Name="PathNode_63" CreStamp="1723159496" ModStamp="1723159499" WorldPos="41.75 -1.875 -55.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 8990 301990409" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990410" Name="PathNode_64" CreStamp="1723159503" ModStamp="1723159505" WorldPos="44 -1.875 -55.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 8994 301990410" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990411" Name="PathNode_65" CreStamp="1723159505" ModStamp="1723159507" WorldPos="44 -1.875 -54.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 8993 301990411" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990412" Name="PathNode_66" CreStamp="1723159508" ModStamp="1723159510" WorldPos="46 -1.875 -54.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 8989 301990412" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990416" Name="PathNode_57" CreStamp="1723161828" ModStamp="1723161830" WorldPos="30.5 -2.25 -69.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9041 301990416" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990417" Name="PathNode_67" CreStamp="1723161843" ModStamp="1723161846" WorldPos="23.5 -2.25 -69.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9055 301990417" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="301990418" Name="PathNode_68" CreStamp="1723161868" ModStamp="1723161870" WorldPos="27 -1.875 -63.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="18 9018 301990418" AreaType="PathNode">
+                <UserVariables />
             </Area>
         </Objects>
     </Section>

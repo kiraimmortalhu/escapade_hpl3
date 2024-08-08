@@ -72,6 +72,8 @@ class cScrMap : iScrMap
 		Light_SetVisible("Light_Box_4", false); 
 		Lever_SetStuckState("PowerSwitch_1", -1, true);
 		
+		scaredByStalker = false;
+		
 		/////////////////////////
 		// Debug
 		if (cLux_ScriptDebugOn())
@@ -484,25 +486,132 @@ class cScrMap : iScrMap
 		// General
 		//{//////////////////////////////////////
 		 
-		//-------------------------------------------------------
-	 
-		/*Put any variables that are used by many events in Scene X here.*/
-	 
-		//-------------------------------------------------------
-	 
-		/*Put any functions that are used in more than one event in Scene X here.*/
-	 
-		//-------------------------------------------------------
+		/// Unlock door to generator with code
+		
+		void OnCombinationLock_Unlocked(const tString&in asEntityName)
+		{
+			cLux_AddDebugMessage("Door to generator unlocked with code");
+		}
 		
 		//} END General	
 	 
 		/////////////////////////////////////////
-		// Stalker Generator scare event
+		// Stalker scare events
 		//{//////////////////////////////////////
-
-		void OnCombinationLock_Unlocked(const tString&in asEntityName)
+		
+		bool scaredByStalker;		
+		
+		bool OnCollide_StalkerFirst_Maze(const tString &in asParent, const tString &in asChild, int alState)
 		{
-			cLux_AddDebugMessage("Door to generator unlocked with code");
+			if (alState == 1 && !scaredByStalker) {
+				Map_AddTimer("stalkerLightSequence", 2.0f, "Seq_StalkerLights");
+				scaredByStalker = true;
+				return false;
+			}
+			return true;
+		}
+		
+		cSequenceStatesData mSeq_StalkerLights;
+		
+		void Seq_StalkerLights(const tString &in asTimer){
+			Sequence_Begin("Seq_StalkerLights", mSeq_StalkerLights);
+		
+			if (Sequence_DoStepAndWait(3.0f)) {
+				FlickerLights();
+				cLux_AddDebugMessage("Stalker sequence part 1");
+			}
+			
+			if (Sequence_DoStepAndWait(1.0f)) {
+				//StopFlickerLights();
+				SwingDoor_SetClosed("wooden_door_1", true, true);
+				cLux_AddDebugMessage("Stalker sequence part 2");
+			}
+			
+			if (Sequence_DoStepAndWait(5.0f)) {
+				FlickerLights();
+				cLux_AddDebugMessage("Stalker sequence part 3");
+			}
+			
+			if (Sequence_DoStepAndWait(0.5f)) {
+				//StopFlickerLights();
+				cLux_AddDebugMessage("Stalker sequence part 4");
+			}
+			
+			if (Sequence_DoStepAndWait(5.0f)) {
+				FlickerLights();
+				StalkerRoars();
+				cLux_AddDebugMessage("Stalker sequence part 5");
+			}
+			
+			if (Sequence_DoStepAndContinue()) {
+				StopFlickerLights();
+				Entity_SetActive("stalker_1", true);
+				// to-do , maybe give stalker player position?
+				cLux_AddDebugMessage("Stalker sequence part end, stalker spawned");
+			}
+			
+			Sequence_End();
+		}
+		
+		void FlickerLights() {
+			int randLightNum;
+			for (int i = 1; i < 17; i++) {
+				randLightNum = cMath_RandRectl(0,1);
+				if (randLightNum == 0) {
+					Lamp_SetFlickerActive("Lamp_FakeBackup_"+i, true);
+				}
+			}
+		}
+		
+		void StopFlickerLights() {
+			Lamp_SetFlickerActive("Lamp_FakeBackup_*", false);
+			Lamp_SetLit("Lamp_FakeBackup_*", true, false);
+		}
+		
+		void StalkerRoars() {
+			Sound_PlayGui("creatures/stalker/spot", 0.8f);
+			Sound_PlayGui("creatures/stalker/whine", 1.0f);
+		}
+		
+		//// looking at the generator through the door
+		
+		void metal_door_window_1_OnPlayerInteract(const tString &in asEntity)
+		{
+			if (!scaredByStalker) {
+				StalkerPeekaboo();
+			}
+		}
+		
+		bool OnTrigger_StalkerPeekaboo(const tString &in asParent, const tString &in asChild, int alState)
+		{
+			if (!scaredByStalker) {
+				StalkerPeekaboo();
+			}
+			return false;
+		}
+		
+		void StalkerPeekaboo(){
+			scaredByStalker = true;
+			Entity_SetActive("stalker_1", true);
+			Map_GetEntity("stalker_1").SetPosition(cVector3f(31.25,-1.875,-62.75));
+			Agent_RevealPlayerPosition("stalker_1", false);
+			//Stalker_PlayCutsceneAtEntity("stalker_1", "");
+			
+			Map_AddTimer("stalkerAlertRoar", 1.0f, "OnTimer_StalkerAlertRoar");
+			Map_AddTimer("stalkerDeAggroChance", 12.0f, "OnTimer_StalkerDeAggroChance");
+		}
+		
+		void OnTimer_StalkerAlertRoar(const tString &in asTimer){
+			Sound_CreateAtEntity("stalkerspawns", "creatures/stalker/exit", "stalker_1");
+		}
+		
+		void OnTimer_StalkerDeAggroChance(const tString &in asTimer){
+			cLux_AddDebugMessage("Playerspeed: " + Player_GetSpeed());
+			if (Player_GetCrouching() || Player_GetSpeed() < 1.0f) {
+				Agent_ResetPlayerDetectionState("stalker_1");
+				int randStalkerHole = cMath_RandRectl(4,10);
+				Stalker_EmergeFromHole("stalker_1", "GhoulHole_" + randStalkerHole, false);
+			}
 		}
 	 
 	//} END SCENE X 
