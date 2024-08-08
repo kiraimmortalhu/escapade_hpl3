@@ -497,20 +497,13 @@ class cScrMap : iScrMap
 		//} END General	
 	 
 		/////////////////////////////////////////
-		// Event *Name Of Event*
+		// Stalker Generator scare event
 		//{//////////////////////////////////////
 
-		//-------------------------------------------------------
-
-		/*Put any variables that are only used in Scene X, Event X here.*/
-
-		//-------------------------------------------------------
-
-		/*Put any functions that are only used in Scene X, Event X here.*/
-
-		//-------------------------------------------------------
-
-		//} END Event *Name Of Event*
+		void OnCombinationLock_Unlocked(const tString&in asEntityName)
+		{
+			cLux_AddDebugMessage("Door to generator unlocked with code");
+		}
 	 
 	//} END SCENE X 
 }
