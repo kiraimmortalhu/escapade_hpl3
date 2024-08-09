@@ -16,6 +16,15 @@
 #include "helpers/helper_props_custom.hps"
 #include "helpers/helper_rotation.hps"
 
+
+#include "helpers/helper_modules.hps"
+#include "base/AchievementHandler_Types.hps"
+#include "base/RichPresenceHandler_Types.hps"
+#include "custom/modules/ModuleInterfaces_Custom.hps"
+#include "helpers/helper_components_custom.hps"
+#include "helpers/helper_modules_custom.hps"
+#include "helpers/helper_player_custom.hps"
+
 //--------------------------------------------------
  
 /*Place any global values here. These must be const variables as they will not be saved*/
@@ -32,7 +41,9 @@ class cScrMap : iScrMap
 	// MAIN CALLBACKS
 	// ==============
 	//{///////////////////////////////////////////////////////////////////////////////////////
- 
+    int gfCombinationTest = Randomizer_GetCode("GeneratorLock");
+    int gfDogtagCodeTest = Randomizer_GetCode("debugitem_dogtag_3397");
+    int gfAuclairTest = Randomizer_GetCode("Auclair");
 	//-------------------------------------------------------
  
 	////////////////////////////
@@ -71,7 +82,21 @@ class cScrMap : iScrMap
 	void OnStart()
 	{
 		// Any general setup of script / entities
-		
+		//cScript_SetGlobalArgInt(0, cMath_RandRectl(1000, 9999));
+        
+        //Set random combination in global variable to be used
+        cScript_SetGlobalVarInt("CombinationTest", cMath_RandRectl(0, 9999));
+        
+        //Set these in OnStart on the map containing either the combination or dogtag
+        Dogtag_SetCombination("debugitem_dogtag_3397", cScript_GetGlobalVarInt("CombinationTest"));
+        CombinationLock_SetCombination("GeneratorLock", cScript_GetGlobalVarInt("CombinationTest"));
+        
+        //Set these in OnStart in a map containing the fixed combination locker or dogtag
+        Dogtag_SetCombination("debugitem_dogtag_FIXEDCOMBINATION", 1234);
+        CombinationLock_SetCombination("GeneratorLock_FixedCombination", 1234);
+        
+        
+        
 		//Sound_FadeGlobalVolume(1,3);
 		// tweak this later so we don't hear door sounds and such on load
 		
@@ -85,7 +110,7 @@ class cScrMap : iScrMap
 			//StalkerActivationHandler();
 		}
 	}
-
+    
 	//-------------------------------------------------------
 
 	////////////////////////////
@@ -107,6 +132,16 @@ class cScrMap : iScrMap
         Lever_SetStuckState("PowerSwitch_2", -1, true);
         Lever_SetStuckState("PowerSwitch_3", -1, true);
         
+        
+        //Code test
+        cLux_AddDebugMessage("RANDOMIZER CODE: "+cScript_GetGlobalVarInt("CombinationTest"));
+        
+        /*
+        cScript_SetGlobalArgInt(0, cMath_RandRectl(0, 9999));
+        cLux_AddDebugMessage("TEST: "+cScript_GetGlobalArgInt(0));
+        Dogtag_SetCombination("debugitem_dogtag_3397", cScript_GetGlobalArgInt(0));
+        CombinationLock_SetCombination("GeneratorLock", cScript_GetGlobalArgInt(0));
+        */
 	}
 
 	//-------------------------------------------------------
@@ -189,6 +224,12 @@ class cScrMap : iScrMap
         cLux_AddDebugMessage("Generator Off");
                 
         Entity_SetActive("stalker_2", true);
+        
+    }
+    
+    void OnInteract_ChangeMapDebugTest(const tString &in asEntity)
+    {
+        Map_ChangeMap("escapade_underground.hpm", "Start_Test1", "", "");
         
     }
     
@@ -337,12 +378,12 @@ class cScrMap : iScrMap
         cLux_AddDebugMessage("ROTATION Y: "+ cMath_ToDeg(vGen.y));
         cLux_AddDebugMessage("ROTATION Z: "+ cMath_ToDeg(vGen.z));
         */
-        
+        /*////////
         cVector3f vGen = Entity_GetRotationEuler("Generator");
         cLux_AddDebugMessage("ROTATION X: "+ cMath_Abs(cMath_ToDeg(vGen.x)));
         cLux_AddDebugMessage("ROTATION Y: "+ cMath_ToDeg(vGen.y));
         cLux_AddDebugMessage("ROTATION Z: "+ cMath_Abs(cMath_ToDeg(vGen.z)));
-        
+        *////////
         /*
         cLux_AddDebugMessage("GENERATOR X: "+Map_GetEntity("Generator").GetMainBody().GetLocalPosition().x);
 		cLux_AddDebugMessage("GENERATOR Y: "+Map_GetEntity("Generator").GetMainBody().GetLocalPosition().y);
@@ -367,7 +408,7 @@ class cScrMap : iScrMap
         cLux_AddDebugMessage("PLAYER Z: "+Map_GetEntity("player").GetMainBody().GetWorldPosition().z);
         */
         
-        
+        /*//////
         float fAngle;
         //cVector3f vGen = Entity_GetRotationEuler("Generator");
         fAngle = vGen.y;
@@ -380,7 +421,18 @@ class cScrMap : iScrMap
         }
         
         cLux_AddDebugMessage("FINAL ANGLE: "+ cMath_ToDeg(fAngle));
-        
+        *////////
+        //cLux_AddDebugMessage("RANDOMIZER CODE: "+gfCombinationTest);
+        //cLux_AddDebugMessage("DOGTAG CODE: "+gfDogtagCodeTest);
+        //cLux_AddDebugMessage("AUCLAIR CODE: "+gfAuclairTest);
+        /*
+        cScript_SetGlobalArgInt(0, cMath_RandRectl(0, 9999));
+        cLux_AddDebugMessage("TEST: "+cScript_GetGlobalArgInt(0));
+        Dogtag_SetCombination("debugitem_dogtag_3397", cScript_GetGlobalArgInt(0));
+        CombinationLock_SetCombination("GeneratorLock", cScript_GetGlobalArgInt(0));
+         */
+        cLux_AddDebugMessage("TEST: "+cScript_GetGlobalVarInt("CombinationTest"));
+        //cLux_AddDebugMessage("TEST: "+cMath_RandRectl(1000, 9999));
         return true;
     }
     

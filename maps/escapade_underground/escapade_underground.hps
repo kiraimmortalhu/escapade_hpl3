@@ -72,9 +72,9 @@ class cScrMap : iScrMap
 		// Debug
 		if (cLux_ScriptDebugOn())
 		{
-		Entity_SetActive("debugitem_*", true);
-		Item_SetCurrentSlotsCount(15);
-		Item_AddToInventory("DynamoLantern");
+            Entity_SetActive("debugitem_*", true);
+            Item_SetCurrentSlotsCount(15);
+            Item_AddToInventory("DynamoLantern");
 		}
 	}
 
@@ -183,6 +183,10 @@ class cScrMap : iScrMap
         cLux_AddDebugMessage("HELD righto: " + Item_GetHeld(eItemHandlerHand_Right));
     }
     
+    void OnInteract_ChangeMapDebugTest(const tString &in asEntity)
+    {
+        Map_ChangeMap("escapade_test.hpm", "Start_Gennie", "", "");
+    }
     
     void OnLookAt_OrbActivation(const tString &in asEntity, int alState)
 	{
