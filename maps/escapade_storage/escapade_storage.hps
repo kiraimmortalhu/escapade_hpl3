@@ -104,6 +104,7 @@ class cScrMap : iScrMap
 		// to-do, make this based on gen state
 		
 		SetupGenerator();
+        Entity_StopAnimation("fuel_storage_tap_1");
 	}
 
 	//-------------------------------------------------------
@@ -482,7 +483,132 @@ class cScrMap : iScrMap
 			Lamp_SetLit("Lamp_PowerSwitch_1_*",false,true);
 		}
 	}
-	
+	/////////////////////////////////////////
+		// START Event: The player fills bottles with fuel
+		//{//////////////////////////////////////
+		
+		//-------------------------------------------------------
+		
+		tString msUsedBottleItemID = "";
+		tString msUsedBottleItemType = "";
+		
+		//-------------------------------------------------------
+			
+		void OnLookAt_ShowFuelTankHint(const tString &in asEntity, int alState)
+		{
+			Hint_StopHint();
+			Hint_ShowHint_Hold("Hints", "HintFuelTank", false, 1.5f);
+		}	
+		
+		//-------------------------------------------------------
+		
+		bool CanUse_EmptyBottle(const tString &in asItemType, const tString &in asItemID, const tString &in asPickedEntity)
+		{
+			return asPickedEntity == "Escapade_Trigger_FuelBottleFiller";
+		}
+		
+		//-------------------------------------------------------
+		
+		bool OnUse_EmptyBottle(const tString &in asItemType, const tString &in asItemID, const tString &in asTargetEntity, const tString &in asItemEntity, float afTimeElapsed, float afTimeStep)
+		{			
+			/////////////////
+			// Play anims
+			tString sPlayerAnim;
+			tString sTapAnim;
+			
+			bool bCrouching = Player_GetCrouching();
+			
+			if (bCrouching)
+			{
+				sPlayerAnim = "player_fuel_storage_refill_crouched";
+				sTapAnim = "faucet_fuel_storage_refill_crouched";
+			}
+			else
+			{
+				sPlayerAnim = "player_fuel_storage_refill_stand";
+				sTapAnim = "faucet_fuel_storage_refill_stand";
+			}
+			
+			cVector3f vPos(67.076f, -0.82f, -41.359f);
+			float fAngle = 0.f;
+			
+			PlayerBody_SetUnequipItemsOnCutscene(true, false);
+			PlayerBody_PlayCutsceneAnimation(sPlayerAnim, false, 0.3f, "OnAnimEnd_FillBottle", 1.f, 0.f, true, vPos, fAngle);
+			PlayerBody_SetArmAnimationPitch(true, true, false);
+			PlayerBody_SetArmAnimationYaw(false, true, true);
+			PlayerBody_SetCutsceneMaxPitch(0.f);
+			PlayerBody_SetCutsceneMaxYaw(0.f);
+			
+			Entity_PlayAnimation("FuelTap", sTapAnim, 0.3f, false);
+						
+			/////////////////
+			// Store item data
+			msUsedBottleItemID = asItemID;
+			msUsedBottleItemType = asItemType;
+			
+			/////////////////
+			// Update items timer
+			Map_AddTimer("Timer_UpdateFillBottleItems", bCrouching ? 2.4f : 2.8f, "OnTimer_UpdateFillBottleItems");
+			return false;
+		}	
+		
+		//-------------------------------------------------------
+		
+		void OnTimer_UpdateFillBottleItems(const tString &in asTimer)
+		{
+			///////////////////
+			// Remove from inventory
+			Item_RemoveFromInventory(msUsedBottleItemID, eInventoryInstance_Player, false, true);
+			
+			///////////////////
+			// Add to inventory
+			tString sItemTypeToAdd = "";
+			if (msUsedBottleItemType == "EmptyBottle")
+				sItemTypeToAdd = "FuelBottle";
+			else if (msUsedBottleItemType == "EmptyMolotovCocktail")
+				sItemTypeToAdd = "MolotovCocktail";
+				
+			Item_AddToInventory(sItemTypeToAdd, eInventoryInstance_Player, true);
+		}
+		
+		//-------------------------------------------------------
+		
+		void OnAnimEnd_FillBottle(const tString &in asAnim)
+		{
+			///////////////////
+			// Setup player
+			Player_SetCrouching(true, true, true);
+			
+			///////////////////
+			// Auto equip
+			bool bEquip = false;
+			if (ItemType_GetCountInInventory(msUsedBottleItemType) > 0)
+			{
+				bEquip = true;
+				Item_Equip(ItemType_GetFirstInInventory(msUsedBottleItemType));
+			}
+			else
+			{
+				tString sOtherType = msUsedBottleItemType == "EmptyBottle" ? "EmptyMolotovCocktail" : "EmptyBottle";
+				
+				if (ItemType_GetCountInInventory(sOtherType) > 0)
+				{
+					bEquip = true;
+					Item_Equip(ItemType_GetFirstInInventory(sOtherType));
+				}
+			}
+			
+			if (bEquip == false)
+			{
+				PlayerBody_SetArmAnimationPitch(false, true, true);
+				PlayerBody_SetArmAnimationYaw(false, true, true);
+			}
+		}		
+		
+		//-------------------------------------------------------
+		
+		//} END Event: The player fills bottles with fuel
+		
  
 	//} END MAIN FUNCTIONS
  
