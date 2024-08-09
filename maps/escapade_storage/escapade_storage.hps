@@ -100,6 +100,9 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
 		
+		Music_PlayExt("storehouse_darkness", true, 1.0f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+		// to-do, make this based on gen state
+		
 		SetupGenerator();
 	}
 
