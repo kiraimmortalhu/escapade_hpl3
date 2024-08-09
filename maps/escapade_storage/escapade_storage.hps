@@ -179,6 +179,13 @@ class cScrMap : iScrMap
 		Prop_SetStaticPhysics("door_" + asEntity, false);
 	}
 	
+	void chain_3_Callback(const tString &in asEntity)
+	{
+		Map_GetEntity("GhoulHole_Shotgun").SetPosition(cVector3f(76.75,-1,-76.25));
+		// to-do, make sure this works, debug position
+		chain_break_Callback(asEntity);
+	}
+	
 	////// Generator
 	
 	bool mbHasAddedFuel = true;
@@ -607,7 +614,7 @@ class cScrMap : iScrMap
 		
 		void OnTimer_StalkerDeAggroChance(const tString &in asTimer){
 			cLux_AddDebugMessage("Playerspeed: " + Player_GetSpeed());
-			if (Player_GetCrouching() || Player_GetSpeed() < 1.0f) {
+			if (Player_GetCrouching() || Player_GetSpeed() < 2.0f) {
 				Agent_ResetPlayerDetectionState("stalker_1");
 				int randStalkerHole = cMath_RandRectl(4,10);
 				Stalker_EmergeFromHole("stalker_1", "GhoulHole_" + randStalkerHole, false);
