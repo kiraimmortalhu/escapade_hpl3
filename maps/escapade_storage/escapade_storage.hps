@@ -20,7 +20,11 @@
  
 /*Place any global values here. These must be const variables as they will not be saved*/
 /*This is also the place for enums and classes, but these should be avoided whenever possible*/
- 
+    tID m_idFuelTap = tID_Invalid;
+    float mfFuelTapGlowCount = 0.f;
+    float mfFuelTapGlowMul = 0.f;
+    tString msUsedBottleItemID = "";
+    tString msUsedBottleItemType = "";
 //--------------------------------------------------
  
 class cScrMap : iScrMap
@@ -105,6 +109,9 @@ class cScrMap : iScrMap
 		
 		SetupGenerator();
         Entity_StopAnimation("fuel_storage_tap_1");
+        
+        iLuxEntity@ pFuelTap = Map_GetEntity("fuel_storage_tap_1", eLuxEntityType_Prop);
+		m_idFuelTap = pFuelTap !is null ? pFuelTap.GetID() : tID_Invalid;
 	}
 
 	//-------------------------------------------------------
@@ -489,8 +496,6 @@ class cScrMap : iScrMap
 		
 		//-------------------------------------------------------
 		
-		tString msUsedBottleItemID = "";
-		tString msUsedBottleItemType = "";
 		
 		//-------------------------------------------------------
 			
@@ -509,6 +514,58 @@ class cScrMap : iScrMap
 		
 		//-------------------------------------------------------
 		
+    void VariableUpdate(float afDeltaTime)
+	{
+		///////////////////
+		// Fuel tap highlight
+		cLuxProp@ pProp = cLux_ID_Prop(m_idFuelTap);
+		cMeshEntity@ pMeshEnt = pProp !is null ? pProp.GetMeshEntity() : null;
+		
+		if (pProp is null) return;
+		if (pMeshEnt is null) return;
+		
+		bool bGlow = true;
+		float fDistToPlayerSqr = (cLux_GetPlayer().GetCharacterBody().GetPosition() - pProp.GetPosition()).SqrLength();
+		
+		if (fDistToPlayerSqr > 4.f * 4.f)
+			bGlow = false;
+		if (cLux_GetPlayer().GetCurrentStateId() == ePlayerState_CutsceneAnimation)
+			bGlow = false;
+		
+		float fGlowMulGoal = bGlow ? 1.f : 0.f;
+		mfFuelTapGlowMul = cMath_IncreaseTo(mfFuelTapGlowMul, afDeltaTime * 2.f, fGlowMulGoal);
+		
+		if (mfFuelTapGlowMul <= 0.f)
+		{
+			mfFuelTapGlowCount = 0.f;
+		}
+		else
+		{
+			mfFuelTapGlowCount += afDeltaTime;
+			if (mfFuelTapGlowCount >= 4.f)
+				mfFuelTapGlowCount = 0.f;
+		}		
+		
+		float fY = cMath_Min(mfFuelTapGlowCount, 1.f);
+		float fGlow = 1.f - cMath_Abs(2.f * fY - 1.f);
+		fGlow = cMath_Easing(eEasing_QuadInOut, fGlow) * mfFuelTapGlowMul;
+		fY = cMath_Easing(eEasing_SineInOut, fY);
+		
+		float fColorMul = 3.f;
+		cColor color = cColor(0.35f * fColorMul, 0.15f * fColorMul, 0.f, fGlow);
+		
+		if (fGlow > 0.f)
+		{
+			for (int i = 0; i < pMeshEnt.GetSubMeshEntityNum(); ++i)
+			{
+				cSubMeshEntity@ pSubMesh = pMeshEnt.GetSubMeshEntity(i);
+				if (pSubMesh is null) continue;
+				
+				cLux_GetEffectHandler().AddGlowObject(pSubMesh, color, fY);
+			}
+		}
+	}
+        
 		bool OnUse_EmptyBottle(const tString &in asItemType, const tString &in asItemID, const tString &in asTargetEntity, const tString &in asItemEntity, float afTimeElapsed, float afTimeStep)
 		{			
 			/////////////////
@@ -529,7 +586,7 @@ class cScrMap : iScrMap
 				sTapAnim = "faucet_fuel_storage_refill_stand";
 			}
 			
-			cVector3f vPos(67.076f, -2.158f, -39.200f);
+			cVector3f vPos(Map_GetEntity("fuel_storage_tap_align_1").GetPosition().x, Map_GetEntity("fuel_storage_tap_align_1").GetPosition().y, Map_GetEntity("fuel_storage_tap_align_1").GetPosition().z);
 			float fAngle = 0.f;
 			
 			PlayerBody_SetUnequipItemsOnCutscene(true, false);
@@ -539,7 +596,7 @@ class cScrMap : iScrMap
 			PlayerBody_SetCutsceneMaxPitch(0.f);
 			PlayerBody_SetCutsceneMaxYaw(0.f);
 			
-			Entity_PlayAnimation("FuelTap", sTapAnim, 0.3f, false);
+			Entity_PlayAnimation("fuel_storage_tap_1", sTapAnim, 0.3f, false);
 						
 			/////////////////
 			// Store item data

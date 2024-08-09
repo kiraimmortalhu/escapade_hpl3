@@ -70,7 +70,7 @@ class cScrMap : iScrMap
 		// Any general setup of script / entities
 		
 		PlayerBody_SetActive(true);
-		
+		PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		/////////////////////////
 		// Debug
 		if (cLux_ScriptDebugOn())
@@ -87,12 +87,13 @@ class cScrMap : iScrMap
 	{	
         if (PlayerBody_IsActive() == false)
 		{
-			PlayerBody_SetActive(true);
-			PlayerBody_SetModel("player_rebirth_ghoul.ent");
-		}
+            PlayerBody_SetActive(true);
+            PlayerBody_SetModel("player_rebirth_ghoul.ent");
+        }
 		Game_AutoSave();
+        
     }
-
+    
 	//-------------------------------------------------------
 
 	////////////////////////////

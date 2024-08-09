@@ -1537,7 +1537,8 @@ class cScrPlayerBodyHandler : iScrUserModule, iScrUserModule_Interface, iScrPlay
 
 		if(abX == true && msBodyModel == "")
 		{
-			SetBodyModel("player_bunker.ent"); // Add this to a config or something!
+			//DoctorD edit: changed player_bunker.ent to Tasi's player_rebirth_ghoul.ent
+			SetBodyModel("player_rebirth_ghoul.ent"); // Add this to a config or something!
 		}
 
 		CreateBodyModelIfNeeded(cLux_GetCurrentMap());
@@ -1569,7 +1570,8 @@ class cScrPlayerBodyHandler : iScrUserModule, iScrUserModule_Interface, iScrPlay
 		}
 		
 		tString sBodyEnt = GetEntityName();
-		Entity_SetEffectsActive(sBodyEnt,false,false);
+		//DoctorD edit: changed effects to true. This was causing her colored veins to not show before.
+		Entity_SetEffectsActive(sBodyEnt,true,true);
 	}
 	
 	//------------------------------------------------------------
