@@ -85,8 +85,13 @@ class cScrMap : iScrMap
 	// Run when entering map
 	void OnEnter()
 	{	
+        if (PlayerBody_IsActive() == false)
+		{
+			PlayerBody_SetActive(true);
+			PlayerBody_SetModel("player_rebirth_ghoul.ent");
+		}
 		Game_AutoSave();
-	}
+    }
 
 	//-------------------------------------------------------
 
