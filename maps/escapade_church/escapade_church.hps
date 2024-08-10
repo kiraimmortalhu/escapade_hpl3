@@ -120,6 +120,56 @@ class cScrMap : iScrMap
 		{
 		}
 	}
+	//-------------------------------------------------------
+    	void OnLookAt_SaveLamp(const tString &in asEntity, int alState)
+	{
+		tString sHint = GameDifficulty_GetSaveHint();
+		if(alState == 1)
+		{
+			if (Hint_GetCurrentEntry() != sHint)
+			{
+				Hint_StopHint();
+				if (GameDifficulty_GetSettingValueByID_Int(eGameDifficultySetting_SaveSystem) == eDifficultySettingValue_SaveSystem_SavingCostsFuel)
+					Hint_RemoveFromGiven("Hints", sHint);
+				Hint_ShowHint_Hold("Hints", sHint, true, 1.5f, true, 15.f, true, true);
+			}
+		}
+		else
+		{
+			if (Hint_GetCurrentEntry() == sHint)
+				Hint_StopHint();
+		}
+	}
+	
+	void OnInteract_SaveLamp(const tString &in asEntity)
+	{
+		////////////////
+		// About to get lit!
+		if (Lamp_GetLit(asEntity) == false)
+			SaveGameProgress();
+		else
+			Map_AddTimer(asEntity, 1.f, "OnTimer_SaveGameProgress");
+	}
+	
+	void OnTimer_SaveGameProgress(const tString&in asTimer)
+	{
+		Lamp_SetLit(asTimer, true, true);
+		SaveGameProgress();
+	}
+	
+	void SaveGameProgress()
+	{
+		/////////////////
+		// Save game
+		SaveRoom_SaveGame(true, true);
+		
+		////////////////
+		// Hints
+		if (Hint_GetCurrentEntry() == GameDifficulty_GetSaveHint())
+			Hint_StopHint();
+		
+		GameStats_IncreaseEntryAmount(eHeroStats_TimesSaved);
+	}
 
 	//-------------------------------------------------------
 
