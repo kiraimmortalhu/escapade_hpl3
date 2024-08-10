@@ -1,0 +1,118 @@
+#include "helpers/helper_map.hps"
+#include "helpers/helper_audio.hps"
+
+///////////////////////////
+
+//-------------------------------------------------
+//////////////////////////////////////
+// STALKER RELEVANT FUNCTIONS
+//////////////////////////////////////
+
+tString stalkerName = "";           //Store the stalker's name in this variable for later usage.
+
+/**
+ * Starts a timer that keeps checking each given seconds if the stalker is not aggroed anymore. Thought for just 1 stalker in the map.
+ * If called again while this timer is running, it only updates the music name and the time. 
+ * Use function Music_Stalker_StopDeaggroSongChecks() to stop it.
+ * Music name is stored in a global variable string called "music_to_play".
+ * Timer name is "music_deaggro_check".
+ * 
+ * @param stalkerName, the map's stalker entity name in the level editor.
+ * @param songName, the name of the music that should start.
+ * @param afTime, the time it should take as minimum for the song to start after the stalker loses the player.
+ **/
+void Music_Stalker_AddDeaggroSongTime(const tString &in asStalkerName, const tString &in songName, const float &in afTime){
+    stalkerName = asStalkerName;
+    cScript_SetGlobalVarString("music_to_play", songName);
+    cScript_SetGlobalVarFloat("music_deaggro_time", afTime);
+    
+    if(!Map_TimerExists("music_deaggro_check")){
+        Map_AddTimer("music_deaggro_check", cScript_GetGlobalVarFloat("music_deaggro_time"), "$_OnTimer_StalkerDeaggroCheck");
+    }
+}
+
+//-------------------------------------------------
+
+/**
+ * @brief Removes the timer added by Music_Stalker_AddDeaggroSongTime(). 
+ * Probably should always run in OnLeave if stalker does not get transferred.
+ */
+void Music_Stalker_StopDeaggroSongChecks(){
+    Map_RemoveTimer("music_deaggro_check");
+}
+
+
+///**
+// * @brief Modifies the time an already existing timer takes to complete.
+ //*/
+//void Music_Stalker_SetDeaggroTime(const float &in afTime){
+//    cScript_SetGlobalVarFloat("music_deaggro_time", afTime);
+//}
+
+
+/**
+ * @brief Part of function Music_Stalker_AddDeaggroSongTime. Use it instead.
+ * @param in asTimer, name of timer: "music_deaggro_check"
+ */
+void _OnTimer_StalkerDeaggroCheck(const tString &in asTimer){
+        //cLux_AddDebugMessage("Checking. Stalker mode: "+ Stalker_GetMode("stalker_test"), true);
+        //cLux_AddDebugMessage("Checking. Stalker presence: "+ Stalker_GetPresence("stalker_test"));
+        //cLux_AddDebugMessage("Checking. Stalker HUNTING: "+ Terror_GetPlayerIsBeingHunted(), true);
+        cLux_AddDebugMessage("Checking. Stalker STATE: "+ StateMachine_GetCurrentStateName(stalkerName), true);
+        
+        //Get if stalker is in any of these states.
+        bool mbStalkerAlerted = 
+            StateMachine_GetCurrentStateName("stalker_test") == "Hunt" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "PostHunt" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "Alert" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "AttackClose" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "Rage" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "Roar" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "ThrowPlayer" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "KillPlayer";
+            
+            
+        if(mbStalkerAlerted){
+            Terror_SetEnemyMusicActive(true);
+            
+            Map_RemoveTimer("deaggro");
+        } else{
+            if(!Map_TimerExists("deaggro")){
+                cLux_AddDebugMessage("TIMER ADDED");
+                Map_AddTimer("deaggro", 5.0f, "$_OnTimer_StalkerDeaggroProc");
+            }
+        }
+        
+        
+        Map_RestartCurrentTimer(cScript_GetGlobalVarFloat("music_deaggro_time"));
+        
+    }
+
+//-------------------------------------------------
+
+/**
+ * @brief Part of function Music_Stalker_AddDeaggroSongTime. Use it instead.
+ * @param in asTimer, name of timer: "deaggro"
+ */
+void _OnTimer_StalkerDeaggroProc(const tString &in asTimer){
+    //Actions to execute when he's aggroed for a time
+    bool mbStalkerAlerted = 
+            StateMachine_GetCurrentStateName("stalker_test") == "Hunt" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "PostHunt" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "Alert" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "AttackClose" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "Rage" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "Roar" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "ThrowPlayer" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "KillPlayer";
+        
+    cLux_AddDebugMessage("STALKER DEAGGRO CALLED. VALUE: "+ mbStalkerAlerted);
+    if(!Music_IsSongPlaying(cScript_GetGlobalVarString("music_to_play")) && !Terror_GetPlayerIsBeingHunted()){
+        cLux_AddDebugMessage("SONG CHANGE");
+        Terror_SetEnemyMusicActive(false);
+        
+        Music_PlayExt(cScript_GetGlobalVarString("music_to_play"), true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_BgAmb, true);
+    }
+}
+
+//-------------------------------------------------

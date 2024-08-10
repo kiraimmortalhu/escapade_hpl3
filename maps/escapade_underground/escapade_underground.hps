@@ -19,6 +19,9 @@
 #include "custom/modules/EnvironmentalDamageHandler.hps"
 #include "helpers/helper_effects.hps"
 
+//Unique escapade includes:
+#include "escapade_custom/helpers/helper_music_control.hps"
+
 //--------------------------------------------------
  
 /*Place any global values here. These must be const variables as they will not be saved*/
@@ -108,7 +111,7 @@ class cScrMap : iScrMap
 		Player_SetIgnoreGasDamage(false); 
         cLux_AddDebugMessage("CURRENT IGNORE GAS DAMAGE: "+Player_GetIgnoreGasDamage()); 
         //Music_Play("Bunker_Arsenal.ogg", 1.0f, eMusicPrio_BgAmb);
-		Music_PlayExt("underground_wip_loop", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+		Music_PlayExt("subterranean_transition", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
         
         //Collide callbacks
         Entity_AddCollideCallback("Death_Pit_*", "Player", "DeathFall");
@@ -117,7 +120,7 @@ class cScrMap : iScrMap
         
         //Debug
         //Map_AddTimer("checkc", 0.0f, "DebugCheck");
-        Map_AddTimer("checkc", 0.0f, "OrbTimerTests");
+        //Map_AddTimer("checkc", 0.0f, "OrbTimerTests");
         //
      }
 
@@ -382,10 +385,12 @@ class cScrMap : iScrMap
         cLux_AddDebugMessage("AREA Y: " + Entity_GetPosition("Trigger_Leave_ThreatCorridors_GasChamber").y, true);
         cLux_AddDebugMessage("AREA Z: " + Entity_GetPosition("Trigger_Leave_ThreatCorridors_GasChamber").z, true);
         */
-        
+        //int alAlertState = cScript_GetGlobalVarInt("Stalker_AlertState");
+        //cLux_AddDebugMessage("Checking. Stalker ALERT STATE: "+ alAlertState, true);
         Map_RestartCurrentTimer(0.1f);
+        
     }
-    
+    /*
     void DeaggroCheck(const tString &in asTimer){
         //cLux_AddDebugMessage("Checking. Stalker mode: "+ Stalker_GetMode("stalker_test"), true);
         //cLux_AddDebugMessage("Checking. Stalker presence: "+ Stalker_GetPresence("stalker_test"));
@@ -412,14 +417,14 @@ class cScrMap : iScrMap
     void Stalker_Deaggro(const tString &in asTimer){
         //Actions to execute when he's aggroed for a time
         cLux_AddDebugMessage("STALKER DEAGGRO");
-        if(!Music_IsSongPlaying("underground_wip_loop")){
+        if(!Music_IsSongPlaying("subterranean_transition")){
             cLux_AddDebugMessage("SONG CHANGE");
             Terror_SetEnemyMusicActive(false);
             
-            Music_PlayExt("underground_wip_loop", true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_BgAmb, true);
+            Music_PlayExt("subterranean_transition", true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_BgAmb, true);
         }
     }
-    
+    */
 	bool ThreatCorridors_Enable(const tString &in asParent, const tString &in asChild, int alState)
 	{
 		if (alState == 1) {
@@ -441,7 +446,8 @@ class cScrMap : iScrMap
 	void DebugStalkerThreatEnable() {
 		Entity_SetActive("stalker_test", true);
         //Map_AddTimer("deaggro", 10.0f, "Stalker_Deaggro");
-        Map_AddTimer("deaggrocheck", 0.0f, "DeaggroCheck");
+        //Map_AddTimer("deaggrocheck", 0.0f, "DeaggroCheck");
+        Music_Stalker_AddDeaggroSongTime("stalker_test", "subterranean_transition", 10.0f);
         Stalker_SetEmergeAllowed("stalker_test", true);
         //Terror_SetEnemyMusicStage(eTerrorMusicAgentType_Stalker, eTerrorMusicStage_Searching);
 		cLux_AddDebugMessage("Stalker is now ENABLED");
@@ -449,16 +455,18 @@ class cScrMap : iScrMap
 	
 	void DebugStalkerThreatDisable() {
 		//Entity_SetActive("stalker_test", false);
-        Map_RemoveTimer("deaggrocheck");
-        Map_RemoveTimer("deaggro");
+        //Map_RemoveTimer("deaggrocheck");
+        //Map_RemoveTimer("deaggro");
+        
+        Music_Stalker_StopDeaggroSongChecks();
         
         Terror_SetEnemyMusicActive(false);
         Stalker_Retreat("stalker_test");
         //Terror_RemoveEnemy(Map_GetEntityID("stalker_test"));
         //Terror_RemoveHuntingEnemy(Map_GetEntityID("stalker_test"));
         Stalker_SetEmergeAllowed("stalker_test", false);
-        if(!Music_IsSongPlaying("underground_wip_loop")){
-            Music_PlayExt("underground_wip_loop", true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_BgAmb, true);
+        if(!Music_IsSongPlaying("subterranean_transition")){
+            Music_PlayExt("subterranean_transition", true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_BgAmb, true);
         }
 		cLux_AddDebugMessage("Stalker is now DISABLED");
 	}
