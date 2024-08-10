@@ -20,11 +20,7 @@
  
 /*Place any global values here. These must be const variables as they will not be saved*/
 /*This is also the place for enums and classes, but these should be avoided whenever possible*/
-    tID m_idFuelTap = tID_Invalid;
-    float mfFuelTapGlowCount = 0.f;
-    float mfFuelTapGlowMul = 0.f;
-    tString msUsedBottleItemID = "";
-    tString msUsedBottleItemType = "";
+
 //--------------------------------------------------
  
 class cScrMap : iScrMap
@@ -77,6 +73,7 @@ class cScrMap : iScrMap
 		Lever_SetStuckState("PowerSwitch_1", -1, true);
 		
 		scaredByStalker = false;
+		firstEnterFromChurch = false;
 		
 		/////////////////////////
 		// Debug
@@ -104,14 +101,11 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
 		
-		Music_PlayExt("storehouse_darkness", true, 1.0f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
-		// to-do, make this based on gen state
-		
 		SetupGenerator();
-        Entity_StopAnimation("fuel_storage_tap_1");
-        
-        iLuxEntity@ pFuelTap = Map_GetEntity("fuel_storage_tap_1", eLuxEntityType_Prop);
-		m_idFuelTap = pFuelTap !is null ? pFuelTap.GetID() : tID_Invalid;
+		
+        SetupFuelTapStorage();
+		
+		SetupMusicAmbienceBasedOnGen();
 	}
 
 	//-------------------------------------------------------
@@ -185,6 +179,8 @@ class cScrMap : iScrMap
 	// ==============
 	//{///////////////////////////////////////////////////////////////////////////////////////
  
+	///// Simpler stuff
+ 
 	void chain_break_Callback(const tString &in asEntity)
 	{
 		Prop_SetStaticPhysics("door_" + asEntity, false);
@@ -197,6 +193,15 @@ class cScrMap : iScrMap
 		chain_break_Callback(asEntity);
 	}
 	
+	void SetupMusicAmbienceBasedOnGen() {
+		if (Generator_GetFuelTimeLeft() <= 0) {
+			Music_PlayExt("storehouse_darkness", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+		} else {
+			Music_PlayExt("storehouse_genison_alt", true, 0.7f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+		}
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
 	////// Generator
 	
 	bool mbHasAddedFuel = true;
@@ -204,8 +209,9 @@ class cScrMap : iScrMap
 	tString msUsedFuelItemType = "";
 	
 	void OnStateChange_Generator(int alState) {		
-		// Generator Sounds
+		SetupMusicAmbienceBasedOnGen();
 		Lever_SetStuckState("PowerSwitch_1", -1, true);
+		
 		if (alState!=1) {
 			Map_SetFogActive(false);
 			Map_SetSecondaryFogActive(true);
@@ -490,12 +496,22 @@ class cScrMap : iScrMap
 			Lamp_SetLit("Lamp_PowerSwitch_1_*",false,true);
 		}
 	}
-	/////////////////////////////////////////
-		// START Event: The player fills bottles with fuel
-		//{//////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////
+	////////////// FUEL BOTTLE TAP
+
+	tID m_idFuelTap = tID_Invalid;
+    float mfFuelTapGlowCount = 0.f;
+    float mfFuelTapGlowMul = 0.f;
+    tString msUsedBottleItemID = "";
+    tString msUsedBottleItemType = "";
 		
 		//-------------------------------------------------------
 		
+		void SetupFuelTapStorage() {
+			Entity_StopAnimation("fuel_storage_tap_1");
+			iLuxEntity@ pFuelTap = Map_GetEntity("fuel_storage_tap_1", eLuxEntityType_Prop);
+			m_idFuelTap = pFuelTap !is null ? pFuelTap.GetID() : tID_Invalid;
+		}
 		
 		//-------------------------------------------------------
 			
@@ -686,21 +702,67 @@ class cScrMap : iScrMap
 			cLux_AddDebugMessage("Door to generator unlocked with code");
 		}
 		
+		void DeaggroCheck(const tString &in asTimer){
+        //cLux_AddDebugMessage("Checking. Stalker mode: "+ Stalker_GetMode("stalker_test"), true);
+        //cLux_AddDebugMessage("Checking. Stalker presence: "+ Stalker_GetPresence("stalker_test"));
+        //cLux_AddDebugMessage("Checking. Stalker HUNTING: "+ Terror_GetPlayerIsBeingHunted(), true);
+        cLux_AddDebugMessage("Checking. Stalker STATE: "+ StateMachine_GetCurrentStateName("stalker_test"), true);
+        
+        if(StateMachine_GetCurrentStateName("stalker_test") == "Alert"){
+            Terror_SetEnemyMusicActive(true);
+            
+            cLux_AddDebugMessage("TIMER RESTARTED");
+            Map_RemoveTimer("deaggro");
+        } else{
+            if(!Map_TimerExists("deaggro") && (StateMachine_GetCurrentStateName("stalker_test") == "Retreat" || StateMachine_GetCurrentStateName("stalker_test") == "Stalk")){
+                cLux_AddDebugMessage("TIMER ADDED");
+                Map_AddTimer("deaggro", 10.0f, "Stalker_Deaggro");
+            }
+        }
+        //Map_GetEntity("stalker_test").
+        
+        Map_RestartCurrentTimer(0.1f);
+        
+		}
+		
+		void Stalker_Deaggro(const tString &in asTimer){
+        //Actions to execute when he's aggroed for a time
+        cLux_AddDebugMessage("STALKER DEAGGRO");
+        if(!Music_IsSongPlaying("underground_wip_loop")){
+            cLux_AddDebugMessage("SONG CHANGE");
+            Terror_SetEnemyMusicActive(false);
+            
+            Music_PlayExt("underground_wip_loop", true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_BgAmb, true);
+        }
+    }
+		
 		//} END General	
 	 
 		/////////////////////////////////////////
 		// Stalker scare events
 		//{//////////////////////////////////////
 		
-		bool scaredByStalker;		
+		bool scaredByStalker;
+		bool firstEnterFromChurch;
+		
+		bool OnTrigger_DisableStalkerScare(const tString &in asParent, const tString &in asChild, int alState)
+		{
+			if (alState == 1) {
+				firstEnterFromChurch = true;
+				return false;
+			}
+			return true;
+		}
 		
 		bool OnCollide_StalkerFirst_Maze(const tString &in asParent, const tString &in asChild, int alState)
 		{
-			if (alState == 1 && !scaredByStalker) {
-				Map_AddTimer("stalkerLightSequence", 2.0f, "Seq_StalkerLights");
-				scaredByStalker = true;
+			if (alState == 1) {
+				if (!scaredByStalker) {
+					Map_AddTimer("stalkerLightSequence", 2.0f, "Seq_StalkerLights");
+					scaredByStalker = true;
+				}
 				return false;
-			}
+			} else
 			return true;
 		}
 		
@@ -770,17 +832,24 @@ class cScrMap : iScrMap
 		
 		void metal_door_window_1_OnPlayerInteract(const tString &in asEntity)
 		{
-			if (!scaredByStalker) {
-				StalkerPeekaboo();
-			}
+			DecideStalkerPeakaboo();
 		}
 		
 		bool OnTrigger_StalkerPeekaboo(const tString &in asParent, const tString &in asChild, int alState)
 		{
-			if (!scaredByStalker) {
+			if (alState == 1) {
+				DecideStalkerPeakaboo();
+				return false;
+			}
+			return true;
+		}
+		
+		void DecideStalkerPeakaboo() {
+			if (scaredByStalker || firstEnterFromChurch) {
+				cLux_AddDebugMessage("Peakaboo cannot happen due to past events");
+			} else {
 				StalkerPeekaboo();
 			}
-			return false;
 		}
 		
 		void StalkerPeekaboo(){
@@ -789,23 +858,23 @@ class cScrMap : iScrMap
 			Map_GetEntity("stalker_1").SetPosition(cVector3f(31.25,-1.875,-62.75));
 			Agent_RevealPlayerPosition("stalker_1", false);
 			//Stalker_PlayCutsceneAtEntity("stalker_1", "");
+			Sound_CreateAtEntity("stalkerspawns", "creatures/stalker/exit", "stalker_1");
 			
 			Map_AddTimer("stalkerAlertRoar", 1.0f, "OnTimer_StalkerAlertRoar");
 			Map_AddTimer("stalkerDeAggroChance", 12.0f, "OnTimer_StalkerDeAggroChance");
 		}
 		
 		void OnTimer_StalkerAlertRoar(const tString &in asTimer){
-			Sound_CreateAtEntity("stalkerspawns", "creatures/stalker/exit", "stalker_1");
+			Sound_PlayGui("creatures/stalker/attack", 1.0f);
 		}
 		
 		void OnTimer_StalkerDeAggroChance(const tString &in asTimer){
 			cLux_AddDebugMessage("Playerspeed: " + Player_GetSpeed());
-			if (Player_GetCrouching() || Player_GetSpeed() < 2.0f) {
+			if (Player_GetCrouching() || Player_GetSpeed() < 1.0f) {
 				Agent_ResetPlayerDetectionState("stalker_1");
 				int randStalkerHole = cMath_RandRectl(4,10);
 				Stalker_EmergeFromHole("stalker_1", "GhoulHole_" + randStalkerHole, false);
 			}
 		}
-	 
 	//} END SCENE X 
 }
