@@ -132,7 +132,7 @@ const float gfRat_SmellPlayerTimeMax = 3.f;
 const float gfRat_SmellFoodTimeMin = 1.5f;
 const float gfRat_SmellFoodTimeMax = 3.f;
 const float gfRat_SmellForceAttackPlayerMinDistSqr = 1.5f;
-const int glRat_SkipRetreatMinAttackingRatNum = 4;
+const int glRat_SkipRetreatMinAttackingRatNum = 0;
 const float gfRat_ThreatenedDistMax = 6.f; 
 const float gfRat_ThreatenedDistMin = 1.f;
 const float gfRat_ThreatenedDistMaxSqr = gfRat_ThreatenedDistMax * gfRat_ThreatenedDistMax; 
@@ -608,10 +608,11 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			
 			// Ugly check to see if it's a shotgun causing damage or just the regular gun
 			if (Item_GetHeldType(eItemHandlerHand_Right) == "Shotgun") {
+                //cLux_AddDebugMessage("HEALTH REMAINING: " + mBaseObj.GetHealth());
 				cLux_AddDebugMessage("(" + mBaseObj.GetName() + ") Shot by shotgun!");
 				Achievement_Unlock(eAchievement_Ratter);
 				mfDead_HitForce *= 2.0f;			
-				mpStateMachine.ChangeState(eRatState_Dead);
+				//mpStateMachine.ChangeState(eRatState_Dead);
 				
 							float fAngle = mBaseObj.GetAngleToPos2D(mvDead_HitOrigin);
 			cVector3f vRight = cMath_MatrixMul(cMath_MatrixRotateY(mBaseObj.GetCharBody().GetYaw()), cVector3f_Right);
@@ -630,6 +631,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			}
 				
 			cLux_AddDebugMessage("(" + mBaseObj.GetName() + ") Shot by gun!");
+			cLux_AddDebugMessage("HEALTH REMAINING: " + mBaseObj.GetHealth());
 			cLux_AddAIDebugMessage("(" + mBaseObj.GetName() + ") Shot by gun!");
 		}
 		
@@ -669,7 +671,8 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			else
 			{
 				bCheckShouldIgnoreDamageArea = true;
-				bShouldRetreat = true;
+				//DoctorD edit: made it not retreat by fire
+                bShouldRetreat = false;
 				
 				cLux_AddAIDebugMessage("(" + mBaseObj.GetName() + "Hurt by fire!");
 			}
@@ -688,7 +691,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			else
 			{
 				bCheckShouldIgnoreDamageArea = true;
-				bShouldRetreat = true;
+				bShouldRetreat = false;
 				if (lCurrentState == eRatState_Eat)
 				{
 					RatHandler_SetFoodThreatTime(m_idEat_FoodEntityId, 75);
@@ -1177,15 +1180,16 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 		/////////////////////////////////
 		// If already retreating skip entering threatened state
 		int lState = mpStateMachine.GetCurrentState();
-		if (lState == eRatState_Retreat)
+		//DoctorD edit: keep this in mind, may have to modify or comment
+        if (lState == eRatState_Retreat)
 		{
 			///////////
 			// Run away
 			if (mlRetreat_SpeedState != eRatSpeed_Run)
 			{
-				mlRetreat_SpeedState = eRatSpeed_Run;
-				mbRetreat_Scared = true;
-				mbRetreat_SensesActive = false;
+				mlRetreat_SpeedState = eRatSpeed_Attack;
+				mbRetreat_Scared = false;
+				mbRetreat_SensesActive = true;
 			}
 			
 			cScript_SetGlobalReturnBool(bRet);
@@ -1194,7 +1198,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 		
 		////////////////
 		// Enter thretened state
-		bRet = true;
+		bRet = false;
 		Threatened();
 		cScript_SetGlobalReturnBool(bRet);
 	}
@@ -1617,7 +1621,8 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 	
 	void Threatened()
 	{
-		mpStateMachine.ChangeState(eRatState_Threatened);
+        //DoctorD Edit: changed state from threatened to attack
+		mpStateMachine.ChangeState(eRatState_Attack);
 	}
 	
 	//------------------------------------------------------------
@@ -1698,12 +1703,14 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 				break;
 			case eRatState_Eat:
 				mpStateMachine.AddTimer("ReactToGunShot", cMath_RandRectf(0.1, 0.75));
+                mpStateMachine.ChangeState(eRatState_Attack);
 				break;
 			case eRatState_Hunt:
 				mpStateMachine.ChangeState(eRatState_Hunt);
 				break;
 			default:
-				Retreat(eRatSpeed_Run, true, false);
+				//Retreat(eRatSpeed_Run, true, false);
+                mpStateMachine.ChangeState(eRatState_Attack);
 				break;
 		}
 	}
@@ -3947,7 +3954,8 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 	
 	void State_Threatened_Update(float afTimeStep)
 	{
-		float fFearLvlIncrease = 2.0f*afTimeStep;
+        //Edit: made fear level increase 0
+		float fFearLvlIncrease = 0.0f;
 		
 		////////////////////
 		// Handle backstepping
@@ -3976,11 +3984,13 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 		mfThreatened_FearLevel += fFearLvlIncrease;
 		
 		///////////////////
-		// if threatened for too long retreat
+		// if threatened for too long get more aggressive
 		if (mfThreatened_FearLevel > 1.0f)
 		{
+            //DoctorD edit: probably something has to be modified here. Modified retreat to scared false 
 			Blackboard_SetPlayerBlocksPath(mBaseObj, true); // Don't retreat past the player
-			Retreat(eRatSpeed_Run, true, false);
+			Retreat(eRatSpeed_Run, false, true);
+            
 			GameStats_IncreaseEntryAmount(eHeroStats_RatsScaredByTorch);
 			return;
 		}

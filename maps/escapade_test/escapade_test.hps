@@ -125,7 +125,9 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
 		//PlayerBody_SetRenderLayers(1, 1);
-		
+        //iLuxEntity@ pRatK = Map_GetEntity("dark_world_rat_black_1");
+        //int hel = pRatK.GetHealth();
+        //Map_GetEntity("dark_world_rat_black_1").
 		SetupGenerator();
         
         Lever_SetStuckState("PowerSwitch_1", -1, true);
