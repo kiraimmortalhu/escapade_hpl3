@@ -126,11 +126,19 @@ void _OnTimer_StalkerDeaggroProc(const tString &in asTimer){
 void _OnTimer_QuickTimerCheck(const tString &in asTimer){
     //This timer will be active only during Stalker checks
     cLux_AddDebugMessage("QUICK TIMER ON", true);
-    if(!Map_TimerExists("deaggroproc") && 
-            (StateMachine_GetCurrentStateName("stalker_test") == "Retreat" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "Stalk" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "MoveBetweenHoles" ||
-            StateMachine_GetCurrentStateName("stalker_test") == "WaitInHole") ){
+    
+    bool mbStalkerAlerted = 
+            StateMachine_GetCurrentStateName("stalker_test") == "Hunt" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "PostHunt" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "Alert" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "AttackClose" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "Rage" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "Roar" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "ThrowPlayer" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "KillPlayer";
+    
+    
+    if(!Map_TimerExists("deaggroproc") && !mbStalkerAlerted ){
         cLux_AddDebugMessage("TIMER SONG CHANGE");
         Map_AddTimer("deaggroproc", cScript_GetGlobalVarFloat("music_deaggro_time"), "$_OnTimer_StalkerDeaggroProc");
         Map_RestartCurrentTimer(0.1f);
@@ -138,7 +146,6 @@ void _OnTimer_QuickTimerCheck(const tString &in asTimer){
     else{
         Map_RestartCurrentTimer(0.1f);
     }
-    
 }
 
 //-------------------------------------------------
