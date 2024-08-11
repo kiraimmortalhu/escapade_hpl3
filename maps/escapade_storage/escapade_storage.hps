@@ -75,6 +75,8 @@ class cScrMap : iScrMap
 		scaredByStalker = false;
 		firstEnterFromChurch = false;
 		
+		SetupCodeLockerDoor();
+		
 		/////////////////////////
 		// Debug
 		if (cLux_ScriptDebugOn())
@@ -694,7 +696,19 @@ class cScrMap : iScrMap
 		/////////////////////////////////////////
 		// General
 		//{//////////////////////////////////////
-		 
+		
+		////////////////////////////////////////
+		//// Code Locker Door
+		
+		void SetupCodeLockerDoor(){
+			if (cScript_GetGlobalVarInt("StorageCombination") == 0) {
+				Dogtag_SetCombination("debugitem_dogtag", 1234);
+				CombinationLock_SetCombination("GeneratorLock", 1234);
+			} else {
+				CombinationLock_SetCombination("GeneratorLock", cScript_GetGlobalVarInt("StorageCombination"));
+			}			
+		}
+		
 		/// Unlock door to generator with code
 		
 		void OnCombinationLock_Unlocked(const tString&in asEntityName)
@@ -756,6 +770,7 @@ class cScrMap : iScrMap
 		
 		bool OnCollide_StalkerFirst_Maze(const tString &in asParent, const tString &in asChild, int alState)
 		{
+			cLux_AddDebugMessage("RANDOMIZER CODE: "+cScript_GetGlobalVarInt("CombinationTest"));
 			if (alState == 1) {
 				if (!scaredByStalker) {
 					Map_AddTimer("stalkerLightSequence", 2.0f, "Seq_StalkerLights");

@@ -66,6 +66,11 @@ class cScrMap : iScrMap
             Map_Preload("escapade_church.hpm");
         }
 		
+		// for storage door code locker, "if" for testing safety only so the code never gets overwritten
+		if (cScript_GetGlobalVarInt("StorageCombination") == 0) {
+			cScript_SetGlobalVarInt("StorageCombination", cMath_RandRectl(1, 9999));
+		}
+		
 		/////////////////////////
 		// Debug
 		if (cLux_ScriptDebugOn())

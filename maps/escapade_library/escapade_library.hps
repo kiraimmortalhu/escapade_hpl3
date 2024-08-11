@@ -64,6 +64,12 @@ class cScrMap : iScrMap
             Map_Preload("escapade_storage.hpm");
             Map_Preload("escapade_greenhouse.hpm");
         }
+		
+		if (cScript_GetGlobalVarInt("StorageCombination") == 0) {
+			cScript_SetGlobalVarInt("StorageCombination", cMath_RandRectl(1, 9999));
+		}
+		Dogtag_SetCombination("dogtag_alphonse_withstring_1", cScript_GetGlobalVarInt("StorageCombination"));
+		
 		/////////////////////////
 		// Debug
 		if (cLux_ScriptDebugOn())
