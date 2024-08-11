@@ -9,7 +9,7 @@
 //////////////////////////////////////
 
 tString stalkerName = "";           //Store the stalker's name in this variable for later usage.
-
+float time = 0.0f;
 /**
  * Starts a timer that keeps checking each given seconds if the stalker is not aggroed anymore. Thought for just 1 stalker in the map.
  * If called again while this timer is running, it only updates the music name and the time. 
@@ -23,11 +23,12 @@ tString stalkerName = "";           //Store the stalker's name in this variable 
  **/
 void Music_Stalker_AddDeaggroSongTime(const tString &in asStalkerName, const tString &in songName, const float &in afTime){
     stalkerName = asStalkerName;
+    time = afTime;
     cScript_SetGlobalVarString("music_to_play", songName);
     cScript_SetGlobalVarFloat("music_deaggro_time", afTime);
     
     if(!Map_TimerExists("music_deaggro_check")){
-        Map_AddTimer("music_deaggro_check", cScript_GetGlobalVarFloat("music_deaggro_time"), "$_OnTimer_StalkerDeaggroCheck");
+        Map_AddTimer("music_deaggro_check", 5.0f, "$_OnTimer_StalkerDeaggroCheck");
     }
 }
 
@@ -39,6 +40,12 @@ void Music_Stalker_AddDeaggroSongTime(const tString &in asStalkerName, const tSt
  */
 void Music_Stalker_StopDeaggroSongChecks(){
     Map_RemoveTimer("music_deaggro_check");
+    Map_RemoveTimer("deaggro");
+    
+    if(!Music_IsSongPlaying( cScript_GetGlobalVarString("music_to_play") )){
+        Music_PlayExt_Save(cScript_GetGlobalVarString("music_to_play"), true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_BgAmb, true);
+    }
+    
 }
 
 
@@ -77,14 +84,14 @@ void _OnTimer_StalkerDeaggroCheck(const tString &in asTimer){
             
             Map_RemoveTimer("deaggro");
         } else{
-            if(!Map_TimerExists("deaggro")){
+            if(!Map_TimerExists("deaggro") && !Music_IsSongPlaying(cScript_GetGlobalVarString("music_to_play"))){
                 cLux_AddDebugMessage("TIMER ADDED");
-                Map_AddTimer("deaggro", 5.0f, "$_OnTimer_StalkerDeaggroProc");
+                Map_AddTimer("deaggro", 5.0f, "$_OnTimer_QuickTimerCheck");
             }
         }
         
         
-        Map_RestartCurrentTimer(cScript_GetGlobalVarFloat("music_deaggro_time"));
+        Map_RestartCurrentTimer(5.0f);
         
     }
 
@@ -96,23 +103,42 @@ void _OnTimer_StalkerDeaggroCheck(const tString &in asTimer){
  */
 void _OnTimer_StalkerDeaggroProc(const tString &in asTimer){
     //Actions to execute when he's aggroed for a time
-    bool mbStalkerAlerted = 
-            StateMachine_GetCurrentStateName("stalker_test") == "Hunt" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "PostHunt" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "Alert" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "AttackClose" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "Rage" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "Roar" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "ThrowPlayer" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "KillPlayer";
-        
-    cLux_AddDebugMessage("STALKER DEAGGRO CALLED. VALUE: "+ mbStalkerAlerted);
-    if(!Music_IsSongPlaying(cScript_GetGlobalVarString("music_to_play")) && !Terror_GetPlayerIsBeingHunted()){
+    
+    cLux_AddDebugMessage("CURRENT SONG NAME: " + cScript_GetGlobalVarString("music_to_play") );
+    Map_RemoveTimer("deaggroproc");
+    Map_RemoveTimer("deaggro");
+    
+    
+    if(!Music_IsSongPlaying(cScript_GetGlobalVarString("music_to_play"))){
         cLux_AddDebugMessage("SONG CHANGE");
         Terror_SetEnemyMusicActive(false);
         
-        Music_PlayExt(cScript_GetGlobalVarString("music_to_play"), true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_BgAmb, true);
+        Music_PlayExt_Save(cScript_GetGlobalVarString("music_to_play"), true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_BgAmb, true);
     }
+}
+
+//-------------------------------------------------
+
+/**
+ * @brief Part of function Music_Stalker_AddDeaggroSongTime. Use it instead.
+ * @param in asTimer, name of timer: "deaggrocheck"
+ */
+void _OnTimer_QuickTimerCheck(const tString &in asTimer){
+    //This timer will be active only during Stalker checks
+    cLux_AddDebugMessage("QUICK TIMER ON", true);
+    if(!Map_TimerExists("deaggroproc") && 
+            (StateMachine_GetCurrentStateName("stalker_test") == "Retreat" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "Stalk" || 
+            StateMachine_GetCurrentStateName("stalker_test") == "MoveBetweenHoles" ||
+            StateMachine_GetCurrentStateName("stalker_test") == "WaitInHole") ){
+        cLux_AddDebugMessage("TIMER SONG CHANGE");
+        Map_AddTimer("deaggroproc", cScript_GetGlobalVarFloat("music_deaggro_time"), "$_OnTimer_StalkerDeaggroProc");
+        Map_RestartCurrentTimer(0.1f);
+    }
+    else{
+        Map_RestartCurrentTimer(0.1f);
+    }
+    
 }
 
 //-------------------------------------------------

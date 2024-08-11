@@ -111,7 +111,7 @@ class cScrMap : iScrMap
 		Player_SetIgnoreGasDamage(false); 
         cLux_AddDebugMessage("CURRENT IGNORE GAS DAMAGE: "+Player_GetIgnoreGasDamage()); 
         //Music_Play("Bunker_Arsenal.ogg", 1.0f, eMusicPrio_BgAmb);
-		Music_PlayExt("subterranean_transition", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+		Music_PlayExt_Save("subterranean_transition", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
         
         //Collide callbacks
         Entity_AddCollideCallback("Death_Pit_*", "Player", "DeathFall");
@@ -448,7 +448,7 @@ class cScrMap : iScrMap
 		Entity_SetActive("stalker_test", true);
         //Map_AddTimer("deaggro", 10.0f, "Stalker_Deaggro");
         //Map_AddTimer("deaggrocheck", 0.0f, "DeaggroCheck");
-        Music_Stalker_AddDeaggroSongTime("stalker_test", "subterranean_transition", 10.0f);
+        Music_Stalker_AddDeaggroSongTime("stalker_test", "subterranean_transition", 8.0f);
         Stalker_SetEmergeAllowed("stalker_test", true);
         //Terror_SetEnemyMusicStage(eTerrorMusicAgentType_Stalker, eTerrorMusicStage_Searching);
 		cLux_AddDebugMessage("Stalker is now ENABLED");
@@ -467,7 +467,7 @@ class cScrMap : iScrMap
         //Terror_RemoveHuntingEnemy(Map_GetEntityID("stalker_test"));
         Stalker_SetEmergeAllowed("stalker_test", false);
         if(!Music_IsSongPlaying("subterranean_transition")){
-            Music_PlayExt("subterranean_transition", true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_BgAmb, true);
+            Music_PlayExt_Save("subterranean_transition", true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_BgAmb, true);
         }
 		cLux_AddDebugMessage("Stalker is now DISABLED");
 	}
