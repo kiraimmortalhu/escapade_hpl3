@@ -100,9 +100,16 @@ class cScrMap : iScrMap
         //Get rocks in ballroom map
         Map_GetEntityArray("dw_rock_med_freeze_*", gravityRocks);
         
+        
         //Set all these rocks to have zero gravity, from the ballroom
-        for(int t = 0; t <= gravityRocks.length(); t++){
+        for(int t = 0; t < gravityRocks.length(); t++){
             gravityRocks[t].GetMainBody().SetGravity(false);
+        }
+        
+        //Attach particles to chairs, set their gravity to zero
+        for(int t = 1; t <= 19; t++){
+            ParticleSystem_AttachToEntity("chair_gravity_particle_"+t, "chair_gravity_"+t);
+            Map_GetEntity("chair_gravity_"+t).GetMainBody().SetGravity(false);
         }
         //Map_GetProp("dw_rock_med_freeze_*").GetMainBody().SetGravity(false);
 		Game_AutoSave();
