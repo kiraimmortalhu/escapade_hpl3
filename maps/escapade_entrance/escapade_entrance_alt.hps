@@ -68,7 +68,8 @@ class cScrMap : iScrMap
 	void OnStart()
 	{
 		// Any general setup of script / entities
-		
+		cVector3f vRot = cVector3f(0, cMath_ToRad(142), 0);
+		cLux_GetCurrentMap().GetWorld().SetSkyboxRotation(vRot);
 		PlayerBody_SetActive(true);
 		PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		/////////////////////////
