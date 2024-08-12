@@ -115,6 +115,7 @@ class cScrMap : iScrMap
         
         //Collide callbacks
         Entity_AddCollideCallback("Death_Pit_*", "Player", "DeathFall");
+		Entity_AddCollideCallback("Death_Special_Pit", "Player", "DeathFallSpecial");
         
         Player_SetNightVisionEnabled(false);
         
@@ -484,6 +485,17 @@ class cScrMap : iScrMap
             //PlayerBody_PlayCutsceneAtEntity("fall_and_get_up_quickly", "Player", false, 0.1f);
             
             
+        }
+        
+        return true;
+    }
+	
+	bool DeathFallSpecial(const tString &in asParent, const tString &in asChild, int alState){
+        if(alState == 1){
+            cLux_AddDebugMessage("Played speed: "+ Player_GetSpeed());
+			if (Player_GetSpeed() > 8) {
+				Seq_FallToDeath(asParent);
+			}
         }
         
         return true;
