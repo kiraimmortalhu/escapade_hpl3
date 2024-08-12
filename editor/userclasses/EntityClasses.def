@@ -11,5 +11,55 @@
 				</Group>
 			</InstanceVars>
 		</Class>
+		<Class Name="Agent_Grunt" InheritsFrom="Agent" UsesComponents="CharMover, ClimbAnimations, HeadTracker, Listener, FootPlacement">
+			<EditorSetupVars>
+			</EditorSetupVars>
+			<TypeVars>
+				<Group Name="Attack_Animations">
+					<Var Name="CloseAttackName" type="string" DefaultValue="Attack" Description="Name of close attack. Usually something like 'Attack' which will turn in to Attack_1 at runtime" />
+					<Var Name="NumAttackAnims" type="int" DefaultValue="1" Description="The number of melee attack animations used. Starts at 1" />
+					<Var Name="LungeAttackName" type="string" DefaultValue="Attack" Description="Name of lunge attack. Usually something like 'AttackLunge' which will turn in to AttackLunge_1 at runtime" />
+					<Var Name="NumAttackLungeAnims" type="int" DefaultValue="1" Description="The number of lunge attack animations used. Starts at 1" />
+				</Group>
+				<Group Name="Meat_Properties">
+					<Var Name="MinEatTime" Type="float" DefaultValue="30"  Description="Minimum (in seconds) to eat meat" />
+					<Var Name="MaxEatTime" Type="float" DefaultValue="45"  Description="Maximum (in seconds) to eat meat" />
+				</Group>
+			</TypeVars>
+			<InstanceVars>
+				<Group Name="Custom_Senses">
+					<Var Name="HearingMul" Type="float" DefaultValue="1"  Description="Multiplier for monsters hearing rage" />
+					<Var Name="SightMul" Type="float" DefaultValue="1"  Description="Multiplier for monsters sight range" />
+				</Group>
+
+				<Group Name="Ghoul">
+					<Var Name="RetreatAreas" Type="string" DefaultValue=""  Description="The name of the retreat area or group of retreat areas (*). Will not use retreat areas if empty." />
+				</Group>
+
+				<Group Name="Hole Network">
+					<Var Name="HoleNetwork" Type="string" DefaultValue=""  Description="The name of the group of ghoul holes the ghoul should move between, use wildcard *." />
+					<Var Name="PlayerPath" Type="string" DefaultValue=""  Description="The name of the group of nodes that represent the general path the player will take, used to determine if a hole is ahead or behind the player, use wildcard *." />
+					<Var Name="HoleConnections" Type="string" DefaultValue=""  Description="The name of a group of areas that represent the connections between holes, the ghoul will move along these areas and make noise, use wildcard *." />
+				</Group>
+
+				<Group Name="Voice">
+					<Var Name="UseVoice" Type="Bool" DefaultValue="true"	Description="If the ghoul should use voices" />
+					<Var Name="VoiceCharacter" type="string" DefaultValue="" Description="The name of the voice character." />
+					<Var Name="AlertSubject" Type="String" DefaultValue="" Description="The subject played when the ghoul enters alert" />
+					<Var Name="RetreatSubject" Type="String" DefaultValue="" Description="The subject played when the ghoul retreats" />
+					<Var Name="EmergeSubject" Type="String" DefaultValue="" Description="The subject played when the ghoul emerges from a hole" />
+					<Var Name="SmellSubject" Type="String" DefaultValue="" Description="The subject played when the ghoul tries to smell the player" />
+					<Var Name="EndSearchSubject" Type="String" DefaultValue="" Description="The subject played when the ghoul cannot find the player and ends the search" />
+					<Var Name="CheckLastKnownPositionSubject" Type="String" DefaultValue="" Description="The subject played when the ghoul has seen a glimpse of the player and checks out that position" />
+					<Var Name="HitByObjectSubject" Type="String" DefaultValue="" Description="The subject played when the ghoul is hit by an object" />
+					<Var Name="WanderSubject" Type="String" DefaultValue=""	Description="The subject played at random when the ghoul is wandering" />
+					<Var Name="WanderMinMaxTime" Type="Vector2" DefaultValue="10 15" Description="Min and Max time between the random patrol barks." />
+					<Var Name="SearchSubject" Type="String" DefaultValue=""	Description="The subject played at random when the ghoul is searching for the player" />
+					<Var Name="SearchMinMaxTime" Type="Vector2" DefaultValue="10 15" Description="Min and Max time between the random search barks." />
+					<Var Name="EatMeatSubject" Type="String" DefaultValue=""	Description="The subject played at random when the ghoul is eating meat" />
+					<Var Name="EatMeatMinMaxTime" Type="Vector2" DefaultValue="10 15" Description="Min and Max time between the random eating barks." />
+				</Group>
+			</InstanceVars>
+		</Class>
 	</Classes>
 </UserClassDefinition>
