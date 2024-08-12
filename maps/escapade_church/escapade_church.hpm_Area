@@ -265,7 +265,7 @@
                     <Var ObjectId="301991584" Name="TransferAINode" Value="" />
                 </UserVariables>
             </Area>
-            <Area ID="301991585" Name="Trigger_LoadEntrance" CreStamp="1722692533" ModStamp="1722698435" WorldPos="15.5 2.25 -37.5" Rotation="0 0 0" Scale="3.5 4.5 0.5" Active="true" Mesh="" UID="18 3592 301991585" AreaType="Trigger">
+            <Area ID="301991585" Name="Trigger_LoadEntrance" CreStamp="1722692533" ModStamp="1723413140" WorldPos="15.5 2.25 -36.5" Rotation="0 0 0" Scale="3.5 4.5 0.5" Active="true" Mesh="" UID="18 3592 301991585" AreaType="Trigger">
                 <UserVariables>
                     <Var ObjectId="301991585" Name="Note" Value="" />
                     <Var ObjectId="301991585" Name="BlocksLineOfSight" Value="false" />
@@ -474,6 +474,63 @@
         </Objects>
     </Section>
     <Section Name="7671329699895397113">
-        <Objects />
+        <Objects>
+            <Area ID="318767187" Name="Trigger_CloseDoor_1" CreStamp="1723413310" ModStamp="1723430113" WorldPos="15.75 1.5 -38.5" Rotation="0 0 0" Scale="4.75 2.75 1.25" Active="true" Mesh="" UID="19 1420 318767187" AreaType="Trigger">
+                <UserVariables>
+                    <Var ObjectId="318767187" Name="Note" Value="" />
+                    <Var ObjectId="318767187" Name="BlocksLineOfSight" Value="false" />
+                    <Var ObjectId="318767187" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="318767187" Name="UserVar" Value="" />
+                    <Var ObjectId="318767187" Name="Static" Value="false" />
+                    <Var ObjectId="318767187" Name="QuickSave" Value="false" />
+                    <Var ObjectId="318767187" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="318767187" Name="CC_Entities" Value="player" />
+                    <Var ObjectId="318767187" Name="CC_Funcs" Value="OnCollide_CloseExitDoors" />
+                    <Var ObjectId="318767187" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="318767187" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="318767187" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="318767187" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="318767187" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="318767187" Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                    <Var ObjectId="318767187" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="318767187" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="318767187" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="318767187" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="318767187" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="318767187" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="318767187" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="318767187" Name="MaxFocusDistance" Value="-1" />
+                    <Var ObjectId="318767187" Name="CustomInteractIcon" Value="Default" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767188" Name="Trigger_CloseDoor_2" CreStamp="1723431253" ModStamp="1723431801" WorldPos="6.25 1.5 -66" Rotation="0 0 0" Scale="1 4 4.5" Active="true" Mesh="" UID="19 1435 318767188" AreaType="Trigger">
+                <UserVariables>
+                    <Var ObjectId="318767188" Name="Note" Value="" />
+                    <Var ObjectId="318767188" Name="BlocksLineOfSight" Value="false" />
+                    <Var ObjectId="318767188" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="318767188" Name="UserVar" Value="" />
+                    <Var ObjectId="318767188" Name="Static" Value="false" />
+                    <Var ObjectId="318767188" Name="QuickSave" Value="false" />
+                    <Var ObjectId="318767188" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="318767188" Name="CC_Entities" Value="player" />
+                    <Var ObjectId="318767188" Name="CC_Funcs" Value="OnCollide_CloseExitDoors" />
+                    <Var ObjectId="318767188" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="318767188" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="318767188" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="318767188" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="318767188" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="318767188" Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                    <Var ObjectId="318767188" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="318767188" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="318767188" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="318767188" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="318767188" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="318767188" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="318767188" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="318767188" Name="MaxFocusDistance" Value="-1" />
+                    <Var ObjectId="318767188" Name="CustomInteractIcon" Value="Default" />
+                </UserVariables>
+            </Area>
+        </Objects>
     </Section>
 </HPLMapTrack_Area>

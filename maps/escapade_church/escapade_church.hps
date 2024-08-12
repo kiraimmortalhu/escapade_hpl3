@@ -96,6 +96,23 @@ class cScrMap : iScrMap
 	{
 	}
     
+    bool OnCollide_CloseExitDoors(const tString &in asParent, const tString &in asChild, int alState)
+    {
+        if(alState == 1){
+            //SwingDoor_SetAutoClose("door_exit_*", true);
+            //SwingDoor_SetOpenAmount("door_exit_entrance", 0.0f);
+            cLux_AddDebugMessage("START CLOSE");
+            SwingDoor_SetClosed("door_exit_*", true, true);
+            Map_AddTimer("doorg", 0.05f, "OnTimer_PreventDoorGlitch");
+        }
+        return true;
+    }
+    
+    void OnTimer_PreventDoorGlitch(const tString &in asTimer){
+        cLux_AddDebugMessage("CLOSE");
+        SwingDoor_SetOpenAmount("door_exit_*", 0.0f);
+    }
+    
     bool OnTrigger_Player_Transfer_Entrance(const tString &in asParent, const tString &in asChild, int alState)
 	{
 		Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceChurch");
