@@ -62,7 +62,8 @@ class cScrMap : iScrMap
 	}
 	
 	//-------------------------------------------------------
-
+    
+    
 	////////////////////////////
 	// Run first time starting map
 	void OnStart()
@@ -78,10 +79,14 @@ class cScrMap : iScrMap
 		{
 		Item_AddToInventory("DynamoLantern");
 		}
+        
+        
 	}
 
 	//-------------------------------------------------------
-
+    
+    //Array to store all the rocks with no gravity
+    array<iLuxEntity@> gravityRocks;
 	////////////////////////////
 	// Run when entering map
 	void OnEnter()
@@ -91,6 +96,15 @@ class cScrMap : iScrMap
             PlayerBody_SetActive(true);
             PlayerBody_SetModel("player_rebirth_ghoul.ent");
         }
+        
+        //Get rocks in ballroom map
+        Map_GetEntityArray("dw_rock_med_freeze_*", gravityRocks);
+        
+        //Set all these rocks to have zero gravity, from the ballroom
+        for(int t = 0; t <= gravityRocks.length(); t++){
+            gravityRocks[t].GetMainBody().SetGravity(false);
+        }
+        //Map_GetProp("dw_rock_med_freeze_*").GetMainBody().SetGravity(false);
 		Game_AutoSave();
         
     }
