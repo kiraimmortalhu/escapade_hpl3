@@ -16,6 +16,9 @@
 #include "helpers/helper_props_custom.hps"
 #include "helpers/helper_rotation.hps"
 
+//Unique escapade includes:
+#include "escapade_custom/helpers/helper_music_control.hps"
+
 //--------------------------------------------------
  
 /*Place any global values here. These must be const variables as they will not be saved*/
@@ -50,6 +53,7 @@ class cScrMap : iScrMap
 	void PreloadData()
 	{
 		PlayerBody_PreloadModel("player_rebirth_ghoul.ent");
+        Entity_Preload("stalker_1");
 	}
 	
 	//-------------------------------------------------------
@@ -108,6 +112,10 @@ class cScrMap : iScrMap
         SetupFuelTapStorage();
 		
 		SetupMusicAmbienceBasedOnGen();
+        
+        Music_Stalker_AddDeaggroSongTime("stalker_1", cScript_GetGlobalVarString("music_to_play"), 8.0f);
+        //Debug
+        //Entity_SetActive("stalker_1", true);
 	}
 
 	//-------------------------------------------------------
@@ -215,9 +223,9 @@ class cScrMap : iScrMap
 	
 	void SetupMusicAmbienceBasedOnGen() {
 		if (Generator_GetFuelTimeLeft() <= 0) {
-			Music_PlayExt("storehouse_darkness", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+			Music_PlayExt_Save("storehouse_darkness", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 		} else {
-			Music_PlayExt("storehouse_genison_alt", true, 0.7f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+			Music_PlayExt_Save("storehouse_genison_alt", true, 0.7f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 		}
 	}
 	
@@ -734,39 +742,7 @@ class cScrMap : iScrMap
 			cLux_AddDebugMessage("Door to generator unlocked with code");
 		}
 		
-		void DeaggroCheck(const tString &in asTimer){
-        //cLux_AddDebugMessage("Checking. Stalker mode: "+ Stalker_GetMode("stalker_test"), true);
-        //cLux_AddDebugMessage("Checking. Stalker presence: "+ Stalker_GetPresence("stalker_test"));
-        //cLux_AddDebugMessage("Checking. Stalker HUNTING: "+ Terror_GetPlayerIsBeingHunted(), true);
-        cLux_AddDebugMessage("Checking. Stalker STATE: "+ StateMachine_GetCurrentStateName("stalker_test"), true);
-        
-        if(StateMachine_GetCurrentStateName("stalker_test") == "Alert"){
-            Terror_SetEnemyMusicActive(true);
-            
-            cLux_AddDebugMessage("TIMER RESTARTED");
-            Map_RemoveTimer("deaggro");
-        } else{
-            if(!Map_TimerExists("deaggro") && (StateMachine_GetCurrentStateName("stalker_test") == "Retreat" || StateMachine_GetCurrentStateName("stalker_test") == "Stalk")){
-                cLux_AddDebugMessage("TIMER ADDED");
-                Map_AddTimer("deaggro", 10.0f, "Stalker_Deaggro");
-            }
-        }
-        //Map_GetEntity("stalker_test").
-        
-        Map_RestartCurrentTimer(0.1f);
-        
-		}
 		
-		void Stalker_Deaggro(const tString &in asTimer){
-        //Actions to execute when he's aggroed for a time
-        cLux_AddDebugMessage("STALKER DEAGGRO");
-        if(!Music_IsSongPlaying("underground_wip_loop")){
-            cLux_AddDebugMessage("SONG CHANGE");
-            Terror_SetEnemyMusicActive(false);
-            
-            Music_PlayExt("underground_wip_loop", true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_BgAmb, true);
-        }
-    }
 		
 		//} END General	
 	 
@@ -792,6 +768,7 @@ class cScrMap : iScrMap
 			if (alState == 1) {
 				if (!scaredByStalker) {
 					Map_AddTimer("stalkerLightSequence", 2.0f, "Seq_StalkerLights");
+                    //Seq_StalkerLights("");
 					scaredByStalker = true;
 				}
 				return false;
@@ -799,6 +776,7 @@ class cScrMap : iScrMap
 			return true;
 		}
 		
+        
 		cSequenceStatesData mSeq_StalkerLights;
 		
 		void Seq_StalkerLights(const tString &in asTimer){
@@ -809,32 +787,35 @@ class cScrMap : iScrMap
 				cLux_AddDebugMessage("Stalker sequence part 1");
 			}
 			
-			if (Sequence_DoStepAndWait(1.0f)) {
-				//StopFlickerLights();
+			else if (Sequence_DoStepAndWait(1.0f)) {
+				StopFlickerLights();
 				SwingDoor_SetClosed("wooden_door_1", true, true);
 				cLux_AddDebugMessage("Stalker sequence part 2");
 			}
 			
-			if (Sequence_DoStepAndWait(5.0f)) {
+			else if (Sequence_DoStepAndWait(5.0f)) {
 				FlickerLights();
 				cLux_AddDebugMessage("Stalker sequence part 3");
 			}
 			
-			if (Sequence_DoStepAndWait(0.5f)) {
-				//StopFlickerLights();
+			else if (Sequence_DoStepAndWait(0.5f)) {
+				StopFlickerLights();
 				cLux_AddDebugMessage("Stalker sequence part 4");
 			}
 			
-			if (Sequence_DoStepAndWait(5.0f)) {
+			else if (Sequence_DoStepAndWait(5.0f)) {
 				FlickerLights();
 				StalkerRoars();
 				cLux_AddDebugMessage("Stalker sequence part 5");
 			}
 			
-			if (Sequence_DoStepAndContinue()) {
+			else if (Sequence_DoStepAndContinue()) {
 				StopFlickerLights();
-				Entity_SetActive("stalker_1", true);
-				// to-do , maybe give stalker player position?
+                
+				//Entity_SetActive("stalker_1", true);
+				
+                Map_AddTimer("stalker_1_enable", 5.0f, "OnTimer_EnableStalker");
+                // to-do , maybe give stalker player position?
 				cLux_AddDebugMessage("Stalker sequence part end, stalker spawned");
 			}
 			
@@ -857,10 +838,15 @@ class cScrMap : iScrMap
 		}
 		
 		void StalkerRoars() {
-			Sound_PlayGui("creatures/stalker/spot", 0.8f);
-			Sound_PlayGui("creatures/stalker/whine", 1.0f);
+			//Sound_PlayGui("creatures/stalker/spot", 0.8f);
+			//Sound_PlayGui("creatures/stalker/whine", 1.0f);
 		}
 		
+        void OnTimer_EnableStalker(const tString &in asTimer){
+            cLux_AddDebugMessage("STALKER ENABLED");
+            Entity_SetActive("stalker_1", true);
+        }
+        
 		//// looking at the generator through the door
 		
 		void metal_door_window_1_OnPlayerInteract(const tString &in asEntity)
