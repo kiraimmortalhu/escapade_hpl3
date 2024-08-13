@@ -69,7 +69,7 @@ class cScrMap : iScrMap
 	void OnStart()
 	{
 		// Any general setup of script / entities
-		cVector3f vRot = cVector3f(0, cMath_ToRad(142), 0);
+		cVector3f vRot = cVector3f(0, cMath_ToRad(20), cMath_ToRad(-30));
 		cLux_GetCurrentMap().GetWorld().SetSkyboxRotation(vRot);
 		PlayerBody_SetActive(true);
 		PlayerBody_SetModel("player_rebirth_ghoul.ent");
@@ -211,20 +211,14 @@ class cScrMap : iScrMap
 		//} END General	
 	 
 		/////////////////////////////////////////
-		// Event *Name Of Event*
+		// Event: Leaving
 		//{//////////////////////////////////////
 
-		//-------------------------------------------------------
-
-		/*Put any variables that are only used in Scene X, Event X here.*/
-
-		//-------------------------------------------------------
-
-		/*Put any functions that are only used in Scene X, Event X here.*/
-
-		//-------------------------------------------------------
-
-		//} END Event *Name Of Event*
+		void Trigger_OpenGate_OnPlayerInteract(const tString &in asEntity)
+		{
+			SlideDoor_SetClosed("tin_hinan_slide_floor_1", false, false);
+			LevelDoor_SetLocked("castle_gate_arched01_1", false);
+		}
 	 
 	//} END SCENE X 
 }
