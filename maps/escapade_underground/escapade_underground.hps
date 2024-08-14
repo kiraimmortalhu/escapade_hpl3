@@ -174,13 +174,13 @@ class cScrMap : iScrMap
 		if (Item_GetHeldType(eItemHandlerHand_Left) == "DynamoLantern") {
 			Item_PutAway(eItemHandlerHand_Left);
 		}
-			
-		tString sItemID = ItemType_GetFirstInInventory("Torch");
+		
+		tString sItemID = ItemType_GetFirstInInventory("Lighter");
 		if (sItemID != "") {
-			Item_ToggleHeldItem("Torch");
-		} else {
-			sItemID = ItemType_GetFirstInInventory("Lighter");
+			sItemID = ItemType_GetFirstInInventory("Torch");
 			if (sItemID != "") {
+				Item_ToggleHeldItem("Torch");
+			} else {
 				Item_ToggleHeldItem("Lighter");
 			}
 		}
