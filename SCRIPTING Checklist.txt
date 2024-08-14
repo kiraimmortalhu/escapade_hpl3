@@ -2,10 +2,14 @@
 
 - Introduce a few lockers with redesigned dog tags if possible
   - If not, use just one for the revolver
-- Add the Rat Boss AI
-- Add the hpl2-esque AI and model to accompany it
 
-- Check how to make a stopwatch
+---- Creating stuff
+
+- Rat guard from rat entity that plays idle animation yet seems threatning
+  - Occasionally screams out with script maybe if player is running
+
+- AI for flora grunt
+  - More basic creatures for the same AI if we can help itethrough for some reason
 
 // Afraid of Madness
 - Check how to make the stalker storms a specific door he cannot break
@@ -14,53 +18,55 @@
 -- Entrance Hall --
 -------------------
 
-- Map transitions to all levels 
+X - Map transitions to all levels 
 - Music transition areas
 
 -Ballroom-
 
-X - Intro Cutscene (ballroom_intro)
+- Intro Cutscene (ballroom_intro)
 - Basic puzzles in TDD manner
 - Script safe room
 - Unlocking the door to entrance in the direction of the big gate once puzzle is done
-- Transition to "ballroom_alt" once Underground is complete
-  - Stalker appearance in this room after 
+X - Transition to "ballroom_alt" once Underground is complete
+  XX - Stalker appearance in this room after 
 
 ------------
 
-- Final item (Wip) to open the entrace door to Sandfield
+X - Final item (Wip) to open the entrace door to Sandfield
 - Rat spots
 - Later Stalker appearance and paths, only appears in darker areas
-- Smaller monsters may appear after Church and Greenhouse has been unlocked
+- Smaller monsters may appear after Greenhouse has been unlocked
 
 
 -- Storage --
 -------------
 
-- Map transitions
+X - Map transitions
 - Music transition areas
 
-- Generator to keep alive all eletric lights and unlock doors in Church and Greenhouse
-- Stalker FIRST appearance and paths
+X - Generator to keep alive all eletric lights and unlock doors in Church and Greenhouse
+X - Codelock door to generator room
+X - Stalker FIRST appearance and paths
 - Rat spots (more because of vicinity to Underground)
-- Shotgun is stored here in a cell needing cutter
-- Fuel barrel here to make fuel bottles
+X - Shotgun is stored here in a cell needing cutter
+X - Fuel barrel here to make fuel bottles
 
-- Smaller monsters may appear after Church and Greenhouse has been unlocked
+- Smaller monsters may appear after Greenhouse has been unlocked
 - Stalker will retreat mostly if the lights are on
 
-- If the player has the gas mask and have not encountered the rat king before, script stalker to go away and rat king will appear at the closest hole to underground entrance
+- If the player has the gas mask and have not encountered the rat king before, script stalker
+  to go away and rat king will appear at the closest hole to underground entrance
 
 -- Church --
 ------------
 
-- Map transitions
+X - Map transitions
 - Music transition areas
 
 - Locked doors leading to safe room and cage storage
-- Storage unlocks with a lever once generator is on
+- Cage Storage unlocks with a lever once generator is on
 - Safe room door will need a key
-- Church storage contains bolt cutter
+X - Church storage contains bolt cutter
 - Stalker only appears in the storage, as part of a scripted event
 - Eletricity shutting off when entering cage storage
   - Breaker switch needs to be activated to escape
@@ -70,33 +76,34 @@ X - Intro Cutscene (ballroom_intro)
 -- Greenhouse -- 
 ----------------
 
-- Map transitions
+X - Map transitions
 - Music transition areas
 - Make water act as water
 
 - Flare trap as a surprise after not having trap in the entire mod beforehand
   - It will alert the smaller monsters in the lab if player is not ultra careful
-- Locked doors leading to lab area
+X - Locked doors leading to lab area
 - Doors unlock with a lever once generator is on
-- Player gets the gas mask in lab
+X - Player gets the gas mask in lab
 - Scripted smaller monster encounters in lab
 
-2.0 - area will lock down from the inside, either this or church will happen randomly
+- Area will lock down from the inside, either this or church will happen randomly
       BUT ONE OF THEM FOR SURE
   2.0 - Sprinkler system needs to be activated to escape
 
 -- Library --
 -------------
 
-- Map transitions
+X - Map transitions
 - Music transition areas
 
-- Add revolver with corpse (only white overall soldier in the mod as of yet)
+X - Add revolver with corpse (only white overall soldier in the mod as of yet)
+X - Script dogtag for storage
 
 -- Underground --
 -----------------
 
-- Map transitions
+X - Map transitions
 - Music transition areas
 - Make water act as water
 
@@ -104,12 +111,13 @@ X - Gas area is blocked until you have the gas mask
 X - Gas damage area inside the fog there
 - Rat spots
 - Reveal music event for the large hall through the window
-- Script save point
+X - Script save point
 
 - Rat king boss fight, drops church safe room key
-- Final item (wip) is on the throne behind the rat king, no need to kill it
-- Elevator lowers once rat king appears, ladder area gets filled with overgrowth on both ends
-- Level transition to ballroom/entrance alt for good
+X - Final item (wip) is on the throne behind the rat king, no need to kill it
+X - Elevator lowers once rat king appears
+  - ladder area gets filled with overgrowth on both ends
+X - Level transition to ballroom/entrance alt for good
 
 X - Stalker and rat paths for later revisit
 X - Stalker music and states management
@@ -118,6 +126,7 @@ X - Stalker music and states management
 ------------------
 
 - Global variable for alternative map transition areas to this place
+  - Add colorgrade effect to all levels post alt change
 - Music 
 
 - Scripted Stalker final encounter, he blocks our way to get to entrance, we need to stagger 
