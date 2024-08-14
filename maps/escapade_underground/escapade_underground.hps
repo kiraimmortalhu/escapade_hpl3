@@ -117,9 +117,6 @@ class cScrMap : iScrMap
         //Collide callbacks
         Entity_AddCollideCallback("Death_Pit_*", "Player", "DeathFall");
 		Entity_AddCollideCallback("Death_Special_Pit", "Player", "DeathFallSpecial");
-		
-		Entity_SetPlayerLookAtCallback("candle*", "OnLookAt_CandlesAll", false, true, true, 0);
-		//Entity_SetPlayerInteractCallback("french_candle_wall_*", "OnInteract_CandlesWithHint", false);
         
         Player_SetNightVisionEnabled(false);
         
@@ -207,21 +204,6 @@ class cScrMap : iScrMap
 	void OnGasMaskStartUnequip()
 	{
 		Entity_SetActive("block_box_gas_*", true);
-	}
-	
-	// torch/lighter-only interaction for candles
-	
-	void OnLookAt_CandlesAll(const tString &in asEntity, int alState)
-	{
-		//cLux_AddDebugMessage("HELD righto: " + Item_GetHeld(eItemHandlerHand_Right));
-		if (alState == 1) {
-			
-			if (Item_GetHeldType(eItemHandlerHand_Left) == "1_Torch_1" || Item_GetHeldType(eItemHandlerHand_Left) == "1_Lighter_1") {
-				Entity_SetInteractionDisabled(asEntity, false);
-			} else {
-				Entity_SetInteractionDisabled(asEntity, true);
-			}
-		}
 	}
 	
 	void OnPlayerInteract_OrbTest(const tString &in asEntity)

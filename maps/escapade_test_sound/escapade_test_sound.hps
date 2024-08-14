@@ -52,12 +52,10 @@ class cScrMap : iScrMap
 	// Run when entering map
 	void OnEnter()
 	{
-		///////////////////////
-		// Setup player body
 		if (PlayerBody_IsActive() == false)
 		{
 			PlayerBody_SetActive(true);
-			PlayerBody_SetModel("player_bunker.ent");
+			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
 	}
 
