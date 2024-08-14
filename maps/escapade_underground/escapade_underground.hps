@@ -119,6 +119,8 @@ class cScrMap : iScrMap
 		Entity_AddCollideCallback("Death_Special_Pit", "Player", "DeathFallSpecial");
         
         Player_SetNightVisionEnabled(false);
+		
+		SetupGenerator();
         
         //Debug
         //Map_AddTimer("checkc", 0.0f, "DebugCheck");
@@ -395,6 +397,39 @@ class cScrMap : iScrMap
 	// MAIN FUNCTIONS
 	// ==============
 	//{///////////////////////////////////////////////////////////////////////////////////////
+	
+	/////////////////////////
+	//// Generator
+	
+	void SetupGenerator()
+	{
+		Generator_SetupEntities("", "", "", "", "Lamp_Generator_*", "Lamp_GeneratorBackup_*");
+		Generator_EndSetup();
+	}
+	
+	void OnStateChange_Generator(int alState)
+	{		
+		///////////////////
+		// Generator Sounds
+		if (alState!=1 && PlayerIsCloseEnoughToGen())
+			Sound_Play("Sound_GeneratorOff", 0.f);		
+	}
+	
+	// to-do: needs testing
+	
+	bool PlayerIsCloseEnoughToGen() {
+		if (Map_GetEntity("Lamp_Generator_1").GetPosition().x - Player_GetPosition().x > 40 ||
+			Map_GetEntity("Lamp_Generator_1").GetPosition().y - Player_GetPosition().y > 40 ||
+			Map_GetEntity("Lamp_Generator_1").GetPosition().z - Player_GetPosition().z > 40) {
+				return false;
+		} else {
+			return true;
+		}
+	}
+	
+	//////////////////// Generator end
+	
+	
     void DebugCheck(const tString &in asTimer){
         /*
         cLux_AddDebugMessage("AREA X: " + Entity_GetPosition("Trigger_Leave_ThreatCorridors_Halls").x, true);

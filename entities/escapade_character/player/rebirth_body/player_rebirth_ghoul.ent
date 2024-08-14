@@ -1,14 +1,14 @@
 <Entity>
     <ModelData>
         <Entities />
-        <Mesh Filename="mods/escapade_hpl3/entities/character/player/rebirth_body/player_double_arm.fbx">
+        <Mesh Filename="mods/escapade_hpl3/entities/escapade_character/player/rebirth_body/player_double_arm.fbx">
             <SubMesh ID="0" Name="m_Tasi_R_Arm" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="5244" Material="" Static="true" />
             <SubMesh ID="1" Name="m_Tasi_L_Arm" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="5321" Material="" Static="true" />
             <SubMesh ID="2" Name="m_Tasi_Ring" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="1080" Material="" Static="true" />
-            <SubMesh ID="3" Name="m_Tasi_Body" CreStamp="0" ModStamp="1721859471" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="16312" Material="mods/escapade_hpl3/entities/character/player/rebirth_body/body/tasi_body_upgrade_v2_clean.mat" Static="true" />
+            <SubMesh ID="3" Name="m_Tasi_Body" CreStamp="0" ModStamp="1723680790" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="16312" Material="mods/escapade_hpl3/entities/escapade_character/player/rebirth_body/body/tasi_body_upgrade_v2_clean_blueshirt.mat" Static="true" />
             <SubMesh ID="4" Name="m_Tasi_Head" CreStamp="0" ModStamp="1721909214" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="12532" Material="textures/simple_grey.mat" Static="true" />
-            <SubMesh ID="5" Name="m_Tasi_R_Arm1" CreStamp="0" ModStamp="1721859498" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="5244" Material="mods/escapade_hpl3/entities/character/player/rebirth_body/hands/tasi_hands_ghoul_20.mat" Static="true" />
-            <SubMesh ID="6" Name="m_Tasi_L_Arm1" CreStamp="0" ModStamp="1721859486" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="5321" Material="mods/escapade_hpl3/entities/character/player/rebirth_body/hands/tasi_hands_ghoul_20.mat" Static="true" />
+            <SubMesh ID="5" Name="m_Tasi_R_Arm1" CreStamp="0" ModStamp="1723680808" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="5244" Material="mods/escapade_hpl3/entities/escapade_character/player/rebirth_body/hands/tasi_hands_ghoul_20_blueshirt.mat" Static="true" />
+            <SubMesh ID="6" Name="m_Tasi_L_Arm1" CreStamp="0" ModStamp="1723680812" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="5321" Material="mods/escapade_hpl3/entities/escapade_character/player/rebirth_body/hands/tasi_hands_ghoul_20_blueshirt.mat" Static="true" />
         </Mesh>
         <Bones>
             <Bone ID="7" Name="j_Root" />
@@ -622,7 +622,7 @@
             <Animation Name="tool_gun_dual_aim_start_rarm" File="entities/character/player/animations/player_gun_dual_aim_start_rarm.fbx" Layer="RightArm" Speed="1" />
             <Animation Name="tool_gun_dual_aim_end_rarm" File="entities/character/player/animations/player_gun_dual_aim_end_rarm.fbx" Layer="RightArm" Speed="1" />
             <Animation Name="player_deathscene_grabbed_ghoulhole" File="entities/character/player/animations/player_deathscene_grabbed_ghoulhole.fbx" Layer="FullBody" Speed="1">
-                <Event Name="Sound_DeathTunnel" Time="0" Direction="Both" Type="PlaySound" DestSocket="" Value="player_woman_death_tunnel.snt" />
+                <Event Name="Sound_DeathTunnel" Time="0" Direction="Both" Type="PlaySound" DestSocket="" Value="mods/escapade_hpl3/sounds/player_rebirth/player_woman_death_tunnel.snt" />
             </Animation>
             <Animation Name="tool_pocketwatch_draw" File="entities/character/player/animations/player_pocketwatch_equip_rarm.fbx" Layer="RightArm" Speed="1" />
             <Animation Name="tool_pocketwatch_idle" File="entities/character/player/animations/player_pocketwatch_idle_rarm.fbx" Layer="RightArm" Speed="1" />
@@ -1037,7 +1037,7 @@
                 <Event Name="Sound_DeathFront" Time="0" Direction="Both" Type="PlaySound" DestSocket="" Value="creatures/stalker/death/death_front" />
             </Animation>
             <Animation Name="player_death_back" File="entities/character/player/animations/player_death_back.fbx" Layer="FullBody" Speed="1">
-                <Event Name="SoundDeathBack" Time="0" Direction="Both" Type="PlaySound" DestSocket="" Value="player_woman_death_behind.snt" />
+                <Event Name="SoundDeathBack" Time="0" Direction="Both" Type="PlaySound" DestSocket="" Value="mods/escapade_hpl3/sounds/player_rebirth/player_woman_death_behind.snt" />
             </Animation>
             <Animation Name="player_slide_back_start" File="entities/character/player/animations/player_slide_back_start.fbx" Layer="FullBody" Speed="1" />
             <Animation Name="player_slide_back_loop" File="entities/character/player/animations/player_slide_back_loop.fbx" Layer="FullBody" Speed="1" />
@@ -1602,13 +1602,12 @@
             <Animation Name="tool_fuse_use" File="entities/character/player/animations/player_fuse_use_medium.fbx" Layer="FullBody" Speed="1">
                 <Event Name="Sound_FuseInsert" Time="0" Direction="Both" Type="PlaySound" DestSocket="R_Hand" Value="update/player/fuse_plug" />
             </Animation>
-			<!-- ValG animation edits -->
-            <Animation Name="tool_orb_draw" File="entities/character/player/player_body/animation/orb_equip_rarm.fbx" Layer="RightArm" Speed="1" />
-            <Animation Name="tool_orb_holster" File="entities/character/player/player_body/animation/orb_holster_rarm.fbx" Layer="RightArm" Speed="1" />
-            <Animation Name="tool_orb_idle" File="entities/character/player/player_body/animation/orb_idle_rarm.fbx" Layer="RightArm" Speed="1" />
-            <Animation Name="pick_up_and_look_at_orb" File="entities/character/player/player_body/animation/pick_up_and_look_at_orb.fbx" Layer="RightArm" Speed="1" />
-            <Animation Name="pick_up_orb_pedestal" File="entities/character/player/player_body/animation/pick_up_orb_pedestal.fbx" Layer="RightArm" Speed="1" />
-            <Animation Name="pick_up_and_look_at_orb_pedestal" File="entities/character/player/player_body/animation/pick_up_and_look_at_orb_pedestal.fbx" Layer="RightArm" Speed="1" />
+            <Animation Name="tool_orb_draw" File="mods/escapade_hpl3/entities/darkworld/dw_orb/animation/orb_equip_rarm.fbx" Layer="RightArm" Speed="1" />
+            <Animation Name="tool_orb_holster" File="mods/escapade_hpl3/entities/darkworld/dw_orb/animation/orb_holster_rarm.fbx" Layer="RightArm" Speed="1" />
+            <Animation Name="tool_orb_idle" File="mods/escapade_hpl3/entities/darkworld/dw_orb/animation/orb_idle_rarm.fbx" Layer="RightArm" Speed="1" />
+            <Animation Name="pick_up_and_look_at_orb" File="mods/escapade_hpl3/entities/darkworld/dw_orb/animation/pick_up_and_look_at_orb.fbx" Layer="RightArm" Speed="1" />
+            <Animation Name="pick_up_orb_pedestal" File="mods/escapade_hpl3/entities/darkworld/dw_orb/animation/pick_up_orb_pedestal.fbx" Layer="RightArm" Speed="1" />
+            <Animation Name="pick_up_and_look_at_orb_pedestal" File="mods/escapade_hpl3/entities/darkworld/dw_orb/animation/pick_up_and_look_at_orb_pedestal.fbx" Layer="RightArm" Speed="1" />
         </Animations>
         <ProcAnimations />
     </ModelData>
