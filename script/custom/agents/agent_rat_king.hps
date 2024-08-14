@@ -26,16 +26,16 @@
 //----------------------------------------------------------------------
 
 const tString gsRatSound_Eat = "";
-const tString gsRatSound_Walk = "creatures/rat/walk";
-const tString gsRatSound_Attack = "creatures/rat/attack";
-const tString gsRatSound_BloodReact = "creatures/rat/blood_react";
-const tString gsRatSound_Sniff = "creatures/rat/sniff";
-const tString gsRatSound_Death = "creatures/rat/death";
-const tString gsRatSound_Alert = "creatures/rat/warning";
-const tString gsRatSound_Fear = "creatures/rat/fear";
-const tString gsRatSound_FearFlame = "creatures/rat/flame_react";
-const tString gsRatSound_FearRun = "creatures/rat/fear_run";
-const tString gsRatSound_AttackWarning = "creatures/rat/attack_warn";
+const tString gsRatSound_Walk = "update/big_rat/walk";
+const tString gsRatSound_Attack = "update/big_rat/attack";
+const tString gsRatSound_BloodReact = "update/big_rat/blood_react";
+const tString gsRatSound_Sniff = "update/big_rat/sniff";
+const tString gsRatSound_Death = "update/big_rat/death";
+const tString gsRatSound_Alert = "update/big_rat/warning";
+const tString gsRatSound_Fear = "update/big_rat/fear";
+const tString gsRatSound_FearFlame = "update/big_rat/flame_react";
+const tString gsRatSound_FearRun = "update/big_rat/fear_run";
+const tString gsRatSound_AttackWarning = "update/big_rat/attack_warn";
 
 //----------------------------------------------------------------------
 
@@ -97,24 +97,24 @@ const tString gsRatAnim_TurnAround = "turn_180";
 const float gfRat_EatTimeMin = 60.0f;
 const float gfRat_EatTimeMax = 120.0f;
 const float gfRat_EatBodyActivationDist = 12.0f;
-const float gfRat_AlertDistMinSqr = 4.0f*4.0f;
-const float gfRat_ForceAttackDistSqr = 2.0f * 2.0f;
+const float gfRat_AlertDistMinSqr = 6.0f*6.0f;
+const float gfRat_ForceAttackDistSqr = 3.0f * 3.0f;
 const float gfRat_AlertTimeMin = 0.0f;
 const float gfRat_AlertTimeMax = 0.7f;
 const float gfRat_UnalertTimeMin = 4.0f;
 const float gfRat_UnalertTimeMax = 7.0f;
-const float gfRat_AttackMinDistUntilRetreat = 10.f;
-const float gfRat_AttackMaxDistUntilRetreat = 20.f;
-const float gfRat_AttackMinDistUntilRetreat_NoDamage = 5.f;
-const float gfRat_AttackMaxDistUntilRetreat_NoDamage = 7.f;
-const float gfRat_AttackMinDistUntilRetreat_FromEating = 1.5f;
-const float gfRat_AttackMaxDistUntilRetreat_FromEating = 2.0f;
-const float gfRat_AttackMinTimeUntilRetreat = 15.f;
-const float gfRat_AttackMaxTimeUntilRetreat = 17.f;
+const float gfRat_AttackMinDistUntilRetreat = 20.f;
+const float gfRat_AttackMaxDistUntilRetreat = 30.f;
+const float gfRat_AttackMinDistUntilRetreat_NoDamage = 20.f;
+const float gfRat_AttackMaxDistUntilRetreat_NoDamage = 30.f;
+const float gfRat_AttackMinDistUntilRetreat_FromEating = 20.f;
+const float gfRat_AttackMaxDistUntilRetreat_FromEating = 30.f;
+const float gfRat_AttackMinTimeUntilRetreat = 20.f;
+const float gfRat_AttackMaxTimeUntilRetreat = 25.f;
 const float gfRat_AttackDistanceSqr = 3.0f;
-const float gfRat_AttackMinPlayerRetreatTime = 0.6f;
-const float gfRat_AttackMaxPlayerRetreatTime = 0.9f;
-const float gfRat_BiteMinDistanceSqr = 0.6*0.6;
+const float gfRat_AttackMinPlayerRetreatTime = 20.f;
+const float gfRat_AttackMaxPlayerRetreatTime = 21.f;
+const float gfRat_BiteMinDistanceSqr = 1.f*1.f;
 const float gfRat_BiteDamage = 0.1f;
 const float gfRat_BiteDamage_FullHealth = 0.2f;
 const float gfRat_GrenadeRetreatMinDistSqr = 6.f * 6.f;

@@ -124,7 +124,8 @@ class cScrMap : iScrMap
 			PlayerBody_SetActive(true);
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
-		//PlayerBody_SetRenderLayers(1, 1);
+		PlayerBody_SetRenderLayers(0, 1);
+        //PlayerHands_SetVisible(false);
         //iLuxEntity@ pRatK = Map_GetEntity("dark_world_rat_black_1");
         //int hel = pRatK.GetHealth();
         //Map_GetEntity("dark_world_rat_black_1").
@@ -144,6 +145,8 @@ class cScrMap : iScrMap
         Dogtag_SetCombination("debugitem_dogtag_3397", cScript_GetGlobalArgInt(0));
         CombinationLock_SetCombination("GeneratorLock", cScript_GetGlobalArgInt(0));
         */
+        
+        
 	}
 
 	//-------------------------------------------------------
@@ -434,7 +437,27 @@ class cScrMap : iScrMap
         CombinationLock_SetCombination("GeneratorLock", cScript_GetGlobalArgInt(0));
          */
         cLux_AddDebugMessage("TEST: "+cScript_GetGlobalVarInt("CombinationTest"));
+        //ModEvent_AddListener(0);
+        //ModEvent_Trigger(eModEvent_Hurt_Major);
+        //Player_SetGravityEnabled(false);
+        //Player_SetGravity(cVector3f(1, 0, 0));
+        
+        
+        cVector3f pGrav;
+        pGrav = Player_GetGravity();
+        Player_SetGravity(cVector3f(0, 12, 0));
+        cLux_AddDebugMessage("GRAV X: "+ pGrav.x);
+        cLux_AddDebugMessage("GRAV Y: "+ pGrav.y);
+        cLux_AddDebugMessage("GRAV Z: "+ pGrav.z);
         //cLux_AddDebugMessage("TEST: "+cMath_RandRectl(1000, 9999));
+        
+        
+        return true;
+    }
+    
+    bool OnCollide_ChangeGrav(const tString &in asParent, const tString &in asChild, int alState)
+    {
+        Player_SetGravity(cVector3f(0, -12, 0));
         return true;
     }
     
