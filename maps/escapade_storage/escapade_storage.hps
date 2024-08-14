@@ -113,7 +113,7 @@ class cScrMap : iScrMap
 		
 		SetupMusicAmbienceBasedOnGen();
         
-        Music_Stalker_AddDeaggroSongTime("stalker_1", cScript_GetGlobalVarString("music_to_play"), 8.0f);
+        Music_Stalker_AddDeaggroSongTime("stalker_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 11.0f);
         //Debug
         //Entity_SetActive("stalker_1", true);
 	}
@@ -225,7 +225,7 @@ class cScrMap : iScrMap
 		if (Generator_GetFuelTimeLeft() <= 0) {
 			Music_PlayExt_Save("storehouse_darkness", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 		} else {
-			Music_PlayExt_Save("storehouse_genison_alt", true, 0.7f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+			Music_PlayExt_Save("storehouse_genison_alt", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 		}
 	}
 	

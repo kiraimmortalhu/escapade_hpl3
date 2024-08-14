@@ -796,8 +796,9 @@ void Music_PlayExt(const tString &in asFile, bool abLoop, float afVolume, float 
 void Music_PlayExt_Save(const tString &in asFile, bool abLoop, float afVolume, float afFreq, float afVolumeFadeTime, float afFreqFadeTime, eMusicPrio alPrio, bool abResume)
 {
 	cLux_GetMusicHandler().Play(asFile, abLoop, afVolume, afFreq, afVolumeFadeTime, afFreqFadeTime, alPrio,abResume, false);
-	//DoctorD edit: store the song name in global variable
+	//DoctorD edit: store the song name and volume in global variable
 	cScript_SetGlobalVarString("music_to_play", asFile);
+    cScript_SetGlobalVarFloat("music_to_play_volume", afVolume);
 }
 
 //-------------------------------------------------
@@ -828,8 +829,9 @@ void Music_Play(const tString&in asFile, float afVolume, bool abLoop, eMusicPrio
 void Music_Play_Save(const tString&in asFile, float afVolume, bool abLoop, eMusicPrio alPrio)
 {
 	cLux_GetMusicHandler().Play(asFile, abLoop, afVolume, 1.0f, 0.3f, 1.0f, alPrio,true, false);
-	//DoctorD edit: store the song name in global variable
+	//DoctorD edit: store the song name and volume in global variable
 	cScript_SetGlobalVarString("music_to_play", asFile);
+    cScript_SetGlobalVarFloat("music_to_play_volume", afVolume);
 }
 
 //-------------------------------------------------
