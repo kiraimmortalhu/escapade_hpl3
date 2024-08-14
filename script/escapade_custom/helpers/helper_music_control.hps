@@ -21,11 +21,12 @@ float time = 0.0f;
  * @param songName, the name of the music that should start.
  * @param afTime, the time it should take as minimum for the song to start after the stalker loses the player.
  **/
-void Music_Stalker_AddDeaggroSongTime(const tString &in asStalkerName, const tString &in songName, const float &in afTime){
+void Music_Stalker_AddDeaggroSongTime(const tString &in asStalkerName, const tString &in songName, const float &in afVolume, const float &in afTime){
     stalkerName = asStalkerName;
     time = afTime;
     cScript_SetGlobalVarString("music_to_play", songName);
     cScript_SetGlobalVarFloat("music_deaggro_time", afTime);
+    cScript_SetGlobalVarFloat("music_to_play_volume", afVolume);
     
     if(!Map_TimerExists("music_deaggro_check")){
         Map_AddTimer("music_deaggro_check", 5.0f, "$_OnTimer_StalkerDeaggroCheck");
@@ -113,7 +114,7 @@ void _OnTimer_StalkerDeaggroProc(const tString &in asTimer){
         cLux_AddDebugMessage("SONG CHANGE");
         Terror_SetEnemyMusicActive(false);
         
-        Music_PlayExt_Save(cScript_GetGlobalVarString("music_to_play"), true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_BgAmb, true);
+        Music_PlayExt_Save(cScript_GetGlobalVarString("music_to_play"), true, cScript_GetGlobalVarFloat("music_to_play_volume"), 1, 5.0f, 5.0f, eMusicPrio_BgAmb, true);
     }
 }
 

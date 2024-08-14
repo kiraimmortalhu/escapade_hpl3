@@ -494,7 +494,7 @@ class cScrMap : iScrMap
 		Entity_SetActive("stalker_test", true);
         //Map_AddTimer("deaggro", 10.0f, "Stalker_Deaggro");
         //Map_AddTimer("deaggrocheck", 0.0f, "DeaggroCheck");
-        Music_Stalker_AddDeaggroSongTime("stalker_test", "subterranean_transition", 8.0f);
+        Music_Stalker_AddDeaggroSongTime("stalker_test", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
         Stalker_SetEmergeAllowed("stalker_test", true);
         //Terror_SetEnemyMusicStage(eTerrorMusicAgentType_Stalker, eTerrorMusicStage_Searching);
 		cLux_AddDebugMessage("Stalker is now ENABLED");
