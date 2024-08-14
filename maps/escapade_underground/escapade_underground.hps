@@ -78,6 +78,7 @@ class cScrMap : iScrMap
             Entity_SetActive("debugitem_*", true);
             Item_SetCurrentSlotsCount(15);
             Item_AddToInventory("DynamoLantern");
+			Item_AddToInventory("Lighter");
 		}
 	}
 
@@ -116,6 +117,9 @@ class cScrMap : iScrMap
         //Collide callbacks
         Entity_AddCollideCallback("Death_Pit_*", "Player", "DeathFall");
 		Entity_AddCollideCallback("Death_Special_Pit", "Player", "DeathFallSpecial");
+		
+		Entity_SetPlayerLookAtCallback("candle*", "OnLookAt_CandlesAll", false, true, true, 0);
+		//Entity_SetPlayerInteractCallback("french_candle_wall_*", "OnInteract_CandlesWithHint", false);
         
         Player_SetNightVisionEnabled(false);
         
@@ -157,9 +161,43 @@ class cScrMap : iScrMap
 		if (alAction == eAction_Test1)
 		{
 		}
+		
+		if (alAction == eAction_Flashlight)
+		{
+			OnAction_CustomizedLightSources();
+		}
+	}
+	
+	// Hold F for lantern, press F for lighter/crafted torch
+
+	void OnAction_CustomizedLightSources() {
+		if (Item_GetHeldType(eItemHandlerHand_Left) == "DynamoLantern") {
+			Item_PutAway(eItemHandlerHand_Left);
+		}
+			
+		tString sItemID = ItemType_GetFirstInInventory("Torch");
+		if (sItemID != "") {
+			Item_ToggleHeldItem("Torch");
+		} else {
+			sItemID = ItemType_GetFirstInInventory("Lighter");
+			if (sItemID != "") {
+				Item_ToggleHeldItem("Lighter");
+			}
+		}
 	}
 	
 	//-------------------------------------------------------
+	
+    bool OnCollide_MapChange_EntranceAlt(const tString &in asParent, const tString &in asChild, int alState)
+    {
+        if(alState==1){
+            Seq_MapChangeElevator("");
+        }
+        
+        return true;
+    }
+    
+	// using the gasmask in the level
 	
 	void OnGasMaskStartEquip()
 	{
@@ -170,15 +208,22 @@ class cScrMap : iScrMap
 	{
 		Entity_SetActive("block_box_gas_*", true);
 	}
-    bool OnCollide_MapChange_EntranceAlt(const tString &in asParent, const tString &in asChild, int alState)
-    {
-        if(alState==1){
-            Seq_MapChangeElevator("");
-        }
-        
-        return true;
-    }
-    
+	
+	// torch/lighter-only interaction for candles
+	
+	void OnLookAt_CandlesAll(const tString &in asEntity, int alState)
+	{
+		//cLux_AddDebugMessage("HELD righto: " + Item_GetHeld(eItemHandlerHand_Right));
+		if (alState == 1) {
+			
+			if (Item_GetHeldType(eItemHandlerHand_Left) == "1_Torch_1" || Item_GetHeldType(eItemHandlerHand_Left) == "1_Lighter_1") {
+				Entity_SetInteractionDisabled(asEntity, false);
+			} else {
+				Entity_SetInteractionDisabled(asEntity, true);
+			}
+		}
+	}
+	
 	void OnPlayerInteract_OrbTest(const tString &in asEntity)
     {
         //PlayerBody_PlayCutsceneAnimation("pick_up_and_look_at_orb", false, 0.0f);
