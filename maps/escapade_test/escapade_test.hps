@@ -95,8 +95,9 @@ class cScrMap : iScrMap
         Dogtag_SetCombination("debugitem_dogtag_FIXEDCOMBINATION", 1234);
         CombinationLock_SetCombination("GeneratorLock_FixedCombination", 1234);
         
-        
-        
+        //Entity_SetPlayerLookAtCallback("candle*", "OnLookAt_CandlesAll", false, true, true, 0);
+        Entity_SetPlayerInteractCallback("candle*", "OnInteract_CandlesAll", false);
+		
 		//Sound_FadeGlobalVolume(1,3);
 		// tweak this later so we don't hear door sounds and such on load
 		
@@ -204,6 +205,33 @@ class cScrMap : iScrMap
 				Item_ToggleHeldItem("Torch");
 			} else {
 				Item_ToggleHeldItem("Lighter");
+			}
+		}
+	}
+	
+	// torch/lighter-only interaction for candles
+	
+	void OnLookAt_CandlesAll(const tString &in asEntity, int alState)
+	{
+		//cLux_AddDebugMessage("HELD righto: " + Item_GetHeld(eItemHandlerHand_Right));
+		if (alState == 1) {
+			
+			if (Item_GetHeldType(eItemHandlerHand_Left) == "1_Torch_1" || Item_GetHeldType(eItemHandlerHand_Left) == "1_Lighter_1") {
+				Entity_SetInteractionDisabled(asEntity, false);
+			} else {
+				Entity_SetInteractionDisabled(asEntity, true);
+			}
+		}
+	}
+	
+	void OnInteract_CandlesAll(const tString &in asEntity)
+	{
+		if (!Lamp_GetLit(asEntity)) {
+			if (Item_GetHeldType(eItemHandlerHand_Right) == "Torch" || Item_GetHeldType(eItemHandlerHand_Right) == "Lighter")
+			{
+				cLux_AddDebugMessage("HELD righto: " + Item_GetHeld(eItemHandlerHand_Right));
+			} else {
+				Lamp_SetLit(asEntity, false, false);
 			}
 		}
 	}
