@@ -119,6 +119,8 @@ class cScrMap : iScrMap
 		Entity_AddCollideCallback("Death_Special_Pit", "Player", "DeathFallSpecial");
         
         Player_SetNightVisionEnabled(false);
+		
+		SetupGenerator();
         
         //Debug
         //Map_AddTimer("checkc", 0.0f, "DebugCheck");
@@ -279,9 +281,9 @@ class cScrMap : iScrMap
         
         //PlayerBody_PlayCutsceneAnimation("pick_up_and_look_at_orb_pedestal", false, 0.0f);
         
-        Map_AddTimer("EquipOrb", 7.5f, "EquipOrb");
-        PlayerHands_PlayAnimation("pick_up_and_look_at_orb_pedestal", false, true, 0.0f, "red_orb_cutscene", true, 1.f, -1.f, true, true);
-        
+        Map_AddTimer("EquipOrb", 0.2f, "EquipOrb");
+        //PlayerHands_PlayAnimation("pick_up_and_look_at_orb_pedestal", false, true, 0.0f, "red_orb_cutscene", true, 1.f, -1.f, true, true);
+        //Item_Equip(ItemType_GetFirstInInventory("OrbRed"));
         Prop_SetRenderLayer("red_orb_cutscene", 1);
         
         
@@ -290,9 +292,16 @@ class cScrMap : iScrMap
         cLux_AddDebugMessage("ATTEMPTING TO EQUIP ITEM");
         if(Item_GetHeld(eItemHandlerHand_Right) != "1_OrbRed_1"){
             Item_Equip(ItemType_GetFirstInInventory("OrbRed"));
+            PlayerBody_PlayAnimation("pick_up_and_look_at_orb_pedestal", ePlayerBodyAnimationLayer_Arms, false, false, true);
         }
         
+        //Map_AddTimer("PlayOrbAnimation", 0.5f, "OrbPlayAnimation");
+        
     }
+    void OrbPlayAnimation(const tString &in asTimer){
+        PlayerBody_PlayAnimation("pick_up_and_look_at_orb_pedestal", ePlayerBodyAnimationLayer_Arms, false, false, true);
+    }
+    
 	bool CanUse_Orb(const tString &in asItemType, const tString &in asItemID, const tString &in asPickedEntity) {
         return asPickedEntity == "Trigger_OrbActivation";
 	}
@@ -395,6 +404,37 @@ class cScrMap : iScrMap
 	// MAIN FUNCTIONS
 	// ==============
 	//{///////////////////////////////////////////////////////////////////////////////////////
+	
+	/////////////////////////
+	//// Generator
+	
+	void SetupGenerator()
+	{
+		Generator_SetupEntities("", "", "", "", "Lamp_Generator_*", "Lamp_GeneratorBackup_*");
+		Generator_EndSetup();
+	}
+	
+	void OnStateChange_Generator(int alState)
+	{		
+		///////////////////
+		// Generator Sounds
+		if (alState!=1 && PlayerIsCloseEnoughToGen())
+			Sound_Play("Sound_GeneratorOff", 0.f);		
+	}
+	
+	// to-do: needs testing
+	
+	bool PlayerIsCloseEnoughToGen() {
+		if (Player_GetDistanceToEntity("Lamp_Generator_1") > 40.0f) {
+				return false;
+		} else {
+			return true;
+		}
+	}
+	
+	//////////////////// Generator end
+	
+	
     void DebugCheck(const tString &in asTimer){
         /*
         cLux_AddDebugMessage("AREA X: " + Entity_GetPosition("Trigger_Leave_ThreatCorridors_Halls").x, true);

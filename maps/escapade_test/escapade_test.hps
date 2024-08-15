@@ -76,7 +76,7 @@ class cScrMap : iScrMap
 	}
 	
 	//-------------------------------------------------------
-
+    array<iLuxEntity@> candles;
 	////////////////////////////
 	// Run first time starting map
 	void OnStart()
@@ -111,6 +111,12 @@ class cScrMap : iScrMap
 			Item_AddToInventory("DynamoLantern");
 			//StalkerActivationHandler();
 		}
+        
+        Map_GetEntityArray("candle*", candles);
+        for(int t=0; t < candles.length(); t++){
+            if(!Lamp_GetLit(candles[t].GetName()))
+                candles[t].SetInteractionDisabled(true);
+        }
 	}
     
 	//-------------------------------------------------------
@@ -217,12 +223,21 @@ class cScrMap : iScrMap
 	{
 		//cLux_AddDebugMessage("HELD righto: " + Item_GetHeld(eItemHandlerHand_Right));
 		if (alState == 1 && !Lamp_GetLit(asEntity)) {
-			SetCandleLitConditions(asEntity);
+            cLux_AddDebugMessage("LOOKED AT UNLIT LAMP");
+            //Entity_SetInteractionDisabled(asEntity, true);
+			//SetCandleLitConditions(asEntity);
+            Map_AddTimer(asEntity, 0.0f, "OnTimer_UpdateCandleConditions");
 		}
+        if (alState == -1){
+            cLux_AddDebugMessage("REMOVED TIMER");
+            Map_RemoveTimer(asEntity);
+        }
 	}
 	
 	void SetCandleLitConditions(const tString &in asEntity) {
-		if (Item_GetHeldType(eItemHandlerHand_Right) == "Torch" || Item_GetHeldType(eItemHandlerHand_Right) == "Lighter") {
+		//cLux_AddDebugMessage("Item_GetHeldType: " + Item_GetHeldType(eItemHandlerHand_Right));
+        //cLux_AddDebugMessage("CAN INTERACT RESULT: "+ Map_GetEntity(asEntity).GetInteractionDisabled());
+        if ((Item_GetHeldType(eItemHandlerHand_Right) == "Torch" || Item_GetHeldType(eItemHandlerHand_Right) == "Lighter") ) {
 			Entity_SetInteractionDisabled(asEntity, false);
 		} else {
 			Entity_SetInteractionDisabled(asEntity, true);
@@ -233,9 +248,27 @@ class cScrMap : iScrMap
 	{
 		if (Lamp_GetLit(asEntity)) {
 			SetCandleLitConditions(asEntity);
-		}
+		} else{
+            cLux_AddDebugMessage("LIGHTING UP");
+            //PlayerHands_PlayAnimation("tool_torch_aim_start_rarm", false, false, 0.0f, "Torch");
+            //PlayerBody_PlayAdditativeAnimation("tool_torch_aim_start_rarm", false, 0.0f, 1.5f, 0.0f);
+            //PlayerBody_PlayAdditativeAnimation("tool_torch_aim_rarm", false, 0.0f, 1.5f, 0.0f);
+            //PlayerBody_PlayAdditativeAnimation("tool_torch_aim_end_rarm", false, 0.0f, 1.5f, 0.0f);
+            //PlayerBody_PlayCutsceneAnimation("tool_torch_aim_rarm", false, 0.0f);
+            if (Item_GetHeldType(eItemHandlerHand_Right) == "Torch"){
+                PlayerBody_PlayAnimation("tool_torch_aim_start_rarm", ePlayerBodyAnimationLayer_Arms, false, false, true);
+            }
+            if (Item_GetHeldType(eItemHandlerHand_Right) == "Lighter"){
+                PlayerBody_PlayAnimation("tool_lighter_focus_ignite", ePlayerBodyAnimationLayer_Arms, false, false, true);
+            }
+            
+        }
 	}
-
+    
+    void OnTimer_UpdateCandleConditions(const tString &in asTimer){
+        SetCandleLitConditions(asTimer);
+        Map_RestartCurrentTimer(0.1f);
+    }
 	//-------------------------------------------------------
 
 	////////////////////////////
