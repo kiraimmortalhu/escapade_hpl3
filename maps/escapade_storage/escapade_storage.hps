@@ -249,7 +249,8 @@ class cScrMap : iScrMap
 		} else {
 			Map_SetFogActive(true);
 			Map_SetSecondaryFogActive(true);
-			Light_SetVisible("Light_Box_4", true);  
+			Light_SetVisible("Light_Box_4", true);
+            Lever_SetStuckState("PowerSwitch_*", -1, true);
 		}
 	}
 	
