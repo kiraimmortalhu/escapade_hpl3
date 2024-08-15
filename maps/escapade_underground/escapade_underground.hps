@@ -425,9 +425,7 @@ class cScrMap : iScrMap
 	// to-do: needs testing
 	
 	bool PlayerIsCloseEnoughToGen() {
-		if (Map_GetEntity("Lamp_Generator_1").GetPosition().x - Player_GetPosition().x > 40 ||
-			Map_GetEntity("Lamp_Generator_1").GetPosition().y - Player_GetPosition().y > 40 ||
-			Map_GetEntity("Lamp_Generator_1").GetPosition().z - Player_GetPosition().z > 40) {
+		if (Player_GetDistanceToEntity("Lamp_Generator_1") > 40.0f) {
 				return false;
 		} else {
 			return true;
