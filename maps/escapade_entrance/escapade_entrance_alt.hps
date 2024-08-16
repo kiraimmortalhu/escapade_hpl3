@@ -63,7 +63,8 @@ class cScrMap : iScrMap
 	
 	//-------------------------------------------------------
     
-    
+    array<iLuxEntity@> pickableEntities;
+    array<tString> pickablesRemaining;
 	////////////////////////////
 	// Run first time starting map
 	void OnStart()
@@ -79,6 +80,29 @@ class cScrMap : iScrMap
 		{
 		Item_AddToInventory("DynamoLantern");
 		}
+        
+        //---Sync previously picked entities start---
+        
+        //Disable all pickable entities
+        Map_GetEntityArray("*", pickableEntities, eLuxEntityType_LastEnum, "cScrPropPickup");
+        for(int t = 0; t < pickableEntities.length(); t++){
+            pickableEntities[t].SetActive(false);
+        }
+        
+        //Get array of remaining pickable entities names
+        cString_GetStringVec(cScript_GetGlobalVarString("sync_pickables_entrance"), pickablesRemaining, ",");
+        cLux_AddDebugMessage("TEST FIND NONEXISTANT: "+ pickablesRemaining.find("MRFAT"));
+        cLux_AddDebugMessage("PICKABLES REMAINING:");
+        
+        //Enable remaining pickables
+        for(int t = 1; t <= pickablesRemaining.length(); t++){
+            if(pickablesRemaining[t] != ""){
+                cLux_AddDebugMessage(pickablesRemaining[t]);
+                //Map_GetEntity(pickablesRemaining[t]).SetActive(true);
+                Entity_SetActive(pickablesRemaining[t], true);
+            }
+            
+        }
         
         
 	}
