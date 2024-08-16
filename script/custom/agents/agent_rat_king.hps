@@ -670,7 +670,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			}
 			else
 			{
-                
+                cLux_AddDebugMessage("FIRE TRIGGER");
 				bCheckShouldIgnoreDamageArea = true;
 				//DoctorD edit: made it not retreat by fire
                 bShouldRetreat = false;
@@ -1623,7 +1623,10 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 	void Threatened()
 	{
         //DoctorD Edit: changed state from threatened to attack
-		mpStateMachine.ChangeState(eRatState_Attack);
+		if(!mBaseObj.Timer_Exists("ratk_attack_cooldown")){
+            mpStateMachine.ChangeState(eRatState_Attack);
+        }
+        mBaseObj.Timer_Add("ratk_attack_cooldown", 1.0f, "", false, false);
 	}
 	
 	//------------------------------------------------------------
