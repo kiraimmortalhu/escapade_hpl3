@@ -148,7 +148,6 @@ class cScrMap : iScrMap
 	{
 	}
 	
-        
     bool OnCollide_CloseExitDoors(const tString &in asParent, const tString &in asChild, int alState)
     {
         if(alState == 1){
@@ -165,6 +164,48 @@ class cScrMap : iScrMap
         cLux_AddDebugMessage("CLOSE");
         SwingDoor_SetOpenAmount("door_exit_*", 0.0f);
     }
+    
+    bool OnTrigger_Player_Transfer_Church(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_church.hpm", "MapTransfer_EntranceChurch");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_Greenhouse_One(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_1");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_Greenhouse_Two(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_2");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_StorageArea_Two(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_storage.hpm", "MapTransfer_EntranceStorage_2");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_Library_One(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_1");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_Library_Two(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_2");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_LibraryBallroomTwo(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_3");
+		return true;
+	}
     
 	//-------------------------------------------------------
 
