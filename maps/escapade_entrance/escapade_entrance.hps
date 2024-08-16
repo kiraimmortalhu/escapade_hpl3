@@ -52,7 +52,7 @@ class cScrMap : iScrMap
 	}
 	
 	//-------------------------------------------------------
-
+    array<iLuxEntity@> pickableEntities;
 	////////////////////////////
 	// Run first time starting map
 	void OnStart()
@@ -71,12 +71,19 @@ class cScrMap : iScrMap
 			cScript_SetGlobalVarInt("StorageCombination", cMath_RandRectl(1, 9999));
 		}
 		
+        Map_GetEntityArray("*", pickableEntities, eLuxEntityType_LastEnum, "cScrPropPickup");
+        
+        for(int t=0; t < pickableEntities.length(); t++){
+            Entity_SetPlayerInteractCallback(pickableEntities[t].GetName(), "OnInteract_ToRemoveFromEntranceAlt", false);
+        }
+        
 		/////////////////////////
 		// Debug
 		if (cLux_ScriptDebugOn())
 		{
 		Item_AddToInventory("DynamoLantern");
 		}
+        
 	}
 
 	//-------------------------------------------------------
@@ -93,15 +100,29 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
 	}
-
+    
 	//-------------------------------------------------------
-
+    //array<iLuxEntity@> pickableEntities;
 	////////////////////////////
 	// Run when leaving map
 	void OnLeave()
 	{
+        //Map_GetEntityArray("*", )
 	}
-	
+	bool OnCollide_DebugTest(const tString &in asParent, const tString &in asChild, int alState)
+    {
+        if(alState == 1){
+            cLux_AddDebugMessage("COLLIDED");
+            cLux_AddDebugMessage("CLASS: " + Map_GetEntity("torch_stick_pickup_2").GetClassName());
+            for(int t=0; t < pickableEntities.length(); t++){
+                //Entity_SetPlayerInteractCallback(pickableEntities[t].GetName(), "OnInteract_ToRemoveFromEntranceAlt", false);
+                cLux_AddDebugMessage(""+ pickableEntities[t].GetName());
+            }
+            
+        }
+        
+        return true;
+    }
     bool OnCollide_CloseExitDoors(const tString &in asParent, const tString &in asChild, int alState)
     {
         if(alState == 1){
@@ -161,7 +182,10 @@ class cScrMap : iScrMap
 		return true;
 	}
 	//-------------------------------------------------------
-
+    void OnInteract_ToRemoveFromEntranceAlt(const tString &in asEntity)
+    {
+        cLux_AddDebugMessage("REMOVED FROM ENTRANCE ALT");
+    }
 	////////////////////////////
 	// To get when player makes input (mostly used for debug)
 	void OnAction(int alAction, bool abPressed) 

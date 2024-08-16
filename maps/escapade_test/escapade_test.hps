@@ -525,15 +525,19 @@ class cScrMap : iScrMap
         //Player_SetGravityEnabled(false);
         //Player_SetGravity(cVector3f(1, 0, 0));
         
-        
+        /*
         cVector3f pGrav;
         pGrav = Player_GetGravity();
         Player_SetGravity(cVector3f(0, 12, 0));
         cLux_AddDebugMessage("GRAV X: "+ pGrav.x);
         cLux_AddDebugMessage("GRAV Y: "+ pGrav.y);
         cLux_AddDebugMessage("GRAV Z: "+ pGrav.z);
+        
+         */
         //cLux_AddDebugMessage("TEST: "+cMath_RandRectl(1000, 9999));
         
+        int testpos = cString_GetFirstStringPos("rag_pickup", "pickup");
+        cLux_AddDebugMessage("TESTPOS RESULT: "+ testpos);
         
         return true;
     }
