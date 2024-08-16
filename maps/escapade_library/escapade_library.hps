@@ -91,6 +91,8 @@ class cScrMap : iScrMap
 			PlayerBody_SetActive(true);
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
+		
+		SetupGenerator();
 	}
 
 	//-------------------------------------------------------
@@ -188,15 +190,22 @@ class cScrMap : iScrMap
 	// ==============
 	//{///////////////////////////////////////////////////////////////////////////////////////
  
-	//-------------------------------------------------------
- 
-	/*Put any variables that are used in more than one scene here.*/
- 
-	//-------------------------------------------------------
- 
-	/*Put any functions that are used in more than one scene here.*/
- 
-	//-------------------------------------------------------
+	/////////////////////////
+	//// Generator
+	
+	void SetupGenerator()
+	{
+		Generator_SetupEntities("", "", "", "", "Lamp_Generator_*", "Lamp_GeneratorBackup_*");
+		Generator_EndSetup();
+	}
+	
+	void OnStateChange_Generator(int alState)
+	{		
+		///////////////////
+		// Generator Sounds
+		if (alState!=1)
+			Sound_Play("Sound_GeneratorOff", 0.f);		
+	}
  
 	//} END MAIN FUNCTIONS
  
