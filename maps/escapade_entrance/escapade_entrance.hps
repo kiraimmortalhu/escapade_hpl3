@@ -72,7 +72,9 @@ class cScrMap : iScrMap
 		}
 		
         
-        
+        ///////////////////
+		// Setup saving
+		SaveRoom_SetupSaveLamp(false, "SaveLamp");
         
         
 		/////////////////////////
@@ -85,7 +87,7 @@ class cScrMap : iScrMap
 	}
 
 	//-------------------------------------------------------
-    array<iLuxEntity@> pickableEntities;
+    
 	////////////////////////////
 	// Run when entering map
 	void OnEnter()
@@ -98,8 +100,7 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
         
-        //Get array for pickables sync
-        Map_GetEntityArray("*", pickableEntities, eLuxEntityType_LastEnum, "cScrPropPickup");
+        
 	}
     
 	//-------------------------------------------------------
@@ -110,6 +111,11 @@ class cScrMap : iScrMap
 	{
         //Map_GetEntityArray("*", )
         // Reset global var 
+        array<iLuxEntity@> pickableEntities;
+        
+        //Get array for pickables sync
+        Map_GetEntityArray("*", pickableEntities, eLuxEntityType_LastEnum, "cScrPropPickup");
+        
         cScript_SetGlobalVarString("sync_pickables_entrance", "");
         for(int t=0; t < pickableEntities.length(); t++){
             //Entity_SetPlayerInteractCallback(pickableEntities[t].GetName(), "OnInteract_ToRemoveFromEntranceAlt", false);
@@ -118,11 +124,13 @@ class cScrMap : iScrMap
             cLux_AddDebugMessage(cScript_GetGlobalVarString("sync_pickables_entrance"));
             
         }
+        
 	}
     
-    array<iLuxEntity@> pickableEntitiesEnd;
+    //array<iLuxEntity@> pickableEntitiesEnd;
 	bool OnCollide_DebugTest(const tString &in asParent, const tString &in asChild, int alState)
     {
+        /*
         if(alState == 1){
             cLux_AddDebugMessage("COLLIDED");
             //cLux_AddDebugMessage("CLASS: " + Map_GetEntity("torch_stick_pickup_2").GetClassName());
@@ -134,20 +142,21 @@ class cScrMap : iScrMap
                 //cLux_AddDebugMessage(""+ pickableEntities[t].GetName());
                 cScript_SetGlobalVarString("sync_pickables_entrance", cScript_GetGlobalVarString("sync_pickables_entrance") + "," + pickableEntities[t].GetName());
             }
-            /*
-            cLux_AddDebugMessage("NEW ARRAY");
-            Map_GetEntityArray("*", pickableEntitiesEnd, eLuxEntityType_LastEnum, "cScrPropPickup");
             
-            for(int t=0; t < pickableEntitiesEnd.length(); t++){
-                //Entity_SetPlayerInteractCallback(pickableEntities[t].GetName(), "OnInteract_ToRemoveFromEntranceAlt", false);
-                cLux_AddDebugMessage(""+ pickableEntitiesEnd[t].GetName());
-            }
-            */
+            //cLux_AddDebugMessage("NEW ARRAY");
+            //Map_GetEntityArray("*", pickableEntitiesEnd, eLuxEntityType_LastEnum, "cScrPropPickup");
+            //
+            //for(int t=0; t < pickableEntitiesEnd.length(); t++){
+            //    //Entity_SetPlayerInteractCallback(pickableEntities[t].GetName(), "OnInteract_ToRemoveFromEntranceAlt", false);
+            //    cLux_AddDebugMessage(""+ pickableEntitiesEnd[t].GetName());
+            //}
+            
             cLux_AddDebugMessage(cScript_GetGlobalVarString("sync_pickables_entrance"));
         }
-        
+        */
         return true;
     }
+    
     bool OnCollide_DebugChangeMap(const tString &in asParent, const tString &in asChild, int alState)
     {
         if(alState == 1){
@@ -261,15 +270,20 @@ class cScrMap : iScrMap
 	{
 		////////////////
 		// About to get lit!
-		if (Lamp_GetLit(asEntity) == false)
-			SaveGameProgress();
-		else
+		if (Lamp_GetLit(asEntity) == false){
+            cLux_AddDebugMessage("SAVED");
+			//SaveGameProgress();
+            
+        }
+		else{
 			Map_AddTimer(asEntity, 1.f, "OnTimer_SaveGameProgress");
+        }
 	}
 	
 	void OnTimer_SaveGameProgress(const tString&in asTimer)
 	{
 		Lamp_SetLit(asTimer, true, true);
+        cLux_AddDebugMessage("SAVED");
 		SaveGameProgress();
 	}
 	
@@ -277,6 +291,7 @@ class cScrMap : iScrMap
 	{
 		/////////////////
 		// Save game
+        cLux_AddDebugMessage("SAVED");
 		SaveRoom_SaveGame(true, true);
 		
 		////////////////

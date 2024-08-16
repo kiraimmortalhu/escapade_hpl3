@@ -63,8 +63,7 @@ class cScrMap : iScrMap
 	
 	//-------------------------------------------------------
     
-    array<iLuxEntity@> pickableEntities;
-    array<tString> pickablesRemaining;
+    
 	////////////////////////////
 	// Run first time starting map
 	void OnStart()
@@ -82,7 +81,8 @@ class cScrMap : iScrMap
 		}
         
         //---Sync previously picked entities start---
-        
+        array<iLuxEntity@> pickableEntities;
+        array<tString> pickablesRemaining;
         //Disable all pickable entities
         Map_GetEntityArray("*", pickableEntities, eLuxEntityType_LastEnum, "cScrPropPickup");
         for(int t = 0; t < pickableEntities.length(); t++){
@@ -95,7 +95,7 @@ class cScrMap : iScrMap
         cLux_AddDebugMessage("PICKABLES REMAINING:");
         
         //Enable remaining pickables
-        for(int t = 1; t <= pickablesRemaining.length(); t++){
+        for(int t = 0; t < pickablesRemaining.length(); t++){
             if(pickablesRemaining[t] != ""){
                 cLux_AddDebugMessage(pickablesRemaining[t]);
                 //Map_GetEntity(pickablesRemaining[t]).SetActive(true);
