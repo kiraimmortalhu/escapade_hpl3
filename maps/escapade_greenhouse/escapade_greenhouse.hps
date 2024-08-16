@@ -89,6 +89,8 @@ class cScrMap : iScrMap
 			PlayerBody_SetActive(true);
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
+		
+		SetupGenerator();
 	}
 
 	//-------------------------------------------------------
@@ -168,18 +170,38 @@ class cScrMap : iScrMap
 	// ==============
 	//{///////////////////////////////////////////////////////////////////////////////////////
  
-	//-------------------------------------------------------
+	/////////////////////////
+	//// Generator
+	
+	void SetupGenerator()
+	{
+		Generator_SetupEntities("", "", "", "", "Lamp_Generator_*", "Lamp_GeneratorBackup_*");
+		Generator_EndSetup();
+	}
+	
+	void OnStateChange_Generator(int alState)
+	{		
+		///////////////////
+		// Generator Sounds
+		if (alState!=1)
+			Sound_Play("Sound_GeneratorOff", 0.f);		
+	}
+	
+	////////////////////////////////
+	
+	void lever_portculis_OnConnectionStateChange(const tString &in asEntity, int alState)
+	{
+		if (alState == -1) {
+			if (Generator_GetFuelTimeLeft() == 0) {
+				MoveObject_SetState(asEntity + "_door", 1);
+				Lever_SetStuckState(asEntity, -1, true);
+			} else {
+				Lever_SetStuckState(asEntity, 1, true);
+			}
+		}
+	}
  
-	/*Put any variables that are used in more than one scene here.*/
- 
-	//-------------------------------------------------------
- 
-	/*Put any functions that are used in more than one scene here.*/
- 
-	//-------------------------------------------------------
- 
-	//} END MAIN FUNCTIONS
- 
+	
 	//////////////////////////////////////////////////////////////////////////////////////////
 	// ==============
 	// SCENE X *NAME OF SCENE*

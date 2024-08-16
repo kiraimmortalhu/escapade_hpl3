@@ -90,6 +90,9 @@ class cScrMap : iScrMap
 			Item_AddToInventory("DynamoLantern");
 			Item_AddManyToInventory("Ammunition",20);
 			Item_AddToInventory("Cutters");
+			
+			// normally needs shotgun
+			SwingDoor_SetLocked("castle_5", false,false);
 		}
 	}
 
