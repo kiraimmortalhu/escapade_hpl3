@@ -120,6 +120,8 @@ class cScrMap : iScrMap
             PlayerBody_SetActive(true);
             PlayerBody_SetModel("player_rebirth_ghoul.ent");
         }
+		
+		SetupGenerator();
         
         //Get rocks in ballroom map
         Map_GetEntityArray("dw_rock_med_freeze_*", gravityRocks);
@@ -148,7 +150,6 @@ class cScrMap : iScrMap
 	{
 	}
 	
-        
     bool OnCollide_CloseExitDoors(const tString &in asParent, const tString &in asChild, int alState)
     {
         if(alState == 1){
@@ -165,6 +166,48 @@ class cScrMap : iScrMap
         cLux_AddDebugMessage("CLOSE");
         SwingDoor_SetOpenAmount("door_exit_*", 0.0f);
     }
+    
+    bool OnTrigger_Player_Transfer_Church(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_church.hpm", "MapTransfer_EntranceChurch");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_Greenhouse_One(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_1");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_Greenhouse_Two(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_2");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_StorageArea_Two(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_storage.hpm", "MapTransfer_EntranceStorage_2");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_Library_One(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_1");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_Library_Two(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_2");
+		return true;
+	}
+    
+    bool OnTrigger_Player_Transfer_LibraryBallroomTwo(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_3");
+		return true;
+	}
     
 	//-------------------------------------------------------
 
@@ -200,17 +243,24 @@ class cScrMap : iScrMap
 	// ==============
 	//{///////////////////////////////////////////////////////////////////////////////////////
  
-	//-------------------------------------------------------
- 
-	/*Put any variables that are used in more than one scene here.*/
- 
-	//-------------------------------------------------------
- 
-	/*Put any functions that are used in more than one scene here.*/
- 
-	//-------------------------------------------------------
- 
-	//} END MAIN FUNCTIONS
+	/////////////////////////
+	//// Generator
+	
+	void SetupGenerator()
+	{
+		Generator_SetupEntities("", "", "", "", "Lamp_Generator_*", "Lamp_GeneratorBackup_*");
+		Generator_EndSetup();
+	}
+	
+	void OnStateChange_Generator(int alState)
+	{		
+		///////////////////
+		// Generator Sounds
+		if (alState!=1)
+			Sound_Play("Sound_GeneratorOff", 0.f);		
+	}
+	
+	////////////////////////////////
  
 	//////////////////////////////////////////////////////////////////////////////////////////
 	// ==============

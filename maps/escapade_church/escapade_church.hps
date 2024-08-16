@@ -140,7 +140,7 @@ class cScrMap : iScrMap
 		}
 	}
 	//-------------------------------------------------------
-    	void OnLookAt_SaveLamp(const tString &in asEntity, int alState)
+	void OnLookAt_SaveLamp(const tString &in asEntity, int alState)
 	{
 		tString sHint = GameDifficulty_GetSaveHint();
 		if(alState == 1)
