@@ -97,8 +97,8 @@ const tString gsRatAnim_TurnAround = "turn_180";
 const float gfRat_EatTimeMin = 60.0f;
 const float gfRat_EatTimeMax = 120.0f;
 const float gfRat_EatBodyActivationDist = 12.0f;
-const float gfRat_AlertDistMinSqr = 6.0f*6.0f;
-const float gfRat_ForceAttackDistSqr = 3.0f * 3.0f;
+const float gfRat_AlertDistMinSqr = 10.0f*10.0f;
+const float gfRat_ForceAttackDistSqr = 6.5f * 6.5f;
 const float gfRat_AlertTimeMin = 0.0f;
 const float gfRat_AlertTimeMax = 0.7f;
 const float gfRat_UnalertTimeMin = 4.0f;
@@ -114,7 +114,7 @@ const float gfRat_AttackMaxTimeUntilRetreat = 25.f;
 const float gfRat_AttackDistanceSqr = 3.0f;
 const float gfRat_AttackMinPlayerRetreatTime = 20.f;
 const float gfRat_AttackMaxPlayerRetreatTime = 21.f;
-const float gfRat_BiteMinDistanceSqr = 1.f*1.f;
+const float gfRat_BiteMinDistanceSqr = 0.6f*0.6f;
 const float gfRat_BiteDamage = 0.1f;
 const float gfRat_BiteDamage_FullHealth = 0.2f;
 const float gfRat_GrenadeRetreatMinDistSqr = 6.f * 6.f;
@@ -150,7 +150,7 @@ const float gfRat_StalkPlayerMaxDistSqr = 7.0f*7.0f;
 const float gfRat_StalkPlayerFleeDistSqr = 1.75f*1.75f;
 const float gfRat_StalkPlayerFollowTime = 7.5f;
 const float gfRat_StalkPlayerAttackTime = 10.0f;
-const int glRat_StalkPlayerMinRatsBeforeAttack = 3;
+const int glRat_StalkPlayerMinRatsBeforeAttack = 0;
 	
 const float gfRat_PlayTurnAroundAnimMinAngle = cMath_ToRad(140.f);
 const float gfRat_MinTimeBetweenQuickTurns = 2.0f;
@@ -640,7 +640,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 		else if (apDamageProps.mDamageType == eDamageType_Grenade)
 		{
 			mfDead_HitForce *= 3.f;			
-			mpStateMachine.ChangeState(eRatState_Dead);
+			//mpStateMachine.ChangeState(eRatState_Dead);
 			
 			////////////////////////
 			// Give achivement if enough rats were killed by this grenade
@@ -670,6 +670,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			}
 			else
 			{
+                
 				bCheckShouldIgnoreDamageArea = true;
 				//DoctorD edit: made it not retreat by fire
                 bShouldRetreat = false;
@@ -728,7 +729,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			}
 			else
 			{
-				Retreat(eRatSpeed_Run, true, false);
+				//Retreat(eRatSpeed_Run, false, true);
 			}
 		}
 	}
@@ -1116,7 +1117,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 	
 	void OnTimer_DelayedFoodRetreat(uint64 alTimer)
 	{
-		Retreat(eRatSpeed_Walk, false, true);
+		//Retreat(eRatSpeed_Walk, false, true);
 	}
 	
 	//------------------------------------------------------------
@@ -1780,21 +1781,24 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 		// Hit by prop
 		else if (alMessageId == eLuxEntityMessage_HitByProp)
 		{		
+            cLux_AddDebugMessage("HIT BY PROP");
 			if (lCurrentState == eRatState_Retreat)
 			{
 				mpMover.SetSpeedState(eRatSpeed_Run);
 				return true;
 			}
-			
+			/*
 			float fHitSpeed = mpStateMachine.GetCurrentMessageData().mvX.x;
 			if (mbLastHitByHeavyProp == false || fHitSpeed < 1.f)
 			{
 				if (lCurrentState == eRatState_Eat)
-					Eat_TriggerAlert();
+					//Eat_TriggerAlert();
+                    
 				return false;	
 			}
-						
-			Retreat(eRatSpeed_Run, true, false);
+             */
+            mpStateMachine.ChangeState(eRatState_Hunt);
+			//Retreat(eRatSpeed_Run, false, true);
 		}
 			
 		/////////////////////
@@ -1851,6 +1855,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 		else if (alMessageId == eCustomEntityMessage_Explosion ||
 				 alMessageId == eCustomEntityMessage_MolotovImpact)
 		{			
+            /*
 			/////////////////////
 			// Setup vars
 			cVector3f vImpactPos = mpStateMachine.GetCurrentMessageData().mvX;
@@ -1878,20 +1883,24 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			}
 			else
 			{
-				Retreat(eRatSpeed_Run, true, false, tID_Invalid, eRatRetreatReason_Flame);
+				//Retreat(eRatSpeed_Run, true, false, tID_Invalid, eRatRetreatReason_Flame);
+                mpStateMachine.ChangeState(eRatState_Hunt);
 				if (lCurrentState == eRatState_Eat)
 				{
 					RatHandler_SetFoodThreatTime(m_idEat_FoodEntityId, 120);
 				}
 			}
-			
-			cLux_AddAIDebugMessage("(" + mBaseObj.GetName() + ") Grenade/molotov impact nearby, retreat!");
+			*/
+            RatHandler_SetRatIgnoresDamageAreas(mBaseObj.GetID(), true);
+            mpStateMachine.ChangeState(eRatState_Hunt);
+			cLux_AddAIDebugMessage("(" + mBaseObj.GetName() + ") Grenade/molotov impact nearby, pursue!");
 		}
 		
 		/////////////////////
 		// Flare burning
 		else if (alMessageId == eCustomEntityMessage_FlareBurning)
 		{			
+            /*
 			/////////////////////
 			// Setup vars
 			cVector3f vPos = mpStateMachine.GetCurrentMessageData().mvX;
@@ -1917,13 +1926,16 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			}
 			else
 			{
-				Retreat(eRatSpeed_Run, true, false);
+				//Retreat(eRatSpeed_Run, false, true);
+                
 				if (lCurrentState == eRatState_Eat)
 				{
 					RatHandler_SetFoodThreatTime(m_idEat_FoodEntityId, 120);
 				}
 			}
-			
+			*/
+            
+            mpStateMachine.ChangeState(eRatState_Hunt);
 			cLux_AddAIDebugMessage("(" + mBaseObj.GetName() + ") Flare burning nearby, retreat!");
 		}
 		
@@ -2141,7 +2153,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 				RatHandler_DoRatAttack();
 				
 				mbAttack_Fast = true;
-				mpStateMachine.ChangeState(eRatState_Attack);
+				mpStateMachine.ChangeState(eRatState_Hunt);
 			}
 			else
 			{
@@ -2418,6 +2430,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			mfFindFood_TimeSinceClosestDist += afTimeStep;
 			if (mfFindFood_TimeSinceClosestDist > 2.0f)
 			{
+                cLux_AddDebugMessage("FOOD UNREACHABLE");
 				Retreat(eRatSpeed_Walk, false, false);
 				RatHandler_ReportUnreachableFood(m_idFindFood_FoodEntityId);
 			}
@@ -2932,7 +2945,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 		
 		if (RatHandler_GetRatsAreAggressive() == false)
 		{
-			Retreat(eRatSpeed_Run, false, true);
+			//Retreat(eRatSpeed_Run, false, true);
 			return;
 		}
 		
@@ -3017,6 +3030,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 		
 		///////////////
 		// Check if player is backing off
+        
 		if (mbHunt_ProtectingFood && mfHunt_PlayerRetreatCount > mfHunt_PlayerRetreatMaxTime)
 		{	
 			Hunt_GiveUp();
@@ -3033,6 +3047,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			{
 				bDoAttack = false;
 			}
+            
 			else if (mbHunt_ProtectingFood)
 			{
 				cVector3f vPlayerPos = Player_GetFeetPosition();
@@ -3541,8 +3556,8 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			{
 				iPhysicsBody@ pBody = cLux_ID_Body(idBody);
 				bool bIsDamageArea = pBody !is null && Blackboard_GetIsBodyDamageArea(pBody);
-				
-				Retreat(bIsDamageArea ? eRatSpeed_Run : eRatSpeed_Walk, true, false);
+                
+				Retreat(bIsDamageArea ? eRatSpeed_Run : eRatSpeed_Walk, false, true);
 				cLux_AddAIDebugMessage("(" + mBaseObj.GetName() + ") Blood trail is inside path blocker, retreating!");
 				return;
 			}
