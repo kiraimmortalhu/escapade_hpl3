@@ -228,7 +228,17 @@ class cScrMap : iScrMap
 	
     bool OnTrigger_Player_SwitchMap_EntranceMap(const tString &in asParent, const tString &in asChild, int alState)
     {
-        Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceStorage");
+        
+        if(cScript_GetGlobalVarBool("entrance_alt_unlocked") ){
+            
+            Game_DoMapChange("escapade_entrance_alt.hpm", "MapTransfer_EntranceStorage");
+            
+        }else{
+
+            Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceStorage");
+            
+        }
+        
         return true;
     }
     
@@ -240,7 +250,17 @@ class cScrMap : iScrMap
     
     bool OnTrigger_Player_Transfer_Entrance_Two(const tString &in asParent, const tString &in asChild, int alState)
 	{
-		Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceStorage_2");
+        
+        if(cScript_GetGlobalVarBool("entrance_alt_unlocked") ){
+            
+            Game_DoMapChange("escapade_entrance_alt.hpm", "MapTransfer_EntranceStorage_2");
+            
+        }else{
+
+            Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceStorage_2");
+            
+        }
+        
 		return true;
 	}
     

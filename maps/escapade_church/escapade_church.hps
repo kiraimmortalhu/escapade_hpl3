@@ -191,7 +191,15 @@ class cScrMap : iScrMap
     
     bool OnTrigger_Player_Transfer_Entrance(const tString &in asParent, const tString &in asChild, int alState)
 	{
-		Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceChurch");
+        if(cScript_GetGlobalVarBool("entrance_alt_unlocked") ){
+            
+            Game_DoMapChange("escapade_entrance_alt.hpm", "MapTransfer_EntranceChurch");
+            
+        }else{
+
+            Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceChurch");
+            
+        }
 		return true;
 	}
     
