@@ -91,6 +91,8 @@ class cScrMap : iScrMap
 		}
 		
 		SetupGenerator();
+        
+        Entity_SetConnectionStateChangeCallback("lever*", "lever_portculis_OnConnectionStateChange");
 	}
 
 	//-------------------------------------------------------
@@ -192,7 +194,9 @@ class cScrMap : iScrMap
 	void lever_portculis_OnConnectionStateChange(const tString &in asEntity, int alState)
 	{
 		if (alState == -1) {
+            cLux_AddDebugMessage("STATE CHANGED: -1");
 			if (Generator_GetFuelTimeLeft() == 0) {
+                cLux_AddDebugMessage("MOVE DOOR UP");
 				MoveObject_SetState(asEntity + "_door", 1);
 				Lever_SetStuckState(asEntity, -1, true);
 			} else {
@@ -200,7 +204,7 @@ class cScrMap : iScrMap
 			}
 		}
 	}
- 
+    
 	
 	//////////////////////////////////////////////////////////////////////////////////////////
 	// ==============

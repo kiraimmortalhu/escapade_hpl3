@@ -155,7 +155,44 @@ class cScrMap : iScrMap
         CombinationLock_SetCombination("GeneratorLock", cScript_GetGlobalArgInt(0));
         */
         
+        /*
+        float afKey;
+        float afGammaCorrection;
+        float afFilmGrainIntensity;
+        float afBrightPass;
+        float afBloomWidth;
+        cColor avBloomTint;
+        float afBloomFalloff;
+        cLux_GetViewport().GetToneMappingEffect().GetParams(afKey, afGammaCorrection, afFilmGrainIntensity, afBrightPass, afBloomWidth, avBloomTint, afBloomFalloff);
         
+        cLux_AddDebugMessage("afKey: "+ afKey);
+        cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
+        cLux_AddDebugMessage("afFilmGrainIntensity: "+ afFilmGrainIntensity);
+        cLux_AddDebugMessage("afBrightPass: "+ afBrightPass);
+        cLux_AddDebugMessage("afBloomWidth: "+ afBloomWidth);
+        cLux_AddDebugMessage("avBloomTint A: "+ avBloomTint.a);
+        cLux_AddDebugMessage("avBloomTint R: "+ avBloomTint.r);
+        cLux_AddDebugMessage("avBloomTint G: "+ avBloomTint.g);
+        cLux_AddDebugMessage("avBloomTint B: "+ avBloomTint.b);
+        cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
+        
+        cLux_AddDebugMessage("EXPOSURE: "+ cLux_GetViewport().GetToneMappingEffect().GetExposure());
+        cLux_GetViewport().GetToneMappingEffect().FadeWindowExposure(0.f, 3.25f);
+        */
+        
+        float afKey = 0.1f;
+        float afGammaCorrection = 0.5f;
+        float afFilmGrainIntensity = 1.0f;
+        float afBrightPass = 0.75f;
+        float afBloomWidth = 128.0;
+        cColor avBloomTint;
+        avBloomTint.a = 1.0f;
+        avBloomTint.r = 1.0f;
+        avBloomTint.g = 1.0f;
+        avBloomTint.b = 1.0f;
+        float afBloomFalloff = 0.5f;
+        cLux_GetViewport().GetToneMappingEffect().SetParams(afKey, afGammaCorrection, afFilmGrainIntensity, afBrightPass, afBloomWidth, avBloomTint, afBloomFalloff);
+        cLux_GetViewport().GetToneMappingEffect().SetGradingTexture(1, "bunker_prototype_01.dds", 1.0f);
 	}
 
 	//-------------------------------------------------------
