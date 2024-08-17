@@ -229,7 +229,28 @@ class cScrMap : iScrMap
 		return true;
 	}
 	//-------------------------------------------------------
-
+    
+    bool CanUse_Lever(const tString &in asItemType, const tString &in asItemID, const tString &in asPickedEntity){
+        return asPickedEntity == "Trigger_LeverPlacement";
+    }
+    
+    bool OnUse_Lever(const tString &in asItemType, const tString &in asItemID, const tString &in asTargetEntity, const tString &in asItemEntity, float afTimeElapsed, float afTimeStep){
+        Entity_SetActive("lever3_mount", false);
+        Entity_SetActive("Trigger_LeverPlacement", false);
+        Entity_SetActive("lever3_portculis", true);
+        
+        
+        Item_Unequip(ItemType_GetFirstInInventory("Lever"));
+        Map_AddTimer("remove_lever", 1.0f, "OnTimer_RemoveLever");
+        
+        return true;
+    }
+    
+    void OnTimer_RemoveLever(const tString &in asTimer){
+        cLux_AddDebugMessage("UNEQUIPPED, REMOVE");
+        Item_RemoveFromInventory(ItemType_GetFirstInInventory("Lever"));
+    }
+    
 	////////////////////////////
 	// To get when player makes input (mostly used for debug)
 	void OnAction(int alAction, bool abPressed) 

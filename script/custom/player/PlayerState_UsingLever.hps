@@ -35,9 +35,9 @@ class cScrPlayerState_UsingLever : iScrPlayerState_UsingItem_Base, iScrPlayerSta
 	{
 		iScrPlayerState_UsingItem_Base::Init();
 		
-		msFocusIntroAnim_R = "torch_idle";
-		msFocusLoopAnim_R = "torch_idle";
-		msFocusOutroAnim_R = "torch_idle";
+		msFocusIntroAnim_R = "tool_torch_aim_start_rarm";
+		msFocusLoopAnim_R = "tool_torch_aim_rarm";
+		msFocusOutroAnim_R = "tool_torch_aim_end_rarm";
 	}
 	
 	//------------------------------------------------------------
@@ -53,7 +53,7 @@ class cScrPlayerState_UsingLever : iScrPlayerState_UsingItem_Base, iScrPlayerSta
 		////////////////
 		// Enter base
 		iScrPlayerState_UsingItem_Base::OnEnterState(alPrevStateId);
-		cLux_AddDebugMessage("ENTER STATE");
+		cLux_AddDebugMessage("LEVER USE");
 		////////////////
 		// Setup vars
 		
@@ -112,7 +112,7 @@ class cScrPlayerState_UsingLever : iScrPlayerState_UsingItem_Base, iScrPlayerSta
     void OnLeaveState(int alNextStateId)
 	{
         iScrPlayerState_UsingItem_Base::OnEnterState(alNextStateId);
-        cLux_AddDebugMessage("LEAVE STATE");
+        cLux_AddDebugMessage("LEVER STOP USE");
         
         ///////////////
 		// Reset vars

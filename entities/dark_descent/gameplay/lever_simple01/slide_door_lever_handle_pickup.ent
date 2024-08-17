@@ -2,15 +2,15 @@
     <ModelData>
         <Entities />
         <Mesh Filename="mods/escapade_hpl3/entities/dark_descent/gameplay/lever_simple01/slide_door_lever_handle.dae">
-            <SubMesh ID="0" Name="polySurface201" CreStamp="0" ModStamp="1723932172" WorldPos="0 0 0" Rotation="-3.14159 2.84217e-14 -1.5708" Scale="1 1 1" TriCount="141" Material="" Static="true" />
+            <SubMesh ID="0" Name="polySurface201" CreStamp="0" ModStamp="1723916021" WorldPos="0 0.339645 0" Rotation="1.5708 -0 0" Scale="1 1 1" TriCount="141" Material="" Static="true" />
         </Mesh>
         <Bones />
         <Shapes>
-            <Shape ID="2" Name="Shape_1" CreStamp="0" ModStamp="0" WorldPos="-9.71907e-08 -7.3138e-08 -0.177636" Rotation="-1.57079 8.74228e-08 -1.5708" Scale="0.046 0.41 0.046" RelativeTranslation="0 0 -0.154803" RelativeRotation="1.5708 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
-            <Shape ID="3" Name="Shape_2" CreStamp="0" ModStamp="0" WorldPos="9.71907e-08 -4.60713e-08 -0.487243" Rotation="-1.57079 8.74228e-08 -1.5708" Scale="0.058 0.21 0.058" RelativeTranslation="0 0 0.154803" RelativeRotation="1.5708 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
+            <Shape ID="2" Name="Shape_1" CreStamp="0" ModStamp="0" WorldPos="0 0.140901 5.04414e-08" Rotation="-3.14159 -0 0" Scale="0.046 0.41 0.046" RelativeTranslation="0 -5.16712e-07 -0.154803" RelativeRotation="1.5708 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
+            <Shape ID="3" Name="Shape_2" CreStamp="0" ModStamp="0" WorldPos="0 -0.168706 -5.04414e-08" Rotation="-3.14159 -0 0" Scale="0.058 0.21 0.058" RelativeTranslation="0 5.16712e-07 0.154803" RelativeRotation="1.5708 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
         </Shapes>
         <Bodies>
-            <Body ID="4" Name="Body" CreStamp="0" ModStamp="1723932183" WorldPos="0 -5.96046e-08 -0.332439" Rotation="-3.14159 8.74228e-08 -1.5708" Scale="1 1 1" Material="Wood" Mass="0" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="true" PushedByCharacterGravity="true" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+            <Body ID="4" Name="Body" CreStamp="0" ModStamp="1723916021" WorldPos="0 -0.0139025 0" Rotation="1.5708 -0 0" Scale="1 1 1" Material="Wood" Mass="0" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="true" PushedByCharacterGravity="true" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Shape ID="3" />
                 <Shape ID="2" />
             </Body>
@@ -32,7 +32,7 @@
         <Var ObjectId="4294967295" Name="AllowMapTransfer" Value="false" />
         <Var ObjectId="4294967295" Name="VoiceSourceBone" Value="" />
         <Var ObjectId="4294967295" Name="BlocksLineOfSight" Value="MaterialBased" />
-        <Var ObjectId="4294967295" Name="MainPhysicsBody" Value="" />
+        <Var ObjectId="4294967295" Name="MainPhysicsBody" Value="Body" />
         <Var ObjectId="4294967295" Name="NoGravityWhenUnderwater" Value="false" />
         <Var ObjectId="4294967295" Name="DisableFreezeAtStart" Value="false" />
         <Var ObjectId="4294967295" Name="CustomScriptFile" Value="" />
@@ -72,7 +72,7 @@
         <Var ObjectId="4294967295" Name="AnimationName" Value="torch" />
         <Var ObjectId="4294967295" Name="PickupSound" Value="" />
         <Var ObjectId="4294967295" Name="IsRatFood" Value="false" />
-        <Var ObjectId="4294967295" Name="AttractEnabled" Value="true" />
+        <Var ObjectId="4294967295" Name="AttractEnabled" Value="false" />
         <Var ObjectId="4294967295" Name="AttractDistance" Value="5" />
         <Var ObjectId="4294967295" Name="LifeTime" Value="-1" />
         <Var ObjectId="4294967295" Name="FeedingSlotsCount" Value="2" />
