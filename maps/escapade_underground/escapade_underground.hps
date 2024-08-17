@@ -158,6 +158,23 @@ class cScrMap : iScrMap
             cLux_GetViewport().GetToneMappingEffect().SetBloomActive(true);
             
             cLux_AddDebugMessage("CHANGED TONEMAPPING");
+            
+            //Fog change
+        cColor fogColor;
+        fogColor.a = 1.0f;
+        fogColor.r = 0.193f;
+        fogColor.b = 0.263f;
+        fogColor.g = 0.179f;
+        
+        cColor secondaryFogColor;
+        secondaryFogColor.a = 1.0f;
+        secondaryFogColor.r = 0.204f;
+        secondaryFogColor.g = 0.081f;
+        secondaryFogColor.b = 0.051f;
+        
+        Map_SetFogProperties(0.f, 100.0f, 2.0f, fogColor, false);
+        Map_SetSecondaryFogProperties(10.0f, 50.0f, 1.5f, secondaryFogColor);
+        
         }
         
         
