@@ -193,19 +193,41 @@ class cScrMap : iScrMap
     
     bool OnTrigger_Player_Transfer_DiningBallroomOne(const tString &in asParent, const tString &in asChild, int alState)
 	{
-		Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_1");
+        if(cScript_GetGlobalVarBool("entrance_alt_unlocked") ){
+            Game_DoMapChange("escapade_entrance_alt.hpm", "MapTransfer_EntranceLibrary_1");
+            
+        }else{
+
+            Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_1");
+        
+        }
+		
 		return true;
 	}
     
     bool OnTrigger_Player_Transfer_DiningBallroomTwo(const tString &in asParent, const tString &in asChild, int alState)
 	{
-		Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_2");
+		if(cScript_GetGlobalVarBool("entrance_alt_unlocked") ){
+            Game_DoMapChange("escapade_entrance_alt.hpm", "MapTransfer_EntranceLibrary_2");
+            
+        }else{
+
+            Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_2");
+        
+        }
 		return true;
 	}
     
     bool OnTrigger_Player_Transfer_LibraryBallroom(const tString &in asParent, const tString &in asChild, int alState)
 	{
-		Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_3");
+		if(cScript_GetGlobalVarBool("entrance_alt_unlocked") ){
+            Game_DoMapChange("escapade_entrance_alt.hpm", "MapTransfer_EntranceLibrary_3");
+            
+        }else{
+
+            Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_3");
+        
+        }
 		return true;
 	}
     
