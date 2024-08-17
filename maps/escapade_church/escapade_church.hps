@@ -68,8 +68,8 @@ class cScrMap : iScrMap
 		// Debug
 		if (cLux_ScriptDebugOn())
 		{
+			Entity_SetActive("debugitem_*", true);
 			Item_AddToInventory("DynamoLantern");
-			MovingButton_SetDisabled("door_lock_keyhole_base_1", false, false);
 		}
 	}
 
@@ -86,6 +86,65 @@ class cScrMap : iScrMap
 			PlayerBody_SetActive(true);
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
+		
+		SetupGenerator();
+        
+        //--ColorGrading start--
+        
+        //Debug: test enable entrance_alt
+        //cScript_SetGlobalVarBool("entrance_alt_unlocked", true);
+        
+        
+        float afKey;
+        float afGammaCorrection;
+        float afFilmGrainIntensity;
+        float afBrightPass;
+        float afBloomWidth;
+        cColor avBloomTint;
+        float afBloomFalloff;
+
+        if(cScript_GetGlobalVarBool("entrance_alt_unlocked")){ 
+            // Set ToneMapping values to match entrance_alt
+            float afKey = 0.1f;
+            float afGammaCorrection = 0.5f;
+            float afFilmGrainIntensity = 1.0f;
+            float afBrightPass = 0.75f;
+            float afBloomWidth = 128.0;
+            cColor avBloomTint;
+            avBloomTint.a = 1.0f;
+            avBloomTint.r = 1.0f;
+            avBloomTint.g = 1.0f;
+            avBloomTint.b = 1.0f;
+            float afBloomFalloff = 0.5f;
+            cLux_GetViewport().GetToneMappingEffect().SetParams(afKey, afGammaCorrection, afFilmGrainIntensity, afBrightPass, afBloomWidth, avBloomTint, afBloomFalloff);
+            cLux_GetViewport().GetToneMappingEffect().SetGradingTexture(1, "bunker_prototype_01.dds", 1.0f);
+            
+            cLux_GetViewport().GetToneMappingEffect().SetActive(true);
+            cLux_GetViewport().GetToneMappingEffect().SetColorGradingActive(true);
+            cLux_GetViewport().GetToneMappingEffect().FadeWindowExposure(0.f, 3.25f);
+            cLux_GetViewport().GetToneMappingEffect().SetBloomActive(true);
+            
+            cLux_AddDebugMessage("CHANGED TONEMAPPING");
+        }
+        
+        
+        cLux_GetViewport().GetToneMappingEffect().GetParams(afKey, afGammaCorrection, afFilmGrainIntensity, afBrightPass, afBloomWidth, avBloomTint, afBloomFalloff);
+        
+        cLux_AddDebugMessage("afKey: "+ afKey);
+        cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
+        cLux_AddDebugMessage("afFilmGrainIntensity: "+ afFilmGrainIntensity);
+        cLux_AddDebugMessage("afBrightPass: "+ afBrightPass);
+        cLux_AddDebugMessage("afBloomWidth: "+ afBloomWidth);
+        cLux_AddDebugMessage("avBloomTint A: "+ avBloomTint.a);
+        cLux_AddDebugMessage("avBloomTint R: "+ avBloomTint.r);
+        cLux_AddDebugMessage("avBloomTint G: "+ avBloomTint.g);
+        cLux_AddDebugMessage("avBloomTint B: "+ avBloomTint.b);
+        cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
+        
+        cLux_AddDebugMessage("EXPOSURE: "+ cLux_GetViewport().GetToneMappingEffect().GetExposure());
+        
+        //--ColorGrading end--
+        
 	}
 
 	//-------------------------------------------------------
@@ -138,7 +197,7 @@ class cScrMap : iScrMap
 		}
 	}
 	//-------------------------------------------------------
-    	void OnLookAt_SaveLamp(const tString &in asEntity, int alState)
+	void OnLookAt_SaveLamp(const tString &in asEntity, int alState)
 	{
 		tString sHint = GameDifficulty_GetSaveHint();
 		if(alState == 1)
@@ -209,12 +268,92 @@ class cScrMap : iScrMap
 	// ==============
 	//{///////////////////////////////////////////////////////////////////////////////////////
  
+ 	/////////////////////////
+	//// Generator
+	
+	void SetupGenerator()
+	{
+		Generator_SetupEntities("", "", "", "", "Lamp_Generator_*", "Lamp_GeneratorBackup_*");
+		Generator_EndSetup();
+	}
+	
+	void OnStateChange_Generator(int alState)
+	{		
+		///////////////////
+		// Generator Sounds
+		if (alState!=1)
+			Sound_Play("Sound_GeneratorOff", 0.f);		
+	}
+	
+	//////////////////// Generator end
+	
+	///////////////////////////////////
+	/// Key to Church Safe Room event
+	
+	bool CanUse_ChurchKey(const tString& in asItemType, const tString& in asItemID, const tString& in asPickedEntity) {
+		return asPickedEntity == "prison_section_1" || asPickedEntity == "door_lock_keyhole_base_1";
+	}
+	
+	bool OnUse_ChurchKey(const tString& in asItemType, const tString& in asItemID, const tString& in asTargetEntity, const tString& in asItemEntity, float afTimeElapsed, float afTimeStep) {
+		
+		//Sound_CreateAtEntity("", "key_use_01.snt", asTargetEntity);
+		//Item_RemoveFromInventory(ItemType_GetFirstInInventory(asItemType));
+		
+		PlayerBody_SetArmAnimationPitch(false, true, true);
+	    PlayerBody_SetArmAnimationYaw(false, true, true);
+		PlayerBody_SetUnequipItemsOnCutscene(true, false);
+		PlayerBody_PlayCutsceneAtEntity("tool_key_use", "AnimPos_ChurchKey", false, 0.3);
+	    
+		Map_AddTimer("Timer_ChuchKeyUnlock", 1.75, "OnTimer_ChuchKeyUnlock");
+		Map_AddTimer("Timer_ChuchKeyRelease", 2.65, "OnTimer_ChuchKeyRelease");
+		
+		return false;
+	}
+	
+	void OnTimer_ChuchKeyUnlock(const tString &in asTimer)
+	{
+		MovingButton_SetDisabled("door_lock_keyhole_base_1", false, true);
+		//SwingDoor_SetLocked("prison_section_1", false, true);
+	}
+	
+	//-------------------------------------------------------
+		
+	void OnTimer_ChuchKeyRelease(const tString &in asTimer)
+	{
+		tString sHeld = Item_GetHeldEntity(eItemHandlerHand_Right);
+		Entity_SetActive("UsedKey", true);
+		Entity_PlaceAtEntity("UsedKey", sHeld, 0.f, true);
+		
+		Item_RemoveFromInventory(ItemType_GetFirstInInventory("ChurchKey"), eInventoryInstance_Player, false, true);
+	}
+ 
 	void door_lock_keyhole_base_1_OnConnectionStateChange(const tString &in asEntity, int alState)
 	{
-		bool bLock = alState==1;
-			
-		MovingButton_SetSwitchedOn("door_lock_keyhole_base_1", bLock, true);
-		SwingDoor_SetLocked("prison_section_1", bLock, true);
+		if (alState == 1) {
+			MovingButton_SetSwitchedOn("door_lock_keyhole_base_1", true, true);
+			SwingDoor_SetLocked("prison_section_1", true, true);
+			Light_FadeTo("Light_ChurchDoor", cColor_Red, 0.5, 1.0f);
+		} else {
+			MovingButton_SetSwitchedOn("door_lock_keyhole_base_1", false, true);
+			SwingDoor_SetLocked("prison_section_1", false, true);
+			Light_FadeTo("Light_ChurchDoor", cColor_Green, 0.5, 1.0f);
+			// to-do, green disappears for some reason
+		}
+	}
+	
+	////////////////////////////////
+	
+	void lever_portcuils_OnConnectionStateChange(const tString &in asEntity, int alState)
+	{
+		if (alState == -1) {
+			if (Generator_GetFuelTimeLeft() > 0) {
+				//SlideDoor_SetOpenAmount("castle_portcullis_1", 1.0f, false);
+				MoveObject_SetState("castle_portcullis_*", 1);
+				Lever_SetStuckState(asEntity, -1, true);
+			} else {
+				Lever_SetStuckState(asEntity, 1, true);
+			}
+		}
 	}
  
 	//} END MAIN FUNCTIONS

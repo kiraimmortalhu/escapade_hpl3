@@ -52,7 +52,7 @@ class cScrMap : iScrMap
 	}
 	
 	//-------------------------------------------------------
-
+    
 	////////////////////////////
 	// Run first time starting map
 	void OnStart()
@@ -71,16 +71,23 @@ class cScrMap : iScrMap
 			cScript_SetGlobalVarInt("StorageCombination", cMath_RandRectl(1, 9999));
 		}
 		
+        
+        ///////////////////
+		// Setup saving
+		SaveRoom_SetupSaveLamp(false, "SaveLamp");
+        
+        
 		/////////////////////////
 		// Debug
 		if (cLux_ScriptDebugOn())
 		{
-		Item_AddToInventory("DynamoLantern");
+            Item_AddToInventory("DynamoLantern");
 		}
+        
 	}
 
 	//-------------------------------------------------------
-
+    
 	////////////////////////////
 	// Run when entering map
 	void OnEnter()
@@ -92,16 +99,75 @@ class cScrMap : iScrMap
 			PlayerBody_SetActive(true);
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
+		
+		SetupGenerator();
+        
+        
 	}
-
+    
 	//-------------------------------------------------------
-
+    //array<iLuxEntity@> pickableEntities;
 	////////////////////////////
 	// Run when leaving map
 	void OnLeave()
 	{
+        //Map_GetEntityArray("*", )
+        // Reset global var 
+        array<iLuxEntity@> pickableEntities;
+        
+        //Get array for pickables sync
+        Map_GetEntityArray("*", pickableEntities, eLuxEntityType_LastEnum, "cScrPropPickup");
+        
+        cScript_SetGlobalVarString("sync_pickables_entrance", "");
+        for(int t=0; t < pickableEntities.length(); t++){
+            //Entity_SetPlayerInteractCallback(pickableEntities[t].GetName(), "OnInteract_ToRemoveFromEntranceAlt", false);
+            cScript_SetGlobalVarString("sync_pickables_entrance", cScript_GetGlobalVarString("sync_pickables_entrance") + "," + pickableEntities[t].GetName());
+            cLux_AddDebugMessage("ADDED NAMES TO GLOBAL VARIABLE FOR SYNC");
+            cLux_AddDebugMessage(cScript_GetGlobalVarString("sync_pickables_entrance"));
+            
+        }
+        
 	}
-	
+    
+    //array<iLuxEntity@> pickableEntitiesEnd;
+	bool OnCollide_DebugTest(const tString &in asParent, const tString &in asChild, int alState)
+    {
+        /*
+        if(alState == 1){
+            cLux_AddDebugMessage("COLLIDED");
+            //cLux_AddDebugMessage("CLASS: " + Map_GetEntity("torch_stick_pickup_2").GetClassName());
+            cLux_AddDebugMessage("INITIAL ARRAY");
+            // Reset global var 
+            cScript_SetGlobalVarString("sync_pickables_entrance", "");
+            for(int t=0; t < pickableEntities.length(); t++){
+                //Entity_SetPlayerInteractCallback(pickableEntities[t].GetName(), "OnInteract_ToRemoveFromEntranceAlt", false);
+                //cLux_AddDebugMessage(""+ pickableEntities[t].GetName());
+                cScript_SetGlobalVarString("sync_pickables_entrance", cScript_GetGlobalVarString("sync_pickables_entrance") + "," + pickableEntities[t].GetName());
+            }
+            
+            //cLux_AddDebugMessage("NEW ARRAY");
+            //Map_GetEntityArray("*", pickableEntitiesEnd, eLuxEntityType_LastEnum, "cScrPropPickup");
+            //
+            //for(int t=0; t < pickableEntitiesEnd.length(); t++){
+            //    //Entity_SetPlayerInteractCallback(pickableEntities[t].GetName(), "OnInteract_ToRemoveFromEntranceAlt", false);
+            //    cLux_AddDebugMessage(""+ pickableEntitiesEnd[t].GetName());
+            //}
+            
+            cLux_AddDebugMessage(cScript_GetGlobalVarString("sync_pickables_entrance"));
+        }
+        */
+        return true;
+    }
+    
+    bool OnCollide_DebugChangeMap(const tString &in asParent, const tString &in asChild, int alState)
+    {
+        if(alState == 1){
+            cLux_AddDebugMessage("COLLIDED");
+            cLux_ChangeMap("escapade_entrance_alt.hpm", "Start_Begin_Ballroom", "", "", "", true);
+        }
+        return true;
+    }
+    
     bool OnCollide_CloseExitDoors(const tString &in asParent, const tString &in asChild, int alState)
     {
         if(alState == 1){
@@ -161,7 +227,10 @@ class cScrMap : iScrMap
 		return true;
 	}
 	//-------------------------------------------------------
-
+    void OnInteract_ToRemoveFromEntranceAlt(const tString &in asEntity)
+    {
+        cLux_AddDebugMessage("REMOVED FROM ENTRANCE ALT");
+    }
 	////////////////////////////
 	// To get when player makes input (mostly used for debug)
 	void OnAction(int alAction, bool abPressed) 
@@ -203,15 +272,20 @@ class cScrMap : iScrMap
 	{
 		////////////////
 		// About to get lit!
-		if (Lamp_GetLit(asEntity) == false)
-			SaveGameProgress();
-		else
+		if (Lamp_GetLit(asEntity) == false){
+            cLux_AddDebugMessage("SAVED");
+			//SaveGameProgress();
+            
+        }
+		else{
 			Map_AddTimer(asEntity, 1.f, "OnTimer_SaveGameProgress");
+        }
 	}
 	
 	void OnTimer_SaveGameProgress(const tString&in asTimer)
 	{
 		Lamp_SetLit(asTimer, true, true);
+        cLux_AddDebugMessage("SAVED");
 		SaveGameProgress();
 	}
 	
@@ -219,6 +293,7 @@ class cScrMap : iScrMap
 	{
 		/////////////////
 		// Save game
+        cLux_AddDebugMessage("SAVED");
 		SaveRoom_SaveGame(true, true);
 		
 		////////////////
@@ -248,16 +323,25 @@ class cScrMap : iScrMap
 	// ==============
 	//{///////////////////////////////////////////////////////////////////////////////////////
  
-	//-------------------------------------------------------
- 
-	/*Put any variables that are used in more than one scene here.*/
- 
-	//-------------------------------------------------------
- 
-	/*Put any functions that are used in more than one scene here.*/
- 
-	//-------------------------------------------------------
- 
+	/////////////////////////
+	//// Generator
+	
+	void SetupGenerator()
+	{
+		Generator_SetupEntities("", "", "", "", "Lamp_Generator_*", "Lamp_GeneratorBackup_*");
+		Generator_EndSetup();
+	}
+	
+	void OnStateChange_Generator(int alState)
+	{		
+		///////////////////
+		// Generator Sounds
+		if (alState!=1)
+			Sound_Play("Sound_GeneratorOff", 0.f);		
+	}
+	
+	////////////////////////////////
+    
 	//} END MAIN FUNCTIONS
  
 	//////////////////////////////////////////////////////////////////////////////////////////
