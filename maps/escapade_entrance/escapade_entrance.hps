@@ -102,6 +102,27 @@ class cScrMap : iScrMap
 		
 		SetupGenerator();
         
+        // Check for unlocked padlocks and disable them
+        for(int t = 1; t <= 10; t++){
+            if(cScript_GetGlobalVarBool("padlock_"+t)){
+                Entity_SetActive("padlock_"+t, false);
+            }
+        }
+        
+        
+        //Debug
+        if(cLux_ScriptDebugOn()){
+            Item_SetCurrentSlotsCount(50);
+			if (ItemType_GetCountInInventory("Gun") == 0)
+			{
+				Item_AddToInventory("Gun");
+				Item_AddManyToInventory("Ammunition", 20);
+			}
+            
+        }
+        
+        cLux_AddDebugMessage(""+ cScript_GetGlobalVarBool("padlock_1"));
+        cLux_AddDebugMessage("ENTITY COUNT "+ Map_GetEntityCount("padlock_*"));
         
 	}
     
@@ -157,6 +178,12 @@ class cScrMap : iScrMap
         }
         */
         return true;
+    }
+    
+    void OnBreak_Padlock(const tString &in asEntity)
+    {
+        cScript_SetGlobalVarBool(asEntity, true);
+        cLux_AddDebugMessage(""+ cScript_GetGlobalVarBool(asEntity));
     }
     
     bool OnCollide_DebugChangeMap(const tString &in asParent, const tString &in asChild, int alState)
