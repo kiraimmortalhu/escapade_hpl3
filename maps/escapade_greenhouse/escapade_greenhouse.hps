@@ -306,7 +306,7 @@ class cScrMap : iScrMap
 	{
 		if (alState == -1) {
             cLux_AddDebugMessage("STATE CHANGED: -1");
-			if (Generator_GetFuelTimeLeft() == 0) {
+			if (Generator_GetFuelTimeLeft() >0) {
                 cLux_AddDebugMessage("MOVE DOOR UP");
 				MoveObject_SetState(asEntity + "_door", 1);
 				Lever_SetStuckState(asEntity, -1, true);
