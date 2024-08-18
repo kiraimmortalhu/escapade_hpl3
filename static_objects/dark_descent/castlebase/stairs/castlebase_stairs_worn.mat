@@ -1,8 +1,8 @@
 <Material>
-    <Main Type="soliddiffuse" DepthTest="true" ForceFullScaleTextures="false" UVSubDivs="1 1" UseAlpha="false" PhysicsMaterial="Rock" BlendMode="Add" />
+    <Main Type="soliddiffuse" DepthTest="true" ForceFullScaleTextures="false" UVSubDivs="1 1" UseAlpha="false" PhysicsMaterial="stone med" BlendMode="Add" RandomStartFrame="false" />
     <TextureUnits>
-        <Diffuse MipMaps="true" Compress="true" File="mods/Project_Omega/assets/static_objects/the_dark_descent/castlebase/stairs/castlebase_stairs_worn.dds" Type="2D" Wrap="Repeat" AnimMode="None" AnimFrameTime="0" AnimStartTime="0" />
-        <NMap MipMaps="true" Compress="true" File="mods/Project_Omega/assets/static_objects/the_dark_descent/castlebase/stairs/castlebase_stairs_nrm.dds" Type="2D" Wrap="Repeat" AnimMode="None" AnimFrameTime="0" AnimStartTime="0" />
+        <Diffuse MipMaps="true" Compress="true" File="mods/escapade_hpl3/static_objects/dark_descent/castlebase/stairs/castlebase_stairs_worn.dds" Type="2D" Wrap="Repeat" AnimMode="None" AnimFrameTime="0" AnimStartTime="0" />
+        <NMap MipMaps="true" Compress="true" File="mods/escapade_hpl3/static_objects/dark_descent/castlebase/stairs/castlebase_stairs_nrm.dds" Type="2D" Wrap="Repeat" AnimMode="None" AnimFrameTime="0" AnimStartTime="0" />
     </TextureUnits>
     <SpecificVariables>
         <Var ObjectId="4294967295" Name="HeightMapScale" Value="0.1" />
@@ -39,6 +39,7 @@
         <Var ObjectId="4294967295" Name="LiquidTrickleFadeSpeed" Value="0.5 0.5" />
         <Var ObjectId="4294967295" Name="LiquidTrickleEdgeSize" Value="0.5" />
         <Var ObjectId="4294967295" Name="LiquidTrickleDryness" Value="0.5" />
+        <Var ObjectId="4294967295" Name="UseDecalOffset" Value="false" />
         <Var ObjectId="4294967295" Name="LiquidTrickleBlendMode" Value="Alpha" />
     </SpecificVariables>
 </Material>

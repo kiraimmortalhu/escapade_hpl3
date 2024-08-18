@@ -91,6 +91,83 @@ class cScrMap : iScrMap
 		}
 		
 		SetupGenerator();
+        
+        Entity_SetConnectionStateChangeCallback("lever*", "lever_portculis_OnConnectionStateChange");
+        
+                //--ColorGrading start--
+        
+        //Debug: test enable entrance_alt
+        //cScript_SetGlobalVarBool("entrance_alt_unlocked", true);
+        
+        
+        float afKey;
+        float afGammaCorrection;
+        float afFilmGrainIntensity;
+        float afBrightPass;
+        float afBloomWidth;
+        cColor avBloomTint;
+        float afBloomFalloff;
+
+        if(cScript_GetGlobalVarBool("entrance_alt_unlocked")){ 
+            // Set ToneMapping values to match entrance_alt
+            float afKey = 0.1f;
+            float afGammaCorrection = 0.5f;
+            float afFilmGrainIntensity = 1.0f;
+            float afBrightPass = 0.75f;
+            float afBloomWidth = 128.0;
+            cColor avBloomTint;
+            avBloomTint.a = 1.0f;
+            avBloomTint.r = 1.0f;
+            avBloomTint.g = 1.0f;
+            avBloomTint.b = 1.0f;
+            float afBloomFalloff = 0.5f;
+            cLux_GetViewport().GetToneMappingEffect().SetParams(afKey, afGammaCorrection, afFilmGrainIntensity, afBrightPass, afBloomWidth, avBloomTint, afBloomFalloff);
+            cLux_GetViewport().GetToneMappingEffect().SetGradingTexture(1, "bunker_prototype_01.dds", 1.0f);
+            
+            cLux_GetViewport().GetToneMappingEffect().SetActive(true);
+            cLux_GetViewport().GetToneMappingEffect().SetColorGradingActive(true);
+            cLux_GetViewport().GetToneMappingEffect().FadeWindowExposure(0.f, 3.25f);
+            cLux_GetViewport().GetToneMappingEffect().SetBloomActive(true);
+            
+            cLux_AddDebugMessage("CHANGED TONEMAPPING");
+            
+            //Fog change
+
+			cColor fogColor;
+			fogColor.a = 1.0f;
+			fogColor.r = 0.193f;
+			fogColor.b = 0.263f;
+			fogColor.g = 0.179f;
+			
+			cColor secondaryFogColor;
+			secondaryFogColor.a = 1.0f;
+			secondaryFogColor.r = 0.204f;
+			secondaryFogColor.g = 0.081f;
+			secondaryFogColor.b = 0.051f;
+			
+			Map_SetFogProperties(0.f, 100.0f, 2.0f, fogColor, false);
+			Map_SetSecondaryFogProperties(10.0f, 50.0f, 1.5f, secondaryFogColor);
+			
+	
+        }
+        
+        
+        cLux_GetViewport().GetToneMappingEffect().GetParams(afKey, afGammaCorrection, afFilmGrainIntensity, afBrightPass, afBloomWidth, avBloomTint, afBloomFalloff);
+        
+        cLux_AddDebugMessage("afKey: "+ afKey);
+        cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
+        cLux_AddDebugMessage("afFilmGrainIntensity: "+ afFilmGrainIntensity);
+        cLux_AddDebugMessage("afBrightPass: "+ afBrightPass);
+        cLux_AddDebugMessage("afBloomWidth: "+ afBloomWidth);
+        cLux_AddDebugMessage("avBloomTint A: "+ avBloomTint.a);
+        cLux_AddDebugMessage("avBloomTint R: "+ avBloomTint.r);
+        cLux_AddDebugMessage("avBloomTint G: "+ avBloomTint.g);
+        cLux_AddDebugMessage("avBloomTint B: "+ avBloomTint.b);
+        cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
+        
+        cLux_AddDebugMessage("EXPOSURE: "+ cLux_GetViewport().GetToneMappingEffect().GetExposure());
+        
+        //--ColorGrading end--
 	}
 
 	//-------------------------------------------------------
@@ -121,13 +198,28 @@ class cScrMap : iScrMap
     
     bool OnTrigger_Player_Transfer_Entrance_One(const tString &in asParent, const tString &in asChild, int alState)
 	{
-		Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceGreenhouse_1");
+		
+        if(cScript_GetGlobalVarBool("entrance_alt_unlocked") ){
+            Game_DoMapChange("escapade_entrance_alt.hpm", "MapTransfer_EntranceGreenhouse_1");
+            
+        }else{
+
+            Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceGreenhouse_1");
+        
+        }
 		return true;
 	}
     
     bool OnTrigger_Player_Transfer_Entrance_Two(const tString &in asParent, const tString &in asChild, int alState)
 	{
-		Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceGreenhouse_2");
+		if(cScript_GetGlobalVarBool("entrance_alt_unlocked") ){
+            Game_DoMapChange("escapade_entrance_alt.hpm", "MapTransfer_EntranceGreenhouse_2");
+            
+        }else{
+
+            Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceGreenhouse_2");
+        
+        }
 		return true;
 	}
     
@@ -137,7 +229,28 @@ class cScrMap : iScrMap
 		return true;
 	}
 	//-------------------------------------------------------
-
+    
+    bool CanUse_Lever(const tString &in asItemType, const tString &in asItemID, const tString &in asPickedEntity){
+        return asPickedEntity == "Trigger_LeverPlacement";
+    }
+    
+    bool OnUse_Lever(const tString &in asItemType, const tString &in asItemID, const tString &in asTargetEntity, const tString &in asItemEntity, float afTimeElapsed, float afTimeStep){
+        Entity_SetActive("lever3_mount", false);
+        Entity_SetActive("Trigger_LeverPlacement", false);
+        Entity_SetActive("lever3_portculis", true);
+        
+        
+        Item_Unequip(ItemType_GetFirstInInventory("Lever"));
+        Map_AddTimer("remove_lever", 1.0f, "OnTimer_RemoveLever");
+        
+        return true;
+    }
+    
+    void OnTimer_RemoveLever(const tString &in asTimer){
+        cLux_AddDebugMessage("UNEQUIPPED, REMOVE");
+        Item_RemoveFromInventory(ItemType_GetFirstInInventory("Lever"));
+    }
+    
 	////////////////////////////
 	// To get when player makes input (mostly used for debug)
 	void OnAction(int alAction, bool abPressed) 
@@ -192,7 +305,10 @@ class cScrMap : iScrMap
 	void lever_portculis_OnConnectionStateChange(const tString &in asEntity, int alState)
 	{
 		if (alState == -1) {
-			if (Generator_GetFuelTimeLeft() == 0) {
+            cLux_AddDebugMessage("STATE CHANGED: -1");
+			if (Generator_GetFuelTimeLeft() >0|| asEntity == "lever3_portculis")
+ {
+                cLux_AddDebugMessage("MOVE DOOR UP");
 				MoveObject_SetState(asEntity + "_door", 1);
 				Lever_SetStuckState(asEntity, -1, true);
 			} else {
@@ -200,7 +316,7 @@ class cScrMap : iScrMap
 			}
 		}
 	}
- 
+    
 	
 	//////////////////////////////////////////////////////////////////////////////////////////
 	// ==============

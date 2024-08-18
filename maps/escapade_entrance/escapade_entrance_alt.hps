@@ -63,8 +63,7 @@ class cScrMap : iScrMap
 	
 	//-------------------------------------------------------
     
-    array<iLuxEntity@> pickableEntities;
-    array<tString> pickablesRemaining;
+    
 	////////////////////////////
 	// Run first time starting map
 	void OnStart()
@@ -75,6 +74,7 @@ class cScrMap : iScrMap
 		PlayerBody_SetActive(true);
 		PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		/////////////////////////
+        cScript_SetGlobalVarBool("entrance_alt_unlocked", true);
 		// Debug
 		if (cLux_ScriptDebugOn())
 		{
@@ -82,7 +82,8 @@ class cScrMap : iScrMap
 		}
         
         //---Sync previously picked entities start---
-        
+        array<iLuxEntity@> pickableEntities;
+        array<tString> pickablesRemaining;
         //Disable all pickable entities
         Map_GetEntityArray("*", pickableEntities, eLuxEntityType_LastEnum, "cScrPropPickup");
         for(int t = 0; t < pickableEntities.length(); t++){
@@ -95,7 +96,7 @@ class cScrMap : iScrMap
         cLux_AddDebugMessage("PICKABLES REMAINING:");
         
         //Enable remaining pickables
-        for(int t = 1; t <= pickablesRemaining.length(); t++){
+        for(int t = 0; t < pickablesRemaining.length(); t++){
             if(pickablesRemaining[t] != ""){
                 cLux_AddDebugMessage(pickablesRemaining[t]);
                 //Map_GetEntity(pickablesRemaining[t]).SetActive(true);
@@ -139,6 +140,48 @@ class cScrMap : iScrMap
         }
         //Map_GetProp("dw_rock_med_freeze_*").GetMainBody().SetGravity(false);
 		Game_AutoSave();
+        
+        
+        //Debug
+        /*
+        float afKey;
+        float afGammaCorrection;
+        float afFilmGrainIntensity;
+        float afBrightPass;
+        float afBloomWidth;
+        cColor avBloomTint;
+        float afBloomFalloff;
+        cLux_GetViewport().GetToneMappingEffect().GetParams(afKey, afGammaCorrection, afFilmGrainIntensity, afBrightPass, afBloomWidth, avBloomTint, afBloomFalloff);
+        
+        cLux_AddDebugMessage("afKey: "+ afKey);
+        cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
+        cLux_AddDebugMessage("afFilmGrainIntensity: "+ afFilmGrainIntensity);
+        cLux_AddDebugMessage("afBrightPass: "+ afBrightPass);
+        cLux_AddDebugMessage("afBloomWidth: "+ afBloomWidth);
+        cLux_AddDebugMessage("avBloomTint A: "+ avBloomTint.a);
+        cLux_AddDebugMessage("avBloomTint R: "+ avBloomTint.r);
+        cLux_AddDebugMessage("avBloomTint G: "+ avBloomTint.g);
+        cLux_AddDebugMessage("avBloomTint B: "+ avBloomTint.b);
+        cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
+        */
+        
+        /*
+        // Test to match values
+        float afKey = 0.1f;
+        float afGammaCorrection = 0.5f;
+        float afFilmGrainIntensity = 1.0f;
+        float afBrightPass = 0.75f;
+        float afBloomWidth = 128.0;
+        cColor avBloomTint;
+        avBloomTint.a = 1.0f;
+        avBloomTint.r = 1.0f;
+        avBloomTint.g = 1.0f;
+        avBloomTint.b = 1.0f;
+        float afBloomFalloff = 0.5f;
+        cLux_GetViewport().GetToneMappingEffect().SetParams(afKey, afGammaCorrection, afFilmGrainIntensity, afBrightPass, afBloomWidth, avBloomTint, afBloomFalloff);
+        cLux_GetViewport().GetToneMappingEffect().SetGradingTexture(1, "bunker_prototype_01.dds", 1.0f);
+        */
+        
         
     }
     
@@ -209,6 +252,11 @@ class cScrMap : iScrMap
 		return true;
 	}
     
+    bool OnTrigger_Player_SwitchMap_StorageMap(const tString &in asParent, const tString &in asChild, int alState)
+    {
+        Game_DoMapChange("escapade_storage.hpm", "MapTransfer_EntranceStorage");
+        return true;
+    }
 	//-------------------------------------------------------
 
 	////////////////////////////
