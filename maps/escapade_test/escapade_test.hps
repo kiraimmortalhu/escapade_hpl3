@@ -193,6 +193,23 @@ class cScrMap : iScrMap
         float afBloomFalloff = 0.5f;
         cLux_GetViewport().GetToneMappingEffect().SetParams(afKey, afGammaCorrection, afFilmGrainIntensity, afBrightPass, afBloomWidth, avBloomTint, afBloomFalloff);
         cLux_GetViewport().GetToneMappingEffect().SetGradingTexture(1, "bunker_prototype_01.dds", 1.0f);
+        
+        //Fog change
+        cColor fogColor;
+        fogColor.a = 1.0f;
+        fogColor.r = 0.193f;
+        fogColor.b = 0.263f;
+        fogColor.g = 0.179f;
+        
+        cColor secondaryFogColor;
+        secondaryFogColor.a = 1.0f;
+        secondaryFogColor.r = 0.204f;
+        secondaryFogColor.g = 0.081f;
+        secondaryFogColor.b = 0.051f;
+        
+        Map_SetFogProperties(0.f, 100.0f, 2.0f, fogColor, false);
+        Map_SetSecondaryFogProperties(10.0f, 50.0f, 1.5f, secondaryFogColor);
+        
 	}
 
 	//-------------------------------------------------------

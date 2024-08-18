@@ -74,6 +74,7 @@ class cScrMap : iScrMap
 		PlayerBody_SetActive(true);
 		PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		/////////////////////////
+        cScript_SetGlobalVarBool("entrance_alt_unlocked", true);
 		// Debug
 		if (cLux_ScriptDebugOn())
 		{
@@ -251,6 +252,11 @@ class cScrMap : iScrMap
 		return true;
 	}
     
+    bool OnTrigger_Player_SwitchMap_StorageMap(const tString &in asParent, const tString &in asChild, int alState)
+    {
+        Game_DoMapChange("escapade_storage.hpm", "MapTransfer_EntranceStorage");
+        return true;
+    }
 	//-------------------------------------------------------
 
 	////////////////////////////
