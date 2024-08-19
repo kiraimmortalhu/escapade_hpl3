@@ -100,7 +100,18 @@ class cScrMap : iScrMap
 		SetupGenerator();
         
         Entity_SetConnectionStateChangeCallback("lever*", "lever_portculis_OnConnectionStateChange");
-		Lever_SetStuckState("lever*", 1, true);
+		
+        // Generator off, set levers off
+        if(Generator_GetFuelTimeLeft() == 0){
+            // Skip lever numbers that do not depend on generator
+            for(int t = 1; t <= 10; t++){
+                if(t != 3){
+                    Lever_SetStuckState("lever"+t+"_portculis", 1, true);
+                }
+            }
+            
+        }
+        
 		
 		if(cScript_GetGlobalVarBool("entrance_alt_unlocked")){ 
 			SetupColorgrading_EntranceAlt();
