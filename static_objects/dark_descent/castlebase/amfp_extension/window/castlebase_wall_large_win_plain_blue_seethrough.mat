@@ -1,20 +1,31 @@
 <Material>
-    <Main BlendMode="Add" DepthTest="true" PhysicsMaterial="Glass" Type="water" UseAlpha="false" />
+    <Main Type="water" DepthTest="true" ForceFullScaleTextures="false" UVSubDivs="1 1" UseAlpha="false" PhysicsMaterial="glass_bottle_thick" BlendMode="Add" RandomStartFrame="false" />
     <TextureUnits>
-        <Diffuse AnimFrameTime="0" AnimMode="None" Compress="true" File="D:/Program Files (x86)/Steam/steamapps/common/Amnesia The Dark Descent/static_objects/castlebase/wall/castlebase_wall_large_win_plain_blue.dds" MipMaps="true" Type="2D" Wrap="Repeat" />
-        <NMap AnimFrameTime="0" AnimMode="None" Compress="true" File="D:/Program Files (x86)/Steam/steamapps/common/Amnesia The Dark Descent/static_objects/castlebase/wall/castlebase_wall_large_win_plain_blue_nrm.dds" MipMaps="true" Type="2D" Wrap="Repeat" />
+        <Diffuse MipMaps="true" Compress="true" File="mods/escapade_hpl3/static_objects/dark_descent/castlebase/wall/castlebase_wall_large_win_plain_blue.dds" Type="2D" Wrap="Repeat" AnimMode="None" AnimFrameTime="0" AnimStartTime="0" />
+        <NMap MipMaps="true" Compress="true" File="mods/escapade_hpl3/static_objects/dark_descent/castlebase/wall/castlebase_wall_large_win_plain_blue_nrm.dds" Type="2D" Wrap="Repeat" AnimMode="None" AnimFrameTime="0" AnimStartTime="0" />
     </TextureUnits>
     <SpecificVariables>
-        <Var Name="RefractionScale" Value="0.03" />
-        <Var Name="FrenselBias" Value="0.30000001192092896" />
-        <Var Name="FrenselPow" Value="1" />
-        <Var Name="WaveSpeed" Value="0" />
-        <Var Name="WaveAmplitude" Value="0" />
-        <Var Name="WaveFreq" Value="0" />
-        <Var Name="ReflectionFadeStart" Value="2" />
-        <Var Name="ReflectionFadeEnd" Value="15" />
-        <Var Name="HasReflection" Value="true" />
-        <Var Name="OcclusionCullWorldReflection" Value="false" />
-        <Var Name="LargeSurface" Value="false" />
+        <Var ObjectId="4294967295" Name="RefractionScale" Value="0.03" />
+        <Var ObjectId="4294967295" Name="FrenselBias" Value="0.3" />
+        <Var ObjectId="4294967295" Name="FrenselPow" Value="1" />
+        <Var ObjectId="4294967295" Name="WaveSpeed" Value="0" />
+        <Var ObjectId="4294967295" Name="WaveAmplitude" Value="0" />
+        <Var ObjectId="4294967295" Name="WaveFreq" Value="0" />
+        <Var ObjectId="4294967295" Name="ReflectionFadeStart" Value="2" />
+        <Var ObjectId="4294967295" Name="ReflectionFadeEnd" Value="15" />
+        <Var ObjectId="4294967295" Name="HasRefraction" Value="true" />
+        <Var ObjectId="4294967295" Name="HasReflection" Value="true" />
+        <Var ObjectId="4294967295" Name="OcclusionCullWorldReflection" Value="false" />
+        <Var ObjectId="4294967295" Name="LargeSurface" Value="false" />
+        <Var ObjectId="4294967295" Name="ReflectTerrain" Value="false" />
+        <Var ObjectId="4294967295" Name="CubemapAsFallback" Value="false" />
+        <Var ObjectId="4294967295" Name="HasVertexWaves" Value="false" />
+        <Var ObjectId="4294967295" Name="VertexWaveSpeed" Value="1" />
+        <Var ObjectId="4294967295" Name="VertexWaveAmplitude" Value="0.05" />
+        <Var ObjectId="4294967295" Name="VertexWaveFreq" Value="3" />
+        <Var ObjectId="4294967295" Name="HasChaoticWaves" Value="false" />
+        <Var ObjectId="4294967295" Name="FadeWhenShallowMul" Value="0.1" />
+        <Var ObjectId="4294967295" Name="FadeWhenShallowPow" Value="1" />
+        <Var ObjectId="4294967295" Name="FadeBasedOnFogStart" Value="false" />
     </SpecificVariables>
 </Material>
