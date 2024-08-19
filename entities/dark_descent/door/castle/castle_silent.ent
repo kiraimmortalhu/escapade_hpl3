@@ -1,17 +1,17 @@
 <Entity>
     <ModelData>
         <Entities />
-        <Mesh Filename="mods/Project_Omega/assets/entities/the_dark_descent/entities/door/castle/castle.dae">
+        <Mesh Filename="mods/escapade_hpl3/entities/dark_descent/door/castle/castle.dae">
             <SubMesh ID="0" Name="Scene_Root" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="84" Material="" Static="true" />
             <SubMesh ID="1" Name="polySurface6" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="484" Material="" Static="true" />
         </Mesh>
         <Bones />
         <Shapes>
             <Shape ID="2" Name="Shape_1" CreStamp="0" ModStamp="0" WorldPos="0.034968 1.36185 0" Rotation="0 0 0" Scale="1.62 2.7 0.3" RelativeTranslation="0 0 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Box" />
-            <Shape ID="3" Name="Shape_2" CreStamp="0" ModStamp="0" WorldPos="-0.934134 1.34634 0" Rotation="0 0 0" Scale="0.05 2.7 0.3" RelativeTranslation="5.96046e-08 0 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="3" Name="Shape_2" CreStamp="0" ModStamp="0" WorldPos="0.906967 1.34634 -1.94217e-14" Rotation="-0 3.14159 -0" Scale="0.05 2.7 0.3" RelativeTranslation="-5.96046e-08 0 -2.27374e-13" RelativeRotation="0 -2.27374e-13 0" RelativeScale="1 1 1" ShapeType="Box" />
         </Shapes>
         <Bodies>
-            <Body ID="4" Name="Body_1" CreStamp="0" ModStamp="0" WorldPos="-0.934134 1.34634 0" Rotation="0 0 0" Scale="1 0.9 1" Material="Metal" Mass="0" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+            <Body ID="4" Name="Body_1" CreStamp="0" ModStamp="1724088011" WorldPos="0.906967 1.34634 -1.94217e-14" Rotation="-0 3.14159 -0" Scale="1 0.9 1" Material="Metal" Mass="0" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="false" CollideNonCharacter="false" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Shape ID="3" />
             </Body>
             <Body ID="5" Name="Body_2" CreStamp="0" ModStamp="0" WorldPos="0.034968 1.36185 0" Rotation="0 0 0" Scale="0.9 0.9 1" Material="Wood Robust" Mass="8" AngularDamping="0.2" LinearDamping="0.2" MaxAngularSpeed="12" MaxLinearSpeed="12" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="false" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
@@ -22,7 +22,7 @@
             </Body>
         </Bodies>
         <Joints>
-            <JointHinge ID="6" Name="HingeJoint_1" CreStamp="0" ModStamp="0" WorldPos="-0.909518 0 0.151339" Rotation="0 0 0" Scale="1 1 1" LimitStepCount="0" Stiffness="0" MinMoveSpeed="0.1" MinMoveFreq="0.9" MinMoveFreqSpeed="0.75" MinMoveVolume="0.2" MaxMoveSpeed="6" MaxMoveFreq="1.1" MaxMoveFreqSpeed="3" MaxMoveVolume="0.7" MiddleMoveSpeed="1.5" MiddleMoveVolume="0.5" MinLimitSound="" MinLimitMinSpeed="0" MinLimitMaxSpeed="0" MaxLimitSound="" MaxLimitMinSpeed="0" MaxLimitMaxSpeed="0" Breakable="false" BreakForce="0" BreakSound="" CollideBodies="false" StickyMinLimit="false" StickyMaxLimit="false" MoveSound="" MoveType="Angular" MinAngle="0" MaxAngle="90" ConnectedParentBodyID="-1" ConnectedChildBodyID="5" />
+            <JointHinge ID="6" Name="HingeJoint_1" CreStamp="0" ModStamp="1724088008" WorldPos="0.92337 0.0916061 -0.104382" Rotation="-0 3.14159 -0" Scale="1 1 1" LimitStepCount="0" Stiffness="0" MinMoveSpeed="0.1" MinMoveFreq="0.9" MinMoveFreqSpeed="0.75" MinMoveVolume="0.2" MaxMoveSpeed="6" MaxMoveFreq="1.1" MaxMoveFreqSpeed="3" MaxMoveVolume="0.7" MiddleMoveSpeed="1.5" MiddleMoveVolume="0.5" MinLimitSound="" MinLimitMinSpeed="0" MinLimitMaxSpeed="0" MaxLimitSound="" MaxLimitMinSpeed="0" MaxLimitMaxSpeed="0" Breakable="false" BreakForce="0" BreakSound="" CollideBodies="false" StickyMinLimit="false" StickyMaxLimit="false" MoveSound="" MoveType="Angular" MinAngle="0" MaxAngle="90" ConnectedParentBodyID="-1" ConnectedChildBodyID="5" />
         </Joints>
         <Animations />
         <ProcAnimations />
@@ -37,6 +37,8 @@
         <Var ObjectId="4294967295" Name="DissolveDuringLifeDecrease" Value="true" />
         <Var ObjectId="4294967295" Name="QuickSave" Value="false" />
         <Var ObjectId="4294967295" Name="FullGameSave" Value="false" />
+        <Var ObjectId="4294967295" Name="AllowMapTransfer" Value="false" />
+        <Var ObjectId="4294967295" Name="VoiceSourceBone" Value="" />
         <Var ObjectId="4294967295" Name="BlocksLineOfSight" Value="MaterialBased" />
         <Var ObjectId="4294967295" Name="MainPhysicsBody" Value="" />
         <Var ObjectId="4294967295" Name="NoGravityWhenUnderwater" Value="false" />
@@ -62,11 +64,13 @@
         <Var ObjectId="4294967295" Name="BreakOnlyOnMainBody" Value="false" />
         <Var ObjectId="4294967295" Name="BreakDestroyJoints" Value="false" />
         <Var ObjectId="4294967295" Name="BreakMinEnergy" Value="100" />
-        <Var ObjectId="4294967295" Name="BreakEntity" Value="" />
+        <Var ObjectId="4294967295" Name="BreakEntity" Value="E:/SteamLibrary/steamapps/common/Amnesia The Bunker/mods/escapade_hpl3/entities/dark_descent/door/castle/castle_broken.ent" />
         <Var ObjectId="4294967295" Name="BreakEntityAlignBody" Value="" />
-        <Var ObjectId="4294967295" Name="BreakSound" Value="break_wood_metal.snt" />
+        <Var ObjectId="4294967295" Name="BreakSound" Value="break_wood.snt" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundRadius" Value="18" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundPrio" Value="4" />
         <Var ObjectId="4294967295" Name="BreakParticleSystem" Value="" />
-        <Var ObjectId="4294967295" Name="BreakImpulse" Value="4" />
+        <Var ObjectId="4294967295" Name="BreakImpulse" Value="20" />
         <Var ObjectId="4294967295" Name="CanInteractWithStaticBody" Value="false" />
         <Var ObjectId="4294967295" Name="HandleBody" Value="" />
         <Var ObjectId="4294967295" Name="LockBody" Value="" />
@@ -88,21 +92,29 @@
         <Var ObjectId="4294967295" Name="MinMoveSoundSpeed" Value="-1" />
         <Var ObjectId="4294967295" Name="MaxOpenSound" Value="" />
         <Var ObjectId="4294967295" Name="MaxOpenSoundMinSpeed" Value="0" />
-        <Var ObjectId="4294967295" Name="Breakable" Value="true" />
-        <Var ObjectId="4294967295" Name="DamageTint" Value="false" />
-        <Var ObjectId="4294967295" Name="DamageMesh1" Value="F:/Amnesia/redist/entities/door/castle/castle_damage1.dae" />
-        <Var ObjectId="4294967295" Name="DamageMesh2" Value="castle_damage2.dae" />
-        <Var ObjectId="4294967295" Name="BrokenEntity" Value="castle_broken.dae" />
-        <Var ObjectId="4294967295" Name="HealthDamage1" Value="66" />
-        <Var ObjectId="4294967295" Name="HealthDamage2" Value="33" />
-        <Var ObjectId="4294967295" Name="DamageSound" Value="hit_wood.snt" />
-        <Var ObjectId="4294967295" Name="DamagePS" Value="ps_door_damage_wood.ps" />
-        <Var ObjectId="4294967295" Name="BreakPS" Value="ps_break_wood.ps" />
         <Var ObjectId="4294967295" Name="HandleUpAnimation" Value="" />
         <Var ObjectId="4294967295" Name="HandleDownAnimation" Value="" />
         <Var ObjectId="4294967295" Name="HandleLockedAnimation" Value="" />
         <Var ObjectId="4294967295" Name="HandleMovingAnimation" Value="" />
         <Var ObjectId="4294967295" Name="HandleMovingRepetitionMin" Value="0.25" />
         <Var ObjectId="4294967295" Name="HandleMovingRepetitionMax" Value="0.5" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_Active" Value="true" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_HitMinEnergy" Value="100" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_MaxHits" Value="2" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_MinHitMass" Value="10" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DamageMesh" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DamageSound" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DamagePS" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BrokenEntity" Value="castle_broken.ent" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakImpulse" Value="20" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakSound" Value="break_wood.snt" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakPS" Value="dust_impact_wood_break_large.ps" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakAIEventPrio" Value="High" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CanDestroyThrownEntity" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_PathBlocker" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DropItemOnBreak" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CustomDropItemsList" Value="" />
     </UserDefinedVariables>
 </Entity>

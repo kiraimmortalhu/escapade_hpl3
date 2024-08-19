@@ -80,6 +80,8 @@ class cScrMap : iScrMap
             Item_AddToInventory("DynamoLantern");
 			Item_AddToInventory("Lighter");
 		}
+        
+        Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
 	}
 
 	//-------------------------------------------------------
@@ -121,6 +123,20 @@ class cScrMap : iScrMap
         Player_SetNightVisionEnabled(false);
 		
 		SetupGenerator();
+        
+        // Check for moving button positions and sync them
+        array<iLuxEntity@> locks;
+        Map_GetEntityArray("arabic_lock*", locks);
+        for(int t = 0; t < locks.length(); t++){
+            if(cScript_GetGlobalVarBool(locks[t].GetName())){
+                cLux_AddDebugMessage("BUTTON "+ locks[t].GetName() + " IS ON (OPEN)");
+                MovingButton_SetSwitchedOn(locks[t].GetName(), true, false);
+            } else{
+                cLux_AddDebugMessage("BUTTON "+ locks[t].GetName() + " IS OFF (CLOSED)");
+                MovingButton_SetSwitchedOn(locks[t].GetName(), false, false);
+            }
+            
+        }
         
                 //--ColorGrading start--
         
@@ -210,6 +226,21 @@ class cScrMap : iScrMap
         Sequence_End();
 	}
 	
+    void arabic_lock_OnConnectionStateChange(const tString &in asEntity, int alState){
+        tString doorName = cString_Sub(asEntity, "arabic_lock_".length(), -1);
+        if(alState == 1){
+            cScript_SetGlobalVarBool(asEntity, true);
+            MovingButton_SetSwitchedOn(asEntity, true, true);
+            SwingDoor_SetLocked(doorName, false, true);
+            
+        } else if (alState == -1 && SwingDoor_GetOpenAmount(doorName) < 0.1f){
+            cScript_SetGlobalVarBool(asEntity, false);
+            MovingButton_SetSwitchedOn(asEntity, false, true);
+            SwingDoor_SetLocked(doorName, true, true);
+            
+        }
+    }
+    
 	bool OnTrigger_Player_Transfer_Storage(const tString &in asParent, const tString &in asChild, int alState)
 	{
 		Game_DoMapChange("escapade_storage.hpm", "MapTransfer_StorageUnderground");

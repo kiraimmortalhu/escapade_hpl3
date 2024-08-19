@@ -76,6 +76,8 @@ class cScrMap : iScrMap
 		{
 		Item_AddToInventory("DynamoLantern");
 		}
+        
+        Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
 	}
 
 	//-------------------------------------------------------
@@ -93,6 +95,38 @@ class cScrMap : iScrMap
 		}
 		
 		SetupGenerator();
+        
+        // Debug
+        if(cLux_ScriptDebugOn()){
+            Item_SetCurrentSlotsCount(50);
+			if (ItemType_GetCountInInventory("Gun") == 0)
+			{
+				Item_AddToInventory("Gun");
+				Item_AddManyToInventory("Ammunition", 20);
+			}
+            
+        }
+        
+        // Check for unlocked padlocks and disable them
+        for(int t = 0; t < 10; t++){
+            if(cScript_GetGlobalVarBool("padlock_"+t)){
+                Entity_SetActive("padlock_"+t, false);
+            }
+        }
+        
+        // Check for moving button positions and sync them
+        array<iLuxEntity@> locks;
+        Map_GetEntityArray("arabic_lock*", locks);
+        for(int t = 0; t < locks.length(); t++){
+            if(cScript_GetGlobalVarBool(locks[t].GetName())){
+                cLux_AddDebugMessage("BUTTON "+ locks[t].GetName() + " IS ON (OPEN)");
+                MovingButton_SetSwitchedOn(locks[t].GetName(), true, false);
+            } else{
+                cLux_AddDebugMessage("BUTTON "+ locks[t].GetName() + " IS OFF (CLOSED)");
+                MovingButton_SetSwitchedOn(locks[t].GetName(), false, false);
+            }
+            
+        }
         
         
         //--ColorGrading start--
@@ -178,6 +212,26 @@ class cScrMap : iScrMap
 	{
 	}
 	
+    void arabic_lock_OnConnectionStateChange(const tString &in asEntity, int alState){
+        tString doorName = cString_Sub(asEntity, "arabic_lock_".length(), -1);
+        if(alState == 1){
+            cScript_SetGlobalVarBool(asEntity, true);
+            MovingButton_SetSwitchedOn(asEntity, true, true);
+            SwingDoor_SetLocked(doorName, false, true);
+            
+        } else if (alState == -1 && SwingDoor_GetOpenAmount(doorName) < 0.1f){
+            cScript_SetGlobalVarBool(asEntity, false);
+            MovingButton_SetSwitchedOn(asEntity, false, true);
+            SwingDoor_SetLocked(doorName, true, true);
+            
+        }
+    }
+    
+    void OnBreak_Padlock(const tString &in asEntity)
+    {
+        cScript_SetGlobalVarBool(asEntity, true);
+        cLux_AddDebugMessage(""+ cScript_GetGlobalVarBool(asEntity));
+    }
         
     bool OnCollide_CloseExitDoors(const tString &in asParent, const tString &in asChild, int alState)
     {

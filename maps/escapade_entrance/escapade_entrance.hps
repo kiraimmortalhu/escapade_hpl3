@@ -84,6 +84,7 @@ class cScrMap : iScrMap
             Item_AddToInventory("DynamoLantern");
 		}
         
+        Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
 	}
 
 	//-------------------------------------------------------
@@ -101,6 +102,47 @@ class cScrMap : iScrMap
 		}
 		
 		SetupGenerator();
+        
+        // Check for unlocked padlocks and disable them
+        for(int t = 1; t <= 10; t++){
+            if(cScript_GetGlobalVarBool("padlock_"+t)){
+                Entity_SetActive("padlock_"+t, false);
+            }
+        }
+        
+        // Check for moving button positions and sync them
+        array<iLuxEntity@> locks;
+        Map_GetEntityArray("arabic_lock*", locks);
+        for(int t = 0; t < locks.length(); t++){
+            if(cScript_GetGlobalVarBool(locks[t].GetName())){
+                cLux_AddDebugMessage("BUTTON "+ locks[t].GetName() + " IS ON (OPEN)");
+                MovingButton_SetSwitchedOn(locks[t].GetName(), true, false);
+            } else{
+                cLux_AddDebugMessage("BUTTON "+ locks[t].GetName() + " IS OFF (CLOSED)");
+                MovingButton_SetSwitchedOn(locks[t].GetName(), false, false);
+            }
+            
+        }
+        
+        //Debug
+        if(cLux_ScriptDebugOn()){
+            Item_SetCurrentSlotsCount(50);
+			if (ItemType_GetCountInInventory("Gun") == 0)
+			{
+				Item_AddToInventory("Gun");
+				Item_AddManyToInventory("Ammunition", 20);
+			}
+            if (ItemType_GetCountInInventory("Shotgun") == 0)
+			{
+				Item_AddToInventory("Shotgun");
+				Item_AddManyToInventory("ShotgunAmmunition", 20);
+			}
+            
+        }
+        
+        cLux_AddDebugMessage(""+ cScript_GetGlobalVarBool("padlock_1"));
+        cLux_AddDebugMessage("ENTITY COUNT "+ Map_GetEntityCount("padlock_*"));
+        
         
         
 	}
@@ -156,7 +198,42 @@ class cScrMap : iScrMap
             cLux_AddDebugMessage(cScript_GetGlobalVarString("sync_pickables_entrance"));
         }
         */
+        array<iLuxEntity@> locks;
+        Map_GetEntityArray("arabic_lock*", locks);
+        for(int t = 0; t < locks.length(); t++){
+            if(cScript_GetGlobalVarBool(locks[t].GetName())){
+                cLux_AddDebugMessage("BUTTON "+ locks[t].GetName() + " IS ON");
+                MovingButton_SetSwitchedOn(locks[t].GetName(), true, false);
+            } else{
+                cLux_AddDebugMessage("BUTTON "+ locks[t].GetName() + " IS OFF");
+                MovingButton_SetSwitchedOn(locks[t].GetName(), false, false);
+            }
+            
+        }
+        
         return true;
+    }
+    
+    void arabic_lock_OnConnectionStateChange(const tString &in asEntity, int alState){
+        tString doorName = cString_Sub(asEntity, "arabic_lock_".length(), -1);
+        if(alState == 1){
+            cScript_SetGlobalVarBool(asEntity, true);
+            MovingButton_SetSwitchedOn(asEntity, true, true);
+            SwingDoor_SetLocked(doorName, false, true);
+            
+        } else if (alState == -1 && SwingDoor_GetOpenAmount(doorName) < 0.1f){
+            cScript_SetGlobalVarBool(asEntity, false);
+            MovingButton_SetSwitchedOn(asEntity, false, true);
+            SwingDoor_SetLocked(doorName, true, true);
+            
+        }
+    }
+    
+    
+    void OnBreak_Padlock(const tString &in asEntity)
+    {
+        cScript_SetGlobalVarBool(asEntity, true);
+        cLux_AddDebugMessage(""+ cScript_GetGlobalVarBool(asEntity));
     }
     
     bool OnCollide_DebugChangeMap(const tString &in asParent, const tString &in asChild, int alState)
@@ -237,6 +314,27 @@ class cScrMap : iScrMap
 	{
 		if (abPressed == false) return;
 		
+        if (cLux_ScriptDebugOn())
+		{
+			if (alAction == eAction_Test7)
+			{
+				Entity_SetActive("Trigger_KillGenerator", false);
+				Generator_SetFuelAmount(0);
+				Generator_SetRunForever(false);
+				Generator_ChangeState(eGeneratorState_Off);
+				cLux_AddDebugMessage("Generator Off");
+			}
+		
+			if (alAction == eAction_Test8)
+			{
+				Entity_SetActive("Trigger_KillGenerator", true);
+				Generator_AddFuel(2);
+				Generator_ChangeState(eGeneratorState_On);
+				Generator_SetRunForever(true);
+				cLux_AddDebugMessage("Generator On");
+			}
+		}
+        
 		if (alAction == eAction_Test1)
 		{
 		}
