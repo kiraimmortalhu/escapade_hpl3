@@ -189,7 +189,7 @@ class cScrMap : iScrMap
             MovingButton_SetSwitchedOn(asEntity, true, true);
             SwingDoor_SetLocked(doorName, false, true);
             
-        } else{
+        } else if (alState == -1 && SwingDoor_GetOpenAmount(doorName) < 0.1f){
             
             MovingButton_SetSwitchedOn(asEntity, false, true);
             SwingDoor_SetLocked(doorName, true, true);
