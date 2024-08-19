@@ -77,7 +77,7 @@ class cScrMap : iScrMap
 			Item_AddToInventory("Lighter");
 			Item_AddToInventory("DynamoLantern");
 			
-			cScript_SetGlobalVarBool("stalkerScared", true);
+			cScript_SetGlobalVarBool("scaredByStalker", true);
 		}
 	}
 
@@ -235,9 +235,10 @@ class cScrMap : iScrMap
 	{		
 		///////////////////
 		// Generator Sounds
-		if (alState!=1)
+		if (alState!=1) {
 			Sound_Play("Sound_GeneratorOff", 0.f);
 			Lever_SetStuckState("lever*", 1, true);
+		}
 	}
 	
 	////////////////////////////////
@@ -247,13 +248,15 @@ class cScrMap : iScrMap
 	//////////////////
 	
 	void SetupStalkerAppearance() {
-		if (cScript_GetGlobalVarBool("stalkerScared") && !cScript_GetGlobalVarBool("entrance_alt_unlocked")) {
+		if (cScript_GetGlobalVarBool("scaredByStalker") && !cScript_GetGlobalVarBool("entrance_alt_unlocked")) {
 			Entity_SetActive("stalker_growth_1", true);
 			Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
 			//Stalker_SetEmergeAllowed("stalker_growth_1", true);
 			cLux_AddDebugMessage("Stalker is now ENABLED");
 		}
 	}
+	
+	////////////////////////////////
 	
 	void lever_portculis_OnConnectionStateChange(const tString &in asEntity, int alState)
 	{
