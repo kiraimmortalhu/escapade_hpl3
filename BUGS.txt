@@ -10,3 +10,13 @@ IN THE END
 - get rid of reflections where they do not fit
 - Some assets like seethrough windows, ceiling windows are in wrong folders
 Restructure these folders in the end and check integrity
+
+bugs TheBackPackPlayer noticed:
+
+- All prison gate must close when gen is of and must "start" closed if generator goes of when player is in an other map.
+- Castle doors can break (fixed)
+- Lock must be sync in all three maps (entrance, entrance_alt and library)
+- Planks in well room (library & underground) must be sync
+- Fix the fixnet bug in church & storage
+- Large painting frame blue glitch
+- Loading icon shows both new symbol and old flashlight
