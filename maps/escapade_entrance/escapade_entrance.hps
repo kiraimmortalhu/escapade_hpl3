@@ -287,6 +287,27 @@ class cScrMap : iScrMap
 	{
 		if (abPressed == false) return;
 		
+        if (cLux_ScriptDebugOn())
+		{
+			if (alAction == eAction_Test7)
+			{
+				Entity_SetActive("Trigger_KillGenerator", false);
+				Generator_SetFuelAmount(0);
+				Generator_SetRunForever(false);
+				Generator_ChangeState(eGeneratorState_Off);
+				cLux_AddDebugMessage("Generator Off");
+			}
+		
+			if (alAction == eAction_Test8)
+			{
+				Entity_SetActive("Trigger_KillGenerator", true);
+				Generator_AddFuel(2);
+				Generator_ChangeState(eGeneratorState_On);
+				Generator_SetRunForever(true);
+				cLux_AddDebugMessage("Generator On");
+			}
+		}
+        
 		if (alAction == eAction_Test1)
 		{
 		}
