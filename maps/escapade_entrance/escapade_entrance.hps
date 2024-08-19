@@ -124,6 +124,8 @@ class cScrMap : iScrMap
         cLux_AddDebugMessage(""+ cScript_GetGlobalVarBool("padlock_1"));
         cLux_AddDebugMessage("ENTITY COUNT "+ Map_GetEntityCount("padlock_*"));
         
+        
+        Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
 	}
     
 	//-------------------------------------------------------
@@ -179,6 +181,22 @@ class cScrMap : iScrMap
         */
         return true;
     }
+    
+    void arabic_lock_OnConnectionStateChange(const tString &in asEntity, int alState){
+        tString doorName = cString_Sub(asEntity, "arabic_lock_".length(), -1);
+        if(alState == 1){
+            
+            MovingButton_SetSwitchedOn(asEntity, true, true);
+            SwingDoor_SetLocked(doorName, false, true);
+            
+        } else{
+            
+            MovingButton_SetSwitchedOn(asEntity, false, true);
+            SwingDoor_SetLocked(doorName, true, true);
+            
+        }
+    }
+    
     
     void OnBreak_Padlock(const tString &in asEntity)
     {
