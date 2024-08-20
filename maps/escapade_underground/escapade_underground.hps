@@ -223,6 +223,7 @@ class cScrMap : iScrMap
 	// Run when leaving map
 	void OnLeave()
 	{
+        Sound_Stop("Sound_GeneratorStop",0.f);
         Sequence_End();
 	}
 	
