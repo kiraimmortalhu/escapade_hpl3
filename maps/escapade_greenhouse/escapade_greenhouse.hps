@@ -200,6 +200,7 @@ class cScrMap : iScrMap
     void OnTimer_RemoveLever(const tString &in asTimer){
         cLux_AddDebugMessage("UNEQUIPPED, REMOVE");
         Item_RemoveFromInventory(ItemType_GetFirstInInventory("Lever"));
+        PlayerBody_PlayAnimation("tool_torch_holster", ePlayerBodyAnimationLayer_RightArm, false, false, true);
     }
     
 	////////////////////////////
