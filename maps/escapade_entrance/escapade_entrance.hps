@@ -153,6 +153,7 @@ class cScrMap : iScrMap
 	// Run when leaving map
 	void OnLeave()
 	{
+        Sound_Stop("Sound_GeneratorStop",0.f);
         //Map_GetEntityArray("*", )
         // Reset global var 
         array<iLuxEntity@> pickableEntities;
