@@ -166,6 +166,27 @@ class cScrMap : iScrMap
 	{
 		if (abPressed == false) return;
 		
+        if (cLux_ScriptDebugOn())
+		{
+			if (alAction == eAction_Test7)
+			{
+				Entity_SetActive("Trigger_KillGenerator", false);
+				Generator_SetFuelAmount(0);
+				Generator_SetRunForever(false);
+				Generator_ChangeState(eGeneratorState_Off);
+				cLux_AddDebugMessage("Generator Off");
+			}
+		
+			if (alAction == eAction_Test8)
+			{
+				Entity_SetActive("Trigger_KillGenerator", true);
+				Generator_AddFuel(2);
+				Generator_ChangeState(eGeneratorState_On);
+				Generator_SetRunForever(true);
+				cLux_AddDebugMessage("Generator On");
+			}
+		}
+        
 		if (alAction == eAction_Test1)
 		{
 		}
@@ -259,7 +280,7 @@ class cScrMap : iScrMap
 			Sound_Play("Sound_GeneratorOff", 0.f);
 			Lever_SetStuckState("lever_portcuils", 1, true);
 			Entity_SetActive("gate_path_area_blocker*", true);
-		}		
+		}
 	}
 	
 	//////////////////// Generator end
@@ -339,6 +360,7 @@ class cScrMap : iScrMap
 	{
 		if (alState == -1) {
 			if (Generator_GetFuelTimeLeft() > 0) {
+                cLux_AddDebugMessage("MOVED UP");
 				//SlideDoor_SetOpenAmount("castle_portcullis_1", 1.0f, false);
 				MoveObject_SetState("castle_portcullis_*", 1);
 				Lever_SetStuckState(asEntity, -1, true);
@@ -346,9 +368,14 @@ class cScrMap : iScrMap
                 Entity_SetActive("gate_path_area_blocker*", false);
 
 			} else {
+                
 				Lever_SetStuckState(asEntity, 1, true);
 			}
 		}
+        if(alState == 1){
+            cLux_AddDebugMessage("MOVED DOWN");
+            MoveObject_SetState("castle_portcullis_*", 0);
+        }
 	}
  
 	//} END MAIN FUNCTIONS

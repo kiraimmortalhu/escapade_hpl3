@@ -211,6 +211,27 @@ class cScrMap : iScrMap
 	{
 		if (abPressed == false) return;
 		
+        if (cLux_ScriptDebugOn())
+		{
+			if (alAction == eAction_Test7)
+			{
+				Entity_SetActive("Trigger_KillGenerator", false);
+				Generator_SetFuelAmount(0);
+				Generator_SetRunForever(false);
+				Generator_ChangeState(eGeneratorState_Off);
+				cLux_AddDebugMessage("Generator Off");
+			}
+		
+			if (alAction == eAction_Test8)
+			{
+				Entity_SetActive("Trigger_KillGenerator", true);
+				Generator_AddFuel(2);
+				Generator_ChangeState(eGeneratorState_On);
+				Generator_SetRunForever(true);
+				cLux_AddDebugMessage("Generator On");
+			}
+		}
+        
 		if (alAction == eAction_Test1)
 		{
 		}
@@ -252,7 +273,17 @@ class cScrMap : iScrMap
 		// Generator Sounds
 		if (alState!=1) {
 			Sound_Play("Sound_GeneratorOff", 0.f);
-			Lever_SetStuckState("lever*", 1, true);
+			
+            // Generator off, set levers off
+        
+            // Skip lever numbers that do not depend on generator
+            for(int t = 1; t <= 10; t++){
+                if(t != 3){
+                    Lever_SetStuckState("lever"+t+"_portculis", 1, true);
+                }
+            }
+            
+        
 		}
 	}
 	
@@ -283,9 +314,13 @@ class cScrMap : iScrMap
 				MoveObject_SetState(asEntity + "_door", 1);
 				Lever_SetStuckState(asEntity, -1, true);
 			} else {
+                
 				Lever_SetStuckState(asEntity, 1, true);
 			}
 		}
+        if(alState == 1){
+            MoveObject_SetState(asEntity + "_door", 0);
+        }
 	}
     
 	
