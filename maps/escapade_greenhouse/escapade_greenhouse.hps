@@ -127,6 +127,8 @@ class cScrMap : iScrMap
 	void OnLeave()
 	{
         Sound_Stop("Sound_GeneratorStop",0.f);
+		
+		Music_Stalker_StopDeaggroSongChecks();
 	}
 	
        

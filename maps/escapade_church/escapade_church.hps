@@ -117,6 +117,8 @@ class cScrMap : iScrMap
 	void OnLeave()
 	{
         Sound_Stop("Sound_GeneratorStop",0.f);
+		
+		Music_Stalker_StopDeaggroSongChecks();
 	}
     
     bool OnCollide_CloseExitDoors(const tString &in asParent, const tString &in asChild, int alState)
