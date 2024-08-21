@@ -15,6 +15,9 @@
 #include "helpers/helper_gun.hps"
 #include "helpers/helper_props_custom.hps"
 
+//Unique escapade includes:
+#include "escapade_custom/helpers/helper_music_control.hps"
+
 //--------------------------------------------------
  
 /*Place any global values here. These must be const variables as they will not be saved*/
@@ -78,8 +81,22 @@ class cScrMap : iScrMap
 		// Debug
 		if (cLux_ScriptDebugOn())
 		{
+		Entity_SetActive("debugitem_*", true);
+		Item_SetCurrentSlotsCount(15);
+		Item_AddToInventory("Lighter");
 		Item_AddToInventory("DynamoLantern");
+		if (ItemType_GetCountInInventory("Gun") == 0)
+			{
+				Item_AddToInventory("Gun");
+				Item_AddManyToInventory("Ammunition", 20);
+			}
+            if (ItemType_GetCountInInventory("Shotgun") == 0)
+			{
+				Item_AddToInventory("Shotgun");
+				Item_AddManyToInventory("ShotgunAmmunition", 20);
+			}
 		}
+		Item_AddManyToInventory("MolotovCocktail", 3);
         
         //---Sync previously picked entities start---
         array<iLuxEntity@> pickableEntities;
@@ -106,6 +123,8 @@ class cScrMap : iScrMap
         }
         
         Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
+		
+		Game_AutoSave();
 	}
 
 	//-------------------------------------------------------
@@ -123,6 +142,10 @@ class cScrMap : iScrMap
         }
 		
 		SetupGenerator();
+		
+		SetupStalkerAppearance();
+		
+		Music_StopAll(12.0f);
         
         //Get rocks in ballroom map
         Map_GetEntityArray("dw_rock_med_freeze_*", gravityRocks);
@@ -139,7 +162,6 @@ class cScrMap : iScrMap
             Map_GetEntity("chair_gravity_"+t).GetMainBody().SetGravity(false);
         }
         //Map_GetProp("dw_rock_med_freeze_*").GetMainBody().SetGravity(false);
-		Game_AutoSave();
         
         
         // Check for unlocked padlocks and disable them
@@ -162,51 +184,6 @@ class cScrMap : iScrMap
             }
             
         }
-        
-        
-        //Debug
-        /*
-        float afKey;
-        float afGammaCorrection;
-        float afFilmGrainIntensity;
-        float afBrightPass;
-        float afBloomWidth;
-        cColor avBloomTint;
-        float afBloomFalloff;
-        cLux_GetViewport().GetToneMappingEffect().GetParams(afKey, afGammaCorrection, afFilmGrainIntensity, afBrightPass, afBloomWidth, avBloomTint, afBloomFalloff);
-        
-        cLux_AddDebugMessage("afKey: "+ afKey);
-        cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
-        cLux_AddDebugMessage("afFilmGrainIntensity: "+ afFilmGrainIntensity);
-        cLux_AddDebugMessage("afBrightPass: "+ afBrightPass);
-        cLux_AddDebugMessage("afBloomWidth: "+ afBloomWidth);
-        cLux_AddDebugMessage("avBloomTint A: "+ avBloomTint.a);
-        cLux_AddDebugMessage("avBloomTint R: "+ avBloomTint.r);
-        cLux_AddDebugMessage("avBloomTint G: "+ avBloomTint.g);
-        cLux_AddDebugMessage("avBloomTint B: "+ avBloomTint.b);
-        cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
-        */
-        
-        /*
-        // Test to match values
-        float afKey = 0.1f;
-        float afGammaCorrection = 0.5f;
-        float afFilmGrainIntensity = 1.0f;
-        float afBrightPass = 0.75f;
-        float afBloomWidth = 128.0;
-        cColor avBloomTint;
-        avBloomTint.a = 1.0f;
-        avBloomTint.r = 1.0f;
-        avBloomTint.g = 1.0f;
-        avBloomTint.b = 1.0f;
-        float afBloomFalloff = 0.5f;
-        cLux_GetViewport().GetToneMappingEffect().SetParams(afKey, afGammaCorrection, afFilmGrainIntensity, afBrightPass, afBloomWidth, avBloomTint, afBloomFalloff);
-        cLux_GetViewport().GetToneMappingEffect().SetGradingTexture(1, "bunker_prototype_01.dds", 1.0f);
-        */
-        
-        
-        
-        
     }
     
 	//-------------------------------------------------------
@@ -241,6 +218,10 @@ class cScrMap : iScrMap
             cLux_AddDebugMessage("START CLOSE");
             SwingDoor_SetClosed("door_exit_*", true, true);
             Map_AddTimer("doorg", 0.05f, "OnTimer_PreventDoorGlitch");
+			
+			//disengage bossfight mode in other maps
+			//to-do, this could be stored and set back to original instead
+			GameDifficulty_SwitchSettingsPresetTo(1);
         }
         return true;
     }
@@ -348,6 +329,17 @@ class cScrMap : iScrMap
 			Sound_Play("Sound_GeneratorOff", 0.f);		
 	}
 	
+	void SetupStalkerAppearance() {			
+			Entity_SetActive("stalker_growth_1", true);
+			Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
+			Stalker_SetEmergeAllowed("stalker_growth_1", false);
+			cLux_AddDebugMessage("Stalker is now ENABLED");
+			Stalker_GoToHole("stalker_growth_1", "GhoulHole_2", true, true);
+			
+			// engaging bossfight mode
+			GameDifficulty_SwitchSettingsPresetTo(3);
+	}
+	
 	////////////////////////////////
  
 	//////////////////////////////////////////////////////////////////////////////////////////
@@ -360,17 +352,22 @@ class cScrMap : iScrMap
 		// General
 		//{//////////////////////////////////////
 		 
-		//-------------------------------------------------------
-	 
-		/*Put any variables that are used by many events in Scene X here.*/
-	 
-		//-------------------------------------------------------
-	 
-		/*Put any functions that are used in more than one event in Scene X here.*/
-	 
-		//-------------------------------------------------------
-		
-		//} END General	
+		bool OnTrigger_ApproachAltar(const tString &in asParent, const tString &in asChild, int alState)
+		{	
+			if (alState == 1) {
+				if (!Stalker_GetEmergeAllowed("stalker_growth_1")) {
+					Stalker_SetEmergeAllowed("stalker_growth_1", true);
+				}
+				if (Stalker_GetIsInsideWalls("stalker_growth_1")) {
+					Stalker_EmergeFromHole("stalker_growth_1", "GhoulHole_2", true);
+				}
+				Agent_RevealPlayerPosition("stalker_growth_1", false);
+				
+				// GameDifficulty_SwitchSettingsPresetTo(3);
+				// eStalkerEscalation_Stage3
+			}
+			return true;
+		}
 	 
 		/////////////////////////////////////////
 		// Event: Leaving
@@ -379,6 +376,12 @@ class cScrMap : iScrMap
 		void Trigger_OpenGate_OnPlayerInteract(const tString &in asEntity)
 		{
 			SlideDoor_SetClosed("tin_hinan_slide_floor_1", false, false);
+			Map_AddTimer("Timer_PlayerCanLeave", 20.0f, "OnTimer_PlayerCanLeave");
+		}
+		
+		void OnTimer_PlayerCanLeave(const tString &in asTimer){
+			Sound_PlayGui("door_sewer_unlock_loud.snt", 1.0f);
+			Sound_PlayGui("unlock_door.snt", 1.0f);
 			LevelDoor_SetLocked("castle_gate_arched01_1", false);
 		}
 	 
