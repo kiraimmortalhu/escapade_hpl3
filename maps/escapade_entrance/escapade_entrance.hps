@@ -384,7 +384,7 @@ class cScrMap : iScrMap
 		// About to get lit!
 		if (Lamp_GetLit(asEntity) == false){
             cLux_AddDebugMessage("SAVED");
-			//SaveGameProgress();
+			SaveGameProgress();
             
         }
 		else{
