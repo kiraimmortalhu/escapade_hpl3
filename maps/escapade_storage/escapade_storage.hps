@@ -116,6 +116,12 @@ class cScrMap : iScrMap
 		
 		SetupMusicAmbienceBasedOnGen();
         
+        // If gen is off, set levers off
+        if(Generator_GetFuelTimeLeft() == 0){
+            Lever_SetStuckState("PowerSwitch_*", -1, true);
+            
+        }
+        
         //Debug
         //Entity_SetActive("stalker_1", true);
 		
@@ -212,6 +218,27 @@ class cScrMap : iScrMap
 	{
 		if (abPressed == false) return;
 		
+        if (cLux_ScriptDebugOn())
+		{
+			if (alAction == eAction_Test7)
+			{
+				Entity_SetActive("Trigger_KillGenerator", false);
+				Generator_SetFuelAmount(0);
+				Generator_SetRunForever(false);
+				Generator_ChangeState(eGeneratorState_Off);
+				cLux_AddDebugMessage("Generator Off");
+			}
+		
+			if (alAction == eAction_Test8)
+			{
+				Entity_SetActive("Trigger_KillGenerator", true);
+				Generator_AddFuel(2);
+				Generator_ChangeState(eGeneratorState_On);
+				Generator_SetRunForever(true);
+				cLux_AddDebugMessage("Generator On");
+			}
+		}
+        
 		if (alAction == eAction_Test1)
 		{
 		}
@@ -269,7 +296,7 @@ class cScrMap : iScrMap
 	
 	void OnStateChange_Generator(int alState) {		
 		SetupMusicAmbienceBasedOnGen();
-		Lever_SetStuckState("PowerSwitch_1", -1, true);
+		
 		
 		if (alState!=1) {
 			Map_SetFogActive(false);
@@ -277,11 +304,12 @@ class cScrMap : iScrMap
 			Light_SetVisible("Light_Box_4", false);  
 			//Sound_Play("Sound_GeneratorOff", 0.f);
 			SlideDoor_SetClosed("metal_security_door_1", true, false);
+            Lever_SetStuckState("PowerSwitch_*", -1, true);
 		} else {
 			Map_SetFogActive(true);
 			Map_SetSecondaryFogActive(true);
 			Light_SetVisible("Light_Box_4", true);
-            Lever_SetStuckState("PowerSwitch_*", -1, true);
+            //Lever_SetStuckState("PowerSwitch_*", 1, true);
 		}
 	}
 	
