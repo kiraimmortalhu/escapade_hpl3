@@ -42,10 +42,7 @@ void Music_Stalker_AddDeaggroSongTime(const tString &in asStalkerName, const tSt
 void Music_Stalker_StopDeaggroSongChecks(){
     Map_RemoveTimer("music_deaggro_check");
     Map_RemoveTimer("deaggro");
-    
-    if(!Music_IsSongPlaying( cScript_GetGlobalVarString("music_to_play") )){
-        Music_PlayExt_Save(cScript_GetGlobalVarString("music_to_play"), true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_BgAmb, true);
-    }
+    Map_RemoveTimer("deaggroproc");
     
 }
 
