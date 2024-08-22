@@ -529,17 +529,11 @@ class cScrMap : iScrMap
 		// General
 		//{//////////////////////////////////////
 		 
-		//-------------------------------------------------------
-	 
-		/*Put any variables that are used by many events in Scene X here.*/
-	 
-		//-------------------------------------------------------
-	 
-		/*Put any functions that are used in more than one event in Scene X here.*/
-	 
-		//-------------------------------------------------------
-		
-		//} END General	
+		void lighter_pickup_1_OnPlayerInteract(const tString &in asEntity)
+		{
+			ParticleSystem_Destroy("PS_LighterPickup");
+			Sound_Stop("Sound_LighterPickup", 1.0f);
+		}
 	 
 		/////////////////////////////////////////
 		// Event *Name Of Event*
