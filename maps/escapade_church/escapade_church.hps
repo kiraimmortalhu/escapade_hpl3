@@ -91,7 +91,7 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
 		
-		Music_PlayExt_Save("bethesda_foyer", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+		Music_PlayExt_Save("bethesda_foyer", true, 0.5f, 1, 1.0f, 0, eMusicPrio_BgAmb, true);
 		
 		SetupGenerator();
         
@@ -119,6 +119,8 @@ class cScrMap : iScrMap
         Sound_Stop("Sound_GeneratorStop",0.f);
 		
 		Music_Stalker_StopDeaggroSongChecks();
+        
+        Music_Stop(1.5f, eMusicPrio_BgAmb);
 	}
     
     bool OnCollide_CloseExitDoors(const tString &in asParent, const tString &in asChild, int alState)
