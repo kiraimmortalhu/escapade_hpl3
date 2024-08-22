@@ -15,6 +15,9 @@
 #include "helpers/helper_gun.hps"
 #include "helpers/helper_props_custom.hps"
 
+//Unique escapade includes:
+#include "escapade_custom/helpers/helper_music_control.hps"
+
 //--------------------------------------------------
  
 /*Place any global values here. These must be const variables as they will not be saved*/
@@ -39,7 +42,7 @@ class cScrMap : iScrMap
 	void Setup()
 	{
 		// Put display name entry in english.lang / Levels
-		GetBase().SetDisplayNameEntry("xx-xx-dummy-level");
+		GetBase().SetDisplayNameEntry("library");
 		
 		// Set up color grading etc.
 	}
@@ -75,6 +78,7 @@ class cScrMap : iScrMap
 		if (cLux_ScriptDebugOn())
 		{
 		Item_AddToInventory("DynamoLantern");
+		cScript_SetGlobalVarBool("scaredByStalker", true);
 		}
         
         Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
@@ -93,6 +97,8 @@ class cScrMap : iScrMap
 			PlayerBody_SetActive(true);
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
+		
+		Music_PlayExt_Save("ancestral_archives_exploration", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 		
 		SetupGenerator();
         
@@ -128,80 +134,11 @@ class cScrMap : iScrMap
             
         }
         
-        
-        //--ColorGrading start--
-        
-        //Debug: test enable entrance_alt
-        //cScript_SetGlobalVarBool("entrance_alt_unlocked", true);
-        
-        
-        float afKey;
-        float afGammaCorrection;
-        float afFilmGrainIntensity;
-        float afBrightPass;
-        float afBloomWidth;
-        cColor avBloomTint;
-        float afBloomFalloff;
-
         if(cScript_GetGlobalVarBool("entrance_alt_unlocked")){ 
-            // Set ToneMapping values to match entrance_alt
-            float afKey = 0.1f;
-            float afGammaCorrection = 0.5f;
-            float afFilmGrainIntensity = 1.0f;
-            float afBrightPass = 0.75f;
-            float afBloomWidth = 128.0;
-            cColor avBloomTint;
-            avBloomTint.a = 1.0f;
-            avBloomTint.r = 1.0f;
-            avBloomTint.g = 1.0f;
-            avBloomTint.b = 1.0f;
-            float afBloomFalloff = 0.5f;
-            cLux_GetViewport().GetToneMappingEffect().SetParams(afKey, afGammaCorrection, afFilmGrainIntensity, afBrightPass, afBloomWidth, avBloomTint, afBloomFalloff);
-            cLux_GetViewport().GetToneMappingEffect().SetGradingTexture(1, "bunker_prototype_01.dds", 1.0f);
-            
-            cLux_GetViewport().GetToneMappingEffect().SetActive(true);
-            cLux_GetViewport().GetToneMappingEffect().SetColorGradingActive(true);
-            cLux_GetViewport().GetToneMappingEffect().FadeWindowExposure(0.f, 3.25f);
-            cLux_GetViewport().GetToneMappingEffect().SetBloomActive(true);
-            
-            cLux_AddDebugMessage("CHANGED TONEMAPPING");
-            
-            //Fog change
-        cColor fogColor;
-        fogColor.a = 1.0f;
-        fogColor.r = 0.193f;
-        fogColor.b = 0.263f;
-        fogColor.g = 0.179f;
-        
-        cColor secondaryFogColor;
-        secondaryFogColor.a = 1.0f;
-        secondaryFogColor.r = 0.204f;
-        secondaryFogColor.g = 0.081f;
-        secondaryFogColor.b = 0.051f;
-        
-        Map_SetFogProperties(0.f, 100.0f, 2.0f, fogColor, false);
-        Map_SetSecondaryFogProperties(10.0f, 50.0f, 1.5f, secondaryFogColor);
-        
-        }
-        
-        
-        cLux_GetViewport().GetToneMappingEffect().GetParams(afKey, afGammaCorrection, afFilmGrainIntensity, afBrightPass, afBloomWidth, avBloomTint, afBloomFalloff);
-        
-        cLux_AddDebugMessage("afKey: "+ afKey);
-        cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
-        cLux_AddDebugMessage("afFilmGrainIntensity: "+ afFilmGrainIntensity);
-        cLux_AddDebugMessage("afBrightPass: "+ afBrightPass);
-        cLux_AddDebugMessage("afBloomWidth: "+ afBloomWidth);
-        cLux_AddDebugMessage("avBloomTint A: "+ avBloomTint.a);
-        cLux_AddDebugMessage("avBloomTint R: "+ avBloomTint.r);
-        cLux_AddDebugMessage("avBloomTint G: "+ avBloomTint.g);
-        cLux_AddDebugMessage("avBloomTint B: "+ avBloomTint.b);
-        cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
-        
-        cLux_AddDebugMessage("EXPOSURE: "+ cLux_GetViewport().GetToneMappingEffect().GetExposure());
-        
-        //--ColorGrading end--
-        
+			SetupColorgrading_EntranceAlt();
+		}
+		
+		SetupStalkerAppearance();
 	}
 
 	//-------------------------------------------------------
@@ -210,6 +147,9 @@ class cScrMap : iScrMap
 	// Run when leaving map
 	void OnLeave()
 	{
+		Sound_Stop("Sound_GeneratorStop",0.f);
+		
+		Music_Stalker_StopDeaggroSongChecks();
 	}
 	
     void arabic_lock_OnConnectionStateChange(const tString &in asEntity, int alState){
@@ -357,6 +297,19 @@ class cScrMap : iScrMap
 		if (alState!=1)
 			Sound_Play("Sound_GeneratorOff", 0.f);		
 	}
+	
+	//////////////////
+	/// Stalker
+	//////////////////
+	
+	void SetupStalkerAppearance() {
+		if (cScript_GetGlobalVarBool("scaredByStalker") && !cScript_GetGlobalVarBool("entrance_alt_unlocked")) {
+			Entity_SetActive("stalker_growth_1", true);
+			Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
+			//Stalker_SetEmergeAllowed("stalker_growth_1", true);
+			cLux_AddDebugMessage("Stalker is now ENABLED");
+		}
+	}
  
 	//} END MAIN FUNCTIONS
  
@@ -399,4 +352,64 @@ class cScrMap : iScrMap
 		//} END Event *Name Of Event*
 	 
 	//} END SCENE X 
+	
+void SetupColorgrading_EntranceAlt() {
+        //Debug: test enable entrance_alt
+        //cScript_SetGlobalVarBool("entrance_alt_unlocked", true);
+
+            // Set ToneMapping values to match entrance_alt
+            float afKey = 0.1f;
+            float afGammaCorrection = 0.5f;
+            float afFilmGrainIntensity = 1.0f;
+            float afBrightPass = 0.75f;
+            float afBloomWidth = 128.0;
+            cColor avBloomTint;
+            avBloomTint.a = 1.0f;
+            avBloomTint.r = 1.0f;
+            avBloomTint.g = 1.0f;
+            avBloomTint.b = 1.0f;
+            float afBloomFalloff = 0.5f;
+            cLux_GetViewport().GetToneMappingEffect().SetParams(afKey, afGammaCorrection, afFilmGrainIntensity, afBrightPass, afBloomWidth, avBloomTint, afBloomFalloff);
+            cLux_GetViewport().GetToneMappingEffect().SetGradingTexture(1, "bunker_prototype_01.dds", 1.0f);
+            
+            cLux_GetViewport().GetToneMappingEffect().SetActive(true);
+            cLux_GetViewport().GetToneMappingEffect().SetColorGradingActive(true);
+            cLux_GetViewport().GetToneMappingEffect().FadeWindowExposure(0.f, 3.25f);
+            cLux_GetViewport().GetToneMappingEffect().SetBloomActive(true);
+            
+            cLux_AddDebugMessage("CHANGED TONEMAPPING");
+            
+            //Fog change
+
+			cColor fogColor;
+			fogColor.a = 1.0f;
+			fogColor.r = 0.193f;
+			fogColor.b = 0.263f;
+			fogColor.g = 0.179f;
+			
+			cColor secondaryFogColor;
+			secondaryFogColor.a = 1.0f;
+			secondaryFogColor.r = 0.204f;
+			secondaryFogColor.g = 0.081f;
+			secondaryFogColor.b = 0.051f;
+			
+			Map_SetFogProperties(0.f, 100.0f, 2.0f, fogColor, false);
+			Map_SetSecondaryFogProperties(10.0f, 50.0f, 1.5f, secondaryFogColor);
+        
+        
+        cLux_GetViewport().GetToneMappingEffect().GetParams(afKey, afGammaCorrection, afFilmGrainIntensity, afBrightPass, afBloomWidth, avBloomTint, afBloomFalloff);
+        
+        /*cLux_AddDebugMessage("afKey: "+ afKey);
+        cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
+        cLux_AddDebugMessage("afFilmGrainIntensity: "+ afFilmGrainIntensity);
+        cLux_AddDebugMessage("afBrightPass: "+ afBrightPass);
+        cLux_AddDebugMessage("afBloomWidth: "+ afBloomWidth);
+        cLux_AddDebugMessage("avBloomTint A: "+ avBloomTint.a);
+        cLux_AddDebugMessage("avBloomTint R: "+ avBloomTint.r);
+        cLux_AddDebugMessage("avBloomTint G: "+ avBloomTint.g);
+        cLux_AddDebugMessage("avBloomTint B: "+ avBloomTint.b);
+        cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
+        
+        cLux_AddDebugMessage("EXPOSURE: "+ cLux_GetViewport().GetToneMappingEffect().GetExposure());*/
+	}
 }

@@ -43,7 +43,7 @@ class cScrMap : iScrMap
 	void Setup()
 	{
 		// Put display name entry in english.lang / Levels
-		GetBase().SetDisplayNameEntry("xx-xx-dummy-level");
+		GetBase().SetDisplayNameEntry("storage");
 		
 		// Set up color grading etc.
 	}
@@ -116,7 +116,12 @@ class cScrMap : iScrMap
 		
 		SetupMusicAmbienceBasedOnGen();
         
-        Music_Stalker_AddDeaggroSongTime("stalker_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 11.0f);
+        // If gen is off, set levers off
+        if(Generator_GetFuelTimeLeft() == 0){
+            Lever_SetStuckState("PowerSwitch_*", -1, true);
+            
+        }
+        
         //Debug
         //Entity_SetActive("stalker_1", true);
 		
@@ -133,6 +138,9 @@ class cScrMap : iScrMap
 	// Run when leaving map
 	void OnLeave()
 	{
+        Sound_Stop("Sound_GeneratorStop",0.f);
+		
+		Music_Stalker_StopDeaggroSongChecks();
 	}
 	
         
@@ -210,6 +218,27 @@ class cScrMap : iScrMap
 	{
 		if (abPressed == false) return;
 		
+        if (cLux_ScriptDebugOn())
+		{
+			if (alAction == eAction_Test7)
+			{
+				Entity_SetActive("Trigger_KillGenerator", false);
+				Generator_SetFuelAmount(0);
+				Generator_SetRunForever(false);
+				Generator_ChangeState(eGeneratorState_Off);
+				cLux_AddDebugMessage("Generator Off");
+			}
+		
+			if (alAction == eAction_Test8)
+			{
+				Entity_SetActive("Trigger_KillGenerator", true);
+				Generator_AddFuel(2);
+				Generator_ChangeState(eGeneratorState_On);
+				Generator_SetRunForever(true);
+				cLux_AddDebugMessage("Generator On");
+			}
+		}
+        
 		if (alAction == eAction_Test1)
 		{
 		}
@@ -254,7 +283,7 @@ class cScrMap : iScrMap
 		if (Generator_GetFuelTimeLeft() <= 0) {
 			Music_PlayExt_Save("storehouse_darkness", true, 0.35f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 		} else {
-			Music_PlayExt_Save("storehouse_genison_alt", true, 0.35f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+			Music_PlayExt_Save("storehouse_genison", true, 0.35f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 		}
 	}
 	
@@ -267,7 +296,7 @@ class cScrMap : iScrMap
 	
 	void OnStateChange_Generator(int alState) {		
 		SetupMusicAmbienceBasedOnGen();
-		Lever_SetStuckState("PowerSwitch_1", -1, true);
+		
 		
 		if (alState!=1) {
 			Map_SetFogActive(false);
@@ -275,11 +304,12 @@ class cScrMap : iScrMap
 			Light_SetVisible("Light_Box_4", false);  
 			//Sound_Play("Sound_GeneratorOff", 0.f);
 			SlideDoor_SetClosed("metal_security_door_1", true, false);
+            Lever_SetStuckState("PowerSwitch_*", -1, true);
 		} else {
 			Map_SetFogActive(true);
 			Map_SetSecondaryFogActive(true);
 			Light_SetVisible("Light_Box_4", true);
-            Lever_SetStuckState("PowerSwitch_*", -1, true);
+            //Lever_SetStuckState("PowerSwitch_*", 1, true);
 		}
 	}
 	
@@ -781,10 +811,10 @@ class cScrMap : iScrMap
 		//{//////////////////////////////////////
 		
 		void SetupStalkerAppearance() {
-			if (cScript_GetGlobalVarBool("scaredByStalker") && !cScript_GetGlobalVarBool("entrance_alt_unlocked")) {
-			Entity_SetActive("stalker_growth_1", true);
-			Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
-			//Stalker_SetEmergeAllowed("stalker_growth_1", true);
+			if (cScript_GetGlobalVarBool("scaredByStalker")) {
+			Entity_SetActive("stalker_1", true);
+			Music_Stalker_AddDeaggroSongTime("stalker_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 11.0f);
+			//Stalker_SetEmergeAllowed("stalker_1", true);
 			cLux_AddDebugMessage("Stalker is now ENABLED");
 			}
 		}
@@ -935,8 +965,8 @@ class cScrMap : iScrMap
 			}
 		}
 	//} END SCENE X 
-}
-
+	
+	
 void SetupColorgrading_EntranceAlt() {
         //Debug: test enable entrance_alt
         //cScript_SetGlobalVarBool("entrance_alt_unlocked", true);
@@ -995,4 +1025,5 @@ void SetupColorgrading_EntranceAlt() {
         cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
         
         cLux_AddDebugMessage("EXPOSURE: "+ cLux_GetViewport().GetToneMappingEffect().GetExposure());*/
+	}
 }

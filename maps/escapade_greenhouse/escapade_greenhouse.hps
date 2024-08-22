@@ -42,7 +42,7 @@ class cScrMap : iScrMap
 	void Setup()
 	{
 		// Put display name entry in english.lang / Levels
-		GetBase().SetDisplayNameEntry("xx-xx-dummy-level");
+		GetBase().SetDisplayNameEntry("greenhouse");
 		
 		// Set up color grading etc.
 	}
@@ -126,6 +126,9 @@ class cScrMap : iScrMap
 	// Run when leaving map
 	void OnLeave()
 	{
+        Sound_Stop("Sound_GeneratorStop",0.f);
+		
+		Music_Stalker_StopDeaggroSongChecks();
 	}
 	
        
@@ -199,6 +202,7 @@ class cScrMap : iScrMap
     void OnTimer_RemoveLever(const tString &in asTimer){
         cLux_AddDebugMessage("UNEQUIPPED, REMOVE");
         Item_RemoveFromInventory(ItemType_GetFirstInInventory("Lever"));
+        PlayerBody_PlayAnimation("tool_torch_holster", ePlayerBodyAnimationLayer_RightArm, false, false, true);
     }
     
 	////////////////////////////
@@ -207,6 +211,27 @@ class cScrMap : iScrMap
 	{
 		if (abPressed == false) return;
 		
+        if (cLux_ScriptDebugOn())
+		{
+			if (alAction == eAction_Test7)
+			{
+				Entity_SetActive("Trigger_KillGenerator", false);
+				Generator_SetFuelAmount(0);
+				Generator_SetRunForever(false);
+				Generator_ChangeState(eGeneratorState_Off);
+				cLux_AddDebugMessage("Generator Off");
+			}
+		
+			if (alAction == eAction_Test8)
+			{
+				Entity_SetActive("Trigger_KillGenerator", true);
+				Generator_AddFuel(2);
+				Generator_ChangeState(eGeneratorState_On);
+				Generator_SetRunForever(true);
+				cLux_AddDebugMessage("Generator On");
+			}
+		}
+        
 		if (alAction == eAction_Test1)
 		{
 		}
@@ -248,7 +273,17 @@ class cScrMap : iScrMap
 		// Generator Sounds
 		if (alState!=1) {
 			Sound_Play("Sound_GeneratorOff", 0.f);
-			Lever_SetStuckState("lever*", 1, true);
+			
+            // Generator off, set levers off
+        
+            // Skip lever numbers that do not depend on generator
+            for(int t = 1; t <= 10; t++){
+                if(t != 3){
+                    Lever_SetStuckState("lever"+t+"_portculis", 1, true);
+                }
+            }
+            
+        
 		}
 	}
 	
@@ -279,9 +314,13 @@ class cScrMap : iScrMap
 				MoveObject_SetState(asEntity + "_door", 1);
 				Lever_SetStuckState(asEntity, -1, true);
 			} else {
+                
 				Lever_SetStuckState(asEntity, 1, true);
 			}
 		}
+        if(alState == 1){
+            MoveObject_SetState(asEntity + "_door", 0);
+        }
 	}
     
 	
@@ -324,9 +363,8 @@ class cScrMap : iScrMap
 		//} END Event *Name Of Event*
 	 
 	//} END SCENE X 
-}
-
-void SetupColorgrading_EntranceAlt() {
+	
+	void SetupColorgrading_EntranceAlt() {
         //Debug: test enable entrance_alt
         //cScript_SetGlobalVarBool("entrance_alt_unlocked", true);
 
@@ -384,4 +422,5 @@ void SetupColorgrading_EntranceAlt() {
         cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
         
         cLux_AddDebugMessage("EXPOSURE: "+ cLux_GetViewport().GetToneMappingEffect().GetExposure());*/
+	}
 }

@@ -46,7 +46,7 @@ class cScrMap : iScrMap
 	void Setup()
 	{
 		// Put display name entry in english.lang / Levels
-		GetBase().SetDisplayNameEntry("xx-xx-dummy-level");
+		GetBase().SetDisplayNameEntry("underground");
 		// Set up color grading etc.
 	}
 	
@@ -223,7 +223,10 @@ class cScrMap : iScrMap
 	// Run when leaving map
 	void OnLeave()
 	{
+        Sound_Stop("Sound_GeneratorStop",0.f);
         Sequence_End();
+		
+		Music_Stalker_StopDeaggroSongChecks();
 	}
 	
     void arabic_lock_OnConnectionStateChange(const tString &in asEntity, int alState){
