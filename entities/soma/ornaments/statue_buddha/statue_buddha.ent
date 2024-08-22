@@ -1,8 +1,8 @@
 <Entity>
     <ModelData>
         <Entities />
-        <Mesh Filename="entities/station/ornaments/statue_buddha/statue_buddha.dae">
-            <SubMesh ID="0" Name="statue_low" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="1192" Material="" />
+        <Mesh Filename="mods/escapade_hpl3/entities/soma/ornaments/statue_buddha/statue_buddha.dae">
+            <SubMesh ID="0" Name="statue_low" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="1192" Material="" Static="true" />
         </Mesh>
         <Bones />
         <Shapes>
@@ -25,7 +25,7 @@
             <Shape ID="23" Name="Shape_17" CreStamp="0" ModStamp="0" WorldPos="-0.0327637 0.11716 -0.0344596" Rotation="0 0 0" Scale="0.0344672 0 0" RelativeTranslation="-0.0269516 0.019545 -0.0333684" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Sphere" />
             <Shape ID="24" Name="Shape_18" CreStamp="0" ModStamp="0" WorldPos="-0.0536245 0.102947 -0.0186876" Rotation="0 0 0" Scale="0.0267557 0 0" RelativeTranslation="-0.0478124 0.00533199 -0.0175964" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Sphere" />
             <Shape ID="25" Name="Shape_19" CreStamp="0" ModStamp="0" WorldPos="0.0560996 0.0579182 0.00940333" Rotation="-0.371593 -0.139162 -0.226399" Scale="0.0192461 0.0780114 0" RelativeTranslation="0.0619117 -0.0396968 0.0104945" RelativeRotation="-0.371593 -0.139162 -0.226399" RelativeScale="1 1 1" ShapeType="Cylinder" />
-            <Shape ID="26" Name="Shape_20" CreStamp="0" ModStamp="0" WorldPos="-0.0734568 0.108821 0.0131913" Rotation="0.223861 1.69667e-009 8.77783e-009" Scale="0.0116274 0.0115287 0" RelativeTranslation="-0.0676447 0.011206 0.0142825" RelativeRotation="0.223861 1.69667e-009 8.77783e-009" RelativeScale="1 1 1" ShapeType="Cylinder" />
+            <Shape ID="26" Name="Shape_20" CreStamp="0" ModStamp="0" WorldPos="-0.0734568 0.108821 0.0131913" Rotation="0.223861 1.69667e-09 8.77783e-09" Scale="0.0116274 0.0115287 0" RelativeTranslation="-0.0676447 0.011206 0.0142825" RelativeRotation="0.223861 1.69667e-09 8.77783e-09" RelativeScale="1 1 1" ShapeType="Cylinder" />
             <Shape ID="27" Name="Shape_21" CreStamp="0" ModStamp="0" WorldPos="-0.0721973 0.099351 0.0147988" Rotation="0 0 0" Scale="0.0117317 0 0" RelativeTranslation="-0.0663852 0.00173599 0.01589" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Sphere" />
             <Shape ID="28" Name="Shape_22" CreStamp="0" ModStamp="0" WorldPos="-0.0551048 0.0579182 0.0110185" Rotation="-0.388792 0.0753406 0.297285" Scale="0.0192461 0.0780114 0" RelativeTranslation="-0.0492927 -0.0396968 0.0121097" RelativeRotation="-0.388792 0.0753406 0.297285" RelativeScale="1 1 1" ShapeType="Cylinder" />
             <Shape ID="29" Name="Shape_23" CreStamp="0" ModStamp="0" WorldPos="-0.0375683 0.0416795 -0.0306495" Rotation="0 0 0" Scale="0.0444489 0 0" RelativeTranslation="-0.0317562 -0.0559355 -0.0295583" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Sphere" />
@@ -38,7 +38,7 @@
             <Shape ID="36" Name="Shape_30" CreStamp="0" ModStamp="0" WorldPos="-0.0291742 0.0179595 0.0452356" Rotation="0 0 0" Scale="0.01798 0 0" RelativeTranslation="-0.0233621 -0.0796555 0.0463267" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Sphere" />
         </Shapes>
         <Bodies>
-            <Body ID="37" Name="Body_1" CreStamp="0" ModStamp="1439395573" WorldPos="-0.0058121 0.097615 -0.00109115" Rotation="0 0 0" Scale="1 1 1" Material="Rock Buddha Statue" Mass="4" AngularDamping="0.1" LinearDamping="0.1" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+            <Body ID="37" Name="Body_1" CreStamp="0" ModStamp="1724367540" WorldPos="-0.0058121 0.097615 -0.00109115" Rotation="0 0 0" Scale="1 1 1" Material="stone_slab" Mass="4" AngularDamping="0.1" LinearDamping="0.1" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Children>
                     <Child ID="0" />
                 </Children>
@@ -79,57 +79,82 @@
         <ProcAnimations />
     </ModelData>
     <UserDefinedVariables EntityType="Prop_Grab">
-        <Var Name="Health" Value="100" />
-        <Var Name="Toughness" Value="0" />
-        <Var Name="MaxInteractDistance" Value="0" />
-        <Var Name="EventTag" Value="" />
-        <Var Name="ShowHints" Value="true" />
-        <Var Name="LifeLength" Value="0" />
-        <Var Name="DissolveDuringLifeDecrease" Value="true" />
-        <Var Name="BlocksLineOfSight" Value="true" />
-        <Var Name="MainPhysicsBody" Value="" />
-        <Var Name="NoGravityWhenUnderwater" Value="" />
-        <Var Name="CustomScriptFile" Value="" />
-        <Var Name="CustomScriptClass" Value="" />
-        <Var Name="ShowMesh" Value="true" />
-        <Var Name="DissolveOnDestruction" Value="false" />
-        <Var Name="DissolveTime" Value="1.0" />
-        <Var Name="RandomizeAnimationStart" Value="true" />
-        <Var Name="EffectsOnSound" Value="" />
-        <Var Name="EffectsOffSound" Value="" />
-        <Var Name="EffectsOnTime" Value="0.2" />
-        <Var Name="EffectsOffTime" Value="0.2" />
-        <Var Name="StaticMoveCheckCollision" Value="false" />
-        <Var Name="StaticMoveStartSound" Value="" />
-        <Var Name="StaticMoveStopSound" Value="" />
-        <Var Name="StaticMoveLoopSound" Value="" />
-        <Var Name="StaticMoveLoopSoundFade" Value="true" />
-        <Var Name="BreakActive" Value="false" />
-        <Var Name="BreakOnlyOnMainBody" Value="false" />
-        <Var Name="BreakDestroyJoints" Value="false" />
-        <Var Name="BreakMinEnergy" Value="100" />
-        <Var Name="BreakEntity" Value="" />
-        <Var Name="BreakEntityAlignBody" Value="" />
-        <Var Name="BreakSound" Value="" />
-        <Var Name="BreakParticleSystem" Value="" />
-        <Var Name="BreakImpulse" Value="4" />
-        <Var Name="Grab_UseCustomOffset" Value="false" />
-        <Var Name="Grab_CustomPositionOffset" Value="0 0 0" />
-        <Var Name="Grab_CustomRotationOffset" Value="0 0 0" />
-        <Var Name="Grab_UseCustomDepth" Value="false" />
-        <Var Name="Grab_CustomDepth" Value="1.2" />
-        <Var Name="Grab_MassMul" Value="0.1" />
-        <Var Name="Grab_MinDepth" Value="0.8" />
-        <Var Name="Grab_MaxDepth" Value="2" />
-        <Var Name="Grab_ForceMul" Value="1" />
-        <Var Name="Grab_TorqueMul" Value="1" />
-        <Var Name="Grab_ThrowImpulse" Value="5.0" />
-        <Var Name="Grab_IsHeavy" Value="false" />
-        <Var Name="Grab_CollisionWithPlayer" Value="false" />
-        <Var Name="Grab_InteractOnlyWithMainBody" Value="false" />
-        <Var Name="TextCategory" Value="" />
-        <Var Name="FrontTextEntry" Value="" />
-        <Var Name="BackTextEntry" Value="" />
-        <Var Name="TextRotateOffset" Value="0.0" />
+        <Var ObjectId="4294967295" Name="Health" Value="100" />
+        <Var ObjectId="4294967295" Name="Toughness" Value="0" />
+        <Var ObjectId="4294967295" Name="MaxInteractDistance" Value="0" />
+        <Var ObjectId="4294967295" Name="EventTag" Value="" />
+        <Var ObjectId="4294967295" Name="ShowHints" Value="true" />
+        <Var ObjectId="4294967295" Name="LifeLength" Value="0" />
+        <Var ObjectId="4294967295" Name="DissolveDuringLifeDecrease" Value="true" />
+        <Var ObjectId="4294967295" Name="QuickSave" Value="false" />
+        <Var ObjectId="4294967295" Name="FullGameSave" Value="false" />
+        <Var ObjectId="4294967295" Name="AllowMapTransfer" Value="false" />
+        <Var ObjectId="4294967295" Name="VoiceSourceBone" Value="" />
+        <Var ObjectId="4294967295" Name="BlocksLineOfSight" Value="true" />
+        <Var ObjectId="4294967295" Name="MainPhysicsBody" Value="" />
+        <Var ObjectId="4294967295" Name="NoGravityWhenUnderwater" Value="" />
+        <Var ObjectId="4294967295" Name="DisableFreezeAtStart" Value="false" />
+        <Var ObjectId="4294967295" Name="CustomScriptFile" Value="" />
+        <Var ObjectId="4294967295" Name="CustomScriptClass" Value="" />
+        <Var ObjectId="4294967295" Name="ShowMesh" Value="true" />
+        <Var ObjectId="4294967295" Name="DissolveOnDestruction" Value="false" />
+        <Var ObjectId="4294967295" Name="DissolveTime" Value="1.0" />
+        <Var ObjectId="4294967295" Name="RandomizeAnimationStart" Value="true" />
+        <Var ObjectId="4294967295" Name="RootMotionBone" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOnSound" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOffSound" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOnTime" Value="0.2" />
+        <Var ObjectId="4294967295" Name="EffectsOffTime" Value="0.2" />
+        <Var ObjectId="4294967295" Name="StaticMoveCheckCollision" Value="false" />
+        <Var ObjectId="4294967295" Name="StaticMoveStartSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveStopSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveLoopSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveLoopSoundFade" Value="true" />
+        <Var ObjectId="4294967295" Name="BreakActive" Value="false" />
+        <Var ObjectId="4294967295" Name="CustomBreakBehaviour" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakOnlyOnMainBody" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakDestroyJoints" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakMinEnergy" Value="100" />
+        <Var ObjectId="4294967295" Name="BreakEntity" Value="" />
+        <Var ObjectId="4294967295" Name="BreakEntityAlignBody" Value="" />
+        <Var ObjectId="4294967295" Name="BreakSound" Value="" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundRadius" Value="18" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundPrio" Value="4" />
+        <Var ObjectId="4294967295" Name="BreakParticleSystem" Value="" />
+        <Var ObjectId="4294967295" Name="BreakImpulse" Value="4" />
+        <Var ObjectId="4294967295" Name="Grab_UseCustomOffset" Value="false" />
+        <Var ObjectId="4294967295" Name="Grab_CustomPositionOffset" Value="0 0 0" />
+        <Var ObjectId="4294967295" Name="Grab_CustomRotationOffset" Value="0 0 0" />
+        <Var ObjectId="4294967295" Name="Grab_UseCustomDepth" Value="false" />
+        <Var ObjectId="4294967295" Name="Grab_CustomDepth" Value="1.2" />
+        <Var ObjectId="4294967295" Name="Grab_MassMul" Value="0.1" />
+        <Var ObjectId="4294967295" Name="Grab_MinDepth" Value="0.8" />
+        <Var ObjectId="4294967295" Name="Grab_MaxDepth" Value="2" />
+        <Var ObjectId="4294967295" Name="Grab_ForceMul" Value="1" />
+        <Var ObjectId="4294967295" Name="Grab_TorqueMul" Value="1" />
+        <Var ObjectId="4294967295" Name="Grab_ThrowImpulse" Value="5.0" />
+        <Var ObjectId="4294967295" Name="Grab_IsHeavy" Value="false" />
+        <Var ObjectId="4294967295" Name="Grab_CollisionWithPlayer" Value="false" />
+        <Var ObjectId="4294967295" Name="Grab_InteractOnlyWithMainBody" Value="false" />
+        <Var ObjectId="4294967295" Name="Grab_CanInteractWithNoMass" Value="true" />
+        <Var ObjectId="4294967295" Name="Grab_LowerMass" Value="true" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_Active" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_HitMinEnergy" Value="100" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_MaxHits" Value="2" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_MinHitMass" Value="10" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DamageMesh" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DamageSound" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DamagePS" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BrokenEntity" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakImpulse" Value="3" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakSound" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakPS" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakAIEventPrio" Value="High" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CanDestroyThrownEntity" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_PathBlocker" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DropItemOnBreak" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CustomDropItemsList" Value="" />
     </UserDefinedVariables>
 </Entity>

@@ -1,16 +1,16 @@
-﻿<Entity>
+<Entity>
     <ModelData>
         <Entities />
-        <Mesh Filename="entities/ornament/paintings/painting_large01/painting_large01.dae">
-            <SubMesh Active="true" ID="0" Material="" Name="painting_frame04" Rotation="0 0 0" Scale="1 1 1" SubMeshID="0" Tag="" WorldPos="0 0 0" TriCount="42" />
-            <SubMesh Active="true" ID="1" Material="" Name="painting_image04" Rotation="0 0 0" Scale="1 1 1" SubMeshID="1" Tag="" WorldPos="-0.049892 0 0" TriCount="2" />
+        <Mesh Filename="mods/escapade_hpl3/entities/dark_descent/paintings/painting_large01/painting_large01.dae">
+            <SubMesh ID="0" Name="painting_frame04" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="42" Material="" Static="true" />
+            <SubMesh ID="1" Name="painting_image04" CreStamp="0" ModStamp="0" WorldPos="-0.049892 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="2" Material="" Static="true" />
         </Mesh>
         <Bones />
         <Shapes>
-            <BodyShape Active="true" ID="2" Name="Shape_1" RelativeRotation="0 0 0" RelativeScale="0.27 4 6.8" RelativeTranslation="0 0 0" Rotation="0 0 0" Scale="0.27 4 6.8" ShapeType="Box" Tag="" WorldPos="-0.135849 0 -0.005194" />
+            <Shape ID="2" Name="Shape_1" CreStamp="0" ModStamp="0" WorldPos="-0.135849 0 -0.005194" Rotation="0 0 0" Scale="0.27 4 6.8" RelativeTranslation="0 0 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Box" />
         </Shapes>
         <Bodies>
-            <Body Active="true" AngularDamping="0" BlocksSound="false" BuoyancyDensityMul="1" CanAttachCharacter="false" CollideCharacter="true" CollideNonCharacter="true" ContinuousCollision="true" HasGravity="true" ID="3" LinearDamping="0" Mass="0" Material="Default Hard" MaxAngularSpeed="0" MaxLinearSpeed="0" Name="Body_1" PushedByCharacterGravity="false" Rotation="0 0 0" Scale="1 1 1" Tag="" UseSurfaceEffects="true" Volatile="false" WorldPos="-0.135849 0 -0.005194">
+            <Body ID="3" Name="Body_1" CreStamp="0" ModStamp="1724364985" WorldPos="-0.135849 0 -0.005194" Rotation="0 0 0" Scale="1 1 1" Material="book_old_leather" Mass="0" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Children>
                     <Child ID="1" />
                     <Child ID="0" />
@@ -20,6 +20,9 @@
         </Bodies>
         <Joints />
         <Animations />
+        <ProcAnimations />
     </ModelData>
-    <UserDefinedVariables EntityType="StaticProp" />
+    <UserDefinedVariables EntityType="StaticProp">
+        <Var ObjectId="4294967295" Name="ShowMesh" Value="true" />
+    </UserDefinedVariables>
 </Entity>

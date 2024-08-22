@@ -1,7 +1,7 @@
 <Entity>
     <ModelData>
         <Entities />
-        <Mesh Filename="mods/Project_Omega/assets/entities/the_dark_descent/entities/door/castle_portcullis/castle_portcullis.dae">
+        <Mesh Filename="mods/escapade_hpl3/entities/dark_descent/door/castle_portcullis/castle_portcullis.dae">
             <SubMesh ID="0" Name="portcullis" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="178" Material="" Static="true" />
             <SubMesh ID="1" Name="polySurface27" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="4" Material="" Static="true" />
             <SubMesh ID="2" Name="polySurface26" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="4" Material="" Static="true" />
@@ -28,7 +28,7 @@
             <Shape ID="20" Name="Shape_1" CreStamp="0" ModStamp="0" WorldPos="0 1.47004 0" Rotation="0 0 0" Scale="1.7 2.7 0.25" RelativeTranslation="0 0 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Box" />
         </Shapes>
         <Bodies>
-            <Body ID="21" Name="Body_1" CreStamp="0" ModStamp="0" WorldPos="0 1.47004 0" Rotation="0 0 0" Scale="1 1 1" Material="Metal" Mass="0" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="true" PushedByCharacterGravity="true" CollideCharacter="true" CollideNonCharacter="true" Volatile="true" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+            <Body ID="21" Name="Body_1" CreStamp="0" ModStamp="1724263803" WorldPos="0 1.47004 0" Rotation="0 0 0" Scale="1 1 1" Material="Metal_Door" Mass="0" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="true" PushedByCharacterGravity="true" CollideCharacter="true" CollideNonCharacter="true" Volatile="true" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Children>
                     <Child ID="0" />
                 </Children>
@@ -49,6 +49,8 @@
         <Var ObjectId="4294967295" Name="DissolveDuringLifeDecrease" Value="true" />
         <Var ObjectId="4294967295" Name="QuickSave" Value="false" />
         <Var ObjectId="4294967295" Name="FullGameSave" Value="false" />
+        <Var ObjectId="4294967295" Name="AllowMapTransfer" Value="false" />
+        <Var ObjectId="4294967295" Name="VoiceSourceBone" Value="" />
         <Var ObjectId="4294967295" Name="BlocksLineOfSight" Value="MaterialBased" />
         <Var ObjectId="4294967295" Name="MainPhysicsBody" Value="" />
         <Var ObjectId="4294967295" Name="NoGravityWhenUnderwater" Value="false" />
@@ -77,6 +79,8 @@
         <Var ObjectId="4294967295" Name="BreakEntity" Value="" />
         <Var ObjectId="4294967295" Name="BreakEntityAlignBody" Value="" />
         <Var ObjectId="4294967295" Name="BreakSound" Value="" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundRadius" Value="18" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundPrio" Value="4" />
         <Var ObjectId="4294967295" Name="BreakParticleSystem" Value="" />
         <Var ObjectId="4294967295" Name="BreakImpulse" Value="4" />
         <Var ObjectId="4294967295" Name="MoveObjectType" Value="Linear" />

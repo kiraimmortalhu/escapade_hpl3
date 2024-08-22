@@ -10,7 +10,7 @@
             <Billboard ID="15" Name="Billboard_5" CreStamp="1598372817" ModStamp="1598373070" WorldPos="0 0.126091 0.159849" Rotation="0 0 0" Scale="1 1 1" BillboardType="Axis" MaterialFile="C:/Users/aaron/Documents/Work/Amnesia2/trunk/redist/billboards/special/torch_flame/torch_flame_29fps.mat" IsHalo="false" BillboardSize="0.4 0.5" HaloSourceSize="0.3 0.3 0.3" BillboardOffset="0" BillboardColor="0 0.777344 1 1" Brightness="3" CulledByDistance="false" CulledByFog="true" ConnectLight="" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
             <Sound ID="17" Name="Sound_1" CreStamp="1600443831" ModStamp="1600443844" WorldPos="0 0.0900436 0.184254" Rotation="0 0 0" Scale="1 1 1" SoundEntityFile="level_entity_shared/fire/wall_torch/wall_torch_burn" MinDistance="1" MaxDistance="6" Volume="1" Active="true" UseCustomProperties="false" />
         </Entities>
-        <Mesh Filename="entities/darkworld/lamp/dwf_torch_01/dwf_torch_01.dae">
+        <Mesh Filename="mods/escapade_hpl3/entities/darkworld/lamp/dwf_torch_01/dwf_torch_01.dae">
             <SubMesh ID="16" Name="DWF_Torch_01" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="1784" Material="" Static="true" />
         </Mesh>
         <Bones />
@@ -42,6 +42,8 @@
         <Var ObjectId="4294967295" Name="DissolveDuringLifeDecrease" Value="true" />
         <Var ObjectId="4294967295" Name="QuickSave" Value="false" />
         <Var ObjectId="4294967295" Name="FullGameSave" Value="false" />
+        <Var ObjectId="4294967295" Name="AllowMapTransfer" Value="false" />
+        <Var ObjectId="4294967295" Name="VoiceSourceBone" Value="" />
         <Var ObjectId="4294967295" Name="BlocksLineOfSight" Value="MaterialBased" />
         <Var ObjectId="4294967295" Name="MainPhysicsBody" Value="" />
         <Var ObjectId="4294967295" Name="NoGravityWhenUnderwater" Value="false" />
@@ -70,15 +72,18 @@
         <Var ObjectId="4294967295" Name="BreakEntity" Value="" />
         <Var ObjectId="4294967295" Name="BreakEntityAlignBody" Value="" />
         <Var ObjectId="4294967295" Name="BreakSound" Value="" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundRadius" Value="18" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundPrio" Value="4" />
         <Var ObjectId="4294967295" Name="BreakParticleSystem" Value="" />
         <Var ObjectId="4294967295" Name="BreakImpulse" Value="4" />
         <Var ObjectId="4294967295" Name="CanBeLitByPlayer" Value="true" />
         <Var ObjectId="4294967295" Name="CanBeSnuffedOutByPlayer" Value="false" />
         <Var ObjectId="4294967295" Name="CanBeGrabbed" Value="falsDrainCallbacke" />
-        <Var ObjectId="4294967295" Name="RequiresMatches" Value="true" />
-        <Var ObjectId="4294967295" Name="RequiresOil" Value="false" />
+        <Var ObjectId="4294967295" Name="RequiresFuel" Value="false" />
         <Var ObjectId="4294967295" Name="LightByDistance" Value="false" />
         <Var ObjectId="4294967295" Name="LightDistance" Value="5.0" />
+        <Var ObjectId="4294967295" Name="InteractSound" Value="" />
+        <Var ObjectId="4294967295" Name="RequiresGeneratorPower" Value="false" />
         <Var ObjectId="4294967295" Name="FlickerMinOnTime" Value="0.05" />
         <Var ObjectId="4294967295" Name="FlickerMaxOnTime" Value="0.2" />
         <Var ObjectId="4294967295" Name="FlickerMinOffTime" Value="0.05" />

@@ -1,7 +1,7 @@
 <Entity>
     <ModelData>
         <Entities />
-        <Mesh Filename="mods/Project_Omega/assets/entities/the_dark_descent/entities/door/castle/castle_broken.dae">
+        <Mesh Filename="mods/escapade_hpl3/entities/dark_descent/door/castle/castle_broken.dae">
             <SubMesh ID="0" Name="Object01" CreStamp="0" ModStamp="0" WorldPos="0 -0.152279 0" Rotation="0 0 0" Scale="1 1 1" TriCount="38" Material="" Static="true" />
             <SubMesh ID="1" Name="Object02" CreStamp="0" ModStamp="0" WorldPos="0 -0.152279 0" Rotation="0 0 0" Scale="1 1 1" TriCount="30" Material="" Static="true" />
             <SubMesh ID="2" Name="Object03" CreStamp="0" ModStamp="0" WorldPos="0 -0.152279 0" Rotation="0 0 0" Scale="1 1 1" TriCount="472" Material="" Static="true" />
@@ -22,7 +22,7 @@
             <Shape ID="20" Name="BodyShape_8" CreStamp="0" ModStamp="0" WorldPos="0.413067 1.78389 0.0352166" Rotation="0 0 -0.0438189" Scale="0.03 0.58 0.03" RelativeTranslation="0 0 0" RelativeRotation="0 -0 -0.0438189" RelativeScale="1 1 1" ShapeType="Box" />
         </Shapes>
         <Bodies>
-            <Body ID="14" Name="Body_1" CreStamp="0" ModStamp="0" WorldPos="-0.582763 1.13172 -0.00179005" Rotation="0 0 0" Scale="1 1 1" Material="Metal" Mass="2" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="true" CollideCharacter="false" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="false" HasGravity="true" BlocksLight="true">
+            <Body ID="14" Name="Body_1" CreStamp="0" ModStamp="1724263600" WorldPos="-0.582763 1.13172 -0.00179005" Rotation="0 0 0" Scale="1 1 1" Material="Wood" Mass="2" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="true" CollideCharacter="false" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="false" HasGravity="true" BlocksLight="true">
                 <Children>
                     <Child ID="2" />
                 </Children>
@@ -80,6 +80,8 @@
         <Var ObjectId="4294967295" Name="DissolveDuringLifeDecrease" Value="true" />
         <Var ObjectId="4294967295" Name="QuickSave" Value="false" />
         <Var ObjectId="4294967295" Name="FullGameSave" Value="false" />
+        <Var ObjectId="4294967295" Name="AllowMapTransfer" Value="false" />
+        <Var ObjectId="4294967295" Name="VoiceSourceBone" Value="" />
         <Var ObjectId="4294967295" Name="BlocksLineOfSight" Value="MaterialBased" />
         <Var ObjectId="4294967295" Name="MainPhysicsBody" Value="" />
         <Var ObjectId="4294967295" Name="NoGravityWhenUnderwater" Value="false" />
@@ -108,23 +110,28 @@
         <Var ObjectId="4294967295" Name="BreakEntity" Value="" />
         <Var ObjectId="4294967295" Name="BreakEntityAlignBody" Value="" />
         <Var ObjectId="4294967295" Name="BreakSound" Value="" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundRadius" Value="18" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundPrio" Value="4" />
         <Var ObjectId="4294967295" Name="BreakParticleSystem" Value="" />
         <Var ObjectId="4294967295" Name="BreakImpulse" Value="4" />
         <Var ObjectId="4294967295" Name="InteractOnlyWithMainBody" Value="false" />
-        <Var ObjectId="4294967295" Name="ScaryObject_BaseFearRate" Value="0.1" />
-        <Var ObjectId="4294967295" Name="ScaryObject_SurpriseFactor" Value="-1.0" />
-        <Var ObjectId="4294967295" Name="ScaryObject_LookAtFactor" Value="-1.0" />
-        <Var ObjectId="4294967295" Name="ScaryObject_ActivationDelay" Value="0.2" />
-        <Var ObjectId="4294967295" Name="ScaryObject_ActivationLightLevel" Value="0.1" />
-        <Var ObjectId="4294967295" Name="ScaryObject_ActivationDistance" Value="3.5" />
-        <Var ObjectId="4294967295" Name="ScaryObject_DeactivationDistance" Value="3.5" />
-        <Var ObjectId="4294967295" Name="ScaryObject_InteractFactor" Value="-1.0" />
-        <Var ObjectId="4294967295" Name="Threat_BaseFearRate" Value="0.1" />
-        <Var ObjectId="4294967295" Name="Threat_SurpriseFactor" Value="-1.0" />
-        <Var ObjectId="4294967295" Name="Threat_LookAtFactor" Value="-1.0" />
-        <Var ObjectId="4294967295" Name="Threat_ActivationDelay" Value="0.2" />
-        <Var ObjectId="4294967295" Name="Threat_ActivationLightLevel" Value="0.1" />
-        <Var ObjectId="4294967295" Name="Threat_MaxFearDistance" Value="2.0" />
-        <Var ObjectId="4294967295" Name="Threat_MinFearDistance" Value="6.0" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_Active" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_HitMinEnergy" Value="100" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_MaxHits" Value="2" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_MinHitMass" Value="10" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DamageMesh" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DamageSound" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DamagePS" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BrokenEntity" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakImpulse" Value="3" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakSound" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakPS" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakAIEventPrio" Value="High" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CanDestroyThrownEntity" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_PathBlocker" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DropItemOnBreak" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CustomDropItemsList" Value="" />
     </UserDefinedVariables>
 </Entity>

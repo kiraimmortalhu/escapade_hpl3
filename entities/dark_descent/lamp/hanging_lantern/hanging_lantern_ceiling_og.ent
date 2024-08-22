@@ -5,7 +5,7 @@
             <Billboard ID="13" Name="Billboard_1" CreStamp="0" ModStamp="0" WorldPos="0 -0.706855 0" Rotation="0 0 0" Scale="1 1 1" BillboardType="Point" MaterialFile="E:/Projects/3d/work/amnesia game/SVN/redist/billboards/halo_torch.mat" IsHalo="true" BillboardSize="2 2" HaloSourceSize="0.3 0.3 0.3" BillboardOffset="0" BillboardColor="0.28 0.18 0.08 1" Brightness="1" CulledByDistance="false" CulledByFog="true" ConnectLight="" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
             <ParticleSystem ID="16" Name="ParticleSystem_1" CreStamp="0" ModStamp="0" WorldPos="0 -0.83255 0" Rotation="0 0 0" Scale="1 1 1" File="E:/Projects/3d/work/amnesia game/SVN/redist/particles/ps_fire_candle_large.ps" Color="1 1 1 1" Brightness="1" FadeAtDistance="false" MinFadeDistanceStart="0" MaxFadeDistanceStart="100" MinFadeDistanceEnd="0" MaxFadeDistanceEnd="110" Static="false" CulledByDistance="true" CulledByFog="true" ConnectLight="" />
         </Entities>
-        <Mesh Filename="mods/Project_Omega/assets/entities/the_dark_descent/entities/lamp/hanging_lantern/hanging_lantern_ceiling.dae">
+        <Mesh Filename="mods/escapade_hpl3/entities/dark_descent/lamp/hanging_lantern/hanging_lantern_ceiling.dae">
             <SubMesh ID="0" Name="ceiling_plate" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="70" Material="" Static="true" />
             <SubMesh ID="1" Name="lantern" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="380" Material="" Static="true" />
             <SubMesh ID="2" Name="glass" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="82" Material="" Static="true" />
@@ -19,7 +19,7 @@
             <Shape ID="8" Name="Shape_4" CreStamp="0" ModStamp="0" WorldPos="0 -0.390812 0" Rotation="0 0 0" Scale="0.109 0.22 0.109" RelativeTranslation="0 0.228327 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
         </Shapes>
         <Bodies>
-            <Body ID="9" Name="Body_1" CreStamp="0" ModStamp="0" WorldPos="0 -0.619139 0" Rotation="0 0 0" Scale="1 1 1" Material="Glass" Mass="4" AngularDamping="0.25" LinearDamping="0.25" MaxAngularSpeed="4" MaxLinearSpeed="4" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="true" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+            <Body ID="9" Name="Body_1" CreStamp="0" ModStamp="1724365874" WorldPos="0 -0.619139 0" Rotation="0 0 0" Scale="1 1 1" Material="metal small" Mass="4" AngularDamping="0.25" LinearDamping="0.25" MaxAngularSpeed="4" MaxLinearSpeed="4" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="true" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Children>
                     <Child ID="1" />
                     <Child ID="2" />
@@ -60,6 +60,8 @@
         <Var ObjectId="4294967295" Name="DissolveDuringLifeDecrease" Value="true" />
         <Var ObjectId="4294967295" Name="QuickSave" Value="false" />
         <Var ObjectId="4294967295" Name="FullGameSave" Value="false" />
+        <Var ObjectId="4294967295" Name="AllowMapTransfer" Value="false" />
+        <Var ObjectId="4294967295" Name="VoiceSourceBone" Value="" />
         <Var ObjectId="4294967295" Name="BlocksLineOfSight" Value="MaterialBased" />
         <Var ObjectId="4294967295" Name="MainPhysicsBody" Value="" />
         <Var ObjectId="4294967295" Name="NoGravityWhenUnderwater" Value="false" />
@@ -88,15 +90,18 @@
         <Var ObjectId="4294967295" Name="BreakEntity" Value="" />
         <Var ObjectId="4294967295" Name="BreakEntityAlignBody" Value="" />
         <Var ObjectId="4294967295" Name="BreakSound" Value="" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundRadius" Value="18" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundPrio" Value="4" />
         <Var ObjectId="4294967295" Name="BreakParticleSystem" Value="" />
         <Var ObjectId="4294967295" Name="BreakImpulse" Value="4" />
         <Var ObjectId="4294967295" Name="CanBeLitByPlayer" Value="true" />
         <Var ObjectId="4294967295" Name="CanBeSnuffedOutByPlayer" Value="false" />
         <Var ObjectId="4294967295" Name="CanBeGrabbed" Value="false" />
-        <Var ObjectId="4294967295" Name="RequiresMatches" Value="false" />
-        <Var ObjectId="4294967295" Name="RequiresOil" Value="false" />
+        <Var ObjectId="4294967295" Name="RequiresFuel" Value="false" />
         <Var ObjectId="4294967295" Name="LightByDistance" Value="false" />
         <Var ObjectId="4294967295" Name="LightDistance" Value="5.0" />
+        <Var ObjectId="4294967295" Name="InteractSound" Value="" />
+        <Var ObjectId="4294967295" Name="RequiresGeneratorPower" Value="false" />
         <Var ObjectId="4294967295" Name="FlickerMinOnTime" Value="0.05" />
         <Var ObjectId="4294967295" Name="FlickerMaxOnTime" Value="1" />
         <Var ObjectId="4294967295" Name="FlickerMinOffTime" Value="0.025" />

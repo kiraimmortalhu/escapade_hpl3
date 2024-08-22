@@ -1,7 +1,7 @@
 <Entity>
     <ModelData>
         <Entities />
-        <Mesh Filename="mods/Project_Omega/assets/entities/the_dark_descent/entities/door/prison_section/prison_section.dae">
+        <Mesh Filename="mods/escapade_hpl3/entities/dark_descent/door/prison_section/prison_section.dae">
             <SubMesh ID="17" Name="door" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="212" Material="" Static="true" />
             <SubMesh ID="18" Name="hinge" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="64" Material="" Static="true" />
             <SubMesh ID="19" Name="lockholder" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="60" Material="" Static="true" />
@@ -15,7 +15,7 @@
             <Shape ID="13" Name="Shape_5" CreStamp="0" ModStamp="0" WorldPos="-0.885815 1.43003 -0.00273" Rotation="3.14159 1.5708 3.14159" Scale="0.28 2 0.02" RelativeTranslation="0 0 0" RelativeRotation="-2.53518e-06 1.5708 -2.53518e-06" RelativeScale="1 1 1" ShapeType="Box" />
         </Shapes>
         <Bodies>
-            <Body ID="14" Name="Body" CreStamp="0" ModStamp="0" WorldPos="0.745064 1.43003 0.138314" Rotation="0 0 0" Scale="1 1 1" Material="Metal" Mass="4" AngularDamping="0.5" LinearDamping="0.5" MaxAngularSpeed="2" MaxLinearSpeed="2" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+            <Body ID="14" Name="Body" CreStamp="0" ModStamp="1724263997" WorldPos="0.745064 1.43003 0.138314" Rotation="0 0 0" Scale="1 1 1" Material="Metal Can" Mass="4" AngularDamping="0.5" LinearDamping="0.5" MaxAngularSpeed="2" MaxLinearSpeed="2" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Children>
                     <Child ID="19" />
                 </Children>
@@ -28,7 +28,7 @@
                 </Children>
                 <Shape ID="13" />
             </Body>
-            <Body ID="20" Name="Body_2" CreStamp="0" ModStamp="0" WorldPos="0.291091 1.43888 0.0320054" Rotation="0 0 0" Scale="1 1 1" Material="Metal" Mass="10" AngularDamping="0.4" LinearDamping="0.4" MaxAngularSpeed="2" MaxLinearSpeed="2" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+            <Body ID="20" Name="Body_2" CreStamp="0" ModStamp="1724263847" WorldPos="0.291091 1.43888 0.0320054" Rotation="0 0 0" Scale="1 1 1" Material="Metal_Door" Mass="10" AngularDamping="0.4" LinearDamping="0.4" MaxAngularSpeed="2" MaxLinearSpeed="2" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Children>
                     <Child ID="17" />
                 </Children>
@@ -53,6 +53,8 @@
         <Var ObjectId="4294967295" Name="DissolveDuringLifeDecrease" Value="true" />
         <Var ObjectId="4294967295" Name="QuickSave" Value="false" />
         <Var ObjectId="4294967295" Name="FullGameSave" Value="false" />
+        <Var ObjectId="4294967295" Name="AllowMapTransfer" Value="false" />
+        <Var ObjectId="4294967295" Name="VoiceSourceBone" Value="" />
         <Var ObjectId="4294967295" Name="BlocksLineOfSight" Value="MaterialBased" />
         <Var ObjectId="4294967295" Name="MainPhysicsBody" Value="" />
         <Var ObjectId="4294967295" Name="NoGravityWhenUnderwater" Value="false" />
@@ -81,6 +83,8 @@
         <Var ObjectId="4294967295" Name="BreakEntity" Value="" />
         <Var ObjectId="4294967295" Name="BreakEntityAlignBody" Value="" />
         <Var ObjectId="4294967295" Name="BreakSound" Value="C:/SVN/amnesia/redist/sounds/break/break_wood_metal.snt" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundRadius" Value="18" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundPrio" Value="4" />
         <Var ObjectId="4294967295" Name="BreakParticleSystem" Value="" />
         <Var ObjectId="4294967295" Name="BreakImpulse" Value="20" />
         <Var ObjectId="4294967295" Name="CanInteractWithStaticBody" Value="false" />
@@ -104,21 +108,29 @@
         <Var ObjectId="4294967295" Name="MinMoveSoundSpeed" Value="-1" />
         <Var ObjectId="4294967295" Name="MaxOpenSound" Value="" />
         <Var ObjectId="4294967295" Name="MaxOpenSoundMinSpeed" Value="0" />
-        <Var ObjectId="4294967295" Name="Breakable" Value="true" />
-        <Var ObjectId="4294967295" Name="DamageTint" Value="false" />
-        <Var ObjectId="4294967295" Name="DamageMesh1" Value="C:/Program Files (x86)/Steam/steamapps/common/Amnesia Rebirth/mods/Project_Omega/assets/entities/the_dark_descent/entities/door/prison_section/prison_section.msh" />
-        <Var ObjectId="4294967295" Name="DamageMesh2" Value="C:/Program Files (x86)/Steam/steamapps/common/Amnesia Rebirth/mods/Project_Omega/assets/entities/the_dark_descent/entities/door/prison_section/prison_section.msh" />
-        <Var ObjectId="4294967295" Name="BrokenEntity" Value="C:/SVN/amnesia/redist/entities/door/prison_section/prison_section_broken.ent" />
-        <Var ObjectId="4294967295" Name="HealthDamage1" Value="0.66" />
-        <Var ObjectId="4294967295" Name="HealthDamage2" Value="0.33" />
-        <Var ObjectId="4294967295" Name="DamageSound" Value="C:/SVN/amnesia/redist/sounds/impact/impact_metal_high.snt" />
-        <Var ObjectId="4294967295" Name="DamagePS" Value="C:/SVN/amnesia/redist/particles/hit/ps_hit_metal.ps" />
-        <Var ObjectId="4294967295" Name="BreakPS" Value="C:/SVN/amnesia/redist/particles/hit/ps_hit_metal.ps" />
         <Var ObjectId="4294967295" Name="HandleUpAnimation" Value="" />
         <Var ObjectId="4294967295" Name="HandleDownAnimation" Value="" />
         <Var ObjectId="4294967295" Name="HandleLockedAnimation" Value="" />
         <Var ObjectId="4294967295" Name="HandleMovingAnimation" Value="" />
         <Var ObjectId="4294967295" Name="HandleMovingRepetitionMin" Value="0.25" />
         <Var ObjectId="4294967295" Name="HandleMovingRepetitionMax" Value="0.5" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_Active" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_HitMinEnergy" Value="100" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_MaxHits" Value="2" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_MinHitMass" Value="10" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DamageMesh" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DamageSound" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DamagePS" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BrokenEntity" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakImpulse" Value="3" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakSound" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakPS" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakAIEventPrio" Value="High" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CanDestroyThrownEntity" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_PathBlocker" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DropItemOnBreak" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CustomDropItemsList" Value="" />
     </UserDefinedVariables>
 </Entity>
