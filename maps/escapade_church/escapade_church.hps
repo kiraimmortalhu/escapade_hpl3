@@ -190,10 +190,30 @@ class cScrMap : iScrMap
 			}
 		}
         
-		if (alAction == eAction_Test1)
+		if (alAction == eAction_Flashlight)
 		{
+			OnAction_CustomizedLightSources();
 		}
 	}
+	
+	// Hold F for lantern, press F for lighter/crafted torch
+
+	void OnAction_CustomizedLightSources() {
+	
+		tString sItemID = ItemType_GetFirstInInventory("Lighter");
+		if (sItemID != "") {
+			if (Item_GetHeldType(eItemHandlerHand_Left) == "DynamoLantern" && Item_IsLightSourceActive()) {
+				Item_PutAway(eItemHandlerHand_Left);
+			}
+			sItemID = ItemType_GetFirstInInventory("Torch");
+			if (sItemID != "") {
+				Item_ToggleHeldItem("Torch");
+			} else {
+				Item_ToggleHeldItem("Lighter");
+			}
+		}
+	}
+	
 	//-------------------------------------------------------
 	void OnLookAt_SaveLamp(const tString &in asEntity, int alState)
 	{
