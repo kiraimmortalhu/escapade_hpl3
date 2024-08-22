@@ -1,24 +1,28 @@
-﻿<Entity>
-    <ModelData Name="">
+<Entity>
+    <ModelData>
         <Entities />
-        <Mesh Filename="entities/ornament/shield01/shield01.dae">
-            <SubMesh Active="true" GroupID="0" ID="0" Name="polySurface4" Rotation="0.000000 0.000000 0.000000" Scale="1.500000 1.500000 1.500000" SubMeshID="0" Tag="" Type="12" WorldPos="0.000000 0.000000 0.000000" TriCount="212" />
+        <Mesh Filename="mods/escapade_hpl3/entities/dark_descent/ornament/shield01/shield01.dae">
+            <SubMesh ID="0" Name="polySurface4" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1.5 1.5 1.5" TriCount="212" Material="" Static="true" />
         </Mesh>
         <Bones />
         <Shapes>
-            <BodyShape Active="true" GroupID="0" ID="2" Name="Shape_1" RelativeRotation="1.570796 0.000000 0.000000" RelativeScale="0.340000 0.100000 0.400000" RelativeTranslation="0.000762 -0.034936 -0.000123" Rotation="1.570796 0.000000 0.000000" Scale="0.510000 0.150000 0.600000" ShapeType="Cylinder" ShapeTypeID="1" Tag="" Type="9" WorldPos="0.001143 0.618311 -0.015367" />
-            <BodyShape Active="true" GroupID="0" ID="4" Name="Shape_2" RelativeRotation="0.000000 0.000000 0.000000" RelativeScale="0.700000 0.400000 0.100000" RelativeTranslation="0.000000 0.234936 0.000123" Rotation="0.000000 0.000000 0.000000" Scale="1.050000 0.600000 0.150000" ShapeType="Box" ShapeTypeID="0" Tag="" Type="9" WorldPos="0.000000 1.023118 -0.014998" />
+            <Shape ID="2" Name="Shape_1" CreStamp="0" ModStamp="0" WorldPos="0.001143 0.618311 -0.015367" Rotation="1.5708 0 0" Scale="0.51 0.15 0.6" RelativeTranslation="0.0005715 -0.202403 -0.000184501" RelativeRotation="1.5708 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
+            <Shape ID="4" Name="Shape_2" CreStamp="0" ModStamp="0" WorldPos="0 1.02312 -0.014998" Rotation="0 0 0" Scale="1.05 0.6 0.15" RelativeTranslation="-0.0005715 0.202404 0.0001845" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Box" />
         </Shapes>
         <Bodies>
-            <Body Active="true" AngularDamping="0.000000" BlocksSound="false" CanAttachCharacter="true" CollideCharacter="true" CollideNonCharacter="true" ContinuousCollision="true" GroupID="0" ID="5" LinearDamping="0.000000" Mass="0.000000" Material="Metal" MaxAngularSpeed="0.000000" MaxLinearSpeed="0.000000" Name="Body" PushedByCharacterGravity="true" Rotation="0.000000 0.000000 0.000000" Scale="1.500000 1.500000 1.500000" Tag="" Type="10" UseSurfaceEffects="true" Volatile="false" WorldPos="0.000000 0.670714 -0.015183">
-                <Shape ID="2" />
-                <Shape ID="4" />
+            <Body ID="5" Name="Body" CreStamp="0" ModStamp="1724365069" WorldPos="0.0005715 0.820714 -0.0151825" Rotation="0 0 0" Scale="1.5 1.5 1.5" Material="metal_shovel" Mass="0" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="true" PushedByCharacterGravity="true" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Children>
                     <Child ID="0" />
                 </Children>
+                <Shape ID="2" />
+                <Shape ID="4" />
             </Body>
         </Bodies>
         <Joints />
+        <Animations />
+        <ProcAnimations />
     </ModelData>
-    <UserDefinedVariables EntityType="StaticProp" />
+    <UserDefinedVariables EntityType="StaticProp">
+        <Var ObjectId="4294967295" Name="ShowMesh" Value="true" />
+    </UserDefinedVariables>
 </Entity>

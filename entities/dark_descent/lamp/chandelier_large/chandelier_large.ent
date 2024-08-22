@@ -40,7 +40,7 @@
             <PointLight ID="70" Name="PointLight_3" CreStamp="1718391558" ModStamp="1718391814" WorldPos="1.22519 -3.88809 -0.579658" Rotation="0 0 0" Scale="1 1 1" CastShadows="false" ShadowResolution="High" ShadowsAffectStatic="true" ShadowsAffectDynamic="true" Radius="4" Gobo="" GoboType="Diffuse" GoboAnimMode="None" GoboAnimFrameTime="0" GoboAnimStartTime="0" DiffuseColor="0.886275 0.713726 0.509804 1" FlickerActive="true" FlickerOnMinLength="0" FlickerOnMaxLength="0" FlickerOnPS="" FlickerOnSound="" FlickerOffMinLength="0" FlickerOffMaxLength="0" FlickerOffPS="" FlickerOffSound="" FlickerOffColor="0.74902 0.588235 0.45098 0.6" FlickerOffRadius="3.7" FlickerFade="true" FlickerOnFadeMinLength="0.1" FlickerOnFadeMaxLength="2" FlickerOffFadeMinLength="0.1" FlickerOffFadeMaxLength="2" CastDiffuseLight="true" CastSpecularLight="true" Brightness="3" Static="false" CulledByDistance="true" CulledByFog="true" FalloffPow="1" ConnectedLightMaskID="4294967295" />
             <Billboard ID="71" Name="Billboard_17" CreStamp="1718392232" ModStamp="1718410213" WorldPos="-0.159496 -4.79454 0.00615072" Rotation="0 0 0" Scale="1 1 1" BillboardType="Point" MaterialFile="billboards/halo_torch.mat" IsHalo="true" BillboardSize="18 15" HaloSourceSize="4 4 4" BillboardOffset="0" BillboardColor="0.337255 0.337255 0.337255 0.501961" Brightness="1" CulledByDistance="false" CulledByFog="true" ConnectLight="PointLight_1" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
         </Entities>
-        <Mesh Filename="mods/Stronghold_Escapade/entities/dark_descent/lamp/chandelier_large/chandelier_large.dae">
+        <Mesh Filename="mods/escapade_hpl3/entities/dark_descent/lamp/chandelier_large/chandelier_large.dae">
             <SubMesh ID="0" Name="top1" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="76" Material="" Static="true" />
             <SubMesh ID="1" Name="polySurface109" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="544" Material="" Static="true" />
             <SubMesh ID="2" Name="polySurface79" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="4" Material="" Static="true" />
@@ -71,7 +71,7 @@
             <Shape ID="24" Name="Shape_4" CreStamp="0" ModStamp="0" WorldPos="0 -5.44381 0" Rotation="0 0 0" Scale="1.6 0.8 1.6" RelativeTranslation="0 0.423115 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
         </Shapes>
         <Bodies>
-            <Body ID="25" Name="Body" CreStamp="0" ModStamp="0" WorldPos="0 -5.86693 0" Rotation="0 0 0" Scale="0.8 0.8 0.8" Material="Metal" Mass="30" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+            <Body ID="25" Name="Body" CreStamp="0" ModStamp="1724265170" WorldPos="0 -5.86693 0" Rotation="0 0 0" Scale="0.8 0.8 0.8" Material="metal_hanging_cage" Mass="30" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Children>
                     <Child ID="1" />
                     <Child ID="19" />
@@ -95,14 +95,14 @@
                 <Shape ID="23" />
                 <Shape ID="24" />
             </Body>
-            <Body ID="26" Name="Body_1" CreStamp="0" ModStamp="0" WorldPos="0 -2.76032 -0.008148" Rotation="0 0 0" Scale="1 0.75 1" Material="Default" Mass="2" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+            <Body ID="26" Name="Body_1" CreStamp="0" ModStamp="1724265181" WorldPos="0 -2.76032 -0.008148" Rotation="0 0 0" Scale="1 0.75 1" Material="metal_hanging_cage" Mass="2" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Children>
                     <Child ID="20" />
                     <Child ID="2" />
                 </Children>
                 <Shape ID="22" />
             </Body>
-            <Body ID="27" Name="Body_2" CreStamp="0" ModStamp="0" WorldPos="0 -0.366326 -0.008148" Rotation="0 0 0" Scale="1 1 1" Material="Metal" Mass="0" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+            <Body ID="27" Name="Body_2" CreStamp="0" ModStamp="1724265190" WorldPos="0 -0.366326 -0.008148" Rotation="0 0 0" Scale="1 1 1" Material="metal_hanging_cage" Mass="0" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Children>
                     <Child ID="0" />
                 </Children>

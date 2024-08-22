@@ -1,7 +1,7 @@
 <Entity>
     <ModelData>
         <Entities />
-        <Mesh Filename="mods/Project_Omega/assets/entities/the_dark_descent/entities/lab/extraction_oven/extaction_oven.dae">
+        <Mesh Filename="mods/escapade_hpl3/entities/dark_descent/lab/extraction_oven/extaction_oven.dae">
             <SubMesh ID="0" Name="base" CreStamp="0" ModStamp="0" WorldPos="-0.022741 -5e-05 0.190436" Rotation="0 0 0" Scale="1 1 1" TriCount="416" Material="" Static="true" />
             <SubMesh ID="1" Name="door" CreStamp="0" ModStamp="0" WorldPos="-0.022091 -5e-05 0.190436" Rotation="0 0 0" Scale="1 1 1" TriCount="83" Material="" Static="true" />
         </Mesh>
@@ -17,13 +17,13 @@
             <Shape ID="9" Name="Shape_8" CreStamp="0" ModStamp="0" WorldPos="0.148441 0.141205 0.209875" Rotation="-2.53518e-06 1.5708 -2.53518e-06" Scale="0.27 0.25 0.01" RelativeTranslation="0 0 0" RelativeRotation="3.14159 1.5708 3.14159" RelativeScale="1 1 1" ShapeType="Box" />
         </Shapes>
         <Bodies>
-            <Body ID="13" Name="Body_1" CreStamp="0" ModStamp="0" WorldPos="0.148441 0.141205 0.209875" Rotation="0 0 0" Scale="1 1 1" Material="Metal" Mass="2" AngularDamping="0.3" LinearDamping="0.3" MaxAngularSpeed="4" MaxLinearSpeed="4" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="false" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+            <Body ID="13" Name="Body_1" CreStamp="0" ModStamp="1724264496" WorldPos="0.148441 0.141205 0.209875" Rotation="0 0 0" Scale="1 1 1" Material="metal_hatch" Mass="2" AngularDamping="0.3" LinearDamping="0.3" MaxAngularSpeed="4" MaxLinearSpeed="4" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="false" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Children>
                     <Child ID="1" />
                 </Children>
                 <Shape ID="9" />
             </Body>
-            <Body ID="14" Name="Body_2" CreStamp="0" ModStamp="0" WorldPos="-0.049923 0.211396 -0.046505" Rotation="0 0 0" Scale="1 1 1" Material="Metal" Mass="0" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="false" CanAttachCharacter="true" PushedByCharacterGravity="true" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+            <Body ID="14" Name="Body_2" CreStamp="0" ModStamp="1724264506" WorldPos="-0.049923 0.211396 -0.046505" Rotation="0 0 0" Scale="1 1 1" Material="metal_hatch" Mass="0" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="false" CanAttachCharacter="true" PushedByCharacterGravity="true" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Children>
                     <Child ID="0" />
                 </Children>
@@ -52,6 +52,8 @@
         <Var ObjectId="4294967295" Name="DissolveDuringLifeDecrease" Value="true" />
         <Var ObjectId="4294967295" Name="QuickSave" Value="false" />
         <Var ObjectId="4294967295" Name="FullGameSave" Value="false" />
+        <Var ObjectId="4294967295" Name="AllowMapTransfer" Value="false" />
+        <Var ObjectId="4294967295" Name="VoiceSourceBone" Value="" />
         <Var ObjectId="4294967295" Name="BlocksLineOfSight" Value="MaterialBased" />
         <Var ObjectId="4294967295" Name="MainPhysicsBody" Value="" />
         <Var ObjectId="4294967295" Name="NoGravityWhenUnderwater" Value="false" />
@@ -80,6 +82,8 @@
         <Var ObjectId="4294967295" Name="BreakEntity" Value="" />
         <Var ObjectId="4294967295" Name="BreakEntityAlignBody" Value="" />
         <Var ObjectId="4294967295" Name="BreakSound" Value="" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundRadius" Value="18" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundPrio" Value="4" />
         <Var ObjectId="4294967295" Name="BreakParticleSystem" Value="" />
         <Var ObjectId="4294967295" Name="BreakImpulse" Value="3" />
         <Var ObjectId="4294967295" Name="CanInteractWithStaticBody" Value="false" />
@@ -103,21 +107,29 @@
         <Var ObjectId="4294967295" Name="MinMoveSoundSpeed" Value="-1" />
         <Var ObjectId="4294967295" Name="MaxOpenSound" Value="" />
         <Var ObjectId="4294967295" Name="MaxOpenSoundMinSpeed" Value="0" />
-        <Var ObjectId="4294967295" Name="Breakable" Value="false" />
-        <Var ObjectId="4294967295" Name="DamageTint" Value="false" />
-        <Var ObjectId="4294967295" Name="DamageMesh1" Value="" />
-        <Var ObjectId="4294967295" Name="DamageMesh2" Value="" />
-        <Var ObjectId="4294967295" Name="BrokenEntity" Value="" />
-        <Var ObjectId="4294967295" Name="HealthDamage1" Value="66" />
-        <Var ObjectId="4294967295" Name="HealthDamage2" Value="33" />
-        <Var ObjectId="4294967295" Name="DamageSound" Value="" />
-        <Var ObjectId="4294967295" Name="DamagePS" Value="" />
-        <Var ObjectId="4294967295" Name="BreakPS" Value="" />
         <Var ObjectId="4294967295" Name="HandleUpAnimation" Value="" />
         <Var ObjectId="4294967295" Name="HandleDownAnimation" Value="" />
         <Var ObjectId="4294967295" Name="HandleLockedAnimation" Value="" />
         <Var ObjectId="4294967295" Name="HandleMovingAnimation" Value="" />
         <Var ObjectId="4294967295" Name="HandleMovingRepetitionMin" Value="0.25" />
         <Var ObjectId="4294967295" Name="HandleMovingRepetitionMax" Value="0.5" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_Active" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_HitMinEnergy" Value="100" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_MaxHits" Value="2" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_MinHitMass" Value="10" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DamageMesh" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DamageSound" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DamagePS" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BrokenEntity" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakImpulse" Value="3" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakSound" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakPS" Value="" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_BreakAIEventPrio" Value="High" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CanDestroyThrownEntity" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_PathBlocker" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_DropItemOnBreak" Value="false" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CustomDropItemsCount" Value="-1" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
+        <Var ObjectId="4294967295" Name="WoodenBreakable_CustomDropItemsList" Value="" />
     </UserDefinedVariables>
 </Entity>

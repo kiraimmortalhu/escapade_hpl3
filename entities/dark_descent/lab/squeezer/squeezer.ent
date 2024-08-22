@@ -1,7 +1,7 @@
 <Entity>
     <ModelData>
         <Entities />
-        <Mesh Filename="mods/Project_Omega/assets/entities/the_dark_descent/entities/lab/squeezer/squeezer.dae">
+        <Mesh Filename="mods/escapade_hpl3/entities/dark_descent/lab/squeezer/squeezer.dae">
             <SubMesh ID="0" Name="base" CreStamp="0" ModStamp="0" WorldPos="0.032707 0.149431 -0.023954" Rotation="0 0 0" Scale="1 1 1" TriCount="406" Material="" Static="true" />
             <SubMesh ID="1" Name="crank" CreStamp="0" ModStamp="0" WorldPos="0.026078 0.149431 -0.021482" Rotation="0 0 0" Scale="1 1 1" TriCount="186" Material="" Static="true" />
         </Mesh>
@@ -18,7 +18,7 @@
             <Shape ID="13" Name="Shape_9" CreStamp="0" ModStamp="0" WorldPos="0.154124 0.0681969 -0.14925" Rotation="0.836536 0.314299 -1.29866" Scale="0.201 0.029 0.029" RelativeTranslation="0.121056 -0.0618371 -0.121615" RelativeRotation="0.836536 0.314299 -1.29866" RelativeScale="1 1 1" ShapeType="Box" />
         </Shapes>
         <Bodies>
-            <Body ID="7" Name="Body" CreStamp="0" ModStamp="0" WorldPos="0.039 0.316281 -0.023184" Rotation="0 0 0" Scale="1 1 1" Material="Metal" Mass="1" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="false" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+            <Body ID="7" Name="Body" CreStamp="0" ModStamp="1724264557" WorldPos="0.039 0.316281 -0.023184" Rotation="0 0 0" Scale="1 1 1" Material="Metal Can" Mass="1" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="false" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Children>
                     <Child ID="1" />
                 </Children>
@@ -27,7 +27,7 @@
                 <Shape ID="4" />
                 <Shape ID="5" />
             </Body>
-            <Body ID="14" Name="Body_1" CreStamp="0" ModStamp="0" WorldPos="0.0330679 0.130034 -0.0276351" Rotation="0 0 0" Scale="1 1 1" Material="Metal" Mass="0" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="true" PushedByCharacterGravity="true" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+            <Body ID="14" Name="Body_1" CreStamp="0" ModStamp="1724264554" WorldPos="0.0330679 0.130034 -0.0276351" Rotation="0 0 0" Scale="1 1 1" Material="Metal Can" Mass="0" AngularDamping="0" LinearDamping="0" MaxAngularSpeed="0" MaxLinearSpeed="0" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="true" PushedByCharacterGravity="true" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Children>
                     <Child ID="0" />
                 </Children>
@@ -54,6 +54,8 @@
         <Var ObjectId="4294967295" Name="DissolveDuringLifeDecrease" Value="true" />
         <Var ObjectId="4294967295" Name="QuickSave" Value="false" />
         <Var ObjectId="4294967295" Name="FullGameSave" Value="false" />
+        <Var ObjectId="4294967295" Name="AllowMapTransfer" Value="false" />
+        <Var ObjectId="4294967295" Name="VoiceSourceBone" Value="" />
         <Var ObjectId="4294967295" Name="BlocksLineOfSight" Value="MaterialBased" />
         <Var ObjectId="4294967295" Name="MainPhysicsBody" Value="" />
         <Var ObjectId="4294967295" Name="NoGravityWhenUnderwater" Value="false" />
@@ -82,6 +84,8 @@
         <Var ObjectId="4294967295" Name="BreakEntity" Value="" />
         <Var ObjectId="4294967295" Name="BreakEntityAlignBody" Value="" />
         <Var ObjectId="4294967295" Name="BreakSound" Value="" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundRadius" Value="18" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundPrio" Value="4" />
         <Var ObjectId="4294967295" Name="BreakParticleSystem" Value="" />
         <Var ObjectId="4294967295" Name="BreakImpulse" Value="4" />
         <Var ObjectId="4294967295" Name="CanInteractWithStaticBody" Value="false" />
