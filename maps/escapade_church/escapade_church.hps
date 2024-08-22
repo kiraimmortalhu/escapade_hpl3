@@ -120,7 +120,7 @@ class cScrMap : iScrMap
 		
 		Music_Stalker_StopDeaggroSongChecks();
         
-        Music_Stop(1.5f, eMusicPrio_BgAmb);
+        Music_Stop(1.0f, eMusicPrio_BgAmb);
 	}
     
     bool OnCollide_CloseExitDoors(const tString &in asParent, const tString &in asChild, int alState)
