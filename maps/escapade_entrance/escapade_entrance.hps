@@ -42,7 +42,7 @@ class cScrMap : iScrMap
 	void Setup()
 	{
 		// Put display name entry in english.lang / Levels
-		GetBase().SetDisplayNameEntry("xx-xx-dummy-level");
+		GetBase().SetDisplayNameEntry("entrance-hall");
 		
 		// Set up color grading etc.
 	}
@@ -105,11 +105,13 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
 		
-		Music_PlayExt_Save("atrium_exploration_dark", true, 0.3f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+		
 		
 		SetupGenerator();
 		
 		SetupStalkerAppearance();
+		
+		SetupMusicAmbienceBasedOnGen();
         
         // Check for unlocked padlocks and disable them
         for(int t = 1; t <= 10; t++){
@@ -145,7 +147,7 @@ class cScrMap : iScrMap
 				Item_AddToInventory("Shotgun");
 				Item_AddManyToInventory("ShotgunAmmunition", 20);
 			}
-            
+            Item_AddToInventory("MolotovCocktail");
         }
         
         cLux_AddDebugMessage(""+ cScript_GetGlobalVarBool("padlock_1"));
@@ -178,6 +180,7 @@ class cScrMap : iScrMap
             
         }
         
+		Music_Stalker_StopDeaggroSongChecks();
 	}
     
     //array<iLuxEntity@> pickableEntitiesEnd;
@@ -381,7 +384,7 @@ class cScrMap : iScrMap
 		// About to get lit!
 		if (Lamp_GetLit(asEntity) == false){
             cLux_AddDebugMessage("SAVED");
-			//SaveGameProgress();
+			SaveGameProgress();
             
         }
 		else{
@@ -441,6 +444,7 @@ class cScrMap : iScrMap
 	
 	void OnStateChange_Generator(int alState)
 	{		
+		SetupMusicAmbienceBasedOnGen();
 		///////////////////
 		// Generator Sounds
 		if (alState!=1)
@@ -460,6 +464,38 @@ class cScrMap : iScrMap
 			//Stalker_SetEmergeAllowed("stalker_growth_1", true);
 			cLux_AddDebugMessage("Stalker is now ENABLED");
 		}
+	}
+	
+	///////////////
+	///// Music events
+	///////////////
+	
+	void SetupMusicAmbienceBasedOnGen() {
+		if (Generator_GetFuelTimeLeft() <= 0) {
+			Music_PlayExt_Save("atrium_exploration_dark", true, 0.3f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+		} else {
+			Music_PlayExt_Save("atrium_exploration_piano", true, 0.4f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+		}
+	}
+	
+	bool OnTrigger_BallroomMusic(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		if (alState == 1) {
+			Music_PlayExt("atrium_puzzleroom", true, 0.3f, 1, 5.0f, 0, eMusicPrio_SceneAmb, true);
+		} else {
+			Music_Stop(5.0f, eMusicPrio_SceneAmb);
+		}
+		return true;
+	}
+	
+	bool OnTrigger_SafeRoomMusic(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		if (alState == 1) {
+			Music_PlayExt("safe_room_escapade", true, 0.4f, 1, 3.0f, 0, eMusicPrio_OverrideAll, true);
+		} else {
+			Music_Stop(3.0f, eMusicPrio_OverrideAll);
+		}
+		return true;
 	}
     
 	//} END MAIN FUNCTIONS

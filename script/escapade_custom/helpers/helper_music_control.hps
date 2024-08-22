@@ -42,10 +42,7 @@ void Music_Stalker_AddDeaggroSongTime(const tString &in asStalkerName, const tSt
 void Music_Stalker_StopDeaggroSongChecks(){
     Map_RemoveTimer("music_deaggro_check");
     Map_RemoveTimer("deaggro");
-    
-    if(!Music_IsSongPlaying( cScript_GetGlobalVarString("music_to_play") )){
-        Music_PlayExt_Save(cScript_GetGlobalVarString("music_to_play"), true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_BgAmb, true);
-    }
+    Map_RemoveTimer("deaggroproc");
     
 }
 
@@ -70,14 +67,14 @@ void _OnTimer_StalkerDeaggroCheck(const tString &in asTimer){
         
         //Get if stalker is in any of these states.
         bool mbStalkerAlerted = 
-            StateMachine_GetCurrentStateName("stalker_test") == "Hunt" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "PostHunt" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "Alert" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "AttackClose" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "Rage" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "Roar" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "ThrowPlayer" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "KillPlayer";
+            StateMachine_GetCurrentStateName(stalkerName) == "Hunt" || 
+            StateMachine_GetCurrentStateName(stalkerName) == "PostHunt" || 
+            StateMachine_GetCurrentStateName(stalkerName) == "Alert" || 
+            StateMachine_GetCurrentStateName(stalkerName) == "AttackClose" || 
+            StateMachine_GetCurrentStateName(stalkerName) == "Rage" || 
+            StateMachine_GetCurrentStateName(stalkerName) == "Roar" || 
+            StateMachine_GetCurrentStateName(stalkerName) == "ThrowPlayer" || 
+            StateMachine_GetCurrentStateName(stalkerName) == "KillPlayer";
             
             
         if(mbStalkerAlerted){
@@ -129,14 +126,14 @@ void _OnTimer_QuickTimerCheck(const tString &in asTimer){
     cLux_AddDebugMessage("QUICK TIMER ON", true);
     
     bool mbStalkerAlerted = 
-            StateMachine_GetCurrentStateName("stalker_test") == "Hunt" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "PostHunt" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "Alert" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "AttackClose" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "Rage" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "Roar" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "ThrowPlayer" || 
-            StateMachine_GetCurrentStateName("stalker_test") == "KillPlayer";
+            StateMachine_GetCurrentStateName(stalkerName) == "Hunt" || 
+            StateMachine_GetCurrentStateName(stalkerName) == "PostHunt" || 
+            StateMachine_GetCurrentStateName(stalkerName) == "Alert" || 
+            StateMachine_GetCurrentStateName(stalkerName) == "AttackClose" || 
+            StateMachine_GetCurrentStateName(stalkerName) == "Rage" || 
+            StateMachine_GetCurrentStateName(stalkerName) == "Roar" || 
+            StateMachine_GetCurrentStateName(stalkerName) == "ThrowPlayer" || 
+            StateMachine_GetCurrentStateName(stalkerName) == "KillPlayer";
     
     
     if(!Map_TimerExists("deaggroproc") && !mbStalkerAlerted ){

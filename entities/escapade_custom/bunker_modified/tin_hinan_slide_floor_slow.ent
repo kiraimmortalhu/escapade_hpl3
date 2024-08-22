@@ -1,0 +1,97 @@
+<Entity>
+    <ModelData>
+        <Entities />
+        <Mesh Filename="entities/tin_hinan/door/tin_hinan_slide_floor/tin_hinan_slide_floor.dae">
+            <SubMesh ID="0" Name="Mesh" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="582" Material="" Static="true" />
+            <SubMesh ID="1" Name="lamella_3d" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="2512" Material="" Static="true" />
+        </Mesh>
+        <Bones />
+        <Shapes>
+            <Shape ID="2" Name="ShapeBox_1" CreStamp="1524586324" ModStamp="1524586344" WorldPos="0.00642452 1.68653 0" Rotation="0 0 0" Scale="1.26874 3.40396 0.148522" RelativeTranslation="0.00642452 -0.00288999 -1.1921e-07" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="3" Name="ShapeBox_2" CreStamp="1524586347" ModStamp="1524586369" WorldPos="-0.550632 1.69231 2.38419e-07" Rotation="0 -0 -0.250423" Scale="1.01318 3.24699 0.148522" RelativeTranslation="-0.550632 0.00288999 1.1921e-07" RelativeRotation="0 -0 -0.250423" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="4" Name="ShapeBox_3" CreStamp="1524586383" ModStamp="1524586395" WorldPos="0.550632 1.69231 2.38419e-07" Rotation="0 -0 0.253618" Scale="1.01318 3.24699 0.148522" RelativeTranslation="0.550632 0.00288999 1.1921e-07" RelativeRotation="0 -0 0.253618" RelativeScale="1 1 1" ShapeType="Box" />
+        </Shapes>
+        <Bodies>
+            <Body ID="5" Name="Body_1" CreStamp="0" ModStamp="1543586576" WorldPos="0 1.68942 1.1921e-07" Rotation="0 0 0" Scale="1 1 1" Material="" Mass="0" AngularDamping="0.5" LinearDamping="0.1" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+                <Shape ID="2" />
+                <Shape ID="4" />
+                <Shape ID="3" />
+            </Body>
+        </Bodies>
+        <Joints />
+        <Animations />
+        <ProcAnimations />
+    </ModelData>
+    <UserDefinedVariables EntityType="Prop_SlideDoor">
+        <Var ObjectId="4294967295" Name="Health" Value="1.0" />
+        <Var ObjectId="4294967295" Name="Toughness" Value="0" />
+        <Var ObjectId="4294967295" Name="MaxInteractDistance" Value="0" />
+        <Var ObjectId="4294967295" Name="EventTag" Value="" />
+        <Var ObjectId="4294967295" Name="ShowHints" Value="true" />
+        <Var ObjectId="4294967295" Name="LifeLength" Value="0" />
+        <Var ObjectId="4294967295" Name="DissolveDuringLifeDecrease" Value="true" />
+        <Var ObjectId="4294967295" Name="QuickSave" Value="false" />
+        <Var ObjectId="4294967295" Name="FullGameSave" Value="false" />
+        <Var ObjectId="4294967295" Name="BlocksLineOfSight" Value="MaterialBased" />
+        <Var ObjectId="4294967295" Name="MainPhysicsBody" Value="" />
+        <Var ObjectId="4294967295" Name="NoGravityWhenUnderwater" Value="false" />
+        <Var ObjectId="4294967295" Name="DisableFreezeAtStart" Value="false" />
+        <Var ObjectId="4294967295" Name="CustomScriptFile" Value="" />
+        <Var ObjectId="4294967295" Name="CustomScriptClass" Value="" />
+        <Var ObjectId="4294967295" Name="ShowMesh" Value="true" />
+        <Var ObjectId="4294967295" Name="DissolveOnDestruction" Value="false" />
+        <Var ObjectId="4294967295" Name="DissolveTime" Value="1.0" />
+        <Var ObjectId="4294967295" Name="RandomizeAnimationStart" Value="true" />
+        <Var ObjectId="4294967295" Name="RootMotionBone" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOnSound" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOffSound" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOnTime" Value="0.2" />
+        <Var ObjectId="4294967295" Name="EffectsOffTime" Value="0.2" />
+        <Var ObjectId="4294967295" Name="StaticMoveCheckCollision" Value="false" />
+        <Var ObjectId="4294967295" Name="StaticMoveStartSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveStopSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveLoopSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveLoopSoundFade" Value="true" />
+        <Var ObjectId="4294967295" Name="BreakActive" Value="false" />
+        <Var ObjectId="4294967295" Name="CustomBreakBehaviour" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakOnlyOnMainBody" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakDestroyJoints" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakMinEnergy" Value="100" />
+        <Var ObjectId="4294967295" Name="BreakEntity" Value="" />
+        <Var ObjectId="4294967295" Name="BreakEntityAlignBody" Value="" />
+        <Var ObjectId="4294967295" Name="BreakSound" Value="" />
+        <Var ObjectId="4294967295" Name="BreakParticleSystem" Value="" />
+        <Var ObjectId="4294967295" Name="BreakImpulse" Value="4" />
+        <Var ObjectId="4294967295" Name="OpenableByInteraction" Value="true" />
+        <Var ObjectId="4294967295" Name="AgentColliderBody" Value="" />
+        <Var ObjectId="4294967295" Name="AgentDoor" Value="true" />
+        <Var ObjectId="4294967295" Name="DoorParts_Body" Value="Body_1" />
+        <Var ObjectId="4294967295" Name="DoorParts_MoveDir" Value="0, 1, 0" />
+        <Var ObjectId="4294967295" Name="DoorParts_MoveAmount" Value="-1" />
+        <Var ObjectId="4294967295" Name="OpenSpeed" Value="0.05" />
+        <Var ObjectId="4294967295" Name="CloseSpeed" Value="0.2" />
+        <Var ObjectId="4294967295" Name="OpenAcc" Value="0.2" />
+        <Var ObjectId="4294967295" Name="CloseAcc" Value="0.2" />
+        <Var ObjectId="4294967295" Name="OpenSlowDownDist" Value="0.1" />
+        <Var ObjectId="4294967295" Name="CloseSlowDownDist" Value="0.1" />
+        <Var ObjectId="4294967295" Name="CheckCollision" Value="true" />
+        <Var ObjectId="4294967295" Name="PushImpulse" Value="0.08" />
+        <Var ObjectId="4294967295" Name="PushMaxMass" Value="40" />
+        <Var ObjectId="4294967295" Name="OpenSound_Start" Value="level_entity_shared/doors/portcullis/portcullis_start_stop" />
+        <Var ObjectId="4294967295" Name="OpenSound_End" Value="level_entity_shared/doors/portcullis/portcullis_start_stop" />
+        <Var ObjectId="4294967295" Name="CloseSound_Start" Value="level_entity_shared/doors/portcullis/portcullis_start_stop" />
+        <Var ObjectId="4294967295" Name="CloseSound_End" Value="level_entity_shared/doors/portcullis/portcullis_start_stop" />
+        <Var ObjectId="4294967295" Name="OpenSound_Loop" Value="level_entity_shared/doors/portcullis/portcullis_move" />
+        <Var ObjectId="4294967295" Name="CloseSound_Loop" Value="level_entity_shared/doors/portcullis/portcullis_move" />
+        <Var ObjectId="4294967295" Name="UseAnimations" Value="false" />
+        <Var ObjectId="4294967295" Name="Animation_Opening" Value="" />
+        <Var ObjectId="4294967295" Name="Animation_Closing" Value="" />
+        <Var ObjectId="4294967295" Name="Animation_Open" Value="" />
+        <Var ObjectId="4294967295" Name="Animation_Closed" Value="" />
+        <Var ObjectId="4294967295" Name="Animation_ReplaceMovement" Value="false" />
+        <Var ObjectId="4294967295" Name="Animation_CollisionOpenBody" Value="" />
+        <Var ObjectId="4294967295" Name="Animation_CollisionClosedBody" Value="" />
+        <Var ObjectId="4294967295" Name="Animation_CollisionOpenTime" Value="0" />
+        <Var ObjectId="4294967295" Name="Animation_CollisionClosedTime" Value="0" />
+    </UserDefinedVariables>
+</Entity>

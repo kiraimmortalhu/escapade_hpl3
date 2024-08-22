@@ -42,7 +42,7 @@ class cScrMap : iScrMap
 	void Setup()
 	{
 		// Put display name entry in english.lang / Levels
-		GetBase().SetDisplayNameEntry("xx-xx-dummy-level");
+		GetBase().SetDisplayNameEntry("church");
 		
 		// Set up color grading etc.
 	}
@@ -102,6 +102,7 @@ class cScrMap : iScrMap
             //Enable path blocking areas
             Entity_SetActive("gate_path_area_blocker*", true);
         }
+		//cScript_SetGlobalVarBool("entrance_alt_unlocked", true);
 		
 		if(cScript_GetGlobalVarBool("entrance_alt_unlocked")){ 
 			SetupColorgrading_EntranceAlt();
@@ -117,6 +118,10 @@ class cScrMap : iScrMap
 	void OnLeave()
 	{
         Sound_Stop("Sound_GeneratorStop",0.f);
+		
+		Music_Stalker_StopDeaggroSongChecks();
+        
+        Music_Stop(1.0f, eMusicPrio_BgAmb);
 	}
     
     bool OnCollide_CloseExitDoors(const tString &in asParent, const tString &in asChild, int alState)
@@ -164,6 +169,27 @@ class cScrMap : iScrMap
 	{
 		if (abPressed == false) return;
 		
+        if (cLux_ScriptDebugOn())
+		{
+			if (alAction == eAction_Test7)
+			{
+				Entity_SetActive("Trigger_KillGenerator", false);
+				Generator_SetFuelAmount(0);
+				Generator_SetRunForever(false);
+				Generator_ChangeState(eGeneratorState_Off);
+				cLux_AddDebugMessage("Generator Off");
+			}
+		
+			if (alAction == eAction_Test8)
+			{
+				Entity_SetActive("Trigger_KillGenerator", true);
+				Generator_AddFuel(2);
+				Generator_ChangeState(eGeneratorState_On);
+				Generator_SetRunForever(true);
+				cLux_AddDebugMessage("Generator On");
+			}
+		}
+        
 		if (alAction == eAction_Test1)
 		{
 		}
@@ -257,7 +283,7 @@ class cScrMap : iScrMap
 			Sound_Play("Sound_GeneratorOff", 0.f);
 			Lever_SetStuckState("lever_portcuils", 1, true);
 			Entity_SetActive("gate_path_area_blocker*", true);
-		}		
+		}
 	}
 	
 	//////////////////// Generator end
@@ -277,6 +303,75 @@ class cScrMap : iScrMap
 		}
 	}
 	
+	///////////////
+	///// Music events
+	///////////////
+	
+	bool OnTrigger_CageStorageMusic(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		if (alState == 1) {
+			Music_PlayExt_Save("storehouse_genison_alt", true, 0.35f, 1, 4.0f, 0, eMusicPrio_SceneAmb, true);
+			Entity_SetActive("Trigger_CageStorageMusic_*", false);
+		}
+		
+		return true;
+	}
+	
+	bool Trigger_StopCageStorageMusic(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		if (alState == 1) {
+			Music_Stop(4.0f, eMusicPrio_SceneAmb);
+			Entity_SetActive("Trigger_CageStorageMusic_*", true);
+		}
+		return true;
+	}
+	
+	bool OnTrigger_SafeRoomMusic(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		if (alState == 1) {
+			Music_PlayExt("safe_room_escapade", true, 0.4f, 1, 3.0f, 0, eMusicPrio_OverrideAll, true);
+		} else {
+			Music_Stop(3.0f, eMusicPrio_OverrideAll);
+		}
+		return true;
+	}
+	
+	////////////////////////////////
+	
+	void lever_portcuils_OnConnectionStateChange(const tString &in asEntity, int alState)
+	{
+		if (alState == -1) {
+			if (Generator_GetFuelTimeLeft() > 0) {
+                cLux_AddDebugMessage("MOVED UP");
+				//SlideDoor_SetOpenAmount("castle_portcullis_1", 1.0f, false);
+				MoveObject_SetState("castle_portcullis_*", 1);
+				Lever_SetStuckState(asEntity, -1, true);
+				//Disable path blocking areas
+                Entity_SetActive("gate_path_area_blocker*", false);
+
+			} else {
+                
+				Lever_SetStuckState(asEntity, 1, true);
+			}
+		}
+        else {
+            cLux_AddDebugMessage("MOVED DOWN");
+            MoveObject_SetState("castle_portcullis_*", 0);
+        }
+	}
+ 
+	//} END MAIN FUNCTIONS
+ 
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// ==============
+	// SCENE X *NAME OF SCENE*
+	// ==============
+	//{//////////////////////////////////////////////////////////////////////////////////////
+ 
+		/////////////////////////////////////////
+		// General
+		//{//////////////////////////////////////
+		 
 	///////////////////////////////////
 	/// Key to Church Safe Room event
 	
@@ -330,69 +425,10 @@ class cScrMap : iScrMap
 			// to-do, green disappears for some reason
 		}
 	}
-	
-	////////////////////////////////
-	
-	void lever_portcuils_OnConnectionStateChange(const tString &in asEntity, int alState)
-	{
-		if (alState == -1) {
-			if (Generator_GetFuelTimeLeft() > 0) {
-				//SlideDoor_SetOpenAmount("castle_portcullis_1", 1.0f, false);
-				MoveObject_SetState("castle_portcullis_*", 1);
-				Lever_SetStuckState(asEntity, -1, true);
-				//Disable path blocking areas
-                Entity_SetActive("gate_path_area_blocker*", false);
-
-			} else {
-				Lever_SetStuckState(asEntity, 1, true);
-			}
-		}
-	}
- 
-	//} END MAIN FUNCTIONS
- 
-	//////////////////////////////////////////////////////////////////////////////////////////
-	// ==============
-	// SCENE X *NAME OF SCENE*
-	// ==============
-	//{//////////////////////////////////////////////////////////////////////////////////////
- 
-		/////////////////////////////////////////
-		// General
-		//{//////////////////////////////////////
-		 
-		//-------------------------------------------------------
-	 
-		/*Put any variables that are used by many events in Scene X here.*/
-	 
-		//-------------------------------------------------------
-	 
-		/*Put any functions that are used in more than one event in Scene X here.*/
-	 
-		//-------------------------------------------------------
-		
-		//} END General	
-	 
-		/////////////////////////////////////////
-		// Event *Name Of Event*
-		//{//////////////////////////////////////
-
-		//-------------------------------------------------------
-
-		/*Put any variables that are only used in Scene X, Event X here.*/
-
-		//-------------------------------------------------------
-
-		/*Put any functions that are only used in Scene X, Event X here.*/
-
-		//-------------------------------------------------------
-
-		//} END Event *Name Of Event*
 	 
 	//} END SCENE X 
-}
-
-void SetupColorgrading_EntranceAlt() {
+	
+	void SetupColorgrading_EntranceAlt() {
         //Debug: test enable entrance_alt
         //cScript_SetGlobalVarBool("entrance_alt_unlocked", true);
 
@@ -450,4 +486,5 @@ void SetupColorgrading_EntranceAlt() {
         cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
         
         cLux_AddDebugMessage("EXPOSURE: "+ cLux_GetViewport().GetToneMappingEffect().GetExposure());*/
+	}
 }

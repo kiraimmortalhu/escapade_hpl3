@@ -42,7 +42,7 @@ class cScrMap : iScrMap
 	void Setup()
 	{
 		// Put display name entry in english.lang / Levels
-		GetBase().SetDisplayNameEntry("xx-xx-dummy-level");
+		GetBase().SetDisplayNameEntry("library");
 		
 		// Set up color grading etc.
 	}
@@ -147,6 +147,9 @@ class cScrMap : iScrMap
 	// Run when leaving map
 	void OnLeave()
 	{
+		Sound_Stop("Sound_GeneratorStop",0.f);
+		
+		Music_Stalker_StopDeaggroSongChecks();
 	}
 	
     void arabic_lock_OnConnectionStateChange(const tString &in asEntity, int alState){
@@ -349,8 +352,7 @@ class cScrMap : iScrMap
 		//} END Event *Name Of Event*
 	 
 	//} END SCENE X 
-}
-
+	
 void SetupColorgrading_EntranceAlt() {
         //Debug: test enable entrance_alt
         //cScript_SetGlobalVarBool("entrance_alt_unlocked", true);
@@ -409,4 +411,5 @@ void SetupColorgrading_EntranceAlt() {
         cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
         
         cLux_AddDebugMessage("EXPOSURE: "+ cLux_GetViewport().GetToneMappingEffect().GetExposure());*/
+	}
 }
