@@ -417,6 +417,11 @@ class cScrPropLamp : iScrProp, iScrProp_Interface
 		if (mbLit && mbCanBeSnuffedOutByPlayer == false)
 			return false;
 		
+		// ValG edit, required torch or lighter
+		if (mbLit == false && !(Item_GetHeldType(eItemHandlerHand_Right) == "Torch" || Item_GetHeldType(eItemHandlerHand_Right) == "Lighter")) {
+			return false;
+		}
+		
 		return true;
 	}
 	
@@ -453,6 +458,17 @@ class cScrPropLamp : iScrProp, iScrProp_Interface
 				ItemType_RemoveFromInventory("Fuel", 1);
 				
 				mBaseObj.PlaySound("Sound_FuelRefill", "officer_hub/generator/fuel_refill", true, true);
+			} 
+			// ValG Edit, play animation and sounds upon candle-torch interaction 
+			else {
+				if (Item_GetHeldType(eItemHandlerHand_Right) == "Torch"){
+					PlayerBody_PlayAnimation("tool_torch_aim_start_rarm", ePlayerBodyAnimationLayer_Arms, false, false, true);
+					mBaseObj.PlaySound("Sound_TorchLight", "player/tools/torch/start", true, true);
+				}
+				else if (Item_GetHeldType(eItemHandlerHand_Right) == "Lighter"){
+					PlayerBody_PlayAnimation("tool_lighter_focus_ignite", ePlayerBodyAnimationLayer_Arms, false, false, true);
+					// to-do, light up flame for a bit
+				}
 			}
 			
 			SetLit(true, true, false);
@@ -471,10 +487,19 @@ class cScrPropLamp : iScrProp, iScrProp_Interface
 	
 	int GetInteractIconId(int alType, iPhysicsBody@ apBody)
 	{
+		// ValG edit, light with tool and snuff out icons added
 		if (mbLit == false)
 		{
-			if (mbRequiresFuel == false) 	
-				return eCrossHairState_PushButton;
+			if (mbRequiresFuel == false)
+				if (Item_GetHeldType(eItemHandlerHand_Right) == "Torch"){
+					return eCrossHairState_UseTorch;
+				}
+				else if (Item_GetHeldType(eItemHandlerHand_Right) == "Lighter"){
+					return eCrossHairState_UseLighter;
+				}
+				else {
+					return eCrossHairState_PushButton;
+				}
 				
 			if (mbRequiresFuel)
 			{
@@ -488,7 +513,7 @@ class cScrPropLamp : iScrProp, iScrProp_Interface
 			}
 		}
 
-		return eCrossHairState_PushButton;
+		return eCrossHairState_SnuffOutLamp;
 	}
 	
 	//------------------------------------------------------------
