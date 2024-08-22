@@ -352,8 +352,7 @@ class cScrMap : iScrMap
 		//} END Event *Name Of Event*
 	 
 	//} END SCENE X 
-}
-
+	
 void SetupColorgrading_EntranceAlt() {
         //Debug: test enable entrance_alt
         //cScript_SetGlobalVarBool("entrance_alt_unlocked", true);
@@ -412,4 +411,5 @@ void SetupColorgrading_EntranceAlt() {
         cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
         
         cLux_AddDebugMessage("EXPOSURE: "+ cLux_GetViewport().GetToneMappingEffect().GetExposure());*/
+	}
 }

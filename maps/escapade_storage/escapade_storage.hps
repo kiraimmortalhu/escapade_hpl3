@@ -283,7 +283,7 @@ class cScrMap : iScrMap
 		if (Generator_GetFuelTimeLeft() <= 0) {
 			Music_PlayExt_Save("storehouse_darkness", true, 0.35f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 		} else {
-			Music_PlayExt_Save("storehouse_genison_alt", true, 0.35f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+			Music_PlayExt_Save("storehouse_genison", true, 0.35f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 		}
 	}
 	
@@ -965,8 +965,8 @@ class cScrMap : iScrMap
 			}
 		}
 	//} END SCENE X 
-}
-
+	
+	
 void SetupColorgrading_EntranceAlt() {
         //Debug: test enable entrance_alt
         //cScript_SetGlobalVarBool("entrance_alt_unlocked", true);
@@ -1025,4 +1025,5 @@ void SetupColorgrading_EntranceAlt() {
         cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
         
         cLux_AddDebugMessage("EXPOSURE: "+ cLux_GetViewport().GetToneMappingEffect().GetExposure());*/
+	}
 }
