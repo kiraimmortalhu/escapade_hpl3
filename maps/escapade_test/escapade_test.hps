@@ -76,7 +76,6 @@ class cScrMap : iScrMap
 	}
 	
 	//-------------------------------------------------------
-    array<iLuxEntity@> candles;
 	////////////////////////////
 	// Run first time starting map
 	void OnStart()
@@ -94,10 +93,6 @@ class cScrMap : iScrMap
         //Set these in OnStart in a map containing the fixed combination locker or dogtag
         Dogtag_SetCombination("debugitem_dogtag_FIXEDCOMBINATION", 1234);
         CombinationLock_SetCombination("GeneratorLock_FixedCombination", 1234);
-        
-        Entity_SetPlayerLookAtCallback("candle*", "OnLookAt_CandlesAll", false, true, true, 3, 0);
-		
-        Entity_SetPlayerInteractCallback("candle*", "OnInteract_CandlesAll", false);
 		
 		//Sound_FadeGlobalVolume(1,3);
 		// tweak this later so we don't hear door sounds and such on load
@@ -111,12 +106,9 @@ class cScrMap : iScrMap
 			Item_AddToInventory("DynamoLantern");
 			//StalkerActivationHandler();
 		}
-        
-        Map_GetEntityArray("candle*", candles);
-        for(int t=0; t < candles.length(); t++){
-            if(!Lamp_GetLit(candles[t].GetName()))
-                candles[t].SetInteractionDisabled(true);
-        }
+		
+		//obsolete legacy function, Prop_Lamp.hps was edited instead
+		// SetupCandlesOnStart();
 	}
     
 	//-------------------------------------------------------
@@ -271,58 +263,6 @@ class cScrMap : iScrMap
 		}
 	}
 	
-	// torch/lighter-only interaction for candles
-	
-	void OnLookAt_CandlesAll(const tString &in asEntity, int alState)
-	{
-		//cLux_AddDebugMessage("HELD righto: " + Item_GetHeld(eItemHandlerHand_Right));
-		if (alState == 1 && !Lamp_GetLit(asEntity)) {
-            cLux_AddDebugMessage("LOOKED AT UNLIT LAMP");
-            //Entity_SetInteractionDisabled(asEntity, true);
-			//SetCandleLitConditions(asEntity);
-            Map_AddTimer(asEntity, 0.0f, "OnTimer_UpdateCandleConditions");
-		}
-        if (alState == -1){
-            cLux_AddDebugMessage("REMOVED TIMER");
-            Map_RemoveTimer(asEntity);
-        }
-	}
-	
-	void SetCandleLitConditions(const tString &in asEntity) {
-		//cLux_AddDebugMessage("Item_GetHeldType: " + Item_GetHeldType(eItemHandlerHand_Right));
-        //cLux_AddDebugMessage("CAN INTERACT RESULT: "+ Map_GetEntity(asEntity).GetInteractionDisabled());
-        if ((Item_GetHeldType(eItemHandlerHand_Right) == "Torch" || Item_GetHeldType(eItemHandlerHand_Right) == "Lighter") ) {
-			Entity_SetInteractionDisabled(asEntity, false);
-		} else {
-			Entity_SetInteractionDisabled(asEntity, true);
-		}
-	}
-	
-	void OnInteract_CandlesAll(const tString &in asEntity)
-	{
-		if (Lamp_GetLit(asEntity)) {
-			SetCandleLitConditions(asEntity);
-		} else{
-            cLux_AddDebugMessage("LIGHTING UP");
-            //PlayerHands_PlayAnimation("tool_torch_aim_start_rarm", false, false, 0.0f, "Torch");
-            //PlayerBody_PlayAdditativeAnimation("tool_torch_aim_start_rarm", false, 0.0f, 1.5f, 0.0f);
-            //PlayerBody_PlayAdditativeAnimation("tool_torch_aim_rarm", false, 0.0f, 1.5f, 0.0f);
-            //PlayerBody_PlayAdditativeAnimation("tool_torch_aim_end_rarm", false, 0.0f, 1.5f, 0.0f);
-            //PlayerBody_PlayCutsceneAnimation("tool_torch_aim_rarm", false, 0.0f);
-            if (Item_GetHeldType(eItemHandlerHand_Right) == "Torch"){
-                PlayerBody_PlayAnimation("tool_torch_aim_start_rarm", ePlayerBodyAnimationLayer_Arms, false, false, true);
-            }
-            if (Item_GetHeldType(eItemHandlerHand_Right) == "Lighter"){
-                PlayerBody_PlayAnimation("tool_lighter_focus_ignite", ePlayerBodyAnimationLayer_Arms, false, false, true);
-            }
-            
-        }
-	}
-    
-    void OnTimer_UpdateCandleConditions(const tString &in asTimer){
-        SetCandleLitConditions(asTimer);
-        Map_RestartCurrentTimer(0.1f);
-    }
 	//-------------------------------------------------------
 
 	////////////////////////////
@@ -809,6 +749,91 @@ class cScrMap : iScrMap
 	
 	//} END GENERATOR
 	
+	//////////////////////////////
+	/////// Interactions with candles and torches
+	//////////////////////////////
+	
+	void SetupCandlesOnStart() {
+		// to-do: until a better solution comes along
+		// update: it did, just edit the Prop_Lamp.hps lol
+		
+		// sets up lookat and interact callbacks for every possible name format
+		//Entity_SetPlayerLookAtCallback("altar_lamp*", "OnLookAt_CandlesAll", false, true, true, 3, 0);
+		Entity_SetPlayerLookAtCallback("candle*", "OnLookAt_CandlesAll", false, true, true, 3, 0);
+		
+		//Entity_SetPlayerInteractCallback("altar_lamp*", "OnInteract_CandlesAll", false);
+        Entity_SetPlayerInteractCallback("candle*", "OnInteract_CandlesAll", false);
+		
+		// disabling interaction for every possible name format
+		//CandleArrayIterator("altar_lamp*");
+		CandleArrayIterator("candle*");
+	}
+
+	void SetupCandlesOnEnter() {
+		cLux_AddDebugMessage("Currently empty");
+		// may not even need this, but put disable interactions in here or anything else if we do
+	}
+	
+	void CandleArrayIterator(const tString &in asNameFormat) {
+		// array needs to be inside a function not to crash the game 
+		array<iLuxEntity@> candleArray;
+		Map_GetEntityArray(asNameFormat, candleArray);
+		for(int i=0; i < candleArray.length(); i++){
+			if(!Lamp_GetLit(candleArray[i].GetName()))
+			candleArray[i].SetInteractionDisabled(true);
+		}
+	}
+	
+	void OnLookAt_CandlesAll(const tString &in asEntity, int alState)
+	{
+		//cLux_AddDebugMessage("HELD righto: " + Item_GetHeld(eItemHandlerHand_Right));
+		if (alState == 1 && !Lamp_GetLit(asEntity)) {
+            cLux_AddDebugMessage("LOOKED AT UNLIT LAMP");
+            //Entity_SetInteractionDisabled(asEntity, true);
+			//SetCandleLitConditions(asEntity);
+            Map_AddTimer(asEntity, 0.0f, "OnTimer_UpdateCandleConditions");
+		}
+        if (alState == -1){
+            cLux_AddDebugMessage("REMOVED TIMER");
+            Map_RemoveTimer(asEntity);
+        }
+	}
+	
+	void SetCandleLitConditions(const tString &in asEntity) {
+		//cLux_AddDebugMessage("Item_GetHeldType: " + Item_GetHeldType(eItemHandlerHand_Right));
+        //cLux_AddDebugMessage("CAN INTERACT RESULT: "+ Map_GetEntity(asEntity).GetInteractionDisabled());
+        if ((Item_GetHeldType(eItemHandlerHand_Right) == "Torch" || Item_GetHeldType(eItemHandlerHand_Right) == "Lighter") ) {
+			Entity_SetInteractionDisabled(asEntity, false);
+		} else {
+			Entity_SetInteractionDisabled(asEntity, true);
+		}
+	}
+	
+	void OnInteract_CandlesAll(const tString &in asEntity)
+	{
+		if (Lamp_GetLit(asEntity)) {
+			SetCandleLitConditions(asEntity);
+		} else{
+            cLux_AddDebugMessage("LIGHTING UP");
+            //PlayerHands_PlayAnimation("tool_torch_aim_start_rarm", false, false, 0.0f, "Torch");
+            //PlayerBody_PlayAdditativeAnimation("tool_torch_aim_start_rarm", false, 0.0f, 1.5f, 0.0f);
+            //PlayerBody_PlayAdditativeAnimation("tool_torch_aim_rarm", false, 0.0f, 1.5f, 0.0f);
+            //PlayerBody_PlayAdditativeAnimation("tool_torch_aim_end_rarm", false, 0.0f, 1.5f, 0.0f);
+            //PlayerBody_PlayCutsceneAnimation("tool_torch_aim_rarm", false, 0.0f);
+            if (Item_GetHeldType(eItemHandlerHand_Right) == "Torch"){
+                PlayerBody_PlayAnimation("tool_torch_aim_start_rarm", ePlayerBodyAnimationLayer_Arms, false, false, true);
+            }
+            if (Item_GetHeldType(eItemHandlerHand_Right) == "Lighter"){
+                PlayerBody_PlayAnimation("tool_lighter_focus_ignite", ePlayerBodyAnimationLayer_Arms, false, false, true);
+            }
+            
+        }
+	}
+    
+    void OnTimer_UpdateCandleConditions(const tString &in asTimer){
+        SetCandleLitConditions(asTimer);
+        Map_RestartCurrentTimer(0.1f);
+    }
 	
  
 	//} END MAIN FUNCTIONS
