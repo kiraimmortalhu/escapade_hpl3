@@ -95,7 +95,7 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
 		
-		Music_PlayExt_Save("conservatory_exploration", true, 0.2f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+		SetupMusicAmbienceBasedOnGen();
 		
 		SetupGenerator();
         
@@ -288,6 +288,7 @@ class cScrMap : iScrMap
 	
 	void OnStateChange_Generator(int alState)
 	{		
+		SetupMusicAmbienceBasedOnGen();
 		///////////////////
 		// Generator Sounds
 		if (alState!=1) {
@@ -319,6 +320,54 @@ class cScrMap : iScrMap
 			//Stalker_SetEmergeAllowed("stalker_growth_1", true);
 			cLux_AddDebugMessage("Stalker is now ENABLED");
 		}
+	}
+	
+		///////////////
+	///// Music events
+	///////////////
+	
+	void SetupMusicAmbienceBasedOnGen() {
+		if (Generator_GetFuelTimeLeft() <= 0) {
+			Music_PlayExt_Save("conservatory_exploration", true, 0.2f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+		} else {
+			Music_PlayExt_Save("conservatory_exploration_alt", true, 0.3f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+		}
+	}
+	
+	bool OnTrigger_LabMusic(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		if (alState == 1) {
+			Music_PlayExt_Save("conservatory_lab_ambience", true, 0.25f, 1, 4.0f, 0, eMusicPrio_SceneAmb, true);
+			Entity_SetActive("Trigger_LabMusic_*", false);
+		}
+		
+		return true;
+	}
+	
+	bool OnTrigger_LabMusicStop(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		if (alState == 1) {
+			if (Music_IsSongPlaying("conservatory_swarm")) {
+				Music_Stop(4.0f, eMusicPrio_OverrideAll);
+				Agent_ResetPlayerDetectionState("enemy_rat_king_1");
+				Agent_SetAutoDisableWhenOutOfSightActive("enemy_rat_king_1", true, 5.0f);
+				Stalker_SetEmergeAllowed("stalker_growth_1", true);
+			}
+			Music_Stop(4.0f, eMusicPrio_SceneAmb);
+			SetupMusicAmbienceBasedOnGen();
+			Entity_SetActive("Trigger_LabMusic_*", true);
+		}
+		return true;
+	}
+	
+	// Labrat triggered
+	void gas_mask_pickup_1_OnPlayerInteract(const tString &in asEntity)
+	{
+		Music_PlayExt("conservatory_swarm", true, 0.4f, 1, 3.0f, 0, eMusicPrio_OverrideAll, true);
+		Entity_SetActive("enemy_rat_king_1", true);
+		Stalker_Retreat("stalker_growth_1");
+		Stalker_SetEmergeAllowed("stalker_growth_1", false);
+		//Agent_RevealPlayerPosition("enemy_rat_king_1", true);
 	}
 	
 	////////////////////////////////
