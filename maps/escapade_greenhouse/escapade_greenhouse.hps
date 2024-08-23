@@ -232,7 +232,7 @@ class cScrMap : iScrMap
 			}
 		}
         
-		if (alAction == eAction_Flashlight)
+		else if (alAction == eAction_Flashlight)
 		{
 			OnAction_CustomizedLightSources();
 		}
