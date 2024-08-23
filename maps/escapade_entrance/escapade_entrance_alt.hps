@@ -97,6 +97,8 @@ class cScrMap : iScrMap
 			}
 		}
 		Item_AddManyToInventory("MolotovCocktail", 3);
+        Item_AddToInventory("OrbRed");
+        Entity_PlayAnimation("orb_holder", "Open");
         
         //---Sync previously picked entities start---
         array<iLuxEntity@> pickableEntities;
@@ -130,7 +132,7 @@ class cScrMap : iScrMap
 	//-------------------------------------------------------
     
     //Array to store all the rocks with no gravity
-    array<iLuxEntity@> gravityRocks;
+    
 	////////////////////////////
 	// Run when entering map
 	void OnEnter()
@@ -147,7 +149,9 @@ class cScrMap : iScrMap
 		
 		Music_StopAll(12.0f);
         
+        
         //Get rocks in ballroom map
+        array<iLuxEntity@> gravityRocks;
         Map_GetEntityArray("dw_rock_med_freeze_*", gravityRocks);
         
         
@@ -280,6 +284,8 @@ class cScrMap : iScrMap
         Game_DoMapChange("escapade_storage.hpm", "MapTransfer_EntranceStorage");
         return true;
     }
+    
+    
 	//-------------------------------------------------------
 
 	////////////////////////////
@@ -311,7 +317,49 @@ class cScrMap : iScrMap
 			}
 		}
 	}
-
+    
+    
+    bool CanUse_Orb(const tString &in asItemType, const tString &in asItemID, const tString &in asPickedEntity) {
+        return asPickedEntity == "Trigger_OpenGate";
+	}
+	
+	bool OnUse_Orb(const tString &in asItemType, const tString &in asItemID, const tString &in asTargetEntity, const tString &in asItemEntity, float afTimeElapsed, float afTimeStep) {
+		cLux_AddDebugMessage("ORB USED");
+        
+        // Orb Pedestal
+        Entity_SetActive("Trigger_OpenGate", false);
+        OpenGate("tin_hinan_slide_floor_1");            // Entity name not really necessary here
+        
+        // Unequip orb
+        
+        Item_Unequip(ItemType_GetFirstInInventory("OrbRed"));
+        Entity_SetActive("red_orb_pedestal", true);
+        Entity_PlayAnimation("orb_holder", "Close");
+        Map_AddTimer("remove_orb", 0.2f, "OnTimer_RemoveOrb");
+        
+        
+        
+		//Sound_CreateAtEntity("", "DW_tunnel/portal/portal_open", asTargetEntity);
+        
+        
+		//Item_RemoveFromInventory(ItemType_GetFirstInInventory(asItemType));
+		return true;
+	}
+    
+    void OnTimer_RemoveOrb(const tString &in asTimer){
+        cLux_AddDebugMessage("UNEQUIPPED, REMOVE");
+        Item_RemoveFromInventory(ItemType_GetFirstInInventory("OrbRed"));
+        Map_AddTimer("reset_orb_animation", 0.5f, "OnTimer_RemoveOrbResetAnim");
+        
+    }
+    
+    void OnTimer_RemoveOrbResetAnim(const tString &in asTimer){
+        cLux_AddDebugMessage("RESET ANIM");
+        PlayerBody_PlayAnimation("tool_orb_holster", ePlayerBodyAnimationLayer_Arms, false, false, true);
+    }
+    
+    
+    
 	//-------------------------------------------------------
 
 	////////////////////////////
@@ -394,7 +442,7 @@ class cScrMap : iScrMap
 		// Event: Leaving
 		//{//////////////////////////////////////
 
-		void Trigger_OpenGate_OnPlayerInteract(const tString &in asEntity)
+		void OpenGate(const tString &in asEntity)
 		{
 			SlideDoor_SetClosed("tin_hinan_slide_floor_1", false, false);
 			Map_AddTimer("Timer_PlayerCanLeave", 20.0f, "OnTimer_PlayerCanLeave");
