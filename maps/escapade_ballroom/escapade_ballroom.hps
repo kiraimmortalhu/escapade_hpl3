@@ -69,7 +69,7 @@ class cScrMap : iScrMap
 	{
 		// Any general setup of script / entities
 		
-		PlayerBody_SetActive(true);
+		PlayerBody_SetActive(false);
 		
 		/////////////////////////
 		// Debug
@@ -77,6 +77,21 @@ class cScrMap : iScrMap
 		{
 		Item_AddToInventory("DynamoLantern");
 		}
+        Effect_Fade_Out(0.0f);
+        Effect_Fade_In(5.0f);
+        
+        Player_SetActive(false);
+        
+        // Disable crosshair
+        Player_ShowCrossHairIcons(false);
+        
+        Sound_Play("Sound_1", 5.0f);
+        Sound_Play("Sound_3", 5.0f);
+        
+        CameraAnimation_Begin("Intro", "", false);
+        //Music_PlayExt("strakkvartett_intro", false, 0.4f, 1.0f, 2.0f, 0.0f, eMusicPrio_BgAmb, true);
+        
+        //Sound_
 	}
 
 	//-------------------------------------------------------
@@ -94,6 +109,9 @@ class cScrMap : iScrMap
 	// Run when leaving map
 	void OnLeave()
 	{
+        PlayerBody_SetActive(true);
+        Player_SetActive(true);
+        PlayerBody_SetModel("player_rebirth_ghoul.ent");
 	}
 	
 	//-------------------------------------------------------
@@ -110,7 +128,84 @@ class cScrMap : iScrMap
 	}
 
 	//-------------------------------------------------------
-
+    void PerformBlink(){
+        Effect_Fade_Out(0.25f);
+        Map_AddTimer("blink_end", 0.05f, "OnTimer_PerformBlinkEnd");
+    }
+    
+    void OnTimer_PerformBlinkEnd(const tString &in asTimer){
+        Effect_Fade_In(0.25f);
+    }
+    
+    void PerformBlink_Slower(){
+        Effect_Fade_Out(0.25f);
+        Map_AddTimer("blink_end", 0.25f, "OnTimer_PerformBlinkSlowerEnd");
+    }
+    
+    void OnTimer_PerformBlinkSlowerEnd(const tString &in asTimer){
+        cLux_AddDebugMessage("FADE LONGER");
+        Effect_Fade_In(3.0f);
+    }
+    
+    bool OnPassedCameraNode_Intro3(const tString &in asEntity, int alDirection)
+    {
+        PerformBlink();
+        return true;
+    }
+    
+    int blurID;
+    bool OnPassedCameraNode_Intro6(const tString &in asEntity, int alDirection)
+    {
+        PerformBlink_Slower();
+        blurID = Effect_Blur_Start(0.1f, 5.0f);
+        return false;
+    }
+    
+    int imageTrailID;
+    bool OnPassedCameraNode_Intro7(const tString &in asEntity, int alDirection)
+    {
+        PerformBlink_Slower();
+        imageTrailID = Effect_ImageTrail_Start(2.0f, 10.0f, -1.0f, 80.0f);
+        return true;
+    }
+    
+    bool OnPassedCameraNode_Intro8(const tString &in asEntity, int alDirection)
+    {
+        Sound_Stop("Sound_1", 1.0f);
+        Sound_Play("Sound_2", 1.0f);
+        Sound_Fade("Sound_3", 1.0f, 2.0f);
+        Sound_FadeGlobalSpeed(0.8f, 5.0f);
+        return true;
+    }
+    
+    bool OnPassedCameraNode_Intro10(const tString &in asEntity, int alDirection)
+    {
+        Sound_FadeGlobalSpeed(0.2f, 4.0f);
+        Sound_FadeGlobalVolume(0.0f, 4.0f);
+        
+        Effect_Fade_Out(5.0f);
+        return true;
+    }
+    
+    bool OnPassedCameraNode_Intro14(const tString &in asEntity, int alDirection)
+    {
+        cLux_AddDebugMessage("MAP CHANGE");
+        
+        PlayerBody_SetActive(true);
+        Player_SetActive(true);
+        PlayerBody_SetModel("player_rebirth_ghoul.ent");
+        
+        CameraAnimation_End();
+        cLux_ChangeMap("escapade_entrance.hpm", "IntroEnd", "MapTransfer_BallroomIntro", "", "", false, 6.0f);
+        return true;
+    }
+    
+    bool OnPassedCameraNode_Intro15(const tString &in asEntity, int alDirection)
+    {   
+        //cLux_ChangeMap("escapade_entrance.hpm", "IntroEnd", "MapTransfer_BallroomIntro", "", "", true, 6.0f);
+        //Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_BallroomIntro");
+        return true;
+    }
 	////////////////////////////
 	// This only used for pure debug purposes when info needs to printed.
 	float DrawDebugOutput(cGuiSet@ apSet, iFontData@ apFont, float afY)
