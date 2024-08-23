@@ -74,7 +74,7 @@ class cScrMap : iScrMap
 		Map_SetFogActive(false);
 		Map_SetSecondaryFogActive(false);
 		Light_SetVisible("Light_Box_4", false); 
-		Lever_SetStuckState("PowerSwitch_1", -1, true);
+        
 		
 		//scaredByStalker = false;  //this is now a global var
 		firstEnterFromChurch = false;
@@ -94,8 +94,11 @@ class cScrMap : iScrMap
 			// normally needs shotgun
 			SwingDoor_SetLocked("castle_5", false,false);
 		}
+        
+        
 	}
-
+    
+    
 	//-------------------------------------------------------
 
 	////////////////////////////
@@ -117,9 +120,10 @@ class cScrMap : iScrMap
 		SetupMusicAmbienceBasedOnGen();
         
         // If gen is off, set levers off
-        if(Generator_GetFuelTimeLeft() == 0){
+        if(Generator_GetFuelTimeLeft() <= 0){
             Lever_SetStuckState("PowerSwitch_*", -1, true);
-            
+
+            Generator_SetPowerSwitchOn("PowerSwitch_1", false);
         }
         
         //Debug
@@ -324,10 +328,13 @@ class cScrMap : iScrMap
 			//Sound_Play("Sound_GeneratorOff", 0.f);
 			SlideDoor_SetClosed("metal_security_door_1", true, false);
             Lever_SetStuckState("PowerSwitch_*", -1, true);
+            
+            Generator_SetPowerSwitchOn("PowerSwitch_1", false);
 		} else {
 			Map_SetFogActive(true);
 			Map_SetSecondaryFogActive(true);
 			Light_SetVisible("Light_Box_4", true);
+            Generator_SetPowerSwitchOn("PowerSwitch_1", true);
             //Lever_SetStuckState("PowerSwitch_*", 1, true);
 		}
 	}
@@ -338,7 +345,7 @@ class cScrMap : iScrMap
 	{
 		Generator_SetupEntities("Generator", "Generator_PowerLamp", "Generator_Lever", "Generator_FuelGauge", "Lamp_Generator_*", "Lamp_GeneratorBackup_*");
        
-        Generator_AddPowerSwitch("PowerSwitch_1", "", "", "Lamp_PowerSwitch_1_*", true);
+        Generator_AddPowerSwitch("PowerSwitch_1", "", "", "Lamp_PowerSwitch_1_*", false);
 		Generator_EndSetup();
 	}
 	
@@ -583,22 +590,25 @@ class cScrMap : iScrMap
 	{
         cLux_AddDebugMessage(asEntity);
 		if (alState == 0) return;
-		if (cLux_GetCurrentMap() is null) return;
-		if (cLux_IsChangingMap()) return;
-		if (Generator_GetIsSetupDone() == false) return;
+		//if (cLux_GetCurrentMap() is null) return;
+		//if (cLux_IsChangingMap()) return;
+		//if (Generator_GetIsSetupDone() == false) return;
 		cLux_AddDebugMessage("POWERSWITCH");
-		Generator_SetPowerSwitchOn(asEntity, alState == -1);
+		
 		if (alState == 1) {
 			if (Generator_GetFuelTimeLeft() > 0) {
 				SlideDoor_SetOpenAmount("metal_security_door_1", 1.0f, false);
 				Lamp_SetLit("Lamp_FakeBackup_*",false,true); 
 				Lamp_SetLit("Lamp_PowerSwitch_1_*",true,true);
+                Generator_SetPowerSwitchOn("PowerSwitch_1", true);
 			} else {
 				Lever_SetStuckState("PowerSwitch_1", -1, true);
+                Generator_SetPowerSwitchOn("PowerSwitch_1", false);
 			}
 		}			
-		else {
-			SlideDoor_SetClosed("metal_security_door_1", true, false);
+		if (alState == -1) {
+			cLux_AddDebugMessage("POWERSWITCH CLOSED");
+            SlideDoor_SetClosed("metal_security_door_1", true, false);
 			Lamp_SetLit("Lamp_FakeBackup_*",true,true);
 			Lamp_SetLit("Lamp_PowerSwitch_1_*",false,true);
 		}
