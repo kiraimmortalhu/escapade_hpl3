@@ -1,0 +1,92 @@
+<Entity>
+    <ModelData>
+        <Entities>
+            <PointLight ID="7" Name="Light_Point_1" CreStamp="1724417209" ModStamp="1724417290" WorldPos="0.00323147 0.0244303 -0.0402456" Rotation="0 0 0" Scale="1 1 1" CastShadows="false" ShadowResolution="High" ShadowsAffectStatic="true" ShadowsAffectDynamic="true" Radius="1" Gobo="" GoboType="Diffuse" GoboAnimMode="None" GoboAnimFrameTime="1" GoboAnimStartTime="0" DiffuseColor="0.969531 0.623378 0.623378 1" FlickerActive="false" FlickerOnMinLength="0" FlickerOnMaxLength="0" FlickerOnPS="" FlickerOnSound="" FlickerOffMinLength="0" FlickerOffMaxLength="0" FlickerOffPS="" FlickerOffSound="" FlickerOffColor="0 0 0 1" FlickerOffRadius="0" FlickerFade="false" FlickerOnFadeMinLength="0" FlickerOnFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffFadeMaxLength="0" CastDiffuseLight="true" CastSpecularLight="true" Brightness="1" Static="false" CulledByDistance="true" CulledByFog="true" FalloffPow="1" ConnectedLightMaskID="4294967295" />
+            <Billboard ID="8" Name="Billboard_1" CreStamp="1724417239" ModStamp="1724417378" WorldPos="0.00173841 0.0211855 -0.0410798" Rotation="0 0 0" Scale="1 1 1" BillboardType="Point" MaterialFile="D:/Program Files (x86)/Steam/steamapps/common/Amnesia The Bunker/billboards/halo/star_simple_no_depth.mat" IsHalo="false" BillboardSize="1 1" HaloSourceSize="0.3 0.3 0.3" BillboardOffset="0" BillboardColor="1 1 1 1" Brightness="0.5" CulledByDistance="false" CulledByFog="true" ConnectLight="Light_Point_1" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
+        </Entities>
+        <Mesh Filename="entities/desert/gameplay/transmitter_key/transmitter_key.dae">
+            <SubMesh ID="0" Name="low" CreStamp="0" ModStamp="1724416883" WorldPos="0 0.0229653 -0.0418418" Rotation="0 0 0" Scale="1 1 1" TriCount="1512" Material="" Static="false" />
+        </Mesh>
+        <Bones />
+        <Shapes>
+            <Shape ID="1" Name="ShapeCylinder_1" CreStamp="1456757196" ModStamp="1456830632" WorldPos="0 0.0229653 -0.0374201" Rotation="0 -0 -1.5708" Scale="0.0256494 0.00772324 0" RelativeTranslation="0 0.00753085 -0.0373998" RelativeRotation="0 -0 -1.5708" RelativeScale="1 1 1" ShapeType="Cylinder" />
+            <Shape ID="4" Name="ShapeCylinder_2" CreStamp="1456830632" ModStamp="1456830650" WorldPos="0 0.0229653 0.0160329" Rotation="-1.5708 -0 -1.5708" Scale="0.0078208 0.0610556 0" RelativeTranslation="0 0.00753085 0.0160533" RelativeRotation="-1.5708 -0 -1.5708" RelativeScale="1 1 1" ShapeType="Cylinder" />
+            <Shape ID="5" Name="ShapeBox_1" CreStamp="1456830656" ModStamp="1456830687" WorldPos="0 0.00790365 0.0373794" Rotation="0 0 0" Scale="0.00314695 0.0189259 0.0176806" RelativeTranslation="0 -0.00753085 0.0373998" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Box" />
+        </Shapes>
+        <Bodies>
+            <Body ID="6" Name="Body_1" CreStamp="0" ModStamp="1724417281" WorldPos="0 0.0154345 -2.03401e-05" Rotation="0 0 0" Scale="1 1 1" Material="metal small" Mass="1" AngularDamping="0.5" LinearDamping="0.1" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="false" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+                <Children>
+                    <Child ID="0" />
+                    <Child ID="8" />
+                    <Child ID="7" />
+                </Children>
+                <Shape ID="5" />
+                <Shape ID="4" />
+                <Shape ID="1" />
+            </Body>
+        </Bodies>
+        <Joints />
+        <Animations />
+        <ProcAnimations />
+    </ModelData>
+    <UserDefinedVariables EntityType="Prop_Pickup">
+        <Var ObjectId="4294967295" Name="Health" Value="100" />
+        <Var ObjectId="4294967295" Name="Toughness" Value="0" />
+        <Var ObjectId="4294967295" Name="MaxInteractDistance" Value="0" />
+        <Var ObjectId="4294967295" Name="EventTag" Value="" />
+        <Var ObjectId="4294967295" Name="ShowHints" Value="true" />
+        <Var ObjectId="4294967295" Name="LifeLength" Value="0" />
+        <Var ObjectId="4294967295" Name="DissolveDuringLifeDecrease" Value="true" />
+        <Var ObjectId="4294967295" Name="QuickSave" Value="false" />
+        <Var ObjectId="4294967295" Name="FullGameSave" Value="false" />
+        <Var ObjectId="4294967295" Name="AllowMapTransfer" Value="false" />
+        <Var ObjectId="4294967295" Name="VoiceSourceBone" Value="" />
+        <Var ObjectId="4294967295" Name="BlocksLineOfSight" Value="MaterialBased" />
+        <Var ObjectId="4294967295" Name="MainPhysicsBody" Value="" />
+        <Var ObjectId="4294967295" Name="NoGravityWhenUnderwater" Value="false" />
+        <Var ObjectId="4294967295" Name="DisableFreezeAtStart" Value="false" />
+        <Var ObjectId="4294967295" Name="CustomScriptFile" Value="" />
+        <Var ObjectId="4294967295" Name="CustomScriptClass" Value="" />
+        <Var ObjectId="4294967295" Name="ShowMesh" Value="true" />
+        <Var ObjectId="4294967295" Name="DissolveOnDestruction" Value="false" />
+        <Var ObjectId="4294967295" Name="DissolveTime" Value="1.0" />
+        <Var ObjectId="4294967295" Name="RandomizeAnimationStart" Value="true" />
+        <Var ObjectId="4294967295" Name="RootMotionBone" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOnSound" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOffSound" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOnTime" Value="0.2" />
+        <Var ObjectId="4294967295" Name="EffectsOffTime" Value="0.2" />
+        <Var ObjectId="4294967295" Name="StaticMoveCheckCollision" Value="false" />
+        <Var ObjectId="4294967295" Name="StaticMoveStartSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveStopSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveLoopSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveLoopSoundFade" Value="true" />
+        <Var ObjectId="4294967295" Name="BreakActive" Value="false" />
+        <Var ObjectId="4294967295" Name="CustomBreakBehaviour" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakOnlyOnMainBody" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakDestroyJoints" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakMinEnergy" Value="100" />
+        <Var ObjectId="4294967295" Name="BreakEntity" Value="" />
+        <Var ObjectId="4294967295" Name="BreakEntityAlignBody" Value="" />
+        <Var ObjectId="4294967295" Name="BreakSound" Value="" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundRadius" Value="18" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundPrio" Value="4" />
+        <Var ObjectId="4294967295" Name="BreakParticleSystem" Value="" />
+        <Var ObjectId="4294967295" Name="BreakImpulse" Value="4" />
+        <Var ObjectId="4294967295" Name="ItemType" Value="ChurchKey" />
+        <Var ObjectId="4294967295" Name="ContentSubType" Value="" />
+        <Var ObjectId="4294967295" Name="ContentLevel" Value="0" />
+        <Var ObjectId="4294967295" Name="ContentColor" Value="0 0 0 0" />
+        <Var ObjectId="4294967295" Name="OnlyNeedOne" Value="false" />
+        <Var ObjectId="4294967295" Name="PutAwayAfter" Value="true" />
+        <Var ObjectId="4294967295" Name="AnimationName" Value="" />
+        <Var ObjectId="4294967295" Name="PickupSound" Value="" />
+        <Var ObjectId="4294967295" Name="IsRatFood" Value="false" />
+        <Var ObjectId="4294967295" Name="AttractEnabled" Value="true" />
+        <Var ObjectId="4294967295" Name="AttractDistance" Value="5" />
+        <Var ObjectId="4294967295" Name="LifeTime" Value="-1" />
+        <Var ObjectId="4294967295" Name="FeedingSlotsCount" Value="2" />
+        <Var ObjectId="4294967295" Name="Priority" Value="0" />
+        <Var ObjectId="4294967295" Name="UseFullnessAnimation" Value="false" />
+    </UserDefinedVariables>
+</Entity>

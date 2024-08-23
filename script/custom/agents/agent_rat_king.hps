@@ -159,6 +159,9 @@ const int glRat_ExtremeRatterGoal = 5;
 
 const cVector3f gvRat_EatingBodySize = cVector3f(0.5, 0.3, 0.5);
 
+// ValG edit, item drop
+const tString glRat_KeyPickupEntity = "church_key.ent";
+
 //----------------------------------------------------------------------
 
 //} END SETTINGS
@@ -417,6 +420,11 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 		mpPathfinder.SetMaxGoalsPerIsland(4);
 
 		EnvironmentalDamage_AddEntityToCheck(mBaseObj.GetID());
+		
+		//// ValG edit
+		//// Preload
+		
+		cLux_PreloadEntity(glRat_KeyPickupEntity);
 	}
 
 	//------------------------------------------------------------
@@ -3826,6 +3834,39 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			
 			SetRagdollActive(true, fFadeTime);
 		}
+		
+		///////////////////////////
+		// ValG Edit, key drop
+		
+		//////////////////
+		// Spawn pickup key
+		
+		cLuxMap@ pMap = mBaseObj.GetMap();
+		if (pMap !is null)
+		{
+			pMap.CreateEntity("ChurchKey", glRat_KeyPickupEntity, cMatrixf_Identity, mBaseObj.GetOnLoadScale());
+			cLuxProp@ pKeyPickup = cLux_ToProp(pMap.GetLatestEntity());
+			
+			if (pKeyPickup !is null)
+			{
+				pKeyPickup.SetMatrix(mBaseObj.GetMatrix());
+				//pKeyPickup.GetMainBody().SetCollideFlags(mBaseObj.GetMap().GetCollideFlag("+key"));
+				pKeyPickup.GetMainBody().SetCollideCharacter(false);
+				//if (mbDead_Ragdoll == false)
+				//{		
+					cVector3f vImpulse;			
+					/*if (sDeathAnim == "die_left")
+						vImpulse = pCharBody.GetForward() * 1.f + pCharBody.GetRight() * 1.f;
+					else if (sDeathAnim == "die_right")
+						vImpulse = pCharBody.GetForward() * 1.f + pCharBody.GetRight() * -1.f;
+					else*/
+						//vImpulse = mBaseObj.GetCharBody().GetForward() * 1.f + mBaseObj.GetCharBody().GetRight() * 1.f;
+					
+					vImpulse = cVector3f(0, -1, 0);
+					pKeyPickup.GetMainBody().AddImpulse(vImpulse);
+				//}
+			}
+		}	
 		
 		//////////////////
 		// Play sound
