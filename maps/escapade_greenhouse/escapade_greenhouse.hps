@@ -77,7 +77,10 @@ class cScrMap : iScrMap
 			Item_AddToInventory("Lighter");
 			Item_AddToInventory("DynamoLantern");
 			
-			cScript_SetGlobalVarBool("scaredByStalker", true);
+			//cScript_SetGlobalVarBool("scaredByStalker", true);
+            Map_AddTimer("debugt", 0.0f, "OnTimer_Debug");
+            
+            
 		}
 	}
 
@@ -95,6 +98,21 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
 		
+        if(cLux_ScriptDebugOn()){
+            Item_SetCurrentSlotsCount(50);
+			if (ItemType_GetCountInInventory("Gun") == 0)
+			{
+				Item_AddToInventory("Gun");
+				Item_AddManyToInventory("Ammunition", 20);
+			}
+            if (ItemType_GetCountInInventory("Shotgun") == 0)
+			{
+				Item_AddToInventory("Shotgun");
+				Item_AddManyToInventory("ShotgunAmmunition", 20);
+			}
+            Item_AddToInventory("MolotovCocktail");
+        }
+        
 		SetupMusicAmbienceBasedOnGen();
 		
 		SetupGenerator();
@@ -131,6 +149,14 @@ class cScrMap : iScrMap
 		Music_Stalker_StopDeaggroSongChecks();
 	}
 	
+    void OnTimer_Debug(const tString &in asTimer){
+        
+        cLux_AddDebugMessage("RAT STATE: "+ StateMachine_GetCurrentStateName("enemy_rat_king_1"), true);
+        //Agent_SetSensesActive("enemy_rat_king_1", true);
+        //Rat_Attack("enemy_rat_king_1", true, false);
+        //Rat_ResetHungerTimer("enemy_rat_king_1");
+        Map_RestartCurrentTimer(0.2f);
+    }
        
     bool OnCollide_CloseExitDoors(const tString &in asParent, const tString &in asChild, int alState)
     {

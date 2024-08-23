@@ -103,35 +103,35 @@ const float gfRat_AlertTimeMin = 0.0f;
 const float gfRat_AlertTimeMax = 0.7f;
 const float gfRat_UnalertTimeMin = 4.0f;
 const float gfRat_UnalertTimeMax = 7.0f;
-const float gfRat_AttackMinDistUntilRetreat = 20.f;
-const float gfRat_AttackMaxDistUntilRetreat = 30.f;
-const float gfRat_AttackMinDistUntilRetreat_NoDamage = 20.f;
-const float gfRat_AttackMaxDistUntilRetreat_NoDamage = 30.f;
-const float gfRat_AttackMinDistUntilRetreat_FromEating = 20.f;
-const float gfRat_AttackMaxDistUntilRetreat_FromEating = 30.f;
-const float gfRat_AttackMinTimeUntilRetreat = 20.f;
-const float gfRat_AttackMaxTimeUntilRetreat = 25.f;
+const float gfRat_AttackMinDistUntilRetreat = 1000.f;
+const float gfRat_AttackMaxDistUntilRetreat = 1000.f;
+const float gfRat_AttackMinDistUntilRetreat_NoDamage = 1000.f;
+const float gfRat_AttackMaxDistUntilRetreat_NoDamage = 1000.f;
+const float gfRat_AttackMinDistUntilRetreat_FromEating = 1000.f;
+const float gfRat_AttackMaxDistUntilRetreat_FromEating = 1000.f;
+const float gfRat_AttackMinTimeUntilRetreat = 10000.f;
+const float gfRat_AttackMaxTimeUntilRetreat = 10000.f;
 const float gfRat_AttackDistanceSqr = 3.0f;
-const float gfRat_AttackMinPlayerRetreatTime = 20.f;
-const float gfRat_AttackMaxPlayerRetreatTime = 21.f;
+const float gfRat_AttackMinPlayerRetreatTime = 1000.f;
+const float gfRat_AttackMaxPlayerRetreatTime = 1000.f;
 const float gfRat_BiteMinDistanceSqr = 0.6f*0.6f;
 const float gfRat_BiteDamage = 0.1f;
 const float gfRat_BiteDamage_FullHealth = 0.2f;
-const float gfRat_GrenadeRetreatMinDistSqr = 6.f * 6.f;
-const float gfRat_MolotovRetreatMinDistSqr = 4.f * 4.f;
-const float gfRat_FlareRetreatMinDistSqr = 6.f * 6.f;
+const float gfRat_GrenadeRetreatMinDistSqr = 100.f * 100.f;
+const float gfRat_MolotovRetreatMinDistSqr = 100.f * 100.f;
+const float gfRat_FlareRetreatMinDistSqr = 100.f * 100.f;
 const float gfRat_BulletImpactAttackMinDistSqr = 2.f * 2.f;
 const float gfRat_GunShotPlayerAttackMinDistSqr = 5.f * 5.f;
 const float gfRat_PostAttackMaxDistToPlayerSqr = 2.f * 2.f;
-const float gfRat_ReachedBloodTrailDistSqr = 1.5f * 1.5f;
+const float gfRat_ReachedBloodTrailDistSqr = 7.5f * 7.5f;
 const float gfRat_BloodTrailConnectionMaxDist = 15.f;
 const float gfRat_BloodTrailMaxFollowTime = 45;
-const float gfRat_SmellPlayerRadius = 6.f;
+const float gfRat_SmellPlayerRadius = 30.f;
 const float gfRat_SmellPlayerTimeMin = 1.5f;
 const float gfRat_SmellPlayerTimeMax = 3.f;
-const float gfRat_SmellFoodTimeMin = 1.5f;
-const float gfRat_SmellFoodTimeMax = 3.f;
-const float gfRat_SmellForceAttackPlayerMinDistSqr = 1.5f;
+const float gfRat_SmellFoodTimeMin = 20.5f;
+const float gfRat_SmellFoodTimeMax = 50.f;
+const float gfRat_SmellForceAttackPlayerMinDistSqr = 5.5f;
 const int glRat_SkipRetreatMinAttackingRatNum = 0;
 const float gfRat_ThreatenedDistMax = 6.f; 
 const float gfRat_ThreatenedDistMin = 1.f;
@@ -149,7 +149,7 @@ const float gfRat_StalkPlayerMinDistSqr = 3.0f*3.0f;
 const float gfRat_StalkPlayerMaxDistSqr = 7.0f*7.0f;
 const float gfRat_StalkPlayerFleeDistSqr = 1.75f*1.75f;
 const float gfRat_StalkPlayerFollowTime = 7.5f;
-const float gfRat_StalkPlayerAttackTime = 10.0f;
+const float gfRat_StalkPlayerAttackTime = 1.0f;
 const int glRat_StalkPlayerMinRatsBeforeAttack = 0;
 	
 const float gfRat_PlayTurnAroundAnimMinAngle = cMath_ToRad(140.f);
@@ -317,8 +317,8 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 		// General		
 		mBaseObj.SetAlignEntityWithGroundRay(true);
 		mBaseObj.SetFOV(cMath_ToRad(130.f));
-		mBaseObj.SetSightRange(20.f);
-		mBaseObj.SetSightRangeMul(1.f);
+		mBaseObj.SetSightRange(50.f);
+		mBaseObj.SetSightRangeMul(1.5f);
 		mBaseObj.SetRelativeEyeHeight(0.1f);		
 		
 		mBaseObj.GetMeshEntity().SetVariableAnimationUpdate(true);
@@ -393,8 +393,8 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			mpMover.SetSpeedState_TurnSpeedMul(2.0f);
 		
 		mpMover.AddSpeedState(eRatSpeed_Run);
-			mpMover.SetSpeedState_Forward(5.f);
-			mpMover.SetSpeedState_ForwardAcc(5.f);
+			mpMover.SetSpeedState_Forward(7.f);
+			mpMover.SetSpeedState_ForwardAcc(7.f);
 			mpMover.SetSpeedState_ForwardDeacc(20.f);
 			mpMover.SetSpeedState_TurnBreakMul(1.f);
 		
@@ -615,27 +615,25 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 		{			
 			
 			// Ugly check to see if it's a shotgun causing damage or just the regular gun
-			if (Item_GetHeldType(eItemHandlerHand_Right) == "Shotgun") {
-                //cLux_AddDebugMessage("HEALTH REMAINING: " + mBaseObj.GetHealth());
-				cLux_AddDebugMessage("(" + mBaseObj.GetName() + ") Shot by shotgun!");
-				Achievement_Unlock(eAchievement_Ratter);
+			if (mBaseObj.GetHealth() <= 0) {
 				mfDead_HitForce *= 2.0f;			
-				//mpStateMachine.ChangeState(eRatState_Dead);
-				
-							float fAngle = mBaseObj.GetAngleToPos2D(mvDead_HitOrigin);
-			cVector3f vRight = cMath_MatrixMul(cMath_MatrixRotateY(mBaseObj.GetCharBody().GetYaw()), cVector3f_Right);
-			float fRightDot = cMath_Vector3Dot(cMath_Vector3Normalize(mvDead_HitOrigin-mBaseObj.GetPosition()), vRight);
+				mpStateMachine.ChangeState(eRatState_Dead);
 			
-			if (fAngle < cMath_PiDiv4)
-				msDead_Anim = gsRatAnim_Shot_Front;
-			else if (fAngle > cMath_Pi*0.75f)
-				msDead_Anim = gsRatAnim_Shot_Back;
-			else if (fRightDot > 0)
-				msDead_Anim = gsRatAnim_Shot_Right;
-			else
-				msDead_Anim = gsRatAnim_Shot_Left;
+				float fAngle = mBaseObj.GetAngleToPos2D(mvDead_HitOrigin);
+				cVector3f vRight = cMath_MatrixMul(cMath_MatrixRotateY(mBaseObj.GetCharBody().GetYaw()), cVector3f_Right);
+				float fRightDot = cMath_Vector3Dot(cMath_Vector3Normalize(mvDead_HitOrigin-mBaseObj.GetPosition()), vRight);
+			
+				if (fAngle < cMath_PiDiv4)
+					msDead_Anim = gsRatAnim_Shot_Front;
+				else if (fAngle > cMath_Pi*0.75f)
+					msDead_Anim = gsRatAnim_Shot_Back;
+				else if (fRightDot > 0)
+					msDead_Anim = gsRatAnim_Shot_Right;
+				else
+					msDead_Anim = gsRatAnim_Shot_Left;
 				
-			mbDead_AnimIsPose = true;
+				mbDead_AnimIsPose = true;
+			
 			}
 				
 			cLux_AddDebugMessage("(" + mBaseObj.GetName() + ") Shot by gun!");
@@ -1052,6 +1050,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 		tID idTarget = cScript_GetGlobalArgID(1);
 		
 		bool bRet = Emerge_Setup(idEmergeHole, idTarget, eRatEmergeType_Food);
+        
 		if (bRet)
 		{
 			mBaseObj.SetActive(true);
@@ -2442,7 +2441,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			if (mfFindFood_TimeSinceClosestDist > 2.0f)
 			{
                 cLux_AddDebugMessage("FOOD UNREACHABLE");
-				Retreat(eRatSpeed_Walk, false, false);
+				Retreat(eRatSpeed_Walk, false, true);
 				RatHandler_ReportUnreachableFood(m_idFindFood_FoodEntityId);
 			}
 		}
@@ -3748,7 +3747,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			
 			if (fDistSqr < gfRat_SmellForceAttackPlayerMinDistSqr && fDistY < 1.5f)
 			{
-				mpStateMachine.ChangeState(eRatState_StalkPlayer);
+				mpStateMachine.ChangeState(eRatState_Hunt);
 			}
 		}		
 	}
@@ -3766,18 +3765,18 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 	{
 		if (H64("Stalk") == alId)
 		{
-			mpStateMachine.ChangeState(eRatState_StalkPlayer);
+			mpStateMachine.ChangeState(eRatState_Hunt);
 		}
 		else if (H64("EnterNextState") == alId)
 		{
-			if (mlSmell_NextState == eRatState_Retreat)
-			{
-				Retreat(eRatSpeed_Walk, false, false);
-			}
-			else
-			{
+			//if (mlSmell_NextState == eRatState_Retreat)
+			//{
+			//	//Retreat(eRatSpeed_Walk, false, false);
+			//}
+			//else
+			//{
 				mpStateMachine.ChangeState(mlSmell_NextState);
-			}
+			//}
 		}
 	}
 	
@@ -4318,7 +4317,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 		}
 		
 		msStalkPlayer_State = "";
-		mpMover.SetSpeedState(eRatSpeed_Walk);
+		mpMover.SetSpeedState(eRatSpeed_Run);
 		mpStateMachine.AddTimer("EvaluateDistance", cMath_RandRectf(0.1, 0.2));
 		
 		mfStalkPlayer_AttackTimer = gfRat_StalkPlayerAttackTime;
