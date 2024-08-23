@@ -381,12 +381,15 @@ class cScrMap : iScrMap
                 cLux_AddDebugMessage("MOVE DOOR UP");
 				MoveObject_SetState(asEntity + "_door", 1);
 				Lever_SetStuckState(asEntity, -1, true);
+                Entity_SetActive(asEntity + "_blockbox", false);
+                
 			} else {
                 
 				Lever_SetStuckState(asEntity, 1, true);
 			}
 		}
         if(alState == 1){
+            Entity_SetActive(asEntity + "_blockbox", true);
             MoveObject_SetState(asEntity + "_door", 0);
         }
 	}
