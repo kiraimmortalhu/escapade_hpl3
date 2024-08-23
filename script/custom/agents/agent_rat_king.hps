@@ -393,8 +393,8 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			mpMover.SetSpeedState_TurnSpeedMul(2.0f);
 		
 		mpMover.AddSpeedState(eRatSpeed_Run);
-			mpMover.SetSpeedState_Forward(7.f);
-			mpMover.SetSpeedState_ForwardAcc(7.f);
+			mpMover.SetSpeedState_Forward(5.f);
+			mpMover.SetSpeedState_ForwardAcc(5.f);
 			mpMover.SetSpeedState_ForwardDeacc(20.f);
 			mpMover.SetSpeedState_TurnBreakMul(1.f);
 		
