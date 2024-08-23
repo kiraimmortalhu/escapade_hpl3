@@ -50,7 +50,35 @@
         </Objects>
     </Section>
     <Section Name="0">
-        <Objects />
+        <Objects>
+            <Area ID="268436997" Name="Soundscape_1" CreStamp="1724330120" ModStamp="1724434113" WorldPos="-21 -34.25 -6.5" Rotation="0 0 0" Scale="300 150 250" Active="true" Mesh="" UID="16 3182 268436997" AreaType="Soundscape">
+                <UserVariables>
+                    <Var ObjectId="268436997" Name="Note" Value="" />
+                    <Var ObjectId="268436997" Name="UseReverb" Value="true" />
+                    <Var ObjectId="268436997" Name="ReverbType" Value="Off" />
+                    <Var ObjectId="268436997" Name="ReverbPrio" Value="0" />
+                    <Var ObjectId="268436997" Name="ReverbAmount" Value="1" />
+                    <Var ObjectId="268436997" Name="ReverbFadeTime" Value="1" />
+                    <Var ObjectId="268436997" Name="Prio" Value="0" />
+                    <Var ObjectId="268436997" Name="Level" Value="2: Room" />
+                    <Var ObjectId="268436997" Name="BG_Sound" Value="" />
+                    <Var ObjectId="268436997" Name="BG_Volume" Value="1" />
+                    <Var ObjectId="268436997" Name="BG_FadeInTime" Value="1" />
+                    <Var ObjectId="268436997" Name="BG_FadeOutTime" Value="1" />
+                    <Var ObjectId="268436997" Name="BG_FadeTransitionSpeed" Value="1" />
+                    <Var ObjectId="268436997" Name="BG_ParentVolMul" Value="1" />
+                    <Var ObjectId="268436997" Name="SoundEnt_InNames" Value="" />
+                    <Var ObjectId="268436997" Name="SoundEnt_OutNames" Value="" />
+                    <Var ObjectId="268436997" Name="SoundEnt_FadeInTime" Value="1" />
+                    <Var ObjectId="268436997" Name="SoundEnt_FadeOutTime" Value="1" />
+                    <Var ObjectId="268436997" Name="SoundPrefixPrio" Value="0" />
+                    <Var ObjectId="268436997" Name="SoundPrefix" Value="large_room" />
+                    <Var ObjectId="268436997" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="268436997" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="268436997" Name="ParentAttachBody" Value="" />
+                </UserVariables>
+            </Area>
+        </Objects>
     </Section>
     <Section Name="13155577883259020773">
         <Objects>
@@ -2568,6 +2596,58 @@
             </Area>
             <Area ID="301990997" Name="GhoulHole_8" CreStamp="1723488804" ModStamp="1723488810" WorldPos="-63.5 -80.5 -0.5" Rotation="0 0 0" Scale="1 2 1" Active="true" Mesh="" UID="18 6028 301990997" AreaType="GhoulHole">
                 <UserVariables />
+            </Area>
+            <Area ID="301991063" Name="RatFeed_1" CreStamp="1724435479" ModStamp="1724435497" WorldPos="-64.5 -81.1257 -3" Rotation="0 0 0" Scale="1 0.5 1" Active="true" Mesh="" UID="18 6695 301991063" AreaType="RatFeed">
+                <UserVariables>
+                    <Var ObjectId="301991063" Name="AttractEnabled" Value="true" />
+                    <Var ObjectId="301991063" Name="AttractDistance" Value="5" />
+                    <Var ObjectId="301991063" Name="LifeTime" Value="-1" />
+                    <Var ObjectId="301991063" Name="FeedingSlotsCount" Value="4" />
+                    <Var ObjectId="301991063" Name="Priority" Value="0" />
+                    <Var ObjectId="301991063" Name="FoodEntity" Value="" />
+                    <Var ObjectId="301991063" Name="BurnableEntity" Value="" />
+                    <Var ObjectId="301991063" Name="BurntEntity" Value="" />
+                </UserVariables>
+            </Area>
+            <Area ID="301991068" Name="RatFeed_2" CreStamp="1724435608" ModStamp="1724435642" WorldPos="-58.5 -81.2091 3" Rotation="0 0 0" Scale="20.25 0.5 6" Active="true" Mesh="" UID="18 6706 301991068" AreaType="RatFeed">
+                <UserVariables>
+                    <Var ObjectId="301991068" Name="AttractEnabled" Value="true" />
+                    <Var ObjectId="301991068" Name="AttractDistance" Value="5" />
+                    <Var ObjectId="301991068" Name="LifeTime" Value="-1" />
+                    <Var ObjectId="301991068" Name="FeedingSlotsCount" Value="2" />
+                    <Var ObjectId="301991068" Name="Priority" Value="0" />
+                    <Var ObjectId="301991068" Name="FoodEntity" Value="" />
+                    <Var ObjectId="301991068" Name="BurnableEntity" Value="" />
+                    <Var ObjectId="301991068" Name="BurntEntity" Value="" />
+                </UserVariables>
+            </Area>
+            <Area ID="301991069" Name="Trigger_RatBossFight" CreStamp="1724435955" ModStamp="1724436316" WorldPos="-70.5 -77.25 3" Rotation="0 0 0" Scale="8.75 8.5 10.75" Active="true" Mesh="" UID="18 6721 301991069" AreaType="Trigger">
+                <UserVariables>
+                    <Var ObjectId="301991069" Name="Note" Value="" />
+                    <Var ObjectId="301991069" Name="BlocksLineOfSight" Value="false" />
+                    <Var ObjectId="301991069" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="301991069" Name="UserVar" Value="" />
+                    <Var ObjectId="301991069" Name="Static" Value="false" />
+                    <Var ObjectId="301991069" Name="QuickSave" Value="false" />
+                    <Var ObjectId="301991069" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="301991069" Name="CC_Entities" Value="player" />
+                    <Var ObjectId="301991069" Name="CC_Funcs" Value="OnTrigger_RatBossFight" />
+                    <Var ObjectId="301991069" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="301991069" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="301991069" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="301991069" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="301991069" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="301991069" Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                    <Var ObjectId="301991069" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="301991069" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="301991069" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="301991069" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="301991069" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="301991069" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="301991069" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="301991069" Name="MaxFocusDistance" Value="-1" />
+                    <Var ObjectId="301991069" Name="CustomInteractIcon" Value="Default" />
+                </UserVariables>
             </Area>
         </Objects>
     </Section>
