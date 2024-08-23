@@ -300,7 +300,7 @@ class cScrMap : iScrMap
 	
 	void SetupMusicAmbienceBasedOnGen() {
 		if (Generator_GetFuelTimeLeft() <= 0) {
-			Music_PlayExt_Save("storehouse_darkness", true, 0.35f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+			Music_PlayExt_Save("storehouse_darkness", true, 0.3f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 		} else {
 			Music_PlayExt_Save("storehouse_genison", true, 0.35f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 		}

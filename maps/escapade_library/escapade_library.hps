@@ -15,6 +15,8 @@
 #include "helpers/helper_gun.hps"
 #include "helpers/helper_props_custom.hps"
 
+#include "custom/components/ComponentInterfaces_Custom.hps"
+
 //Unique escapade includes:
 #include "escapade_custom/helpers/helper_music_control.hps"
 
@@ -98,7 +100,7 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
 		
-		Music_PlayExt_Save("ancestral_archives_exploration", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+		Music_PlayExt_Save("ancestral_archives_exploration", true, 0.45f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 		
 		SetupGenerator();
         
@@ -341,18 +343,38 @@ class cScrMap : iScrMap
 		/////////////////////////////////////////
 		// General
 		//{//////////////////////////////////////
-		 
-		//-------------------------------------------------------
-	 
-		/*Put any variables that are used by many events in Scene X here.*/
-	 
-		//-------------------------------------------------------
-	 
-		/*Put any functions that are used in more than one event in Scene X here.*/
-	 
-		//-------------------------------------------------------
 		
-		//} END General	
+		void castle_arched01_5_OnPlayerInteract(const tString &in asEntity)
+		{
+			Map_GetEntity("enemy_rat_grey_1").SetPosition(cVector3f(100.749,0.403,-0.697));
+			Map_GetEntity("enemy_rat_grey_2").SetPosition(cVector3f(100.688,0.403,0.828));
+			iLuxEntity@ pFeed = Map_GetEntity("RatFeed_1");
+			Rat_Eat("enemy_rat_grey_1", pFeed.GetID());
+			Rat_Eat("enemy_rat_grey_2", pFeed.GetID());
+			
+			// to-do, decide which is better
+			Music_PlayExt("Bunker_Arena_Reveal", false, 0.6f, 1, 5.0f, 1, eMusicPrio_SceneAmb, false);
+			//Sound_PlayGui("Bunker_Arena_Reveal.snt", 0.7f);
+		}
+		 
+		bool OnTrigger_RatsFlee(const tString &in asParent, const tString &in asChild, int alState)
+		{
+			if (alState == 1) {
+				Rat_Retreat("enemy_rat_grey_1", true, true, false, "GhoulHole_5", false);
+				Rat_Retreat("enemy_rat_grey_2", false, true, false, "GhoulHole_5", false);
+				return false;
+			}
+			return true;
+		}
+		
+		void dogtag_alphonse_withstring_1_OnAddCode(const tString &in asEntity, const tString &in asNameID, const tString &in asCombination)
+		{
+			cLux_AddDebugMessage("Rats will no longer be feeding around this point");
+			// to-do, make this work, does this even run
+			
+			//iScrRatFoodComponent_Interface@ pRatFood = UserComponent_RatFoodComponent_Get("RatFeed_7");
+			//pRatFood.SetIsDestroyed(true);
+		}
 	 
 		/////////////////////////////////////////
 		// Event *Name Of Event*

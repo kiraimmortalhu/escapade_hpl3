@@ -615,7 +615,35 @@
         </Objects>
     </Section>
     <Section Name="0">
-        <Objects />
+        <Objects>
+            <Area ID="268436997" Name="Soundscape_1" CreStamp="1724330120" ModStamp="1724430077" WorldPos="68.5 15 -8.25" Rotation="0 0 0" Scale="91 43.5 91.75" Active="true" Mesh="" UID="16 3182 268436997" AreaType="Soundscape">
+                <UserVariables>
+                    <Var ObjectId="268436997" Name="Note" Value="" />
+                    <Var ObjectId="268436997" Name="UseReverb" Value="true" />
+                    <Var ObjectId="268436997" Name="ReverbType" Value="Off" />
+                    <Var ObjectId="268436997" Name="ReverbPrio" Value="0" />
+                    <Var ObjectId="268436997" Name="ReverbAmount" Value="1" />
+                    <Var ObjectId="268436997" Name="ReverbFadeTime" Value="1" />
+                    <Var ObjectId="268436997" Name="Prio" Value="0" />
+                    <Var ObjectId="268436997" Name="Level" Value="2: Room" />
+                    <Var ObjectId="268436997" Name="BG_Sound" Value="" />
+                    <Var ObjectId="268436997" Name="BG_Volume" Value="1" />
+                    <Var ObjectId="268436997" Name="BG_FadeInTime" Value="1" />
+                    <Var ObjectId="268436997" Name="BG_FadeOutTime" Value="1" />
+                    <Var ObjectId="268436997" Name="BG_FadeTransitionSpeed" Value="1" />
+                    <Var ObjectId="268436997" Name="BG_ParentVolMul" Value="1" />
+                    <Var ObjectId="268436997" Name="SoundEnt_InNames" Value="" />
+                    <Var ObjectId="268436997" Name="SoundEnt_OutNames" Value="" />
+                    <Var ObjectId="268436997" Name="SoundEnt_FadeInTime" Value="1" />
+                    <Var ObjectId="268436997" Name="SoundEnt_FadeOutTime" Value="1" />
+                    <Var ObjectId="268436997" Name="SoundPrefixPrio" Value="0" />
+                    <Var ObjectId="268436997" Name="SoundPrefix" Value="medium_room" />
+                    <Var ObjectId="268436997" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="268436997" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="268436997" Name="ParentAttachBody" Value="" />
+                </UserVariables>
+            </Area>
+        </Objects>
     </Section>
     <Section Name="7671329699895397113">
         <Objects />
@@ -841,7 +869,7 @@
             <Area ID="318767309" Name="PathNode_75" CreStamp="1724159877" ModStamp="1724159877" WorldPos="88.25 0.25 -1.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="19 3205 318767309" AreaType="PathNode">
                 <UserVariables />
             </Area>
-            <Area ID="318767310" Name="GhoulHole_1" CreStamp="1724159882" ModStamp="1724159886" WorldPos="88.25 1 -1.75" Rotation="0 0 0" Scale="1 2 1" Active="true" Mesh="" UID="19 3202 318767310" AreaType="GhoulHole">
+            <Area ID="318767310" Name="GhoulHole_1" CreStamp="1724159882" ModStamp="1724159886" WorldPos="88.25 1 -1.75" Rotation="0 0 0" Scale="1 2 1" Active="true" Mesh="" UID="19 3721 318767310" AreaType="GhoulHole">
                 <UserVariables />
             </Area>
             <Area ID="318767312" Name="PathNode_76" CreStamp="1724159897" ModStamp="1724159897" WorldPos="87.25 0.25 0" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="19 3200 318767312" AreaType="PathNode">
@@ -1689,6 +1717,145 @@
             </Area>
             <Area ID="318767691" Name="PathNode_379" CreStamp="1724170326" ModStamp="1724170326" WorldPos="55.75 5.625 -38.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="19 2884 318767691" AreaType="PathNode">
                 <UserVariables />
+            </Area>
+            <Area ID="318767695" Name="RatFeed_1" CreStamp="1724425134" ModStamp="1724426140" WorldPos="100.768 0.5 0.117653" Rotation="0 0 0" Scale="0.760788 0.25 1" Active="true" Mesh="" UID="19 3388 318767695" AreaType="RatFeed">
+                <UserVariables>
+                    <Var ObjectId="318767695" Name="AttractEnabled" Value="true" />
+                    <Var ObjectId="318767695" Name="AttractDistance" Value="5" />
+                    <Var ObjectId="318767695" Name="LifeTime" Value="-1" />
+                    <Var ObjectId="318767695" Name="FeedingSlotsCount" Value="2" />
+                    <Var ObjectId="318767695" Name="Priority" Value="0" />
+                    <Var ObjectId="318767695" Name="FoodEntity" Value="" />
+                    <Var ObjectId="318767695" Name="BurnableEntity" Value="" />
+                    <Var ObjectId="318767695" Name="BurntEntity" Value="" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767699" Name="GhoulHole_5" CreStamp="1724425344" ModStamp="1724425384" WorldPos="104.825 1.01958 1.96371" Rotation="-0 4.71204 -0" Scale="1 2 1" Active="true" Mesh="" UID="19 3202 318767699" AreaType="GhoulHole">
+                <UserVariables />
+            </Area>
+            <Area ID="318767717" Name="Trigger_RatsFlee" CreStamp="1724425747" ModStamp="1724425790" WorldPos="93.5 2.75 0" Rotation="0 0 0" Scale="0.25 10 12.75" Active="true" Mesh="" UID="19 3736 318767717" AreaType="Trigger">
+                <UserVariables>
+                    <Var ObjectId="318767717" Name="Note" Value="" />
+                    <Var ObjectId="318767717" Name="BlocksLineOfSight" Value="false" />
+                    <Var ObjectId="318767717" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="318767717" Name="UserVar" Value="" />
+                    <Var ObjectId="318767717" Name="Static" Value="false" />
+                    <Var ObjectId="318767717" Name="QuickSave" Value="false" />
+                    <Var ObjectId="318767717" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="318767717" Name="CC_Entities" Value="player" />
+                    <Var ObjectId="318767717" Name="CC_Funcs" Value="OnTrigger_RatsFlee" />
+                    <Var ObjectId="318767717" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="318767717" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="318767717" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="318767717" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="318767717" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="318767717" Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                    <Var ObjectId="318767717" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="318767717" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="318767717" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="318767717" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="318767717" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="318767717" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="318767717" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="318767717" Name="MaxFocusDistance" Value="-1" />
+                    <Var ObjectId="318767717" Name="CustomInteractIcon" Value="Default" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767723" Name="RatFeed_2" CreStamp="1724428525" ModStamp="1724428548" WorldPos="83.652 0.156487 -0.219933" Rotation="0 -0.700693 0" Scale="1 0.25 0.521267" Active="true" Mesh="" UID="19 3747 318767723" AreaType="RatFeed">
+                <UserVariables>
+                    <Var ObjectId="318767723" Name="AttractEnabled" Value="true" />
+                    <Var ObjectId="318767723" Name="AttractDistance" Value="5" />
+                    <Var ObjectId="318767723" Name="LifeTime" Value="-1" />
+                    <Var ObjectId="318767723" Name="FeedingSlotsCount" Value="1" />
+                    <Var ObjectId="318767723" Name="Priority" Value="0" />
+                    <Var ObjectId="318767723" Name="FoodEntity" Value="" />
+                    <Var ObjectId="318767723" Name="BurnableEntity" Value="" />
+                    <Var ObjectId="318767723" Name="BurntEntity" Value="" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767729" Name="RatFeed_4" CreStamp="1724428627" ModStamp="1724428646" WorldPos="72.0268 1.03815 -0.215773" Rotation="0 -1.53725 0" Scale="1 0.25 0.601684" Active="true" Mesh="" UID="19 3745 318767729" AreaType="RatFeed">
+                <UserVariables>
+                    <Var ObjectId="318767729" Name="AttractEnabled" Value="true" />
+                    <Var ObjectId="318767729" Name="AttractDistance" Value="5" />
+                    <Var ObjectId="318767729" Name="LifeTime" Value="-1" />
+                    <Var ObjectId="318767729" Name="FeedingSlotsCount" Value="1" />
+                    <Var ObjectId="318767729" Name="Priority" Value="0" />
+                    <Var ObjectId="318767729" Name="FoodEntity" Value="" />
+                    <Var ObjectId="318767729" Name="BurnableEntity" Value="" />
+                    <Var ObjectId="318767729" Name="BurntEntity" Value="" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767730" Name="RatFeed_5" CreStamp="1724428648" ModStamp="1724429845" WorldPos="72.0267 1.03815 2.08822" Rotation="-0 4.17053 -0" Scale="1 0.25 0.601684" Active="true" Mesh="" UID="19 3746 318767730" AreaType="RatFeed">
+                <UserVariables>
+                    <Var ObjectId="318767730" Name="AttractEnabled" Value="true" />
+                    <Var ObjectId="318767730" Name="AttractDistance" Value="5" />
+                    <Var ObjectId="318767730" Name="LifeTime" Value="-1" />
+                    <Var ObjectId="318767730" Name="FeedingSlotsCount" Value="1" />
+                    <Var ObjectId="318767730" Name="Priority" Value="0" />
+                    <Var ObjectId="318767730" Name="FoodEntity" Value="" />
+                    <Var ObjectId="318767730" Name="BurnableEntity" Value="" />
+                    <Var ObjectId="318767730" Name="BurntEntity" Value="" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767731" Name="RatFeed_6" CreStamp="1724428658" ModStamp="1724428896" WorldPos="70.1042 0.156487 0.243988" Rotation="0 -0.700693 0" Scale="1 0.25 0.953709" Active="true" Mesh="" UID="19 3743 318767731" AreaType="RatFeed">
+                <UserVariables>
+                    <Var ObjectId="318767731" Name="AttractEnabled" Value="true" />
+                    <Var ObjectId="318767731" Name="AttractDistance" Value="5" />
+                    <Var ObjectId="318767731" Name="LifeTime" Value="-1" />
+                    <Var ObjectId="318767731" Name="FeedingSlotsCount" Value="1" />
+                    <Var ObjectId="318767731" Name="Priority" Value="0" />
+                    <Var ObjectId="318767731" Name="FoodEntity" Value="" />
+                    <Var ObjectId="318767731" Name="BurnableEntity" Value="" />
+                    <Var ObjectId="318767731" Name="BurntEntity" Value="" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767742" Name="RatFeed_7" CreStamp="1724428947" ModStamp="1724429964" WorldPos="69.4855 4.72924 -21.6567" Rotation="0 -0.700693 0" Scale="1 0.25 0.953709" Active="true" Mesh="" UID="19 3741 318767742" AreaType="RatFeed">
+                <UserVariables>
+                    <Var ObjectId="318767742" Name="AttractEnabled" Value="true" />
+                    <Var ObjectId="318767742" Name="AttractDistance" Value="5" />
+                    <Var ObjectId="318767742" Name="LifeTime" Value="-1" />
+                    <Var ObjectId="318767742" Name="FeedingSlotsCount" Value="1" />
+                    <Var ObjectId="318767742" Name="Priority" Value="0" />
+                    <Var ObjectId="318767742" Name="FoodEntity" Value="dogtag_alphonse_withstring_1" />
+                    <Var ObjectId="318767742" Name="BurnableEntity" Value="" />
+                    <Var ObjectId="318767742" Name="BurntEntity" Value="" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767743" Name="RatFeed_8" CreStamp="1724428958" ModStamp="1724429904" WorldPos="72.0335 4.72924 -11.2015" Rotation="0 0.476086 0" Scale="1 0.25 0.953709" Active="true" Mesh="" UID="19 3744 318767743" AreaType="RatFeed">
+                <UserVariables>
+                    <Var ObjectId="318767743" Name="AttractEnabled" Value="true" />
+                    <Var ObjectId="318767743" Name="AttractDistance" Value="5" />
+                    <Var ObjectId="318767743" Name="LifeTime" Value="-1" />
+                    <Var ObjectId="318767743" Name="FeedingSlotsCount" Value="1" />
+                    <Var ObjectId="318767743" Name="Priority" Value="0" />
+                    <Var ObjectId="318767743" Name="FoodEntity" Value="" />
+                    <Var ObjectId="318767743" Name="BurnableEntity" Value="" />
+                    <Var ObjectId="318767743" Name="BurntEntity" Value="" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767744" Name="RatFeed_9" CreStamp="1724428968" ModStamp="1724428972" WorldPos="71.4153 4.72924 -8.85714" Rotation="0 -0.443392 0" Scale="1 0.25 0.953709" Active="true" Mesh="" UID="19 3742 318767744" AreaType="RatFeed">
+                <UserVariables>
+                    <Var ObjectId="318767744" Name="AttractEnabled" Value="true" />
+                    <Var ObjectId="318767744" Name="AttractDistance" Value="5" />
+                    <Var ObjectId="318767744" Name="LifeTime" Value="-1" />
+                    <Var ObjectId="318767744" Name="FeedingSlotsCount" Value="1" />
+                    <Var ObjectId="318767744" Name="Priority" Value="0" />
+                    <Var ObjectId="318767744" Name="FoodEntity" Value="" />
+                    <Var ObjectId="318767744" Name="BurnableEntity" Value="" />
+                    <Var ObjectId="318767744" Name="BurntEntity" Value="" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767745" Name="RatFeed_10" CreStamp="1724428972" ModStamp="1724428977" WorldPos="69.007 4.72924 -7.92101" Rotation="-0 4.66982 -0" Scale="1 0.25 0.953709" Active="true" Mesh="" UID="19 3749 318767745" AreaType="RatFeed">
+                <UserVariables>
+                    <Var ObjectId="318767745" Name="AttractEnabled" Value="true" />
+                    <Var ObjectId="318767745" Name="AttractDistance" Value="5" />
+                    <Var ObjectId="318767745" Name="LifeTime" Value="-1" />
+                    <Var ObjectId="318767745" Name="FeedingSlotsCount" Value="1" />
+                    <Var ObjectId="318767745" Name="Priority" Value="0" />
+                    <Var ObjectId="318767745" Name="FoodEntity" Value="" />
+                    <Var ObjectId="318767745" Name="BurnableEntity" Value="" />
+                    <Var ObjectId="318767745" Name="BurntEntity" Value="" />
+                </UserVariables>
             </Area>
         </Objects>
     </Section>
