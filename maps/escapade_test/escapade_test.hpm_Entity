@@ -1,6 +1,6 @@
 <HPLMapTrack_Entity ID="CC8B05BC4853009D5DF0B6F95CE8E6A6E13B9F3C" MajorVersion="1" MinorVersion="1">
     <Section Name="13155577883259020773">
-        <FileIndex_Entities NumOfFiles="255">
+        <FileIndex_Entities NumOfFiles="256">
             <File Id="0" Path="mods/escapade_hpl3/entities/dark_descent/lamp/candlestick01/candlestick01.ent" />
             <File Id="1" Path="mods/escapade_hpl3/entities/dark_descent/lamp/candlestick_floor/candlestick_floor.ent" />
             <File Id="2" Path="mods/escapade_hpl3/entities/dark_descent/lamp/candlestick_tri/candlestick_tri.ent" />
@@ -256,6 +256,7 @@
             <File Id="252" Path="mods/escapade_hpl3/entities/escapade_character/enemy_rat/enemy_rat_king_align_test.ent" />
             <File Id="253" Path="mods/escapade_hpl3/entities/darkworld/ornaments/statue_tin_hinan_whole/statue_tin_hinan_whole_mirrored.ent" />
             <File Id="254" Path="mods/escapade_hpl3/entities/escapade_character/servant_grunt/servant_grunt.ent" />
+            <File Id="255" Path="mods/escapade_hpl3/entities/escapade_character/enemy_rat/enemy_rat_vanguard.ent" />
         </FileIndex_Entities>
         <Objects>
             <Entity ID="268435515" Name="castle_1" CreStamp="1718066446" ModStamp="1722545820" WorldPos="0.270523 0.0804021 -6.55472" Rotation="0 -6.51683e-07 0" Scale="1 1 1" FileIndex="4" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 18 268435515">
@@ -11648,42 +11649,6 @@
                     <Var ObjectId="268436305" Name="RenderLayer" Value="0" />
                 </UserVariables>
             </Entity>
-            <Entity ID="268436306" Name="dark_world_rat_black_1" CreStamp="1722012343" ModStamp="1724416075" WorldPos="8.26769 0.125 31.3711" Rotation="0 3.14159 0" Scale="3 3 3" FileIndex="250" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 322 268436306">
-                <UserVariables>
-                    <Var ObjectId="268436306" Name="EventInstanceTag" Value="" />
-                    <Var ObjectId="268436306" Name="UserVar" Value="" />
-                    <Var ObjectId="268436306" Name="FullGameSave" Value="false" />
-                    <Var ObjectId="268436306" Name="EffectsActive" Value="true" />
-                    <Var ObjectId="268436306" Name="AutoDisableWhenOutOfSight" Value="false" />
-                    <Var ObjectId="268436306" Name="AutoDisableWhenOutOfSightMinDist" Value="10" />
-                    <Var ObjectId="268436306" Name="AutoDisableCallback" Value="" />
-                    <Var ObjectId="268436306" Name="ColorMul" Value="1 1 1 1" />
-                    <Var ObjectId="268436306" Name="UpdateWhenInvisible" Value="false" />
-                    <Var ObjectId="268436306" Name="IllumColor" Value="1 1 1 1" />
-                    <Var ObjectId="268436306" Name="IllumBrightness" Value="1" />
-                    <Var ObjectId="268436306" Name="SensesActive" Value="true" />
-                    <Var ObjectId="268436306" Name="ConnectionStateChangeCallback" Value="" />
-                    <Var ObjectId="268436306" Name="PlayerLookAtCallback" Value="" />
-                    <Var ObjectId="268436306" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
-                    <Var ObjectId="268436306" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
-                    <Var ObjectId="268436306" Name="PlayerLookAtCheckRayIntersection" Value="true" />
-                    <Var ObjectId="268436306" Name="PlayerLookAtMaxDistance" Value="-1" />
-                    <Var ObjectId="268436306" Name="PlayerLookAtCallbackDelay" Value="0" />
-                    <Var ObjectId="268436306" Name="PlayerInteractCallback" Value="" />
-                    <Var ObjectId="268436306" Name="PlayerInteractCallbackAutoRemove" Value="false" />
-                    <Var ObjectId="268436306" Name="PlayerInteractLeaveCallback" Value="" />
-                    <Var ObjectId="268436306" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
-                    <Var ObjectId="268436306" Name="RecieveMessageCallback" Value="" />
-                    <Var ObjectId="268436306" Name="CC_Entities" Value="" />
-                    <Var ObjectId="268436306" Name="CC_Funcs" Value="" />
-                    <Var ObjectId="268436306" Name="ConnectedEntity" Value="" />
-                    <Var ObjectId="268436306" Name="ConnectedEntityInvertState" Value="false" />
-                    <Var ObjectId="268436306" Name="ConnectedEntityStatesUsed" Value="0" />
-                    <Var ObjectId="268436306" Name="Rat_SpawnAtPos" Value="false" />
-                    <Var ObjectId="268436306" Name="HeadTracker_TargetEntity" Value="" />
-                    <Var ObjectId="268436306" Name="HeadTracker_Active" Value="true" />
-                </UserVariables>
-            </Entity>
             <Entity ID="268436316" Name="extaction_oven_lever_1" CreStamp="1722543743" ModStamp="1722544227" WorldPos="1.71125 3.65608 -2.52025" Rotation="0.261799 3.14159 -3.14159" Scale="1 1 1" FileIndex="200" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 403 268436316">
                 <UserVariables>
                     <Var ObjectId="268436316" Name="Note" Value="" />
@@ -12114,6 +12079,78 @@
                     <Var ObjectId="268439034" Name="WoodenBreakable_CustomDropItemsProbability" Value="-1" />
                     <Var ObjectId="268439034" Name="WoodenBreakable_ScaleCustomDropProbability" Value="true" />
                     <Var ObjectId="268439034" Name="WoodenBreakable_CustomDropItemsList" Value="" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="268439036" Name="enemy_rat_vanguard_1" CreStamp="1724445067" ModStamp="1724445073" WorldPos="6.85004 0.0673597 31.0232" Rotation="-3.14159 -9.77524e-07 -3.14159" Scale="1.5 1.5 1.5" FileIndex="255" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 8932 268439036">
+                <UserVariables>
+                    <Var ObjectId="268439036" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="268439036" Name="UserVar" Value="" />
+                    <Var ObjectId="268439036" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="268439036" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="268439036" Name="AutoDisableWhenOutOfSight" Value="false" />
+                    <Var ObjectId="268439036" Name="AutoDisableWhenOutOfSightMinDist" Value="10" />
+                    <Var ObjectId="268439036" Name="AutoDisableCallback" Value="" />
+                    <Var ObjectId="268439036" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="268439036" Name="UpdateWhenInvisible" Value="false" />
+                    <Var ObjectId="268439036" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="268439036" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="268439036" Name="SensesActive" Value="true" />
+                    <Var ObjectId="268439036" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="268439036" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="268439036" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="268439036" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="268439036" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="268439036" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="268439036" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="268439036" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="268439036" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="268439036" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="268439036" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="268439036" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="268439036" Name="CC_Entities" Value="" />
+                    <Var ObjectId="268439036" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="268439036" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="268439036" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="268439036" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="268439036" Name="Rat_SpawnAtPos" Value="false" />
+                    <Var ObjectId="268439036" Name="HeadTracker_TargetEntity" Value="" />
+                    <Var ObjectId="268439036" Name="HeadTracker_Active" Value="true" />
+                </UserVariables>
+            </Entity>
+            <Entity ID="268439037" Name="enemy_rat_grey_1" CreStamp="1724445119" ModStamp="1724445119" WorldPos="6.28881 0.0673599 31.3004" Rotation="3.14159 -9.77524e-07 3.14159" Scale="1 1 1" FileIndex="245" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 8924 268439037">
+                <UserVariables>
+                    <Var ObjectId="268439037" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="268439037" Name="UserVar" Value="" />
+                    <Var ObjectId="268439037" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="268439037" Name="EffectsActive" Value="true" />
+                    <Var ObjectId="268439037" Name="AutoDisableWhenOutOfSight" Value="false" />
+                    <Var ObjectId="268439037" Name="AutoDisableWhenOutOfSightMinDist" Value="10" />
+                    <Var ObjectId="268439037" Name="AutoDisableCallback" Value="" />
+                    <Var ObjectId="268439037" Name="ColorMul" Value="1 1 1 1" />
+                    <Var ObjectId="268439037" Name="UpdateWhenInvisible" Value="false" />
+                    <Var ObjectId="268439037" Name="IllumColor" Value="1 1 1 1" />
+                    <Var ObjectId="268439037" Name="IllumBrightness" Value="1" />
+                    <Var ObjectId="268439037" Name="SensesActive" Value="true" />
+                    <Var ObjectId="268439037" Name="ConnectionStateChangeCallback" Value="" />
+                    <Var ObjectId="268439037" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="268439037" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="268439037" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="268439037" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="268439037" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="268439037" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="268439037" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="268439037" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="268439037" Name="PlayerInteractLeaveCallback" Value="" />
+                    <Var ObjectId="268439037" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="268439037" Name="RecieveMessageCallback" Value="" />
+                    <Var ObjectId="268439037" Name="CC_Entities" Value="" />
+                    <Var ObjectId="268439037" Name="CC_Funcs" Value="" />
+                    <Var ObjectId="268439037" Name="ConnectedEntity" Value="" />
+                    <Var ObjectId="268439037" Name="ConnectedEntityInvertState" Value="false" />
+                    <Var ObjectId="268439037" Name="ConnectedEntityStatesUsed" Value="0" />
+                    <Var ObjectId="268439037" Name="Rat_SpawnAtPos" Value="false" />
+                    <Var ObjectId="268439037" Name="HeadTracker_TargetEntity" Value="" />
+                    <Var ObjectId="268439037" Name="HeadTracker_Active" Value="true" />
                 </UserVariables>
             </Entity>
         </Objects>
