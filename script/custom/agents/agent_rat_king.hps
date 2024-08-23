@@ -2441,7 +2441,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			if (mfFindFood_TimeSinceClosestDist > 2.0f)
 			{
                 cLux_AddDebugMessage("FOOD UNREACHABLE");
-				Retreat(eRatSpeed_Walk, false, false);
+				Retreat(eRatSpeed_Walk, false, true);
 				RatHandler_ReportUnreachableFood(m_idFindFood_FoodEntityId);
 			}
 		}
