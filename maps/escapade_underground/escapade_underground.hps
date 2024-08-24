@@ -268,7 +268,7 @@ class cScrMap : iScrMap
 	
 	void OnLookAt_OrbActivationAutoEquip(const tString &in asEntity, int alState)
 	{
-		if (alState == 1){
+		if (alState == 1 && !orbUsed){
             cLux_AddDebugMessage("TIMER STARTED");
 			OnTimer_AutoEquipOrb("");
             
@@ -344,8 +344,11 @@ class cScrMap : iScrMap
         return asPickedEntity == "Trigger_OrbActivation";
 	}
 	
+    bool orbUsed = false;
 	bool OnUse_Orb(const tString &in asItemType, const tString &in asItemID, const tString &in asTargetEntity, const tString &in asItemEntity, float afTimeElapsed, float afTimeStep) {
 		cLux_AddDebugMessage("ORB USED");
+        Map_RemoveTimer("OnTimer_AutoEquipOrb");
+        orbUsed = true;
         //Elevator
         Entity_SetActive("Trigger_OrbActivation", false);
         Entity_SetActive("lq_elevator_1_blockbox_*", true);
