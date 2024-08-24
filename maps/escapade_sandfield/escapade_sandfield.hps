@@ -59,8 +59,7 @@ class cScrMap : iScrMap
 	{
 		cVector3f vRot = cVector3f(0, cMath_ToRad(142), 0);
 		cLux_GetCurrentMap().GetWorld().SetSkyboxRotation(vRot);
-		
-		Music_PlayExt("sandfield_ambience", true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_OverrideAll, true);
+		Music_PlayExt_Save("sandfield_ambience", true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_OverrideAll, true);
 		
 		/////////////////////////
 		// Debug
@@ -125,6 +124,8 @@ class cScrMap : iScrMap
 	bool OnTrigger_OutroFade(const tString &in asParent, const tString &in asChild, int alState)
 	{	
 		if (alState == 1) {
+			Music_StopAll(0.0f);
+			cScript_SetGlobalVarString("music_to_play", "");
 			Credits_Start("Credits.cfg","OnEndOfCredits", gsCreditsExitBunkerWithStalkerBg, cVector3f(-0.15,-0.15,1.75f), "credits_calling_of_the_sea.ogg");
 			return false;
 		}
