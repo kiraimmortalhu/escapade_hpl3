@@ -68,6 +68,9 @@ class cScrMap : iScrMap
 		{
 			Item_AddToInventory("DynamoLantern");
 		}
+		
+		Player_SetMoveSpeedMul(0.5f);
+		Player_SetRunSpeedMul(0.5f);
 	}
 
 	//-------------------------------------------------------
@@ -118,62 +121,13 @@ class cScrMap : iScrMap
  
 	//} END MAIN CALLBACKS
  
- 
-	//////////////////////////////////////////////////////////////////////////////////////////
-	// ==============
-	// MAIN FUNCTIONS
-	// ==============
-	//{///////////////////////////////////////////////////////////////////////////////////////
- 
-	//-------------------------------------------------------
- 
-	/*Put any variables that are used in more than one scene here.*/
- 
-	//-------------------------------------------------------
- 
-	/*Put any functions that are used in more than one scene here.*/
- 
-	//-------------------------------------------------------
- 
-	//} END MAIN FUNCTIONS
- 
-	//////////////////////////////////////////////////////////////////////////////////////////
-	// ==============
-	// SCENE X *NAME OF SCENE*
-	// ==============
-	//{//////////////////////////////////////////////////////////////////////////////////////
- 
-		/////////////////////////////////////////
-		// General
-		//{//////////////////////////////////////
-		 
-		//-------------------------------------------------------
-	 
-		/*Put any variables that are used by many events in Scene X here.*/
-	 
-		//-------------------------------------------------------
-	 
-		/*Put any functions that are used in more than one event in Scene X here.*/
-	 
-		//-------------------------------------------------------
-		
-		//} END General	
-	 
-		/////////////////////////////////////////
-		// Event *Name Of Event*
-		//{//////////////////////////////////////
-
-		//-------------------------------------------------------
-
-		/*Put any variables that are only used in Scene X, Event X here.*/
-
-		//-------------------------------------------------------
-
-		/*Put any functions that are only used in Scene X, Event X here.*/
-
-		//-------------------------------------------------------
-
-		//} END Event *Name Of Event*
-	 
-	//} END SCENE X 
+	// to-do: placeholder credits
+	bool OnTrigger_OutroFade(const tString &in asParent, const tString &in asChild, int alState)
+	{	
+		if (alState == 1) {
+			Credits_Start("Credits.cfg","OnEndOfCredits", gsCreditsExitBunkerWithStalkerBg, cVector3f(-0.15,-0.15,1.75f), "credits_calling_of_the_sea.ogg");
+			return false;
+		}
+		return true;
+	}
 }
