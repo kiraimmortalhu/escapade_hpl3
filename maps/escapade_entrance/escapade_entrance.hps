@@ -126,6 +126,8 @@ class cScrMap : iScrMap
             Map_AddTimer("intro_effects_end", 3.5f, "OnTimer_IntroEnd");
             
             PlayerBody_PlayCutsceneAnimation("fall_and_get_up_quickly", false, 0.3f, "", 0.25f);
+            
+            cScript_SetGlobalVarBool("intro_active", false);
         }
 		
 		

@@ -168,6 +168,8 @@ class cScrMap : iScrMap
         //Rat_Attack("enemy_rat_king_1", true, false);
         //Rat_ResetHungerTimer("enemy_rat_king_1");
         //cLux_AddDebugMessage("GENERATOR STATE: " + Generator_GetState());
+        cLux_AddDebugMessage("GENERATOR TIME: "+ Generator_GetFuelTimeLeft(), true);
+        cLux_AddDebugMessage("GENERATOR RUN FOREVER: "+ Generator_GetRunForever(), true);
         Map_RestartCurrentTimer(0.2f);
     }
        
@@ -331,19 +333,14 @@ class cScrMap : iScrMap
 		///////////////////
 		// Generator Sounds
 		if (alState!=1) {
-            if(!bInsideNoEscapeRoom){
-                Sound_Play("Sound_GeneratorOff", 0.f);
+            //Sound_Play("Sound_GeneratorOff", 0.f);
+            
+            // Generator off, set levers off
+            for(int t = 1; t <= 3; t++){
                 
-                // Generator off, set levers off
-            
-                // Skip lever numbers that do not depend on generator
-                for(int t = 1; t <= 10; t++){
-                    if(t != 3){
-                        Lever_SetStuckState("lever"+t+"_portculis", 1, true);
-                    }
-                }
+                Lever_SetStuckState("lever"+t+"_portculis", 1, true);
+                
             }
-            
         
 		}
 	}
@@ -375,18 +372,20 @@ class cScrMap : iScrMap
 		}
 	}
 	
-    bool bInsideNoEscapeRoom = false;
+    
 	bool OnTrigger_LabMusic(const tString &in asParent, const tString &in asChild, int alState)
 	{
 		if (alState == 1) {
             cLux_AddDebugMessage("TRIGGERED LAB MUSIC");
 			Music_PlayExt_Save("conservatory_lab_ambience", true, 0.25f, 1, 3.0f, 0, eMusicPrio_BgAmb, true);
-			Entity_SetActive("Trigger_LabMusic_*", false);
+			
+            Generator_SetRunForever(true);
             
-            // Entered softlock room
-            bInsideNoEscapeRoom = true;
+            Map_AddTimer("Trigger_LabMusic_*", 0.5f, "OnTimer_DisableCollideArea");
 		}
 		
+        
+        
 		return true;
 	}
 	
@@ -404,18 +403,28 @@ class cScrMap : iScrMap
 			}
 			Music_Stop(5.0f, eMusicPrio_BgAmb);
 			SetupMusicAmbienceBasedOnGen();
-			Entity_SetActive("Trigger_LabMusic_*", true);
+            
+            Map_AddTimer("Trigger_LabMusic_*", 0.5f, "OnTimer_EnableCollideArea");
+			//Entity_SetActive("Trigger_LabMusic_*", true);
             
             // Exited softlock room
-            bInsideNoEscapeRoom = false;
-            if(Generator_GetFuelTimeLeft() <= 0.0f){
-                OnStateChange_Generator(0);
-            }
+            
+            
+            Generator_SetRunForever(false);
+            
             
 		}
 		return true;
 	}
 	
+    void OnTimer_DisableCollideArea(const tString &in asTimer){
+        Entity_SetActive(asTimer, false);
+    }
+    
+    void OnTimer_EnableCollideArea(const tString &in asTimer){
+        Entity_SetActive(asTimer, true);
+    }
+    
 	// Labrat triggered
 	void gas_mask_pickup_1_OnPlayerInteract(const tString &in asEntity)
 	{
