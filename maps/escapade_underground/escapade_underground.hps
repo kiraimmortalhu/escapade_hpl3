@@ -679,7 +679,8 @@ class cScrMap : iScrMap
 		bool OnTrigger_RatBossFight(const tString &in asParent, const tString &in asChild, int alState)
 		{
 			if (alState == 1) {
-				Entity_SetActive("Trigger_RatBossFight", false);
+				Map_AddTimer("Trigger_RatBossFight", 0.5f, "OnTimer_DisableCollideArea");
+                //Entity_SetActive("Trigger_RatBossFight", false);
 				Music_PlayExt_Save("underground_ratking_boss", true, 0.5f, 1, 4.0f, 0, eMusicPrio_SceneAmb, true);
 			
 				// rat king
@@ -702,6 +703,8 @@ class cScrMap : iScrMap
 		
 		void ActivateRatKing(){
 			Map_GetEntity("enemy_rat_king_1").SetPosition(cVector3f(-60.872,-81,10.75));
+            
+            Agent_SetSensesActive("enemy_rat_king_1", true);
 			iLuxEntity@ pFeed = Map_GetEntity("RatFeed_2");
 			Rat_Eat("enemy_rat_king_1", pFeed.GetID());
 		}
@@ -712,7 +715,14 @@ class cScrMap : iScrMap
 			
 			Rat_EmergeToFood("enemy_rat_grey_*", pHole.GetID(), pFeed.GetID());
 		}
-
+        
+        void OnTimer_DisableCollideArea(const tString &in asTimer){
+            Entity_SetActive(asTimer, false);
+        }  
+    
+        void OnTimer_EnableCollideArea(const tString &in asTimer){
+            Entity_SetActive(asTimer, true);
+        }
 		//-------------------------------------------------------
 
 		/*Put any variables that are only used in Scene X, Event X here.*/
