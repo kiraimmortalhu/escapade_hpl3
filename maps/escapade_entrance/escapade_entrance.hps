@@ -60,6 +60,8 @@ class cScrMap : iScrMap
 	// Run first time starting map
 	void OnStart()
 	{
+        // Black screen before intro - This prevents broken paintings upon first load
+        Effect_Fade_Out(0.0f);
 		// Any general setup of script / entities
 		// Preload maps
         {
@@ -89,14 +91,21 @@ class cScrMap : iScrMap
 		}
         
         Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
+        
+        
+        // Intro_start
+        cLux_ChangeMap("escapade_ballroom.hpm", "Start_Begin_Ballroom", "", "", "", false);
 	}
 
 	//-------------------------------------------------------
     
+    int imgTrailID;
+    int blurID;
 	////////////////////////////
 	// Run when entering map
 	void OnEnter()
 	{	
+        
         ///////////////////////
 		// Setup player body
 		if (PlayerBody_IsActive() == false)
@@ -105,13 +114,30 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
 		
+        //////////////////////
+        // Intro end
+        if(cScript_GetGlobalVarBool("intro_active")){
+            Effect_Fade_Out(0.0f);
+            Sound_FadeGlobalVolume(1.0f, 10.0f);
+            Sound_FadeGlobalSpeed(1.0f, 10.0f);
+            Effect_Blur_Reset();
+            Effect_ImageTrail_Clear();
+            
+            Map_AddTimer("intro_effects_end", 3.5f, "OnTimer_IntroEnd");
+            
+            PlayerBody_PlayCutsceneAnimation("fall_and_get_up_quickly", false, 0.3f, "", 0.25f);
+        }
 		
 		
 		SetupGenerator();
 		
 		SetupStalkerAppearance();
 		
-		SetupMusicAmbienceBasedOnGen();
+        // Only play music if intro has played
+        if(!cScript_GetGlobalVarBool("intro_active")){
+            SetupMusicAmbienceBasedOnGen();
+        }
+		
         
         // Check for unlocked padlocks and disable them
         for(int t = 1; t <= 10; t++){
@@ -152,6 +178,7 @@ class cScrMap : iScrMap
         
         cLux_AddDebugMessage(""+ cScript_GetGlobalVarBool("padlock_1"));
         cLux_AddDebugMessage("ENTITY COUNT "+ Map_GetEntityCount("padlock_*"));
+        
         
         
         
@@ -224,6 +251,21 @@ class cScrMap : iScrMap
         }
         
         return true;
+    }
+    
+    void OnTimer_IntroEnd(const tString &in asTimer){
+        Effect_Fade_In(5.0f);
+        imgTrailID = Effect_ImageTrail_Start(1.5f, 0.1f, -1.0f, 80.0f);
+        blurID = Effect_Blur_Start(0.1f, 0.1f);
+        
+        Map_AddTimer("introend2", 2.0f, "OnTimer_IntroEnd2");
+        //Effect_Blur_FadeOut(blurID, 12.0f);
+        //Effect_ImageTrail_FadeOut(imgTrailID, 12.0f);
+    }
+    
+    void OnTimer_IntroEnd2(const tString &in asTimer){
+        Effect_Blur_FadeOut(blurID, 12.0f);
+        Effect_ImageTrail_FadeOut(imgTrailID, 12.0f);
     }
     
     void arabic_lock_OnConnectionStateChange(const tString &in asEntity, int alState){
