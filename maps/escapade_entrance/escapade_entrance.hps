@@ -61,7 +61,7 @@ class cScrMap : iScrMap
 	void OnStart()
 	{
         // Black screen before intro - This prevents broken paintings upon first load
-        Effect_Fade_Out(0.0f);
+        //Effect_Fade_Out(0.0f);
 		// Any general setup of script / entities
 		// Preload maps
         {
@@ -94,7 +94,7 @@ class cScrMap : iScrMap
         
         
         // Intro_start
-        cLux_ChangeMap("escapade_ballroom.hpm", "Start_Begin_Ballroom", "", "", "", false);
+        //cLux_ChangeMap("escapade_ballroom.hpm", "Start_Begin_Ballroom", "", "", "", false);
 	}
 
 	//-------------------------------------------------------

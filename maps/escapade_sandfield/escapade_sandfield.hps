@@ -126,9 +126,19 @@ class cScrMap : iScrMap
 		if (alState == 1) {
 			Music_StopAll(0.0f);
 			cScript_SetGlobalVarString("music_to_play", "");
-			Credits_Start("Credits.cfg","OnEndOfCredits", gsCreditsExitBunkerWithStalkerBg, cVector3f(-0.15,-0.15,1.75f), "credits_calling_of_the_sea.ogg");
+			Credits_Start("Credits.cfg","OnEndOfCredits", "", cVector3f(-0.15,-0.15,1.75f), "credits_calling_of_the_sea.ogg");
 			return false;
 		}
 		return true;
+	}
+	
+	void OnEndOfCredits()
+	{
+		if (!cLux_ScriptDebugOn())
+		{
+			GameStats_Save();
+			GameStats_SetGuiActive(true);
+			//Map_ChangeMap("main_menu.hpm","PlayerStartArea_1","","",false);
+		}
 	}
 }
