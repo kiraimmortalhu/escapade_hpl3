@@ -67,7 +67,8 @@ class cScrMap : iScrMap
 	// Run first time starting map
 	void OnStart()
 	{
-		// Any general setup of script / entities
+		Music_StopAll(0.0f);
+        // Any general setup of script / entities
 		
 		PlayerBody_SetActive(false);
 		
@@ -158,6 +159,7 @@ class cScrMap : iScrMap
     {
         PerformBlink_Slower();
         blurID = Effect_Blur_Start(0.1f, 5.0f);
+        
         return false;
     }
     
@@ -166,6 +168,7 @@ class cScrMap : iScrMap
     {
         PerformBlink_Slower();
         imageTrailID = Effect_ImageTrail_Start(2.0f, 10.0f, -1.0f, 80.0f);
+        
         return true;
     }
     
@@ -189,14 +192,9 @@ class cScrMap : iScrMap
     
     bool OnPassedCameraNode_Intro14(const tString &in asEntity, int alDirection)
     {
-        cLux_AddDebugMessage("MAP CHANGE");
         
-        PlayerBody_SetActive(true);
-        Player_SetActive(true);
-        PlayerBody_SetModel("player_rebirth_ghoul.ent");
         
-        CameraAnimation_End();
-        cLux_ChangeMap("escapade_entrance.hpm", "IntroEnd", "MapTransfer_BallroomIntro", "", "", false, 6.0f);
+        
         return true;
     }
     
@@ -204,6 +202,16 @@ class cScrMap : iScrMap
     {   
         //cLux_ChangeMap("escapade_entrance.hpm", "IntroEnd", "MapTransfer_BallroomIntro", "", "", true, 6.0f);
         //Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_BallroomIntro");
+        cScript_SetGlobalVarBool("intro_active", true);
+        
+        
+        cLux_AddDebugMessage("MAP CHANGE");
+        PlayerBody_SetActive(true);
+        Player_SetActive(true);
+        PlayerBody_SetModel("player_rebirth_ghoul.ent");
+        
+        CameraAnimation_End();
+        cLux_ChangeMap("escapade_entrance.hpm", "IntroEnd", "", "", "", false, 6.0f);
         return true;
     }
 	////////////////////////////
