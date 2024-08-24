@@ -56,12 +56,14 @@ class cScrMap : iScrMap
 	
 	//-------------------------------------------------------
     
+    bool bFirstLoad;
 	////////////////////////////
 	// Run first time starting map
 	void OnStart()
 	{
         // Black screen before intro - This prevents broken paintings upon first load
         //Effect_Fade_Out(0.0f);
+
 		// Any general setup of script / entities
 		// Preload maps
         {
@@ -92,7 +94,23 @@ class cScrMap : iScrMap
         
         Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
         
+        //////////////////////
+        // Intro end
+        PlayerBody_SetActive(true);
+        Player_SetActive(true);
         
+        Effect_Fade_Out(0.0f);
+        Sound_FadeGlobalVolume(1.0f, 10.0f);
+        Sound_FadeGlobalSpeed(1.0f, 10.0f);
+        Effect_Blur_Reset();
+        Effect_ImageTrail_Clear();
+        
+        Map_AddTimer("intro_effects_end", 3.5f, "OnTimer_IntroEnd");
+        
+        PlayerBody_PlayCutsceneAnimation("fall_and_get_up_quickly", false, 0.3f, "", 0.25f);
+            
+        
+
         // Intro_start
         //cLux_ChangeMap("escapade_ballroom.hpm", "Start_Begin_Ballroom", "", "", "", false);
 	}
@@ -105,7 +123,6 @@ class cScrMap : iScrMap
 	// Run when entering map
 	void OnEnter()
 	{	
-        
         ///////////////////////
 		// Setup player body
 		if (PlayerBody_IsActive() == false)
@@ -114,29 +131,15 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
 		
-        //////////////////////
-        // Intro end
-        if(cScript_GetGlobalVarBool("intro_active")){
-            Effect_Fade_Out(0.0f);
-            Sound_FadeGlobalVolume(1.0f, 10.0f);
-            Sound_FadeGlobalSpeed(1.0f, 10.0f);
-            Effect_Blur_Reset();
-            Effect_ImageTrail_Clear();
-            
-            Map_AddTimer("intro_effects_end", 3.5f, "OnTimer_IntroEnd");
-            
-            PlayerBody_PlayCutsceneAnimation("fall_and_get_up_quickly", false, 0.3f, "", 0.25f);
-        }
+        
 		
 		
 		SetupGenerator();
 		
 		SetupStalkerAppearance();
 		
-        // Only play music if intro has played
-        if(!cScript_GetGlobalVarBool("intro_active")){
-            SetupMusicAmbienceBasedOnGen();
-        }
+        SetupMusicAmbienceBasedOnGen();
+        
 		
         
         // Check for unlocked padlocks and disable them
