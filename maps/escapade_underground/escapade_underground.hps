@@ -419,6 +419,8 @@ class cScrMap : iScrMap
 		Sound_CreateAtEntity("", "DW_tunnel/portal/portal_open", asTargetEntity);
         MoveObject_SetStateExt("lq_elevator_1", 5.0f, 2.0f, 4.0f, 4.0f, false);
         
+        Item_Unequip(ItemType_GetFirstInInventory("OrbRed"));
+        
 		//Item_RemoveFromInventory(ItemType_GetFirstInInventory(asItemType));
 		return true;
 	}
