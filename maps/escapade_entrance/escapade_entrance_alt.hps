@@ -126,6 +126,8 @@ class cScrMap : iScrMap
         
         Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
 		
+		cScript_SetGlobalVarString("music_to_play", "");
+		
 		Game_AutoSave();
 	}
 
@@ -147,7 +149,7 @@ class cScrMap : iScrMap
 		
 		SetupStalkerAppearance();
 		
-		Music_StopAll(12.0f);
+		Music_StopAll(3.0f);
         
         
         //Get rocks in ballroom map

@@ -82,6 +82,11 @@ class cScrMap : iScrMap
 		}
         
         Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
+		
+		// deactivate elevator for now
+		Entity_SetActive("lq_elevator*", false);
+		Entity_SetActive("lq_elevator_midway", true);
+		Light_SetVisible("Light_Point_22", false);
 	}
 
 	//-------------------------------------------------------
@@ -98,27 +103,21 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
         
+		// making sure no softlock due to lock left closed, to-do: testing
+		SwingDoor_SetOpenAmount("roman_door_brick_1", 0.5);
+		
         // Fart room
 		cParticleSystem@ pPS = mBaseObj.GetWorld().GetParticleSystem("PoisonC_Test");
 		cBoundingVolume@ pAreaBounds = Map_GetEntity("Area_GasRoom").GetMainBody().GetBoundingVolume();
 		EnvironmentalDamage_AddGasArea(pPS.GetID(), pAreaBounds.GetMin(), pAreaBounds.GetMax(), false);
-		
-        //cLux_AddDebugMessage("PS ID: "+pPS.GetID());
-		cLux_AddDebugMessage("MIN X: "+pAreaBounds.GetMin().x);
-		cLux_AddDebugMessage("MIN Y: "+pAreaBounds.GetMin().y);
-		cLux_AddDebugMessage("MIN Z: "+pAreaBounds.GetMin().z);
-        cLux_AddDebugMessage("MAX X: "+pAreaBounds.GetMax().x);
-        cLux_AddDebugMessage("MAX Y: "+pAreaBounds.GetMax().y);
-        cLux_AddDebugMessage("MAX Z: "+pAreaBounds.GetMax().z);
-        cLux_AddDebugMessage("PREVIOUS IGNORE GAS DAMAGE: "+Player_GetIgnoreGasDamage()); 
-		Player_SetIgnoreGasDamage(false); 
-        cLux_AddDebugMessage("CURRENT IGNORE GAS DAMAGE: "+Player_GetIgnoreGasDamage()); 
-        //Music_Play("Bunker_Arsenal.ogg", 1.0f, eMusicPrio_BgAmb);
+
 		Music_PlayExt_Save("subterranean_transition", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
         
         //Collide callbacks
         Entity_AddCollideCallback("Death_Pit_*", "Player", "DeathFall");
-		Entity_AddCollideCallback("Death_Special_Pit", "Player", "DeathFallSpecial");
+		
+		// to-do fix this
+		//Entity_AddCollideCallback("Death_Special_Pit", "Player", "DeathFallSpecial");
         
         Player_SetNightVisionEnabled(false);
 		
@@ -137,79 +136,15 @@ class cScrMap : iScrMap
             }
             
         }
-        
-                //--ColorGrading start--
-        
-        //Debug: test enable entrance_alt
-        //cScript_SetGlobalVarBool("entrance_alt_unlocked", true);
-        
-        
-        float afKey;
-        float afGammaCorrection;
-        float afFilmGrainIntensity;
-        float afBrightPass;
-        float afBloomWidth;
-        cColor avBloomTint;
-        float afBloomFalloff;
-
-        if(cScript_GetGlobalVarBool("entrance_alt_unlocked")){ 
-            // Set ToneMapping values to match entrance_alt
-            float afKey = 0.1f;
-            float afGammaCorrection = 0.5f;
-            float afFilmGrainIntensity = 1.0f;
-            float afBrightPass = 0.75f;
-            float afBloomWidth = 128.0;
-            cColor avBloomTint;
-            avBloomTint.a = 1.0f;
-            avBloomTint.r = 1.0f;
-            avBloomTint.g = 1.0f;
-            avBloomTint.b = 1.0f;
-            float afBloomFalloff = 0.5f;
-            cLux_GetViewport().GetToneMappingEffect().SetParams(afKey, afGammaCorrection, afFilmGrainIntensity, afBrightPass, afBloomWidth, avBloomTint, afBloomFalloff);
-            cLux_GetViewport().GetToneMappingEffect().SetGradingTexture(1, "bunker_prototype_01.dds", 1.0f);
-            
-            cLux_GetViewport().GetToneMappingEffect().SetActive(true);
-            cLux_GetViewport().GetToneMappingEffect().SetColorGradingActive(true);
-            cLux_GetViewport().GetToneMappingEffect().FadeWindowExposure(0.f, 3.25f);
-            cLux_GetViewport().GetToneMappingEffect().SetBloomActive(true);
-            
-            cLux_AddDebugMessage("CHANGED TONEMAPPING");
-            
-            //Fog change
-        cColor fogColor;
-        fogColor.a = 1.0f;
-        fogColor.r = 0.193f;
-        fogColor.b = 0.263f;
-        fogColor.g = 0.179f;
-        
-        cColor secondaryFogColor;
-        secondaryFogColor.a = 1.0f;
-        secondaryFogColor.r = 0.204f;
-        secondaryFogColor.g = 0.081f;
-        secondaryFogColor.b = 0.051f;
-        
-        Map_SetFogProperties(0.f, 100.0f, 2.0f, fogColor, false);
-        Map_SetSecondaryFogProperties(10.0f, 50.0f, 1.5f, secondaryFogColor);
-        
-        }
-        
-        
-        cLux_GetViewport().GetToneMappingEffect().GetParams(afKey, afGammaCorrection, afFilmGrainIntensity, afBrightPass, afBloomWidth, avBloomTint, afBloomFalloff);
-        
-        cLux_AddDebugMessage("afKey: "+ afKey);
-        cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
-        cLux_AddDebugMessage("afFilmGrainIntensity: "+ afFilmGrainIntensity);
-        cLux_AddDebugMessage("afBrightPass: "+ afBrightPass);
-        cLux_AddDebugMessage("afBloomWidth: "+ afBloomWidth);
-        cLux_AddDebugMessage("avBloomTint A: "+ avBloomTint.a);
-        cLux_AddDebugMessage("avBloomTint R: "+ avBloomTint.r);
-        cLux_AddDebugMessage("avBloomTint G: "+ avBloomTint.g);
-        cLux_AddDebugMessage("avBloomTint B: "+ avBloomTint.b);
-        cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
-        
-        cLux_AddDebugMessage("EXPOSURE: "+ cLux_GetViewport().GetToneMappingEffect().GetExposure());
-        
-        //--ColorGrading end--
+		
+		if(cScript_GetGlobalVarBool("entrance_alt_unlocked")){ 
+			SetupColorgrading_EntranceAlt();
+			Entity_SetActive("Trigger_ThreatCorridors_Alt", true);
+			Entity_SetActive("Trigger_ThreatCorridors", false);
+		} else {
+			Entity_SetActive("Trigger_ThreatCorridors_Alt", false);
+			Entity_SetActive("Trigger_ThreatCorridors", true);
+		}
         
         //Debug
         //Map_AddTimer("checkc", 0.0f, "DebugCheck");
@@ -419,6 +354,7 @@ class cScrMap : iScrMap
 		Sound_CreateAtEntity("", "DW_tunnel/portal/portal_open", asTargetEntity);
         MoveObject_SetStateExt("lq_elevator_1", 5.0f, 2.0f, 4.0f, 4.0f, false);
         
+		Item_Unequip(ItemType_GetFirstInInventory("OrbRed"));
 		//Item_RemoveFromInventory(ItemType_GetFirstInInventory(asItemType));
 		return true;
 	}
@@ -538,6 +474,8 @@ class cScrMap : iScrMap
 	//////////////////// Generator end
 	
 	
+	/////////// STALKER
+	
     void DebugCheck(const tString &in asTimer){
         /*
         cLux_AddDebugMessage("AREA X: " + Entity_GetPosition("Trigger_Leave_ThreatCorridors_Halls").x, true);
@@ -637,10 +575,22 @@ class cScrMap : iScrMap
         //Terror_RemoveEnemy(Map_GetEntityID("stalker_test"));
         //Terror_RemoveHuntingEnemy(Map_GetEntityID("stalker_test"));
         Stalker_SetEmergeAllowed("stalker_test", false);
-        if(!Music_IsSongPlaying("subterranean_transition")){
-            Music_PlayExt_Save("subterranean_transition", true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_BgAmb, true);
-        }
 		cLux_AddDebugMessage("Stalker is now DISABLED");
+	}
+	
+	//// end stalker
+	
+	//////// Music events
+	
+	bool OnTrigger_HallMusic(const tString &in asParent, const tString &in asChild, int alState)
+	{
+		if (alState == 1) {
+			Music_PlayExt_Save("subterranean_halls_reveal", true, 0.45f, 1, 4.0f, 0, eMusicPrio_BgAmb, true);
+		}
+		else if (alState == -1) {
+			Music_PlayExt_Save("subterranean_transition", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
+		}
+		return true;
 	}
 	
     
@@ -663,7 +613,7 @@ class cScrMap : iScrMap
 	bool DeathFallSpecial(const tString &in asParent, const tString &in asChild, int alState){
         if(alState == 1){
             cLux_AddDebugMessage("Played speed: "+ Player_GetSpeed());
-			if (Player_GetSpeed() > 8) {
+			if (Player_GetSpeed() > 5) {
 				Seq_FallToDeath(asParent);
 			}
         }
@@ -700,9 +650,10 @@ class cScrMap : iScrMap
         Sequence_Begin("Seq_MapChangeElevator", mSeqDataMapChangeElevator);
         if(Sequence_DoStepAndWait(3.0f)){
             Effect_Fade_Out(2.0f);
+			Music_Stop(3.0f, eMusicPrio_SceneAmb);
         }        
         else if(Sequence_DoStepAndWait(0.5f)){
-            Map_ChangeMap("escapade_entrance_alt.hpm", "Start_Begin", "", "", true, false);
+            Map_ChangeMap("escapade_entrance_alt.hpm", "Start_Begin_Ballroom", "", "", true, false);
             Sequence_End();
         }
         Sequence_End();
@@ -723,12 +674,22 @@ class cScrMap : iScrMap
 		{
 			if (alState == 1) {
 				Entity_SetActive("Trigger_RatBossFight", false);
+				Music_PlayExt_Save("underground_ratking_boss", true, 0.5f, 1, 4.0f, 0, eMusicPrio_SceneAmb, true);
 			
 				// rat king
 				ActivateRatKing();
 			
 				// minions
 				ActivateRatMinions();
+				
+				// elevator stuff
+				Entity_SetActive("lq_elevator*", true);
+				Entity_SetActive("lq_elevator_1_blockbox_*", false);
+				Entity_SetActive("lq_elevator_midway", false);
+				Light_SetVisible("Light_Point_22", true);
+				
+				// blocking alternative exits
+				Entity_SetActive("bossfight_block_*", true);
 			}
 			return true;
 		}
@@ -759,4 +720,73 @@ class cScrMap : iScrMap
 		//} END Event *Name Of Event*
 	 
 	//} END SCENE X 
+	
+	void SetupColorgrading_EntranceAlt() {
+		float afKey;
+        float afGammaCorrection;
+        float afFilmGrainIntensity;
+        float afBrightPass;
+        float afBloomWidth;
+        cColor avBloomTint;
+        float afBloomFalloff;
+
+        if(cScript_GetGlobalVarBool("entrance_alt_unlocked")){ 
+            // Set ToneMapping values to match entrance_alt
+            float afKey = 0.1f;
+            float afGammaCorrection = 0.5f;
+            float afFilmGrainIntensity = 1.0f;
+            float afBrightPass = 0.75f;
+            float afBloomWidth = 128.0;
+            cColor avBloomTint;
+            avBloomTint.a = 1.0f;
+            avBloomTint.r = 1.0f;
+            avBloomTint.g = 1.0f;
+            avBloomTint.b = 1.0f;
+            float afBloomFalloff = 0.5f;
+            cLux_GetViewport().GetToneMappingEffect().SetParams(afKey, afGammaCorrection, afFilmGrainIntensity, afBrightPass, afBloomWidth, avBloomTint, afBloomFalloff);
+            cLux_GetViewport().GetToneMappingEffect().SetGradingTexture(1, "bunker_prototype_01.dds", 1.0f);
+            
+            cLux_GetViewport().GetToneMappingEffect().SetActive(true);
+            cLux_GetViewport().GetToneMappingEffect().SetColorGradingActive(true);
+            cLux_GetViewport().GetToneMappingEffect().FadeWindowExposure(0.f, 3.25f);
+            cLux_GetViewport().GetToneMappingEffect().SetBloomActive(true);
+            
+            cLux_AddDebugMessage("CHANGED TONEMAPPING");
+            
+            //Fog change
+        cColor fogColor;
+        fogColor.a = 1.0f;
+        fogColor.r = 0.193f;
+        fogColor.b = 0.263f;
+        fogColor.g = 0.179f;
+        
+        cColor secondaryFogColor;
+        secondaryFogColor.a = 1.0f;
+        secondaryFogColor.r = 0.204f;
+        secondaryFogColor.g = 0.081f;
+        secondaryFogColor.b = 0.051f;
+        
+        Map_SetFogProperties(0.f, 100.0f, 2.0f, fogColor, false);
+        Map_SetSecondaryFogProperties(10.0f, 50.0f, 1.5f, secondaryFogColor);
+        
+        }
+        
+        
+        cLux_GetViewport().GetToneMappingEffect().GetParams(afKey, afGammaCorrection, afFilmGrainIntensity, afBrightPass, afBloomWidth, avBloomTint, afBloomFalloff);
+        
+        cLux_AddDebugMessage("afKey: "+ afKey);
+        cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
+        cLux_AddDebugMessage("afFilmGrainIntensity: "+ afFilmGrainIntensity);
+        cLux_AddDebugMessage("afBrightPass: "+ afBrightPass);
+        cLux_AddDebugMessage("afBloomWidth: "+ afBloomWidth);
+        cLux_AddDebugMessage("avBloomTint A: "+ avBloomTint.a);
+        cLux_AddDebugMessage("avBloomTint R: "+ avBloomTint.r);
+        cLux_AddDebugMessage("avBloomTint G: "+ avBloomTint.g);
+        cLux_AddDebugMessage("avBloomTint B: "+ avBloomTint.b);
+        cLux_AddDebugMessage("afBloomFalloff: "+ afBloomFalloff);
+        
+        cLux_AddDebugMessage("EXPOSURE: "+ cLux_GetViewport().GetToneMappingEffect().GetExposure());
+        
+        //--ColorGrading end--
+	}
 }
