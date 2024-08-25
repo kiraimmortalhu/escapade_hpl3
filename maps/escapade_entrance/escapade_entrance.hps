@@ -76,6 +76,7 @@ class cScrMap : iScrMap
 		// for storage door code locker, "if" for testing safety only so the code never gets overwritten
 		if (cScript_GetGlobalVarInt("StorageCombination") == 0) {
 			cScript_SetGlobalVarInt("StorageCombination", cMath_RandRectl(1, 9999));
+            cLux_AddDebugMessage("COMBINATION: "+ cScript_GetGlobalVarInt("StorageCombination"));
 		}
 		
         
@@ -109,7 +110,7 @@ class cScrMap : iScrMap
         
         PlayerBody_PlayCutsceneAnimation("fall_and_get_up_quickly", false, 0.3f, "", 0.25f);
             
-        
+        Entity_PlayAnimation("orb_holder", "Open");
 
         // Intro_start
         //cLux_ChangeMap("escapade_ballroom.hpm", "Start_Begin_Ballroom", "", "", "", false);
