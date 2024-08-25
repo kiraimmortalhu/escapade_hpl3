@@ -94,9 +94,9 @@ const tString gsRatAnim_TurnAround = "turn_180";
 
 //----------------------------------------------------------------------
 
-const float gfRat_EatTimeMin = 10000.0f;
-const float gfRat_EatTimeMax = 100000.0f;
-const float gfRat_EatBodyActivationDist = 12.0f;
+const float gfRat_EatTimeMin = 100000.0f;
+const float gfRat_EatTimeMax = 1000000.0f;
+const float gfRat_EatBodyActivationDist = 50.0f;
 const float gfRat_AlertDistMinSqr = 10.0f*10.0f;
 const float gfRat_ForceAttackDistSqr = 6.5f * 6.5f;
 const float gfRat_AlertTimeMin = 0.0f;
@@ -133,7 +133,7 @@ const float gfRat_SmellFoodTimeMin = 20.5f;
 const float gfRat_SmellFoodTimeMax = 50.f;
 const float gfRat_SmellForceAttackPlayerMinDistSqr = 5.5f;
 const int glRat_SkipRetreatMinAttackingRatNum = 0;
-const float gfRat_ThreatenedDistMax = 6.f; 
+const float gfRat_ThreatenedDistMax = 10.f; 
 const float gfRat_ThreatenedDistMin = 1.f;
 const float gfRat_ThreatenedDistMaxSqr = gfRat_ThreatenedDistMax * gfRat_ThreatenedDistMax; 
 const float gfRat_ThreatenedDistMinSqr = gfRat_ThreatenedDistMin * gfRat_ThreatenedDistMin;
@@ -146,7 +146,7 @@ const float gfRat_FreeSlotDelay_Brief = 10.0f;
 const float gfRat_FreeSlotDelay_Death = 60.0f * 5.0f;
 
 const float gfRat_StalkPlayerMinDistSqr = 3.0f*3.0f;
-const float gfRat_StalkPlayerMaxDistSqr = 7.0f*7.0f;
+const float gfRat_StalkPlayerMaxDistSqr = 15.0f*15.0f;
 const float gfRat_StalkPlayerFleeDistSqr = 1.75f*1.75f;
 const float gfRat_StalkPlayerFollowTime = 7.5f;
 const float gfRat_StalkPlayerAttackTime = 1.0f;
