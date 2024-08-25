@@ -94,8 +94,8 @@ const tString gsRatAnim_TurnAround = "turn_180";
 
 //----------------------------------------------------------------------
 
-const float gfRat_EatTimeMin = 60.0f;
-const float gfRat_EatTimeMax = 120.0f;
+const float gfRat_EatTimeMin = 10000.0f;
+const float gfRat_EatTimeMax = 100000.0f;
 const float gfRat_EatBodyActivationDist = 12.0f;
 const float gfRat_AlertDistMinSqr = 10.0f*10.0f;
 const float gfRat_ForceAttackDistSqr = 6.5f * 6.5f;
@@ -608,7 +608,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 		mvDead_HitOrigin = avOrigin;
 		msDead_Anim = "";
 		mbDead_AnimIsPose = false;
-		
+        
 		/////////////////
 		// Gun
 		if (apDamageProps.mDamageType == eDamageType_Gun)
@@ -639,6 +639,8 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			cLux_AddDebugMessage("(" + mBaseObj.GetName() + ") Shot by gun!");
 			cLux_AddDebugMessage("HEALTH REMAINING: " + mBaseObj.GetHealth());
 			cLux_AddAIDebugMessage("(" + mBaseObj.GetName() + ") Shot by gun!");
+            
+            
 		}
 		
 		/////////////////
@@ -738,6 +740,8 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 				//Retreat(eRatSpeed_Run, false, true);
 			}
 		}
+        
+        
 	}
 	
 	//------------------------------------------------------------
@@ -1631,7 +1635,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 	{
         //DoctorD Edit: changed state from threatened to attack
 		if(!mBaseObj.Timer_Exists("ratk_attack_cooldown")){
-            mpStateMachine.ChangeState(eRatState_Attack);
+            mpStateMachine.ChangeState(eRatState_Hunt);
         }
         mBaseObj.Timer_Add("ratk_attack_cooldown", 1.0f, "", false, false);
 	}
@@ -1714,14 +1718,14 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 				break;
 			case eRatState_Eat:
 				mpStateMachine.AddTimer("ReactToGunShot", cMath_RandRectf(0.1, 0.75));
-                mpStateMachine.ChangeState(eRatState_Attack);
+                mpStateMachine.ChangeState(eRatState_Hunt);
 				break;
 			case eRatState_Hunt:
 				mpStateMachine.ChangeState(eRatState_Hunt);
 				break;
 			default:
 				//Retreat(eRatSpeed_Run, true, false);
-                mpStateMachine.ChangeState(eRatState_Attack);
+                mpStateMachine.ChangeState(eRatState_Hunt);
 				break;
 		}
 	}

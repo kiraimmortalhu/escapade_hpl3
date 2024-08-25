@@ -2588,34 +2588,6 @@
                     <Var ObjectId="301991063" Name="BurntEntity" Value="" />
                 </UserVariables>
             </Area>
-            <Area ID="301991069" Name="Trigger_RatBossFight" CreStamp="1724435955" ModStamp="1724436316" WorldPos="-70.5 -77.25 3" Rotation="0 0 0" Scale="8.75 8.5 10.75" Active="true" Mesh="" UID="18 6721 301991069" AreaType="Trigger">
-                <UserVariables>
-                    <Var ObjectId="301991069" Name="Note" Value="" />
-                    <Var ObjectId="301991069" Name="BlocksLineOfSight" Value="false" />
-                    <Var ObjectId="301991069" Name="EventInstanceTag" Value="" />
-                    <Var ObjectId="301991069" Name="UserVar" Value="" />
-                    <Var ObjectId="301991069" Name="Static" Value="false" />
-                    <Var ObjectId="301991069" Name="QuickSave" Value="false" />
-                    <Var ObjectId="301991069" Name="FullGameSave" Value="false" />
-                    <Var ObjectId="301991069" Name="CC_Entities" Value="player" />
-                    <Var ObjectId="301991069" Name="CC_Funcs" Value="OnTrigger_RatBossFight" />
-                    <Var ObjectId="301991069" Name="ParentAttachEntity" Value="" />
-                    <Var ObjectId="301991069" Name="ParentAttachUseRotation" Value="true" />
-                    <Var ObjectId="301991069" Name="ParentAttachBody" Value="" />
-                    <Var ObjectId="301991069" Name="ParentAttachLocked" Value="false" />
-                    <Var ObjectId="301991069" Name="PlayerLookAtCallback" Value="" />
-                    <Var ObjectId="301991069" Name="PlayerLookAtCallbackAutoRemove" Value="true" />
-                    <Var ObjectId="301991069" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
-                    <Var ObjectId="301991069" Name="PlayerLookAtCheckRayIntersection" Value="true" />
-                    <Var ObjectId="301991069" Name="PlayerLookAtMaxDistance" Value="-1" />
-                    <Var ObjectId="301991069" Name="PlayerLookAtCallbackDelay" Value="0" />
-                    <Var ObjectId="301991069" Name="PlayerInteractCallback" Value="" />
-                    <Var ObjectId="301991069" Name="PlayerInteractCallbackAutoRemove" Value="false" />
-                    <Var ObjectId="301991069" Name="CanInteractWithoutCallback" Value="false" />
-                    <Var ObjectId="301991069" Name="MaxFocusDistance" Value="-1" />
-                    <Var ObjectId="301991069" Name="CustomInteractIcon" Value="Default" />
-                </UserVariables>
-            </Area>
             <Area ID="301991070" Name="RatFeed_2" CreStamp="1724447667" ModStamp="1724447719" WorldPos="81.25 -13.25 -61.2889" Rotation="0 0 0" Scale="1 0.5 2.56181" Active="true" Mesh="" UID="18 6736 301991070" AreaType="RatFeed">
                 <UserVariables>
                     <Var ObjectId="301991070" Name="AttractEnabled" Value="true" />
@@ -2845,7 +2817,7 @@
                     <Var ObjectId="318767108" Name="CustomInteractIcon" Value="Default" />
                 </UserVariables>
             </Area>
-            <Area ID="318767119" Name="debugitem_Trigger_2" CreStamp="1722971954" ModStamp="1724456998" WorldPos="-68 -80.75 1.25" Rotation="0 0 0" Scale="1 1 1" Active="false" Mesh="" UID="19 6670 318767119" AreaType="Trigger">
+            <Area ID="318767119" Name="debugitem_Trigger_2" CreStamp="1722971954" ModStamp="1724538048" WorldPos="-67.471 -80.75 -1.26877" Rotation="0 0 0" Scale="1 1 1" Active="false" Mesh="" UID="19 6670 318767119" AreaType="Trigger">
                 <UserVariables>
                     <Var ObjectId="318767119" Name="Note" Value="" />
                     <Var ObjectId="318767119" Name="BlocksLineOfSight" Value="false" />
@@ -2933,6 +2905,237 @@
                 <UserVariables>
                     <Var ObjectId="318767143" Name="Note" Value="" />
                     <Var ObjectId="318767143" Name="Crouching" Value="false" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767148" Name="RatKing_Start" CreStamp="1724537159" ModStamp="1724553241" WorldPos="-68 -81.375 3" Rotation="-0 1.57128 -0" Scale="1 1 1" Active="false" Mesh="" UID="19 6690 318767148" AreaType="Trigger">
+                <UserVariables>
+                    <Var ObjectId="318767148" Name="Note" Value="" />
+                    <Var ObjectId="318767148" Name="BlocksLineOfSight" Value="false" />
+                    <Var ObjectId="318767148" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="318767148" Name="UserVar" Value="" />
+                    <Var ObjectId="318767148" Name="Static" Value="false" />
+                    <Var ObjectId="318767148" Name="QuickSave" Value="false" />
+                    <Var ObjectId="318767148" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="318767148" Name="CC_Entities" Value="enemy_rat_king_1" />
+                    <Var ObjectId="318767148" Name="CC_Funcs" Value="OnCollide_EnableHunt" />
+                    <Var ObjectId="318767148" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="318767148" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="318767148" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="318767148" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="318767148" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="318767148" Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                    <Var ObjectId="318767148" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="318767148" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="318767148" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="318767148" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="318767148" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="318767148" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="318767148" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="318767148" Name="MaxFocusDistance" Value="-1" />
+                    <Var ObjectId="318767148" Name="CustomInteractIcon" Value="None" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767149" Name="Trigger_RatAggro" CreStamp="1724539394" ModStamp="1724544913" WorldPos="-63.5 -81 0" Rotation="0 0 0" Scale="1.75 1 1" Active="false" Mesh="" UID="19 6689 318767149" AreaType="Trigger">
+                <UserVariables>
+                    <Var ObjectId="318767149" Name="Note" Value="" />
+                    <Var ObjectId="318767149" Name="BlocksLineOfSight" Value="false" />
+                    <Var ObjectId="318767149" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="318767149" Name="UserVar" Value="" />
+                    <Var ObjectId="318767149" Name="Static" Value="false" />
+                    <Var ObjectId="318767149" Name="QuickSave" Value="false" />
+                    <Var ObjectId="318767149" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="318767149" Name="CC_Entities" Value="enemy_rat_king_1" />
+                    <Var ObjectId="318767149" Name="CC_Funcs" Value="OnCollide_EnableHunt" />
+                    <Var ObjectId="318767149" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="318767149" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="318767149" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="318767149" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="318767149" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="318767149" Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                    <Var ObjectId="318767149" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="318767149" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="318767149" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="318767149" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="318767149" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="318767149" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="318767149" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="318767149" Name="MaxFocusDistance" Value="-1" />
+                    <Var ObjectId="318767149" Name="CustomInteractIcon" Value="Default" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767150" Name="PathNode_698" CreStamp="1724539859" ModStamp="1724539864" WorldPos="-74 -81.375 8" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="19 6113 318767150" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="318767152" Name="PathNode_699" CreStamp="1724541183" ModStamp="1724541316" WorldPos="-72.25 -78.625 3.375" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="19 6736 318767152" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="318767154" Name="PathNode_700" CreStamp="1724541300" ModStamp="1724541311" WorldPos="-71.375 -78.625 3.375" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="19 6738 318767154" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="318767155" Name="PathNode_701" CreStamp="1724541312" ModStamp="1724541314" WorldPos="-73 -78.625 3.375" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="19 6369 318767155" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="318767156" Name="PathNode_702" CreStamp="1724541317" ModStamp="1724541320" WorldPos="-72.25 -78.625 2.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="19 6739 318767156" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="318767157" Name="PathNode_712" CreStamp="1724541321" ModStamp="1724541323" WorldPos="-71.5 -78.625 2.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="19 6737 318767157" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="318767158" Name="PathNode_713" CreStamp="1724541325" ModStamp="1724541327" WorldPos="-73.125 -78.625 2.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="19 6740 318767158" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="318767159" Name="Trigger_RatBossFight_1" CreStamp="1724541818" ModStamp="1724541858" WorldPos="-55.5 -77.25 3" Rotation="0 0 0" Scale="1.75 8.5 23" Active="true" Mesh="" UID="19 6721 318767159" AreaType="Trigger">
+                <UserVariables>
+                    <Var ObjectId="318767159" Name="Note" Value="" />
+                    <Var ObjectId="318767159" Name="BlocksLineOfSight" Value="false" />
+                    <Var ObjectId="318767159" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="318767159" Name="UserVar" Value="" />
+                    <Var ObjectId="318767159" Name="Static" Value="false" />
+                    <Var ObjectId="318767159" Name="QuickSave" Value="false" />
+                    <Var ObjectId="318767159" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="318767159" Name="CC_Entities" Value="player" />
+                    <Var ObjectId="318767159" Name="CC_Funcs" Value="OnTrigger_RatBossFight" />
+                    <Var ObjectId="318767159" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="318767159" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="318767159" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="318767159" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="318767159" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="318767159" Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                    <Var ObjectId="318767159" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="318767159" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="318767159" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="318767159" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="318767159" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="318767159" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="318767159" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="318767159" Name="MaxFocusDistance" Value="-1" />
+                    <Var ObjectId="318767159" Name="CustomInteractIcon" Value="Default" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767162" Name="RatKCutscene_1" CreStamp="1724542381" ModStamp="1724542835" WorldPos="-55 -79.5 2.875" Rotation="0 4.71239 0" Scale="0.25 0.25 0.5" Active="true" Mesh="" UID="19 6800 318767162" AreaType="CameraAnimation">
+                <UserVariables>
+                    <Var ObjectId="318767162" Name="Note" Value="" />
+                    <Var ObjectId="318767162" Name="MaxYaw" Value="45" />
+                    <Var ObjectId="318767162" Name="MaxPitch" Value="45" />
+                    <Var ObjectId="318767162" Name="LookSpeedMultiplier" Value="0" />
+                    <Var ObjectId="318767162" Name="ForwardTime" Value="1.5" />
+                    <Var ObjectId="318767162" Name="BackwardTime" Value="1" />
+                    <Var ObjectId="318767162" Name="AutoMovement" Value="1" />
+                    <Var ObjectId="318767162" Name="LookMoveDistance" Value="0" />
+                    <Var ObjectId="318767162" Name="LookMoveMaxAngle" Value="0" />
+                    <Var ObjectId="318767162" Name="InteractiveMovement" Value="true" />
+                    <Var ObjectId="318767162" Name="UseSpeedFading" Value="true" />
+                    <Var ObjectId="318767162" Name="CrouchOnExit" Value="false" />
+                    <Var ObjectId="318767162" Name="InitToCamera" Value="true" />
+                    <Var ObjectId="318767162" Name="UsePlayerEyeline" Value="true" />
+                    <Var ObjectId="318767162" Name="CallbackFunc" Value="" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767163" Name="RatKCutscene_2" CreStamp="1724542468" ModStamp="1724543669" WorldPos="-68.25 -77.625 2.875" Rotation="0 -1.57045 0.261799" Scale="0.25 0.25 0.5" Active="true" Mesh="" UID="19 6785 318767163" AreaType="CameraAnimation">
+                <UserVariables>
+                    <Var ObjectId="318767163" Name="Note" Value="" />
+                    <Var ObjectId="318767163" Name="MaxYaw" Value="45" />
+                    <Var ObjectId="318767163" Name="MaxPitch" Value="45" />
+                    <Var ObjectId="318767163" Name="LookSpeedMultiplier" Value="0" />
+                    <Var ObjectId="318767163" Name="ForwardTime" Value="2" />
+                    <Var ObjectId="318767163" Name="BackwardTime" Value="1" />
+                    <Var ObjectId="318767163" Name="AutoMovement" Value="1" />
+                    <Var ObjectId="318767163" Name="LookMoveDistance" Value="0" />
+                    <Var ObjectId="318767163" Name="LookMoveMaxAngle" Value="0" />
+                    <Var ObjectId="318767163" Name="InteractiveMovement" Value="true" />
+                    <Var ObjectId="318767163" Name="UseSpeedFading" Value="true" />
+                    <Var ObjectId="318767163" Name="CrouchOnExit" Value="false" />
+                    <Var ObjectId="318767163" Name="InitToCamera" Value="false" />
+                    <Var ObjectId="318767163" Name="UsePlayerEyeline" Value="false" />
+                    <Var ObjectId="318767163" Name="CallbackFunc" Value="OnPassedCameraNode_RatKCutscene2" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767165" Name="RatKCutscene_3" CreStamp="1724542777" ModStamp="1724545408" WorldPos="-68.25 -77.625 2.875" Rotation="0 -1.57045 0.261799" Scale="0.25 0.25 0.5" Active="true" Mesh="" UID="19 6770 318767165" AreaType="CameraAnimation">
+                <UserVariables>
+                    <Var ObjectId="318767165" Name="Note" Value="" />
+                    <Var ObjectId="318767165" Name="MaxYaw" Value="45" />
+                    <Var ObjectId="318767165" Name="MaxPitch" Value="45" />
+                    <Var ObjectId="318767165" Name="LookSpeedMultiplier" Value="0" />
+                    <Var ObjectId="318767165" Name="ForwardTime" Value="1" />
+                    <Var ObjectId="318767165" Name="BackwardTime" Value="1" />
+                    <Var ObjectId="318767165" Name="AutoMovement" Value="1" />
+                    <Var ObjectId="318767165" Name="LookMoveDistance" Value="0" />
+                    <Var ObjectId="318767165" Name="LookMoveMaxAngle" Value="0" />
+                    <Var ObjectId="318767165" Name="InteractiveMovement" Value="false" />
+                    <Var ObjectId="318767165" Name="UseSpeedFading" Value="false" />
+                    <Var ObjectId="318767165" Name="CrouchOnExit" Value="false" />
+                    <Var ObjectId="318767165" Name="InitToCamera" Value="false" />
+                    <Var ObjectId="318767165" Name="UsePlayerEyeline" Value="false" />
+                    <Var ObjectId="318767165" Name="CallbackFunc" Value="OnPassedCameraNode_RatKCutscene3" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767168" Name="RatKCutscene_4" CreStamp="1724544788" ModStamp="1724545433" WorldPos="-65.125 -77.25 2.875" Rotation="0.785398 2.87979 -2.20015e-18" Scale="0.25 0.25 0.5" Active="true" Mesh="" UID="19 6813 318767168" AreaType="CameraAnimation">
+                <UserVariables>
+                    <Var ObjectId="318767168" Name="Note" Value="" />
+                    <Var ObjectId="318767168" Name="MaxYaw" Value="45" />
+                    <Var ObjectId="318767168" Name="MaxPitch" Value="45" />
+                    <Var ObjectId="318767168" Name="LookSpeedMultiplier" Value="0" />
+                    <Var ObjectId="318767168" Name="ForwardTime" Value="1" />
+                    <Var ObjectId="318767168" Name="BackwardTime" Value="1" />
+                    <Var ObjectId="318767168" Name="AutoMovement" Value="1" />
+                    <Var ObjectId="318767168" Name="LookMoveDistance" Value="0" />
+                    <Var ObjectId="318767168" Name="LookMoveMaxAngle" Value="0" />
+                    <Var ObjectId="318767168" Name="InteractiveMovement" Value="true" />
+                    <Var ObjectId="318767168" Name="UseSpeedFading" Value="true" />
+                    <Var ObjectId="318767168" Name="CrouchOnExit" Value="false" />
+                    <Var ObjectId="318767168" Name="InitToCamera" Value="false" />
+                    <Var ObjectId="318767168" Name="UsePlayerEyeline" Value="false" />
+                    <Var ObjectId="318767168" Name="CallbackFunc" Value="OnPassedCameraNode_RatKCutscene4" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767169" Name="RatKCutscene_5" CreStamp="1724544834" ModStamp="1724545428" WorldPos="-65.125 -77.25 2.875" Rotation="0.785398 2.87979 -2.20015e-18" Scale="0.25 0.25 0.5" Active="true" Mesh="" UID="19 6814 318767169" AreaType="CameraAnimation">
+                <UserVariables>
+                    <Var ObjectId="318767169" Name="Note" Value="" />
+                    <Var ObjectId="318767169" Name="MaxYaw" Value="45" />
+                    <Var ObjectId="318767169" Name="MaxPitch" Value="45" />
+                    <Var ObjectId="318767169" Name="LookSpeedMultiplier" Value="0" />
+                    <Var ObjectId="318767169" Name="ForwardTime" Value="1" />
+                    <Var ObjectId="318767169" Name="BackwardTime" Value="1" />
+                    <Var ObjectId="318767169" Name="AutoMovement" Value="1" />
+                    <Var ObjectId="318767169" Name="LookMoveDistance" Value="0" />
+                    <Var ObjectId="318767169" Name="LookMoveMaxAngle" Value="0" />
+                    <Var ObjectId="318767169" Name="InteractiveMovement" Value="false" />
+                    <Var ObjectId="318767169" Name="UseSpeedFading" Value="false" />
+                    <Var ObjectId="318767169" Name="CrouchOnExit" Value="false" />
+                    <Var ObjectId="318767169" Name="InitToCamera" Value="false" />
+                    <Var ObjectId="318767169" Name="UsePlayerEyeline" Value="false" />
+                    <Var ObjectId="318767169" Name="CallbackFunc" Value="OnPassedCameraNode_RatKCutscene5" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767170" Name="RatFeed_7" CreStamp="1724545195" ModStamp="1724545250" WorldPos="-63.75 -81.1257 0.625" Rotation="0 0 0" Scale="1 0.5 1" Active="true" Mesh="" UID="19 6695 318767170" AreaType="RatFeed">
+                <UserVariables>
+                    <Var ObjectId="318767170" Name="AttractEnabled" Value="true" />
+                    <Var ObjectId="318767170" Name="AttractDistance" Value="5" />
+                    <Var ObjectId="318767170" Name="LifeTime" Value="-1" />
+                    <Var ObjectId="318767170" Name="FeedingSlotsCount" Value="4" />
+                    <Var ObjectId="318767170" Name="Priority" Value="0" />
+                    <Var ObjectId="318767170" Name="FoodEntity" Value="" />
+                    <Var ObjectId="318767170" Name="BurnableEntity" Value="" />
+                    <Var ObjectId="318767170" Name="BurntEntity" Value="" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767171" Name="RatKCutscene_6" CreStamp="1724545464" ModStamp="1724545483" WorldPos="-55 -79.5 2.875" Rotation="0 4.71239 0" Scale="0.25 0.25 0.5" Active="true" Mesh="" UID="19 6812 318767171" AreaType="CameraAnimation">
+                <UserVariables>
+                    <Var ObjectId="318767171" Name="Note" Value="" />
+                    <Var ObjectId="318767171" Name="MaxYaw" Value="45" />
+                    <Var ObjectId="318767171" Name="MaxPitch" Value="45" />
+                    <Var ObjectId="318767171" Name="LookSpeedMultiplier" Value="0" />
+                    <Var ObjectId="318767171" Name="ForwardTime" Value="1.5" />
+                    <Var ObjectId="318767171" Name="BackwardTime" Value="1" />
+                    <Var ObjectId="318767171" Name="AutoMovement" Value="1" />
+                    <Var ObjectId="318767171" Name="LookMoveDistance" Value="0" />
+                    <Var ObjectId="318767171" Name="LookMoveMaxAngle" Value="0" />
+                    <Var ObjectId="318767171" Name="InteractiveMovement" Value="true" />
+                    <Var ObjectId="318767171" Name="UseSpeedFading" Value="true" />
+                    <Var ObjectId="318767171" Name="CrouchOnExit" Value="false" />
+                    <Var ObjectId="318767171" Name="InitToCamera" Value="true" />
+                    <Var ObjectId="318767171" Name="UsePlayerEyeline" Value="true" />
+                    <Var ObjectId="318767171" Name="CallbackFunc" Value="OnPassedCameraNode_RatKCutscene6" />
                 </UserVariables>
             </Area>
         </Objects>

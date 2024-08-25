@@ -87,6 +87,8 @@ class cScrMap : iScrMap
 		Entity_SetActive("lq_elevator*", false);
 		Entity_SetActive("lq_elevator_midway", true);
 		Light_SetVisible("Light_Point_22", false);
+        
+        
 	}
 
 	//-------------------------------------------------------
@@ -95,6 +97,7 @@ class cScrMap : iScrMap
 	// Run when entering map
 	void OnEnter()
 	{	
+        
         ///////////////////////
 		// Setup player body
 		if (PlayerBody_IsActive() == false)
@@ -146,8 +149,25 @@ class cScrMap : iScrMap
 			Entity_SetActive("Trigger_ThreatCorridors", true);
 		}
         
+        
         //Debug
-        //Map_AddTimer("checkc", 0.0f, "DebugCheck");
+        if(cLux_ScriptDebugOn()){
+            Item_SetCurrentSlotsCount(50);
+			if (ItemType_GetCountInInventory("Gun") == 0)
+			{
+				Item_AddToInventory("Gun");
+				Item_AddManyToInventory("Ammunition", 20);
+			}
+            if (ItemType_GetCountInInventory("Shotgun") == 0)
+			{
+				Item_AddToInventory("Shotgun");
+				Item_AddManyToInventory("ShotgunAmmunition", 20);
+			}
+            Item_AddToInventory("MolotovCocktail");
+            Item_AddToInventory("Torch");
+        }
+        
+        Map_AddTimer("checkc", 0.0f, "DebugCheck");
         //Map_AddTimer("checkc", 0.0f, "OrbTimerTests");
         //
      }
@@ -502,6 +522,9 @@ class cScrMap : iScrMap
         */
         //int alAlertState = cScript_GetGlobalVarInt("Stalker_AlertState");
         //cLux_AddDebugMessage("Checking. Stalker ALERT STATE: "+ alAlertState, true);
+        
+        cLux_AddDebugMessage("Rat King state: "+ StateMachine_GetCurrentStateName("enemy_rat_king_1"), true); 
+        
         Map_RestartCurrentTimer(0.1f);
         
     }
@@ -675,19 +698,30 @@ class cScrMap : iScrMap
 		/////////////////////////////////////////
 		// RAT BOSS FIGHT
 		//{//////////////////////////////////////
-
+        
 		bool OnTrigger_RatBossFight(const tString &in asParent, const tString &in asChild, int alState)
 		{
 			if (alState == 1) {
-				Map_AddTimer("Trigger_RatBossFight", 0.5f, "OnTimer_DisableCollideArea");
+				cLux_AddDebugMessage("BOSSFIGHT START");
+                Map_AddTimer(asParent, 0.5f, "OnTimer_DisableCollideArea");
                 //Entity_SetActive("Trigger_RatBossFight", false);
 				Music_PlayExt_Save("underground_ratking_boss", true, 0.5f, 1, 4.0f, 0, eMusicPrio_SceneAmb, true);
 			
 				// rat king
-				ActivateRatKing();
-			
+				//ActivateRatKing();
+                
+                // Disable hitbox?
+                //cLux_ID_Agent().GetHitboxBody(0).SetActive(false);
+                // begin cutscene
+                Player_SetActive(false);
+                Entity_SetActive("RatK_Blockbox", false);
+                CameraAnimation_Begin("RatKCutscene", "", true);
+                
+                // Start health check timer
+                Map_AddTimer("ratkhealthupdate", 0.1f, "OnTimer_UpdateRatKHealth");
+                
 				// minions
-				ActivateRatMinions();
+				//ActivateRatMinions();
 				
 				// elevator stuff
 				Entity_SetActive("lq_elevator*", true);
@@ -700,17 +734,33 @@ class cScrMap : iScrMap
 			}
 			return true;
 		}
+        
+        void OnTimer_UpdateRatKHealth(const tString &in asTimer){
+            tID ratKID = Map_GetEntityID("enemy_rat_king_1");
+            cLux_AddDebugMessage("RATK HEALTH: "+ cLux_ID_Agent(ratKID).GetHealth(), true);
+            
+            if(cLux_ID_Agent(ratKID).GetHealth() <= 5.65f){
+                cLux_AddDebugMessage("SECOND PHASE START");
+                Seq_RatKingSecondPhase("");
+            }else{
+                
+                Map_RestartCurrentTimer(0.2f);
+            }
+            
+        }
 		
 		void ActivateRatKing(){
-			Map_GetEntity("enemy_rat_king_1").SetPosition(cVector3f(-60.872,-81,10.75));
+			//Map_GetEntity("enemy_rat_king_1").SetPosition(cVector3f(-60.872,-81,10.75));
+            Agent_TeleportFeetToEntity("enemy_rat_king_1", "RatKing_Start");
+            //Map_AddTimer("att", 2.0f, "OnTimer_RatKAtt");
             
             Agent_SetSensesActive("enemy_rat_king_1", true);
-			iLuxEntity@ pFeed = Map_GetEntity("RatFeed_2");
+			iLuxEntity@ pFeed = Map_GetEntity("RatFeed_7");
 			Rat_Eat("enemy_rat_king_1", pFeed.GetID());
 		}
 		
 		void ActivateRatMinions() {
-			iLuxEntity@ pFeed = Map_GetEntity("RatFeed_2");
+			iLuxEntity@ pFeed = Map_GetEntity("RatFeed_7");
 			iLuxEntity@ pHole = Map_GetEntity("GhoulHole_8");
 			
 			Rat_EmergeToFood("enemy_rat_grey_*", pHole.GetID(), pFeed.GetID());
@@ -722,6 +772,97 @@ class cScrMap : iScrMap
     
         void OnTimer_EnableCollideArea(const tString &in asTimer){
             Entity_SetActive(asTimer, true);
+        }
+        
+        void OnTimer_RatKAtt(const tString &in asTimer){
+            //Rat_Attack("enemy_rat_king_1", false, false);
+            tID targetID = Map_GetEntityID("PathNode_362");
+            //tID targetID = Map_GetEntityID("player");
+            tID emergeHoleStart = Map_GetEntityID("GhoulHole_8");
+            
+            //Rat_EmergeToWander("enemy_rat_king_1", emergeHoleStart, targetID);
+            //Rat_EmergeToFood()
+            
+        }
+        
+        bool OnCollide_EnableHunt(const tString &in asParent, const tString &in asChild, int alState)
+        {
+            if(alState == 1){
+                cLux_AddDebugMessage("ENABLE HUNT");
+                Rat_Threatened("enemy_rat_king_1");
+                Map_AddTimer(asParent, 0.5f, "OnTimer_DisableCollideArea");
+            }
+            return true;
+        }
+        
+        // --Cutscene control start--
+        
+        bool OnPassedCameraNode_RatKCutscene2(const tString &in asEntity, int alDirection)
+        {
+            Map_GetEntity("enemy_rat_king_1").PlayAnimation("idle_attack");
+            Sound_Play("Sound_RatKCutscene", 0.0f);
+            return true;
+        }
+        
+        bool OnPassedCameraNode_RatKCutscene3(const tString &in asEntity, int alDirection)
+        {
+            cLux_AddDebugMessage("RATS EMERGE");
+            Agent_SetSensesActive("enemy_rat_king_1", true);
+            //RatHandler_DoRatAttack();
+            //Rat_Threatened("enemy_rat_king_1");
+            ActivateRatMinions();
+            return true;
+        }
+        
+        bool OnPassedCameraNode_RatKCutscene4(const tString &in asEntity, int alDirection)
+        {
+            ActivateRatKing();
+            
+            return true;
+        }
+        
+        bool OnPassedCameraNode_RatKCutscene6(const tString &in asEntity, int alDirection)
+        {
+            cLux_AddDebugMessage("ENABLE HUNT");
+            Map_AddTimer("cutsceneEnd", 1.0f, "RatKGivePlayerPosition");
+            //Agent_RevealPlayerPosition("enemy_rat_king_1");
+            
+            //Rat_Threatened("enemy_rat_king_1");
+            Player_SetActive(true);
+            return true;
+        }
+        
+        void RatKGivePlayerPosition(const tString &in asTimer){
+            
+            //cLux_ID_Agent(ratKID).GetHealth();
+            Agent_RevealPlayerPosition("enemy_rat_king_1");
+            
+            //Rat_Threatened("enemy_rat_king_1");
+        }
+        
+        // Activate second phase sequence
+        cSequenceStatesData mSeqDataRatKingSecondPhase;
+        void Seq_RatKingSecondPhase(const tString &in asTimer){
+            Sequence_Begin("Seq_RatKingSecondPhase", mSeqDataRatKingSecondPhase);
+            if(Sequence_DoStepAndWait(0.3f)){
+                Rat_Retreat("enemy_rat_king_1", true, false, false);
+                
+            }
+            else if(Sequence_DoStepAndWait(10.0f)){
+                // TO DO: make aggressive rats emerge from the 4 holes 
+                //RatHandler_AddAttackingRat( Map_GetEntityID("second_phase_rat_1"));
+            }
+            else if(Sequence_DoStepAndWait(2.0f)){
+                //RatFeed_7
+                iLuxEntity@ pFeed = Map_GetEntity("RatFeed_7");
+                iLuxEntity@ pHole = Map_GetEntity("GhoulHole_8");
+                
+                Entity_SetActive("Trigger_RatAggro", true);
+                Agent_SetSensesActive("enemy_rat_king_1", true);
+                Rat_EmergeToFood("enemy_rat_king_1", pHole.GetID(), pFeed.GetID());
+            }
+            
+            Sequence_End();
         }
 		//-------------------------------------------------------
 
