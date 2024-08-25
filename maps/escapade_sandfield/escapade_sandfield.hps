@@ -124,9 +124,11 @@ class cScrMap : iScrMap
 	bool OnTrigger_OutroFade(const tString &in asParent, const tString &in asChild, int alState)
 	{	
 		if (alState == 1) {
+		    Player_SetActive(false);
+			Player_ShowCrossHairIcons(false);
 			Music_StopAll(0.0f);
 			cScript_SetGlobalVarString("music_to_play", "");
-			Credits_Start("Credits.cfg","OnEndOfCredits", "", cVector3f(-0.15,-0.15,1.75f), "credits_calling_of_the_sea.ogg");
+			Credits_Start("Credits_Escapade.cfg","OnEndOfCredits", "", cVector3f(-0.15,-0.15,1.75f), "credits_calling_of_the_sea.ogg");
 			return false;
 		}
 		return true;
@@ -138,7 +140,9 @@ class cScrMap : iScrMap
 		{
 			GameStats_Save();
 			GameStats_SetGuiActive(true);
-			//Map_ChangeMap("main_menu.hpm","PlayerStartArea_1","","",false);
+		}
+		else {
+			Map_ChangeMap("main_menu.hpm","PlayerStartArea_1","","",false);
 		}
 	}
 }
