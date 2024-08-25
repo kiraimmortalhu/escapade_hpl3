@@ -182,6 +182,8 @@ class cScrMap : iScrMap
         Sequence_End();
 		
 		Music_Stalker_StopDeaggroSongChecks();
+        
+        Map_RemoveTimer("ratkhealthupdate");
 	}
 	
     void arabic_lock_OnConnectionStateChange(const tString &in asEntity, int alState){
