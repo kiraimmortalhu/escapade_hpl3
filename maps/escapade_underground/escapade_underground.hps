@@ -725,7 +725,6 @@ class cScrMap : iScrMap
                 //cLux_ID_Agent().GetHitboxBody(0).SetActive(false);
                 // begin cutscene
                 cLux_SetGodModeActivated(true);
-                PlayerBody_SetActive(false);
                 Player_SetActive(false);
                 Entity_SetActive("RatK_Blockbox", false);
                 CameraAnimation_Begin("RatKCutscene", "", true);
@@ -863,8 +862,6 @@ class cScrMap : iScrMap
             Agent_SetSensesActive("enemy_rat_king_1", false);
             //Rat_Threatened("enemy_rat_king_1");
             
-            
-            PlayerBody_SetActive(true);
             Player_SetActive(true);
             cLux_SetGodModeActivated(false);
             return true;
