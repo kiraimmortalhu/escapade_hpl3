@@ -1,25 +1,17 @@
 <Entity>
     <ModelData>
-        <Entities>
-            <PointLight ID="7" Name="Light_Point_1" CreStamp="1724417209" ModStamp="1724417290" WorldPos="0.00323147 0.0244303 -0.0402456" Rotation="0 0 0" Scale="1 1 1" CastShadows="false" ShadowResolution="High" ShadowsAffectStatic="true" ShadowsAffectDynamic="true" Radius="1" Gobo="" GoboType="Diffuse" GoboAnimMode="None" GoboAnimFrameTime="1" GoboAnimStartTime="0" DiffuseColor="0.969531 0.623378 0.623378 1" FlickerActive="false" FlickerOnMinLength="0" FlickerOnMaxLength="0" FlickerOnPS="" FlickerOnSound="" FlickerOffMinLength="0" FlickerOffMaxLength="0" FlickerOffPS="" FlickerOffSound="" FlickerOffColor="0 0 0 1" FlickerOffRadius="0" FlickerFade="false" FlickerOnFadeMinLength="0" FlickerOnFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffFadeMaxLength="0" CastDiffuseLight="true" CastSpecularLight="true" Brightness="1" Static="false" CulledByDistance="true" CulledByFog="true" FalloffPow="1" ConnectedLightMaskID="4294967295" />
-            <Billboard ID="8" Name="Billboard_1" CreStamp="1724417239" ModStamp="1724417378" WorldPos="0.00173841 0.0211855 -0.0410798" Rotation="0 0 0" Scale="1 1 1" BillboardType="Point" MaterialFile="D:/Program Files (x86)/Steam/steamapps/common/Amnesia The Bunker/billboards/halo/star_simple_no_depth.mat" IsHalo="false" BillboardSize="1 1" HaloSourceSize="0.3 0.3 0.3" BillboardOffset="0" BillboardColor="1 1 1 1" Brightness="0.5" CulledByDistance="false" CulledByFog="true" ConnectLight="Light_Point_1" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
-        </Entities>
+        <Entities />
         <Mesh Filename="entities/desert/gameplay/transmitter_key/transmitter_key.dae">
-            <SubMesh ID="0" Name="low" CreStamp="0" ModStamp="1724416883" WorldPos="0 0.0229653 -0.0418418" Rotation="0 0 0" Scale="1 1 1" TriCount="1512" Material="" Static="false" />
+            <SubMesh ID="8" Name="low" CreStamp="0" ModStamp="1724641948" WorldPos="0 0 0" Rotation="0 -0 0" Scale="0.875 1.5 1.5" TriCount="1512" Material="" Static="true" />
         </Mesh>
         <Bones />
         <Shapes>
-            <Shape ID="1" Name="ShapeCylinder_1" CreStamp="1456757196" ModStamp="1456830632" WorldPos="0 0.0229653 -0.0374201" Rotation="0 -0 -1.5708" Scale="0.0256494 0.00772324 0" RelativeTranslation="0 0.00753083 -0.0373998" RelativeRotation="0 -0 -1.5708" RelativeScale="1 1 1" ShapeType="Cylinder" />
-            <Shape ID="4" Name="ShapeCylinder_2" CreStamp="1456830632" ModStamp="1456830650" WorldPos="0 0.0229653 0.0160329" Rotation="-1.5708 -0 -1.5708" Scale="0.0078208 0.0610556 0" RelativeTranslation="0 0.00753083 0.0160533" RelativeRotation="-1.5708 -0 -1.5708" RelativeScale="1 1 1" ShapeType="Cylinder" />
-            <Shape ID="5" Name="ShapeBox_1" CreStamp="1456830656" ModStamp="1456830687" WorldPos="0 0.00790365 0.0373794" Rotation="0 0 0" Scale="0.00314695 0.0189259 0.0176806" RelativeTranslation="0 -0.00753083 0.0373998" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="1" Name="ShapeCylinder_1" CreStamp="1456757196" ModStamp="1456830632" WorldPos="0.00466297 -0.00086638 0.0272746" Rotation="3.14159 1.74586e-11 1.5708" Scale="0.0256494 0.00772324 0" RelativeTranslation="-8.91681e-08 0.00753085 -0.0373998" RelativeRotation="0 -1.55449e-11 -1.5708" RelativeScale="1 1 1" ShapeType="Cylinder" />
+            <Shape ID="4" Name="ShapeCylinder_2" CreStamp="1456830632" ModStamp="1456830650" WorldPos="0.00466311 -0.00086638 -0.0261785" Rotation="1.57079 1.74586e-11 1.5708" Scale="0.0078208 0.0610556 0" RelativeTranslation="3.8274e-08 0.00753085 0.0160533" RelativeRotation="-1.57081 -1.55449e-11 -1.5708" RelativeScale="1 1 1" ShapeType="Cylinder" />
+            <Shape ID="5" Name="ShapeBox_1" CreStamp="1456830656" ModStamp="1456830687" WorldPos="0.00466321 0.0141953 -0.047525" Rotation="1.55309e-13 3.14159 3.14159" Scale="0.00314695 0.0189259 0.0176806" RelativeTranslation="8.9168e-08 -0.00753085 0.0373998" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Box" />
         </Shapes>
         <Bodies>
-            <Body ID="6" Name="Body_1" CreStamp="0" ModStamp="1724417281" WorldPos="0 0.0154345 -2.03513e-05" Rotation="0 0 0" Scale="1 1 1" Material="metal small" Mass="1" AngularDamping="0.5" LinearDamping="0.1" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="false" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
-                <Children>
-                    <Child ID="0" />
-                    <Child ID="8" />
-                    <Child ID="7" />
-                </Children>
+            <Body ID="6" Name="Body_1" CreStamp="0" ModStamp="1724641981" WorldPos="0.00466309 0.00666447 -0.0101252" Rotation="1.55309e-13 3.14159 3.14159" Scale="1 1 1" Material="" Mass="0" AngularDamping="0.5" LinearDamping="0.1" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Shape ID="5" />
                 <Shape ID="4" />
                 <Shape ID="1" />
@@ -79,7 +71,7 @@
         <Var ObjectId="4294967295" Name="ContentColor" Value="0 0 0 0" />
         <Var ObjectId="4294967295" Name="OnlyNeedOne" Value="false" />
         <Var ObjectId="4294967295" Name="PutAwayAfter" Value="true" />
-        <Var ObjectId="4294967295" Name="AnimationName" Value="" />
+        <Var ObjectId="4294967295" Name="AnimationName" Value="key" />
         <Var ObjectId="4294967295" Name="PickupSound" Value="" />
         <Var ObjectId="4294967295" Name="IsRatFood" Value="false" />
         <Var ObjectId="4294967295" Name="AttractEnabled" Value="true" />
