@@ -816,7 +816,7 @@ class cScrMap : iScrMap
 		//// Code Locker Door
 		
 		void SetupCodeLockerDoor(){
-			if (cScript_GetGlobalVarInt("StorageCombination") == 0) {
+			if (cScript_GetGlobalVarInt("StorageCombination") == 0 && cLux_ScriptDebugOn()) {
 				Dogtag_SetCombination("debugitem_dogtag", 1234);
 				CombinationLock_SetCombination("GeneratorLock", 1234);
 			} else {

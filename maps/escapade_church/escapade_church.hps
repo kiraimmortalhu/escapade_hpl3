@@ -136,6 +136,8 @@ class cScrMap : iScrMap
         return true;
     }
     
+    
+    
     void OnTimer_PreventDoorGlitch(const tString &in asTimer){
         cLux_AddDebugMessage("CLOSE");
         SwingDoor_SetOpenAmount("door_exit_*", 0.0f);
@@ -342,9 +344,22 @@ class cScrMap : iScrMap
 		if (alState == 1) {
 			Music_Stop(4.0f, eMusicPrio_SceneAmb);
 			Entity_SetActive("Trigger_CageStorageMusic_*", true);
+            Generator_SetRunForever(false);
+            cLux_AddDebugMessage("GENERATOR RUN FOREVER OFF");
 		}
 		return true;
 	}
+    
+    // Generator Run Forever will stop in same areas as music
+    bool OnCollide_GeneratorRunForever(const tString &in asParent, const tString &in asChild, int alState)
+    {
+        if(alState == 1){
+            Generator_SetRunForever(true);
+            cLux_AddDebugMessage("GENERATOR RUN FOREVER ON");
+        }    
+        
+        return true;
+    }
 	
 	bool OnTrigger_SafeRoomMusic(const tString &in asParent, const tString &in asChild, int alState)
 	{

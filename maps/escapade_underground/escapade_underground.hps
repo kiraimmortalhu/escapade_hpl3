@@ -88,6 +88,7 @@ class cScrMap : iScrMap
 		Entity_SetActive("lq_elevator_midway", true);
 		Light_SetVisible("Light_Point_22", false);
         
+        Player_SetFallDamageActive(true);
         
 	}
 
@@ -928,6 +929,13 @@ class cScrMap : iScrMap
             }
             
             Sequence_End();
+        }
+        
+        bool OnCollide_RatKingRetreat(const tString &in asParent, const tString &in asChild, int alState)
+        {
+            
+            Rat_Retreat("enemy_rat_king_1", true, false, false);
+            return true;
         }
 		//-------------------------------------------------------
 

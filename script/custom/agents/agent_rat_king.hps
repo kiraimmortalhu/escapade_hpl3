@@ -3845,7 +3845,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 		// Spawn pickup key
 		
 		cLuxMap@ pMap = mBaseObj.GetMap();
-		if (pMap !is null)
+		if (pMap !is null && !cScript_GetGlobalVarBool("ChurchKeyGreenhouseDropped"))
 		{
 			pMap.CreateEntity("ChurchKey", glRat_KeyPickupEntity, cMatrixf_Identity, mBaseObj.GetOnLoadScale());
 			cLuxProp@ pKeyPickup = cLux_ToProp(pMap.GetLatestEntity());

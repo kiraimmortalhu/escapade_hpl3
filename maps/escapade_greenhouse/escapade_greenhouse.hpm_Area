@@ -43,7 +43,7 @@
             <Area ID="268444692" Name="GhoulHole_4" CreStamp="1724078042" ModStamp="1724078053" WorldPos="-1.25 1 70.5" Rotation="0 1.5708 0" Scale="1 2 1" Active="true" Mesh="" UID="16 3853 268444692" AreaType="GhoulHole">
                 <UserVariables />
             </Area>
-            <Area ID="268444693" Name="GhoulHole_5" CreStamp="1724078075" ModStamp="1724078084" WorldPos="28.4645 1 80.75" Rotation="0 0 0" Scale="1 2 1" Active="true" Mesh="" UID="16 3852 268444693" AreaType="GhoulHole">
+            <Area ID="268444693" Name="GhoulHole_5" CreStamp="1724078075" ModStamp="1724637021" WorldPos="28.4645 1 81.25" Rotation="0 0 0" Scale="1 2 1" Active="true" Mesh="" UID="16 3852 268444693" AreaType="GhoulHole">
                 <UserVariables />
             </Area>
             <Area ID="268444694" Name="PathNode_1" CreStamp="1724078210" ModStamp="1724078210" WorldPos="72 0.125 27" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="16 3836 268444694" AreaType="PathNode">
@@ -2866,9 +2866,9 @@
                     <Var ObjectId="268445712" Name="CustomInteractIcon" Value="Default" />
                 </UserVariables>
             </Area>
-            <Area ID="268445716" Name="RatFeed_1" CreStamp="1724379628" ModStamp="1724448019" WorldPos="27.5 0.265639 96" Rotation="0 0 0" Scale="1 0.500093 1" Active="true" Mesh="" UID="16 2039 268445716" AreaType="RatFeed">
+            <Area ID="268445716" Name="RatFeed_1" CreStamp="1724379628" ModStamp="1724636989" WorldPos="27.5 0.265639 96" Rotation="0 0 0" Scale="1 0.500093 1" Active="true" Mesh="" UID="16 2039 268445716" AreaType="RatFeed">
                 <UserVariables>
-                    <Var ObjectId="268445716" Name="AttractEnabled" Value="true" />
+                    <Var ObjectId="268445716" Name="AttractEnabled" Value="false" />
                     <Var ObjectId="268445716" Name="AttractDistance" Value="10" />
                     <Var ObjectId="268445716" Name="LifeTime" Value="-1" />
                     <Var ObjectId="268445716" Name="FeedingSlotsCount" Value="2" />
@@ -2910,7 +2910,7 @@
                     <Var ObjectId="285212672" Name="CustomInteractIcon" Value="Default" />
                 </UserVariables>
             </Area>
-            <Area ID="285212673" Name="Trigger_LabMusic_2" CreStamp="1724329924" ModStamp="1724378088" WorldPos="64 3.25 73.5" Rotation="0 4.71239 0" Scale="26.5 7.5 19" Active="true" Mesh="" UID="17 3179 285212673" AreaType="Trigger">
+            <Area ID="285212673" Name="Trigger_LabMusic_2" CreStamp="1724329924" ModStamp="1724616613" WorldPos="64 3.25 73.5" Rotation="0 4.71239 0" Scale="26.5 7.5 20.5" Active="true" Mesh="" UID="17 3179 285212673" AreaType="Trigger">
                 <UserVariables>
                     <Var ObjectId="285212673" Name="Note" Value="" />
                     <Var ObjectId="285212673" Name="BlocksLineOfSight" Value="false" />
@@ -3327,10 +3327,10 @@
     </Section>
     <Section Name="7671329699895397113">
         <Objects>
-            <Area ID="335544326" Name="RatFeed_2" CreStamp="1724447968" ModStamp="1724448019" WorldPos="27.5 0.265639 86.003" Rotation="0 0 0" Scale="1 0.500093 1" Active="true" Mesh="" UID="20 2039 335544326" AreaType="RatFeed">
+            <Area ID="335544326" Name="RatFeed_2" CreStamp="1724447968" ModStamp="1724637422" WorldPos="27.5 0.265639 84.25" Rotation="0 0 0" Scale="1 0.500093 1" Active="true" Mesh="" UID="20 2039 335544326" AreaType="RatFeed">
                 <UserVariables>
-                    <Var ObjectId="335544326" Name="AttractEnabled" Value="true" />
-                    <Var ObjectId="335544326" Name="AttractDistance" Value="10" />
+                    <Var ObjectId="335544326" Name="AttractEnabled" Value="false" />
+                    <Var ObjectId="335544326" Name="AttractDistance" Value="50" />
                     <Var ObjectId="335544326" Name="LifeTime" Value="-1" />
                     <Var ObjectId="335544326" Name="FeedingSlotsCount" Value="2" />
                     <Var ObjectId="335544326" Name="Priority" Value="0" />
@@ -3339,9 +3339,9 @@
                     <Var ObjectId="335544326" Name="BurntEntity" Value="" />
                 </UserVariables>
             </Area>
-            <Area ID="335544327" Name="RatFeed_3" CreStamp="1724447976" ModStamp="1724448019" WorldPos="33.4535 0.265639 90.7682" Rotation="0 0 0" Scale="1 0.500093 1" Active="true" Mesh="" UID="20 2054 335544327" AreaType="RatFeed">
+            <Area ID="335544327" Name="RatFeed_3" CreStamp="1724447976" ModStamp="1724636986" WorldPos="33.4535 0.265639 90.7682" Rotation="0 0 0" Scale="1 0.500093 1" Active="true" Mesh="" UID="20 2054 335544327" AreaType="RatFeed">
                 <UserVariables>
-                    <Var ObjectId="335544327" Name="AttractEnabled" Value="true" />
+                    <Var ObjectId="335544327" Name="AttractEnabled" Value="false" />
                     <Var ObjectId="335544327" Name="AttractDistance" Value="10" />
                     <Var ObjectId="335544327" Name="LifeTime" Value="-1" />
                     <Var ObjectId="335544327" Name="FeedingSlotsCount" Value="2" />
@@ -3350,6 +3350,24 @@
                     <Var ObjectId="335544327" Name="BurnableEntity" Value="" />
                     <Var ObjectId="335544327" Name="BurntEntity" Value="" />
                 </UserVariables>
+            </Area>
+            <Area ID="335544329" Name="PathNode_602" CreStamp="1724637198" ModStamp="1724637199" WorldPos="28.5 0.125 82.25" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="20 3007 335544329" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="335544330" Name="PathNode_914" CreStamp="1724637200" ModStamp="1724637203" WorldPos="27.25 0.125 82.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="20 2605 335544330" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="335544331" Name="PathNode_915" CreStamp="1724637205" ModStamp="1724637207" WorldPos="29.25 0.125001 81.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="20 3010 335544331" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="335544332" Name="PathNode_916" CreStamp="1724637208" ModStamp="1724637209" WorldPos="29.75 0.125001 81.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="20 3009 335544332" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="335544333" Name="PathNode_917" CreStamp="1724637210" ModStamp="1724637211" WorldPos="28.75 0.125001 83.5" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="20 3006 335544333" AreaType="PathNode">
+                <UserVariables />
+            </Area>
+            <Area ID="335544334" Name="PathNode_918" CreStamp="1724637212" ModStamp="1724637213" WorldPos="28 0.125001 83.75" Rotation="0 0 0" Scale="0.5 0.5 0.5" Active="true" Mesh="" UID="20 3008 335544334" AreaType="PathNode">
+                <UserVariables />
             </Area>
         </Objects>
     </Section>
