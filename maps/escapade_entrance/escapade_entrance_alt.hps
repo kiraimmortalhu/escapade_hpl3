@@ -71,6 +71,8 @@ class cScrMap : iScrMap
 	// Run first time starting map
 	void OnStart()
 	{
+		Map_Preload("escapade_sandfield.hpm");
+		
 		// Any general setup of script / entities
 		cVector3f vRot = cVector3f(0, cMath_ToRad(20), cMath_ToRad(-30));
 		cLux_GetCurrentMap().GetWorld().SetSkyboxRotation(vRot);
@@ -130,8 +132,6 @@ class cScrMap : iScrMap
         
         Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
 		
-		cScript_SetGlobalVarString("music_to_play", "");
-		
 		Game_AutoSave();
 	}
 
@@ -153,8 +153,8 @@ class cScrMap : iScrMap
 		
 		SetupStalkerAppearance();
 		
+		cScript_SetGlobalVarString("music_to_play", "");
 		Music_StopAll(3.0f);
-        
         
         //Get rocks in ballroom map
         array<iLuxEntity@> gravityRocks;

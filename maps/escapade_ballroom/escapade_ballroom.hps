@@ -67,6 +67,10 @@ class cScrMap : iScrMap
 	// Run first time starting map
 	void OnStart()
 	{
+		{
+            Map_Preload("escapade_entrance.hpm");
+        }		
+		
 		Music_StopAll(0.0f);
         // Any general setup of script / entities
 		PlayerBody_SetModel("player_rebirth_ghoul.ent");
@@ -101,7 +105,7 @@ class cScrMap : iScrMap
 	// Run when entering map
 	void OnEnter()
 	{	
-		Game_AutoSave();
+	
 	}
 
 	//-------------------------------------------------------
