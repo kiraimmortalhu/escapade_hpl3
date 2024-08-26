@@ -94,27 +94,12 @@ class cScrMap : iScrMap
 		} else {
 			Entity_SetActive("debugitem_*", false);
 		}
+		
+		Entity_PlayAnimation("orb_holder", "Open");
+		PlayIntro();
         
         Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
         
-        //////////////////////
-        // Intro end
-        PlayerBody_SetActive(true);
-        Player_SetActive(true);
-        
-        Effect_Fade_Out(0.0f);
-        Sound_FadeGlobalVolume(1.0f, 10.0f);
-        Sound_FadeGlobalSpeed(1.0f, 10.0f);
-        Effect_Blur_Reset();
-        Effect_ImageTrail_Clear();
-        
-        Map_AddTimer("intro_effects_end", 3.5f, "OnTimer_IntroEnd");
-        
-        PlayerBody_PlayCutsceneAnimation("fall_and_get_up_quickly", false, 0.3f, "", 0.25f);
-            
-        Entity_PlayAnimation("orb_holder", "Open");
-
-        // Intro_start
         //cLux_ChangeMap("escapade_ballroom.hpm", "Start_Begin_Ballroom", "", "", "", false);
         
         Player_SetFallDamageActive(true);
@@ -136,9 +121,6 @@ class cScrMap : iScrMap
 			PlayerBody_SetActive(true);
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
-		
-        
-		
 		
 		SetupGenerator();
 		
@@ -260,21 +242,6 @@ class cScrMap : iScrMap
         }
         
         return true;
-    }
-    
-    void OnTimer_IntroEnd(const tString &in asTimer){
-        Effect_Fade_In(5.0f);
-        imgTrailID = Effect_ImageTrail_Start(1.5f, 0.1f, -1.0f, 80.0f);
-        blurID = Effect_Blur_Start(0.1f, 0.1f);
-        
-        Map_AddTimer("introend2", 2.0f, "OnTimer_IntroEnd2");
-        //Effect_Blur_FadeOut(blurID, 12.0f);
-        //Effect_ImageTrail_FadeOut(imgTrailID, 12.0f);
-    }
-    
-    void OnTimer_IntroEnd2(const tString &in asTimer){
-        Effect_Blur_FadeOut(blurID, 12.0f);
-        Effect_ImageTrail_FadeOut(imgTrailID, 12.0f);
     }
     
     void arabic_lock_OnConnectionStateChange(const tString &in asEntity, int alState){
@@ -584,23 +551,90 @@ class cScrMap : iScrMap
 		{
 			ParticleSystem_Destroy("PS_LighterPickup");
 			Sound_Stop("Sound_LighterPickup", 1.0f);
+			Entity_SetActive("Description_Lamp", false);
 		}
 	 
 		/////////////////////////////////////////
-		// Event *Name Of Event*
+		// Intro room, basic TDD Puzzles
 		//{//////////////////////////////////////
+		
+		void PlayIntro() {
+			PlayerBody_SetActive(true);
+			Player_SetActive(true);
+        
+			Effect_Fade_Out(0.0f);
+			Sound_FadeGlobalVolume(1.0f, 10.0f);
+			Sound_FadeGlobalSpeed(1.0f, 10.0f);
+			Effect_Blur_Reset();
+			Effect_ImageTrail_Clear();
+        
+			Map_AddTimer("intro_effects_end", 3.5f, "OnTimer_IntroEnd");
+        
+			PlayerBody_PlayCutsceneAnimation("fall_and_get_up_quickly", false, 0.3f, "", 0.25f);
+		}
+		
+	void OnTimer_IntroEnd(const tString &in asTimer){
+		PlayerBody_SetVisible(false);
+			
+        Effect_Fade_In(5.0f);
+        imgTrailID = Effect_ImageTrail_Start(1.5f, 0.1f, -1.0f, 80.0f);
+        blurID = Effect_Blur_Start(0.1f, 0.1f);
+        
+        Map_AddTimer("introend2", 2.0f, "OnTimer_IntroEnd2");
+        //Effect_Blur_FadeOut(blurID, 12.0f);
+        //Effect_ImageTrail_FadeOut(imgTrailID, 12.0f);
+    }
+    
+    void OnTimer_IntroEnd2(const tString &in asTimer){
+        Effect_Blur_FadeOut(blurID, 12.0f);
+        Effect_ImageTrail_FadeOut(imgTrailID, 12.0f);
+    }
 
-		//-------------------------------------------------------
-
-		/*Put any variables that are only used in Scene X, Event X here.*/
-
-		//-------------------------------------------------------
-
-		/*Put any functions that are only used in Scene X, Event X here.*/
-
-		//-------------------------------------------------------
-
-		//} END Event *Name Of Event*
+		bool OnTrigger_BookPuzzle(const tString &in asParent, const tString &in asChild, int alState)
+		{
+			if (alState == 1) {
+				Entity_SetActive("book_puzzle_item", false);
+				Entity_SetActive("book_puzzle_placed", true);
+				Sound_PlayGui("unlock_door.snt", 1.0f);
+				SwingDoor_SetLocked("castle_bath_door", false, true);
+				SwingDoor_SetOpenAmount("castle_bath_door", 0.3f);
+				Entity_SetActive("Description_Book", false);
+				return false;
+			}
+			return true;
+		}
+		
+		int ArmorItemCounter = 0;		
+		bool OnTrigger_ArmorItems(const tString &in asParent, const tString &in asChild, int alState)
+		{
+			if (alState == 1) {
+				Sound_PlayGui("pick_pipe.snt", 1.0f);
+				ArmorItemCounter++;
+				cLux_AddDebugMessage("Armor items mounted: " + ArmorItemCounter);
+				Entity_SetActive(asChild, false);
+				Entity_SetActive(asChild + "_mounted", true);
+				if (ArmorItemCounter == 3) {
+					SwingDoor_SetLocked("castle_saferoom_door", false, true);
+					Entity_SetActive("Description_Armor", false);
+					BodyRevealCutscene(); 
+				}
+				return false;
+			}
+			return true;
+		}
+		
+		void BodyRevealCutscene() {
+			PlayerBody_SetVisible(true);
+			Entity_SetInteractionDisabled("rag_pickup_*", false);
+		}
+		
+		void button_simple_1_OnPlayerInteract(const tString &in asEntity)
+		{
+			Sound_CreateAtEntity("buttonsound", "unlock_door.snt", "button_simple_1");
+			Sound_PlayGui("tdd_puzzle_passage.snt", 1.0f);
+			SwingDoor_SetLocked("castle_main_door", false, true);
+			SwingDoor_SetOpenAmount("castle_main_door", 0.7f);
+		}
 	 
 	//} END SCENE X 
 }
