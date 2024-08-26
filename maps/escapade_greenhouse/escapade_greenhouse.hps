@@ -246,21 +246,28 @@ class cScrMap : iScrMap
     }
     
     bool OnUse_Lever(const tString &in asItemType, const tString &in asItemID, const tString &in asTargetEntity, const tString &in asItemEntity, float afTimeElapsed, float afTimeStep){
-        Entity_SetActive("lever3_mount", false);
+        
         Entity_SetActive("Trigger_LeverPlacement", false);
-        Entity_SetActive("lever3_portculis", true);
         
+        PlayerBody_SetUnequipItemsOnCutscene(false, true);
+        PlayerBody_PlayAnimation("tool_torch_holster", ePlayerBodyAnimationLayer_Arms, false, false, true);
+        Map_AddTimer("remove_lever", 1.4f, "OnTimer_RemoveLever");
         
-        Item_Unequip(ItemType_GetFirstInInventory("Lever"));
-        Map_AddTimer("remove_lever", 1.0f, "OnTimer_RemoveLever");
+        //PlayerBody_PlayCutsceneAnimation("tool_torch_holster", false, 0.3f);
+        //Item_Unequip(ItemType_GetFirstInInventory("LeverCustom"));
+        //Map_AddTimer("remove_lever", 1.0f, "OnTimer_RemoveLever");
         
         return true;
     }
     
     void OnTimer_RemoveLever(const tString &in asTimer){
         cLux_AddDebugMessage("UNEQUIPPED, REMOVE");
-        Item_RemoveFromInventory(ItemType_GetFirstInInventory("Lever"));
-        PlayerBody_PlayAnimation("tool_torch_holster", ePlayerBodyAnimationLayer_RightArm, false, false, true);
+        Item_Unequip(ItemType_GetFirstInInventory("LeverCustom"));
+        Item_RemoveFromInventory(ItemType_GetFirstInInventory("LeverCustom"), eInventoryInstance_Player, false, true);
+        
+        Entity_SetActive("lever3_mount", false);
+        Entity_SetActive("lever3_portculis", true);
+        //PlayerBody_PlayAnimation("tool_torch_holster", ePlayerBodyAnimationLayer_RightArm, false, false, true);
     }
     
 	////////////////////////////

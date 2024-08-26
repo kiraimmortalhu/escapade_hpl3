@@ -235,15 +235,15 @@ class cScrPlayerState_UsingOrb : cScrPlayerState_UsingPuzzleItem
 
 //------------------------------------------------------------
 
-class cScrPlayerState_UsingLever : cScrPlayerState_UsingPuzzleItem
+class cScrPlayerState_UsingLeverCustom : cScrPlayerState_UsingPuzzleItem
 {
 	void Init()
 	{
 		cScrPlayerState_UsingPuzzleItem::Init();
 		
-		msFocusIntroAnim_R = "torch_idle";
-		msFocusLoopAnim_R = "torch_idle";
-		msFocusOutroAnim_R = "torch_idle";
+		msFocusIntroAnim_R = "tool_torch_aim_start_rarm";
+		msFocusLoopAnim_R = "tool_torch_aim_rarm";
+		msFocusOutroAnim_R = "tool_torch_aim_end_rarm";
 	}
 }
 

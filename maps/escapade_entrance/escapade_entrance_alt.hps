@@ -81,11 +81,11 @@ class cScrMap : iScrMap
 		// Debug
 		if (cLux_ScriptDebugOn())
 		{
-		Entity_SetActive("debugitem_*", true);
-		Item_SetCurrentSlotsCount(15);
-		Item_AddToInventory("Lighter");
-		Item_AddToInventory("DynamoLantern");
-		if (ItemType_GetCountInInventory("Gun") == 0)
+            Entity_SetActive("debugitem_*", true);
+            Item_SetCurrentSlotsCount(15);
+            Item_AddToInventory("Lighter");
+            Item_AddToInventory("DynamoLantern");
+            if (ItemType_GetCountInInventory("Gun") == 0)
 			{
 				Item_AddToInventory("Gun");
 				Item_AddManyToInventory("Ammunition", 20);
@@ -95,9 +95,13 @@ class cScrMap : iScrMap
 				Item_AddToInventory("Shotgun");
 				Item_AddManyToInventory("ShotgunAmmunition", 20);
 			}
+            
+            Item_AddManyToInventory("MolotovCocktail", 3);
+            Item_AddToInventory("OrbRed");
+            Item_AddToInventory("Torch");
 		}
-		Item_AddManyToInventory("MolotovCocktail", 3);
-        Item_AddToInventory("OrbRed");
+		
+        
         Entity_PlayAnimation("orb_holder", "Open");
         
         //---Sync previously picked entities start---
