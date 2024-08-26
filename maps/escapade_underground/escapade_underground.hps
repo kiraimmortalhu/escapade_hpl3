@@ -930,6 +930,13 @@ class cScrMap : iScrMap
             
             Sequence_End();
         }
+        
+        bool OnCollide_RatKingRetreat(const tString &in asParent, const tString &in asChild, int alState)
+        {
+            
+            Rat_Retreat("enemy_rat_king_1", true, false, false);
+            return true;
+        }
 		//-------------------------------------------------------
 
 		/*Put any variables that are only used in Scene X, Event X here.*/

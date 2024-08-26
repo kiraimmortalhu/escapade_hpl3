@@ -3270,7 +3270,7 @@
                     <Var ObjectId="318767194" Name="BurntEntity" Value="" />
                 </UserVariables>
             </Area>
-            <Area ID="318767204" Name="RatFeed_Boss_Extra_1" CreStamp="1724597823" ModStamp="1724601272" WorldPos="-63.75 -81 3.5" Rotation="0 -0 0" Scale="1 1 1" Active="true" Mesh="" UID="19 6816 318767204" AreaType="RatFeed">
+            <Area ID="318767204" Name="RatFeed_Boss_Extra_1" CreStamp="1724597823" ModStamp="1724601272" WorldPos="-63.75 -81 3.5" Rotation="0 0 0" Scale="1 1 1" Active="true" Mesh="" UID="19 6816 318767204" AreaType="RatFeed">
                 <UserVariables>
                     <Var ObjectId="318767204" Name="AttractEnabled" Value="false" />
                     <Var ObjectId="318767204" Name="AttractDistance" Value="100" />
@@ -3280,6 +3280,34 @@
                     <Var ObjectId="318767204" Name="FoodEntity" Value="" />
                     <Var ObjectId="318767204" Name="BurnableEntity" Value="" />
                     <Var ObjectId="318767204" Name="BurntEntity" Value="" />
+                </UserVariables>
+            </Area>
+            <Area ID="318767205" Name="Trigger_RatKingEndOfChase" CreStamp="1724643129" ModStamp="1724643213" WorldPos="17.5 -80 -11" Rotation="0 0 0" Scale="3 3 0.75" Active="true" Mesh="" UID="19 6819 318767205" AreaType="Trigger">
+                <UserVariables>
+                    <Var ObjectId="318767205" Name="Note" Value="" />
+                    <Var ObjectId="318767205" Name="BlocksLineOfSight" Value="false" />
+                    <Var ObjectId="318767205" Name="EventInstanceTag" Value="" />
+                    <Var ObjectId="318767205" Name="UserVar" Value="" />
+                    <Var ObjectId="318767205" Name="Static" Value="false" />
+                    <Var ObjectId="318767205" Name="QuickSave" Value="false" />
+                    <Var ObjectId="318767205" Name="FullGameSave" Value="false" />
+                    <Var ObjectId="318767205" Name="CC_Entities" Value="enemy_rat_king_1" />
+                    <Var ObjectId="318767205" Name="CC_Funcs" Value="OnCollide_RatKingRetreat" />
+                    <Var ObjectId="318767205" Name="ParentAttachEntity" Value="" />
+                    <Var ObjectId="318767205" Name="ParentAttachUseRotation" Value="true" />
+                    <Var ObjectId="318767205" Name="ParentAttachBody" Value="" />
+                    <Var ObjectId="318767205" Name="ParentAttachLocked" Value="false" />
+                    <Var ObjectId="318767205" Name="PlayerLookAtCallback" Value="" />
+                    <Var ObjectId="318767205" Name="PlayerLookAtCallbackAutoRemove" Value="true" />
+                    <Var ObjectId="318767205" Name="PlayerLookAtCheckCenterOfScreen" Value="true" />
+                    <Var ObjectId="318767205" Name="PlayerLookAtCheckRayIntersection" Value="true" />
+                    <Var ObjectId="318767205" Name="PlayerLookAtMaxDistance" Value="-1" />
+                    <Var ObjectId="318767205" Name="PlayerLookAtCallbackDelay" Value="0" />
+                    <Var ObjectId="318767205" Name="PlayerInteractCallback" Value="" />
+                    <Var ObjectId="318767205" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="318767205" Name="CanInteractWithoutCallback" Value="false" />
+                    <Var ObjectId="318767205" Name="MaxFocusDistance" Value="-1" />
+                    <Var ObjectId="318767205" Name="CustomInteractIcon" Value="Default" />
                 </UserVariables>
             </Area>
         </Objects>
