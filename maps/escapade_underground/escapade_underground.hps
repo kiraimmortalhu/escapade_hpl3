@@ -79,6 +79,8 @@ class cScrMap : iScrMap
             Item_SetCurrentSlotsCount(15);
             Item_AddToInventory("DynamoLantern");
 			Item_AddToInventory("Lighter");
+		} else {
+			Entity_SetActive("debugitem_*", false);
 		}
         
         Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");

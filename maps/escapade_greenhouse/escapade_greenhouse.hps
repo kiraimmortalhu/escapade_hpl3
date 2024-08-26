@@ -81,11 +81,8 @@ class cScrMap : iScrMap
             //Rat_EmergeToWander("enemy_rat_king_1");
 			//cScript_SetGlobalVarBool("scaredByStalker", true);
             Map_AddTimer("debugt", 0.0f, "OnTimer_Debug");
-            
-            
-            
-            
-            
+		} else {
+			Entity_SetActive("debugitem_*", false);
 		}
 	}
 

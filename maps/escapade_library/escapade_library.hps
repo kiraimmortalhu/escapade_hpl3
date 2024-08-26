@@ -64,11 +64,11 @@ class cScrMap : iScrMap
 	{
 		// Any general setup of script / entities
 		
-        {
+        /*{
             Map_Preload("escapade_entrance.hpm");
             Map_Preload("escapade_storage.hpm");
             Map_Preload("escapade_greenhouse.hpm");
-        }
+        }*/
 		
 		if (cScript_GetGlobalVarInt("StorageCombination") == 0) {
 			cScript_SetGlobalVarInt("StorageCombination", cMath_RandRectl(1, 9999));
@@ -81,6 +81,8 @@ class cScrMap : iScrMap
 		{
 		Item_AddToInventory("DynamoLantern");
 		cScript_SetGlobalVarBool("scaredByStalker", true);
+		} else {
+			Entity_SetActive("debugitem_*", false);
 		}
         
         Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");

@@ -101,6 +101,8 @@ class cScrMap : iScrMap
             Item_AddManyToInventory("MolotovCocktail", 3);
             Item_AddToInventory("OrbRed");
             Item_AddToInventory("Torch");
+		} else {
+			Entity_SetActive("debugitem_*", false);
 		}
 		
         

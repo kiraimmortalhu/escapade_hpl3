@@ -93,6 +93,8 @@ class cScrMap : iScrMap
 			
 			// normally needs shotgun
 			SwingDoor_SetLocked("castle_5", false,false);
+		} else {
+			Entity_SetActive("debugitem_*", false);
 		}
         
         

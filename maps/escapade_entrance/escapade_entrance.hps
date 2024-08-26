@@ -91,6 +91,8 @@ class cScrMap : iScrMap
 		{
             Item_AddToInventory("DynamoLantern");
 			cScript_SetGlobalVarBool("scaredByStalker", true);
+		} else {
+			Entity_SetActive("debugitem_*", false);
 		}
         
         Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
