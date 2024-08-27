@@ -511,7 +511,11 @@ class cScrMap : iScrMap
 	
 	void OnTimer_StalkerScareScene3(const tString &in asTimer) {
 		cLux_AddDebugMessage("Stalker couldn't find you, gonna open the path");
-		Stalker_GoToHole("stalker_growth_1", "GhoulHole_4", true, false, eStalkerSpeed_Run);
+		if (Stalker_GetIsInsideWalls("stalker_growth_1")) {
+			Stalker_EmergeFromHole("stalker_growth_1", "GhoulHole_4", true);
+		} else {
+			Stalker_GoToHole("stalker_growth_1", "GhoulHole_4", true, false, eStalkerSpeed_Run);
+		}
 	}
 	
 	void electrical_box_lever_1_OnConnectionStateChange(const tString &in asEntity, int alState)
