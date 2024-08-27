@@ -485,6 +485,7 @@ class cScrMap : iScrMap
 				Prop_SetStaticPhysics("electrical_box_lever_1", false);
 				
 			if (!cScript_GetGlobalVarBool("scaredByStalker")) {
+				cScript_SetGlobalVarBool("scaredByStalker", true);
 				Entity_SetActive("stalker_growth_1", true);
 				Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 11.0f);
 				//Stalker_SetEmergeAllowed("stalker_growth_1", true);
@@ -510,9 +511,10 @@ class cScrMap : iScrMap
 	}
 	
 	void OnTimer_StalkerScareScene3(const tString &in asTimer) {
-		cLux_AddDebugMessage("Stalker couldn't find you, gonna open the path");
+		cLux_AddDebugMessage("Stalker couldn't find you, gonna open the path/retreat");
 		if (Stalker_GetIsInsideWalls("stalker_growth_1")) {
 			Stalker_EmergeFromHole("stalker_growth_1", "GhoulHole_4", true);
+			Agent_RevealPlayerPosition("stalker_growth_1", false);
 		} else {
 			Stalker_GoToHole("stalker_growth_1", "GhoulHole_4", true, false, eStalkerSpeed_Run);
 		}
