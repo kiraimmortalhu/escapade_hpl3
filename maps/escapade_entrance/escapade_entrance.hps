@@ -87,6 +87,7 @@ class cScrMap : iScrMap
 		// Debug
 		if (cLux_ScriptDebugOn())
 		{
+			Entity_SetActive("debugitem_*", true);
             Item_AddToInventory("DynamoLantern");
 			cScript_SetGlobalVarBool("scaredByStalker", true);
 		} else {
