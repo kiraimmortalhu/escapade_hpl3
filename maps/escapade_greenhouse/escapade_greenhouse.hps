@@ -455,6 +455,7 @@ class cScrMap : iScrMap
 			//Stalker_SetEmergeAllowed("stalker_growth_1", false);
             OnCollide_StalkerDisableArea("", "", 1);
             
+            Entity_SetActive("stalker_path_area_blocker*", false);
 		}
 		
         
@@ -479,7 +480,7 @@ class cScrMap : iScrMap
             
             Map_AddTimer("Trigger_LabMusic_*", 0.5f, "OnTimer_EnableCollideArea");
 			//Entity_SetActive("Trigger_LabMusic_*", true);
-            
+            Entity_SetActive("stalker_path_area_blocker*", true);
             // Exited softlock room
             //Stalker_SetEmergeAllowed("stalker_growth_1", true);
             OnCollide_StalkerDisableArea("", "", -1);
