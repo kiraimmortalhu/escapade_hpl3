@@ -77,7 +77,6 @@ class cScrMap : iScrMap
         ///////////////////
 		// Setup saving
 		SaveRoom_SetupSaveLamp(false, "SaveLamp");
-        cLux_GetGameDifficulty();
 
 		// unless you are 
 		if (Item_GetCurrentSlotsCount(eInventoryInstance_Player) < 9 && cLux_GetGameDifficulty() < 3) {
@@ -91,11 +90,11 @@ class cScrMap : iScrMap
             Item_AddToInventory("DynamoLantern");
 			cScript_SetGlobalVarBool("scaredByStalker", true);
 		} else {
+			PlayIntro();
 			Entity_SetActive("debugitem_*", false);
 		}
 		
 		Entity_PlayAnimation("orb_holder", "Open");
-		PlayIntro();
         
         Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
         
@@ -561,6 +560,10 @@ class cScrMap : iScrMap
 			PlayerBody_SetActive(true);
 			Player_SetActive(true);
 			// disable inventory?
+			
+			SwingDoor_SetLocked("castle_saferoom_door", true, false);
+			SwingDoor_SetLocked("castle_bath_door", true, false);
+			SwingDoor_SetLocked("castle_main_door", true, false);
         
 			Effect_Fade_Out(0.0f);
 			Sound_FadeGlobalVolume(1.0f, 10.0f);

@@ -232,10 +232,6 @@ class cScrMap : iScrMap
             cLux_AddDebugMessage("START CLOSE");
             SwingDoor_SetClosed("door_exit_*", true, true);
             Map_AddTimer("doorg", 0.05f, "OnTimer_PreventDoorGlitch");
-			
-			//disengage bossfight mode in other maps
-			//to-do, this could be stored and set back to original instead
-			GameDifficulty_SwitchSettingsPresetTo(1);
         }
         return true;
     }

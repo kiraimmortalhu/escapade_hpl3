@@ -119,6 +119,7 @@ class cScrMap : iScrMap
         
         // If gen is off, set levers off
         if(Generator_GetFuelTimeLeft() <= 0){
+			Entity_SetActive("Zoom_1", false);
             Lever_SetStuckState("PowerSwitch_*", -1, true);
 			Map_SetFogActive(false);
 			Map_SetSecondaryFogActive(false);
@@ -126,6 +127,7 @@ class cScrMap : iScrMap
 
             Generator_SetPowerSwitchOn("PowerSwitch_1", false);
         } else {
+			Entity_SetActive("Zoom_1", true);
 			Map_SetFogActive(false);
 			Map_SetSecondaryFogActive(false);
 			Light_SetVisible("Light_Box_4", true);
@@ -327,6 +329,7 @@ class cScrMap : iScrMap
 		
 		
 		if (alState!=1) {
+			Entity_SetActive("Zoom_1", false);
 			Map_SetFogActive(false);
 			Map_SetSecondaryFogActive(true);
 			Light_SetVisible("Light_Box_4", false);  
@@ -336,6 +339,7 @@ class cScrMap : iScrMap
             
             Generator_SetPowerSwitchOn("PowerSwitch_1", false);
 		} else {
+			Entity_SetActive("Zoom_1", true);
 			Map_SetFogActive(true);
 			Map_SetSecondaryFogActive(true);
 			Light_SetVisible("Light_Box_4", true);

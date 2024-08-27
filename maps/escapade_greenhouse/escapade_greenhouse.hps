@@ -131,6 +131,8 @@ class cScrMap : iScrMap
 		
         // Generator off, set levers off
         if(Generator_GetFuelTimeLeft() == 0){
+			Entity_SetActive("Zoom_1", false);
+			Entity_SetActive("Zoom_3", false);
             // Skip lever numbers that do not depend on generator
             for(int t = 1; t <= 10; t++){
                 if(t != 3){
@@ -138,7 +140,10 @@ class cScrMap : iScrMap
                 }
             }
             
-        }
+        } else {
+			Entity_SetActive("Zoom_1", true);
+			Entity_SetActive("Zoom_3", true);
+		}
         
 		
 		if(cScript_GetGlobalVarBool("entrance_alt_unlocked")){ 
@@ -356,7 +361,8 @@ class cScrMap : iScrMap
 		// Generator Sounds
 		if (alState!=1) {
             //Sound_Play("Sound_GeneratorOff", 0.f);
-            
+			Entity_SetActive("Zoom_1", false);
+			Entity_SetActive("Zoom_3", false);
             // Generator off, set levers off
             for(int t = 1; t <= 3; t++){
                 
@@ -364,6 +370,9 @@ class cScrMap : iScrMap
                 
             }
         
+		} else {
+			Entity_SetActive("Zoom_1", true);
+			Entity_SetActive("Zoom_3", true);
 		}
 	}
 	
