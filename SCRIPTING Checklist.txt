@@ -1,91 +1,91 @@
 -- General additions --
 
-- Introduce a few lockers with redesigned dog tags if possible
-  - If not, use just one for the revolver
+V2 - Introduce a few lockers with redesigned dog tags if possible
+  X - If not, use just one for the revolver
 
 ---- Creating stuff
 
-- Rat guard from rat entity that plays idle animation yet seems threatning
-  - Occasionally screams out with script maybe if player is running
+X - Rat guard from rat entity that plays idle animation yet seems threatning
+  XX - Occasionally screams out with script maybe if player is running
 
-- AI for flora grunt
+V2 - AI for flora grunt
   - More basic creatures for the same AI if we can help itethrough for some reason
 
 // Afraid of Madness
-- Check how to make the stalker storms a specific door he cannot break
+X - Check how to make the stalker storms a specific door he cannot break
 
 
 -- Entrance Hall --
 -------------------
 
 X - Map transitions to all levels 
-- Music transition areas
+X - Music transition areas
 
 -Ballroom-
 
-- Intro Cutscene (ballroom_intro)
-- Basic puzzles in TDD manner
-- Script safe room
-- Unlocking the door to entrance in the direction of the big gate once puzzle is done
+X - Intro Cutscene (ballroom_intro)
+X - Basic puzzles in TDD manner
+X - Script safe room
+X - Unlocking the door to entrance in the direction of the big gate once puzzle is done
 X - Transition to "ballroom_alt" once Underground is complete
   XX - Stalker appearance in this room after 
 
 ------------
 
 X - Final item (Wip) to open the entrace door to Sandfield
-- Rat spots
-- Later Stalker appearance and paths, only appears in darker areas
-- Smaller monsters may appear after Greenhouse has been unlocked
+X - Rat spots
+X - Later Stalker appearance and paths, only appears in darker areas
+V2 - Smaller monsters may appear after Greenhouse has been unlocked
 
 
 -- Storage --
 -------------
 
 X - Map transitions
-- Music transition areas
+X - Music transition areas
 
 X - Generator to keep alive all eletric lights and unlock doors in Church and Greenhouse
 X - Codelock door to generator room
 X - Stalker FIRST appearance and paths
-- Rat spots (more because of vicinity to Underground)
+X - Rat spots (more because of vicinity to Underground)
 X - Shotgun is stored here in a cell needing cutter
 X - Fuel barrel here to make fuel bottles
 
-- Smaller monsters may appear after Greenhouse has been unlocked
-- Stalker will retreat mostly if the lights are on
+V2 - Smaller monsters may appear after Greenhouse has been unlocked
+   - Stalker will retreat mostly if the lights are on
 
-- If the player has the gas mask and have not encountered the rat king before, script stalker
+V2 - If the player has the gas mask and have not encountered the rat king before, script stalker
   to go away and rat king will appear at the closest hole to underground entrance
 
 -- Church --
 ------------
 
 X - Map transitions
-- Music transition areas
+X - Music transition areas
 
-- Locked doors leading to safe room and cage storage
-- Cage Storage unlocks with a lever once generator is on
-- Safe room door will need a key
+X - Locked doors leading to safe room and cage storage
+X - Cage Storage unlocks with a lever once generator is on
+X - Safe room door will need a key
 X - Church storage contains bolt cutter
-- Stalker only appears in the storage, as part of a scripted event
-- Eletricity shutting off when entering cage storage
-  - Breaker switch needs to be activated to escape
+X - Stalker only appears in the storage, as part of a scripted event
+X - Eletricity shutting off when entering cage storage
+  X - Breaker switch needs to be activated to escape
 
-- Script safe room unlock and usage later
+X - Script safe room unlock and usage later
 
 -- Greenhouse -- 
 ----------------
 
 X - Map transitions
-- Music transition areas
+X - Music transition areas
 - Make water act as water
 
 - Flare trap as a surprise after not having trap in the entire mod beforehand
-  - It will alert the smaller monsters in the lab if player is not ultra careful
+  V2 - It will alert the smaller monsters in the lab if player is not ultra careful
 X - Locked doors leading to lab area
 - Doors unlock with a lever once generator is on
 X - Player gets the gas mask in lab
-- Scripted smaller monster encounters in lab
+V2 - Scripted smaller monster encounters in lab
 
 - Area will lock down from the inside, either this or church will happen randomly
       BUT ONE OF THEM FOR SURE
@@ -95,7 +95,7 @@ X - Player gets the gas mask in lab
 -------------
 
 X - Map transitions
-- Music transition areas
+X - Music transition areas
 
 X - Add revolver with corpse (only white overall soldier in the mod as of yet)
 X - Script dogtag for storage
@@ -104,19 +104,19 @@ X - Script dogtag for storage
 -----------------
 
 X - Map transitions
-- Music transition areas
-- Make water act as water
+X - Music transition areas
+X - Make water act as water
 
 X - Gas area is blocked until you have the gas mask
 X - Gas damage area inside the fog there
-- Rat spots
-- Reveal music event for the large hall through the window
+X - Rat spots
+X - Reveal music event for the large hall through the window
 X - Script save point
 
-- Rat king boss fight, drops church safe room key
+X - Rat king boss fight, drops church safe room key
 X - Final item (wip) is on the throne behind the rat king, no need to kill it
 X - Elevator lowers once rat king appears
-  - ladder area gets filled with overgrowth on both ends
+  X - ladder area gets filled with overgrowth on both ends
 X - Level transition to ballroom/entrance alt for good
 
 X - Stalker and rat paths for later revisit
@@ -125,17 +125,17 @@ X - Stalker music and states management
 -- Entrance Alt --
 ------------------
 
-- Global variable for alternative map transition areas to this place
-  - Add colorgrade effect to all levels post alt change
-- Music 
+X - Global variable for alternative map transition areas to this place
+  X - Add colorgrade effect to all levels post alt change
+X - Music 
 
-- Scripted Stalker final encounter, he blocks our way to get to entrance, we need to stagger 
+X - Scripted Stalker final encounter, he blocks our way to get to entrance, we need to stagger 
   / make him go away to be able to safely leave
-- Final item (wip) unlocks the gate and we can leave through a Level Door
+X - Final item (wip) unlocks the gate and we can leave through a Level Door
 
 -- Sandfield / Outside --
 -------------------------
 
-- Ghost of Visionary leaving visually on screen as smoke or something
-- Monsters banging on the gate but unable to leave
+V2 - Ghost of Visionary leaving visually on screen as smoke or something
+V2 - Monsters banging on the gate but unable to leave
 - Final cutscene of us walking off in the distance of weird pillars
