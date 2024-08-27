@@ -124,9 +124,14 @@ class cScrMap : iScrMap
         // If gen is off, set levers off
         if(Generator_GetFuelTimeLeft() <= 0){
             Lever_SetStuckState("PowerSwitch_*", -1, true);
+			Map_SetFogActive(false);
+			Map_SetSecondaryFogActive(false);
 
             Generator_SetPowerSwitchOn("PowerSwitch_1", false);
-        }
+        } else {
+			Map_SetFogActive(false);
+			Map_SetSecondaryFogActive(false);
+		}
         
         //Debug
         //Entity_SetActive("stalker_1", true);

@@ -462,6 +462,87 @@ class cScrMap : iScrMap
 			// to-do, green disappears for some reason
 		}
 	}
+	
+	//////////////////////////
+	/////// Stalker lock scene
+	//////////////////////////
+	
+	float GenFuelTimeLeft = 0;
+	bool OnTrigger_GenScareEvent(const tString &in asParent, const tString &in asChild, int alState)
+	{
+	  if (alState == 1) {
+		    //// Did you encounter another lock event in greenhouse?
+			if (!cScript_GetGlobalVarBool("survivedLockScareEvent")) {
+				GenFuelTimeLeft = Generator_GetFuelTimeLeft();
+				Generator_SetRunForever(false);
+				Generator_SetFuelAmount(0);
+				Sound_PlayGui("officer_hub/generator/off_stinger", 1.0f);
+				Map_SetFogActive(false);
+				Map_SetSecondaryFogActive(false);
+				Entity_SetActive("gate_path_area_blocker*", true);
+				
+				Entity_SetInteractionDisabled("electrical_box_lever_1", false);
+				Prop_SetStaticPhysics("electrical_box_lever_1", false);
+				
+			if (!cScript_GetGlobalVarBool("scaredByStalker")) {
+				Entity_SetActive("stalker_growth_1", true);
+				Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 11.0f);
+				//Stalker_SetEmergeAllowed("stalker_growth_1", true);
+				cLux_AddDebugMessage("Stalker is now ENABLED");
+			}
+				Stalker_GoToHole("stalker_growth_1", "GhoulHole_2", true, false, eStalkerSpeed_Run);
+				Map_AddTimer("Timer_StalkerScareScene", 2.0f, "OnTimer_StalkerScareScene");
+				Map_AddTimer("Timer_StalkerScareScene2", 4.0f, "OnTimer_StalkerScareScene2");
+				Map_AddTimer("Timer_StalkerScareScene3", 120.0f, "OnTimer_StalkerScareScene3");
+			}
+			return false;
+	  }
+	  return true;
+	}
+	
+	void OnTimer_StalkerScareScene(const tString &in asTimer) {
+		Stalker_EmergeFromHole("stalker_growth_1", "GhoulHole_1", true);
+		
+	}
+	
+	void OnTimer_StalkerScareScene2(const tString &in asTimer) {
+		Agent_RevealPlayerPosition("stalker_growth_1", false);
+	}
+	
+	void OnTimer_StalkerScareScene3(const tString &in asTimer) {
+		cLux_AddDebugMessage("Stalker couldn't find you, gonna open the path");
+		Stalker_GoToHole("stalker_growth_1", "GhoulHole_4", true, false, eStalkerSpeed_Run);
+	}
+	
+	void electrical_box_lever_1_OnConnectionStateChange(const tString &in asEntity, int alState)
+	{
+		if (alState == 1) {
+			if (Map_TimerExists("Timer_StalkerScareScene3"))
+			Map_RemoveTimer("Timer_StalkerScareScene3");
+			
+			if (GenFuelTimeLeft < 1) {
+				Generator_SetFuelAmount(1);
+				
+			} else {
+				Generator_SetFuelAmount(GenFuelTimeLeft);
+			}
+			Sound_PlayGui("level_entity_shared/levers/thatre_lever/lever_start", 1.0f);
+			Sound_Play("Sound_GeneratorStart", 0);
+			Generator_SetRunForever(true);
+			Generator_ChangeState(eGeneratorState_On);
+			Map_SetFogActive(true);
+			Map_SetSecondaryFogActive(true);
+			
+			Entity_SetInteractionDisabled("electrical_box_lever_1", true);
+			Prop_SetStaticPhysics("electrical_box_lever_1", true);
+			
+			Lever_SetStuckState("lever_portcuils", -1, true);
+			Entity_SetActive("gate_path_area_blocker*", false);
+			
+			cLux_AddDebugMessage("You can escape, doors are open");
+			cScript_SetGlobalVarBool("survivedLockScareEvent", true);
+		}
+	}
 	 
 	//} END SCENE X 
 	
