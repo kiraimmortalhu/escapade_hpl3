@@ -71,13 +71,11 @@ class cScrMap : iScrMap
             Map_Preload("escapade_underground.hpm");
         //}
         
-		Map_SetFogActive(false);
-		Map_SetSecondaryFogActive(false);
-		Light_SetVisible("Light_Box_4", false); 
-        
 		
 		//scaredByStalker = false;  //this is now a global var
 		firstEnterFromChurch = false;
+		
+		SetupCodeLockerDoor();
 		
 		/////////////////////////
 		// Debug
@@ -124,14 +122,14 @@ class cScrMap : iScrMap
             Lever_SetStuckState("PowerSwitch_*", -1, true);
 			Map_SetFogActive(false);
 			Map_SetSecondaryFogActive(false);
+			Light_SetVisible("Light_Box_4", false);
 
             Generator_SetPowerSwitchOn("PowerSwitch_1", false);
         } else {
 			Map_SetFogActive(false);
 			Map_SetSecondaryFogActive(false);
+			Light_SetVisible("Light_Box_4", true);
 		}
-		
-		SetupCodeLockerDoor();
         
         //Debug
         //Entity_SetActive("stalker_1", true);
@@ -828,11 +826,12 @@ class cScrMap : iScrMap
 					Dogtag_SetCombination("debugitem_dogtag", 1234);
 					CombinationLock_SetCombination("GeneratorLock", 1234);
 				} else {
-					cLux_AddDebugMessage("We will never see this but basically no code assigned yet.");
+					cScript_SetGlobalVarInt("StorageCombination", cMath_RandRectl(1, 9999));
+					CombinationLock_SetCombination("GeneratorLock", cScript_GetGlobalVarInt("StorageCombination"));
 				}
 			} else {
 				CombinationLock_SetCombination("GeneratorLock", cScript_GetGlobalVarInt("StorageCombination"));
-			}			
+			}
 		}
 		
 		/// Unlock door to generator with code
