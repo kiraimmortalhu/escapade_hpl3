@@ -561,6 +561,7 @@ class cScrMap : iScrMap
 		void PlayIntro() {
 			PlayerBody_SetActive(true);
 			Player_SetActive(true);
+			// disable inventory?
         
 			Effect_Fade_Out(0.0f);
 			Sound_FadeGlobalVolume(1.0f, 10.0f);
@@ -586,6 +587,8 @@ class cScrMap : iScrMap
     }
     
     void OnTimer_IntroEnd2(const tString &in asTimer){
+		// Player_Disorient()
+		// VA
         Effect_Blur_FadeOut(blurID, 12.0f);
         Effect_ImageTrail_FadeOut(imgTrailID, 12.0f);
     }

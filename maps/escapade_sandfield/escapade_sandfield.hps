@@ -126,6 +126,8 @@ class cScrMap : iScrMap
 		if (alState == 1) {
 		    Player_SetActive(false);
 			Player_ShowCrossHairIcons(false);
+			Player_SetBleedingActive(false);
+			//Player_StopBleeding();
 			Music_StopAll(0.0f);
 			cScript_SetGlobalVarString("music_to_play", "");
 			Credits_Start("Credits_Escapade.cfg","OnEndOfCredits", "", cVector3f(-0.15,-0.15,1.75f), "credits_calling_of_the_sea.ogg");
