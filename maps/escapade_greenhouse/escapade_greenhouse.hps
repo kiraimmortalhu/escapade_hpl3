@@ -245,6 +245,7 @@ class cScrMap : iScrMap
     bool OnUse_Lever(const tString &in asItemType, const tString &in asItemID, const tString &in asTargetEntity, const tString &in asItemEntity, float afTimeElapsed, float afTimeStep){
         
         Entity_SetActive("Trigger_LeverPlacement", false);
+		Entity_SetActive("Description_Lever", false);
         
         PlayerBody_SetUnequipItemsOnCutscene(false, true);
         PlayerBody_PlayAnimation("tool_torch_holster", ePlayerBodyAnimationLayer_Arms, false, false, true);
@@ -381,7 +382,7 @@ class cScrMap : iScrMap
 		}
 	}
 	
-		///////////////
+	///////////////
 	///// Music events
 	///////////////
 	
@@ -404,7 +405,8 @@ class cScrMap : iScrMap
             
             Map_AddTimer("Trigger_LabMusic_*", 0.5f, "OnTimer_DisableCollideArea");
             
-            
+			Stalker_Retreat("stalker_growth_1");
+			Stalker_SetEmergeAllowed("stalker_growth_1", false);
 		}
 		
         
@@ -431,7 +433,7 @@ class cScrMap : iScrMap
 			//Entity_SetActive("Trigger_LabMusic_*", true);
             
             // Exited softlock room
-            
+            Stalker_SetEmergeAllowed("stalker_growth_1", true);
             
             Generator_SetRunForever(false);
             
@@ -487,21 +489,7 @@ class cScrMap : iScrMap
         }else{
             Map_RestartCurrentTimer(0.1f);
         }
-    }
-    
-	// Labrat triggered
-	void gas_mask_pickup_1_OnPlayerInteract(const tString &in asEntity)
-	{
-		Music_PlayExt("conservatory_swarm", true, 0.4f, 1, 3.0f, 0, eMusicPrio_OverrideAll, true);
-		
-        // Enable rat king
-        tID ratKHoleID = Map_GetEntityID("GhoulHole_5");
-        tID feedID = Map_GetEntityID("RatFeed_2");
-        Rat_EmergeToFood("enemy_rat_king_1", ratKHoleID, feedID);
-		Stalker_Retreat("stalker_growth_1");
-		Stalker_SetEmergeAllowed("stalker_growth_1", false);
-		//Agent_RevealPlayerPosition("enemy_rat_king_1", true);
-	}
+    }	
 	
 	////////////////////////////////
 	
@@ -533,36 +521,52 @@ class cScrMap : iScrMap
 	// SCENE X *NAME OF SCENE*
 	// ==============
 	//{//////////////////////////////////////////////////////////////////////////////////////
- 
+	 
 		/////////////////////////////////////////
-		// General
+		// Event *Acting Rat King + Lockdown*
 		//{//////////////////////////////////////
-		 
-		//-------------------------------------------------------
-	 
-		/*Put any variables that are used by many events in Scene X here.*/
-	 
-		//-------------------------------------------------------
-	 
-		/*Put any functions that are used in more than one event in Scene X here.*/
-	 
-		//-------------------------------------------------------
+
+	// Labrat triggered
+	void gas_mask_pickup_1_OnPlayerInteract(const tString &in asEntity)
+	{
+		Music_PlayExt("conservatory_swarm", true, 0.4f, 1, 3.0f, 0, eMusicPrio_OverrideAll, true);
 		
-		//} END General	
-	 
-		/////////////////////////////////////////
-		// Event *Name Of Event*
-		//{//////////////////////////////////////
-
-		//-------------------------------------------------------
-
-		/*Put any variables that are only used in Scene X, Event X here.*/
-
-		//-------------------------------------------------------
-
-		/*Put any functions that are only used in Scene X, Event X here.*/
-
-		//-------------------------------------------------------
+        // Enable rat king
+        tID ratKHoleID = Map_GetEntityID("GhoulHole_5");
+        tID feedID = Map_GetEntityID("RatFeed_2");
+        Rat_EmergeToFood("enemy_rat_king_1", ratKHoleID, feedID);
+		
+		// to-do, could be set to inactive
+		//Stalker_Retreat("stalker_growth_1");
+		//Stalker_SetEmergeAllowed("stalker_growth_1", false);
+		
+		//Agent_RevealPlayerPosition("enemy_rat_king_1", true);
+		
+		if (!cScript_GetGlobalVarBool("survivedLockScareEvent")) {
+			RatLockDown();
+		}
+	}
+	
+	void RatLockDown() {
+		Generator_ChangeState(eGeneratorState_Off);
+				
+		Sound_PlayGui("officer_hub/generator/off_stinger", 1.0f);
+		Entity_SetActive("lever*_portculis_blockbox", true);
+		
+		Entity_SetInteractionDisabled("lever3", false);
+		Prop_SetStaticPhysics("lever3", false);
+		
+		Map_AddTimer("Timer_RatLockDown", 4.0f, "OnTimer_RatLockDown");
+	}
+	
+	void OnTimer_RatLockDown(const tString &in asTimer) {
+		Generator_ChangeState(eGeneratorState_On);
+		Sound_Play("Sound_GeneratorStart", 0);
+		
+		Entity_SetActive("Description_Lever", true);
+		// assuming you don't die huh
+		cScript_SetGlobalVarBool("survivedLockScareEvent", true);
+	}
 
 		//} END Event *Name Of Event*
 	 

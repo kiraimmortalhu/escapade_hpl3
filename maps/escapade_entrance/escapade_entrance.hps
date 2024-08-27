@@ -73,17 +73,16 @@ class cScrMap : iScrMap
             Map_Preload("escapade_church.hpm");
         }
 		
-		// for storage door code locker, "if" for testing safety only so the code never gets overwritten
-		if (cScript_GetGlobalVarInt("StorageCombination") == 0) {
-			cScript_SetGlobalVarInt("StorageCombination", cMath_RandRectl(1, 9999));
-            cLux_AddDebugMessage("COMBINATION: "+ cScript_GetGlobalVarInt("StorageCombination"));
-		}
-		
         
         ///////////////////
 		// Setup saving
 		SaveRoom_SetupSaveLamp(false, "SaveLamp");
-        
+        cLux_GetGameDifficulty();
+
+		// unless you are 
+		if (Item_GetCurrentSlotsCount(eInventoryInstance_Player) < 9 && cLux_GetGameDifficulty() < 3) {
+			Item_SetCurrentSlotsCount(9);
+		}
         
 		/////////////////////////
 		// Debug

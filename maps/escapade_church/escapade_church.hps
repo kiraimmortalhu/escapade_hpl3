@@ -467,15 +467,17 @@ class cScrMap : iScrMap
 	/////// Stalker lock scene
 	//////////////////////////
 	
-	float GenFuelTimeLeft = 0;
+	//float GenFuelTimeLeft = 0;
 	bool OnTrigger_GenScareEvent(const tString &in asParent, const tString &in asChild, int alState)
 	{
 	  if (alState == 1) {
 		    //// Did you encounter another lock event in greenhouse?
 			if (!cScript_GetGlobalVarBool("survivedLockScareEvent")) {
-				GenFuelTimeLeft = Generator_GetFuelTimeLeft();
-				Generator_SetRunForever(false);
-				Generator_SetFuelAmount(0);
+				//GenFuelTimeLeft = Generator_GetFuelTimeLeft();
+				//Generator_SetRunForever(false);
+				//Generator_SetFuelAmount(0);
+				Generator_ChangeState(eGeneratorState_Off);
+				
 				Sound_PlayGui("officer_hub/generator/off_stinger", 1.0f);
 				Map_SetFogActive(false);
 				Map_SetSecondaryFogActive(false);
@@ -526,16 +528,17 @@ class cScrMap : iScrMap
 			if (Map_TimerExists("Timer_StalkerScareScene3"))
 			Map_RemoveTimer("Timer_StalkerScareScene3");
 			
-			if (GenFuelTimeLeft < 1) {
+			/*if (GenFuelTimeLeft < 1) {
 				Generator_SetFuelAmount(1);
 				
 			} else {
 				Generator_SetFuelAmount(GenFuelTimeLeft);
-			}
+			}*/
+			//Generator_SetRunForever(true);
+			Generator_ChangeState(eGeneratorState_On);
+			
 			Sound_PlayGui("level_entity_shared/levers/thatre_lever/lever_start", 1.0f);
 			Sound_Play("Sound_GeneratorStart", 0);
-			Generator_SetRunForever(true);
-			Generator_ChangeState(eGeneratorState_On);
 			Map_SetFogActive(true);
 			Map_SetSecondaryFogActive(true);
 			
