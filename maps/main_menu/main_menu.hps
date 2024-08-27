@@ -100,7 +100,7 @@ class cScrMap : iScrMap
 		
 		////////////////
 		// Setup bombing effect
-		BombingHandler_SetActive(false);
+		//BombingHandler_SetActive(false);
 		
 		///////////////////
 		// Setup save game info hint
@@ -108,11 +108,11 @@ class cScrMap : iScrMap
 		
 		///////////////////
 		// Blood splatter
-		Decal_SetDynamicVisible("blood_splatter_group_*", false);
+		//Decal_SetDynamicVisible("blood_splatter_group_*", false);
 		
 		/////////////////////
 		// Setup stalker events
-		cConfigFile@ pUserConfig = cLux_GetUserConfig();
+		/*cConfigFile@ pUserConfig = cLux_GetUserConfig();
 		cConfigFile@ pStatsConfig = cLux_GetStatsConfig();
 		if (pUserConfig !is null || pStatsConfig!is null)
 		{
@@ -162,13 +162,13 @@ class cScrMap : iScrMap
 				
 				Decal_SetDynamicVisible("blood_splatter_group_*", true);
 			}
-		}
+		}*/
 		
 		/////////////////
 		// Setup stalker
-		iLuxEntity@ pStalker = Map_GetEntity("Stalker_Rigid_1", eLuxEntityType_Prop);
+		/*iLuxEntity@ pStalker = Map_GetEntity("Stalker_Rigid_1", eLuxEntityType_Prop);
 		if (pStalker !is null)
-			pStalker.StopAllAnimations(0.f);
+			pStalker.StopAllAnimations(0.f);*/
 		
 		////////////////////
 		// Debug
@@ -183,7 +183,7 @@ class cScrMap : iScrMap
 		
 		//////////////
 		// Convert to minutes
-		mfHandEmergeTimeThresholdMax *= 60.f;
+		/*mfHandEmergeTimeThresholdMax *= 60.f;
 		mfHandEmergeTimeThresholdMin *= 60.f;
 		mfMaxTimeBetweenEvents *= 60.f;
 		mfMinTimeBetweenEvents *= 60.f;
@@ -191,7 +191,7 @@ class cScrMap : iScrMap
 		
 		////////////////
 		// Start the events loop
-		Map_AddTimer("Timer_StartStalkerPresence", cMath_RandRectf(mfMinTimeBetweenEvents, mfMaxTimeBetweenEvents), "OnTimer_StartStalkerPresenceSequence");
+		Map_AddTimer("Timer_StartStalkerPresence", cMath_RandRectf(mfMinTimeBetweenEvents, mfMaxTimeBetweenEvents), "OnTimer_StartStalkerPresenceSequence");*/
 	}
 	
 	//-------------------------------------------------------
@@ -211,7 +211,7 @@ class cScrMap : iScrMap
 	{
 		if(abPressed==false) return;
 		
-		if (alAction == eAction_Test0)
+		/*if (alAction == eAction_Test0)
 		{
 			MainMenu_SetGameCompletedOnce(!MainMenu_GetGameCompletedOnce());
 		}
@@ -235,7 +235,7 @@ class cScrMap : iScrMap
 			int lGoal = cLux_GetStatsConfig().GetInt("Game", "MainMenuStage", 0) == 0 ? 3 : 0;
 			cLux_GetStatsConfig().SetInt("Game", "MainMenuStage", lGoal);
 			cLux_GetStatsConfig().Save();
-		}
+		}*/
 	}
 	
 	//-------------------------------------------------------
@@ -259,6 +259,7 @@ class cScrMap : iScrMap
 
 	//------------------------------------------------------
 
+/*
 	bool mbSceneVisibilityActive = false;
 
 	void VariableUpdate(float afDeltaTime)
@@ -271,9 +272,9 @@ class cScrMap : iScrMap
 		{
 			mbSceneVisibilityActive = true;
 			Music_PlayExt(menuMusic, true, 0.08f, 1.0f, 15.0f, 1.0f, eMusicPrio_BgAmb, true);
-			Map_AddTimer("Timer_TurnOnTheLight", 0.25f, "OnTimer_TurnOnTheLight");
+			//Map_AddTimer("Timer_TurnOnTheLight", 0.25f, "OnTimer_TurnOnTheLight");
 		}
-	}
+	}*/
 	
 	//------------------------------------------------------
 	
@@ -283,7 +284,7 @@ class cScrMap : iScrMap
 	
 	//------------------------------------------------------
 	
-	array<tString> mvAnims = {"stalker_hole_reach_out_1", "stalker_hole_reach_out_2"}; //, "stalker_hole_reach_out_3"};
+	/*array<tString> mvAnims = {"stalker_hole_reach_out_1", "stalker_hole_reach_out_2"}; //, "stalker_hole_reach_out_3"};
 	float mfMaxTimeBetweenEvents = 60.f;
 	float mfMinTimeBetweenEvents = 30.f;
 	int mlEscalation = 0;
@@ -296,10 +297,11 @@ class cScrMap : iScrMap
 	void OnTimer_StartStalkerPresenceSequence(const tString&in asTimer)
 	{
 		Seq_StalkerPresence("");
-	}
+	}*/
 	
 	//------------------------------------------------------
 	
+	/*
 	void OnTimer_TurnOnTheLight(const tString&in asTimer)
 	{
 		Lamp_SetLit("Lamp_PowerSwitch_3_10", true, true);
@@ -377,7 +379,7 @@ class cScrMap : iScrMap
 			
 		}
 		Sequence_End();
-	}
+	}*/
 	
 	//------------------------------------------------------
 }
