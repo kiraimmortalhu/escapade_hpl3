@@ -102,6 +102,8 @@ class cScrMap : iScrMap
         //cLux_ChangeMap("escapade_ballroom.hpm", "Start_Begin_Ballroom", "", "", "", false);
         
         Player_SetFallDamageActive(true);
+		
+		Game_AutoSave();
 	}
 
 	//-------------------------------------------------------
