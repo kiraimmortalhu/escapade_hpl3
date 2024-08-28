@@ -89,7 +89,7 @@ class cScrMap : iScrMap
 		{
 			Entity_SetActive("debugitem_*", true);
             Item_AddToInventory("DynamoLantern");
-			cScript_SetGlobalVarBool("scaredByStalker", true);
+			//cScript_SetGlobalVarBool("scaredByStalker", true);
 		} else {
 			PlayIntro();
 			Entity_SetActive("debugitem_*", false);

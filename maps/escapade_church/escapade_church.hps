@@ -72,8 +72,8 @@ class cScrMap : iScrMap
 		if (cLux_ScriptDebugOn())
 		{
 			Entity_SetActive("debugitem_*", true);
-			Item_AddToInventory("DynamoLantern");
-			cScript_SetGlobalVarBool("scaredByStalker", true);
+			//Item_AddToInventory("DynamoLantern");
+			//cScript_SetGlobalVarBool("scaredByStalker", true); 
 		} else {
 			Entity_SetActive("debugitem_*", false);
 		}
@@ -110,7 +110,7 @@ class cScrMap : iScrMap
 			SetupColorgrading_EntranceAlt();
 		}
 		
-		SetupStalkerAppearance();
+		//SetupStalkerAppearance();
 	}
 
 	//-------------------------------------------------------
@@ -320,13 +320,33 @@ class cScrMap : iScrMap
 	
 	void SetupStalkerAppearance() {
 		if (cScript_GetGlobalVarBool("scaredByStalker") && !cScript_GetGlobalVarBool("entrance_alt_unlocked")) {
-			Entity_SetActive("stalker_growth_1", true);
+			cLux_AddDebugMessage("ATTEMPTING TO MAKE STALKER APPEAR");cLux_AddDebugMessage("STALKER ENABLED");
+            cLux_SetGodModeActivated(true);
+            Map_AddTimer("Timer_DisableGodMode", 2.0f, "OnTimer_DisableGodMode");
+            
+            Entity_SetActive("stalker_growth_1", true);
 			Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
 			//Stalker_SetEmergeAllowed("stalker_growth_1", true);
 			cLux_AddDebugMessage("Stalker is now ENABLED");
 		}
 	}
 	
+    bool OnCollide_StalkerDisableArea(const tString &in asParent, const tString &in asChild, int alState)
+    {
+        if(alState == 1){
+            cLux_AddDebugMessage("STALKER DISABLE CHECK TO SPAWN");
+            Map_RemoveTimer("Timer_UpdateStalkerSpawn");
+            Entity_SetActive("stalker_growth_1", false);
+            Music_Stalker_StopDeaggroSongChecks(); 
+        }
+        
+        if(alState == -1){
+            cLux_AddDebugMessage("STALKER CHECK TO SPAWN ACTIVE");
+            Map_AddTimer("Timer_UpdateStalkerSpawn", 0.0f, "OnTimer_UpdateStalkerSpawn");
+        }
+        
+        return true;
+    }
 	///////////////
 	///// Music events
 	///////////////
