@@ -618,23 +618,25 @@ class cScrMap : iScrMap
 	}
 	
 	void DebugStalkerThreatEnable() {
-		//Entity_SetActive("stalker_test", true);
+		cLux_SetGodModeActivated(true);
+        Map_AddTimer("disableGodMode", 2.0f, "OnTimer_DisableGodMode");
+        Entity_SetActive("stalker_test", true);
         //Map_AddTimer("deaggro", 10.0f, "Stalker_Deaggro");
         //Map_AddTimer("deaggrocheck", 0.0f, "DeaggroCheck");
-        //Music_Stalker_AddDeaggroSongTime("stalker_test", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
+        Music_Stalker_AddDeaggroSongTime("stalker_test", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 11.0f);
         //Stalker_SetEmergeAllowed("stalker_test", true);
         //Terror_SetEnemyMusicStage(eTerrorMusicAgentType_Stalker, eTerrorMusicStage_Searching);
         
-        OnCollide_StalkerDisableArea("", "", -1);
+        //OnCollide_StalkerDisableArea("", "", -1);
 		cLux_AddDebugMessage("Stalker is now ENABLED");
 	}
 	
 	void DebugStalkerThreatDisable() {
-		//Entity_SetActive("stalker_test", false);
+		Entity_SetActive("stalker_test", false);
         //Map_RemoveTimer("deaggrocheck");
         //Map_RemoveTimer("deaggro");
         
-        //Music_Stalker_StopDeaggroSongChecks();
+        Music_Stalker_StopDeaggroSongChecks();
         
         //Terror_SetEnemyMusicActive(false);
         //Stalker_Retreat("stalker_test");
@@ -642,22 +644,23 @@ class cScrMap : iScrMap
         //Terror_RemoveHuntingEnemy(Map_GetEntityID("stalker_test"));
         //Stalker_SetEmergeAllowed("stalker_test", false);
         
-        OnCollide_StalkerDisableArea("", "", 1);
+        
+        //OnCollide_StalkerDisableArea("", "", 1);
 		cLux_AddDebugMessage("Stalker is now DISABLED");
 	}
 	
     void SetupStalkerAppearance(){
         //Enable god mode in case player spawns there, so that stalker pushes you
-        cLux_SetGodModeActivated(true);
-        Map_AddTimer("Timer_DisableGodMode", 2.0f, "OnTimer_DisableGodMode");
+        //cLux_SetGodModeActivated(true);
+        //Map_AddTimer("Timer_DisableGodMode", 2.0f, "OnTimer_DisableGodMode");
         
         Entity_SetActive("stalker_test", true);
         Music_Stalker_AddDeaggroSongTime("stalker_test", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 11.0f);
         //Stalker_SetEmergeAllowed("stalker_test", true);
-        //cLux_AddDebugMessage("Stalker is now ENABLED");
+        cLux_AddDebugMessage("Stalker is now ENABLED");
     }
     
-    
+    /*
     bool OnCollide_StalkerDisableArea(const tString &in asParent, const tString &in asChild, int alState)
     {
         if(alState == 1){
@@ -686,7 +689,7 @@ class cScrMap : iScrMap
             Map_RestartCurrentTimer(0.1f);
         }
     }
-    
+    */
     void OnTimer_DisableGodMode(const tString &in asTimer){
         cLux_SetGodModeActivated(false);
     }
