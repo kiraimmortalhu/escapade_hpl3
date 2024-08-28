@@ -515,6 +515,7 @@ class cScrMap : iScrMap
 
 		void OpenGate(const tString &in asEntity)
 		{
+			Agent_RevealPlayerPosition("stalker_growth_1", true);
 			SlideDoor_SetClosed("tin_hinan_slide_floor_1", false, false);
 			Map_AddTimer("Timer_PlayerCanLeave", 42.0f, "OnTimer_PlayerCanLeave");
 		}

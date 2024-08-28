@@ -146,9 +146,12 @@ class cScrMap : iScrMap
 			SetupColorgrading_EntranceAlt();
 			Entity_SetActive("Trigger_ThreatCorridors_Alt", true);
 			Entity_SetActive("Trigger_ThreatCorridors", false);
+			Entity_SetActive("block_box_char_warning_cliff", true);
+			
 		} else {
 			Entity_SetActive("Trigger_ThreatCorridors_Alt", false);
 			Entity_SetActive("Trigger_ThreatCorridors", true);
+			Entity_SetActive("block_box_char_warning_cliff", false);
 		}
         
         
