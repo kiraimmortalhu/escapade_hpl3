@@ -347,6 +347,23 @@ class cScrMap : iScrMap
         
         return true;
     }
+    
+    // Check if stalker is out of player's sight and also far enough
+    void OnTimer_UpdateStalkerSpawn(const tString &in asTimer){
+        cLux_AddDebugMessage("Quick timer, checking for stalker spawn");
+        tID stalkerID = Map_GetEntityID("stalker_growth_1");
+        if(!Entity_IsInPlayerFOV("stalker_growth_1") && cLux_ID_Agent(stalkerID).GetDistanceToPlayer2D() > 1.5f){
+            SetupStalkerAppearance();
+            
+        }else{
+            Map_RestartCurrentTimer(0.1f);
+        }
+    }
+    
+    void OnTimer_DisableGodMode(const tString &in asTimer){
+        cLux_SetGodModeActivated(false);
+    }
+    
 	///////////////
 	///// Music events
 	///////////////
