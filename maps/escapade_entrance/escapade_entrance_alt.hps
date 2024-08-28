@@ -131,6 +131,8 @@ class cScrMap : iScrMap
             }
             
         }
+		
+		Entity_SetActive("last_resort*", true);
         
         Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
 		
@@ -332,7 +334,10 @@ class cScrMap : iScrMap
 	
 	bool OnUse_Orb(const tString &in asItemType, const tString &in asItemID, const tString &in asTargetEntity, const tString &in asItemEntity, float afTimeElapsed, float afTimeStep) {
 		cLux_AddDebugMessage("ORB USED");
-        
+		
+		Entity_SetActive("bossfight_blocker", true);
+        Prop_SetStaticPhysics("castle_arched01_4", true);
+		Prop_SetInteractLookAtEnabled("castle_arched01_4", true);
         // Orb Pedestal
         Entity_SetActive("Trigger_OpenGate", false);
         OpenGate("tin_hinan_slide_floor_1");            // Entity name not really necessary here
@@ -342,9 +347,7 @@ class cScrMap : iScrMap
         Item_Unequip(ItemType_GetFirstInInventory("OrbRed"));
         Entity_SetActive("red_orb_pedestal", true);
         Entity_PlayAnimation("orb_holder", "Close");
-        Map_AddTimer("remove_orb", 0.2f, "OnTimer_RemoveOrb");
-        
-        
+        Map_AddTimer("remove_orb", 0.2f, "OnTimer_RemoveOrb");        
         
 		//Sound_CreateAtEntity("", "DW_tunnel/portal/portal_open", asTargetEntity);
         
@@ -411,9 +414,6 @@ class cScrMap : iScrMap
         Stalker_SetEmergeAllowed("stalker_growth_1", false);
         cLux_AddDebugMessage("Stalker is now ENABLED");
         Stalker_GoToHole("stalker_growth_1", "GhoulHole_2", true, true);
-        
-        // engaging bossfight mode
-        GameDifficulty_SwitchSettingsPresetTo(3);
 	}
     
     // Similar to SetupStalkerAppearance_Initial(), but does not go to hole, so that he spawns right where he was last
@@ -480,7 +480,7 @@ class cScrMap : iScrMap
 		 
 		bool OnTrigger_ApproachAltar(const tString &in asParent, const tString &in asChild, int alState)
 		{	
-			if (alState == 1) {
+			if (alState == 1) {				
 				if (!Stalker_GetEmergeAllowed("stalker_growth_1")) {
 					Stalker_SetEmergeAllowed("stalker_growth_1", true);
 				}
@@ -488,6 +488,20 @@ class cScrMap : iScrMap
 					Stalker_EmergeFromHole("stalker_growth_1", "GhoulHole_2", true);
 				}
 				Agent_RevealPlayerPosition("stalker_growth_1", false);
+				
+				// engaging bossfight mode
+		
+				// this is too much and resets you save
+				// GameDifficulty_SwitchSettingsPresetTo(3);
+		
+				// instead just touch stalker stuff
+				GameDifficulty_SetSettingValueIdByID(6, 5);
+				GameDifficulty_SetSettingValueIdByID(7, 5);
+				GameDifficulty_SetSettingValueIdByID(8, 5);
+				GameDifficulty_SetSettingValueIdByID(9, 2);
+				GameDifficulty_SetSettingValueIdByID(10, 2);
+				GameDifficulty_SetSettingValueIdByID(11, 3);
+				GameDifficulty_SetSettingValueIdByID(12, 3);
 				
 				// GameDifficulty_SwitchSettingsPresetTo(3);
 				// eStalkerEscalation_Stage3
@@ -502,7 +516,7 @@ class cScrMap : iScrMap
 		void OpenGate(const tString &in asEntity)
 		{
 			SlideDoor_SetClosed("tin_hinan_slide_floor_1", false, false);
-			Map_AddTimer("Timer_PlayerCanLeave", 20.0f, "OnTimer_PlayerCanLeave");
+			Map_AddTimer("Timer_PlayerCanLeave", 42.0f, "OnTimer_PlayerCanLeave");
 		}
 		
 		void OnTimer_PlayerCanLeave(const tString &in asTimer){

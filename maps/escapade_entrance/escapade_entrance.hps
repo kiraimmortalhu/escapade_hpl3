@@ -651,6 +651,24 @@ class cScrMap : iScrMap
 			return true;
 		}
 		
+		void armour_puzzle_item_gloves1_highlight_OnPlayerInteract(const tString &in asEntity)
+		{
+			Entity_SetActive("armour_puzzle_item_gloves1_highlight", false);
+			Entity_SetActive("armour_puzzle_item_gloves1", true);
+		}
+		
+		void armour_puzzle_item_gloves2_highlight_OnPlayerInteract(const tString &in asEntity)
+		{
+			Entity_SetActive("armour_puzzle_item_gloves2_highlight", false);
+			Entity_SetActive("armour_puzzle_item_gloves2", true);
+		}
+		
+		void armour_puzzle_item_highlight_OnPlayerInteract(const tString &in asEntity)
+		{
+			Entity_SetActive("armour_puzzle_item_highlight", false);
+			Entity_SetActive("armour_puzzle_item_1", true);
+		}
+		
 		int ArmorItemCounter = 0;		
 		bool OnTrigger_ArmorItems(const tString &in asParent, const tString &in asChild, int alState)
 		{
@@ -681,6 +699,7 @@ class cScrMap : iScrMap
 			Sound_PlayGui("tdd_puzzle_passage.snt", 1.0f);
 			SwingDoor_SetLocked("castle_main_door", false, true);
 			SwingDoor_SetOpenAmount("castle_main_door", 0.7f);
+			Light_SetVisible("Light_Point_32", false);
 		}
 	 
 	//} END SCENE X 

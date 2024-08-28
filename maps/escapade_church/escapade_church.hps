@@ -98,7 +98,7 @@ class cScrMap : iScrMap
 		SetupGenerator();
         
 		// Disable lever dependant on generator
-        if(Generator_GetState() == eGeneratorState_Off){
+        if(Generator_GetFuelTimeLeft() == 0){
             Lever_SetStuckState("lever_portcuils", 1, true);
             
             //Enable path blocking areas
@@ -110,7 +110,7 @@ class cScrMap : iScrMap
 			SetupColorgrading_EntranceAlt();
 		}
 		
-		//SetupStalkerAppearance();
+		SetupStalkerAppearance();
 	}
 
 	//-------------------------------------------------------
@@ -320,49 +320,13 @@ class cScrMap : iScrMap
 	
 	void SetupStalkerAppearance() {
 		if (cScript_GetGlobalVarBool("scaredByStalker") && !cScript_GetGlobalVarBool("entrance_alt_unlocked")) {
-			//Enable god mode in case player spawns there, so that stalker pushes you
-            cLux_SetGodModeActivated(true);
-            Map_AddTimer("Timer_DisableGodMode", 2.0f, "OnTimer_DisableGodMode");
-            
-            Entity_SetActive("stalker_growth_1", true);
+			Entity_SetActive("stalker_growth_1", true);
 			Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
 			//Stalker_SetEmergeAllowed("stalker_growth_1", true);
 			cLux_AddDebugMessage("Stalker is now ENABLED");
 		}
 	}
 	
-    bool OnCollide_StalkerDisableArea(const tString &in asParent, const tString &in asChild, int alState)
-    {
-        if(alState == 1){
-            cLux_AddDebugMessage("STALKER DISABLE CHECK TO SPAWN");
-            Map_RemoveTimer("Timer_UpdateStalkerSpawn");
-            Entity_SetActive("stalker_growth_1", false);
-            Music_Stalker_StopDeaggroSongChecks(); 
-        }
-        
-        if(alState == -1){
-            cLux_AddDebugMessage("STALKER CHECK TO SPAWN ACTIVE");
-            Map_AddTimer("Timer_UpdateStalkerSpawn", 0.0f, "OnTimer_UpdateStalkerSpawn");
-        }
-        
-        return true;
-    }
-    
-    // Check if stalker is out of player's sight and also far enough
-    void OnTimer_UpdateStalkerSpawn(const tString &in asTimer){
-        cLux_AddDebugMessage("Quick timer, checking for stalker spawn");
-        tID stalkerID = Map_GetEntityID("stalker_growth_1");
-        if(!Entity_IsInPlayerFOV("stalker_growth_1") && cLux_ID_Agent(stalkerID).GetDistanceToPlayer2D() > 1.5f){
-            
-            SetupStalkerAppearance();
-        }else{
-            Map_RestartCurrentTimer(0.1f);
-        }
-    }
-    
-    void OnTimer_DisableGodMode(const tString &in asTimer){
-        cLux_SetGodModeActivated(false);
-    }
 	///////////////
 	///// Music events
 	///////////////
@@ -414,7 +378,7 @@ class cScrMap : iScrMap
 	void lever_portcuils_OnConnectionStateChange(const tString &in asEntity, int alState)
 	{
 		if (alState == -1) {
-			if (Generator_GetState() == eGeneratorState_On) {
+			if (Generator_GetFuelTimeLeft() > 0) {
                 cLux_AddDebugMessage("MOVED UP");
 				//SlideDoor_SetOpenAmount("castle_portcullis_1", 1.0f, false);
 				MoveObject_SetState("castle_portcullis_*", 1);
@@ -521,7 +485,7 @@ class cScrMap : iScrMap
 				
 				Entity_SetInteractionDisabled("electrical_box_lever_1", false);
 				Prop_SetStaticPhysics("electrical_box_lever_1", false);
-				
+			}
 			if (!cScript_GetGlobalVarBool("scaredByStalker")) {
 				cScript_SetGlobalVarBool("scaredByStalker", true);
 				Entity_SetActive("stalker_growth_1", true);
@@ -533,7 +497,6 @@ class cScrMap : iScrMap
 				Map_AddTimer("Timer_StalkerScareScene", 2.0f, "OnTimer_StalkerScareScene");
 				Map_AddTimer("Timer_StalkerScareScene2", 4.0f, "OnTimer_StalkerScareScene2");
 				Map_AddTimer("Timer_StalkerScareScene3", 120.0f, "OnTimer_StalkerScareScene3");
-			}
 			return false;
 	  }
 	  return true;
