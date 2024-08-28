@@ -653,20 +653,20 @@ class cScrMap : iScrMap
 		
 		void armour_puzzle_item_gloves1_highlight_OnPlayerInteract(const tString &in asEntity)
 		{
-			Entity_SetActive("armour_puzzle_item_gloves1_highlight", false);
-			Entity_SetActive("armour_puzzle_item_gloves1", true);
+			Entity_SetActive("armour_puzzle_item_gloves_left_highlight", false);
+			Entity_SetActive("armour_puzzle_item_gloves_left", true);
 		}
 		
 		void armour_puzzle_item_gloves2_highlight_OnPlayerInteract(const tString &in asEntity)
 		{
-			Entity_SetActive("armour_puzzle_item_gloves2_highlight", false);
-			Entity_SetActive("armour_puzzle_item_gloves2", true);
+			Entity_SetActive("armour_puzzle_item_gloves_right_highlight", false);
+			Entity_SetActive("armour_puzzle_item_gloves_right", true);
 		}
 		
 		void armour_puzzle_item_highlight_OnPlayerInteract(const tString &in asEntity)
 		{
-			Entity_SetActive("armour_puzzle_item_highlight", false);
-			Entity_SetActive("armour_puzzle_item_1", true);
+			Entity_SetActive("armour_puzzle_item_helmet_highlight", false);
+			Entity_SetActive("armour_puzzle_item_helmet", true);
 		}
 		
 		int ArmorItemCounter = 0;		
@@ -677,7 +677,7 @@ class cScrMap : iScrMap
 				ArmorItemCounter++;
 				cLux_AddDebugMessage("Armor items mounted: " + ArmorItemCounter);
 				Entity_SetActive(asChild, false);
-				Entity_SetActive(asChild + "_mounted", true);
+				Entity_SetActive(asParent + "_mounted", true);
 				if (ArmorItemCounter == 3) {
 					SwingDoor_SetLocked("castle_saferoom_door", false, true);
 					Entity_SetActive("Description_Armor", false);
