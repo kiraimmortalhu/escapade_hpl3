@@ -490,6 +490,10 @@ class cScrMap : iScrMap
 				if (Stalker_GetIsInsideWalls("stalker_growth_1")) {
 					Stalker_EmergeFromHole("stalker_growth_1", "GhoulHole_2", true);
 				}
+				else {
+					Stalker_GoToHole("stalker_growth_1", "GhoulHole_2", true, true);
+				}
+				//}
 				Agent_RevealPlayerPosition("stalker_growth_1", false);
 				
 				// engaging bossfight mode
