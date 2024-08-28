@@ -130,7 +130,7 @@ class cScrMap : iScrMap
         Entity_SetConnectionStateChangeCallback("lever*", "lever_portculis_OnConnectionStateChange");
 		
         // Generator off, set levers off
-        if(Generator_GetFuelTimeLeft() == 0){
+        if(Generator_GetState(eGeneratorState_Off)){
 			Entity_SetActive("Zoom_1", false);
 			Entity_SetActive("Zoom_3", false);
             // Skip lever numbers that do not depend on generator
@@ -150,7 +150,7 @@ class cScrMap : iScrMap
 			SetupColorgrading_EntranceAlt();
 		}
 		
-		SetupStalkerAppearance();
+		//SetupStalkerAppearance();
         
         // Enable rat king health timer if he's undefeated
         if(!cScript_GetGlobalVarBool("ChurchKeyGreenhouseDropped")){
@@ -433,7 +433,7 @@ class cScrMap : iScrMap
 	///////////////
 	
 	void SetupMusicAmbienceBasedOnGen() {
-		if (Generator_GetFuelTimeLeft() <= 0) {
+		if (Generator_GetState(eGeneratorState_Off)) {
 			Music_PlayExt_Save("conservatory_exploration", true, 0.2f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 		} else {
 			Music_PlayExt_Save("conservatory_exploration_alt", true, 0.3f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
@@ -547,7 +547,7 @@ class cScrMap : iScrMap
 	{
 		if (alState == -1) {
             cLux_AddDebugMessage("STATE CHANGED: -1");
-			if (Generator_GetFuelTimeLeft() >0 || asEntity == "lever3_portculis")
+			if (Generator_GetState(eGeneratorState_On))
 			{
                 cLux_AddDebugMessage("MOVE DOOR UP");
 				MoveObject_SetState(asEntity + "_door", 1);

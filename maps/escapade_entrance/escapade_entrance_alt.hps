@@ -135,6 +135,8 @@ class cScrMap : iScrMap
         Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
 		
 		Game_AutoSave();
+        
+        SetupStalkerAppearance_Initial();
 	}
 
 	//-------------------------------------------------------
@@ -145,6 +147,7 @@ class cScrMap : iScrMap
 	// Run when entering map
 	void OnEnter()
 	{	
+        
         if (PlayerBody_IsActive() == false)
 		{
             PlayerBody_SetActive(true);
@@ -153,7 +156,7 @@ class cScrMap : iScrMap
 		
 		SetupGenerator();
 		
-		SetupStalkerAppearance_Initial();
+		
 		
 		cScript_SetGlobalVarString("music_to_play", "");
 		Music_StopAll(3.0f);

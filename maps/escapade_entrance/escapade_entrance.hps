@@ -122,8 +122,10 @@ class cScrMap : iScrMap
 		}
 		
 		SetupGenerator();
+		//if(cLux_ScriptDebugOn()){
+        //    SetupStalkerAppearance();
+        //}
 		
-		SetupStalkerAppearance();
 		
         SetupMusicAmbienceBasedOnGen();
         
@@ -494,8 +496,10 @@ class cScrMap : iScrMap
 	//////////////////
 	
 	void SetupStalkerAppearance() {
+        cLux_AddDebugMessage("ATTEMPTING TO MAKE STALKER APPEAR");
 		if (cScript_GetGlobalVarBool("scaredByStalker") && !cScript_GetGlobalVarBool("entrance_alt_unlocked")) {
 			//Enable god mode in case player spawns there, so that stalker pushes you
+            cLux_AddDebugMessage("STALKER ENABLED");
             cLux_SetGodModeActivated(true);
             Map_AddTimer("Timer_DisableGodMode", 2.0f, "OnTimer_DisableGodMode");
             
@@ -544,7 +548,7 @@ class cScrMap : iScrMap
 	///////////////
 	
 	void SetupMusicAmbienceBasedOnGen() {
-		if (Generator_GetFuelTimeLeft() <= 0) {
+		if (Generator_GetState(eGeneratorState_Off)) {
 			Music_PlayExt_Save("atrium_exploration_dark", true, 0.3f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 		} else {
 			Music_PlayExt_Save("atrium_exploration_piano", true, 0.4f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);

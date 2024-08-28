@@ -118,7 +118,7 @@ class cScrMap : iScrMap
 		SetupMusicAmbienceBasedOnGen();
         
         // If gen is off, set levers off
-        if(Generator_GetFuelTimeLeft() <= 0){
+        if(Generator_GetState(eGeneratorState_Off)){
 			Entity_SetActive("Zoom_1", false);
             Lever_SetStuckState("PowerSwitch_*", -1, true);
 			Map_SetFogActive(false);
@@ -140,7 +140,7 @@ class cScrMap : iScrMap
 			SetupColorgrading_EntranceAlt();
 		}
 		
-		SetupStalkerAppearance();
+		//SetupStalkerAppearance();
 	}
 
 	//-------------------------------------------------------
@@ -310,7 +310,7 @@ class cScrMap : iScrMap
 	}
 	
 	void SetupMusicAmbienceBasedOnGen() {
-		if (Generator_GetFuelTimeLeft() <= 0) {
+		if (Generator_GetState(eGeneratorState_Off)) {
 			Music_PlayExt_Save("storehouse_darkness", true, 0.3f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 		} else {
 			Music_PlayExt_Save("storehouse_genison", true, 0.35f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
@@ -605,7 +605,7 @@ class cScrMap : iScrMap
 		cLux_AddDebugMessage("POWERSWITCH");
 		
 		if (alState == 1) {
-			if (Generator_GetFuelTimeLeft() > 0) {
+			if (Generator_GetState(eGeneratorState_On)) {
 				SlideDoor_SetOpenAmount("metal_security_door_1", 1.0f, false);
 				Lamp_SetLit("Lamp_FakeBackup_*",false,true); 
 				Lamp_SetLit("Lamp_PowerSwitch_1_*",true,true);
