@@ -882,7 +882,8 @@ class cScrMap : iScrMap
                 for(int t= 1; t <= 4; t++){
                     Map_GetEntity("GhoulHole_Boss_"+t).SetPosition(cVector3f(-215.5f, -81.375f, 3.0f));
                 }
-                Rat_Retreat("enemy_rat*", true, true, false);
+                Map_AddTimer("rat_retreat", 2.0f, "OnTimer_RetreatRats");
+                //Rat_Retreat("enemy_rat*", true, true, false);
                 Music_Stop(5.0f, eMusicPrio_SceneAmb);
                 Music_PlayExt_Save("subterranean_transition", true, 0.5f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
                 
@@ -895,6 +896,9 @@ class cScrMap : iScrMap
             
         }
         
+        void OnTimer_RetreatRats(const tString &in asTimer){
+            Rat_Retreat("enemy_rat*", true, true, false);
+        }
         
 		
 		void ActivateRatKing(){
