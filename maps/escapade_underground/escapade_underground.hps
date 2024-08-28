@@ -146,9 +146,12 @@ class cScrMap : iScrMap
 			SetupColorgrading_EntranceAlt();
 			Entity_SetActive("Trigger_ThreatCorridors_Alt", true);
 			Entity_SetActive("Trigger_ThreatCorridors", false);
+			Entity_SetActive("block_box_char_warning_cliff", true);
+			
 		} else {
 			Entity_SetActive("Trigger_ThreatCorridors_Alt", false);
 			Entity_SetActive("Trigger_ThreatCorridors", true);
+			Entity_SetActive("block_box_char_warning_cliff", false);
 		}
         
         
@@ -923,7 +926,8 @@ class cScrMap : iScrMap
 			iLuxEntity@ pFeed = Map_GetEntity("RatFeed_Boss_1");
 			iLuxEntity@ pHole = Map_GetEntity("GhoulHole_Boss_1");
 			
-            
+            Sound_PlayGui("voice_stayaway.snt", 1.0f);
+			
             // Hole 1
             //for(int t=1; t<= 4; t++){
             //    Rat_EmergeToFood("enemy_rat_grey_boss_"+t, pHole.GetID(), pFeed.GetID());
