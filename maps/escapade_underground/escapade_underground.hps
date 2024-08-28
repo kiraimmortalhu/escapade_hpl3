@@ -420,7 +420,7 @@ class cScrMap : iScrMap
     
     void OnTimer_RemoveOrb(const tString &in asTimer){
         cLux_AddDebugMessage("UNEQUIPPED, REMOVE");
-        Item_RemoveFromInventory(ItemType_GetFirstInInventory("OrbRed"));
+        
         Map_AddTimer("reset_orb_animation", 0.5f, "OnTimer_RemoveOrbResetAnim");
         
     }
