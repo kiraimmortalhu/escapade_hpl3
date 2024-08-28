@@ -708,6 +708,7 @@ class cScrMap : iScrMap
 		{
 			if (alState == 1) {
 				Sound_PlayGui("voice_impossible.snt", 1.0f);
+				Entity_SetActive(asChild, false);
 				return false;
 			}
 			return true;
