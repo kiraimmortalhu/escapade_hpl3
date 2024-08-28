@@ -814,7 +814,11 @@ class cScrMap : iScrMap
                 Map_GetEntity("GhoulHole_Boss_4").SetPosition(hole4Pos);
                 Map_GetEntity("GhoulHole_RatKStart").SetPosition(holeKPos);
                 
-                Item_Unequip(Item_GetHeld(), true);
+                // Get Item Handler
+                //iScrItemHandler_Interface@ pHandler = cast<iScrItemHandler_Interface>( cLux_GetUserModuleFromID(eModuleType_Custom_ItemHandler) );
+                //pHandler.CopyItemEntityInfo(Item_GetItemEntity(ItemType_GetFirstInInventory("Shotgun")), "shotgun_temp");
+                
+                Item_Unequip(Item_GetHeld(), false);
                 Item_Unequip(Item_GetHeld(eItemHandlerHand_Left), true);
                 Map_AddTimer(asParent, 0.1f, "OnTimer_StartRatBossFight");
                 
@@ -1004,7 +1008,16 @@ class cScrMap : iScrMap
             
             Player_SetActive(true);
             cLux_SetGodModeActivated(false);
+            //Map_AddTimer("shotgun_ammo_recover", 0.5f, "OnTimer_ShotgunAmmoRecover");
             return true;
+        }
+        
+        void OnTimer_ShotgunAmmoRecover(const tString &in asTimer){
+            // Get Item Handler
+            iScrItemHandler_Interface@ pHandler = cast<iScrItemHandler_Interface>( cLux_GetUserModuleFromID(eModuleType_Custom_ItemHandler) );
+            pHandler.CopyItemEntityInfo("shotgun_temp", Item_GetItemEntity(ItemType_GetFirstInInventory("Shotgun")));
+            
+            
         }
         
         void OnTimer_RatKGivePlayerPosition(const tString &in asTimer){
