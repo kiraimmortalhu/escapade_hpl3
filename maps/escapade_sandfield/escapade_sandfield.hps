@@ -59,8 +59,9 @@ class cScrMap : iScrMap
 	{
 		cVector3f vRot = cVector3f(0, cMath_ToRad(142), 0);
 		cLux_GetCurrentMap().GetWorld().SetSkyboxRotation(vRot);
-		Music_PlayExt_Save("sandfield_ambience", true, 0.5f, 1, 5.0f, 5.0f, eMusicPrio_OverrideAll, true);
+		Music_PlayExt_Save("sandfield_ambience", true, 0.4f, 1, 5.0f, 5.0f, eMusicPrio_OverrideAll, true);
 		
+		Sound_PlayGui("voice_iamready.snt", 1.0f);
 		Player_StopBleeding();
 		
 		/////////////////////////

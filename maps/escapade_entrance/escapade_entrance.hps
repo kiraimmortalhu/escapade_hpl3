@@ -102,7 +102,6 @@ class cScrMap : iScrMap
         //cLux_ChangeMap("escapade_ballroom.hpm", "Start_Begin_Ballroom", "", "", "", false);
         
         Player_SetFallDamageActive(true);
-        
 	}
 
 	//-------------------------------------------------------
@@ -631,8 +630,9 @@ class cScrMap : iScrMap
     }
     
     void OnTimer_IntroEnd2(const tString &in asTimer){
-		// Player_Disorient()
-		// VA
+		// to-do, make to voice
+		Player_Disorient(10.0f, true, false);
+		Sound_PlayGui("voice_intro_leave.snt", 1.0f);
         Effect_Blur_FadeOut(blurID, 12.0f);
         Effect_ImageTrail_FadeOut(imgTrailID, 12.0f);
     }
@@ -690,6 +690,8 @@ class cScrMap : iScrMap
 		
 		void BodyRevealCutscene() {
 			PlayerBody_SetVisible(true);
+			Sound_PlayGui("voice_intro_bodyreveal.snt", 1.0f);
+			PlayerBody_PlayCutsceneAnimation("player_exhausted", false, 0.3f, "", 0.4f);
 			Entity_SetInteractionDisabled("rag_pickup_*", false);
 		}
 		
@@ -700,6 +702,15 @@ class cScrMap : iScrMap
 			SwingDoor_SetLocked("castle_main_door", false, true);
 			SwingDoor_SetOpenAmount("castle_main_door", 0.7f);
 			Light_SetVisible("Light_Point_32", false);
+		}
+		
+		bool OnTrigger_CastleRevealVO(const tString &in asParent, const tString &in asChild, int alState)
+		{
+			if (alState == 1) {
+				Sound_PlayGui("voice_impossible.snt", 1.0f);
+				return false;
+			}
+			return true;
 		}
 	 
 	//} END SCENE X 
