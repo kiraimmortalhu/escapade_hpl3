@@ -98,7 +98,7 @@ class cScrMap : iScrMap
 		SetupGenerator();
         
 		// Disable lever dependant on generator
-        if(Generator_GetState(eGeneratorState_Off)){
+        if(Generator_GetState() == eGeneratorState_Off){
             Lever_SetStuckState("lever_portcuils", 1, true);
             
             //Enable path blocking areas
@@ -414,7 +414,7 @@ class cScrMap : iScrMap
 	void lever_portcuils_OnConnectionStateChange(const tString &in asEntity, int alState)
 	{
 		if (alState == -1) {
-			if (Generator_GetState(eGeneratorState_On)) {
+			if (Generator_GetState() == eGeneratorState_On) {
                 cLux_AddDebugMessage("MOVED UP");
 				//SlideDoor_SetOpenAmount("castle_portcullis_1", 1.0f, false);
 				MoveObject_SetState("castle_portcullis_*", 1);
@@ -422,7 +422,7 @@ class cScrMap : iScrMap
 				//Disable path blocking areas
                 Entity_SetActive("gate_path_area_blocker*", false);
 
-			} else if (Generator_GetState(eGeneratorState_Off)){
+			} else {
                 
 				Lever_SetStuckState(asEntity, 1, true);
 			}

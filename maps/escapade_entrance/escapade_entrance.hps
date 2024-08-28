@@ -548,7 +548,7 @@ class cScrMap : iScrMap
 	///////////////
 	
 	void SetupMusicAmbienceBasedOnGen() {
-		if (Generator_GetState(eGeneratorState_Off)) {
+		if (Generator_GetState() == eGeneratorState_Off) {
 			Music_PlayExt_Save("atrium_exploration_dark", true, 0.3f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 		} else {
 			Music_PlayExt_Save("atrium_exploration_piano", true, 0.4f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
