@@ -138,7 +138,7 @@ class cScrMap : iScrMap
 		
 		Game_AutoSave();
         
-        SetupStalkerAppearance_Initial();
+        
 	}
 
 	//-------------------------------------------------------
@@ -201,6 +201,8 @@ class cScrMap : iScrMap
             }
             
         }
+        
+        SetupStalkerAppearance_Initial();
     }
     
 	//-------------------------------------------------------
@@ -416,6 +418,7 @@ class cScrMap : iScrMap
         Stalker_GoToHole("stalker_growth_1", "GhoulHole_2", true, true);
 	}
     
+    /*
     // Similar to SetupStalkerAppearance_Initial(), but does not go to hole, so that he spawns right where he was last
     void SetupStalkerAppearance(){
         //Enable god mode in case player spawns there, so that stalker pushes you
@@ -465,7 +468,7 @@ class cScrMap : iScrMap
     void OnTimer_DisableGodMode(const tString &in asTimer){
         cLux_SetGodModeActivated(false);
     }
-	
+	*/
 	////////////////////////////////
  
 	//////////////////////////////////////////////////////////////////////////////////////////

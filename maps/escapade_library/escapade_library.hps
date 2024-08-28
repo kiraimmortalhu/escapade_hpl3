@@ -139,7 +139,7 @@ class cScrMap : iScrMap
 			SetupColorgrading_EntranceAlt();
 		}
 		
-		//SetupStalkerAppearance();
+		SetupStalkerAppearance();
 	}
 
 	//-------------------------------------------------------
@@ -325,8 +325,8 @@ class cScrMap : iScrMap
 	void SetupStalkerAppearance() {
 		if (cScript_GetGlobalVarBool("scaredByStalker") && !cScript_GetGlobalVarBool("entrance_alt_unlocked")) {
 			//Enable god mode in case player spawns there, so that stalker pushes you
-            cLux_SetGodModeActivated(true);
-            Map_AddTimer("Timer_DisableGodMode", 2.0f, "OnTimer_DisableGodMode");
+            //cLux_SetGodModeActivated(true);
+            //Map_AddTimer("Timer_DisableGodMode", 2.0f, "OnTimer_DisableGodMode");
             
             Entity_SetActive("stalker_growth_1", true);
 			Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
@@ -334,7 +334,7 @@ class cScrMap : iScrMap
 			cLux_AddDebugMessage("Stalker is now ENABLED");
 		}
 	}
-    
+    /*
     bool OnCollide_StalkerDisableArea(const tString &in asParent, const tString &in asChild, int alState)
     {
         if(alState == 1){
@@ -367,7 +367,7 @@ class cScrMap : iScrMap
     void OnTimer_DisableGodMode(const tString &in asTimer){
         cLux_SetGodModeActivated(false);
     }
- 
+    */
 	//} END MAIN FUNCTIONS
  
 	//////////////////////////////////////////////////////////////////////////////////////////
