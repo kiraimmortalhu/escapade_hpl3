@@ -144,13 +144,13 @@ class cScrMap : iScrMap
 		
 		if(cScript_GetGlobalVarBool("entrance_alt_unlocked")){ 
 			SetupColorgrading_EntranceAlt();
-			Entity_SetActive("Trigger_ThreatCorridors_Alt", true);
-			Entity_SetActive("Trigger_ThreatCorridors", false);
+			//Entity_SetActive("Trigger_ThreatCorridors_Alt", true);
+			//Entity_SetActive("Trigger_ThreatCorridors", false);
 			Entity_SetActive("block_box_char_warning_cliff", true);
 			
 		} else {
-			Entity_SetActive("Trigger_ThreatCorridors_Alt", false);
-			Entity_SetActive("Trigger_ThreatCorridors", true);
+			//Entity_SetActive("Trigger_ThreatCorridors_Alt", false);
+			//Entity_SetActive("Trigger_ThreatCorridors", true);
 			Entity_SetActive("block_box_char_warning_cliff", false);
 		}
         
@@ -798,7 +798,7 @@ class cScrMap : iScrMap
         {
             if(alState == 1){
                 cLux_AddDebugMessage("READY BOSSFIGHT");
-                Entity_SetActive("stalker_test", false);
+                //Entity_SetActive("stalker_test", false);
                 Entity_SetActive("enemy_rat_king_1", true);
                 
             }
