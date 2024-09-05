@@ -91,6 +91,9 @@ class cScrMap : iScrMap
 		Light_SetVisible("Light_Point_22", false);
         
         Player_SetFallDamageActive(true);
+        
+        
+        
 	}
 
 	//-------------------------------------------------------
@@ -170,12 +173,42 @@ class cScrMap : iScrMap
 			}
             Item_AddToInventory("MolotovCocktail");
             Item_AddToInventory("Torch");
+            Map_AddTimer("checkc", 0.0f, "DebugCheck");
+        
         }
         
-        Map_AddTimer("checkc", 0.0f, "DebugCheck");
+        
         //Map_AddTimer("checkc", 0.0f, "OrbTimerTests");
         //
-     }
+        
+        // ONE TIME DEBUG DELETE AFTER. PROBABLY REMOVE "checkc" TIMER TOO
+        Item_SetCurrentSlotsCount(50);
+        if (ItemType_GetCountInInventory("Gun") == 0)
+        {
+            Item_AddToInventory("Gun");
+            Item_AddManyToInventory("Ammunition", 8);
+        }
+        if (ItemType_GetCountInInventory("Shotgun") == 0)
+        {
+            Item_AddToInventory("Shotgun");
+            Item_AddManyToInventory("ShotgunAmmunition", 3);
+        }
+        if (ItemType_GetCountInInventory("Torch") == 0)
+        {
+            Item_AddToInventory("Torch");
+        }
+        if (ItemType_GetCountInInventory("Lighter") == 0)
+        {
+            Item_AddToInventory("Lighter");
+        }
+        if (ItemType_GetCountInInventory("GasMask") == 0)
+        {
+            Item_AddToInventory("GasMask");
+        }
+        
+        
+        
+    }
 
 	//-------------------------------------------------------
 
@@ -808,7 +841,11 @@ class cScrMap : iScrMap
 		bool OnTrigger_RatBossFight(const tString &in asParent, const tString &in asChild, int alState)
 		{
 			if (alState == 1) {
-				Player_ChangeStateToNormal();
+                
+                //Player_SetActive(false);
+                //Player_ChangeStateToNormal();
+                
+                //PlayerBody_SetActive(false);
                 //Player_SetIsUsingItem(false);
                 if(cLux_DebugModeOn()){
                     Entity_SetActive("enemy_rat_king_1", true);
@@ -824,13 +861,65 @@ class cScrMap : iScrMap
                 //iScrItemHandler_Interface@ pHandler = cast<iScrItemHandler_Interface>( cLux_GetUserModuleFromID(eModuleType_Custom_ItemHandler) );
                 //pHandler.CopyItemEntityInfo(Item_GetItemEntity(ItemType_GetFirstInInventory("Shotgun")), "shotgun_temp");
                 
-                Item_Unequip(Item_GetHeld(), false);
-                Item_Unequip(Item_GetHeld(eItemHandlerHand_Left), true);
-                Map_AddTimer(asParent, 0.1f, "OnTimer_StartRatBossFight");
                 
+                //Item_Unequip(Item_GetHeld(), true);
+                //Item_Unequip(Item_GetHeld(eItemHandlerHand_Left), true);
+                // Cutscene start
+                cLux_AddDebugMessage("CUTSCENE STARTO");
+                Map_AddTimer(asParent, 0.1f, "OnTimer_StartRatBossFight");
+                //Seq_RatKingNoCutscene("");
 			}
-			return true;
+			return false;
 		}
+        
+        
+        // --Alternative version without cutscene start--
+        
+        cSequenceStatesData mSeqDataRatKingNoCutscene;
+        void Seq_RatKingNoCutscene(const tString &in asTimer){
+            Sequence_Begin("Seq_RatKingNoCutscene", mSeqDataRatKingNoCutscene);
+            if(Sequence_DoStepAndWait(1.5f)){
+                cLux_AddDebugMessage("RAT KING START");
+                Map_AddTimer("ratkhealthupdate", 0.1f, "OnTimer_UpdateRatKHealth");
+                Music_PlayExt_Save("underground_ratking_boss", true, 0.5f, 1, 4.0f, 0, eMusicPrio_SceneAmb, true);
+                
+                // elevator stuff
+				Entity_SetActive("lq_elevator*", true);
+				Entity_SetActive("lq_elevator_1_blockbox_*", false);
+				Entity_SetActive("lq_elevator_midway", false);
+				Light_SetVisible("Light_Point_22", true);
+				
+				// blocking alternative exits
+				Entity_SetActive("bossfight_block_*", true);
+                
+                Map_GetEntity("enemy_rat_king_1").PlayAnimation("idle_attack");
+                //Sound_Play("Sound_RatKCutscene", 0.0f);
+                Sound_PlayGui("update/big_rat/fear_run", 1.0f);
+            }
+            else if(Sequence_DoStepAndWait(0.4f)){
+                cLux_AddDebugMessage("RATS EMERGE");
+                Agent_SetSensesActive("enemy_rat_king_1", true);
+                //RatHandler_DoRatAttack();
+                //Rat_Threatened("enemy_rat_king_1");
+                ActivateRatMinions();
+                Effect_Fade_Out(0.25f);
+            }
+            else if(Sequence_DoStepAndWait(1.0f)){
+                Entity_SetActive("RatK_Blockbox", false);
+                ActivateRatKing();
+                Effect_Fade_In(0.5f);
+                
+                
+                
+            }
+            else if(Sequence_DoStepAndWait(1.0f)){
+                Map_GetEntity("GhoulHole_RatKStart").SetPosition(cVector3f(-215.5f, -81.375f, 3.0f));
+            }
+            
+            Sequence_End();
+        }
+        
+        // --Alternative version without cutscene end--
         
         void OnTimer_StartRatBossFight(const tString &in asTimer){
             cLux_AddDebugMessage("BOSSFIGHT START");
@@ -841,11 +930,9 @@ class cScrMap : iScrMap
 				// rat king
 				//ActivateRatKing();
                 
-                // Disable hitbox?
-                //cLux_ID_Agent().GetHitboxBody(0).SetActive(false);
                 // begin cutscene
                 cLux_SetGodModeActivated(true);
-                Player_SetActive(false);
+                //Player_SetActive(false);
                 Entity_SetActive("RatK_Blockbox", false);
                 CameraAnimation_Begin("RatKCutscene", "", true);
                 
@@ -1013,9 +1100,12 @@ class cScrMap : iScrMap
             Agent_SetSensesActive("enemy_rat_king_1", false);
             //Rat_Threatened("enemy_rat_king_1");
             
+            
             Player_SetActive(true);
             cLux_SetGodModeActivated(false);
             //Map_AddTimer("shotgun_ammo_recover", 0.5f, "OnTimer_ShotgunAmmoRecover");
+            
+            
             return true;
         }
         
