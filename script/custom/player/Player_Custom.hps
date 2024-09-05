@@ -1546,7 +1546,7 @@ class cScrPlayerCustom : cScrPlayer
 			Player_GiveDamage(1, 0.3f, eDamageType_FallBig, "");
 		}*/
 		
-		else if (aType == eDamageType_Fall || aType == eDamageType_FallBig)
+		if (aType == eDamageType_Fall || aType == eDamageType_FallBig)
 		{
 			sSource = "Fall";
 			
