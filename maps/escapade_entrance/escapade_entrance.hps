@@ -174,7 +174,7 @@ class cScrMap : iScrMap
         
         
         
-        
+        Game_SetupAfterMapChange();
 	}
     
 	//-------------------------------------------------------
@@ -710,9 +710,11 @@ class cScrMap : iScrMap
 		{
 			if (alState == 1) {
 				Sound_PlayGui("voice_impossible.snt", 1.0f);
-				Entity_SetActive(asChild, false);
+				Entity_SetActive(asParent, false);
+                cLux_AddDebugMessage("RETURNED FALSE");
 				return false;
 			}
+            cLux_AddDebugMessage("RETURNED TRUE");
 			return true;
 		}
 	 
