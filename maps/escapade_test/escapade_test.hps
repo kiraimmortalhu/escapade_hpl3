@@ -60,8 +60,6 @@ class cScrMap : iScrMap
 		
 	void PreloadData()
 	{
-		PlayerBody_PreloadModel("player_rebirth_ghoul.ent");
-		
 		/////////////////
 		// Preload gui
 		//ImGui_PreloadImage("some_image");
@@ -73,6 +71,11 @@ class cScrMap : iScrMap
 		//////////////
 		// Preload screen effects
 		//Material_Preload("some_material.mat");
+        
+        //////////////
+		// Preload entity
+		Entity_Preload("player_rebirth_ghoul.ent");
+        //PlayerBody_PreloadModel("player_rebirth_ghoul.ent");
 	}
 	
 	//-------------------------------------------------------
@@ -202,6 +205,8 @@ class cScrMap : iScrMap
         Map_SetFogProperties(0.f, 100.0f, 2.0f, fogColor, false);
         Map_SetSecondaryFogProperties(10.0f, 50.0f, 1.5f, secondaryFogColor);
         
+        
+        Game_SetupAfterMapChange();
 	}
 
 	//-------------------------------------------------------

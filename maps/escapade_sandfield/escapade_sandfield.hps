@@ -48,7 +48,10 @@ class cScrMap : iScrMap
 		
 	void PreloadData()
 	{
-		PlayerBody_PreloadModel("player_rebirth_ghoul.ent");
+		//////////////
+		// Preload entity
+		Entity_Preload("player_rebirth_ghoul.ent");
+        //PlayerBody_PreloadModel("player_rebirth_ghoul.ent");
 	}
 	
 	//-------------------------------------------------------
@@ -86,6 +89,8 @@ class cScrMap : iScrMap
 			PlayerBody_SetActive(true);
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
+        
+        Game_SetupAfterMapChange();
 	}
 
 	//-------------------------------------------------------

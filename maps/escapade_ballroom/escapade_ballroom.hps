@@ -59,6 +59,10 @@ class cScrMap : iScrMap
 		//////////////
 		// Preload screen effects
 		//Material_Preload("some_material.mat");
+        
+        //////////////
+		// Preload entity
+		Entity_Preload("player_rebirth_ghoul.ent");
 	}
 	
 	//-------------------------------------------------------
@@ -105,7 +109,7 @@ class cScrMap : iScrMap
 	// Run when entering map
 	void OnEnter()
 	{	
-	
+        
 	}
 
 	//-------------------------------------------------------

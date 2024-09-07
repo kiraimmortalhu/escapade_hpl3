@@ -53,7 +53,10 @@ class cScrMap : iScrMap
 		
 	void PreloadData()
 	{
-		PlayerBody_PreloadModel("player_rebirth_ghoul.ent");
+        //////////////
+		// Preload entity
+		Entity_Preload("player_rebirth_ghoul.ent");
+		//PlayerBody_PreloadModel("player_rebirth_ghoul.ent");
 	}
 	
 	//-------------------------------------------------------
@@ -140,6 +143,8 @@ class cScrMap : iScrMap
 		}
 		
 		SetupStalkerAppearance();
+        
+        Game_SetupAfterMapChange();
 	}
 
 	//-------------------------------------------------------
@@ -246,6 +251,7 @@ class cScrMap : iScrMap
     bool OnTrigger_Player_Transfer_UndergroundDiningOne(const tString &in asParent, const tString &in asChild, int alState)
 	{
 		Game_DoMapChange("escapade_underground.hpm", "MapTransfer_DiningWellUnderground");
+        //cLux_ChangeMap("escapade_underground.hpm", "Start_RatCutsceneTest", "", "", "", true, -1.0f);
 		return true;
 	}
 	//-------------------------------------------------------

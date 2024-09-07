@@ -51,7 +51,10 @@ class cScrMap : iScrMap
 		
 	void PreloadData()
 	{
-		PlayerBody_PreloadModel("player_rebirth_ghoul.ent");
+		//////////////
+		// Preload entity
+		Entity_Preload("player_rebirth_ghoul.ent");
+        //PlayerBody_PreloadModel("player_rebirth_ghoul.ent");
 	}
 	
 	//-------------------------------------------------------
@@ -98,7 +101,7 @@ class cScrMap : iScrMap
 		SetupGenerator();
         
 		// Disable lever dependant on generator
-        if(Generator_GetFuelTimeLeft() == 0){
+        if(Generator_GetState() == eGeneratorState_Off){
             Lever_SetStuckState("lever_portcuils", 1, true);
             
             //Enable path blocking areas
@@ -111,6 +114,8 @@ class cScrMap : iScrMap
 		}
 		
 		SetupStalkerAppearance();
+        
+        Game_SetupAfterMapChange();
 	}
 
 	//-------------------------------------------------------
@@ -416,7 +421,7 @@ class cScrMap : iScrMap
 	void lever_portcuils_OnConnectionStateChange(const tString &in asEntity, int alState)
 	{
 		if (alState == -1) {
-			if (Generator_GetFuelTimeLeft() > 0) {
+			if (Generator_GetState() == eGeneratorState_On) {
                 cLux_AddDebugMessage("MOVED UP");
 				//SlideDoor_SetOpenAmount("castle_portcullis_1", 1.0f, false);
 				MoveObject_SetState("castle_portcullis_*", 1);
@@ -508,9 +513,11 @@ class cScrMap : iScrMap
 	//float GenFuelTimeLeft = 0;
 	bool OnTrigger_GenScareEvent(const tString &in asParent, const tString &in asChild, int alState)
 	{
-	  if (alState == 1) {
+        if (alState == 1) {
 		    //// Did you encounter another lock event in greenhouse?
 			if (!cScript_GetGlobalVarBool("survivedLockScareEvent")) {
+                cLux_AddDebugMessage("LOCKDOWN EVENT. DEACTIVATE FOG");
+                
 				//GenFuelTimeLeft = Generator_GetFuelTimeLeft();
 				//Generator_SetRunForever(false);
 				//Generator_SetFuelAmount(0);
@@ -531,13 +538,13 @@ class cScrMap : iScrMap
 				//Stalker_SetEmergeAllowed("stalker_growth_1", true);
 				cLux_AddDebugMessage("Stalker is now ENABLED");
 			}
-				Stalker_GoToHole("stalker_growth_1", "GhoulHole_2", true, false, eStalkerSpeed_Run);
-				Map_AddTimer("Timer_StalkerScareScene", 2.0f, "OnTimer_StalkerScareScene");
-				Map_AddTimer("Timer_StalkerScareScene2", 4.0f, "OnTimer_StalkerScareScene2");
-				Map_AddTimer("Timer_StalkerScareScene3", 120.0f, "OnTimer_StalkerScareScene3");
+            Stalker_GoToHole("stalker_growth_1", "GhoulHole_2", true, false, eStalkerSpeed_Run);
+            Map_AddTimer("Timer_StalkerScareScene", 2.0f, "OnTimer_StalkerScareScene");
+            Map_AddTimer("Timer_StalkerScareScene2", 4.0f, "OnTimer_StalkerScareScene2");
+            Map_AddTimer("Timer_StalkerScareScene3", 120.0f, "OnTimer_StalkerScareScene3");
 			return false;
-	  }
-	  return true;
+        }
+        return true;
 	}
 	
 	void OnTimer_StalkerScareScene(const tString &in asTimer) {
@@ -587,6 +594,8 @@ class cScrMap : iScrMap
 			
 			cLux_AddDebugMessage("You can escape, doors are open");
 			cScript_SetGlobalVarBool("survivedLockScareEvent", true);
+            
+            Entity_SetActive("Trigger_GenScareEvent", false);
 		}
 	}
 	 

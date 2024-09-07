@@ -52,7 +52,10 @@ class cScrMap : iScrMap
 		
 	void PreloadData()
 	{
-		PlayerBody_PreloadModel("player_rebirth_ghoul.ent");
+		//////////////
+		// Preload entity
+		Entity_Preload("player_rebirth_ghoul.ent");
+        //PlayerBody_PreloadModel("player_rebirth_ghoul.ent");
         Entity_Preload("stalker_1");
 	}
 	
@@ -143,6 +146,8 @@ class cScrMap : iScrMap
 		}
 		
 		SetupStalkerAppearance();
+        
+        Game_SetupAfterMapChange();
 	}
 
 	//-------------------------------------------------------
