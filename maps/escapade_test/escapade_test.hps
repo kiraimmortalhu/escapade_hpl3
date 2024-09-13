@@ -174,7 +174,7 @@ class cScrMap : iScrMap
         cLux_AddDebugMessage("EXPOSURE: "+ cLux_GetViewport().GetToneMappingEffect().GetExposure());
         cLux_GetViewport().GetToneMappingEffect().FadeWindowExposure(0.f, 3.25f);
         */
-        
+        /*
         float afKey = 0.1f;
         float afGammaCorrection = 0.5f;
         float afFilmGrainIntensity = 1.0f;
@@ -205,7 +205,7 @@ class cScrMap : iScrMap
         Map_SetFogProperties(0.f, 100.0f, 2.0f, fogColor, false);
         Map_SetSecondaryFogProperties(10.0f, 50.0f, 1.5f, secondaryFogColor);
         
-        
+        */
         Game_SetupAfterMapChange();
 	}
 
@@ -288,6 +288,71 @@ class cScrMap : iScrMap
 	// MAIN FUNCTIONS
 	// ==============
 	//{///////////////////////////////////////////////////////////////////////////////////////
+    void OnInteract_FogEffectTest(const tString &in asEntity)
+    {
+        if(Map_TimerExists("FogArea_Test")){
+            Map_RemoveTimer("FogArea_Test");
+        }
+        else{
+            Map_SetSkyBoxTexture("skybox_dwl.dds");
+            cLux_AddDebugMessage("START");
+            //cFogArea@ fog = cLux_ID_FogArea(Map_GetEntity("FogArea_Test").GetID());
+            
+            array<cFogArea@> fogAreas;
+            Map_GetFogAreaArray("FogArea_Test", fogAreas);
+            //fogAreas[0].SetEnd(2.0f);
+            if(fogAreas[0] != null){
+                FogArea_FadeInAndOut(fogAreas[0]);
+            }
+            
+            //fog.SetEnd(10.0f);
+            //cLux_AddDebugMessage("END: " + cLux_ID_FogArea(Map_GetEntity("FogArea_Test").GetID()).GetEnd());
+            //cLux_AddDebugMessage("POS: " + Map_GetEntity("FogArea_Test").GetPosition().x);
+        }
+        
+    }
+    
+    void FogArea_FadeInAndOut(cFogArea@ &in fogArea){
+        //fogArea.SetEnd(10.0f);
+        Map_AddTimer(fogArea.GetName(), 0.0f, "OnTimer_UpdateFogAreaEnd");
+    }
+    
+    bool inc = false;
+    void OnTimer_UpdateFogAreaEnd(const tString &in asFogArea){
+        cLux_AddDebugMessage("FUNCTION CALLED");
+        //Get Fog Area
+        array<cFogArea@> fogAreas;
+        Map_GetFogAreaArray(asFogArea, fogAreas);
+        
+        
+        cFogArea@ fog = fogAreas[0];
+        
+        //Update value
+        if(inc){
+            if(fog.GetEnd() < 80.0f){
+                fog.SetEnd( fog.GetEnd() + 0.1f);
+                cLux_AddDebugMessage("INCREASING", true);
+                cLux_AddDebugMessage("CURRENT: " + fog.GetEnd());
+            }
+            else{
+                inc = false;
+            }
+        }
+        else{
+            if(fog.GetEnd() > 2.0f){
+                fog.SetEnd( fog.GetEnd() - 0.1f);
+                cLux_AddDebugMessage("INCREASING", true);
+                cLux_AddDebugMessage("CURRENT: " + fog.GetEnd());
+                
+            }
+            else{
+                inc = true;
+            }
+        }
+        
+        Map_RestartCurrentTimer(0.001f);
+    }
+    
     void OnInteract_PowerSwitch(const tString &in asEntity)
     {
         Map_AddTimer("lightend", 6.0f, "LightEnd");
@@ -518,7 +583,7 @@ class cScrMap : iScrMap
         Dogtag_SetCombination("debugitem_dogtag_3397", cScript_GetGlobalArgInt(0));
         CombinationLock_SetCombination("GeneratorLock", cScript_GetGlobalArgInt(0));
          */
-        cLux_AddDebugMessage("TEST: "+cScript_GetGlobalVarInt("CombinationTest"));
+        //cLux_AddDebugMessage("TEST: "+cScript_GetGlobalVarInt("CombinationTest"));
         //ModEvent_AddListener(0);
         //ModEvent_Trigger(eModEvent_Hurt_Major);
         //Player_SetGravityEnabled(false);
@@ -535,8 +600,11 @@ class cScrMap : iScrMap
          */
         //cLux_AddDebugMessage("TEST: "+cMath_RandRectl(1000, 9999));
         
-        int testpos = cString_GetFirstStringPos("rag_pickup", "pickup");
-        cLux_AddDebugMessage("TESTPOS RESULT: "+ testpos);
+        //int testpos = cString_GetFirstStringPos("rag_pickup", "pickup");
+        //cLux_AddDebugMessage("TESTPOS RESULT: "+ testpos);
+        
+        //cLux_AddDebugMessage("CONFIG FILE: "+ cLux_GetUserConfig().GetFileLocation());
+        
         
         return true;
     }
