@@ -105,7 +105,30 @@ class cScrMap : iScrMap
         //cLux_ChangeMap("escapade_ballroom.hpm", "Start_Begin_Ballroom", "", "", "", false);
         
         Player_SetFallDamageActive(true);
+        
+        // -- Highlight puzzle entities start --
+        cLux_AddDebugMessage("//////////---------------- HIGHLIGHT START---------------");
+        // Get Highlight Handler
+        //iScrItemHandler_Interface@ pHandler = cast<iScrItemHandler_Interface>( cLux_GetUserModuleFromID(eModuleType_Custom_ItemHandler) );
+        //pHandler.CopyItemEntityInfo(Item_GetItemEntity(ItemType_GetFirstInInventory("Shotgun")), "shotgun_temp");
 		
+        //iScrHighlightEffectHandler_Interface@ pEffectHandler = cast<iScrHighlightEffectHandler_Interface>( cLux_GetUserModuleFromID(eModuleType_HighlightEffectHandler) );
+        //pEffectHandler.AddSubMeshHighlight(Map_GetEntity("armour_puzzle_item_gloves_left").GetMainBody().GetID(), cColor_White, 100.0f);
+		//cLuxEffectHandler@ pEffectHandler = cLux_GetEffectHandler();
+        //pEffectHandler.AddGlowObject(Map_GetEntity("armour_puzzle_item_gloves_left").GetMeshEntity(),  cColor(300.0f, 300.0f,300.0f,100.0f),  0.0f);
+        //cLux_GetEffectHandler().AddEdgeGlowObject(Map_GetEntity("armour_puzzle_item_gloves_left"), cColor_White, 0.5f, 10.0f, 10.0f);
+        //Set up puzzle items IDs
+        iLuxEntity@ pPuzzleItem1 = Map_GetEntity("armour_puzzle_item_gloves_left", eLuxEntityType_Prop);
+		m_idPuzzleItem1 = pPuzzleItem1 !is null ? pPuzzleItem1.GetID() : tID_Invalid;
+        
+        iLuxEntity@ pPuzzleItem2 = Map_GetEntity("armour_puzzle_item_gloves_right", eLuxEntityType_Prop);
+		m_idPuzzleItem2 = pPuzzleItem2 !is null ? pPuzzleItem2.GetID() : tID_Invalid;
+        
+        iLuxEntity@ pPuzzleItem3 = Map_GetEntity("armour_puzzle_item_helmet", eLuxEntityType_Prop);
+		m_idPuzzleItem3 = pPuzzleItem3 !is null ? pPuzzleItem3.GetID() : tID_Invalid;
+        
+        // -- Highlight applied through VariableUpdate --
+        
 		Game_AutoSave();
 	}
 
@@ -177,6 +200,8 @@ class cScrMap : iScrMap
         
         
         
+        
+        
         Game_SetupAfterMapChange();
 	}
     
@@ -204,6 +229,90 @@ class cScrMap : iScrMap
         }
         
 		Music_Stalker_StopDeaggroSongChecks();
+	}
+    
+    tID m_idPuzzleItem1;
+    tID m_idPuzzleItem2;
+    tID m_idPuzzleItem3;
+    
+    float mfFuelTapGlowCount = 0.f;
+	float mfFuelTapGlowMul = 0.f;
+    
+    void VariableUpdate(float afDeltaTime)
+	{
+		///////////////////
+		// Puzzle item highlight
+        if (ArmorItemCounter == 3){
+            return;
+        }
+        
+		cLuxProp@ pProp1 = cLux_ID_Prop(m_idPuzzleItem1);
+		cMeshEntity@ pMeshEnt1 = pProp1 !is null ? pProp1.GetMeshEntity() : null;
+		
+        cLuxProp@ pProp2 = cLux_ID_Prop(m_idPuzzleItem2);
+		cMeshEntity@ pMeshEnt2 = pProp2 !is null ? pProp2.GetMeshEntity() : null;
+		
+        cLuxProp@ pProp3 = cLux_ID_Prop(m_idPuzzleItem3);
+		cMeshEntity@ pMeshEnt3 = pProp3 !is null ? pProp3.GetMeshEntity() : null;
+		
+		bool bGlow = true;
+		//float fDistToPlayerSqr = (cLux_GetPlayer().GetCharacterBody().GetPosition() - pProp.GetPosition()).SqrLength();
+		
+		
+		
+		float fGlowMulGoal = bGlow ? 1.f : 0.f;
+		mfFuelTapGlowMul = cMath_IncreaseTo(mfFuelTapGlowMul, afDeltaTime * 2.f, fGlowMulGoal);
+		
+		if (mfFuelTapGlowMul <= 0.f)
+		{
+			mfFuelTapGlowCount = 0.f;
+		}
+		else
+		{
+			mfFuelTapGlowCount += afDeltaTime;
+			if (mfFuelTapGlowCount >= 4.f)
+				mfFuelTapGlowCount = 0.f;
+		}		
+		
+		float fY = cMath_Min(mfFuelTapGlowCount, 1.f);
+		float fGlow = 1.f - cMath_Abs(2.f * fY - 1.f);
+		fGlow = cMath_Easing(eEasing_QuadInOut, fGlow) * mfFuelTapGlowMul;
+		fY = cMath_Easing(eEasing_SineInOut, fY);
+		
+		//float fColorMul = 3.f;
+		//cColor color = cColor(0.35f * fColorMul, 0.15f * fColorMul, 0.f, fGlow);
+		
+        //float fColorMul = 3.f;
+		cColor color = cColor(1.0f, 1.0f, 1.0f, fGlow);
+		
+		if (fGlow > 0.f)
+		{
+			for (int i = 0; i < pMeshEnt1.GetSubMeshEntityNum(); ++i)
+			{
+				cSubMeshEntity@ pSubMesh = pMeshEnt1.GetSubMeshEntity(i);
+				if (pSubMesh is null) continue;
+				
+				cLux_GetEffectHandler().AddGlowObject(pSubMesh, color, fY);
+			}
+            
+            for (int i = 0; i < pMeshEnt2.GetSubMeshEntityNum(); ++i)
+			{
+				cSubMeshEntity@ pSubMesh = pMeshEnt2.GetSubMeshEntity(i);
+				if (pSubMesh is null) continue;
+				
+				cLux_GetEffectHandler().AddGlowObject(pSubMesh, color, fY);
+			}
+            
+            for (int i = 0; i < pMeshEnt3.GetSubMeshEntityNum(); ++i)
+			{
+				cSubMeshEntity@ pSubMesh = pMeshEnt3.GetSubMeshEntity(i);
+				if (pSubMesh is null) continue;
+				
+				cLux_GetEffectHandler().AddGlowObject(pSubMesh, color, fY);
+			}
+            
+            
+		}
 	}
     
     //array<iLuxEntity@> pickableEntitiesEnd;
