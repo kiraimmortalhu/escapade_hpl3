@@ -487,7 +487,40 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			if (mBaseObj.GetHealth() > 0)
 				mBaseObj.GiveDamage(null, 0, 0, eDamageType_Default, mBaseObj.GetHealth(), 0, 0, 0, tID_Invalid, mBaseObj.GetMap().GetNewAttackInstanceID());
 			mpStateMachine.ChangeState(eRatState_Dead);
-			return;
+			
+            ///////////////////////////
+            // ValG Edit, key drop
+            
+            //////////////////
+            // Spawn pickup key
+            
+            cLuxMap@ pMap = mBaseObj.GetMap();
+            if (pMap !is null && !cScript_GetGlobalVarBool("ChurchKeyGreenhouseDropped"))
+            {
+                pMap.CreateEntity("ChurchKey", glRat_KeyPickupEntity, cMatrixf_Identity, mBaseObj.GetOnLoadScale());
+                cLuxProp@ pKeyPickup = cLux_ToProp(pMap.GetLatestEntity());
+                
+                if (pKeyPickup !is null)
+                {
+                    pKeyPickup.SetMatrix(mBaseObj.GetMatrix());
+                    //pKeyPickup.GetMainBody().SetCollideFlags(mBaseObj.GetMap().GetCollideFlag("+key"));
+                    pKeyPickup.GetMainBody().SetCollideCharacter(false);
+                    //if (mbDead_Ragdoll == false)
+                    //{		
+                        cVector3f vImpulse;			
+                        /*if (sDeathAnim == "die_left")
+                            vImpulse = pCharBody.GetForward() * 1.f + pCharBody.GetRight() * 1.f;
+                        else if (sDeathAnim == "die_right")
+                            vImpulse = pCharBody.GetForward() * 1.f + pCharBody.GetRight() * -1.f;
+                        else*/
+                            //vImpulse = mBaseObj.GetCharBody().GetForward() * 1.f + mBaseObj.GetCharBody().GetRight() * 1.f;
+                        
+                        vImpulse = cVector3f(0, -1, 0);
+                        pKeyPickup.GetMainBody().AddImpulse(vImpulse);
+                    //}
+                }
+            }
+            return;
 		}
 			
 
@@ -3840,39 +3873,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 			SetRagdollActive(true, fFadeTime);
 		}
 		
-		///////////////////////////
-		// ValG Edit, key drop
-		
-		//////////////////
-		// Spawn pickup key
-		
-		cLuxMap@ pMap = mBaseObj.GetMap();
-		if (pMap !is null && !cScript_GetGlobalVarBool("ChurchKeyGreenhouseDropped") && !alreadyDied)
-		{
-			pMap.CreateEntity("ChurchKey", glRat_KeyPickupEntity, cMatrixf_Identity, mBaseObj.GetOnLoadScale());
-			cLuxProp@ pKeyPickup = cLux_ToProp(pMap.GetLatestEntity());
 			
-            bool alreadyDied = true;
-			if (pKeyPickup !is null)
-			{
-				pKeyPickup.SetMatrix(mBaseObj.GetMatrix());
-				//pKeyPickup.GetMainBody().SetCollideFlags(mBaseObj.GetMap().GetCollideFlag("+key"));
-				pKeyPickup.GetMainBody().SetCollideCharacter(false);
-				//if (mbDead_Ragdoll == false)
-				//{		
-					cVector3f vImpulse;			
-					/*if (sDeathAnim == "die_left")
-						vImpulse = pCharBody.GetForward() * 1.f + pCharBody.GetRight() * 1.f;
-					else if (sDeathAnim == "die_right")
-						vImpulse = pCharBody.GetForward() * 1.f + pCharBody.GetRight() * -1.f;
-					else*/
-						//vImpulse = mBaseObj.GetCharBody().GetForward() * 1.f + mBaseObj.GetCharBody().GetRight() * 1.f;
-					
-					vImpulse = cVector3f(0, -1, 0);
-					pKeyPickup.GetMainBody().AddImpulse(vImpulse);
-				//}
-			}
-		}	
 		
 		//////////////////
 		// Play sound
