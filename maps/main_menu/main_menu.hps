@@ -57,9 +57,15 @@ class cScrMap : iScrMap
 	{
 		////////////////////////
 		// Set rich presence
+        
+        
 		RichPresence_SetCurrent(eRichPresence_MainMenu);
 		
-		////////////////
+		cLux_AddDebugMessage("----------RICH PRESENCE DESCRIPTION: "+ RichPresence_GetDescription(eRichPresence_MainMenu) );
+        cLux_AddDebugMessage("----------RICH PRESENCE: "+ cLux_GetRichPresenceHandler().GetCurrentRichPresence() );
+        
+        
+        ////////////////
 		// Set static camera
 		CameraAnimation_Begin("CameraAnimation", "", false);
 				

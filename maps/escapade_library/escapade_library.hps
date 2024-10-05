@@ -79,8 +79,8 @@ class cScrMap : iScrMap
 		// Debug
 		if (cLux_ScriptDebugOn())
 		{
-		Item_AddToInventory("DynamoLantern");
-		cScript_SetGlobalVarBool("scaredByStalker", true);
+            Item_AddToInventory("DynamoLantern");
+            //cScript_SetGlobalVarBool("scaredByStalker", true);
 		} else {
 			Entity_SetActive("debugitem_*", false);
 		}
@@ -102,6 +102,13 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
 		
+        ///////////////////////
+		// Setup stalker
+		Blackboard_DoStalkerMapTransfer("stalker_growth_1");
+        if(Entity_IsActive("stalker_growth_1")){
+            Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
+        }
+        
 		Music_PlayExt_Save("ancestral_archives_exploration", true, 0.45f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 		
 		SetupGenerator();
@@ -142,7 +149,7 @@ class cScrMap : iScrMap
 			SetupColorgrading_EntranceAlt();
 		}
 		
-		SetupStalkerAppearance();
+		//SetupStalkerAppearance();
         
         Game_SetupAfterMapChange();
 	}
@@ -198,12 +205,18 @@ class cScrMap : iScrMap
     
     bool OnTrigger_Player_Transfer_StorageKitchen(const tString &in asParent, const tString &in asChild, int alState)
 	{
+        Stalker_SetTenacity("stalker_growth_1", 1.f);
+        Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
 		Game_DoMapChange("escapade_storage.hpm", "MapTransfer_KitchenDining");
 		return true;
 	}
     
     bool OnTrigger_Player_Transfer_GreenhouseFive(const tString &in asParent, const tString &in asChild, int alState)
 	{
+        Stalker_SetTenacity("stalker_growth_1", 1.f);
+        Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
 		Game_DoMapChange("escapade_greenhouse.hpm", "MapTransfer_LibraryGreenhouse");
 		return true;
 	}
@@ -211,10 +224,15 @@ class cScrMap : iScrMap
     bool OnTrigger_Player_Transfer_DiningBallroomOne(const tString &in asParent, const tString &in asChild, int alState)
 	{
         if(cScript_GetGlobalVarBool("entrance_alt_unlocked") ){
+            Stalker_SetTenacity("stalker_growth_1", 1.f);
+            Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            
             Game_DoMapChange("escapade_entrance_alt.hpm", "MapTransfer_EntranceLibrary_1");
             
         }else{
-
+            Stalker_SetTenacity("stalker_growth_1", 1.f);
+            Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            
             Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_1");
         
         }
@@ -225,10 +243,15 @@ class cScrMap : iScrMap
     bool OnTrigger_Player_Transfer_DiningBallroomTwo(const tString &in asParent, const tString &in asChild, int alState)
 	{
 		if(cScript_GetGlobalVarBool("entrance_alt_unlocked") ){
+            Stalker_SetTenacity("stalker_growth_1", 1.f);
+            Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            
             Game_DoMapChange("escapade_entrance_alt.hpm", "MapTransfer_EntranceLibrary_2");
             
         }else{
-
+            Stalker_SetTenacity("stalker_growth_1", 1.f);
+            Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            
             Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_2");
         
         }

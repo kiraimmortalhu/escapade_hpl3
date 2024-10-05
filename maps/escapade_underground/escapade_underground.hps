@@ -115,6 +115,13 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
         
+        ///////////////////////
+		// Setup stalker
+		Blackboard_DoStalkerMapTransfer("stalker_growth_1");
+        if(Entity_IsActive("stalker_growth_1")){
+            Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
+        }
+        
 		// making sure no softlock due to lock left closed, to-do: testing
 		SwingDoor_SetOpenAmount("roman_door_brick_1", 0.5);
 		
@@ -245,12 +252,18 @@ class cScrMap : iScrMap
     
 	bool OnTrigger_Player_Transfer_Storage(const tString &in asParent, const tString &in asChild, int alState)
 	{
+        Stalker_SetTenacity("stalker_growth_1", 1.f);
+        Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
 		Game_DoMapChange("escapade_storage.hpm", "MapTransfer_StorageUnderground");
 		return true;
 	}
     
     bool OnTrigger_Player_Transfer_UndergroundDining(const tString &in asParent, const tString &in asChild, int alState)
 	{
+        Stalker_SetTenacity("stalker_growth_1", 1.f);
+        Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
 		Game_DoMapChange("escapade_library.hpm", "MapTransfer_DiningWellUnderground");
 		return true;
 	}
@@ -603,23 +616,23 @@ class cScrMap : iScrMap
     
     /*
     void DeaggroCheck(const tString &in asTimer){
-        //cLux_AddDebugMessage("Checking. Stalker mode: "+ Stalker_GetMode("stalker_test"), true);
-        //cLux_AddDebugMessage("Checking. Stalker presence: "+ Stalker_GetPresence("stalker_test"));
+        //cLux_AddDebugMessage("Checking. Stalker mode: "+ Stalker_GetMode("stalker_growth_1"), true);
+        //cLux_AddDebugMessage("Checking. Stalker presence: "+ Stalker_GetPresence("stalker_growth_1"));
         //cLux_AddDebugMessage("Checking. Stalker HUNTING: "+ Terror_GetPlayerIsBeingHunted(), true);
-        cLux_AddDebugMessage("Checking. Stalker STATE: "+ StateMachine_GetCurrentStateName("stalker_test"), true);
+        cLux_AddDebugMessage("Checking. Stalker STATE: "+ StateMachine_GetCurrentStateName("stalker_growth_1"), true);
         
-        if(StateMachine_GetCurrentStateName("stalker_test") == "Alert"){
+        if(StateMachine_GetCurrentStateName("stalker_growth_1") == "Alert"){
             Terror_SetEnemyMusicActive(true);
             
             cLux_AddDebugMessage("TIMER RESTARTED");
             Map_RemoveTimer("deaggro");
         } else{
-            if(!Map_TimerExists("deaggro") && (StateMachine_GetCurrentStateName("stalker_test") == "Retreat" || StateMachine_GetCurrentStateName("stalker_test") == "Stalk")){
+            if(!Map_TimerExists("deaggro") && (StateMachine_GetCurrentStateName("stalker_growth_1") == "Retreat" || StateMachine_GetCurrentStateName("stalker_growth_1") == "Stalk")){
                 cLux_AddDebugMessage("TIMER ADDED");
                 Map_AddTimer("deaggro", 10.0f, "Stalker_Deaggro");
             }
         }
-        //Map_GetEntity("stalker_test").
+        //Map_GetEntity("stalker_growth_1").
         
         Map_RestartCurrentTimer(0.1f);
         
@@ -657,11 +670,11 @@ class cScrMap : iScrMap
 	void DebugStalkerThreatEnable() {
 		cLux_SetGodModeActivated(true);
         Map_AddTimer("disableGodMode", 2.0f, "OnTimer_DisableGodMode");
-        Entity_SetActive("stalker_test", true);
+        Entity_SetActive("stalker_growth_1", true);
         //Map_AddTimer("deaggro", 10.0f, "Stalker_Deaggro");
         //Map_AddTimer("deaggrocheck", 0.0f, "DeaggroCheck");
-        Music_Stalker_AddDeaggroSongTime("stalker_test", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 11.0f);
-        //Stalker_SetEmergeAllowed("stalker_test", true);
+        Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 11.0f);
+        //Stalker_SetEmergeAllowed("stalker_growth_1", true);
         //Terror_SetEnemyMusicStage(eTerrorMusicAgentType_Stalker, eTerrorMusicStage_Searching);
         
         //OnCollide_StalkerDisableArea("", "", -1);
@@ -669,17 +682,17 @@ class cScrMap : iScrMap
 	}
 	
 	void DebugStalkerThreatDisable() {
-		Entity_SetActive("stalker_test", false);
+		Entity_SetActive("stalker_growth_1", false);
         //Map_RemoveTimer("deaggrocheck");
         //Map_RemoveTimer("deaggro");
         
         Music_Stalker_StopDeaggroSongChecks();
         
         //Terror_SetEnemyMusicActive(false);
-        //Stalker_Retreat("stalker_test");
-        //Terror_RemoveEnemy(Map_GetEntityID("stalker_test"));
-        //Terror_RemoveHuntingEnemy(Map_GetEntityID("stalker_test"));
-        //Stalker_SetEmergeAllowed("stalker_test", false);
+        //Stalker_Retreat("stalker_growth_1");
+        //Terror_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
+        //Terror_RemoveHuntingEnemy(Map_GetEntityID("stalker_growth_1"));
+        //Stalker_SetEmergeAllowed("stalker_growth_1", false);
         
         
         //OnCollide_StalkerDisableArea("", "", 1);
@@ -691,9 +704,9 @@ class cScrMap : iScrMap
         //cLux_SetGodModeActivated(true);
         //Map_AddTimer("Timer_DisableGodMode", 2.0f, "OnTimer_DisableGodMode");
         
-        Entity_SetActive("stalker_test", true);
-        Music_Stalker_AddDeaggroSongTime("stalker_test", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 11.0f);
-        //Stalker_SetEmergeAllowed("stalker_test", true);
+        Entity_SetActive("stalker_growth_1", true);
+        Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 11.0f);
+        //Stalker_SetEmergeAllowed("stalker_growth_1", true);
         cLux_AddDebugMessage("Stalker is now ENABLED");
     }
     
@@ -703,7 +716,7 @@ class cScrMap : iScrMap
         if(alState == 1){
             cLux_AddDebugMessage("STALKER DISABLE CHECK TO SPAWN");
             Map_RemoveTimer("Timer_UpdateStalkerSpawn");
-            Entity_SetActive("stalker_test", false);
+            Entity_SetActive("stalker_growth_1", false);
             Music_Stalker_StopDeaggroSongChecks(); 
         }
         
@@ -718,8 +731,8 @@ class cScrMap : iScrMap
     // Check if stalker is out of player's sight and also far enough
     void OnTimer_UpdateStalkerSpawn(const tString &in asTimer){
         cLux_AddDebugMessage("Quick timer, checking for stalker spawn");
-        tID stalkerID = Map_GetEntityID("stalker_test");
-        if(!Entity_IsInPlayerFOV("stalker_test") && cLux_ID_Agent(stalkerID).GetDistanceToPlayer2D() > 1.5f){
+        tID stalkerID = Map_GetEntityID("stalker_growth_1");
+        if(!Entity_IsInPlayerFOV("stalker_growth_1") && cLux_ID_Agent(stalkerID).GetDistanceToPlayer2D() > 1.5f){
             
             SetupStalkerAppearance();
         }else{
@@ -806,6 +819,9 @@ class cScrMap : iScrMap
 			Music_Stop(3.0f, eMusicPrio_SceneAmb);
         }        
         else if(Sequence_DoStepAndWait(0.5f)){
+            Stalker_SetTenacity("stalker_growth_1", 1.f);
+            Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            
             Map_ChangeMap("escapade_entrance_alt.hpm", "Start_Begin_Ballroom", "", "", true, false);
             Sequence_End();
         }
@@ -835,7 +851,7 @@ class cScrMap : iScrMap
         {
             if(alState == 1){
                 cLux_AddDebugMessage("READY BOSSFIGHT");
-                //Entity_SetActive("stalker_test", false);
+                //Entity_SetActive("stalker_growth_1", false);
                 Entity_SetActive("enemy_rat_king_1", true);
                 
             }
