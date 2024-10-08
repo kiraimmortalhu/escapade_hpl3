@@ -782,7 +782,7 @@ class cScrMap : iScrMap
             //Entering hole, end checks
             Agent_SetSensesActive("stalker_growth_1", false);
         }
-        else if(Entity_IsActive("stalker_growth_1") && stalker.GetDistanceToPlayer() < 1.5f){
+        else if(Entity_IsActive("stalker_growth_1") && stalker.GetDistanceToPlayer() < 2.0f){
             
             
             //cScrAgentHumanoid@ cHum = cast<cScrAgentHumanoid> stalker;
