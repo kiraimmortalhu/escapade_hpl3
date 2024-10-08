@@ -114,18 +114,20 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
         
-        ///////////////////////
-		// Setup stalker
-		Blackboard_DoStalkerMapTransfer("stalker_growth_1");
-        if(Entity_IsActive("stalker_growth_1")){
-            Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
-        }
+        
 		
 		SetupGenerator();
 		
         SetupFuelTapStorage();
 		
 		SetupMusicAmbienceBasedOnGen();
+        
+        ///////////////////////
+		// Setup stalker
+		Blackboard_DoStalkerMapTransfer("stalker_growth_1");
+        if(Entity_IsActive("stalker_growth_1")){
+            Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
+        }
         
         // If gen is off, set levers off
         if(Generator_GetState() == eGeneratorState_Off){
