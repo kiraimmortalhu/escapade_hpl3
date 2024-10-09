@@ -245,10 +245,17 @@ class cScrMap : iScrMap
         //iScrAgentBlackboardModule_Interface @pHandler = cast<iScrAgentBlackboardModule_Interface>( cLux_GetUserModuleFromID(eModuleType_Custom_AgentBlackboard));
         //cLux_AddDebugMessage("-------------- AGENT 1: "+ cLux_ID_Agent(pHandler.GetAgentID(0)).GetName());
         //cLux_AddDebugMessage("-------------- AGENT 2: "+ cLux_ID_Agent(pHandler.GetAgentID(1)).GetName());
-        
+        //Map_AddTimer("debug_checkAnim", 0.0f, "OnTimer_DebugAnim");
     }
 
 	//-------------------------------------------------------
+    void OnTimer_DebugAnim(const tString &in asTimer){
+        
+        
+        
+        Map_RestartCurrentTimer(0.1f);
+    }
+    
     void OnTimer_EnableStalker(const tString &in asTimer){
         Entity_SetActive("stalker_growth_1", true);
     }
@@ -292,8 +299,11 @@ class cScrMap : iScrMap
     {
         // BLackboard
         iScrAgentBlackboardModule_Interface @pHandler = cast<iScrAgentBlackboardModule_Interface>( cLux_GetUserModuleFromID(eModuleType_Custom_AgentBlackboard));
-        cLux_AddDebugMessage("-------------- AGENT 1: "+ cLux_ID_Agent(pHandler.GetAgentID(0)).GetName());
-        cLux_AddDebugMessage("-------------- AGENT 2: "+ cLux_ID_Agent(pHandler.GetAgentID(1)).GetName());
+        //cLux_AddDebugMessage("-------------- AGENT 1: "+ cLux_ID_Agent(pHandler.GetAgentID(0)).GetName());
+        //cLux_AddDebugMessage("-------------- AGENT 2: "+ cLux_ID_Agent(pHandler.GetAgentID(1)).GetName());
+        
+        //Player_SetFallDistances()
+        
     }
     
     void OnInteract_DebugCameraBalcony(const tString &in asEntity)
