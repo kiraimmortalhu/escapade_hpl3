@@ -181,6 +181,9 @@ class cScrMap : iScrMap
 			Entity_SetActive("block_box_char_warning_cliff", false);
             
             Entity_SetActive("stalker_growth_1", false);
+            // Stalker starts as inactive, remove from blackboard
+            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
+            //Map_AddTimer("disable_stalker", 1.0f, "OnTimer_DisableStalker");
             
             Stalker_SetEmergeAllowed("stalker_growth_1", false);
             //Stalker_GoToHole("stalker_growth_1", "GhoulHole_7", true, true, eStalkerSpeed_Run);
@@ -246,7 +249,16 @@ class cScrMap : iScrMap
     }
 
 	//-------------------------------------------------------
-
+    void OnTimer_EnableStalker(const tString &in asTimer){
+        Entity_SetActive("stalker_growth_1", true);
+    }
+    
+    void OnTimer_DisableStalker(const tString &in asTimer){
+        cLux_AddDebugMessage("---------STALKER DISABLED");
+        Entity_SetActive("stalker_growth_1", false);
+    }
+    
+    
 	////////////////////////////
 	// Run when leaving map
 	void OnLeave()
@@ -282,6 +294,16 @@ class cScrMap : iScrMap
         iScrAgentBlackboardModule_Interface @pHandler = cast<iScrAgentBlackboardModule_Interface>( cLux_GetUserModuleFromID(eModuleType_Custom_AgentBlackboard));
         cLux_AddDebugMessage("-------------- AGENT 1: "+ cLux_ID_Agent(pHandler.GetAgentID(0)).GetName());
         cLux_AddDebugMessage("-------------- AGENT 2: "+ cLux_ID_Agent(pHandler.GetAgentID(1)).GetName());
+    }
+    
+    void OnInteract_DebugCameraBalcony(const tString &in asEntity)
+    {
+        CameraAnimation_Begin("DebugBalcony", "", true);
+    }
+    
+    void OnInteract_DebugCameraBottom(const tString &in asEntity)
+    {
+        CameraAnimation_Begin("DebugBottom", "", true);
     }
     
 	bool OnTrigger_Player_Transfer_Storage(const tString &in asParent, const tString &in asChild, int alState)
@@ -763,6 +785,7 @@ class cScrMap : iScrMap
             //ThreatCorridors_ShortCutscene("Trigger_ThreatCorridors", "player", 1);
             Entity_SetActive("stalker_growth_1", true);
             //Map_GetEntity().Get
+            Agent_FaceEntity("stalker_growth_1", "Player");
             if(!Map_TimerExists("update_checkPlayerVisibility"))
                 Map_AddTimer("update_checkPlayerVisibility", 0.0f, "OnTimer_UpdatePlayerLineOfSightShortEncounter");
             Agent_SetSensesActive("stalker_growth_1", true);
@@ -789,7 +812,6 @@ class cScrMap : iScrMap
             //cScrAgentStalker@ cStalker = cast<cScrAgentStalker> cHum;
             
             //cLuxStateMachine@ mpStateMachine = stalker.mpStateMachine;
-            cLux_AddDebugMessage("CLASS NAME: "+ stalker.GetClassName());
             Agent_SetSensesActive("stalker_growth_1", true);
             
             Stalker_GoToHole("stalker_growth_1", "GhoulHole_7", true, false, eStalkerSpeed_Run);
@@ -1009,9 +1031,9 @@ class cScrMap : iScrMap
         {
             if(alState == 1){
                 cLux_AddDebugMessage("READY BOSSFIGHT");
+                LogNewLine("OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI");
                 Entity_SetActive("stalker_growth_1", false);
                 Entity_SetActive("enemy_rat_king_1", true);
-                
             }
             return true;
         }
@@ -1019,7 +1041,7 @@ class cScrMap : iScrMap
 		bool OnTrigger_RatBossFight(const tString &in asParent, const tString &in asChild, int alState)
 		{
 			if (alState == 1) {
-                
+                LogNewLine("COLLIDED WITH AREA");
                 //Player_SetActive(false);
                 //Player_ChangeStateToNormal();
                 
@@ -1029,6 +1051,7 @@ class cScrMap : iScrMap
                     Entity_SetActive("enemy_rat_king_1", true);
                 }
                 
+                LogNewLine("MOVING HOLES TO ARENA");
                 Map_GetEntity("GhoulHole_Boss_1").SetPosition(hole1Pos);
                 Map_GetEntity("GhoulHole_Boss_2").SetPosition(hole2Pos);
                 Map_GetEntity("GhoulHole_Boss_3").SetPosition(hole3Pos);
@@ -1046,6 +1069,7 @@ class cScrMap : iScrMap
                 //Item_Unequip(Item_GetHeld(), true);
                 //Item_Unequip(Item_GetHeld(eItemHandlerHand_Left), true);
                 // Cutscene start
+                LogNewLine("CUTSCENE STARTO");
                 cLux_AddDebugMessage("CUTSCENE STARTO");
                 Map_AddTimer(asParent, 0.1f, "OnTimer_StartRatBossFight");
                 //Seq_RatKingNoCutscene("");
@@ -1103,27 +1127,36 @@ class cScrMap : iScrMap
         // --Alternative version without cutscene end--
         
         void OnTimer_StartRatBossFight(const tString &in asTimer){
+            LogNewLine("BOSSFIGHT START");
             cLux_AddDebugMessage("BOSSFIGHT START");
+                LogNewLine("TIMER: DISABLING COLLIDE AREA");
                 Map_AddTimer(asTimer, 0.5f, "OnTimer_DisableCollideArea");
                 //Entity_SetActive("Trigger_RatBossFight", false);
+                LogNewLine("PLAY MUSIC");
 				Music_PlayExt_Save("underground_ratking_boss", true, 0.5f, 1, 4.0f, 0, eMusicPrio_SceneAmb, true);
 			
 				// rat king
 				//ActivateRatKing();
                 
+                LogNewLine("CUTSCENE BEGIN");
                 // begin cutscene
-                cLux_SetGodModeActivated(true);
+                LogNewLine("ENABLE GOD MODE -- COMMENTED");
+                //cLux_SetGodModeActivated(true);
                 //Player_SetActive(false);
+                LogNewLine("DISABLE BLOCKBOX");
                 Entity_SetActive("RatK_Blockbox", false);
+                LogNewLine("BEGIN CAMERA ANIMATION");
                 CameraAnimation_Begin("RatKCutscene", "", true);
                 
                 // Start health check timer
+                LogNewLine("START HEALTH CHECK TIMER");
                 Map_AddTimer("ratkhealthupdate", 0.1f, "OnTimer_UpdateRatKHealth");
                 
 				// minions
 				//ActivateRatMinions();
 				
 				// elevator stuff
+                LogNewLine("ELEVATOR THINGS AND BLOCK EXITS");
 				Entity_SetActive("lq_elevator*", true);
 				Entity_SetActive("lq_elevator_1_blockbox_*", false);
 				Entity_SetActive("lq_elevator_midway", false);
@@ -1163,7 +1196,9 @@ class cScrMap : iScrMap
                     cLux_AddDebugMessage("RAT KING DEAD, DISABLE RATS");
                     //RatHandler_SetActive(false);
                     for(int t= 1; t <= 4; t++){
-                        Map_GetEntity("GhoulHole_Boss_"+t).SetPosition(cVector3f(-215.5f, -81.375f, 3.0f));
+                        if(Entity_Exists("GhoulHole_Boss_"+t)){
+                            Map_GetEntity("GhoulHole_Boss_"+t).SetPosition(cVector3f(-215.5f, -81.375f, 3.0f));
+                        }
                     }
                     Map_AddTimer("rat_retreat", 2.0f, "OnTimer_RetreatRats");
                     //Rat_Retreat("enemy_rat*", true, true, false);
@@ -1216,6 +1251,7 @@ class cScrMap : iScrMap
 		}
         
         void OnTimer_DisableCollideArea(const tString &in asTimer){
+            Log("DISABLE COLLIDE AREA (END TIMER)");
             Entity_SetActive(asTimer, false);
         }  
     
@@ -1288,9 +1324,12 @@ class cScrMap : iScrMap
             Agent_SetSensesActive("enemy_rat_king_1", false);
             //Rat_Threatened("enemy_rat_king_1");
             
+            Entity_SetActive("RatAttackPrevention_1", false);
+            Entity_SetActive("RatAttackPrevention_2", false);
+            Entity_SetActive("RatAttackPrevention_3", false);
             
             Player_SetActive(true);
-            cLux_SetGodModeActivated(false);
+            //cLux_SetGodModeActivated(false);
             //Map_AddTimer("shotgun_ammo_recover", 0.5f, "OnTimer_ShotgunAmmoRecover");
             
             
