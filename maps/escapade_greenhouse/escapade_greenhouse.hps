@@ -145,11 +145,11 @@ class cScrMap : iScrMap
         if(Generator_GetState() == eGeneratorState_Off){
 			Entity_SetActive("Zoom_1", false);
 			Entity_SetActive("Zoom_3", false);
-            // Skip lever numbers that do not depend on generator
-            for(int t = 1; t <= 10; t++){
-                if(t != 3){
-                    Lever_SetStuckState("lever"+t+"_portculis", 1, true);
-                }
+            
+            for(int t = 1; t <= 3; t++){
+                
+                Lever_SetStuckState("lever"+t+"_portculis", 1, true);
+                
             }
             
         } else {
