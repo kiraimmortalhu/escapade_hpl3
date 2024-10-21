@@ -1,11 +1,11 @@
 <Entity>
     <ModelData>
         <Entities>
-            <ParticleSystem ID="4" Name="ParticleSystem_1" CreStamp="0" ModStamp="1718365522" WorldPos="-0.002148 0.396526 -0.002018" Rotation="0 0 0" Scale="1 1 1" File="ps_fire_candle.ps" Color="1 1 1 1" Brightness="5" FadeAtDistance="true" MinFadeDistanceStart="0" MaxFadeDistanceStart="100" MinFadeDistanceEnd="0" MaxFadeDistanceEnd="110" Static="false" CulledByDistance="true" CulledByFog="true" ConnectLight="" />
             <PointLight ID="6" Name="PointLight_1" CreStamp="0" ModStamp="1718367034" WorldPos="0.908038 0.432925 -0.013925" Rotation="0 0 0" Scale="1 1 1" CastShadows="false" ShadowResolution="High" ShadowsAffectStatic="true" ShadowsAffectDynamic="true" Radius="4" Gobo="" GoboType="Diffuse" GoboAnimMode="None" GoboAnimFrameTime="0" GoboAnimStartTime="0" DiffuseColor="0.635294 0.486275 0.243137 1" FlickerActive="true" FlickerOnMinLength="0" FlickerOnMaxLength="0.5" FlickerOnPS="" FlickerOnSound="" FlickerOffMinLength="0" FlickerOffMaxLength="0" FlickerOffPS="" FlickerOffSound="" FlickerOffColor="0.443137 0.352941 0.247059 0.6" FlickerOffRadius="3.5" FlickerFade="true" FlickerOnFadeMinLength="0.2" FlickerOnFadeMaxLength="2" FlickerOffFadeMinLength="0.2" FlickerOffFadeMaxLength="2" CastDiffuseLight="true" CastSpecularLight="true" Brightness="1.5" Static="false" CulledByDistance="true" CulledByFog="true" FalloffPow="1" ConnectedLightMaskID="4294967295" />
             <Billboard ID="7" Name="Billboard_1" CreStamp="0" ModStamp="1718365571" WorldPos="-0.0026727 0.397891 0" Rotation="0 0 0" Scale="1 1 1" BillboardType="Point" MaterialFile="billboards/halo_torch.mat" IsHalo="true" BillboardSize="0.2 0.4" HaloSourceSize="0.1 0.1 0.1" BillboardOffset="0" BillboardColor="0.5 0.5 0.5 0.5" Brightness="1" CulledByDistance="false" CulledByFog="true" ConnectLight="PointLight_2" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
             <PointLight ID="8" Name="PointLight_2" CreStamp="1718364248" ModStamp="1718364409" WorldPos="0.00649846 0.510366 -0.013925" Rotation="0 0 0" Scale="1 1 1" CastShadows="false" ShadowResolution="High" ShadowsAffectStatic="true" ShadowsAffectDynamic="true" Radius="1.8" Gobo="" GoboType="Diffuse" GoboAnimMode="None" GoboAnimFrameTime="0" GoboAnimStartTime="0" DiffuseColor="0.886275 0.713726 0.509804 1" FlickerActive="true" FlickerOnMinLength="0" FlickerOnMaxLength="0.5" FlickerOnPS="" FlickerOnSound="" FlickerOffMinLength="0" FlickerOffMaxLength="0" FlickerOffPS="" FlickerOffSound="" FlickerOffColor="0.74902 0.588235 0.45098 0.6" FlickerOffRadius="1.2" FlickerFade="true" FlickerOnFadeMinLength="0.2" FlickerOnFadeMaxLength="2" FlickerOffFadeMinLength="0.2" FlickerOffFadeMaxLength="2" CastDiffuseLight="true" CastSpecularLight="true" Brightness="3" Static="false" CulledByDistance="true" CulledByFog="true" FalloffPow="1" ConnectedLightMaskID="4294967295" />
             <Billboard ID="9" Name="Billboard_2" CreStamp="1718364521" ModStamp="1718896365" WorldPos="-0.00462604 0.585273 0" Rotation="0 0 0" Scale="1 1 1" BillboardType="Point" MaterialFile="billboards/halo_torch.mat" IsHalo="true" BillboardSize="5 5" HaloSourceSize="1.5 1.5 1.5" BillboardOffset="0" BillboardColor="0.337255 0.337255 0.337255 0.501961" Brightness="1.3" CulledByDistance="false" CulledByFog="true" ConnectLight="PointLight_1" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
+            <Billboard ID="10" Name="Billboard_3" CreStamp="1728130218" ModStamp="1728130670" WorldPos="-0.00131631 0.431772 -0.00208049" Rotation="0 0 0" Scale="1 1 1" BillboardType="Axis" MaterialFile="D:/Program Files (x86)/Steam/steamapps/common/Amnesia The Bunker/billboards/special/candle_flame/candle_flame.mat" IsHalo="false" BillboardSize="0.15 0.15" HaloSourceSize="0.3 0.3 0.3" BillboardOffset="0" BillboardColor="1 1 1 1" Brightness="1" CulledByDistance="false" CulledByFog="true" ConnectLight="" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
         </Entities>
         <Mesh Filename="mods/escapade_hpl3/entities/dark_descent/lamp/candlestick02/candlestick02.dae">
             <SubMesh ID="0" Name="candlestick02_mesh" CreStamp="0" ModStamp="0" WorldPos="0 0 0" Rotation="0 0 0" Scale="1 1 1" TriCount="397" Material="" Static="true" />
@@ -14,20 +14,21 @@
         <Shapes>
             <Shape ID="1" Name="BodyShape_1" CreStamp="0" ModStamp="0" WorldPos="0 0.017075 0" Rotation="0 0 0" Scale="0.105 0.0335 0.105" RelativeTranslation="0.0175645 -0.097382 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
             <Shape ID="2" Name="BodyShape_1_clone_1" CreStamp="0" ModStamp="0" WorldPos="0 0.211839 0" Rotation="0 0 0" Scale="0.02 0.36 0.02" RelativeTranslation="0.0175645 0.097382 0" RelativeRotation="0 -0 0" RelativeScale="1 1 1" ShapeType="Cylinder" />
-            <Shape ID="10" Name="BodyShape_3" CreStamp="0" ModStamp="0" WorldPos="-0.035129 0.145073 0" Rotation="0 0 0.628319" Scale="0.06 0.105 0.01" RelativeTranslation="-0.0175645 0.030616 0" RelativeRotation="0 -0 0.628319" RelativeScale="1 1 1" ShapeType="Box" />
+            <Shape ID="11" Name="BodyShape_3" CreStamp="0" ModStamp="0" WorldPos="-0.035129 0.145073 0" Rotation="0 0 0.628319" Scale="0.06 0.105 0.01" RelativeTranslation="-0.0175645 0.030616 0" RelativeRotation="0 -0 0.628319" RelativeScale="1 1 1" ShapeType="Box" />
         </Shapes>
         <Bodies>
-            <Body ID="5" Name="Body_1" CreStamp="0" ModStamp="1724264893" WorldPos="-0.0175645 0.114457 0" Rotation="0 0 0" Scale="1 1 1" Material="metal_cup" Mass="0" AngularDamping="0.2" LinearDamping="0.2" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
+            <Body ID="5" Name="Body_1" CreStamp="0" ModStamp="1728130649" WorldPos="-0.0175645 0.114457 0" Rotation="0 0 0" Scale="1 1 1" Material="metal_cup" Mass="0" AngularDamping="0.2" LinearDamping="0.2" MaxAngularSpeed="20" MaxLinearSpeed="20" BuoyancyDensityMul="1" BlocksSound="false" ContinuousCollision="true" CanAttachCharacter="false" PushedByCharacterGravity="false" CollideCharacter="true" CollideNonCharacter="true" Volatile="false" UseSurfaceEffects="true" HasGravity="true" BlocksLight="true">
                 <Children>
                     <Child ID="0" />
                     <Child ID="6" />
                     <Child ID="8" />
                     <Child ID="9" />
                     <Child ID="7" />
+                    <Child ID="10" />
                 </Children>
                 <Shape ID="1" />
                 <Shape ID="2" />
-                <Shape ID="10" />
+                <Shape ID="11" />
             </Body>
         </Bodies>
         <Joints />

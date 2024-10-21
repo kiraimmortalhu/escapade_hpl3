@@ -140,6 +140,8 @@ class cScrMap : iScrMap
 	// Run when entering map
 	void OnEnter()
 	{	
+        
+        
         ///////////////////////
 		// Setup player body
 		if (PlayerBody_IsActive() == false)
@@ -149,13 +151,29 @@ class cScrMap : iScrMap
 		}
 		
 		SetupGenerator();
-		//if(cLux_ScriptDebugOn()){
-        //    SetupStalkerAppearance();
-        //}
-		
+		if(cLux_ScriptDebugOn()){
+            
+        }
+        
+        RichPresence_SetCurrent(eRichPresence_Entrance);
+        
+        cLux_AddDebugMessage("----------RICH PRESENCE MAIN MENU DESCRIPTION: "+ RichPresence_GetDescription(eRichPresence_MainMenu) );
+        cLux_AddDebugMessage("----------RICH PRESENCE: "+ cLux_GetRichPresenceHandler().GetCurrentRichPresence() );
+        cLux_AddDebugMessage("----------RICH PRESENCE DESCRIPTION: "+ RichPresence_GetDescription(eRichPresence_Entrance) );
+        //cLux_GetRichPresenceHandler().CreateRichPresence(69, "ENTRANCE MAP");
+        
+        
+        
+		//SetupStalkerAppearance();
 		
         SetupMusicAmbienceBasedOnGen();
         
+        ///////////////////////
+		// Setup stalker
+		Blackboard_DoStalkerMapTransfer("stalker_growth_1");
+        if(Entity_IsActive("stalker_growth_1")){
+            Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
+        }
 		
         
         // Check for unlocked padlocks and disable them
@@ -210,7 +228,7 @@ class cScrMap : iScrMap
 	////////////////////////////
 	// Run when leaving map
 	void OnLeave()
-	{
+	{   
         Sound_Stop("Sound_GeneratorStop",0.f);
         //Map_GetEntityArray("*", )
         // Reset global var 
@@ -342,6 +360,8 @@ class cScrMap : iScrMap
             cLux_AddDebugMessage(cScript_GetGlobalVarString("sync_pickables_entrance"));
         }
         */
+        
+        /*
         array<iLuxEntity@> locks;
         Map_GetEntityArray("arabic_lock*", locks);
         for(int t = 0; t < locks.length(); t++){
@@ -354,7 +374,9 @@ class cScrMap : iScrMap
             }
             
         }
+        */
         
+        cLux_AddDebugMessage("AGENT COUNT: "+ Blackboard_GetAgentCount());
         return true;
     }
     
@@ -408,42 +430,63 @@ class cScrMap : iScrMap
     
     bool OnTrigger_Player_Transfer_Church(const tString &in asParent, const tString &in asChild, int alState)
 	{
+        Stalker_SetTenacity("stalker_growth_1", 1.f);
+		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
 		Game_DoMapChange("escapade_church.hpm", "MapTransfer_EntranceChurch");
 		return true;
 	}
     
     bool OnTrigger_Player_Transfer_Greenhouse_One(const tString &in asParent, const tString &in asChild, int alState)
 	{
+        Stalker_SetTenacity("stalker_growth_1", 1.f);
+		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
 		Game_DoMapChange("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_1");
 		return true;
 	}
     
     bool OnTrigger_Player_Transfer_Greenhouse_Two(const tString &in asParent, const tString &in asChild, int alState)
 	{
+        Stalker_SetTenacity("stalker_growth_1", 1.f);
+		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
 		Game_DoMapChange("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_2");
 		return true;
 	}
     
     bool OnTrigger_Player_Transfer_StorageArea_Two(const tString &in asParent, const tString &in asChild, int alState)
 	{
+        Stalker_SetTenacity("stalker_growth_1", 1.f);
+		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
 		Game_DoMapChange("escapade_storage.hpm", "MapTransfer_EntranceStorage_2");
 		return true;
 	}
     
     bool OnTrigger_Player_Transfer_Library_One(const tString &in asParent, const tString &in asChild, int alState)
 	{
+        Stalker_SetTenacity("stalker_growth_1", 1.f);
+		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
 		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_1");
 		return true;
 	}
     
     bool OnTrigger_Player_Transfer_Library_Two(const tString &in asParent, const tString &in asChild, int alState)
 	{
+        Stalker_SetTenacity("stalker_growth_1", 1.f);
+		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
 		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_2");
 		return true;
 	}
     
     bool OnTrigger_Player_Transfer_LibraryBallroomTwo(const tString &in asParent, const tString &in asChild, int alState)
 	{
+        Stalker_SetTenacity("stalker_growth_1", 1.f);
+		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
 		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_3");
 		return true;
 	}

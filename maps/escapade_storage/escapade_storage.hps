@@ -56,7 +56,7 @@ class cScrMap : iScrMap
 		// Preload entity
 		Entity_Preload("player_rebirth_ghoul.ent");
         //PlayerBody_PreloadModel("player_rebirth_ghoul.ent");
-        Entity_Preload("stalker_1");
+        Entity_Preload("stalker_growth_1");
 	}
 	
 	//-------------------------------------------------------
@@ -113,12 +113,21 @@ class cScrMap : iScrMap
 			PlayerBody_SetActive(true);
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
+        
+        
 		
 		SetupGenerator();
 		
         SetupFuelTapStorage();
 		
 		SetupMusicAmbienceBasedOnGen();
+        
+        ///////////////////////
+		// Setup stalker
+		Blackboard_DoStalkerMapTransfer("stalker_growth_1");
+        if(Entity_IsActive("stalker_growth_1")){
+            Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
+        }
         
         // If gen is off, set levers off
         if(Generator_GetState() == eGeneratorState_Off){
@@ -139,13 +148,13 @@ class cScrMap : iScrMap
 		}
         
         //Debug
-        //Entity_SetActive("stalker_1", true);
+        //Entity_SetActive("stalker_growth_1", true);
 		
 		if(cScript_GetGlobalVarBool("entrance_alt_unlocked")){ 
 			SetupColorgrading_EntranceAlt();
 		}
 		
-		SetupStalkerAppearance();
+		//SetupStalkerAppearance();
         
         Game_SetupAfterMapChange();
 	}
@@ -181,6 +190,9 @@ class cScrMap : iScrMap
     
 	bool OnTrigger_Player_Transfer_Underground(const tString &in asParent, const tString &in asChild, int alState)
 	{
+        Stalker_SetTenacity("stalker_growth_1", 1.f);
+        Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
 		Game_DoMapChange("escapade_underground.hpm", "MapTransfer_StorageUnderground");
 		return true;
 	}
@@ -190,10 +202,15 @@ class cScrMap : iScrMap
         
         if(cScript_GetGlobalVarBool("entrance_alt_unlocked") ){
             
+            Stalker_SetTenacity("stalker_growth_1", 1.f);
+            Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            
             Game_DoMapChange("escapade_entrance_alt.hpm", "MapTransfer_EntranceStorage");
             
         }else{
-
+            Stalker_SetTenacity("stalker_growth_1", 1.f);
+            Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            
             Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceStorage");
             
         }
@@ -203,6 +220,9 @@ class cScrMap : iScrMap
     
     bool OnTrigger_Player_Transfer_Church_Two(const tString &in asParent, const tString &in asChild, int alState)
 	{
+        Stalker_SetTenacity("stalker_growth_1", 1.f);
+        Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
 		Game_DoMapChange("escapade_church.hpm", "MapTransfer_StorageChurch");
 		return true;
 	}
@@ -211,11 +231,15 @@ class cScrMap : iScrMap
 	{
         
         if(cScript_GetGlobalVarBool("entrance_alt_unlocked") ){
+            Stalker_SetTenacity("stalker_growth_1", 1.f);
+            Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
             
             Game_DoMapChange("escapade_entrance_alt.hpm", "MapTransfer_EntranceStorage_2");
             
         }else{
-
+            Stalker_SetTenacity("stalker_growth_1", 1.f);
+            Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            
             Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceStorage_2");
             
         }
@@ -225,6 +249,9 @@ class cScrMap : iScrMap
     
     bool OnTrigger_Player_Transfer_LibraryDining(const tString &in asParent, const tString &in asChild, int alState)
 	{
+        Stalker_SetTenacity("stalker_growth_1", 1.f);
+        Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
 		Game_DoMapChange("escapade_library.hpm", "MapTransfer_KitchenDining");
 		return true;
 	}
@@ -868,9 +895,9 @@ class cScrMap : iScrMap
             //cLux_SetGodModeActivated(true);
             //Map_AddTimer("Timer_DisableGodMode", 2.0f, "OnTimer_DisableGodMode");
             
-            Entity_SetActive("stalker_1", true);
-			Music_Stalker_AddDeaggroSongTime("stalker_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 11.0f);
-			//Stalker_SetEmergeAllowed("stalker_1", true);
+            Entity_SetActive("stalker_growth_1", true);
+			Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 11.0f);
+			//Stalker_SetEmergeAllowed("stalker_growth_1", true);
 			cLux_AddDebugMessage("Stalker is now ENABLED");
         }
     }
@@ -880,7 +907,7 @@ class cScrMap : iScrMap
         if(alState == 1){
             cLux_AddDebugMessage("STALKER DISABLE CHECK TO SPAWN");
             Map_RemoveTimer("Timer_UpdateStalkerSpawn");
-            Entity_SetActive("stalker_1", false);
+            Entity_SetActive("stalker_growth_1", false);
             Music_Stalker_StopDeaggroSongChecks(); 
         }
         
@@ -895,8 +922,8 @@ class cScrMap : iScrMap
     // Check if stalker is out of player's sight and also far enough
     void OnTimer_UpdateStalkerSpawn(const tString &in asTimer){
         cLux_AddDebugMessage("Quick timer, checking for stalker spawn");
-        tID stalkerID = Map_GetEntityID("stalker_1");
-        if(!Entity_IsInPlayerFOV("stalker_1") && cLux_ID_Agent(stalkerID).GetDistanceToPlayer2D() > 1.5f){
+        tID stalkerID = Map_GetEntityID("stalker_growth_1");
+        if(!Entity_IsInPlayerFOV("stalker_growth_1") && cLux_ID_Agent(stalkerID).GetDistanceToPlayer2D() > 1.5f){
             
             SetupStalkerAppearance();
         }else{
@@ -970,9 +997,9 @@ class cScrMap : iScrMap
 			else if (Sequence_DoStepAndContinue()) {
 				StopFlickerLights();
                 
-				//Entity_SetActive("stalker_1", true);
+				//Entity_SetActive("stalker_growth_1", true);
 				
-                Map_AddTimer("stalker_1_enable", 5.0f, "OnTimer_EnableStalker");
+                Map_AddTimer("stalker_growth_1_enable", 5.0f, "OnTimer_EnableStalker");
                 // to-do , maybe give stalker player position?
 				cLux_AddDebugMessage("Stalker sequence part end, stalker spawned");
 			}
@@ -1002,7 +1029,7 @@ class cScrMap : iScrMap
 		
         void OnTimer_EnableStalker(const tString &in asTimer){
             cLux_AddDebugMessage("STALKER ENABLED");
-            Entity_SetActive("stalker_1", true);
+            Entity_SetActive("stalker_growth_1", true);
         }
         
 		//// looking at the generator through the door
@@ -1031,11 +1058,11 @@ class cScrMap : iScrMap
 		
 		void StalkerPeekaboo(){
 			cScript_SetGlobalVarBool("scaredByStalker", true);
-			Entity_SetActive("stalker_1", true);
-			Map_GetEntity("stalker_1").SetPosition(cVector3f(31.25,-1.875,-62.75));
-			Agent_RevealPlayerPosition("stalker_1", false);
-			//Stalker_PlayCutsceneAtEntity("stalker_1", "");
-			Sound_CreateAtEntity("stalkerspawns", "creatures/stalker/exit", "stalker_1");
+			Entity_SetActive("stalker_growth_1", true);
+			Map_GetEntity("stalker_growth_1").SetPosition(cVector3f(31.25,-1.875,-62.75));
+			Agent_RevealPlayerPosition("stalker_growth_1", false);
+			//Stalker_PlayCutsceneAtEntity("stalker_growth_1", "");
+			Sound_CreateAtEntity("stalkerspawns", "creatures/stalker/exit", "stalker_growth_1");
 			
 			Map_AddTimer("stalkerAlertRoar", 1.0f, "OnTimer_StalkerAlertRoar");
 			Map_AddTimer("stalkerDeAggroChance", 12.0f, "OnTimer_StalkerDeAggroChance");
@@ -1048,9 +1075,9 @@ class cScrMap : iScrMap
 		void OnTimer_StalkerDeAggroChance(const tString &in asTimer){
 			cLux_AddDebugMessage("Playerspeed: " + Player_GetSpeed());
 			if (Player_GetCrouching() || Player_GetSpeed() < 1.0f) {
-				Agent_ResetPlayerDetectionState("stalker_1");
+				Agent_ResetPlayerDetectionState("stalker_growth_1");
 				int randStalkerHole = cMath_RandRectl(4,10);
-				Stalker_EmergeFromHole("stalker_1", "GhoulHole_" + randStalkerHole, false);
+				Stalker_EmergeFromHole("stalker_growth_1", "GhoulHole_" + randStalkerHole, false);
 			}
 		}
 	//} END SCENE X 

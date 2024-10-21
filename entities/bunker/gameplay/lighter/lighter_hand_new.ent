@@ -1,0 +1,99 @@
+<Entity>
+    <ModelData>
+        <Entities>
+            <PointLight ID="53" Name="Light_Main" CreStamp="1576750871" ModStamp="1728757786" WorldPos="0.00385715 0.123455 -0.0536638" Rotation="0 0 0" Scale="1 1 1" CastShadows="false" ShadowResolution="High" ShadowsAffectStatic="true" ShadowsAffectDynamic="true" Radius="9" Gobo="" GoboType="Diffuse" GoboAnimMode="None" GoboAnimFrameTime="1" GoboAnimStartTime="0" DiffuseColor="1 0.752926 0.501961 1" FlickerActive="true" FlickerOnMinLength="0.31" FlickerOnMaxLength="0.91" FlickerOnPS="" FlickerOnSound="" FlickerOffMinLength="0.01" FlickerOffMaxLength="0.1" FlickerOffPS="" FlickerOffSound="" FlickerOffColor="1 0.752926 0.501961 0.185547" FlickerOffRadius="7" FlickerFade="true" FlickerOnFadeMinLength="0.01" FlickerOnFadeMaxLength="0.5" FlickerOffFadeMinLength="0.02" FlickerOffFadeMaxLength="0.5" CastDiffuseLight="true" CastSpecularLight="true" Brightness="1" Static="false" CulledByDistance="false" CulledByFog="false" FalloffPow="3" ConnectedLightMaskID="4294967295" />
+            <Billboard ID="124" Name="Billboard_Flame" CreStamp="1579261394" ModStamp="1662112559" WorldPos="0 0.048 -0.00468706" Rotation="8.44049e-07 0.702447 5.45329e-07" Scale="1 1 1" BillboardType="Axis" MaterialFile="C:/Users/aaron/Documents/Work/Amnesia2/trunk/redist/billboards/special/matchflame/matchflame_large/matchflame_large.mat" IsHalo="false" BillboardSize="0.06 0.08" HaloSourceSize="0.3 0.3 0.3" BillboardOffset="0.01" BillboardColor="1 1 1 1" Brightness="1" CulledByDistance="false" CulledByFog="true" ConnectLight="" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
+            <PointLight ID="129" Name="Light_Flame" CreStamp="1595411286" ModStamp="1662112559" WorldPos="0 0.052 -0.00468706" Rotation="0 0 0" Scale="1 1 1" CastShadows="false" ShadowResolution="High" ShadowsAffectStatic="true" ShadowsAffectDynamic="true" Radius="0.4" Gobo="" GoboType="Diffuse" GoboAnimMode="None" GoboAnimFrameTime="1" GoboAnimStartTime="0" DiffuseColor="1 0.752926 0.501961 0.686275" FlickerActive="true" FlickerOnMinLength="0.01" FlickerOnMaxLength="0.2" FlickerOnPS="" FlickerOnSound="" FlickerOffMinLength="0.01" FlickerOffMaxLength="0.1" FlickerOffPS="" FlickerOffSound="" FlickerOffColor="1 0.752926 0.501961 1" FlickerOffRadius="0.38" FlickerFade="true" FlickerOnFadeMinLength="0.01" FlickerOnFadeMaxLength="0.1" FlickerOffFadeMinLength="0.02" FlickerOffFadeMaxLength="0.1" CastDiffuseLight="true" CastSpecularLight="true" Brightness="2" Static="false" CulledByDistance="false" CulledByFog="false" FalloffPow="1" ConnectedLightMaskID="4294967295" />
+            <Billboard ID="130" Name="flare" CreStamp="1595509387" ModStamp="1662112559" WorldPos="0 0.05 -0.00468706" Rotation="0 0 0" Scale="1 1 1" BillboardType="Point" MaterialFile="C:/Users/aaron/Documents/Work/Amnesia2/trunk/redist/billboards/halo/lampglow_large_no_depth.mat" IsHalo="false" BillboardSize="0.6 0.6" HaloSourceSize="0.3 0.3 0.3" BillboardOffset="0.05" BillboardColor="0.505859 0.457594 0.432747 1" Brightness="0.05" CulledByDistance="false" CulledByFog="true" ConnectLight="" Static="false" RangeMinStart="-1" RangeMinEnd="-1" RangeMaxStart="-1" RangeMaxEnd="-1" />
+        </Entities>
+        <Mesh Filename="entities/bunker/gameplay/lighter/lighter.fbx">
+            <SubMesh ID="0" Name="L_case_low" CreStamp="0" ModStamp="1630426101" WorldPos="-0.0165956 -0.0345643 0.00536403" Rotation="0 0 0" Scale="1 1 1" TriCount="1888" Material="" Static="true" />
+            <SubMesh ID="1" Name="L_rueda_low" CreStamp="0" ModStamp="1630426101" WorldPos="-0.0147986 -0.0273716 0.003567" Rotation="0 0 0" Scale="1 1 1" TriCount="708" Material="" Static="true" />
+            <SubMesh ID="2" Name="L_cilinder_low" CreStamp="0" ModStamp="1630426101" WorldPos="-0.0165956 -0.0345643 0.00536403" Rotation="0 0 0" Scale="1 1 1" TriCount="1112" Material="" Static="true" />
+            <SubMesh ID="3" Name="L_mecha_low" CreStamp="0" ModStamp="1630426101" WorldPos="-0.0165956 -0.0345643 0.00536403" Rotation="0 0 0" Scale="1 1 1" TriCount="163" Material="" Static="true" />
+            <SubMesh ID="4" Name="L_tapa_low" CreStamp="0" ModStamp="1630426101" WorldPos="-0.0165956 -0.0345643 0.00536403" Rotation="0 0 0" Scale="1 1 1" TriCount="790" Material="" Static="true" />
+            <SubMesh ID="5" Name="L_anilla_tapa_low" CreStamp="0" ModStamp="1630426101" WorldPos="-0.0174478 -0.0341235 0.00621617" Rotation="0 0 0" Scale="1 1 1" TriCount="196" Material="" Static="true" />
+            <SubMesh ID="6" Name="L_anilla_low" CreStamp="0" ModStamp="1630426101" WorldPos="-0.0165956 -0.0345643 0.00536403" Rotation="0 0 0" Scale="1 1 1" TriCount="244" Material="" Static="true" />
+        </Mesh>
+        <Bones />
+        <Shapes />
+        <Bodies />
+        <Joints />
+        <Animations>
+            <Animation Name="lighter_equip" File="entities/bunker/gameplay/lighter/animations/lighter_equip.fbx" Layer="Default" Speed="1" />
+            <Animation Name="lighter_focus_end" File="entities/bunker/gameplay/lighter/animations/lighter_focus_end.fbx" Layer="Default" Speed="1" />
+            <Animation Name="lighter_focus_idle" File="entities/bunker/gameplay/lighter/animations/lighter_focus_idle.fbx" Layer="Default" Speed="1" />
+            <Animation Name="lighter_focus_ignite" File="entities/bunker/gameplay/lighter/animations/lighter_focus_ignite.fbx" Layer="Default" Speed="1" />
+            <Animation Name="lighter_focus_start" File="entities/bunker/gameplay/lighter/animations/lighter_focus_start.fbx" Layer="Default" Speed="1" />
+            <Animation Name="lighter_holster" File="entities/bunker/gameplay/lighter/animations/lighter_holster.fbx" Layer="Default" Speed="1" />
+            <Animation Name="lighter_idle_closed" File="entities/bunker/gameplay/lighter/animations/lighter_idle_closed.fbx" Layer="Default" Speed="1" />
+            <Animation Name="lighter_idle_lit" File="entities/bunker/gameplay/lighter/animations/lighter_idle_lit.fbx" Layer="Default" Speed="1" />
+            <Animation Name="lighter_molotov_throw" File="entities/bunker/gameplay/lighter/animations/lighter_molotov_throw.fbx" Layer="Default" Speed="1" />
+            <Animation Name="lighter_molotov_focus_end" File="entities/bunker/gameplay/lighter/animations/lighter_molotov_focus_end.fbx" Layer="Default" Speed="1" />
+            <Animation Name="lighter_molotov_focus_idle" File="entities/bunker/gameplay/lighter/animations/lighter_molotov_focus_idle.fbx" Layer="Default" Speed="1" />
+            <Animation Name="lighter_molotov_focus_start" File="entities/bunker/gameplay/lighter/animations/lighter_molotov_focus_start.fbx" Layer="Default" Speed="1" />
+            <Animation Name="lighter_torch_equip" File="entities/bunker/gameplay/lighter/animations/lighter_torch_equip.fbx" Layer="Default" Speed="1" />
+        </Animations>
+        <ProcAnimations />
+    </ModelData>
+    <UserDefinedVariables EntityType="Prop_Pickup">
+        <Var ObjectId="4294967295" Name="Health" Value="1.0" />
+        <Var ObjectId="4294967295" Name="Toughness" Value="0" />
+        <Var ObjectId="4294967295" Name="MaxInteractDistance" Value="0" />
+        <Var ObjectId="4294967295" Name="EventTag" Value="" />
+        <Var ObjectId="4294967295" Name="ShowHints" Value="true" />
+        <Var ObjectId="4294967295" Name="LifeLength" Value="0" />
+        <Var ObjectId="4294967295" Name="DissolveDuringLifeDecrease" Value="true" />
+        <Var ObjectId="4294967295" Name="QuickSave" Value="false" />
+        <Var ObjectId="4294967295" Name="FullGameSave" Value="false" />
+        <Var ObjectId="4294967295" Name="AllowMapTransfer" Value="false" />
+        <Var ObjectId="4294967295" Name="VoiceSourceBone" Value="" />
+        <Var ObjectId="4294967295" Name="BlocksLineOfSight" Value="MaterialBased" />
+        <Var ObjectId="4294967295" Name="MainPhysicsBody" Value="" />
+        <Var ObjectId="4294967295" Name="NoGravityWhenUnderwater" Value="false" />
+        <Var ObjectId="4294967295" Name="DisableFreezeAtStart" Value="false" />
+        <Var ObjectId="4294967295" Name="CustomScriptFile" Value="Prop_Lighter.hps" />
+        <Var ObjectId="4294967295" Name="CustomScriptClass" Value="cScrPropLighter" />
+        <Var ObjectId="4294967295" Name="ShowMesh" Value="true" />
+        <Var ObjectId="4294967295" Name="DissolveOnDestruction" Value="false" />
+        <Var ObjectId="4294967295" Name="DissolveTime" Value="1.0" />
+        <Var ObjectId="4294967295" Name="RandomizeAnimationStart" Value="true" />
+        <Var ObjectId="4294967295" Name="RootMotionBone" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOnSound" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOffSound" Value="" />
+        <Var ObjectId="4294967295" Name="EffectsOnTime" Value="0.5" />
+        <Var ObjectId="4294967295" Name="EffectsOffTime" Value="0.3" />
+        <Var ObjectId="4294967295" Name="StaticMoveCheckCollision" Value="false" />
+        <Var ObjectId="4294967295" Name="StaticMoveStartSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveStopSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveLoopSound" Value="" />
+        <Var ObjectId="4294967295" Name="StaticMoveLoopSoundFade" Value="true" />
+        <Var ObjectId="4294967295" Name="BreakActive" Value="false" />
+        <Var ObjectId="4294967295" Name="CustomBreakBehaviour" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakOnlyOnMainBody" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakDestroyJoints" Value="false" />
+        <Var ObjectId="4294967295" Name="BreakMinEnergy" Value="100" />
+        <Var ObjectId="4294967295" Name="BreakEntity" Value="" />
+        <Var ObjectId="4294967295" Name="BreakEntityAlignBody" Value="" />
+        <Var ObjectId="4294967295" Name="BreakSound" Value="" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundRadius" Value="12" />
+        <Var ObjectId="4294967295" Name="BreakAIEventSoundPrio" Value="4" />
+        <Var ObjectId="4294967295" Name="BreakParticleSystem" Value="" />
+        <Var ObjectId="4294967295" Name="BreakImpulse" Value="4" />
+        <Var ObjectId="4294967295" Name="ItemType" Value="Lighter" />
+        <Var ObjectId="4294967295" Name="ContentSubType" Value="" />
+        <Var ObjectId="4294967295" Name="ContentLevel" Value="-1" />
+        <Var ObjectId="4294967295" Name="ContentColor" Value="0 0 0 0" />
+        <Var ObjectId="4294967295" Name="OnlyNeedOne" Value="false" />
+        <Var ObjectId="4294967295" Name="PutAwayAfter" Value="true" />
+        <Var ObjectId="4294967295" Name="AnimationName" Value="lighter" />
+        <Var ObjectId="4294967295" Name="PickupSound" Value="" />
+        <Var ObjectId="4294967295" Name="IsRatFood" Value="false" />
+        <Var ObjectId="4294967295" Name="AttractEnabled" Value="true" />
+        <Var ObjectId="4294967295" Name="AttractDistance" Value="5" />
+        <Var ObjectId="4294967295" Name="LifeTime" Value="-1" />
+        <Var ObjectId="4294967295" Name="FeedingSlotsCount" Value="2" />
+        <Var ObjectId="4294967295" Name="Priority" Value="0" />
+        <Var ObjectId="4294967295" Name="UseFullnessAnimation" Value="false" />
+    </UserDefinedVariables>
+</Entity>
