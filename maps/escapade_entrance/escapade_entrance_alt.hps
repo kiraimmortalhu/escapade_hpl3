@@ -264,7 +264,9 @@ class cScrMap : iScrMap
     bool OnTrigger_Player_Transfer_Church(const tString &in asParent, const tString &in asChild, int alState)
 	{
         Stalker_SetTenacity("stalker_growth_1", 1.f);
+        StalkerResetEndState();
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
         
 		Game_DoMapChange("escapade_church.hpm", "MapTransfer_EntranceChurch");
 		return true;
@@ -273,7 +275,9 @@ class cScrMap : iScrMap
     bool OnTrigger_Player_Transfer_Greenhouse_One(const tString &in asParent, const tString &in asChild, int alState)
 	{
         Stalker_SetTenacity("stalker_growth_1", 1.f);
+		StalkerResetEndState();
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
         
 		Game_DoMapChange("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_1");
 		return true;
@@ -282,7 +286,9 @@ class cScrMap : iScrMap
     bool OnTrigger_Player_Transfer_Greenhouse_Two(const tString &in asParent, const tString &in asChild, int alState)
 	{
         Stalker_SetTenacity("stalker_growth_1", 1.f);
+		StalkerResetEndState();
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
         
 		Game_DoMapChange("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_2");
 		return true;
@@ -291,7 +297,9 @@ class cScrMap : iScrMap
     bool OnTrigger_Player_Transfer_StorageArea_Two(const tString &in asParent, const tString &in asChild, int alState)
 	{
         Stalker_SetTenacity("stalker_growth_1", 1.f);
+		StalkerResetEndState();
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
         
 		Game_DoMapChange("escapade_storage.hpm", "MapTransfer_EntranceStorage_2");
 		return true;
@@ -300,7 +308,9 @@ class cScrMap : iScrMap
     bool OnTrigger_Player_Transfer_Library_One(const tString &in asParent, const tString &in asChild, int alState)
 	{
         Stalker_SetTenacity("stalker_growth_1", 1.f);
+		StalkerResetEndState();
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
         
 		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_1");
 		return true;
@@ -309,7 +319,9 @@ class cScrMap : iScrMap
     bool OnTrigger_Player_Transfer_Library_Two(const tString &in asParent, const tString &in asChild, int alState)
 	{
         Stalker_SetTenacity("stalker_growth_1", 1.f);
+		StalkerResetEndState();
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
         
 		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_2");
 		return true;
@@ -318,7 +330,9 @@ class cScrMap : iScrMap
     bool OnTrigger_Player_Transfer_LibraryBallroomTwo(const tString &in asParent, const tString &in asChild, int alState)
 	{
         Stalker_SetTenacity("stalker_growth_1", 1.f);
+		StalkerResetEndState();
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
         
 		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_3");
 		return true;
@@ -327,7 +341,9 @@ class cScrMap : iScrMap
     bool OnTrigger_Player_SwitchMap_StorageMap(const tString &in asParent, const tString &in asChild, int alState)
     {
         Stalker_SetTenacity("stalker_growth_1", 1.f);
+		StalkerResetEndState();
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        
         
         Game_DoMapChange("escapade_storage.hpm", "MapTransfer_EntranceStorage");
         return true;
@@ -448,13 +464,21 @@ class cScrMap : iScrMap
 	}
 	
 	void SetupStalkerAppearance_Initial() {			
-        Entity_SetActive("stalker_growth_1", true);
+        if(!Entity_IsActive("stalker_growth_1")){
+            Entity_SetActive("stalker_growth_1", true);
+        }
+        
         Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
+        
+        
         Stalker_SetEmergeAllowed("stalker_growth_1", false);
         cLux_AddDebugMessage("Stalker is now ENABLED");
         Stalker_GoToHole("stalker_growth_1", "GhoulHole_2", true, true);
 	}
     
+    void StalkerResetEndState(){
+        Stalker_SetEmergeAllowed("stalker_growth_1", true);
+    }
     /*
     // Similar to SetupStalkerAppearance_Initial(), but does not go to hole, so that he spawns right where he was last
     void SetupStalkerAppearance(){

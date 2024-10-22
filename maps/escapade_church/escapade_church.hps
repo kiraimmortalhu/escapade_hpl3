@@ -89,6 +89,7 @@ class cScrMap : iScrMap
 	void OnEnter()
 	{	
         cLux_AddDebugMessage("AGENT COUNT: "+ Blackboard_GetAgentCount());
+        
 		///////////////////////
 		// Setup player body
 		if (PlayerBody_IsActive() == false)
@@ -107,6 +108,11 @@ class cScrMap : iScrMap
         if(Entity_IsActive("stalker_growth_1")){
             Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
         }
+        
+        Stalker_SetEmergeAllowed("stalker_growth_1", true);
+        //Stalker_SetMode("stalker_growth_1", eStalkerMode_Active, true);
+        
+        
         
 		SetupGenerator();
         
@@ -476,11 +482,12 @@ class cScrMap : iScrMap
 	/// Key to Church Safe Room event
 	
 	bool CanUse_ChurchKey(const tString& in asItemType, const tString& in asItemID, const tString& in asPickedEntity) {
-		return asPickedEntity == "prison_section_1" || asPickedEntity == "door_lock_keyhole_base_1";
+        return asPickedEntity == "ChurchKeyUse_1" || asPickedEntity == "prison_section_1";
 	}
 	
 	bool OnUse_ChurchKey(const tString& in asItemType, const tString& in asItemID, const tString& in asTargetEntity, const tString& in asItemEntity, float afTimeElapsed, float afTimeStep) {
 		
+        Entity_SetActive("ChurchKeyUse_1", false);
 		//Sound_CreateAtEntity("", "key_use_01.snt", asTargetEntity);
 		//Item_RemoveFromInventory(ItemType_GetFirstInInventory(asItemType));
 		

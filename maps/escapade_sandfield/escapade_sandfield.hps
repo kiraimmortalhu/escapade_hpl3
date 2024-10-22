@@ -60,12 +60,16 @@ class cScrMap : iScrMap
 	// Run first time starting map
 	void OnStart()
 	{
+        
 		cVector3f vRot = cVector3f(0, cMath_ToRad(142), 0);
 		cLux_GetCurrentMap().GetWorld().SetSkyboxRotation(vRot);
 		Music_PlayExt_Save("sandfield_ambience", true, 0.4f, 1, 5.0f, 5.0f, eMusicPrio_OverrideAll, true);
 		
-		Sound_PlayGui("voice_iamready.snt", 1.0f);
-		Player_StopBleeding();
+        if(!cLux_DebugModeOn()){
+            Sound_PlayGui("voice_iamready.snt", 1.0f);
+            Player_StopBleeding();
+        }
+		
 		
 		/////////////////////////
 		// Debug
@@ -125,9 +129,125 @@ class cScrMap : iScrMap
 	}
  
 	//-------------------------------------------------------
- 
+    
 	//} END MAIN CALLBACKS
- 
+    
+    // Camera animation test
+    void OnInteract_DebugCameraAnim(const tString &in asEntity)
+    {
+        CameraAnimation_Begin("CameraAnimation", "", true);
+    }
+    
+    bool OnPassedNode_CameraAnimation_2(const tString &in asEntity, int alDirection)
+    {
+        //PlayerBody_SetActive(true);
+        PlayerBody_SetVisible(true);
+        Player_SetActive(true);
+        Map_AddTimer("walkfwd", 0.0f, "OnTimer_WalkForward");
+        return true;
+    }
+    
+    void OnInteract_DebugAny(const tString &in asEntity)
+    {
+        Player_SetActive(false);
+        //Player_MoveForward(100.5f);
+        Map_AddTimer("walkfwd", 0.0f, "OnTimer_WalkForward");
+        
+    }
+    
+    void OnInteract_DebugWalkCamera(const tString &in asEntity)
+    {
+        
+        PlayerBody_SetActive(false);
+        PlayerBody_SetVisible(true);
+        
+        //Player_SetActive(true);
+        /////////////////////////////////
+		// Setup player camera
+		cLuxPlayer@ pPlayer = cLux_GetPlayer();
+		pPlayer.GetCharacterBody().SetCamera(null);
+        //pPlayer.GetCamera().RemoveEntity()
+        
+        //cWorld@ zaWarudo = cLux_GetViewport().GetWorld();
+        //pPlayer.GetCamera().AttachEntity(zaWarudo.GetEntityFromID(Map_GetEntityID("lockbox_1")));
+        
+        //pPlayer.SetCameraPosAdd(0, cVector3f(0.0f, 0.0f, 0.0f));
+		pPlayer.GetCamera().SetRotateMode(eCameraRotateMode_Matrix);
+        //
+		pPlayer.GetCamera().SetRotationMatrix(Map_GetEntity("Trigger_3").GetMatrix().GetRotation().GetTranspose());
+		pPlayer.GetCamera().SetPosition(Map_GetEntity("Trigger_3").GetPosition());
+        
+        Map_AddTimer("walkfwd", 0.0f, "OnTimer_WalkForward");
+    }
+    
+    
+    
+    // -- END CUTSCENE BEGIN--
+    
+    bool OnCollide_BeginEnd(const tString &in asParent, const tString &in asChild, int alState)
+    {
+        CameraAnimation_Begin("End", "", false);
+        //Entity_SetActive("Player_Walk", true);
+        //Entity_PlayAnimation("Player_Walk", "walk_fwd_larm", 0.3f, true);
+        //Entity_PlayAnimation("Player_Walk", "walk_fwd_rarm", 0.3f, true);
+        ////Agent_PlayCutsceneAnimation("Player_Walk", "walk_fwd_larm", 0.3f, true, "", 1, 0, false, 0, 0, false, false, true);
+        ////Entity_PlayAnimation("Player_Walk", "walk_fwd_rarm");
+        //
+        //Map_AddTimer("walkfwd", 0.0f, "OnTimer_WalkForwardEntity");
+        return true;
+    }
+    
+    void OnInteract_TestEnableWalk(const tString &in asEntity)
+    {
+        cLux_AddDebugMessage("TEST");
+        Entity_SetActive("Player_Walk", true);
+    }
+    
+    bool OnPassedNode_End2(const tString &in asEntity, int alDirection)
+    {
+        Entity_SetActive("Player_Walk", true);
+        Entity_PlayAnimation("Player_Walk", "walk_fwd_larm", 0.3f, true);
+        Entity_PlayAnimation("Player_Walk", "walk_fwd_rarm", 0.3f, true);
+        //Agent_PlayCutsceneAnimation("Player_Walk", "walk_fwd_larm", 0.3f, true, "", 1, 0, false, 0, 0, false, false, true);
+        //Entity_PlayAnimation("Player_Walk", "walk_fwd_rarm");
+        
+        Map_AddTimer("walkfwd", 0.0f, "OnTimer_WalkForwardEntity");
+        return true;
+    }
+    
+    void OnInteract_DebugEndCamera(const tString &in asEntity)
+    {
+        Entity_SetActive("Player_Walk", true);
+        Entity_PlayAnimation("Player_Walk", "walk_fwd_larm", 0.3f, true);
+        Entity_PlayAnimation("Player_Walk", "walk_fwd_rarm", 0.3f, true);
+        //Agent_PlayCutsceneAnimation("Player_Walk", "walk_fwd_larm", 0.3f, true, "", 1, 0, false, 0, 0, false, false, true);
+        //Entity_PlayAnimation("Player_Walk", "walk_fwd_rarm");
+        
+        Map_AddTimer("walkfwd", 0.0f, "OnTimer_WalkForwardEntity");
+    }
+    
+    void OnTimer_WalkForward(const tString &in asTimer){
+        Player_MoveForward(100.5f);
+        Map_RestartCurrentTimer(0.1f);
+    }
+    
+    void OnTimer_WalkForwardEntity(const tString &in asTimer){
+        MoveEntityForward("Player_Walk");
+        Map_RestartCurrentTimer(0.002f);
+    }
+    
+    void MoveEntityForward(const tString &in asEntity){
+        cLux_AddDebugMessage("MOVED FORWARD");
+        if(Map_GetEntity(asEntity) == null) return;
+        
+        iLuxEntity@ entity = Map_GetEntity(asEntity);
+        
+        float x = entity.GetPosition().x;
+        float y = entity.GetPosition().y;
+        float z = entity.GetPosition().z + 0.01f;
+        entity.SetPosition(cVector3f(x, y, z));
+    }
+    
 	// to-do: placeholder credits
 	bool OnTrigger_OutroFade(const tString &in asParent, const tString &in asChild, int alState)
 	{	
