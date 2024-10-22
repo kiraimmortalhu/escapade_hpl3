@@ -173,7 +173,10 @@ class cScrMap : iScrMap
 	{
         if(cScript_GetGlobalVarBool("entrance_alt_unlocked") ){
             Stalker_SetTenacity("stalker_growth_1", 1.f);
+            Stalker_SetEmergeAllowed("stalker_growth_1", false);
+            
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            
             
             Game_DoMapChange("escapade_entrance_alt.hpm", "MapTransfer_EntranceChurch");
             

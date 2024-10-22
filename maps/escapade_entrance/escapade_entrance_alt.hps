@@ -545,17 +545,20 @@ class cScrMap : iScrMap
 		bool OnTrigger_ApproachAltar(const tString &in asParent, const tString &in asChild, int alState)
 		{	
 			if (alState == 1) {				
+                Entity_SetActive("Trigger_StairsPlayer", true);
 				if (!Stalker_GetEmergeAllowed("stalker_growth_1")) {
 					Stalker_SetEmergeAllowed("stalker_growth_1", true);
+                    
 				}
 				if (Stalker_GetIsInsideWalls("stalker_growth_1")) {
-					Stalker_EmergeFromHole("stalker_growth_1", "GhoulHole_2", true);
+					Stalker_GoToHole("stalker_growth_1", "GhoulHole_2", true, true);
+                    Stalker_EmergeFromHole("stalker_growth_1", "GhoulHole_2", true);
 				}
 				else {
-					Stalker_GoToHole("stalker_growth_1", "GhoulHole_2", true, true);
+					
 				}
 				//}
-				Agent_RevealPlayerPosition("stalker_growth_1", false);
+				Agent_RevealPlayerPosition("stalker_growth_1", true);
 				
 				// engaging bossfight mode
 		
@@ -576,7 +579,60 @@ class cScrMap : iScrMap
 			}
 			return true;
 		}
-	 
+        
+        bool stalkerIsDownstairs;
+        bool StalkerJumpBegin(const tString &in asParent, const tString &in asChild, int alState)
+        {
+            if(alState == 1 && stalkerIsDownstairs){
+                Agent_SetSensesActive("stalker_growth_1", false);
+                Agent_FaceEntity("stalker_growth_1", "Player");
+                Stalker_PlayCutsceneAtEntity("stalker_growth_1", "jump_long", "stalker_jump_stairs", 0.3f);
+                //Agent_PlayCutsceneAtEntity("stalker_growth_1", "jump_long", "")
+                Agent_SetSensesActive("stalker_growth_1", true);
+                
+                // Bring ghoulhole to the top of the stairs
+                //iLuxEntity@ topHole = Map_GetEntity("GhoulHole_3");
+                //topHole.GetPosition().x = -11.0f;
+                //topHole.GetPosition().y = 1.0f;
+                //topHole.GetPosition().z = 2.25f;
+                
+            }
+            if(alState == -1){
+                Entity_SetActive("Trigger_StairsPlayer", false);
+                
+                
+                
+                // Move ghoulhole away from the top of the stairs
+                //iLuxEntity@ topHole = Map_GetEntity("GhoulHole_3");
+                //topHole.GetPosition().x = -63.25f;
+                //topHole.GetPosition().y = 1.0f;
+                //topHole.GetPosition().z = 19.0f;
+                
+            }
+            return true;
+        }
+        
+        bool StalkerEnableJump(const tString &in asParent, const tString &in asChild, int alState)
+        {
+            if(alState == 1){
+                cLux_AddDebugMessage("-------------PLAYER DOWNSTAIRS-------------");
+                stalkerIsDownstairs = true;
+                
+            }
+            if(alState == -1){
+                cLux_AddDebugMessage("-----------PLAYER NOT DOWNSTAIRS------------");
+                stalkerIsDownstairs = false;
+            }
+            return true;
+        }
+        
+        bool PlayerDownstairsCheck(const tString &in asParent, const tString &in asChild, int alState)
+        {
+            if(alState == 1){
+                Entity_SetActive("Trigger_StairsPlayer", true);
+            }
+            return true;
+        }
 		/////////////////////////////////////////
 		// Event: Leaving
 		//{//////////////////////////////////////
