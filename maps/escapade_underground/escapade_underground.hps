@@ -854,6 +854,7 @@ class cScrMap : iScrMap
         //Stalker_SetMode("stalker_growth_1", eStalkerMode_Passive);
         if(!Map_TimerExists("update_StalkerKillPlayerIfClose"))
             Map_AddTimer("update_StalkerKillPlayerIfClose", 0.0f, "OnTimer_UpdatePlayerStalkerKill");
+            
     }
     
     void OnTimer_UpdatePlayerLineOfSightShortEncounter(const tString &in asTimer){
