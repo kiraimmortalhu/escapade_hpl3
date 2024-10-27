@@ -548,6 +548,9 @@ class cScrMap : iScrMap
     
     bool OnTrigger_Player_SwitchMap_StorageMap(const tString &in asParent, const tString &in asChild, int alState)
     {
+		Stalker_SetTenacity("stalker_growth_1", 1.f);
+		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+		
         Game_DoMapChange("escapade_storage.hpm", "MapTransfer_EntranceStorage");
         return true;
     }
