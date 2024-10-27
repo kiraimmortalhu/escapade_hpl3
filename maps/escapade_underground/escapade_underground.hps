@@ -82,6 +82,13 @@ class cScrMap : iScrMap
 		//PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		//PlayerBody_SetActive(true);
 		
+		Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
+		
+		// deactivate elevator for now
+		Entity_SetActive("lq_elevator*", false);
+		Entity_SetActive("lq_elevator_midway", true);
+		Light_SetVisible("Light_Point_22", false);
+		
 		/////////////////////////
 		// Debug
 		if (cLux_ScriptDebugOn())
@@ -90,21 +97,11 @@ class cScrMap : iScrMap
             Item_SetCurrentSlotsCount(15);
             Item_AddToInventory("DynamoLantern");
 			Item_AddToInventory("Lighter");
+			Player_SetFallDamageActive(false);
 		} else {
 			Entity_SetActive("debugitem_*", false);
+			Player_SetFallDamageActive(true);
 		}
-        
-        Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
-		
-		// deactivate elevator for now
-		Entity_SetActive("lq_elevator*", false);
-		Entity_SetActive("lq_elevator_midway", true);
-		Light_SetVisible("Light_Point_22", false);
-        
-        Player_SetFallDamageActive(true);
-        
-        
-        
 	}
 
 	//-------------------------------------------------------
