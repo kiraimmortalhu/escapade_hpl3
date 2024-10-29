@@ -211,29 +211,29 @@ class cScrMap : iScrMap
         //
         
         // ONE TIME DEBUG DELETE AFTER. PROBABLY REMOVE "checkc" TIMER TOO
-        Item_SetCurrentSlotsCount(50);
-        if (ItemType_GetCountInInventory("Gun") == 0)
-        {
-            Item_AddToInventory("Gun");
-            Item_AddManyToInventory("Ammunition", 8);
-        }
-        if (ItemType_GetCountInInventory("Shotgun") == 0)
-        {
-            Item_AddToInventory("Shotgun");
-            Item_AddManyToInventory("ShotgunAmmunition", 3);
-        }
-        if (ItemType_GetCountInInventory("Torch") == 0)
-        {
-            Item_AddToInventory("Torch");
-        }
-        if (ItemType_GetCountInInventory("Lighter") == 0)
-        {
-            Item_AddToInventory("Lighter");
-        }
-        if (ItemType_GetCountInInventory("GasMask") == 0)
-        {
-            Item_AddToInventory("GasMask");
-        }
+        //Item_SetCurrentSlotsCount(50);
+        //if (ItemType_GetCountInInventory("Gun") == 0)
+        //{
+        //    Item_AddToInventory("Gun");
+        //    Item_AddManyToInventory("Ammunition", 8);
+        //}
+        //if (ItemType_GetCountInInventory("Shotgun") == 0)
+        //{
+       //     Item_AddToInventory("Shotgun");
+        //    Item_AddManyToInventory("ShotgunAmmunition", 3);
+        //}
+        //if (ItemType_GetCountInInventory("Torch") == 0)
+        //{
+        //    Item_AddToInventory("Torch");
+        //}
+        //if (ItemType_GetCountInInventory("Lighter") == 0)
+        //{
+        //    Item_AddToInventory("Lighter");
+        //}
+        //if (ItemType_GetCountInInventory("GasMask") == 0)
+        //{
+        //    Item_AddToInventory("GasMask");
+        //}
         
         
         Game_SetupAfterMapChange();
@@ -401,14 +401,15 @@ class cScrMap : iScrMap
         //PlayerBody_PlayCutsceneAnimation("pick_up_and_look_at_orb", false, 0.0f);
         //PlayerBody_PlayAnimation("pick_up_and_look_at_orb", ePlayerBodyAnimationLayer_RightArm, false, false, true);
         //PlayerHands_PlayAnimation("pick_up_and_look_at_orb", false, true, 0.0f, "red_orb_cutscene", true, 1.f, -1.f, true, true);
-        cLux_AddDebugMessage("HELD righto: " + Item_GetHeld(eItemHandlerHand_Right));
-        
-        iLuxEntity@ pFeed = Map_GetEntity("RatFeed_Boss_1");
-        iLuxEntity@ pHole = Map_GetEntity("GhoulHole_RatKStart");
-        
-        Entity_SetActive("enemy_rat_king_1", true);
+        //cLux_AddDebugMessage("HELD righto: " + Item_GetHeld(eItemHandlerHand_Right));
+        //
+        //iLuxEntity@ pFeed = Map_GetEntity("RatFeed_Boss_1");
+        //iLuxEntity@ pHole = Map_GetEntity("GhoulHole_RatKStart");
+        //
+        //Entity_SetActive("enemy_rat_king_1", true);
         //Rat_EmergeToFood("enemy_rat_king_1", pHole.GetID(), pFeed.GetID());
         //cLux_ID_Area( Map_GetEntityID("Trigger_LookAtTest")).SetForceLookAtCheck(true);
+        Seq_RatKingSpawn("");
         
     }
     
@@ -1039,11 +1040,42 @@ class cScrMap : iScrMap
         {
             if(alState == 1){
                 cLux_AddDebugMessage("READY BOSSFIGHT");
-                LogNewLine("OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI");
+                //LogNewLine("OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI");
                 Entity_SetActive("stalker_growth_1", false);
-                Entity_SetActive("enemy_rat_king_1", true);
+                //Rat_EmergeToFood("enemy_rat_king_1");
+                //Agent_SetSensesActive("enemy_rat_king_1", false);
+                //Entity_SetActive("enemy_rat_king_1", true);
+                Agent_SetSensesActive("enemy_rat_king_1", false);
+                Seq_RatKingSpawn("");
+                //Agent_TeleportFeetToEntity("enemy_rat_king_1", "RatK_Spawn_1");
             }
             return true;
+        }
+        
+        cSequenceStatesData mSeqDataRatKingSpawn;
+        void Seq_RatKingSpawn(const tString &in asTimer){
+            Sequence_Begin("Seq_RatKingSpawn", mSeqDataRatKingSpawn);
+            if(Sequence_DoStepAndWait(0.5f)){
+                Map_GetEntity("GhoulHole_RatKStart").SetPosition(cVector3f(-72.75f, -77.75f, 3.f));
+            }
+            else if(Sequence_DoStepAndWait(1.f)){
+                cLux_AddDebugMessage("RAT KING SPAWN");
+                Agent_SetSensesActive("enemy_rat_king_1", false);
+                
+                iLuxEntity@ pFeed = Map_GetEntity("RatFeed_Orb");
+                iLuxEntity@ pHole = Map_GetEntity("GhoulHole_RatKStart");
+                Rat_EmergeToFood("enemy_rat_king_1", pHole.GetID(), pFeed.GetID());
+                Rat_Eat("enemy_rat_king_1", pFeed.GetID());
+                Agent_SetSensesActive("enemy_rat_king_1", false);
+            }
+            else if(Sequence_DoStepAndWait(1.0f)){
+                Agent_TeleportFeetToEntity("enemy_rat_king_1", "RatK_Spawn_1");
+                //-206.75 -79.5 3 
+                Map_GetEntity("GhoulHole_RatKStart").SetPosition(cVector3f(-206.75f, -79.5f, 3.f));
+            }
+            
+            
+            Sequence_End();
         }
         
 		bool OnTrigger_RatBossFight(const tString &in asParent, const tString &in asChild, int alState)

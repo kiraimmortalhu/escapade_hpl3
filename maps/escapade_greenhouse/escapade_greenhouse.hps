@@ -95,6 +95,7 @@ class cScrMap : iScrMap
 	// Run when entering map
 	void OnEnter()
 	{	
+        
 		///////////////////////
 		// Setup player body
 		if (PlayerBody_IsActive() == false)
@@ -105,6 +106,9 @@ class cScrMap : iScrMap
 		
         
         if(cLux_ScriptDebugOn()){
+            //Blackboard_SetDebugMode(true);
+            Blackboard_ShowDebug(true);
+            
             Item_SetCurrentSlotsCount(50);
 			if (ItemType_GetCountInInventory("Gun") == 0)
 			{
@@ -165,7 +169,7 @@ class cScrMap : iScrMap
 		//SetupStalkerAppearance();
         
         // Enable rat king health timer if he's undefeated
-        if(!cScript_GetGlobalVarBool("ChurchKeyGreenhouseDropped")){
+        if(!cScript_GetGlobalVarBool("ChurchKeyGreenhouseDropped") && !Map_TimerExists("ratKhealthtimer")){
             Map_AddTimer("ratKhealthtimer", 0.0f, "OnTimer_UpdateRatKHealth");
         } else{
             Entity_SetActive("enemy_rat_king_1", false);
@@ -199,9 +203,9 @@ class cScrMap : iScrMap
         //Rat_Attack("enemy_rat_king_1", true, false);
         //Rat_ResetHungerTimer("enemy_rat_king_1");
         //cLux_AddDebugMessage("GENERATOR STATE: " + Generator_GetState());
-        cLux_AddDebugMessage("GENERATOR TIME: "+ Generator_GetFuelTimeLeft(), true);
-        cLux_AddDebugMessage("GENERATOR RUN FOREVER: "+ Generator_GetRunForever(), true);
-        Map_RestartCurrentTimer(0.2f);
+        //cLux_AddDebugMessage("GENERATOR TIME: "+ Generator_GetFuelTimeLeft(), true);
+        //cLux_AddDebugMessage("GENERATOR RUN FOREVER: "+ Generator_GetRunForever(), true);
+        //Map_RestartCurrentTimer(0.2f);
     }
        
     bool OnCollide_CloseExitDoors(const tString &in asParent, const tString &in asChild, int alState)
@@ -469,6 +473,12 @@ class cScrMap : iScrMap
 		}
 	}
 	
+    bool OnCollide_RatKingRetreat(const tString &in asParent, const tString &in asChild, int alState)
+    {
+        cLux_AddDebugMessage("RAT KING RETREATING");
+        Rat_Retreat(asChild, true, true, false);
+        return true;
+    }
     
 	bool OnTrigger_LabMusic(const tString &in asParent, const tString &in asChild, int alState)
 	{
@@ -480,8 +490,13 @@ class cScrMap : iScrMap
             
             Map_AddTimer("Trigger_LabMusic_*", 0.5f, "OnTimer_DisableCollideArea");
             
-			Stalker_Retreat("stalker_growth_1");
-			Stalker_SetEmergeAllowed("stalker_growth_1", false);
+            if(!Map_TimerExists("update_stalker_hole_reached") && Entity_IsActive("stalker_growth_1")){
+                Stalker_Retreat("stalker_growth_1");
+            
+                Map_AddTimer("update_stalker_hole_reached", 0.0f, "OnTimer_UpdateStalkerHoleReach");
+            }
+                
+            Stalker_SetEmergeAllowed("stalker_growth_1", false);
             //OnCollide_StalkerDisableArea("", "", 1);
             
             Entity_SetActive("stalker_path_area_blocker*", false);
@@ -492,6 +507,20 @@ class cScrMap : iScrMap
 		return true;
 	}
 	
+    void OnTimer_UpdateStalkerHoleReach(const tString &in asTimer){
+        if(Stalker_GetIsInsideWalls("stalker_growth_1")){
+            cLux_AddDebugMessage("STALKER DISABLED", true);
+            //Entity_SetActive("stalker_growth_1", false);
+            Agent_SetSensesActive("stalker_growth_1", false);
+            Stalker_SetMode("stalker_growth_1", eStalkerMode_Passive);
+        }
+        else{
+            cLux_AddDebugMessage("STALKER INSIDE WALLS CHECK", true);
+            Map_RestartCurrentTimer(0.1f);
+        }
+        
+    }
+    
 	bool OnTrigger_LabMusicStop(const tString &in asParent, const tString &in asChild, int alState)
 	{
         
@@ -500,8 +529,8 @@ class cScrMap : iScrMap
             
 			if (Music_IsSongPlaying("conservatory_swarm")) {
 				Music_Stop(4.0f, eMusicPrio_OverrideAll);
-				Agent_ResetPlayerDetectionState("enemy_rat_king_1");
-				Agent_SetAutoDisableWhenOutOfSightActive("enemy_rat_king_1", true, 5.0f);
+				//Agent_ResetPlayerDetectionState("enemy_rat_king_1");
+				//Agent_SetAutoDisableWhenOutOfSightActive("enemy_rat_king_1", true, 5.0f);
 				Stalker_SetEmergeAllowed("stalker_growth_1", true);
 			}
 			Music_Stop(5.0f, eMusicPrio_BgAmb);
@@ -513,6 +542,8 @@ class cScrMap : iScrMap
             // Exited softlock room
             Stalker_SetEmergeAllowed("stalker_growth_1", true);
             //OnCollide_StalkerDisableArea("", "", -1);
+            Agent_SetSensesActive("stalker_growth_1", true);
+            Stalker_SetMode("stalker_growth_1", eStalkerMode_Active);
             
             Generator_SetRunForever(false);
             
@@ -541,8 +572,11 @@ class cScrMap : iScrMap
                     cLux_ID_Agent(ratKID).GetHitboxBody(t).SetActive(false);
                 }
                 
-                Rat_Retreat("enemy_rat_king_1", true, false, false);
-                Entity_CreateAtEntity("church_key", "church_key.ent", "enemy_rat_king_1", false);
+                Rat_Retreat("enemy_rat_king_1", true, true, false);
+                if(!cScript_GetGlobalVarBool("ChurchKeyGreenhouseDropped")){
+                    Entity_CreateAtEntity("church_key", "church_key.ent", "enemy_rat_king_1", false);
+                }
+                
                 cScript_SetGlobalVarBool("ChurchKeyGreenhouseDropped", true);
                 
                 Map_AddTimer("addimpulsetokey", 0.2f, "OnTimer_KeyDroppedImpulse");
@@ -555,16 +589,16 @@ class cScrMap : iScrMap
     }
     
     void OnTimer_KeyDroppedImpulse(const tString &in asTimer){
-        Map_GetProp("church_key").GetMainBody().AddImpulse(cVector3f(0, -1, 0));
+        Map_GetProp("church_key").GetMainBody().AddImpulse(cVector3f(0.5f, 0.5f, 0.5f));
     }
     
     void OnTimer_RatKingDisable(const tString &in asTimer){
         // Wait until rat king is inside hole, then move it and the feed areas away
         if(StateMachine_GetCurrentStateName("enemy_rat_king_1") == ""){
             Map_GetEntity("GhoulHole_5").SetPosition(cVector3f(28.465f, 1.0f, 142.0f ));
-            Map_GetEntity("RatFeed_1").SetPosition(cVector3f(29.465f, 1.0f, 142.0f ));
+            //Map_GetEntity("RatFeed_1").SetPosition(cVector3f(29.465f, 1.0f, 142.0f ));
             Map_GetEntity("RatFeed_2").SetPosition(cVector3f(27.465f, 1.0f, 142.0f ));
-            Map_GetEntity("RatFeed_3").SetPosition(cVector3f(26.465f, 1.0f, 142.0f ));
+            //Map_GetEntity("RatFeed_3").SetPosition(cVector3f(26.465f, 1.0f, 142.0f ));
         }else{
             Map_RestartCurrentTimer(0.1f);
         }
@@ -610,6 +644,11 @@ class cScrMap : iScrMap
 	{
 		Music_PlayExt("conservatory_swarm", true, 0.4f, 1, 3.0f, 0, eMusicPrio_OverrideAll, true);
 		
+        //Move hole to lab (in order to enable it)
+        //28.465 1 81.25 
+        Map_GetEntity("GhoulHole_5").SetPosition(cVector3f(28.465f, 1.0f, 82.0f));
+        
+        
         // Enable rat king
         tID ratKHoleID = Map_GetEntityID("GhoulHole_5");
         tID feedID = Map_GetEntityID("RatFeed_2");

@@ -121,6 +121,11 @@ class cScrMap : iScrMap
 				Item_AddToInventory("Gun");
 				Item_AddManyToInventory("Ammunition", 20);
 			}
+            if (ItemType_GetCountInInventory("Shotgun") == 0)
+			{
+				Item_AddToInventory("Shotgun");
+				Item_AddManyToInventory("ShotgunAmmunition", 20);
+			}
             
         }
         
@@ -185,7 +190,16 @@ class cScrMap : iScrMap
         cScript_SetGlobalVarBool(asEntity, true);
         cLux_AddDebugMessage(""+ cScript_GetGlobalVarBool(asEntity));
     }
-        
+    
+    void OnBreak_GunDoor(const tString &in asEntity)
+    {
+        cLux_AddDebugMessage("ATTEMPTING TO BREAK PLANKS");
+        //Map_GetEntity("french_guard_post_booth_piece02_2").GetBodyFromName("Body_1").AddImpulse(cVector3f(-10000.0f, 0.0f, 0.0f));
+        //Map_GetEntity("french_guard_post_booth_piece02_1").GetBodyFromName("Body_1").AddImpulse(cVector3f(-10000.0f, 0.0f, 0.0f));
+        Map_GetProp("french_guard_post_booth_piece02_2").SetHealth(0.0f);
+        Map_GetProp("french_guard_post_booth_piece02_1").SetHealth(0.0f);
+    }
+    
     bool OnCollide_CloseExitDoors(const tString &in asParent, const tString &in asChild, int alState)
     {
         if(alState == 1){
