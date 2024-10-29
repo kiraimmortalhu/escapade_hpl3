@@ -211,29 +211,29 @@ class cScrMap : iScrMap
         //
         
         // ONE TIME DEBUG DELETE AFTER. PROBABLY REMOVE "checkc" TIMER TOO
-        Item_SetCurrentSlotsCount(50);
-        if (ItemType_GetCountInInventory("Gun") == 0)
-        {
-            Item_AddToInventory("Gun");
-            Item_AddManyToInventory("Ammunition", 8);
-        }
-        if (ItemType_GetCountInInventory("Shotgun") == 0)
-        {
-            Item_AddToInventory("Shotgun");
-            Item_AddManyToInventory("ShotgunAmmunition", 3);
-        }
-        if (ItemType_GetCountInInventory("Torch") == 0)
-        {
-            Item_AddToInventory("Torch");
-        }
-        if (ItemType_GetCountInInventory("Lighter") == 0)
-        {
-            Item_AddToInventory("Lighter");
-        }
-        if (ItemType_GetCountInInventory("GasMask") == 0)
-        {
-            Item_AddToInventory("GasMask");
-        }
+        //Item_SetCurrentSlotsCount(50);
+        //if (ItemType_GetCountInInventory("Gun") == 0)
+        //{
+        //    Item_AddToInventory("Gun");
+        //    Item_AddManyToInventory("Ammunition", 8);
+        //}
+        //if (ItemType_GetCountInInventory("Shotgun") == 0)
+        //{
+       //     Item_AddToInventory("Shotgun");
+        //    Item_AddManyToInventory("ShotgunAmmunition", 3);
+        //}
+        //if (ItemType_GetCountInInventory("Torch") == 0)
+        //{
+        //    Item_AddToInventory("Torch");
+        //}
+        //if (ItemType_GetCountInInventory("Lighter") == 0)
+        //{
+        //    Item_AddToInventory("Lighter");
+        //}
+        //if (ItemType_GetCountInInventory("GasMask") == 0)
+        //{
+        //    Item_AddToInventory("GasMask");
+        //}
         
         
         Game_SetupAfterMapChange();
