@@ -30539,7 +30539,7 @@
                     <Var ObjectId="268440678" Name="RenderLayer" Value="0" />
                 </UserVariables>
             </Entity>
-            <Entity ID="268440679" Name="french_guard_post_booth_piece02_1" CreStamp="1719854309" ModStamp="1723816014" WorldPos="77.47 1.25 0" Rotation="-1.5708 3.14159 -1.5708" Scale="1 1.75 1" FileIndex="194" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 3373 268440679">
+            <Entity ID="268440679" Name="french_guard_post_booth_piece02_1" CreStamp="1719854309" ModStamp="1730167065" WorldPos="77.47 1.25 0" Rotation="-1.5708 3.14159 -1.5708" Scale="1 1.75 1" FileIndex="194" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 3373 268440679">
                 <UserVariables>
                     <Var ObjectId="268440679" Name="Note" Value="" />
                     <Var ObjectId="268440679" Name="EventInstanceTag" Value="" />
@@ -30602,7 +30602,7 @@
                     <Var ObjectId="268440679" Name="WoodenBreakable_CustomDropItemsList" Value="" />
                 </UserVariables>
             </Entity>
-            <Entity ID="268440680" Name="french_guard_post_booth_piece02_2" CreStamp="1719854365" ModStamp="1723816005" WorldPos="77.47 1.80719 0" Rotation="-1.5708 3.14159 -1.5708" Scale="1 1.75 1" FileIndex="194" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 2778 268440680">
+            <Entity ID="268440680" Name="french_guard_post_booth_piece02_2" CreStamp="1719854365" ModStamp="1730167067" WorldPos="77.47 1.80719 0" Rotation="-1.5708 3.14159 -1.5708" Scale="1 1.75 1" FileIndex="194" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 2778 268440680">
                 <UserVariables>
                     <Var ObjectId="268440680" Name="Note" Value="" />
                     <Var ObjectId="268440680" Name="EventInstanceTag" Value="" />
@@ -35898,7 +35898,7 @@
                     <Var ObjectId="268441100" Name="WoodenBreakable_CustomDropItemsList" Value="" />
                 </UserVariables>
             </Entity>
-            <Entity ID="268441101" Name="castle_arched01_4" CreStamp="1723132053" ModStamp="1730156455" WorldPos="78 0.105081 0" Rotation="0 1.57045 0" Scale="1.125 1.03 1" FileIndex="210" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 3420 268441101">
+            <Entity ID="268441101" Name="castle_arched01_4" CreStamp="1723132053" ModStamp="1730167138" WorldPos="78 0.105081 0" Rotation="0 1.57045 0" Scale="1.125 1.03 1" FileIndex="210" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 3420 268441101">
                 <UserVariables>
                     <Var ObjectId="268441101" Name="Note" Value="" />
                     <Var ObjectId="268441101" Name="EventInstanceTag" Value="" />
@@ -35920,7 +35920,7 @@
                     <Var ObjectId="268441101" Name="IsAffectedByDecal" Value="false" />
                     <Var ObjectId="268441101" Name="IsOccluder" Value="false" />
                     <Var ObjectId="268441101" Name="UpdateBonesWhenCulled" Value="false" />
-                    <Var ObjectId="268441101" Name="OnBreakCallbackFunc" Value="" />
+                    <Var ObjectId="268441101" Name="OnBreakCallbackFunc" Value="OnBreak_GunDoor" />
                     <Var ObjectId="268441101" Name="ConnectionStateChangeCallback" Value="" />
                     <Var ObjectId="268441101" Name="PlayerLookAtCallback" Value="" />
                     <Var ObjectId="268441101" Name="PlayerLookAtCallbackAutoRemove" Value="false" />
@@ -38654,9 +38654,10 @@
         </Objects>
     </Section>
     <Section Name="7671329699895397113">
-        <FileIndex_Entities NumOfFiles="2">
+        <FileIndex_Entities NumOfFiles="3">
             <File Id="0" Path="entities/technical/block_box/block_box.ent" />
             <File Id="1" Path="entities/arabic_fort/door/arabic_lock/arabic_lock.ent" />
+            <File Id="2" Path="entities/french_colonization/barricades/french_guard_booth/french_guard_post_booth_piece02.ent" />
         </FileIndex_Entities>
         <Objects>
             <Entity ID="301989888" Name="block_box_1" CreStamp="1722195169" ModStamp="1722195196" WorldPos="62 5 -2" Rotation="0 0 0" Scale="0.5 6.5 0.625" FileIndex="0" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="18 11 301989888">
