@@ -476,7 +476,7 @@ class cScrMap : iScrMap
     bool OnCollide_RatKingRetreat(const tString &in asParent, const tString &in asChild, int alState)
     {
         cLux_AddDebugMessage("RAT KING RETREATING");
-        Rat_Retreat(asChild, true, true, true);
+        Rat_Retreat(asChild, true, true, false);
         return true;
     }
     
