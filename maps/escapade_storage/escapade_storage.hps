@@ -336,12 +336,45 @@ class cScrMap : iScrMap
 	//{///////////////////////////////////////////////////////////////////////////////////////
  
 	///// Simpler stuff
- 
+    
+    // Does not get called!!
 	void chain_break_Callback(const tString &in asEntity)
 	{
-		Prop_SetStaticPhysics("door_" + asEntity, false);
+		cLux_AddDebugMessage("CHAIN CUT: ");
+        Prop_SetStaticPhysics("door_" + asEntity, false);
+        
+        // Get chain number
+        tString chainCut = cString_Sub(asEntity, "chain_".length(), 1);
+        cLux_AddDebugMessage("CHAIN CUT: "+ chainCut);
 	}
+    
+    bool OnCollide_ChainInteractDisable(const tString &in asParent, const tString &in asChild, int alState)
+    {
+        if(alState == 1){
+            //cLux_AddDebugMessage(cString_Sub(asParent, asParent.length() -1, 1));
+            tString chain = Entity_GetVarString(asParent, "");
+            if(chain != ""){
+                Entity_SetInteractionDisabled(chain+2, true);
+                Entity_SetInteractionDisabled(chain+1, false);
+            }
+        }
+        if(alState == -1){
+            tString chain = Entity_GetVarString(asParent, "");
+            if(chain != ""){
+                Entity_SetInteractionDisabled(chain+1, true);
+                Entity_SetInteractionDisabled(chain+2, false);
+            }
+        }
+        return true;
+    }
+    
+    void OnInteract_Chains(const tString &in asEntity)
+    {
+        cLux_AddDebugMessage("INTERACTED");
+        
+    }
 	
+    // Never gets called
 	void chain_3_Callback(const tString &in asEntity)
 	{
 		Map_GetEntity("GhoulHole_Shotgun").SetPosition(cVector3f(76.75,-1,-76.25));
