@@ -572,7 +572,7 @@ class cScrMap : iScrMap
                     cLux_ID_Agent(ratKID).GetHitboxBody(t).SetActive(false);
                 }
                 
-                Rat_Retreat("enemy_rat_king_1", true, false, false);
+                Rat_Retreat("enemy_rat_king_1", true, true, false);
                 if(!cScript_GetGlobalVarBool("ChurchKeyGreenhouseDropped")){
                     Entity_CreateAtEntity("church_key", "church_key.ent", "enemy_rat_king_1", false);
                 }
