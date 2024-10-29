@@ -81,21 +81,27 @@ class cScrMap : iScrMap
 		// Setup saving
 		SaveRoom_SetupSaveLamp(false, "SaveLamp");
 
-		// unless you are 
 		if (Item_GetCurrentSlotsCount(eInventoryInstance_Player) < 9 && cLux_GetGameDifficulty() < 3) {
 			Item_SetCurrentSlotsCount(9);
 		}
-        
+		
 		/////////////////////////
 		// Debug
 		if (cLux_ScriptDebugOn())
 		{
 			Entity_SetActive("debugitem_*", true);
             Item_AddToInventory("DynamoLantern");
+			Effect_Blur_Reset();
+			Player_SetActive(true);
 			//cScript_SetGlobalVarBool("scaredByStalker", true);
 		} else {
-			PlayIntro();
+			// put back playing intro here
 			Entity_SetActive("debugitem_*", false);
+			if (cLux_GetGameDifficulty() < 2) {
+				ShowTipsCutscene();
+			} else {
+				PlayIntro();
+			}
 		}
 		
 		Entity_PlayAnimation("orb_holder", "Open");
@@ -756,6 +762,78 @@ class cScrMap : iScrMap
 		/////////////////////////////////////////
 		// Intro room, basic TDD Puzzles
 		//{//////////////////////////////////////
+		
+		// Tips
+		
+		void ShowTipsCutscene() {
+			Effect_Fade_Out(0.0f);
+			Player_Teleport("ZonedOut", true);
+			Player_SetMoveSpeedMul(0);
+			Player_SetRunSpeedMul(0);
+			Player_SetLookSpeedMul(0);
+			Player_SetCrouchDisabled(true);
+			Player_SetActive(false);
+			Map_AddTimer("canskiptips_timer", 2.0f, "OnTimer_CanSkipTips");
+			Map_AddTimer("showtipsnext_timer", 20.0f, "OnTimer_ShowTipsNext");
+		}
+		
+		void OnTimer_CanSkipTips(const tString &in asTimer){
+			Player_SetActive(true);
+			Entity_SetActive("Trigger_JumpIntro_1", true);
+		}		
+		
+		void OnTimer_ShowTipsNext(const tString &in asTimer){
+			ShowTipsNext();
+		}
+		
+		bool OnCollide_Trigger_JumpIntro_1(const tString &in asParent, const tString &in asChild, int alState)
+		{
+			if (alState == 1) {
+				Map_RemoveTimer("showtipsnext_timer");
+				ShowTipsNext();
+				return false;
+			}
+			return true;
+		}
+		
+		void ShowTipsNext(){
+			Player_SetActive(false);
+			Entity_SetActive("Description_Intro1", false);
+			Entity_SetActive("Description_Intro2", true);
+			Entity_SetActive("Trigger_JumpIntro_1", false);
+			Effect_Fade_In(3.0f);
+			Map_AddTimer("tipslamplight_timer", 5.0f, "OnTimer_TipsLampLight");
+		}
+		
+		void OnTimer_TipsLampLight(const tString &in asTimer){
+			//Lamp_SetLit("lamp_oil_hero_2", true, true);
+			Player_SetActive(true);
+			Entity_SetActive("Trigger_JumpIntro_2", true);
+		}
+		
+		bool OnCollide_Trigger_JumpIntro_2(const tString &in asParent, const tString &in asChild, int alState)
+		{
+			if (alState == 1) {
+			Entity_SetActive("Description_Intro2", false);
+			Entity_SetActive("Trigger_JumpIntro_2", false);
+			Effect_Fade_Out(0.5f);
+			Player_SetMoveSpeedMul(1);
+			Player_SetRunSpeedMul(1);
+			Player_SetLookSpeedMul(1);
+			Player_SetCrouchDisabled(false);
+			Player_SetActive(false);
+			Map_AddTimer("timer_launchintro", 4.0f, "OnTimer_LaunchIntro");
+				return false;
+			}
+			return true;
+		}
+		
+		void OnTimer_LaunchIntro(const tString &in asTimer){
+			Player_Teleport("IntroEnd", true);
+			PlayIntro();
+		}
+		
+		// Waking up
 		
 		void PlayIntro() {
 			PlayerBody_SetActive(true);
