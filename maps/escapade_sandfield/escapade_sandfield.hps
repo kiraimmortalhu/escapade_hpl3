@@ -94,6 +94,8 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
         
+        Player_SetHealth(1.0f);
+        
         Game_SetupAfterMapChange();
 	}
 
