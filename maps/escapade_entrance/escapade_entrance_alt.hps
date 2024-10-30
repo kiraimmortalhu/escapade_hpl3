@@ -434,7 +434,8 @@ class cScrMap : iScrMap
 	}
 	
 	bool OnUse_Orb(const tString &in asItemType, const tString &in asItemID, const tString &in asTargetEntity, const tString &in asItemEntity, float afTimeElapsed, float afTimeStep) {
-		cLux_AddDebugMessage("ORB USED");		
+		cLux_AddDebugMessage("ORB USED");
+		SwingDoor_Push("castle_2", -1, 1);
 		Entity_SetActive("bossfight_blocker*", true);
         Prop_SetStaticPhysics("castle_arched01_4", true);
 		Prop_SetInteractLookAtEnabled("castle_arched01_4", true);
