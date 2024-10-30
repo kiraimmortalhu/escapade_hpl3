@@ -134,8 +134,6 @@ class cScrMap : iScrMap
 		m_idPuzzleItem3 = pPuzzleItem3 !is null ? pPuzzleItem3.GetID() : tID_Invalid;
         
         // -- Highlight applied through VariableUpdate --
-        
-		Game_AutoSave();
 	}
 
 	//-------------------------------------------------------
@@ -831,6 +829,7 @@ class cScrMap : iScrMap
 		void OnTimer_LaunchIntro(const tString &in asTimer){
 			Player_Teleport("IntroEnd", true);
 			PlayIntro();
+            Game_AutoSave();
 		}
 		
 		// Waking up
@@ -940,8 +939,21 @@ class cScrMap : iScrMap
 			SwingDoor_SetLocked("castle_main_door", false, true);
 			SwingDoor_SetOpenAmount("castle_main_door", 0.7f);
 			Light_SetVisible("Light_Point_32", false);
+            Entity_SetActive("Autosave_1", true);
 		}
 		
+        bool OnCollide_Autosave(const tString &in asParent, const tString &in asChild, int alState)
+        {
+            if(alState == 1){
+                Game_AutoSave();
+            }
+            if(alState == -1){
+                Entity_SetActive(asParent, false);
+            }
+            
+            return true;
+        }
+        
 		bool OnTrigger_CastleRevealVO(const tString &in asParent, const tString &in asChild, int alState)
 		{
 			if (alState == 1) {
