@@ -434,9 +434,8 @@ class cScrMap : iScrMap
 	}
 	
 	bool OnUse_Orb(const tString &in asItemType, const tString &in asItemID, const tString &in asTargetEntity, const tString &in asItemEntity, float afTimeElapsed, float afTimeStep) {
-		cLux_AddDebugMessage("ORB USED");
-		
-		Entity_SetActive("bossfight_blocker", true);
+		cLux_AddDebugMessage("ORB USED");		
+		Entity_SetActive("bossfight_blocker*", true);
         Prop_SetStaticPhysics("castle_arched01_4", true);
 		Prop_SetInteractLookAtEnabled("castle_arched01_4", true);
         // Orb Pedestal
@@ -458,6 +457,8 @@ class cScrMap : iScrMap
 	}
     
     void OnTimer_RemoveOrb(const tString &in asTimer){
+		Sound_Play("Sound_ShadowRoar", 2.0f, false);
+		//Sound_PlayGui("DW_tunnel/level/shadow_roar", 1.0f);
         cLux_AddDebugMessage("UNEQUIPPED, REMOVE");
         Item_RemoveFromInventory(ItemType_GetFirstInInventory("OrbRed"));
         Map_AddTimer("reset_orb_animation", 0.5f, "OnTimer_RemoveOrbResetAnim");
