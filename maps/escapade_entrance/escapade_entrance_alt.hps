@@ -229,18 +229,64 @@ class cScrMap : iScrMap
 		Music_Stalker_StopDeaggroSongChecks();
 	}
 	
+    // -- Door lock management
     void arabic_lock_OnConnectionStateChange(const tString &in asEntity, int alState){
         tString doorName = cString_Sub(asEntity, "arabic_lock_".length(), -1);
         if(alState == 1){
             cScript_SetGlobalVarBool(asEntity, true);
             MovingButton_SetSwitchedOn(asEntity, true, true);
             SwingDoor_SetLocked(doorName, false, true);
+            Entity_SetActive("preventInteract_"+doorName, false);
+            Entity_SetActive("lockedMessage_"+doorName, false);
             
         } else if (alState == -1 && SwingDoor_GetOpenAmount(doorName) < 0.1f){
             cScript_SetGlobalVarBool(asEntity, false);
             MovingButton_SetSwitchedOn(asEntity, false, true);
             SwingDoor_SetLocked(doorName, true, true);
+            Entity_SetActive("preventInteract_"+doorName, true);
+            Entity_SetActive("lockedMessage_"+doorName, true);
+        }
+    }
+    
+    bool wrongSide;
+    bool OnCollide_PreventInteract(const tString &in asParent, const tString &in asChild, int alState)
+    {
+        tString doorName = cString_Sub(asParent, "preventInteract_".length(), -1);
+        if(alState == 1){
+            wrongSide = true;
             
+            Entity_SetInteractionDisabled("arabic_lock_"+doorName, true);
+            //Description_Add("Description", "LockedFromOtherSide", false);
+        }
+        if(alState == -1){
+            wrongSide = false;
+            
+            Entity_SetInteractionDisabled("arabic_lock_"+doorName, false);
+            //Description_Remove("Description", "LockedFromOtherSide");
+        }
+        
+        
+        return true;
+    }
+    
+    void OnInteract_DoorLocked(const tString &in asEntity)
+    {
+        if(wrongSide && SwingDoor_GetLocked(asEntity)){
+            Entity_SetActive("lockedMessage_"+asEntity, true);
+            
+        } else{
+            Entity_SetActive("lockedMessage_"+asEntity, false);
+        }
+            
+    }
+    
+    void OnLookAt_DoorLocked(const tString &in asEntity, int alState)
+    {
+        if(alState == 1 && wrongSide){
+            Description_Add("Description", "LockedFromOtherSide", false);
+        }
+        if(alState == -1){
+            Description_Remove("Description", "LockedFromOtherSide");
         }
     }
     
