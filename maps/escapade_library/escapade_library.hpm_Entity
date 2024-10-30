@@ -27442,7 +27442,7 @@
                     <Var ObjectId="268440233" Name="WoodenBreakable_CustomDropItemsList" Value="" />
                 </UserVariables>
             </Entity>
-            <Entity ID="268440235" Name="door_exit_underground" CreStamp="1719680499" ModStamp="1724101238" WorldPos="72 4.597 10.25" Rotation="0 -0.000353098 0" Scale="1 1 1" FileIndex="15" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 1524 268440235">
+            <Entity ID="268440235" Name="door_exit_underground" CreStamp="1719680499" ModStamp="1730257035" WorldPos="72 4.597 10.25" Rotation="0 -0.000353098 0" Scale="1 1 1" FileIndex="15" Active="true" Important="false" Static="false" CulledByDistance="true" CulledByFog="true" UID="16 1524 268440235">
                 <UserVariables>
                     <Var ObjectId="268440235" Name="Note" Value="" />
                     <Var ObjectId="268440235" Name="EventInstanceTag" Value="" />
@@ -27472,8 +27472,8 @@
                     <Var ObjectId="268440235" Name="PlayerLookAtCheckRayIntersection" Value="true" />
                     <Var ObjectId="268440235" Name="PlayerLookAtMaxDistance" Value="-1" />
                     <Var ObjectId="268440235" Name="PlayerLookAtCallbackDelay" Value="0" />
-                    <Var ObjectId="268440235" Name="PlayerInteractCallback" Value="" />
-                    <Var ObjectId="268440235" Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                    <Var ObjectId="268440235" Name="PlayerInteractCallback" Value="OnInteract_DoorLocked" />
+                    <Var ObjectId="268440235" Name="PlayerInteractCallbackAutoRemove" Value="true" />
                     <Var ObjectId="268440235" Name="PlayerInteractLeaveCallback" Value="" />
                     <Var ObjectId="268440235" Name="PlayerInteractLeaveCallbackAutoRemove" Value="false" />
                     <Var ObjectId="268440235" Name="RecieveMessageCallback" Value="" />
