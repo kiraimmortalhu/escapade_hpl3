@@ -444,6 +444,13 @@ class cScrMap : iScrMap
             Description_Remove("Description", "LockedFromOtherSide");
         }
     }
+	
+	void Castle_DoorBreak_Callback(const tString &in asEntity)
+	{
+		wrongSide = false;
+		Entity_SetActive("lockedMessage_"+asEntity, false);
+		Entity_SetActive("preventInteract_"+asEntity, false);
+	}
     
     void OnBreak_Padlock(const tString &in asEntity)
     {
