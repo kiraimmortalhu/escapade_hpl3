@@ -312,7 +312,7 @@ class cScrMap : iScrMap
         Stalker_SetTenacity("stalker_growth_1", 1.f);
         StalkerResetEndState();
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-        
+        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
 		Game_DoMapChange("escapade_church.hpm", "MapTransfer_EntranceChurch");
 		return true;
@@ -323,7 +323,7 @@ class cScrMap : iScrMap
         Stalker_SetTenacity("stalker_growth_1", 1.f);
 		StalkerResetEndState();
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-        
+        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
 		Game_DoMapChange("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_1");
 		return true;
@@ -334,7 +334,7 @@ class cScrMap : iScrMap
         Stalker_SetTenacity("stalker_growth_1", 1.f);
 		StalkerResetEndState();
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-        
+        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
 		Game_DoMapChange("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_2");
 		return true;
@@ -345,7 +345,7 @@ class cScrMap : iScrMap
         Stalker_SetTenacity("stalker_growth_1", 1.f);
 		StalkerResetEndState();
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-        
+        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
 		Game_DoMapChange("escapade_storage.hpm", "MapTransfer_EntranceStorage_2");
 		return true;
@@ -356,7 +356,7 @@ class cScrMap : iScrMap
         Stalker_SetTenacity("stalker_growth_1", 1.f);
 		StalkerResetEndState();
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-        
+        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
 		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_1");
 		return true;
@@ -367,7 +367,7 @@ class cScrMap : iScrMap
         Stalker_SetTenacity("stalker_growth_1", 1.f);
 		StalkerResetEndState();
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-        
+        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
 		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_2");
 		return true;
@@ -378,7 +378,7 @@ class cScrMap : iScrMap
         Stalker_SetTenacity("stalker_growth_1", 1.f);
 		StalkerResetEndState();
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-        
+        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
 		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_3");
 		return true;
@@ -389,7 +389,7 @@ class cScrMap : iScrMap
         Stalker_SetTenacity("stalker_growth_1", 1.f);
 		StalkerResetEndState();
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-        
+        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
         Game_DoMapChange("escapade_storage.hpm", "MapTransfer_EntranceStorage");
         return true;

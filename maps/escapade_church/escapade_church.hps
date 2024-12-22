@@ -176,13 +176,14 @@ class cScrMap : iScrMap
             Stalker_SetEmergeAllowed("stalker_growth_1", false);
             
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-            
+            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
             
             Game_DoMapChange("escapade_entrance_alt.hpm", "MapTransfer_EntranceChurch");
             
         }else{
             Stalker_SetTenacity("stalker_growth_1", 1.f);
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
             
             Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceChurch");
             
@@ -194,6 +195,7 @@ class cScrMap : iScrMap
 	{
         Stalker_SetTenacity("stalker_growth_1", 1.f);
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
 		Game_DoMapChange("escapade_storage.hpm", "MapTransfer_StorageChurch");
 		return true;

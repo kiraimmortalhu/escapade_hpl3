@@ -86,12 +86,18 @@ class cScrMap : iScrMap
 		{
 			Entity_SetActive("debugitem_*", true);
 			Item_SetCurrentSlotsCount(15);
-			Item_AddToInventory("DynamoLantern");
-			Item_AddManyToInventory("Ammunition",20);
-			Item_AddToInventory("Cutters");
+            if(Item_GetAmount("DynamoLantern") == 0){
+                Item_AddToInventory("DynamoLantern");
+            }
+			if(Item_GetAmount("Cutters") == 0){
+                Item_AddToInventory("Cutters");
+            }
+			if(Item_GetAmount("Ammunition") == 0){
+                Item_AddManyToInventory("Ammunition",20);
+            }
 			
 			// normally needs shotgun
-			SwingDoor_SetLocked("castle_5", false,false);
+			//SwingDoor_SetLocked("castle_5", false,false);
 		} else {
 			Entity_SetActive("debugitem_*", false);
 		}
@@ -192,6 +198,7 @@ class cScrMap : iScrMap
 	{
         Stalker_SetTenacity("stalker_growth_1", 1.f);
         Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
 		Game_DoMapChange("escapade_underground.hpm", "MapTransfer_StorageUnderground");
 		return true;
@@ -206,13 +213,14 @@ class cScrMap : iScrMap
             Stalker_SetEmergeAllowed("stalker_growth_1", false);
             
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-            
+            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
             
             Game_DoMapChange("escapade_entrance_alt.hpm", "MapTransfer_EntranceStorage");
             
         }else{
             Stalker_SetTenacity("stalker_growth_1", 1.f);
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
             
             Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceStorage");
             
@@ -225,6 +233,7 @@ class cScrMap : iScrMap
 	{
         Stalker_SetTenacity("stalker_growth_1", 1.f);
         Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
 		Game_DoMapChange("escapade_church.hpm", "MapTransfer_StorageChurch");
 		return true;
@@ -238,13 +247,14 @@ class cScrMap : iScrMap
             Stalker_SetEmergeAllowed("stalker_growth_1", false);
             
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-            
+            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
             
             Game_DoMapChange("escapade_entrance_alt.hpm", "MapTransfer_EntranceStorage_2");
             
         }else{
             Stalker_SetTenacity("stalker_growth_1", 1.f);
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
             
             Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceStorage_2");
             
@@ -257,6 +267,7 @@ class cScrMap : iScrMap
 	{
         Stalker_SetTenacity("stalker_growth_1", 1.f);
         Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
 		Game_DoMapChange("escapade_library.hpm", "MapTransfer_KitchenDining");
 		return true;
