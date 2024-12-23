@@ -93,10 +93,19 @@ class cScrMap : iScrMap
 		// Debug
 		if (cLux_ScriptDebugOn())
 		{
+            if (ItemType_GetCountInInventory("DynamoLantern") == 0)
+			{
+				//Item_AddToInventory("DynamoLantern");
+				
+			}
+            if (ItemType_GetCountInInventory("Lighter") == 0)
+			{
+				Item_AddToInventory("Lighter");
+				
+			}
+            
             Entity_SetActive("debugitem_*", true);
-            Item_SetCurrentSlotsCount(15);
-            Item_AddToInventory("DynamoLantern");
-			Item_AddToInventory("Lighter");
+            //Item_SetCurrentSlotsCount(15);
 			Player_SetFallDamageActive(false);
 		} else {
 			Entity_SetActive("debugitem_*", false);
@@ -189,7 +198,7 @@ class cScrMap : iScrMap
         
         //Debug
         if(cLux_ScriptDebugOn()){
-            Item_SetCurrentSlotsCount(50);
+            //Item_SetCurrentSlotsCount(50);
 			if (ItemType_GetCountInInventory("Gun") == 0)
 			{
 				Item_AddToInventory("Gun");
@@ -200,8 +209,8 @@ class cScrMap : iScrMap
 				Item_AddToInventory("Shotgun");
 				Item_AddManyToInventory("ShotgunAmmunition", 20);
 			}
-            Item_AddToInventory("MolotovCocktail");
-            Item_AddToInventory("Torch");
+            //Item_AddToInventory("MolotovCocktail");
+            //Item_AddToInventory("Torch");
             Map_AddTimer("checkc", 0.0f, "DebugCheck");
         
         }
