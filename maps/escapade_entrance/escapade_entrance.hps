@@ -162,11 +162,11 @@ class cScrMap : iScrMap
             
         }
         
-        RichPresence_SetCurrent(eRichPresence_Entrance);
+        //RichPresence_SetCurrent(eRichPresence_Entrance);
         
-        cLux_AddDebugMessage("----------RICH PRESENCE MAIN MENU DESCRIPTION: "+ RichPresence_GetDescription(eRichPresence_MainMenu) );
-        cLux_AddDebugMessage("----------RICH PRESENCE: "+ cLux_GetRichPresenceHandler().GetCurrentRichPresence() );
-        cLux_AddDebugMessage("----------RICH PRESENCE DESCRIPTION: "+ RichPresence_GetDescription(eRichPresence_Entrance) );
+        //cLux_AddDebugMessage("----------RICH PRESENCE MAIN MENU DESCRIPTION: "+ RichPresence_GetDescription(eRichPresence_MainMenu) );
+        //cLux_AddDebugMessage("----------RICH PRESENCE: "+ cLux_GetRichPresenceHandler().GetCurrentRichPresence() );
+        //cLux_AddDebugMessage("----------RICH PRESENCE DESCRIPTION: "+ RichPresence_GetDescription(eRichPresence_Entrance) );
         //cLux_GetRichPresenceHandler().CreateRichPresence(69, "ENTRANCE MAP");
         
         
@@ -497,9 +497,30 @@ class cScrMap : iScrMap
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
         Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
+        // Torch crash prevention
+        //cLux_AddDebugMessage("HELD ITEM: "+Item_GetHeld());
+        //if(Item_GetHeldType() == "Torch"){
+        //    Map_AddTimer("unequip", 0.0f, "OnTimer_WaitForUnequip");
+        //    Player_SetActive(false);
+        //    Item_Unequip(Item_GetHeld());
+        //}
+        
 		Game_DoMapChange("escapade_church.hpm", "MapTransfer_EntranceChurch");
 		return true;
 	}
+    
+    void OnTimer_WaitForUnequip(const tString &in asTimer){
+        if(Item_GetHeld()==""){
+            Player_SetActive(true);
+            Map_AddTimer("c", 0.1f, "OnTimer_ChangeMap");
+        }else{
+            Map_RestartCurrentTimer(0.1f);
+        }
+    }
+    
+    void OnTimer_ChangeMap(const tString &in asTimer){
+        Game_DoMapChange("escapade_church.hpm", "MapTransfer_EntranceChurch");
+    }
     
     bool OnTrigger_Player_Transfer_Greenhouse_One(const tString &in asParent, const tString &in asChild, int alState)
 	{

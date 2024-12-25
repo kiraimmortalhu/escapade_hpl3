@@ -185,11 +185,33 @@ class cScrMap : iScrMap
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
             Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
             
+            // Torch crash prevention
+            //cLux_AddDebugMessage("HELD ITEM: "+Item_GetHeldType());
+            //if(Item_GetHeldType() == "Torch"){
+            //    Map_AddTimer("unequip", 0.0f, "OnTimer_WaitForUnequip");
+            //    Player_SetActive(false);
+            //    Item_Unequip(Item_GetHeld());
+            //}
+            
+            
             Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceChurch");
             
         }
 		return true;
 	}
+    
+    void OnTimer_WaitForUnequip(const tString &in asTimer){
+        if(Item_GetHeld()==""){
+            Player_SetActive(true);
+            Map_AddTimer("c", 0.1f, "OnTimer_ChangeMap");
+        }else{
+            Map_RestartCurrentTimer(0.1f);
+        }
+    }
+    
+    void OnTimer_ChangeMap(const tString &in asTimer){
+        Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceChurch");
+    }
     
     bool OnTrigger_Player_Transfer_Generator(const tString &in asParent, const tString &in asChild, int alState)
 	{
