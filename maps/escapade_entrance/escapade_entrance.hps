@@ -17,6 +17,7 @@
 
 //Unique escapade includes:
 #include "escapade_custom/helpers/helper_music_control.hps"
+#include "escapade_custom/helpers/helper_map_transfers.hps"
 
 //--------------------------------------------------
  
@@ -93,10 +94,18 @@ class cScrMap : iScrMap
             if(Item_GetAmount("DynamoLantern") == 0){
                 Item_AddToInventory("DynamoLantern");
             }
+            if(Item_GetAmount("Lighter") == 0){
+                Item_AddToInventory("Lighter");
+            }
+            if(Item_GetAmount("Torch") == 0){
+                Item_AddToInventory("Torch");
+            }
             
 			Effect_Blur_Reset();
 			Player_SetActive(true);
 			//cScript_SetGlobalVarBool("scaredByStalker", true);
+            
+            Map_AddTimer("checkHeldState", 2.0f, "OnTimer_CheckHeld");
 		} else {
 			// put back playing intro here
 			Entity_SetActive("debugitem_*", false);
@@ -344,6 +353,14 @@ class cScrMap : iScrMap
 		}
 	}
     
+    void OnTimer_CheckHeld(const tString &in asTimer){
+        //cLux_AddDebugMessage("HELD STATE: " + Item_GetHeldState());
+        //cLux_AddDebugMessage("HAND HELD STATE: " + Item_GetHandHeldState());
+        //cLux_AddDebugMessage("ANIMATION NAME: " + PlayerHands_GetAnimationPlaying());
+        
+        Map_RestartCurrentTimer(0.02f);
+    }
+    
     //array<iLuxEntity@> pickableEntitiesEnd;
 	bool OnCollide_DebugTest(const tString &in asParent, const tString &in asChild, int alState)
     {
@@ -493,42 +510,42 @@ class cScrMap : iScrMap
     
     bool OnTrigger_Player_Transfer_Church(const tString &in asParent, const tString &in asChild, int alState)
 	{
-        Stalker_SetTenacity("stalker_growth_1", 1.f);
-		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
+        if(alState == 1){
+            Stalker_SetTenacity("stalker_growth_1", 1.f);
+            Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
+            
+            // Torch crash prevention
+            
+            Game_DoCrashPreventionTransfer("escapade_church.hpm", "MapTransfer_EntranceChurch");
+            //Game_DoCrashPreventionTransfer("escapade_church.hpm", "MapTransfer_EntranceChurch");
+            
+            
+        }
         
-        // Torch crash prevention
-        //cLux_AddDebugMessage("HELD ITEM: "+Item_GetHeld());
-        //if(Item_GetHeldType() == "Torch"){
-        //    Map_AddTimer("unequip", 0.0f, "OnTimer_WaitForUnequip");
-        //    Player_SetActive(false);
-        //    Item_Unequip(Item_GetHeld());
-        //}
-        
-		Game_DoMapChange("escapade_church.hpm", "MapTransfer_EntranceChurch");
-		return true;
+        return true;
 	}
     
-    void OnTimer_WaitForUnequip(const tString &in asTimer){
-        if(Item_GetHeld()==""){
-            Player_SetActive(true);
-            Map_AddTimer("c", 0.1f, "OnTimer_ChangeMap");
-        }else{
-            Map_RestartCurrentTimer(0.1f);
-        }
-    }
     
-    void OnTimer_ChangeMap(const tString &in asTimer){
-        Game_DoMapChange("escapade_church.hpm", "MapTransfer_EntranceChurch");
-    }
     
     bool OnTrigger_Player_Transfer_Greenhouse_One(const tString &in asParent, const tString &in asChild, int alState)
 	{
-        Stalker_SetTenacity("stalker_growth_1", 1.f);
-		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
+        if(alState == 1){
+            Stalker_SetTenacity("stalker_growth_1", 1.f);
+            Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
+            
+            // Torch crash prevention
+            
+            if(Item_GetHeldType() == "Torch"){
+                Game_DoCrashPreventionTransfer("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_1", 1.0f);
+                
+            }else{
+                Game_DoCrashPreventionTransfer("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_1");
+            }
+            
+        }
         
-		Game_DoMapChange("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_1");
 		return true;
 	}
     
@@ -538,7 +555,7 @@ class cScrMap : iScrMap
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
         Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
 
-		Game_DoMapChange("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_2");
+		Game_DoCrashPreventionTransfer("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_2");
 		return true;
 	}
     
@@ -548,7 +565,7 @@ class cScrMap : iScrMap
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
         Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
 
-		Game_DoMapChange("escapade_storage.hpm", "MapTransfer_EntranceStorage_2");
+		Game_DoCrashPreventionTransfer("escapade_storage.hpm", "MapTransfer_EntranceStorage_2");
 		return true;
 	}
     
@@ -558,7 +575,7 @@ class cScrMap : iScrMap
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
         Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
 
-		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_1");
+		Game_DoCrashPreventionTransfer("escapade_library.hpm", "MapTransfer_EntranceLibrary_1");
 		return true;
 	}
     
@@ -568,7 +585,7 @@ class cScrMap : iScrMap
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
         Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
 
-		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_2");
+		Game_DoCrashPreventionTransfer("escapade_library.hpm", "MapTransfer_EntranceLibrary_2");
 		return true;
 	}
     
@@ -578,9 +595,10 @@ class cScrMap : iScrMap
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
         Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
-		Game_DoMapChange("escapade_library.hpm", "MapTransfer_EntranceLibrary_3");
+		Game_DoCrashPreventionTransfer("escapade_library.hpm", "MapTransfer_EntranceLibrary_3");
 		return true;
 	}
+    
 	//-------------------------------------------------------
     void OnInteract_ToRemoveFromEntranceAlt(const tString &in asEntity)
     {
@@ -629,9 +647,9 @@ class cScrMap : iScrMap
 				Item_PutAway(eItemHandlerHand_Left);
 			}
 			sItemID = ItemType_GetFirstInInventory("Torch");
-			if (sItemID != "") {
+			if (sItemID != "" && Player_GetCanEquipItems()) {
 				Item_ToggleHeldItem("Torch");
-			} else {
+			} else if (Player_GetCanEquipItems()){
 				Item_ToggleHeldItem("Lighter");
 			}
 		}
@@ -643,7 +661,7 @@ class cScrMap : iScrMap
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
         Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
 		
-        Game_DoMapChange("escapade_storage.hpm", "MapTransfer_EntranceStorage");
+        Game_DoCrashPreventionTransfer("escapade_storage.hpm", "MapTransfer_EntranceStorage");
         return true;
     }
 	//-------------------------------------------------------

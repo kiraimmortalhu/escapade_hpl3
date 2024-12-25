@@ -260,9 +260,9 @@ class cScrMap : iScrMap
 				Item_PutAway(eItemHandlerHand_Left);
 			}
 			sItemID = ItemType_GetFirstInInventory("Torch");
-			if (sItemID != "") {
+			if (sItemID != "" && Player_GetCanEquipItems()) {
 				Item_ToggleHeldItem("Torch");
-			} else {
+			} else if (Player_GetCanEquipItems()){
 				Item_ToggleHeldItem("Lighter");
 			}
 		}

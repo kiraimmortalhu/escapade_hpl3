@@ -19,6 +19,7 @@
 
 //Unique escapade includes:
 #include "escapade_custom/helpers/helper_music_control.hps"
+#include "escapade_custom/helpers/helper_map_transfers.hps"
 
 //--------------------------------------------------
  
@@ -268,7 +269,7 @@ class cScrMap : iScrMap
         Stalker_SetTenacity("stalker_growth_1", 1.f);
         Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
         
-		Game_DoMapChange("escapade_storage.hpm", "MapTransfer_KitchenDining");
+		Game_DoCrashPreventionTransfer("escapade_storage.hpm", "MapTransfer_KitchenDining");
 		return true;
 	}
     
@@ -277,7 +278,7 @@ class cScrMap : iScrMap
         Stalker_SetTenacity("stalker_growth_1", 1.f);
         Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
         
-		Game_DoMapChange("escapade_greenhouse.hpm", "MapTransfer_LibraryGreenhouse");
+		Game_DoCrashPreventionTransfer("escapade_greenhouse.hpm", "MapTransfer_LibraryGreenhouse");
 		return true;
 	}
     
@@ -289,13 +290,13 @@ class cScrMap : iScrMap
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
             
             
-            Game_DoMapChange("escapade_entrance_alt.hpm", "MapTransfer_EntranceLibrary_1");
+            Game_DoCrashPreventionTransfer("escapade_entrance_alt.hpm", "MapTransfer_EntranceLibrary_1");
             
         }else{
             Stalker_SetTenacity("stalker_growth_1", 1.f);
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
             
-            Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_1");
+            Game_DoCrashPreventionTransfer("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_1");
         
         }
 		
@@ -309,13 +310,13 @@ class cScrMap : iScrMap
             Stalker_SetEmergeAllowed("stalker_growth_1", false);
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
             
-            Game_DoMapChange("escapade_entrance_alt.hpm", "MapTransfer_EntranceLibrary_2");
+            Game_DoCrashPreventionTransfer("escapade_entrance_alt.hpm", "MapTransfer_EntranceLibrary_2");
             
         }else{
             Stalker_SetTenacity("stalker_growth_1", 1.f);
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
             
-            Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_2");
+            Game_DoCrashPreventionTransfer("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_2");
         
         }
 		return true;
@@ -328,12 +329,12 @@ class cScrMap : iScrMap
             Stalker_SetEmergeAllowed("stalker_growth_1", false);
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
             
-            Game_DoMapChange("escapade_entrance_alt.hpm", "MapTransfer_EntranceLibrary_3");
+            Game_DoCrashPreventionTransfer("escapade_entrance_alt.hpm", "MapTransfer_EntranceLibrary_3");
             
         }else{
 			Stalker_SetTenacity("stalker_growth_1", 1.f);
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-            Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_3");
+            Game_DoCrashPreventionTransfer("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_3");
         
         }
 		return true;
@@ -343,7 +344,7 @@ class cScrMap : iScrMap
 	{
 		Stalker_SetTenacity("stalker_growth_1", 1.f);
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-		Game_DoMapChange("escapade_underground.hpm", "MapTransfer_DiningWellUnderground");
+		Game_DoCrashPreventionTransfer("escapade_underground.hpm", "MapTransfer_DiningWellUnderground");
         //cLux_ChangeMap("escapade_underground.hpm", "Start_RatCutsceneTest", "", "", "", true, -1.0f);
 		return true;
 	}
@@ -371,9 +372,9 @@ class cScrMap : iScrMap
 				Item_PutAway(eItemHandlerHand_Left);
 			}
 			sItemID = ItemType_GetFirstInInventory("Torch");
-			if (sItemID != "") {
+			if (sItemID != "" && Player_GetCanEquipItems()) {
 				Item_ToggleHeldItem("Torch");
-			} else {
+			} else if (Player_GetCanEquipItems()){
 				Item_ToggleHeldItem("Lighter");
 			}
 		}

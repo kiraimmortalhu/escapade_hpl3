@@ -17,6 +17,7 @@
 
 //Unique escapade includes:
 #include "escapade_custom/helpers/helper_music_control.hps"
+#include "escapade_custom/helpers/helper_map_transfers.hps"
 
 //--------------------------------------------------
  
@@ -157,7 +158,7 @@ class cScrMap : iScrMap
 		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
         Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
-        Game_DoMapChange("escapade_entrance.hpm", "MapTransfer_EntranceEmpty");
+        Game_DoCrashPreventionTransfer("escapade_entrance.hpm", "MapTransfer_EntranceEmpty");
         return true;
     }
 	//} END MAIN FUNCTIONS

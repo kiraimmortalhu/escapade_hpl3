@@ -25,6 +25,7 @@
 
 //Unique escapade includes:
 #include "escapade_custom/helpers/helper_music_control.hps"
+#include "escapade_custom/helpers/helper_map_transfers.hps"
 
 //--------------------------------------------------
  
@@ -333,7 +334,7 @@ class cScrMap : iScrMap
         Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
         Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
-		Game_DoMapChange("escapade_storage.hpm", "MapTransfer_StorageUnderground");
+		Game_DoCrashPreventionTransfer("escapade_storage.hpm", "MapTransfer_StorageUnderground");
 		return true;
 	}
     
@@ -348,7 +349,7 @@ class cScrMap : iScrMap
         Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
         Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
-		Game_DoMapChange("escapade_library.hpm", "MapTransfer_DiningWellUnderground");
+		Game_DoCrashPreventionTransfer("escapade_library.hpm", "MapTransfer_DiningWellUnderground");
 		return true;
 	}
 	
@@ -376,9 +377,9 @@ class cScrMap : iScrMap
 				Item_PutAway(eItemHandlerHand_Left);
 			}
 			sItemID = ItemType_GetFirstInInventory("Torch");
-			if (sItemID != "") {
+			if (sItemID != "" && Player_GetCanEquipItems()) {
 				Item_ToggleHeldItem("Torch");
-			} else {
+			} else if (Player_GetCanEquipItems()){
 				Item_ToggleHeldItem("Lighter");
 			}
 		}
