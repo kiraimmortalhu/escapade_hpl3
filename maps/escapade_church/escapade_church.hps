@@ -182,15 +182,8 @@ class cScrMap : iScrMap
                 
                 // Torch crash prevention
                 
-                if(Item_GetHeldType() == "Torch"){
-                    Player_SetActive(false);
-                    Item_Unequip(Item_GetHeld());
-                    mapToChange = "escapade_entrance_alt.hpm";
-                    transferArea = "MapTransfer_EntranceChurch";
-                    Map_AddTimer("changeMap", afUnequipTime, "OnTimer_ChangeMap");
-                }else{
-                    Game_DoCrashPreventionTransfer("escapade_entrance_alt.hpm", "MapTransfer_EntranceChurch");
-                }
+                Game_DoCrashPreventionTransfer("escapade_entrance_alt.hpm", "MapTransfer_EntranceChurch");
+                
             
             }else{
                 Stalker_SetTenacity("stalker_growth_1", 1.f);
@@ -215,11 +208,6 @@ class cScrMap : iScrMap
 		Game_DoCrashPreventionTransfer("escapade_storage.hpm", "MapTransfer_StorageChurch");
 		return true;
 	}
-	
-    void OnTimer_ChangeMap(const tString &in asTimer){
-        Player_SetActive(true);
-        Game_DoCrashPreventionTransfer(mapToChange, transferArea);
-    }
     
 	//-------------------------------------------------------
 

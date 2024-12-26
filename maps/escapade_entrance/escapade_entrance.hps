@@ -537,13 +537,7 @@ class cScrMap : iScrMap
             
             // Torch crash prevention
             
-            if(Item_GetHeldType() == "Torch"){
-                Game_DoCrashPreventionTransfer("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_1", 1.0f);
-                
-            }else{
-                Game_DoCrashPreventionTransfer("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_1");
-            }
-            
+            Game_DoCrashPreventionTransfer("escapade_greenhouse.hpm", "MapTransfer_EntranceGreenhouse_1");
         }
         
 		return true;
