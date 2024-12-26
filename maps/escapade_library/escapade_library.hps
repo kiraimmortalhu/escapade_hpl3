@@ -103,6 +103,9 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
         
+        //Player_SetActive(true);
+        //Player_SetCanEquipItems(true);
+        
 		Music_PlayExt_Save("ancestral_archives_exploration", true, 0.45f, 1, 5.0f, 0, eMusicPrio_BgAmb, true);
 		
         ///////////////////////
@@ -268,6 +271,7 @@ class cScrMap : iScrMap
 	{
         Stalker_SetTenacity("stalker_growth_1", 1.f);
         Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
 		Game_DoCrashPreventionTransfer("escapade_storage.hpm", "MapTransfer_KitchenDining");
 		return true;
@@ -277,6 +281,7 @@ class cScrMap : iScrMap
 	{
         Stalker_SetTenacity("stalker_growth_1", 1.f);
         Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
 		Game_DoCrashPreventionTransfer("escapade_greenhouse.hpm", "MapTransfer_LibraryGreenhouse");
 		return true;
@@ -288,13 +293,14 @@ class cScrMap : iScrMap
             Stalker_SetTenacity("stalker_growth_1", 1.f);
             Stalker_SetEmergeAllowed("stalker_growth_1", false);
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-            
+            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
             
             Game_DoCrashPreventionTransfer("escapade_entrance_alt.hpm", "MapTransfer_EntranceLibrary_1");
             
         }else{
             Stalker_SetTenacity("stalker_growth_1", 1.f);
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
             
             Game_DoCrashPreventionTransfer("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_1");
         
@@ -309,12 +315,14 @@ class cScrMap : iScrMap
             Stalker_SetTenacity("stalker_growth_1", 1.f);
             Stalker_SetEmergeAllowed("stalker_growth_1", false);
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
             
             Game_DoCrashPreventionTransfer("escapade_entrance_alt.hpm", "MapTransfer_EntranceLibrary_2");
             
         }else{
             Stalker_SetTenacity("stalker_growth_1", 1.f);
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
             
             Game_DoCrashPreventionTransfer("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_2");
         
@@ -328,12 +336,15 @@ class cScrMap : iScrMap
             Stalker_SetTenacity("stalker_growth_1", 1.f);
             Stalker_SetEmergeAllowed("stalker_growth_1", false);
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
             
             Game_DoCrashPreventionTransfer("escapade_entrance_alt.hpm", "MapTransfer_EntranceLibrary_3");
             
         }else{
 			Stalker_SetTenacity("stalker_growth_1", 1.f);
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
+            
             Game_DoCrashPreventionTransfer("escapade_entrance.hpm", "MapTransfer_EntranceLibrary_3");
         
         }
@@ -343,7 +354,11 @@ class cScrMap : iScrMap
     bool OnTrigger_Player_Transfer_UndergroundDiningOne(const tString &in asParent, const tString &in asChild, int alState)
 	{
 		Stalker_SetTenacity("stalker_growth_1", 1.f);
-		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+		Stalker_SetEmergeAllowed("stalker_growth_1", false);
+        Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
+        
+        cLux_AddDebugMessage("MAP TRANSFER");
 		Game_DoCrashPreventionTransfer("escapade_underground.hpm", "MapTransfer_DiningWellUnderground");
         //cLux_ChangeMap("escapade_underground.hpm", "Start_RatCutsceneTest", "", "", "", true, -1.0f);
 		return true;

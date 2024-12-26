@@ -105,7 +105,7 @@ class cScrMap : iScrMap
 			Player_SetActive(true);
 			//cScript_SetGlobalVarBool("scaredByStalker", true);
             
-            Map_AddTimer("checkHeldState", 2.0f, "OnTimer_CheckHeld");
+            //Map_AddTimer("checkHeldState", 2.0f, "OnTimer_CheckHeld");
 		} else {
 			// put back playing intro here
 			Entity_SetActive("debugitem_*", false);
@@ -166,6 +166,9 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
 		
+        //Player_SetActive(true);
+        //Player_SetCanEquipItems(true);
+        
 		SetupGenerator();
 		if(cLux_ScriptDebugOn()){
             

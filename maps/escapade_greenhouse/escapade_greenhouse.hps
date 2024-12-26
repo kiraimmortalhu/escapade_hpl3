@@ -105,6 +105,8 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
 		
+        //Player_SetActive(true);
+        //Player_SetCanEquipItems(true);
         
         if(cLux_ScriptDebugOn()){
             //Blackboard_SetDebugMode(true);
@@ -228,24 +230,26 @@ class cScrMap : iScrMap
     
     bool OnTrigger_Player_Transfer_Entrance_One(const tString &in asParent, const tString &in asChild, int alState)
 	{
-		
-        if(cScript_GetGlobalVarBool("entrance_alt_unlocked") ){
-            Stalker_SetTenacity("stalker_growth_1", 1.f);
-            Stalker_SetEmergeAllowed("stalker_growth_1", false);
+		if(alState == 1){
+            if(cScript_GetGlobalVarBool("entrance_alt_unlocked") ){
+                Stalker_SetTenacity("stalker_growth_1", 1.f);
+                Stalker_SetEmergeAllowed("stalker_growth_1", false);
+                
+                Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+                Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
+                
+                Game_DoCrashPreventionTransfer("escapade_entrance_alt.hpm", "MapTransfer_EntranceGreenhouse_1");
+                
+            }else{
+                Stalker_SetTenacity("stalker_growth_1", 1.f);
+                Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+                Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
+                
+                Game_DoCrashPreventionTransfer("escapade_entrance.hpm", "MapTransfer_EntranceGreenhouse_1");
             
-            Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
-            
-            Game_DoCrashPreventionTransfer("escapade_entrance_alt.hpm", "MapTransfer_EntranceGreenhouse_1");
-            
-        }else{
-            Stalker_SetTenacity("stalker_growth_1", 1.f);
-            Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
-            
-            Game_DoCrashPreventionTransfer("escapade_entrance.hpm", "MapTransfer_EntranceGreenhouse_1");
-        
+            }
         }
+            
 		return true;
 	}
     
@@ -339,17 +343,19 @@ class cScrMap : iScrMap
 			}
 		}
         
-		else if (alAction == eAction_Flashlight)
+		if (alAction == eAction_Flashlight)
 		{
 			OnAction_CustomizedLightSources();
+            
 		}
 	}
 	
 	// Hold F for lantern, press F for lighter/crafted torch
 
 	void OnAction_CustomizedLightSources() {
-	
+        
 		tString sItemID = ItemType_GetFirstInInventory("Lighter");
+        
 		if (sItemID != "") {
 			if (Item_GetHeldType(eItemHandlerHand_Left) == "DynamoLantern" && Item_IsLightSourceActive()) {
 				Item_PutAway(eItemHandlerHand_Left);

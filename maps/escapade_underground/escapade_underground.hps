@@ -129,6 +129,8 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
         
+        //Player_SetActive(true);
+        //Player_SetCanEquipItems(true);
         
 		// making sure no softlock due to lock left closed, to-do: testing
 		SwingDoor_SetOpenAmount("roman_door_brick_1", 0.5);
@@ -147,8 +149,10 @@ class cScrMap : iScrMap
         //    cLux_AddDebugMessage("-------------STALKER MUSIC TIMER ADDED--------");
         //    Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
         //}
-        cLux_AddDebugMessage("-------------STALKER MUSIC TIMER ADDED--------");
-        Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
+        //cLux_AddDebugMessage("-------------STALKER MUSIC TIMER ADDED--------");
+        if(Entity_IsActive("stalker_growth_1")){
+            Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 8.0f);
+        }
         
         //Collide callbacks
         Entity_AddCollideCallback("Death_Pit_*", "Player", "DeathFall");
@@ -187,12 +191,14 @@ class cScrMap : iScrMap
 			Entity_SetActive("Trigger_ThreatCorridors", true);
 			Entity_SetActive("block_box_char_warning_cliff", false);
             
-            Entity_SetActive("stalker_growth_1", false);
-            // Stalker starts as inactive, remove from blackboard
-            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
+            //Entity_SetActive("stalker_growth_1", false);
+            
             //Map_AddTimer("disable_stalker", 1.0f, "OnTimer_DisableStalker");
             
             Stalker_SetEmergeAllowed("stalker_growth_1", false);
+            Agent_SetSensesActive("stalker_growth_1", false);
+            Stalker_SetMode("stalker_growth_1", eStalkerMode_Passive);
+            
             //Stalker_GoToHole("stalker_growth_1", "GhoulHole_7", true, true, eStalkerSpeed_Run);
         }
         
@@ -326,7 +332,7 @@ class cScrMap : iScrMap
 	bool OnTrigger_Player_Transfer_Storage(const tString &in asParent, const tString &in asChild, int alState)
 	{
         // Reset stalker before leaving
-        Entity_SetActive("stalker_growth_1", true);
+        //Entity_SetActive("stalker_growth_1", true);
         Agent_SetSensesActive("stalker_growth_1", true);
         Stalker_SetEmergeAllowed("stalker_growth_1", true);
         
@@ -341,7 +347,7 @@ class cScrMap : iScrMap
     bool OnTrigger_Player_Transfer_UndergroundDining(const tString &in asParent, const tString &in asChild, int alState)
 	{
         // Reset stalker before leaving
-        Entity_SetActive("stalker_growth_1", true);
+        //Entity_SetActive("stalker_growth_1", true);
         Agent_SetSensesActive("stalker_growth_1", true);
         Stalker_SetEmergeAllowed("stalker_growth_1", true);
         
@@ -349,6 +355,7 @@ class cScrMap : iScrMap
         Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
         Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
+        cLux_AddDebugMessage("MAP TRANSFER");
 		Game_DoCrashPreventionTransfer("escapade_library.hpm", "MapTransfer_DiningWellUnderground");
 		return true;
 	}
@@ -762,7 +769,7 @@ class cScrMap : iScrMap
 		//cLux_SetGodModeActivated(true);
         //Map_AddTimer("disableGodMode", 2.0f, "OnTimer_DisableGodMode");
         
-        Entity_SetActive("stalker_growth_1", true);
+        //Entity_SetActive("stalker_growth_1", true);
         //Map_AddTimer("deaggro", 10.0f, "Stalker_Deaggro");
         //Map_AddTimer("deaggrocheck", 0.0f, "DeaggroCheck");
         Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 11.0f);
@@ -801,6 +808,7 @@ class cScrMap : iScrMap
 	
     bool ThreatCorridors_ShortCutscene(const tString &in asParent, const tString &in asChild, int alState)
     {
+        /*
         if(alState == 1){
             //ThreatCorridors_ShortCutscene("Trigger_ThreatCorridors", "player", 1);
             Entity_SetActive("stalker_growth_1", true);
@@ -814,9 +822,15 @@ class cScrMap : iScrMap
             if(!Map_TimerExists("update_StalkerKillPlayerIfClose"))
                 Map_AddTimer("update_StalkerKillPlayerIfClose", 0.0f, "OnTimer_UpdatePlayerStalkerKill");
         }
+        */
+        if(alState == 1){
+            Stalker_GoToHole("stalker_growth_1", "GhoulHole_7", true, false);
+            Stalker_SetEmergeAllowed("stalker_growth_1", false);
+            Stalker_SetMode("stalker_growth_1", eStalkerMode_Passive);
+            Agent_SetSensesActive("stalker_growth_1", false);
+        }
         
-        
-        return true;
+        return false;
     }
     
     void OnTimer_UpdatePlayerStalkerKill(const tString &in asTimer){
@@ -856,7 +870,7 @@ class cScrMap : iScrMap
     
     void OnInteract_EnableShortStalkerEncounter(const tString &in asEntity)
     {
-        
+        /*
         //ThreatCorridors_ShortCutscene("Trigger_ThreatCorridors", "player", 1);
         Entity_SetActive("stalker_growth_1", true);
         //Map_GetEntity().Get
@@ -867,7 +881,9 @@ class cScrMap : iScrMap
         //Stalker_SetMode("stalker_growth_1", eStalkerMode_Passive);
         if(!Map_TimerExists("update_StalkerKillPlayerIfClose"))
             Map_AddTimer("update_StalkerKillPlayerIfClose", 0.0f, "OnTimer_UpdatePlayerStalkerKill");
-            
+        */
+        ThreatCorridors_ShortCutscene("Trigger_ThreatCorridors", "player", 1);
+        Entity_SetActive("Trigger_ThreatCorridors", false);
     }
     
     void OnTimer_UpdatePlayerLineOfSightShortEncounter(const tString &in asTimer){
@@ -1014,7 +1030,7 @@ class cScrMap : iScrMap
         }        
         else if(Sequence_DoStepAndWait(0.5f)){
             // Reset stalker before leaving
-            Entity_SetActive("stalker_growth_1", true);
+            //Entity_SetActive("stalker_growth_1", true);
             Agent_SetSensesActive("stalker_growth_1", true);
             Stalker_SetEmergeAllowed("stalker_growth_1", true);
             
@@ -1053,7 +1069,8 @@ class cScrMap : iScrMap
             if(alState == 1){
                 cLux_AddDebugMessage("READY BOSSFIGHT");
                 //LogNewLine("OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI OH HI");
-                Entity_SetActive("stalker_growth_1", false);
+                //Entity_SetActive("stalker_growth_1", false);
+                Stalker_SetMode("stalker_growth_1", eStalkerMode_Passive, true);
                 //Rat_EmergeToFood("enemy_rat_king_1");
                 //Agent_SetSensesActive("enemy_rat_king_1", false);
                 //Entity_SetActive("enemy_rat_king_1", true);
@@ -1071,6 +1088,7 @@ class cScrMap : iScrMap
                 Map_GetEntity("GhoulHole_RatKStart").SetPosition(cVector3f(-72.75f, -77.75f, 3.f));
             }
             else if(Sequence_DoStepAndWait(1.f)){
+                Entity_SetActive("RatFeed_Orb", true);
                 cLux_AddDebugMessage("RAT KING SPAWN");
                 Agent_SetSensesActive("enemy_rat_king_1", false);
                 

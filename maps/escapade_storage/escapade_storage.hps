@@ -121,7 +121,8 @@ class cScrMap : iScrMap
 			PlayerBody_SetModel("player_rebirth_ghoul.ent");
 		}
         
-        
+        //Player_SetActive(true);
+        //Player_SetCanEquipItems(true);
 		
 		SetupGenerator();
 		
@@ -198,6 +199,7 @@ class cScrMap : iScrMap
 	bool OnTrigger_Player_Transfer_Underground(const tString &in asParent, const tString &in asChild, int alState)
 	{
         Stalker_SetTenacity("stalker_growth_1", 1.f);
+        Stalker_SetEmergeAllowed("stalker_growth_1", false);
         Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
         Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
