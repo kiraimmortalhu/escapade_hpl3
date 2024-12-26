@@ -23,7 +23,7 @@ float transferDelay;
  * @param trArea, transfer area used.
  * @param unequipTime, the time it waits until transfer happens.
  **/
-void Game_DoCrashPreventionTransfer(const tString &in map, const tString &in trArea, const float unequipTime = 1.5f, const float asDelay = 0.0f){
+void Game_DoCrashPreventionTransfer(const tString &in map, const tString &in trArea, const float unequipTime = 2.0f, const float asDelay = 0.0f){
     Player_SetCanEquipItems(false);
     Player_SetActive(false);
     
