@@ -139,7 +139,7 @@ class cScrMap : iScrMap
 		
 		Entity_SetActive("last_resort*", true);
         
-        Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
+        //Entity_SetConnectionStateChangeCallback("arabic_lock*", "arabic_lock_OnConnectionStateChange");
 		
 		Game_AutoSave();
         
@@ -236,7 +236,9 @@ class cScrMap : iScrMap
     // -- Door lock management
     void arabic_lock_OnConnectionStateChange(const tString &in asEntity, int alState){
         tString doorName = cString_Sub(asEntity, "arabic_lock_".length(), -1);
+        cLux_AddDebugMessage("DOOR NAME: "+ doorName);
         if(alState == 1){
+            cLux_AddDebugMessage("DOOR NAME: "+ doorName);
             cScript_SetGlobalVarBool(asEntity, true);
             MovingButton_SetSwitchedOn(asEntity, true, true);
             SwingDoor_SetLocked(doorName, false, true);
@@ -244,6 +246,7 @@ class cScrMap : iScrMap
             Entity_SetActive("lockedMessage_"+doorName, false);
             
         } else if (alState == -1 && SwingDoor_GetOpenAmount(doorName) < 0.1f){
+            cLux_AddDebugMessage("DOOR NAME: "+ doorName);
             cScript_SetGlobalVarBool(asEntity, false);
             MovingButton_SetSwitchedOn(asEntity, false, true);
             SwingDoor_SetLocked(doorName, true, true);
@@ -275,6 +278,7 @@ class cScrMap : iScrMap
     
     void OnInteract_DoorLocked(const tString &in asEntity)
     {
+        cLux_AddDebugMessage("DOOR LOCKED STATE: " + SwingDoor_GetLocked(asEntity));
         if(wrongSide && SwingDoor_GetLocked(asEntity)){
             Entity_SetActive("lockedMessage_"+asEntity, true);
             
