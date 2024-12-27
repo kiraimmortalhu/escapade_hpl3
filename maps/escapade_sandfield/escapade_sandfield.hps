@@ -15,6 +15,8 @@
 #include "helpers/helper_gun.hps"
 #include "helpers/helper_props_custom.hps"
 
+#include "custom/effects/Effects_Custom.hps"
+
 //--------------------------------------------------
  
 /*Place any global values here. These must be const variables as they will not be saved*/
@@ -314,20 +316,38 @@ class cScrMap : iScrMap
         Entity_SetActive("Player_Walk", true);
     }
     
+    float dollyAmount = 1.2f;
+    float dollyTime = 2.0f;
+    float dollyFadeIn = 0.2f;
+    float dollyFadeOut = 0.2f;
+    
+    int effectDoF;
     bool OnPassedNode_End2(const tString &in asEntity, int alDirection)
     {
+        cLux_AddDebugMessage("Camera FOV Mul: " + cLux_GetPlayer().GetCameraFOVMul());
+         
+        cLux_GetPlayer().FadeCameraFOVMulTo(ePlayerFOVMul_Script, 0.8f, 0.5f);
+        
         Entity_SetActive("Player_Walk", true);
         Entity_PlayAnimation("Player_Walk", "walk_fwd_larm", 0.3f, true);
         Entity_PlayAnimation("Player_Walk", "walk_fwd_rarm", 0.3f, true);
         //Agent_PlayCutsceneAnimation("Player_Walk", "walk_fwd_larm", 0.3f, true, "", 1, 0, false, 0, 0, false, false, true);
         //Entity_PlayAnimation("Player_Walk", "walk_fwd_rarm");
         
+        
         Map_AddTimer("walkfwd", 0.0f, "OnTimer_WalkForwardEntity");
         return false;
     }
     
+    bool OnPassedNode_End4(const tString &in asEntity, int alDirection)
+    {
+        cLux_GetPlayer().FadeCameraFOVMulTo(ePlayerFOVMul_Script, 1.0f, 0.05f);
+        return true;
+    }
+    
     bool OnPassedNode_End6(const tString &in asEntity, int alDirection)
     {
+        
         Effect_Fade_Out(4.0f);
         return false;
     }
