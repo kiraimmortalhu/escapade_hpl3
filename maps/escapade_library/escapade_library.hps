@@ -160,6 +160,11 @@ class cScrMap : iScrMap
 		
 		//SetupStalkerAppearance();
         
+        // Check for rat king dead
+        if(cScript_GetGlobalVarBool("RatKingDead")){
+            RatHandler_SetActive(false);
+        }
+        
         Game_SetupAfterMapChange();
 	}
 
