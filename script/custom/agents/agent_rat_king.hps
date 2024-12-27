@@ -493,6 +493,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
             
             //////////////////
             // Spawn pickup key
+            cScript_SetGlobalVarBool("RatKingDead", true);
             
             cLuxMap@ pMap = mBaseObj.GetMap();
             if (pMap !is null && !cScript_GetGlobalVarBool("ChurchKeyGreenhouseDropped"))

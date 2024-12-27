@@ -178,6 +178,11 @@ class cScrMap : iScrMap
             Entity_SetActive("enemy_rat_king_1", false);
         }
         
+        // Check for rat king dead
+        if(cScript_GetGlobalVarBool("RatKingDead")){
+            RatHandler_SetActive(false);
+        }
+        
         Game_SetupAfterMapChange();
 	}
 
@@ -361,9 +366,9 @@ class cScrMap : iScrMap
 				Item_PutAway(eItemHandlerHand_Left);
 			}
 			sItemID = ItemType_GetFirstInInventory("Torch");
-			if (sItemID != "" && Player_GetCanEquipItems()) {
+			if (sItemID != "" && Player_GetCanEquipItems() && !Player_GetIsInUsingItemState()) {
 				Item_ToggleHeldItem("Torch");
-			} else if (Player_GetCanEquipItems()){
+			} else if (Player_GetCanEquipItems() && !Player_GetIsInUsingItemState()){
 				Item_ToggleHeldItem("Lighter");
 			}
 		}
