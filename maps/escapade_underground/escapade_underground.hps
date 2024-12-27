@@ -335,6 +335,7 @@ class cScrMap : iScrMap
         //Entity_SetActive("stalker_growth_1", true);
         Agent_SetSensesActive("stalker_growth_1", true);
         Stalker_SetEmergeAllowed("stalker_growth_1", true);
+        Stalker_SetMode("stalker_growth_1", eStalkerMode_Active);
         
         Stalker_SetTenacity("stalker_growth_1", 1.f);
         Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
@@ -350,6 +351,7 @@ class cScrMap : iScrMap
         //Entity_SetActive("stalker_growth_1", true);
         Agent_SetSensesActive("stalker_growth_1", true);
         Stalker_SetEmergeAllowed("stalker_growth_1", true);
+        Stalker_SetMode("stalker_growth_1", eStalkerMode_Active);
         
         Stalker_SetTenacity("stalker_growth_1", 1.f);
         Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
@@ -1033,6 +1035,8 @@ class cScrMap : iScrMap
             //Entity_SetActive("stalker_growth_1", true);
             Agent_SetSensesActive("stalker_growth_1", true);
             Stalker_SetEmergeAllowed("stalker_growth_1", true);
+            Stalker_SetMode("stalker_growth_1", eStalkerMode_Active);
+            
             
             Stalker_SetTenacity("stalker_growth_1", 1.f);
             Blackboard_SetupStalkerMapTransfer("stalker_growth_1");

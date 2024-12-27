@@ -199,7 +199,10 @@ class cScrMap : iScrMap
 	bool OnTrigger_Player_Transfer_Underground(const tString &in asParent, const tString &in asChild, int alState)
 	{
         Stalker_SetTenacity("stalker_growth_1", 1.f);
+        Agent_SetSensesActive("stalker_growth_1", false);
         Stalker_SetEmergeAllowed("stalker_growth_1", false);
+        Stalker_SetMode("stalker_growth_1", eStalkerMode_Passive);
+        
         Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
         Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
         
