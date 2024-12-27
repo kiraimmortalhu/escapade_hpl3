@@ -789,7 +789,7 @@ class cScrMap : iScrMap
 	}
 	
 	void DebugStalkerThreatDisable(const tString &in asParent) {
-		Entity_SetActive("stalker_growth_1", false);
+		//Entity_SetActive("stalker_growth_1", false);
         //Map_RemoveTimer("deaggrocheck");
         //Map_RemoveTimer("deaggro");
         
@@ -912,7 +912,7 @@ class cScrMap : iScrMap
         //cLux_SetGodModeActivated(true);
         //Map_AddTimer("Timer_DisableGodMode", 2.0f, "OnTimer_DisableGodMode");
         
-        Entity_SetActive("stalker_growth_1", true);
+        //Entity_SetActive("stalker_growth_1", true);
         Music_Stalker_AddDeaggroSongTime("stalker_growth_1", cScript_GetGlobalVarString("music_to_play"), cScript_GetGlobalVarFloat("music_to_play_volume"), 11.0f);
         //Stalker_SetEmergeAllowed("stalker_growth_1", true);
         cLux_AddDebugMessage("Stalker is now ENABLED");
