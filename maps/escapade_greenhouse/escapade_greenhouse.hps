@@ -577,7 +577,7 @@ class cScrMap : iScrMap
             tID ratKID = Map_GetEntityID("enemy_rat_king_1");
             //cLux_AddDebugMessage("RATK HEALTH: "+ cLux_ID_Agent(ratKID).GetHealth(), true);
             
-            if(cLux_ID_Agent(ratKID).GetHealth() <= 4.5f){
+            if(cLux_ID_Agent(ratKID).GetHealth() <= 7.0f){
                 cLux_AddDebugMessage("HITBOX DISABLED. RETREAT AND DROP KEY");
                 for(int t=0; t < cLux_ID_Agent(ratKID).GetHitboxBodyNum(); t++){
                     
