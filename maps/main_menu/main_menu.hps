@@ -23,8 +23,6 @@ class cScrMap : iScrMap
 	
 	//-------------------------------------------------------
 	
-	tString menuMusic = "artroom_menu.ogg";
-	
 	////////////////////////////
 	// Run first time starting map
 	void OnStart()
@@ -265,22 +263,21 @@ class cScrMap : iScrMap
 
 	//------------------------------------------------------
 
-/*
 	bool mbSceneVisibilityActive = false;
 
 	void VariableUpdate(float afDeltaTime)
 	{
-		mfHandEmergeTimer += afDeltaTime;
+		//mfHandEmergeTimer += afDeltaTime;
 		
 		/////////////////////
 		// Turn On the Lights
 		if (!mbSceneVisibilityActive && MainMenu_GetMainMenuVisible())
 		{
 			mbSceneVisibilityActive = true;
-			Music_PlayExt(menuMusic, true, 0.08f, 1.0f, 15.0f, 1.0f, eMusicPrio_BgAmb, true);
+			Music_PlayExt("artroom_menu.ogg", true, 0.08f, 1.0f, 15.0f, 1.0f, eMusicPrio_BgAmb, true);
 			//Map_AddTimer("Timer_TurnOnTheLight", 0.25f, "OnTimer_TurnOnTheLight");
 		}
-	}*/
+	}
 	
 	//------------------------------------------------------
 	
