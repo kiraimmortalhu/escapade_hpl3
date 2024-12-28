@@ -162,6 +162,8 @@ const cVector3f gvRat_EatingBodySize = cVector3f(0.5, 0.3, 0.5);
 // ValG edit, item drop
 const tString glRat_KeyPickupEntity = "church_key.ent";
 
+bool ratKingCanAggro = true;
+
 //----------------------------------------------------------------------
 
 //} END SETTINGS
@@ -465,7 +467,16 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 	}
 	
 	//------------------------------------------------------------
-
+    
+    /*
+    void SetCanAggro(const bool canAggro){
+        ratKingCanAggro = canAggro;
+    }
+    
+    bool GetCanAggro(){
+        return ratKingCanAggro;
+    }
+     */
 	//} END LOADING
 
 	//------------------------------------------------------------
@@ -1284,6 +1295,21 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 	}
 	
 	//------------------------------------------------------------
+    
+    void _Global_SetCanAggro(){
+        bool canAggroTemp = cScript_GetGlobalArgBool(0);
+        
+        cLux_AddDebugMessage("[RatKing] CAN AGGRO SET TO: " + canAggroTemp);
+        ratKingCanAggro = canAggroTemp;
+    }
+    
+    //------------------------------------------------------------
+    
+    void _Global_GetCanAggro(){
+        cScript_SetGlobalReturnBool(ratKingCanAggro);
+    }
+    
+    //------------------------------------------------------------
 
 	//} END GLOBAL
 
@@ -1668,7 +1694,7 @@ class cScrAgentRat : iScrAgent, iScrAgent_Interface
 	void Threatened()
 	{
         //DoctorD Edit: changed state from threatened to attack
-		if(!mBaseObj.Timer_Exists("ratk_attack_cooldown")){
+		if(!mBaseObj.Timer_Exists("ratk_attack_cooldown") && ratKingCanAggro){
             mpStateMachine.ChangeState(eRatState_Hunt);
         }
         mBaseObj.Timer_Add("ratk_attack_cooldown", 1.0f, "", false, false);

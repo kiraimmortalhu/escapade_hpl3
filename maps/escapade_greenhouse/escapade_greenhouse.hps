@@ -112,7 +112,7 @@ class cScrMap : iScrMap
             //Blackboard_SetDebugMode(true);
             //Blackboard_ShowDebug(true);
             
-            Item_SetCurrentSlotsCount(50);
+            Item_SetCurrentSlotsCount(16);
 			if (ItemType_GetCountInInventory("Gun") == 0)
 			{
 				Item_AddToInventory("Gun");
@@ -123,6 +123,14 @@ class cScrMap : iScrMap
 				Item_AddToInventory("Shotgun");
 				Item_AddManyToInventory("ShotgunAmmunition", 20);
 			}
+            if (ItemType_GetCountInInventory("Flare") == 0)
+			{
+				Item_AddToInventory("Flare");
+				Item_AddToInventory("Flare");
+				Item_AddToInventory("Flare");
+				
+			}
+            
             Item_AddToInventory("MolotovCocktail");
             
             // Test
@@ -595,6 +603,7 @@ class cScrMap : iScrMap
                     cLux_ID_Agent(ratKID).GetHitboxBody(t).SetActive(false);
                 }
                 
+                RatKing_SetCanAggro("enemy_rat_king_1", false);
                 Rat_Retreat("enemy_rat_king_1", true, true, false);
                 if(!cScript_GetGlobalVarBool("ChurchKeyGreenhouseDropped")){
                     Entity_CreateAtEntity("church_key", "church_key.ent", "enemy_rat_king_1", false);
@@ -623,6 +632,9 @@ class cScrMap : iScrMap
             Map_GetEntity("RatFeed_2").SetPosition(cVector3f(27.465f, 1.0f, 142.0f ));
             //Map_GetEntity("RatFeed_3").SetPosition(cVector3f(26.465f, 1.0f, 142.0f ));
         }else{
+            
+            Rat_Retreat("enemy_rat_king_1", true, true, false);
+            RatKing_SetCanAggro("enemy_rat_king_1", false);
             Map_RestartCurrentTimer(0.1f);
         }
     }	
