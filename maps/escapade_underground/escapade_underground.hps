@@ -335,34 +335,40 @@ class cScrMap : iScrMap
     
 	bool OnTrigger_Player_Transfer_Storage(const tString &in asParent, const tString &in asChild, int alState)
 	{
-        // Reset stalker before leaving
-        //Entity_SetActive("stalker_growth_1", true);
-        Agent_SetSensesActive("stalker_growth_1", true);
-        Stalker_SetEmergeAllowed("stalker_growth_1", true);
-        Stalker_SetMode("stalker_growth_1", eStalkerMode_Active);
+        if(alState == 1){
+            // Reset stalker before leaving
+            //Entity_SetActive("stalker_growth_1", true);
+            Agent_SetSensesActive("stalker_growth_1", true);
+            Stalker_SetEmergeAllowed("stalker_growth_1", true);
+            Stalker_SetMode("stalker_growth_1", eStalkerMode_Active);
+            
+            Stalker_SetTenacity("stalker_growth_1", 1.f);
+            Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
+            
+            Game_DoCrashPreventionTransfer("escapade_storage.hpm", "MapTransfer_StorageUnderground");
+        }
         
-        Stalker_SetTenacity("stalker_growth_1", 1.f);
-        Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
-        
-		Game_DoCrashPreventionTransfer("escapade_storage.hpm", "MapTransfer_StorageUnderground");
 		return true;
 	}
     
     bool OnTrigger_Player_Transfer_UndergroundDining(const tString &in asParent, const tString &in asChild, int alState)
 	{
-        // Reset stalker before leaving
-        //Entity_SetActive("stalker_growth_1", true);
-        Agent_SetSensesActive("stalker_growth_1", true);
-        Stalker_SetEmergeAllowed("stalker_growth_1", true);
-        Stalker_SetMode("stalker_growth_1", eStalkerMode_Active);
+        if(alState == 1){
+            // Reset stalker before leaving
+            //Entity_SetActive("stalker_growth_1", true);
+            Agent_SetSensesActive("stalker_growth_1", true);
+            Stalker_SetEmergeAllowed("stalker_growth_1", true);
+            Stalker_SetMode("stalker_growth_1", eStalkerMode_Active);
+            
+            Stalker_SetTenacity("stalker_growth_1", 1.f);
+            Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
+            
+            cLux_AddDebugMessage("MAP TRANSFER");
+            Game_DoCrashPreventionTransfer("escapade_library.hpm", "MapTransfer_DiningWellUnderground");
+        }
         
-        Stalker_SetTenacity("stalker_growth_1", 1.f);
-        Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
-        
-        cLux_AddDebugMessage("MAP TRANSFER");
-		Game_DoCrashPreventionTransfer("escapade_library.hpm", "MapTransfer_DiningWellUnderground");
 		return true;
 	}
 	
@@ -1083,6 +1089,9 @@ class cScrMap : iScrMap
                 //Agent_SetSensesActive("enemy_rat_king_1", false);
                 //Entity_SetActive("enemy_rat_king_1", true);
                 Agent_SetSensesActive("enemy_rat_king_1", false);
+                
+                RatKing_SetCanAggro("enemy_rat_king_1", true);
+                cLux_AddDebugMessage("RAT KING CAN AGGRO: "+ RatKing_GetCanAggro("enemy_rat_king_1"));
                 Seq_RatKingSpawn("");
                 //Agent_TeleportFeetToEntity("enemy_rat_king_1", "RatK_Spawn_1");
             }

@@ -81,6 +81,26 @@ class cScrMap : iScrMap
 		} else {
 			Entity_SetActive("debugitem_*", false);
 		}
+        
+        /*
+        // Light mask test
+        cLux_AddDebugMessage("----------------- LIGHT MASK TEST");
+        iLuxEntity@ lampStorage = cLux_ID_Entity(Map_GetEntityID("hanging_lantern_ceiling_2"));
+        cLux_AddDebugMessage("----------------- LAMPSTORAGE NAME: "+ lampStorage.GetName());
+        iLight@ lampStorageLight = Map_GetLight("hanging_lantern_ceiling_2_PointLight_1");
+        cLux_AddDebugMessage("----------------- LAMPSTORAGE LIGHT brightness: "+ lampStorageLight.GetBrightness());
+        cLightMaskBox@ lampStorageLightMask = cLux_ID_LightMaskBox(Map_GetEntityID("LightMaskBox_Storage"));
+        //cLux_AddDebugMessage("----------------- LAMPSTORAGE MASK BOX NAME: ");
+        lampStorageLight.SetMask(lampStorageLightMask);
+        
+        //array<iLight@> lights;
+        //Map_GetEntityArray("*", , eLuxEntityType_)
+        //Map_GetLightArray("*", lights);
+        //for(int t=1; t<=lights.length(); t++){
+        //    cLux_AddDebugMessage("----------------- LIGHT " + t + " NAME: " + lights[t].GetName());
+        //    
+        //}
+         */
 	}
 
 	//-------------------------------------------------------
@@ -202,11 +222,14 @@ class cScrMap : iScrMap
     
     bool OnTrigger_Player_Transfer_Generator(const tString &in asParent, const tString &in asChild, int alState)
 	{
-        Stalker_SetTenacity("stalker_growth_1", 1.f);
-		Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
+        if(alState == 1){
+            Stalker_SetTenacity("stalker_growth_1", 1.f);
+            Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
+            
+            Game_DoCrashPreventionTransfer("escapade_storage.hpm", "MapTransfer_StorageChurch");
+        }
         
-		Game_DoCrashPreventionTransfer("escapade_storage.hpm", "MapTransfer_StorageChurch");
 		return true;
 	}
     
