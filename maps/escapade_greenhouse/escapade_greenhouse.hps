@@ -260,33 +260,39 @@ class cScrMap : iScrMap
     
     bool OnTrigger_Player_Transfer_Entrance_Two(const tString &in asParent, const tString &in asChild, int alState)
 	{
-		if(cScript_GetGlobalVarBool("entrance_alt_unlocked") ){
-            Stalker_SetTenacity("stalker_growth_1", 1.f);
-            Stalker_SetEmergeAllowed("stalker_growth_1", false);
+        if(alState == 1){
+            if(cScript_GetGlobalVarBool("entrance_alt_unlocked") ){
+                Stalker_SetTenacity("stalker_growth_1", 1.f);
+                Stalker_SetEmergeAllowed("stalker_growth_1", false);
+                
+                Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+                Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
+                
+                Game_DoCrashPreventionTransfer("escapade_entrance_alt.hpm", "MapTransfer_EntranceGreenhouse_2");
+                
+            }else{
+                Stalker_SetTenacity("stalker_growth_1", 1.f);
+                Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+                Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
+                
+                Game_DoCrashPreventionTransfer("escapade_entrance.hpm", "MapTransfer_EntranceGreenhouse_2");
             
-            Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
-            
-            Game_DoCrashPreventionTransfer("escapade_entrance_alt.hpm", "MapTransfer_EntranceGreenhouse_2");
-            
-        }else{
-            Stalker_SetTenacity("stalker_growth_1", 1.f);
-            Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
-            
-            Game_DoCrashPreventionTransfer("escapade_entrance.hpm", "MapTransfer_EntranceGreenhouse_2");
-        
+            }
         }
+		
 		return true;
 	}
     
     bool OnTrigger_Player_Transfer_Library_Three(const tString &in asParent, const tString &in asChild, int alState)
 	{
-        Stalker_SetTenacity("stalker_growth_1", 1.f);
-        Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
-        Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
+        if(alState == 1){
+            Stalker_SetTenacity("stalker_growth_1", 1.f);
+            Blackboard_SetupStalkerMapTransfer("stalker_growth_1");
+            Blackboard_RemoveEnemy(Map_GetEntityID("stalker_growth_1"));
+            
+            Game_DoCrashPreventionTransfer("escapade_library.hpm", "MapTransfer_LibraryGreenhouse");
+        }
         
-		Game_DoCrashPreventionTransfer("escapade_library.hpm", "MapTransfer_LibraryGreenhouse");
 		return true;
 	}
 	//-------------------------------------------------------
